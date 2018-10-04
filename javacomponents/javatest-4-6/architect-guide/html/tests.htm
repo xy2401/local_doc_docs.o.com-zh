@@ -1,0 +1,481 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>Writing Tests</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = document) - Version 1.0.24" />
+<meta name="date" content="2014-08-01T11:38:0Z" />
+<meta name="robots" content="noarchive" />
+<meta name="doctitle" content="Writing Tests" />
+<meta name="relnum" content="JavaTest Harness 4.6" />
+<meta name="partnum" content="E20663-04" />
+<link rel="copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+<link rel="stylesheet" href="../../dcommon/css/blafdoc.css" title="Oracle BLAFDoc" type="text/css" />
+<link rel="contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="index" href="index.htm" title="Index" type="text/html" />
+<link rel="prev" href="createts.htm" title="Previous" type="text/html" />
+<link rel="next" href="interview.htm" title="Next" type="text/html" />
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<div class="header"><a id="top" name="top"></a>
+<div class="zz-skip-header"><a href="#BEGIN">Skip Headers</a></div>
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td align="left" valign="top"><b>JavaTest Harness Architect's Guide,</b><br />
+<b>JavaTest Harness 4.6 for the Java Platform</b><br />
+E20663-04</td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+<td align="center" valign="top"><a href="toc.htm"><img src="../../dcommon/gifs/toc.gif" alt="Go To Table Of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td align="center" valign="top"><a href="index.htm"><img src="../../dcommon/gifs/index.gif" alt="Go To Index" /><br />
+<span class="icon">Index</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<tr>
+<td align="center"><a href="createts.htm"><img src="../../dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="interview.htm"><img src="../../dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<a name="BEGIN" id="BEGIN"></a></div>
+<!-- class="header" -->
+<div class="ind"><!-- End Header --><a id="BBJHGHDD" name="BBJHGHDD"></a>
+<h1 class="chapter"><span class="secnum">5</span> Writing Tests</h1>
+<p>This chapter describes how to write tests that work well with the JavaTest harness. Special attention is paid to the test execution model implemented by the Standard Test Script which is designed to work well with test suites that test the compatibility of Java APIs and should work well with most Java SE technology-based TCK test suites.</p>
+<p>Note that this discussion focuses on the mechanics of writing tests that work with the JavaTest harness. For information about the "art" of writing compatibility tests, see the <span class="italic">Test Suite Developers Guide</span>.</p>
+<p>The example test suites included with the JavaTest Architect's release contain numerous test examples. See the following directories:</p>
+<p><span class="italic">jt_install</span><code>\examples\javatest\simpleTags\tests</code></p>
+<p><span class="italic">jt_install</span><code>\examples\javatest\simpleHTML\tests</code></p>
+<p>You might find it helpful to refer to those tests as you read this chapter.</p>
+<a id="Z40036261006031" name="Z40036261006031"></a>
+<div class="sect1">
+<h2 class="sect1">The Test Execution Model</h2>
+<p><a id="sthref101" name="sthref101"></a>The design and invocation of a test is a reflection of the test execution model that you design for your test suite. The test execution model describes the steps involved in executing the tests in your test suite and is implemented by the test script.</p>
+<p>As you design your test suite you should think about how your tests are going to be executed. Some typical questions you might ask:</p>
+<ul>
+<li>
+<p>Is each test invoked by executing a single class?</p>
+</li>
+<li>
+<p>Do the tests require multiple steps, implemented by multiple class invocations?</p>
+</li>
+<li>
+<p>Must test classes be started on different machines and in a specific order?</p>
+</li>
+</ul>
+<p>Most TCK test suites test specific aspects of an API. These types of tests lend themselves to an execution model in which tests are run by invoking a single class that exercises a method or group of methods. The JavaTest Architect's release includes the Standard Test Script (<code>com.sun.javatest.lib.StdTestScript</code>) that implements this test execution model. The Standard Test Script is discussed in more detail in <a href="script.htm#CEHJBHGI">Chapter 10</a>.</p>
+<p>If your test suite requires a more complex test execution model, you have to create a test script to implement it. See <a href="script.htm#CEHJBHGI">Chapter 10</a> for information about creating a custom test script.</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>The test execution model implemented by the Standard Test Script includes an optional compilation step. The Standard Test Script can be used to:</p>
+<ul>
+<li>
+<p>Execute precompiled tests</p>
+</li>
+<li>
+<p>Compile the tests</p>
+</li>
+<li>
+<p>Compile and execute the tests</p>
+</li>
+</ul>
+<p>See <a href="compile.htm#CGFCDEDA">Chapter 7</a> for more information about compiling tests with the JavaTest harness.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</div>
+<!-- class="sect1" -->
+<a id="Z40036261006043" name="Z40036261006043"></a>
+<div class="sect1">
+<h2 class="sect1">The <code>Test</code> Interface</h2>
+<p><a id="sthref102" name="sthref102"></a>If you plan to run your tests using the execution model embodied by the Standard Test Script, the tests must implement the <code>run</code> method of the interface <code>com.sun.javatest.Test</code>. The <code>Test</code> interface provides a very flexible mechanism that is well suited for creating most tests. If the <code>Test</code> interface does not suite your needs, you can write your own interface. You can find information about creating your own interface in <a href="script.htm#CEHJBHGI">Chapter 10</a>.</p>
+<p>The <code>Test</code> interface <code>run</code> method takes an array of strings and two output streams and returns a <code>Status</code> object. The array of strings is taken from the <code>executeArgs</code> entry in the test description. The output streams are provided by the JavaTest harness; any output written to the output streams is saved in the <code>TestResult</code> object and is displayed in the Test Run Messages tab in the JavaTest GUI. The end result of the test is a <code>Status</code> object &mdash; a combination of an integer code and a message string (see <a href="#BBJECJJF">Test Status</a>).</p>
+<p>The following code example shows a template for tests written to work with the Standard Test Script; the areas you change are in bold font:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>import java.io.PrintWriter;</code>
+<code>import com.sun.javatest.Status;</code>
+<code>import com.sun.javatest.Test;</code>
+ 
+<code>/** @test</code>
+  * @executeClass MyTest
+  * @sources MyTest.java
+ **/
+ 
+<code>public class </code>MyTest<code> implements Test{</code>
+<code>    public static void main(String[] args) {</code>
+<code>        PrintWriter out = new PrintWriter(System.err, true);</code>
+<code>        Test t = new </code>MyTest<code>();</code>
+<code>        Status s = t.run(args, out, null);</code>
+<code>        s.exit();</code>
+<code>    }</code>
+ 
+<code>    public Status run(String[] args, PrintWriter out1, PrintWriter out2){</code>
+<code>        Status result;</code>
+        // your test code here ...
+<code>        return result;</code>
+<code>    }</code>
+<code>}</code>
+</pre>
+<p>Note that the section delimited with the <code>/**</code> <code>**/</code> characters is the test description portion of the test which is described in more detail later in this chapter in <a href="#BBJJAICC">Test Description Entries</a>. The <code>Status</code> object is described in <a href="#BBJECJJF">Test Status</a>.</p>
+<a id="Z40036261005987" name="Z40036261005987"></a>
+<div class="sect2">
+<h3 class="sect2">Class Paths</h3>
+<p><a id="sthref103" name="sthref103"></a>The <code>com.sun.javatest.Test</code> interface is delivered in <code>javatest.jar</code>; however, you should extract it into your test suite's <code>classes</code> directory so that it is easily available to all of your test classes.</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>To improve test performance, never add <code>javatest.jar</code> to test paths anywhere in your test suite. If you use classes provided in <code>javatest.jar</code>, extract them into your test suite's <code>classes</code> directory.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="BBJECJJF" name="BBJECJJF"></a>
+<div class="sect1">
+<h2 class="sect1">Test Status</h2>
+<p><a id="sthref104" name="sthref104"></a>The <code>Status</code> object is an integer/string pair that encodes the exit status of the test. The JavaTest harness supports the following exit status values:</p>
+<div class="tblhruleformal"><a id="sthref105" name="sthref105"></a><a id="Z40036261004328" name="Z40036261004328"></a>
+<p class="titleintable">Table 5-1 Exit Status Values</p>
+<table class="HRuleFormal" title="Exit Status Values" summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="14%" />
+<col width="*" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t4">Status</th>
+<th align="left" valign="bottom" id="r1c2-t4">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t4" headers="r1c1-t4">
+<p><a id="sthref106" name="sthref106"></a>PASSED</p>
+</td>
+<td align="left" headers="r2c1-t4 r1c2-t4">
+<p>A test passes when the functionality being tested behaves as expected.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t4" headers="r1c1-t4">
+<p><a id="sthref107" name="sthref107"></a>FAILED</p>
+</td>
+<td align="left" headers="r3c1-t4 r1c2-t4">
+<p>A test fails when the functionality being tested does not behave as expected.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t4" headers="r1c1-t4">
+<p><a id="sthref108" name="sthref108"></a>ERROR</p>
+</td>
+<td align="left" headers="r4c1-t4 r1c2-t4">
+<p>A test is considered to be in error when something (usually a configuration problem) prevents the test from executing as expected. Errors often indicate a systemic problem &mdash; a single configuration problem can cause many tests to fail. For example, if the path to the Java runtime is configured incorrectly, no tests can run and all are in error.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t4" headers="r1c1-t4">
+<p>NOT_RUN</p>
+</td>
+<td align="left" headers="r5c1-t4 r1c2-t4">
+<p>A specific test has not been run.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" -->
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>NOT_RUN is a special case and is reserved for internal JavaTest harness use only.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+<p>The integer portion of the <code>Status</code> object represents the exit status; the string portion is a message that summarizes the outcome (for example, an error message). Only the short integer portion is used by the JavaTest harness to determine the test status. The message string provides information to the user running the test. The message is passed to the test script which writes it into the test result file.</p>
+<p>Note that the object is immutable once it is created &mdash; if the test script modifies the message string it must take the <code>Status</code> object created by the test and recreate the <code>Status</code> object including the new message string.</p>
+<p>The JavaTest harness uses the information in the <code>Status</code> object in its GUI status displays and reports.</p>
+<p>There are two important methods in the <code>Status</code> API that your tests can use: <a id="sthref109" name="sthref109"></a><code>passed()</code> and <a id="sthref110" name="sthref110"></a><code>failed()</code>. Both methods take a string as an argument and return a <code>Status</code> object. The JavaTest harness displays these strings in the Test Run Message tab in the JavaTest GUI and they can be an important source of information to users running the tests. The following example shows how these methods are used:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>public Status run(String[] args, PrintWriter out1, PrintWriterout2) {</code>
+<code>    Status result;</code>
+        if (1 + 1 == 2)
+            result = Status.passed("OK");
+        else
+            result = Status.failed("Simple addition performed incorrectly");
+<code>    return result;</code>
+<code>    }</code>
+<code>}</code>
+</pre>
+<p>The test entries in the reports generated by the JavaTest harness are grouped based on the string arguments you supply to <code>Status.passed</code> and <code>Status.failed</code>. It's generally a good idea to keep all of the <code>Status.passed</code> messages short and consistent so that similar tests are grouped together in reports.</p>
+<p><code>Status.failed</code> messages should generally be longer and more descriptive to help the user determine why the test failed. Complete details should be written to the output stream.</p>
+<p>By default the Report function sorts passed and failed tests results alphabetically by test location and name (plain view) , or by the final status (grouped view).</p>
+<img src="img/report.gif" alt="Description of report.gif follows" title="Description of report.gif follows" longdesc="img_text/report.htm" /><br />
+<a id="sthref111" name="sthref111" href="img_text/report.htm">Description of the illustration report.gif</a><br />
+<br />
+<p>See the API documentation (<code>doc\javatest\api</code>) for the <a id="sthref112" name="sthref112"></a><code>Status</code> class.</p>
+</div>
+<!-- class="sect1" -->
+<a id="BBJJAICC" name="BBJJAICC"></a>
+<div class="sect1">
+<h2 class="sect1">Test Description Entries</h2>
+<p>All tests must have an associated test description that contains entries that identify it as a test and provide the information required to run it. Test descriptions are located and read by a test finder; the two standard test finders included with the JavaTest harness read two styles of test description: tag test descriptions and HTML test descriptions. It is your decision as test suite architect which style to use (you can even create a custom style). Test finders are discussed in detail in <a href="finder.htm#CEHJBHHG">Chapter 9</a>. For simplicity, only the tag style is shown in this chapter.</p>
+<p>Test finders read all entries listed in the test description and add them to the <code>TestDescription</code> object. The Standard Test Script looks for and uses the values specified in the <code>executeClass</code>, <code>executeArgs</code>, and <code>sources</code> entries; the script disregards any other entries. You can create your own custom script that recognizes additional test description entries and validate those entries. See <a href="script.htm#CEHJBHGI">Chapter 10</a> for more information.</p>
+<p>The following table describes the entries understood by the Standard Test Script:</p>
+<div class="tblhruleformalwide"><a id="sthref113" name="sthref113"></a><a id="Z40036261004194" name="Z40036261004194"></a>
+<p class="titleintable">Table 5-2 Default Test Description Entries</p>
+<table class="HRuleFormalWide" title="Default Test Description Entries" summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="23%" />
+<col width="*" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t6">Test Description Entry</th>
+<th align="left" valign="bottom" id="r1c2-t6">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t6" headers="r1c1-t6">
+<p>test</p>
+</td>
+<td align="left" headers="r2c1-t6 r1c2-t6">
+<p>Identifies the comment block as a test description. This entry is required. There is no "test" entry in the <code>TestDescription</code> object.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t6" headers="r1c1-t6">
+<p><a id="sthref114" name="sthref114"></a>executeClass</p>
+</td>
+<td align="left" headers="r3c1-t6 r1c2-t6">
+<p>Specifies the name of the test's executable class file (assumed to be located in the <code>classes</code> directory). This entry is required.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t6" headers="r1c1-t6">
+<p><a id="sthref115" name="sthref115"></a>executeArgs</p>
+</td>
+<td align="left" headers="r4c1-t6 r1c2-t6">
+<p>Specifies the arguments (if any) that the test accepts. This entry is a list of strings separated by white space. This entry is optional.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t6" headers="r1c1-t6">
+<p><a id="sthref116" name="sthref116"></a>sources</p>
+</td>
+<td align="left" headers="r5c1-t6 r1c2-t6">
+<p>Specifies the names of the source files required to compile the test. This entry is required if you use the JavaTest harness to compile your tests. See <a href="compile.htm#CGFCDEDA">Chapter 7</a> for more information. This tag is also used by the JavaTest harness to display a test's sources in the Files tab of the Test pane. This entry is optional.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r6c1-t6" headers="r1c1-t6">
+<p>keywords</p>
+</td>
+<td align="left" headers="r6c1-t6 r1c2-t6">
+<p>Specifies keywords that the user can specify to direct the JavaTest harness to include or exclude tests from a test run. Keyword values consists of a list of words (letters and numbers only) separated by white space. This entry is optional.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformalwide" -->
+<p>The following code snippet shows how a tag test description appears in a test source file:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+/** @test
+  * @executeClass MyTest
+  * @sources MyTest.java
+  * @executeArgs <span class="italic">arg1</span> <span class="italic">arg2</span>
+  * @keywords <span class="italic">keyword1</span> <span class="italic">keyword2</span>
+ **/
+</pre>
+<a id="Z40036261005999" name="Z40036261005999"></a>
+<div class="sect2">
+<h3 class="sect2">Keywords</h3>
+<p><a id="sthref117" name="sthref117"></a>You can add keywords to test descriptions that provide a convenient means by which users can choose to execute or exclude pre-selected groups of tests. The person who runs the test suite can specify keyword expressions in the configuration editor. When the test suite is run, the JavaTest harness evaluates the keyword expressions and determines which tests to run based on the keywords specified in the test description. See the JavaTest harness online help for information about specifying keyword expressions.</p>
+</div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="Z40036261006134" name="Z40036261006134"></a>
+<div class="sect1">
+<h2 class="sect1">Multiple Tests in a Single Test File</h2>
+<p><a id="sthref118" name="sthref118"></a>If you find that you are writing lots of very small tests to test similar aspects of your API, you can group these similar tests together as <span class="italic">test cases</span> in a single test file. Tests that contain test cases should use the <code>com.sun.javatest.lib.MultiTest</code> class rather than the <code>com.sun.javatest.Test</code> interface. <code>MultiTest</code> implements <code>com.sun.javatest.Test</code> to add this functionality. One of the major benefits of using <code>MultiTest</code> to implement test cases, is the test cases can be addressed individually in the test suite's exclude list. Another advantage to using MultiTest is that the test cases are run in the same JVM which is generally faster than starting a new JVM for each test. The downside to using MultiTest is that tests are more susceptible to errors introduced by memory leaks.</p>
+<p><code>MultiTest</code> is included with the JavaTest release as a standard library class. <code>MultiTest</code> is a class that implements the <code>com.sun.javatest.Test</code> interface and allows you to write individual test cases as methods with a specific signature. These methods cannot take any parameters and must return a <code>com.sun.javatest.Status</code> object as a result. Argument decoding must be done once by a test for its test case methods. <code>MultiTest</code> uses reflection to determine the complete set of methods that match the specific signature. <code>MultiTest</code> calls test case methods individually, omitting any tests cases that are excluded. The individual <code>Status</code> results from those methods are combined by <code>MultiTest</code> into an aggregate <code>Status</code> object. The test result is presented as a summary of all the test cases in the test.</p>
+<p>The following example shows a very simple test that uses MultiTest to implement test cases:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>import java.io.PrintWriter;</code>
+<code>import com.sun.javatest.Status;</code>
+import com.sun.javatest.Test;
+<code>import com.sun.javatest.lib.MultiTest;</code>
+ 
+<code>/** @test</code>
+  * @executeClass MyTest
+  * @sources MyTest.java
+ **/
+ 
+<code>public class </code>MyTest<code> extends MultiTest{</code>
+<code>    public static void main(String[] args) {</code>
+<code>        PrintWriter err = new PrintWriter(System.err, true);</code>
+<code>        Test t = new </code>MyTest<code>();</code>
+<code>        Status s = t.run(args, null, err);</code>
+        // Run calls the individual testXXX methods and
+        // returns an aggregate result.
+<code>        s.exit();</code>
+<code>    }</code>
+<code>    public Status testCase1() {</code>
+<code>        if (1 + 1 == 2)</code>
+<code>            return Status.passed("OK");</code>
+<code>        else</code>
+<code>            return Status.failed("1 + 1 did not make 2");</code>
+<code>    }</code>
+<code>    public Status testCase2() {</code>
+<code>        if (2 + 2 == 4)</code>
+<code>            return Status.passed("OK");</code>
+<code>        else</code>
+<code>            return Status.failed("2 + 2 did not make 4");</code>
+<code>    }</code>
+<code>    public Status testCase3() {</code>
+<code>        if (3 + 3 == 6)</code>
+<code>            return Status.passed("OK");</code>
+<code>        else</code>
+<code>            return Status.failed("3 + 3 did not make 6");</code>
+<code>    }</code>
+<code>}</code>
+</pre>
+<p>For more information about <code>com.sun.javatest.lib.MultiTest</code>, please refer to the API documentation.</p>
+<a id="Z40036261006004" name="Z40036261006004"></a>
+<div class="sect2">
+<h3 class="sect2">Subtyping MultiTest</h3>
+<p>If you create a number of tests that are similar you can create a super class to implement functionality they have in common. You can also create this class as a subtype of the <code>MultiTest</code> class rather than the <code>Test</code> interface so that you can take advantage of the test case functionality it provides. Such subtypes are typically used to perform common argument decoding and validation, or common set-up and tear-down before each test or test case.</p>
+</div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="Z40036261006161" name="Z40036261006161"></a>
+<div class="sect1">
+<h2 class="sect1">Organizing Tests Within Your Test Suite</h2>
+<p>This section describes some guidelines about how to organize your test source and class files.</p>
+<a id="Z40036261006011" name="Z40036261006011"></a>
+<div class="sect2">
+<h3 class="sect2">Source Files</h3>
+<p><a id="sthref119" name="sthref119"></a><a id="sthref120" name="sthref120"></a>It is very important to ship the source files for tests in your test suite. Test users must be able to look at the sources to help debug their test runs.</p>
+<p>Test sources should be located with the files that contain their test descriptions. If you use tag test descriptions, the test description is included as part of the source file; however, if you use HTML test descriptions, they are contained in separate HTML files that should be included in the same directories as their test source files.</p>
+<p>The JavaTest harness assumes that tests are organized hierarchically in a tree structure under the <span class="italic">ts_dir</span>/<code>tests</code> directory. The test hierarchy contained in the <code>tests</code> directory is reflected in the test tree panel in the JavaTest GUI (technically, it is a tree of the test descriptions). When you organize your <code>tests</code> directory, think about how it will look in the test tree panel. In test suites that test APIs, the upper part of the tree generally reflects the package structure of the product you are testing. Farther down the tree, you can organize the tests based on the sub-packages and classes being tested. The leaves of the tree might contain one test per method of that class. In some cases it might make sense to organize the tree hierarchy based on behavior; for example, you could group all event handling tests in one directory.</p>
+</div>
+<!-- class="sect2" -->
+<a id="Z40036261006021" name="Z40036261006021"></a>
+<div class="sect2">
+<h3 class="sect2">Class Files</h3>
+<p><a id="sthref121" name="sthref121"></a><a id="sthref122" name="sthref122"></a>Experience has shown that it is a good idea to place all of your test class files in the <span class="italic">ts_dir</span><code>\classes</code> directory rather than locating them with the source files in the <span class="italic">ts_dir</span><code>\tests</code> directory. Placing class files in the <code>classes</code> directory has the following benefits:</p>
+<ul>
+<li>
+<p>It simplifies the specification of the test execution class path, especially on smaller devices that can only specify a single class path for all the tests.</p>
+</li>
+<li>
+<p>The standard configuration interview automatically places <span class="italic">ts_dir</span><code>\classes</code> on the test class path</p>
+</li>
+<li>
+<p>It permits easier code sharing among tests</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>In some cases the test platform may dictate where you can put your classes. For example, if your test platform requires the use of an application manager, it may require that your classes be placed in a specific location.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</li>
+</ul>
+</div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="Z40036261006177" name="Z40036261006177"></a>
+<div class="sect1">
+<h2 class="sect1">Error Messages</h2>
+<p><a id="sthref123" name="sthref123"></a>It is important that your tests provide error messages that test users can readily use to debug problems in their test runs. One useful method is for your error messages to compare expected behavior to the actual behavior. For example:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>Addition test failed: expected a result of "2"; got "3"</code>
+</pre>
+<p>Longer detailed messages should go to the test and/or test script diagnostic streams. Use the Status object for shorter summary messages.</p>
+</div>
+<!-- class="sect1" --></div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+<div class="footer">
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<col width="33%" />
+<col width="*" />
+<col width="33%" />
+<tr>
+<td valign="bottom">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<col width="*" />
+<col width="48%" />
+<col width="48%" />
+<tr>
+<td>&nbsp;</td>
+<td align="center"><a href="createts.htm"><img src="../../dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="interview.htm"><img src="../../dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="copyrightlogo"><img class="copyrightlogo" src="../../dcommon/gifs/oracle.gif" alt="Oracle Logo" /><br />
+<span class="copyrightlogo">Copyright&nbsp;&copy;&nbsp;2002, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span> <a href="../../dcommon/html/cpyr.htm"><br />
+<span class="copyrightlogo">Legal Notices</span></a></td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+<td align="center" valign="top"><a href="toc.htm"><img src="../../dcommon/gifs/toc.gif" alt="Go To Table Of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td align="center" valign="top"><a href="index.htm"><img src="../../dcommon/gifs/index.gif" alt="Go To Index" /><br />
+<span class="icon">Index</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<!-- class="footer" -->
+</body>
+</html>

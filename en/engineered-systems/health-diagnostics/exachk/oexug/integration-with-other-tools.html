@@ -1,0 +1,407 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="Integrate health check results from Oracle ORAchk and Oracle EXAchk into Enterprise Manager and other third-party tools.">
+      <meta name="description" content="Integrate health check results from Oracle ORAchk and Oracle EXAchk into Enterprise Manager and other third-party tools.">
+      <title>Integrating Health Check Results with Other Tools</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide">
+      <meta property="og:description" content="Integrate health check results from Oracle ORAchk and Oracle EXAchk into Enterprise Manager and other third-party tools.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-orachk-and-exachk-users-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:43:23-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2016, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E83827-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/exachk">
+      
+      <link rel="prev" href="collection-manager.html" title="Previous" type="text/html">
+      <link rel="next" href="troubleshoot-orachk-and-exachk.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"exachk","element_name":"EXAchk","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® ORAchk and EXAchk User's Guide">
+    <meta name="dcterms.isVersionOf" content="OEXUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="collection-manager.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="troubleshoot-orachk-and-exachk.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="oracle-orachk-and-exachk-common-features-tasks.html" property="item" typeof="WebPage"><span property="name">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Integrating Health Check Results with Other Tools</li>
+            </ol>
+            <a id="GUID-45D73757-7EEE-46DE-BC6E-0AF712CBE0B6" name="GUID-45D73757-7EEE-46DE-BC6E-0AF712CBE0B6"></a>
+            
+            <h2 id="OEXUG-GUID-45D73757-7EEE-46DE-BC6E-0AF712CBE0B6" class="sect2"><span class="enumeration_section">1.11 </span>Integrating Health Check Results with Other Tools
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>Integrate health check results from Oracle ORAchk and Oracle EXAchk into Enterprise Manager and other third-party tools.</p>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="integration-with-other-tools.html#GUID-77353C06-F7EA-40F4-BDE8-87FA66336725">Integrating Health Check Results with Oracle Enterprise Manager</a><br>Integrate health check results from Oracle ORAchk and Oracle EXAchk into Oracle Enterprise Manager.
+                  </li>
+                  <li class="ulchildlink"><a href="integration-with-other-tools.html#GUID-0FB4466E-BE02-4D0B-BDC0-376BA03F5F59">Integrating Health Check Results with Third-Party Tool</a><br>Integrate health check results from Oracle ORAchk and Oracle EXAchk into various third-party log monitoring and analytics tools, such as Elasticsearch and Kibana.
+                  </li>
+                  <li class="ulchildlink"><a href="integration-with-other-tools.html#GUID-472B6261-B57B-43B8-9E0D-E1091324A398">Integrating Health Check Results with Custom Application</a><br>Oracle ORAchk and Oracle EXAchk upload collection results from multiple instances into a single database for easier consumption of check results across your enterprise.
+                  </li>
+               </ul>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="oracle-orachk-and-exachk-common-features-tasks.html#GUID-50F7EA11-11FD-431C-B99A-EC9E2176BBDB" title="Oracle ORAchk and Oracle EXAchk share a common health check framework and a large portion of their features and tasks are common.">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</a></p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="sect2"><a id="GUID-77353C06-F7EA-40F4-BDE8-87FA66336725" name="GUID-77353C06-F7EA-40F4-BDE8-87FA66336725"></a><h3 id="OEXUG-GUID-77353C06-F7EA-40F4-BDE8-87FA66336725" class="sect3"><span class="enumeration_section">1.11.1 </span>Integrating Health Check Results with Oracle Enterprise Manager
+               </h3>
+               <div>
+                  <p>Integrate health check results from Oracle ORAchk and Oracle EXAchk into Oracle Enterprise Manager.</p>
+                  <p>Oracle Enterprise Manager Cloud Control releases 13.1 and 13.2 support integration with Oracle ORAchk and Oracle EXAchk through the Oracle Enterprise Manager ORAchk Healthchecks Plug-in. The Oracle Engineered System Healthchecks plug-in supported integration with EXAchk for Oracle Enterprise Manager Cloud Control 12<span class="italic">c</span> release 12.1.0.5 and earlier releases.
+                  </p>
+                  <p>With Oracle Enterprise Manager Cloud Control 13.1, Oracle ORAchk and Oracle EXAchk check results are integrated into the compliance framework. Integrating check results into the compliance framework enables you to display Compliance Framework Dashboards and browse checks by compliance standards.</p>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p>Integrate check results into Oracle Enterprise Manager compliance framework.</p>
+                     </li>
+                     <li>
+                        <p>View health check results in native Oracle Enterprise Manager compliance dashboards.</p>
+                        <div class="p">
+                           <div class="figure" id="GUID-77353C06-F7EA-40F4-BDE8-87FA66336725__GUID-2A94A047-BAD0-4DA9-A884-60C8A462379C">
+                              <p class="titleinfigure">Figure 1-154 Compliance Dashboard</p><img src="img/compliance-dashborad.png" alt="Description of Figure 1-154 follows" title="Description of Figure 1-154 follows" longdesc="img_text/compliance-dashborad.html"><br><a href="img_text/compliance-dashborad.html">Description of "Figure 1-154 Compliance Dashboard"</a></div>
+                           <!-- class="figure" -->
+                        </div>
+                     </li>
+                     <li>
+                        <p>Related checks are grouped into compliance standards where you can view targets checked, violations, and average score.</p>
+                        <div class="p">
+                           <div class="figure" id="GUID-77353C06-F7EA-40F4-BDE8-87FA66336725__GUID-6D0C6EE2-7893-419D-BCEC-420F36DA1C63">
+                              <p class="titleinfigure">Figure 1-155 Compliance Standards</p><img src="img/compliance-standards.png" alt="Description of Figure 1-155 follows" title="Description of Figure 1-155 follows" longdesc="img_text/compliance-standards.html"><br><a href="img_text/compliance-standards.html">Description of "Figure 1-155 Compliance Standards"</a></div>
+                           <!-- class="figure" -->
+                        </div>
+                     </li>
+                     <li>
+                        <p>From within a compliance standard, drill-down to see individual check results and break the results by targets.</p>
+                        <div class="p">
+                           <div class="figure" id="GUID-77353C06-F7EA-40F4-BDE8-87FA66336725__GUID-F4AD43DA-1ED3-41F1-B215-AAD87FA6894E">
+                              <p class="titleinfigure">Figure 1-156 Compliance Standards Drill-Down</p><img src="img/compliance-standards-drill.png" alt="Description of Figure 1-156 follows" title="Description of Figure 1-156 follows" longdesc="img_text/compliance-standards-drill.html"><br><a href="img_text/compliance-standards-drill.html">Description of "Figure 1-156 Compliance Standards Drill-Down"</a></div>
+                           <!-- class="figure" -->
+                        </div>
+                     </li>
+                  </ul>
+                  <div class="p">
+                     <div class="infoboxnote" id="GUID-77353C06-F7EA-40F4-BDE8-87FA66336725__GUID-4684EBFF-30ED-47CA-BB99-C3AC3D8BF665">
+                        <p class="notep1">Note:</p>
+                        <p>Although Oracle ORAchk and Oracle EXAchk do not require additional licenses, you require applicable Oracle Enterprise Manager licenses.</p>
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/exachk/oexug&amp;id=PICHK109" target="_blank">Oracle Enterprise Manager ORAchk Healthchecks Plug-in User's Guide</a></li>
+                        <li><a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/exachk/oexug&amp;id=OEMLI-GUID-4E100F17-C17F-4ADD-9DF9-D5D498A5ECF4" target="_blank">Oracle Enterprise Manager Licensing Information User Manual</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="integration-with-other-tools.html#GUID-45D73757-7EEE-46DE-BC6E-0AF712CBE0B6" title="Integrate health check results from Oracle ORAchk and Oracle EXAchk into Enterprise Manager and other third-party tools.">Integrating Health Check Results with Other Tools</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-0FB4466E-BE02-4D0B-BDC0-376BA03F5F59" name="GUID-0FB4466E-BE02-4D0B-BDC0-376BA03F5F59"></a><h3 id="OEXUG-GUID-0FB4466E-BE02-4D0B-BDC0-376BA03F5F59" class="sect3"><span class="enumeration_section">1.11.2 </span>Integrating Health Check Results with Third-Party Tool
+               </h3>
+               <div>
+                  <p>Integrate health check results from Oracle ORAchk and Oracle EXAchk into various third-party log monitoring and analytics tools, such as Elasticsearch and Kibana.</p>
+                  <p>JSON provides many tags to allow dashboard filtering based on facts such as:</p>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p>Engineered System type</p>
+                     </li>
+                     <li>
+                        <p>Engineered System version</p>
+                     </li>
+                     <li>
+                        <p>Hardware type</p>
+                     </li>
+                     <li>
+                        <p>Node name</p>
+                     </li>
+                     <li>
+                        <p>Operating system version</p>
+                     </li>
+                     <li>
+                        <p>Rack identifier</p>
+                     </li>
+                     <li>
+                        <p>Rack type</p>
+                     </li>
+                     <li>
+                        <p>Database version</p>
+                     </li>
+                  </ul>
+                  <p>Use the Kibana dashboard to view health check compliance across the data center.</p>
+                  <p>Filter the results based on any combination of exposed system attributes.</p>
+                  <div class="p">
+                     <div class="figure" id="GUID-0FB4466E-BE02-4D0B-BDC0-376BA03F5F59__GUID-CA76EF65-42D7-4EAE-9054-5431E4FDDFED">
+                        <p class="titleinfigure">Figure 1-157 Third-Party Tool Integration</p><img src="img/third-party-tool-integration.png" alt="Description of Figure 1-157 follows" title="Description of Figure 1-157 follows" longdesc="img_text/third-party-tool-integration.html"><br><a href="img_text/third-party-tool-integration.html">Description of "Figure 1-157 Third-Party Tool Integration"</a></div>
+                     <!-- class="figure" -->
+                  </div>
+                  <div class="p">Oracle ORAchk and Oracle EXAchk create JSON output results in the&nbsp;output upload directory, for example:<pre class="pre codeblock"><code><span class="variable" translate="no">Report_Output_Dir</span>/upload/mymachine_orachk_results.json
+<span class="variable" translate="no">Report_Output_Dir</span>/upload/mymachine_orachk_exceptions.json</code></pre><pre class="pre codeblock"><code><span class="variable" translate="no">Report_Output_Dir</span>/upload/mymachine_exachk_results.json
+<span class="variable" translate="no">Report_Output_Dir</span>/upload/mymachine_exachk_exceptions.json</code></pre></div>
+                  <ol>
+                     <li>
+                        <p>Run the <code class="codeph">&#x2013;syslog</code> option to write JSON results to the <code class="codeph">syslog</code> daemon.
+                        </p>
+                        <div class="p">For example:<pre class="pre codeblock"><code>./orachk &#x2013;syslog</code></pre><pre class="pre codeblock"><code>./exachk &#x2013;syslog</code></pre></div>
+                     </li>
+                     <li>
+                        <p>Verify the <code class="codeph">syslog</code> configuration by running the following commands:
+                        </p>
+                        <p>Oracle ORAchk and Oracle EXAchk use the message levels: <code class="codeph">CRIT</code>, <code class="codeph">ERR</code>, <code class="codeph">WARN</code>, and <code class="codeph">INFO</code>.
+                        </p>
+                        <div class="p"><pre class="pre codeblock"><code>$  logger -p user.crit crit_message
+$  logger -p user.err err_message
+$  logger -p user.warn warn_message
+$  logger -p user.info info_message
+</code></pre></div>
+                     </li>
+                     <li>
+                        <p>Verify in your configured message location, for example, <code>/var/adm/messages</code> that each test message is written.
+                        </p>
+                     </li>
+                  </ol>
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="https://docs.oracle.com/cd/E19424-01/820-4809/log_syslog/index.html" target="_blank">https://docs.oracle.com/cd/E19424-01/820-4809/log_syslog/index.html</a></li>
+                        <li><a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/exachk/oexug&amp;id=elasticsearch_download" target="_blank">Elasticsearch: RESTful, Distributed Search &amp; Analytics | Elastic</a></li>
+                        <li><a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/exachk/oexug&amp;id=kibana_download" target="_blank">Kibana: Explore, Visualize, Discover Data | Elastic</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="integration-with-other-tools.html#GUID-45D73757-7EEE-46DE-BC6E-0AF712CBE0B6" title="Integrate health check results from Oracle ORAchk and Oracle EXAchk into Enterprise Manager and other third-party tools.">Integrating Health Check Results with Other Tools</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-472B6261-B57B-43B8-9E0D-E1091324A398" name="GUID-472B6261-B57B-43B8-9E0D-E1091324A398"></a><h3 id="OEXUG-GUID-472B6261-B57B-43B8-9E0D-E1091324A398" class="sect3"><span class="enumeration_section">1.11.3 </span>Integrating Health Check Results with Custom Application
+               </h3>
+               <div>
+                  <p>Oracle ORAchk and Oracle EXAchk upload collection results from multiple instances into a single database for easier consumption of check results across your enterprise.</p>
+                  <p>Use Oracle Health Check Collections Manager or your own custom application to consume health check results.</p>
+                  <ol>
+                     <li>
+                        <p>Upload the collection results into the following tables at the end of a collection:</p>
+                        <div class="p">
+                           <div class="tblformal" id="GUID-472B6261-B57B-43B8-9E0D-E1091324A398__GUID-3C3A34D0-8BCC-405E-89CF-92D1603F78E2">
+                              <p class="titleintable">Table 1-17 Uploading Collection Results into a Database</p>
+                              <table cellpadding="4" cellspacing="0" class="Formal" title="Uploading Collection Results into a Database" summary="This table lists and describes the names of tables that Oracle ORAchk and Oracle EXAchk upload the collection results from multiple instances into a single database for easier consumption of check results across your enterprise." frame="hsides" border="1" rules="rows">
+                                 <thead>
+                                    <tr align="left" valign="top">
+                                       <th align="left" valign="bottom" width="20%" id="d40874e292">Table</th>
+                                       <th align="left" valign="bottom" width="20%" id="d40874e294">What Get’s Uploaded</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr align="left" valign="top">
+                                       <td align="left" valign="top" width="20%" id="d40874e298" headers="d40874e292 ">
+                                          <p><code class="codeph">rca13_docs</code></p>
+                                       </td>
+                                       <td align="left" valign="top" width="20%" headers="d40874e298 d40874e294 ">
+                                          <p>Full zipped collection results.</p>
+                                       </td>
+                                    </tr>
+                                    <tr align="left" valign="top">
+                                       <td align="left" valign="top" width="20%" id="d40874e306" headers="d40874e292 ">
+                                          <p><code class="codeph">auditcheck_result</code></p>
+                                       </td>
+                                       <td align="left" valign="top" width="20%" headers="d40874e306 d40874e294 ">
+                                          <p>Health check results.</p>
+                                       </td>
+                                    </tr>
+                                    <tr align="left" valign="top">
+                                       <td align="left" valign="top" width="20%" id="d40874e314" headers="d40874e292 ">
+                                          <p><code class="codeph">auditcheck_patch_result</code></p>
+                                       </td>
+                                       <td align="left" valign="top" width="20%" headers="d40874e314 d40874e294 ">
+                                          <p>Patch check results.</p>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </div>
+                           <!-- class="inftblhruleinformal" -->
+                        </div>
+                        <p>If you install Oracle Health Check Collections Manager, then these tables are created by the install script.</p>
+                     </li>
+                     <li>
+                        <p>If the tables are not created, then use the following DDL statements:</p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p><span class="bold">DDL for the RCA13_DOCS table</span></p><pre class="pre codeblock"><code>CREATE TABLE RCA13_DOCS (
+    DOC_ID          NUMBER DEFAULT to_number(sys_guid(),'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') NOT NULL ENABLE,
+    COLLECTION_ID   VARCHAR2(40 BYTE),
+    FILENAME        VARCHAR2(1000 BYTE) NOT NULL ENABLE,
+    FILE_MIMETYPE   VARCHAR2(512 BYTE),
+    FILE_CHARSET    VARCHAR2(512 BYTE),
+    FILE_BLOB       BLOB NOT NULL ENABLE,
+    FILE_COMMENTS   VARCHAR2(4000 BYTE),
+    TAGS            VARCHAR2(4000 BYTE),
+    ATTR1           VARCHAR2(200 BYTE),
+    UPLOADED_BY     VARCHAR2(200 BYTE) DEFAULT USER,
+    UPLOADED_ON     TIMESTAMP (6) DEFAULT systimestamp,
+    SR_BUG_NUM      VARCHAR2(20 BYTE),
+    CONSTRAINT RCA13_DOCS_PK PRIMARY KEY (DOC_ID),
+    CONSTRAINT RCA13_DOCS_UK1 UNIQUE (FILENAME)
+  );</code></pre></li>
+                           <li>
+                              <p><span class="bold">DDL for the auditcheck_result table</span></p><pre class="pre codeblock"><code>CREATE TABLE auditcheck_result (
+     COLLECTION_DATE          TIMESTAMP NOT NULL ENABLE,
+     CHECK_NAME               VARCHAR2(256),
+     PARAM_NAME               VARCHAR2(256),
+     STATUS                   VARCHAR2(256),
+     STATUS_MESSAGE           VARCHAR2(256),
+     ACTUAL_VALUE             VARCHAR2(256),
+     RECOMMENDED_VALUE        VARCHAR2(256),
+     COMPARISON_OPERATOR      VARCHAR2(256),
+     HOSTNAME                 VARCHAR2(256),
+     INSTANCE_NAME            VARCHAR2(256),
+     CHECK_TYPE               VARCHAR2(256),
+     DB_PLATFORM              VARCHAR2(256),
+     OS_DISTRO                VARCHAR2(256),
+     OS_KERNEL                VARCHAR2(256),
+     OS_VERSION               NUMBER,
+     DB_VERSION               VARCHAR2(256),
+     CLUSTER_NAME             VARCHAR2(256),
+     DB_NAME                  VARCHAR2(256),
+     ERROR_TEXT               VARCHAR2(256),
+     CHECK_ID                 VARCHAR2(40),
+     NEEDS_RUNNING            VARCHAR2(100),
+     MODULES                  VARCHAR2(4000),
+     DATABASE_ROLE            VARCHAR2(100),
+     CLUSTERWARE_VERSION      VARCHAR2(100),
+     GLOBAL_NAME              VARCHAR2(256),
+     UPLOAD_COLLECTION_NAME   VARCHAR2(256) NOT NULL ENABLE,
+     AUDITCHECK_RESULT_ID     VARCHAR2(256) DEFAULT sys_guid() NOT NULL ENABLE,
+     COLLECTION_ID            VARCHAR2(40),
+     TARGET_TYPE              VARCHAR2(128),
+     TARGET_VALUE             VARCHAR2(256),
+     CONSTRAINT "AUDITCHECK_RESULT_PK" PRIMARY KEY ("AUDITCHECK_RESULT_ID")
+);</code></pre></li>
+                           <li>
+                              <p><span class="bold">DDL for the auditcheck_patch_result table</span></p><pre class="pre codeblock"><code>CREATE TABLE  auditcheck_patch_result (
+       COLLECTION_DATE         TIMESTAMP(6) NOT NULL,
+       HOSTNAME                VARCHAR2(256),
+       ORACLE_HOME_TYPE        VARCHAR2(256),
+       ORACLE_HOME_PATH        VARCHAR2(256),
+       ORACLE_HOME_VERSION     VARCHAR2(256),
+       PATCH_NUMBER            NUMBER,
+       CLUSTER_NAME            VARCHAR2(256),
+       DESCRIPTION             VARCHAR2(256),
+       PATCH_TYPE              VARCHAR2(128),
+       APPLIED                 NUMBER,
+       UPLOAD_COLLECTION_NAME  VARCHAR2(256),
+       RECOMMENDED             NUMBER
+);</code></pre></li>
+                        </ul>
+                     </li>
+                  </ol>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="integration-with-other-tools.html#GUID-3DD86332-1A4B-4FA0-96B8-DAABAF508B92">Viewing and Reattempting Failed Uploads</a><br>Use these procedures to view and reattempt to upload the failed uploads.
+                     </li>
+                  </ul>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="integration-with-other-tools.html#GUID-45D73757-7EEE-46DE-BC6E-0AF712CBE0B6" title="Integrate health check results from Oracle ORAchk and Oracle EXAchk into Enterprise Manager and other third-party tools.">Integrating Health Check Results with Other Tools</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="sect3"><a id="GUID-3DD86332-1A4B-4FA0-96B8-DAABAF508B92" name="GUID-3DD86332-1A4B-4FA0-96B8-DAABAF508B92"></a><h4 id="OEXUG-GUID-3DD86332-1A4B-4FA0-96B8-DAABAF508B92" class="sect4"><span class="enumeration_section">1.11.3.1 </span>Viewing and Reattempting Failed Uploads
+                  </h4>
+                  <div>
+                     <p>Use these procedures to view and reattempt to upload the failed uploads.</p>
+                     <p>Values are stored in <code><span class="variable" translate="no">collection_dir</span>/outfiles/check_env.out</code> to record if the previous database upload was successful or not.
+                     </p>
+                     <div class="p">For example, this shows database upload has been setup, but the last upload was unsuccessful: <pre class="pre codeblock"><code>DATABASE_UPLOAD_SETUP=1
+DATABASE_UPLOAD_STATUS=0
+</code></pre></div>
+                     <div class="section" id="GUID-3DD86332-1A4B-4FA0-96B8-DAABAF508B92__126EE7C5">
+                        <p class="subhead3" id="GUID-3DD86332-1A4B-4FA0-96B8-DAABAF508B92__126EEC3D">Oracle ORAchk and Oracle EXAchk -checkfaileduploads</p>
+                        <div class="p">To see failed collections, use the <code class="codeph">-checkfaileduploads</code> option:<pre class="pre codeblock"><code>./orachk -checkfaileduploads</code></pre><pre class="pre codeblock"><code>./exachk -checkfaileduploads</code></pre><pre class="pre codeblock"><code>$ ./orachk -checkfaileduploads
+
+List of failed upload collections
+/home/oracle/orachk_myserver_042016_232011.zip
+/home/oracle/orachk_myserver_042016_231732.zip
+/home/oracle/orachk_myserver_042016_230811.zip
+/home/oracle/orachk_myserver_042016_222227.zip
+/home/oracle/orachk_myserver_042016_222043.zip
+</code></pre></div>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="section" id="GUID-3DD86332-1A4B-4FA0-96B8-DAABAF508B92__126EF783">
+                        <p class="subhead3" id="GUID-3DD86332-1A4B-4FA0-96B8-DAABAF508B92__126EFB2F">Oracle ORAchk and Oracle EXAchk -uploadfailed</p>
+                        <div class="p">To reattempt collection upload you can use the <code class="codeph">-uploadfailed</code> option, specifying either all to upload all or a comma-delimited list of collections:<pre class="pre codeblock"><code>./orachk -uploadfailed all|<span class="variable" translate="no">list of failed collections</span></code></pre><pre class="pre codeblock"><code>./exachk -uploadfailed all|<span class="variable" translate="no">list of failed collections</span></code></pre><pre class="pre codeblock"><code>./orachk -uploadfailed "<code>/home/oracle/orachk_myserver_042016_232011.zip</code>, <code>/home/oracle/orachk_myserver_042016_231732.zip</code>"</code></pre><div class="infoboxnote" id="GUID-3DD86332-1A4B-4FA0-96B8-DAABAF508B92__GUID-B0DED510-81E5-4D59-AE9D-FEA572370CBD">
+                              <p class="notep1">Note:</p>
+                              <p>You cannot upload previously uploaded collections because of the SQL unique constraint.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- class="section" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="integration-with-other-tools.html#GUID-472B6261-B57B-43B8-9E0D-E1091324A398" title="Oracle ORAchk and Oracle EXAchk upload collection results from multiple instances into a single database for easier consumption of check results across your enterprise.">Integrating Health Check Results with Custom Application</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

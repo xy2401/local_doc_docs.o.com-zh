@@ -1,0 +1,733 @@
+<!DOCTYPE html><html lang="en"><head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        
+        <link rel="stylesheet" href="/sp_common/site-template/ohc-site-template/css/site.css">
+        <script data-main="/sp_common/site-template/ohc-site-template/js/site-config" src="/sp_common/site-template/requirejs/require.js"></script>
+        <script>
+        if(window.require === undefined) {
+          document.write('<script data-main="sp_common/site-template/ohc-site-template/js/site-config" src="sp_common/site-template/requirejs/require.js"><\/script>');
+          document.write('<link href="sp_common/site-template/ohc-site-template/css/site.css" rel="stylesheet">');
+        }
+        </script>
+        <link rel="shortcut icon" href="/sp_common/site-template/ohc-common/img/favicon.ico">
+        
+                <title>Middleware Documentation - Get Started</title>
+                <meta name="description" content="Oracle Fusion Middleware documentation">
+                <meta property="og:description" content="Oracle Fusion Middleware documentation">
+                <meta property="og:site_name" content="Oracle Help Center">
+                <meta name="generator" content="Oracle Interface Page Generator 1.7.07.20">
+                <meta property="og:title" content="Middleware Documentation - Get Started">
+                
+                
+                <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+                <meta name="dcterms.created" content="2018-08-31T20:36:59.549Z">
+                
+                <meta name="dcterms.dateCopyrighted" content="2018">
+                <meta name="dcterms.category" content="middleware">
+                
+                
+        
+
+    
+    <meta name="dcterms.title" content="Middleware Documentation">
+    <meta name="dcterms.product" content="en/middleware">
+    <meta name="dcterms.identifier" content="en/middleware">
+  <script id="ssot-metadata" type="application/json"> {"primary":{"category":{"short_name":"middleware","element_name":"Middleware","display_in_url":true}}} </script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+    <body>
+        <noscript>
+            <div>JavaScript must be enabled to correctly display this content</div>
+        </noscript>
+    
+                <div class="ohc-grid">
+                    <div role="banner">
+                        <div>
+                            <a href="#" class="offscreen skipto-top skipto">Go to main content</a>
+                            <nav class="navbar navbar-default">
+                                <div class="container">
+                                    <div class="navbar-header">
+                                        <a class="navbar-brand" href="/">
+                                            <img alt="Oracle Help Center" src="https://docs.oracle.com/sp_common/site-template/ohc-common/img/ohc-logo.png" onerror="this.onerror=&apos;&apos;;this.src=&apos;sp_common/site-template/ohc-common/img/ohc-logo.png&apos;;">
+                                        </a>
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                    </div>
+        
+                                    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+        
+                                        <p class="navbar-text navbar-right logged-in-content hidden"><span class="append-firstname-greeting"></span> <a class="logout-link" href="#">Sign Out</a></p>
+                                        <p class="navbar-text navbar-right logged-out-content hidden"><a class="login-link" href="#"><i class="fa fa-user"></i> Sign In</a></p>
+        
+                                        <form class="navbar-form ohc-search-form visible-xs-block" action="https://docs.oracle.com/apps/search/search.jsp" method="get">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" name="q" aria-label="Search Query Field" placeholder="Search for...">
+                                                    <span class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default" aria-label="Submit Search Query">
+                                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                                            <span class="sr-only">Search</span>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="category" value="middleware">
+                                        </form>
+                                        
+                                        <ul class="nav navbar-nav visible-xs-block">
+                                                <li><a href="/en/cloud">Cloud</a></li>
+                                                
+                                                <li><a href="/en/applications/">Applications</a></li>
+                                                
+                                                <li><a href="/en/middleware/index.html">Middleware</a></li>
+                                                
+                                                <li><a href="/en/database/">Database</a></li>
+                                                
+                                                <li><a href="/en/bigdata">Big Data</a></li>
+                                                
+                                                <li><a href="/en/enterprise-manager/">Enterprise Manager</a></li>
+                                                
+                                                <li><a href="/en/engineered-systems/">Engineered Systems</a></li>
+                                                
+                                                <li><a href="/en/java/">Java</a></li>
+                                                
+                                                <li><a href="/en/servers/">Servers</a></li>
+                                                
+                                                <li><a href="/en/networking/">Networking</a></li>
+                                                
+                                                <li><a href="/en/virtualization/">Virtualization</a></li>
+                                                
+                                                <li><a href="/en/storage/">Storage</a></li>
+                                                
+                                                <li><a href="/en/operating-systems/">Operating Systems</a></li>
+                                                
+                                                <li><a href="/en/industries/">Industries</a></li>
+                                                
+                                                <li><a href="/en/browseall.html">Browse All Products</a></li>
+                                                
+                                        </ul>
+        
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+        
+                    <main>
+                        <div>
+                            <div class="ohc-grid">
+                                <div>
+                                    <div class="ohc-sidebar hidden-xs">
+                                        <form class="ohc-search-form" action="https://docs.oracle.com/apps/search/search.jsp" method="get">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" name="q" aria-label="Search Query Field" placeholder="Search for...">
+                                                    <span class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default" aria-label="Submit Search Query">
+                                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                                            <span class="sr-only">Search</span>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="category" value="middleware">
+                                        </form>
+                                        
+                                        <ul class="up">
+                                            <li><a href="/"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"> </span>Help Center Home</a></li>
+                                        </ul>
+                                        
+                                        
+                                            
+                                            <ul class="links">
+                                                <li>  <a href="/en/cloud">Cloud </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/applications/">Applications </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/middleware/index.html">Middleware </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/database/">Database </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/bigdata">Big Data </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/enterprise-manager/">Enterprise Manager </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/engineered-systems/">Engineered Systems </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/java/">Java </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/servers/">Servers </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/networking/">Networking </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/virtualization/">Virtualization </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/storage/">Storage </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/operating-systems/">Operating Systems </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/industries/">Industries </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/browseall.html">Browse All Products </a>
+        
+                                                </li>
+                                            </ul>
+                                            
+                                    </div>
+        
+                                    <article class="container-fluid learning-path" role="main">
+                                    
+                                            <img class="pull-right hidden-xs hidden-sm" src="sp_common/shared-images/3-middleware.png" alt>
+                                            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+                                                <li property="itemListElement" typeof="ListItem"><a href="../../../index.html" property="item" typeof="WebPage"><span property="name">Home</span></a><meta property="position" content="0"></li>
+                                                <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">Middleware</span></a><meta property="position" content="1"></li>
+                                            </ol>
+                                            <h1>Middleware Documentation</h1>
+                                            
+                                            <div class="description">Oracle Fusion Middleware is the leading business innovation platform for the enterprise and the cloud. It enables enterprises to create and run agile, intelligent business applications while maximizing IT efficiency through full utilization of modern hardware and software architectures.</div>
+                                        
+                                        
+        
+        
+                                        
+                                            
+                                                <h2 id="OracleFusionMiddleware"><a href="/en/middleware/fusion-middleware/index.html">Oracle Fusion Middleware</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">A comprehensive family of products ranging from application development tools and integration solutions to identity management, collaboration, and business intelligence reporting. Oracle Fusion Middleware includes all the products listed in the sections below.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleWebLogicServer"><a href="/middleware/12213/wls/index.html">Oracle WebLogic Server</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Developers and designers use WebLogic Server to build Java EE compatible enterprise applications that implements business and presentation logic.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleAPICatalog"><a href="/middleware/1213/oac/index.html">Oracle API Catalog</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Enables organizations to easily build a catalog of their APIs, providing visibility for these APIs for use in application development.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleAPIManager"><a href="/middleware/12211/apimgr/index.html">Oracle API Manager</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Facilitates the creation of APIs that expose the functionality of backend systems and services. These APIs are published for use by application developers and are managed and monitored at runtime.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleApplicationIntegrationArchitecture(AIA)"><a href="http://www.oracle.com/technetwork/apps-tech/aia/documentation/intarch-093745.html">Oracle Application Integration Architecture (AIA)</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Oracle Application Integration Architecture (AIA) delivers pre-built integrations as either direct integrations or Process Integrations Packs. Direct Integrations are pre-built integrations that manage data flows and data synchronizations between applications. Process Integration Packs (PIPs) are pre-built integration accelerators that combine one or more of the integration styles such as data-centric integration, web services, reference data query, and process-centric integrations. They leverage the design patterns, methodologies and common objects and services as defined within Oracle AIA Foundation Pack. Oracle AIA provides an open, standards-based approach for organizations to integrate end-to-end business processes across a broad range of custom, Oracle or third-party applications.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleGoldenGate"><a href="/en/middleware/goldengate/index.html">Oracle GoldenGate</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Enables the exchange and manipulation of data at the transaction level among multiple, heterogeneous platforms across the enterprise. It moves committed transactions with transaction integrity and minimal overhead on your existing infrastructure. Its modular architecture gives you the flexibility to extract and replicate selected data records, transactional changes, and changes to DDL (data definition language) across a variety of topologies.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleBusinessProcessManagement"><a href="/middleware/12213/bpm/index.html">Oracle Business Process Management</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Includes business user-friendly modeling and optimization tools, tools for system integration, business activity monitoring dashboards, and rich task and case management capabilities for end users.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleBusinessIntelligence">Oracle Business Intelligence</h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Drive innovation, optimize operations, simplify IT, and deliver extreme performance at lower total cost of ownership using the industry&apos;s best in class platform for custom and packaged business intelligence applications. This architecturally integrated business intelligence foundation provides ad-hoc query and analysis, dashboards, enterprise reporting, mobile analytics, scorecards, multidimensional OLAP, and predictive analytics.</div>
+                                            <ul class="topics">
+                                                <li>  <a href="/middleware/bi12214/bisuite/index.html">Oracle Business Intelligence Suite </a>
+                                            </li>
+                                                <li>  <a href="/middleware/bi12214/biee/index.html">Oracle Business Intelligence Enterprise Edition </a>
+                                            </li>
+                                                <li>  <a href="/middleware/bi12214/bip/index.html">Oracle Business Intelligence Publisher </a>
+                                            </li>
+                                            </ul>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleCloudAdapters">Oracle Cloud Adapters</h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Cloud Adapters simplify and accelerate integration with your SaaS applications. These adapters provide value to your SaaS integrations. Specifically, they provide lower costs of implementation and maintenance, ease of use, improved developer productivity and faster time-to-market for Saas application integrations.</div>
+                                            <ul class="topics">
+                                                <li>  <a href="/middleware/12213/adapter-ariba/index.html">Cloud Adapter for Ariba </a>
+                                            </li>
+                                                <li>  <a href="/middleware/12213/adapter-eloqua/index.html">Oracle Cloud Adapter for Eloqua </a>
+                                            </li>
+                                                <li>  <a href="/middleware/12213/adapter-erp/index.html">Oracle Cloud Adapter for ERP </a>
+                                            </li>
+                                                <li>  <a href="/middleware/12213/adapter-netsuite/index.html">Oracle Cloud Adapter for NetSuite </a>
+                                            </li>
+                                                <li>  <a href="/middleware/12213/adapter-rightnow/index.html">Oracle Cloud Adapter for RightNow </a>
+                                            </li>
+                                                <li>  <a href="/middleware/12213/adapter-salescloud/index.html">Oracle Cloud Adapter for SalesCloud </a>
+                                            </li>
+                                                <li>  <a href="/middleware/12213/adapter-salesforce/index.html">Oracle Cloud Adapter for Salesforce </a>
+                                            </li>
+                                                <li>  <a href="/middleware/12213/adapter-servicenow/index.html">Cloud Adapter for ServiceNow </a>
+                                            </li>
+                                                <li>  <a href="/middleware/12213/adapter-successfactors/index.html">Cloud Adapter for SuccessFactors </a>
+                                            </li>
+                                            </ul>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleCoherence"><a href="/middleware/12213/coherence/index.html">Oracle Coherence</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">The industry leading in-memory data grid solution that enables organizations to predictably scale mission-critical applications by providing fast access to frequently used data.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleDataVisualizationDesktop"><a href="/en/middleware/bi/data-visualization-desktop/index.html">Oracle Data Visualization Desktop</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Oracle Data Visualization Desktop makes it easy to visualize your data so you can focus on exploring interesting patterns and outliers. Just upload data files or connect to Oracle applications or a database, select the elements you are interested in, and let Oracle Data Visualization Desktop find the best way to visualize it. Of course you can choose from a variety of visualizations yourself if you want to look at data in a specific way.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleDataIntegrator"><a href="/en/middleware/data-integrator/12.2.1.3/index.html">Oracle Data Integrator</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Kick start your Big Data and Hadoop Data Integration to:
+                                            
+                                            <ul>
+                                            <li>Expand your data integration to support Hive, HBase, SQOOP and JSON standards</li>
+                                            <li>Achieve faster time to value with ODI&apos;s unique out-of-the-box Big Data Knowledge Modules</li>
+                                            <li>Increase performance and productivity through the ELT architecture and flow based mapping designs</li>
+                                            </ul></div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleDataServiceIntegrator"><a href="/middleware/1213/odsi/index.html">Oracle Data Service Integrator</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Gives you the ability to quickly develop and manage federated data services for accessing single views of disparate information.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleEndecaInformationDiscovery"><a href="http://www.oracle.com/technetwork/middleware/endeca/documentation/index.html">Oracle Endeca Information Discovery</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Oracle Endeca Information Discovery offers a complete solution for agile data discovery across the enterprise, empowering business user independence in balance with IT governance. This unique platform offers fast, intuitive access to both traditional analytic sources, leveraging existing enterprise investments, and non-traditional data, allowing organizations to achieve unprecedented visibility into all their information, to drive growth while saving time and reducing cost. Only Oracle delivers a complete enterprise platform that includes powerful self-service discovery, enabling faster and more confident decisions, reducing the IT backlog, and increasing innovation.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleEnterpriseDataQuality"><a href="/en/middleware/enterprise-data-quality/12.2.1.3/index.html">Oracle Enterprise Data Quality</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Helps organizations achieve maximum value from their business-critical applications by delivering fit-for-purpose data. This family of products also enable individuals and collaborative teams to quickly and easily identify and resolve any problems in the underlying data.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleEnterpriseRepository"><a href="/middleware/1213/oer/index.html">Oracle Enterprise Repository</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Ensure SOA return on investment through end-to-end lifecycle governance. Visibility into SOA assets minimizes redundancy, optimizes service reuse, and improves ROI.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleEnterpriseScheduler"><a href="/middleware/12211/ess/index.html">Oracle Enterprise Scheduler</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Provides the ability to run different job types, including: Java, PL/SQL, and binary scripts, distributed across the nodes in an Oracle WebLogic Server cluster. Oracle Enterprise Scheduler runs these jobs securely, with high availability and scalability, with load balancing and provides monitoring and management through Fusion Applications Control.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleEventProcessing"><a href="/middleware/1213/eventprocessing/index.html">Oracle Event Processing</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">A complete Fast Data solution platform for building applications to filter, correlate and process events in real-time so that downstream applications, service oriented architectures and event-driven architectures are driven by true, real-time intelligence.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleFormsandReports"><a href="/middleware/12213/formsandreports/index.html">Oracle Forms and Reports</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Oracle Forms is Oracle&apos;s long-established technology to design and build enterprise database applications quickly and efficiently. Oracle Reports is Oracle&apos;s award-winning, high fidelity enterprise reporting tool. It enables businesses to give immediate access to information to all levels within and outside of the organization in an unrivaled scalable and secure environment.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleIdentityManagement"><a href="/en/middleware/idm/suite/12.2.1.3/index.html">Oracle Identity Management</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Oracle Identity Management provides a unified, integrated security platform designed to manage user lifecycle and provide secure access across the enterprise resources, both within and beyond the firewall and into the cloud. The Oracle Identity Management platform provisions resources to users, secure access to corporate resources, enable trusted online business partnerships, and support governance and compliance. The Oracle Identity Management platform provides scalability with an industry-leading suite of solutions for identity governance, access management and directory services.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleJDeveloperandApplicationDevelopmentFramework(ADF)">Oracle JDeveloper and Application Development Framework (ADF)</h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Oracle JDeveloper is a free integrated development environment that simplifies the development of Java-based SOA and Java EE applications. ADF is an end-to-end Java EE framework that simplifies application development by providing out-of-the-box infrastructure services and a visual and declarative development experience.</div>
+                                            <ul class="topics">
+                                                <li>  <a href="/middleware/12213/jdev/index.html">Oracle JDeveloper </a>
+                                            </li>
+                                                <li>  <a href="/middleware/12213/adf/index.html">Oracle Application Development Framework (ADF) </a>
+                                            </li>
+                                                <li>  <a href="/middleware/1213/skineditor/index.html">Oracle ADF Skin Editor </a>
+                                            </li>
+                                            </ul>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleJavaScriptExtensionToolkit"><a href="http://www.oracle.com/pls/topic/lookup?ctx=jetlatest&amp;id=homepage">Oracle JavaScript Extension Toolkit</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Oracle JavaScript Extension Toolkit (JET) empowers developers by providing a modular open source toolkit based on modern JavaScript, CSS3 and HTML5 design and development principles.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleMobileApplicationFramework(MAF)"><a href="http://www.oracle.com/pls/topic/lookup?ctx=maflatest&amp;id=mafhome">Oracle Mobile Application Framework (MAF)</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Oracle Mobile Application Framework (Oracle MAF) is a hybrid mobile framework that enables developers using Oracle JDeveloper or Oracle Enterprise Pack for Eclipse to rapidly develop single-source applications that can be deployed to multiple mobile platforms.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleManagedFileTransfer"><a href="/en/middleware/managed-file-transfer/12.2.1.3/index.html">Oracle Managed File Transfer</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Provides efficient transfer of documents of all sizes by consolidating disparate partner point solutions into a single deployment.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OraclePlatformSecurityServices(OPSS)"><a href="/middleware/12213/opss/index.html">Oracle Platform Security Services (OPSS)</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Oracle Platform Security Services (OPSS) provides enterprise product development teams, systems integrators (SIs), and independent software vendors (ISVs) with a standards-based, portable, integrated, enterprise-grade security framework for Java Standard Edition (Java SE) and Java Enterprise Edition (Java EE) applications.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleSecurityDeveloperToolkit"><a href="/middleware/12213/infrasecurity/index.html">Oracle Security Developer Toolkit</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Application development security tools and APIs built upon the core foundations of cryptography, public key infrastructure, web services security, and federated identity management.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleSOASuite"><a href="/en/middleware/soa-suite/soa/12.2.1.3/index.html">Oracle SOA Suite</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Transforms complex application integration into agile and re-usable service-based connectivity to speed time to market, respond faster to business requirements, and lower costs.</div>
+                                            <ul class="topics">
+                                                <li>  <a href="/middleware/12213/servicecomps/index.html">BPEL Process Manager, Business Rules, Human Workflow, Mediator </a>
+                                            </li>
+                                                <li>  <a href="/middleware/12213/adapters/index.html">Integration Adapters </a>
+                                            </li>
+                                                <li>  <a href="/middleware/12213/bam/index.html">Business Activity Monitoring </a>
+                                            </li>
+                                                <li>  <a href="/en/middleware/soa-suite/b2b/12.2.1.3/index.html">Oracle B2B </a>
+                                            </li>
+                                                <li>  <a href="/middleware/12213/insight/index.html">Oracle Real-Time Integration Business Insight </a>
+                                            </li>
+                                                <li>  <a href="/middleware/12213/hc/index.html">Oracle SOA for Healthcare </a>
+                                            </li>
+                                            </ul>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleServiceBus"><a href="/en/middleware/service-bus/12.2.1.3/index.html">Oracle Service Bus</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">A proven, lightweight and scalable SOA integration platform that delivers low-cost, standards-based integration for high-volume, mission critical SOA environments.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleStreamAnalytics"><a href="/en/middleware/osa/18.1/index.html">Oracle Stream Analytics</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Offers a new breed of instant streaming insight and is cloud focused, to empower the business. The new tool is business user-friendly and solves the business dilemmas by completely hiding and abstracting the underlying technology platform.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleStreamExplorer"><a href="/middleware/12213/osa/index.html">Oracle Stream Explorer</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Oracle Stream Explorer platform provides a compelling combination of an easy-to-use visual fa&#xE7;ade to rapidly create and dynamically change Real Time Streaming Analytics (Fast Data) applications, together with a comprehensive run-time platform to manage and execute these solutions.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleTrafficDirector"><a href="/middleware/12213/otd/index.html">Oracle Traffic Director</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Provides an on-board, highly available Application Delivery Controller (ADC) that optimizes application-to-application communication for Oracle&apos;s engineered systems such as Exalogic, SPARC SuperCluster, and WebLogic for Oracle Database Appliance.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleTopLink"><a href="/middleware/12213/toplink/index.html">Oracle TopLink</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">An advanced, object-persistence and object-transformation framework that provides development tools and run-time capabilities that reduce development and maintenance efforts, and increase enterprise application functionality.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleTuxedo"><a href="http://www.oracle.com/technetwork/middleware/tuxedo/documentation/index.html">Oracle Tuxedo</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Oracle Tuxedo enables development, deployment and management of mission-critical, highly available and scalable applications written in C, C++, COBOL and Java. Oracle Tuxedo also enables migration and modernization of mainframe applications to open systems.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleUserMessagingService"><a href="/middleware/12213/ums/index.html">Oracle User Messaging Service</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Provides a common service that is responsible for sending out messages from applications to devices. It also routes incoming messages from devices to applications.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleUserProductivityKit"><a href="http://www.oracle.com/technetwork/middleware/upk/documentation/index.html">Oracle User Productivity Kit</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Capture, retain, and disseminate critical organizational process knowledge to ensure the success of your enterprise applications, accelerate user adoption, and prepare your organization to be productive the first day with Oracle UPK.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleWebServicesManager"><a href="/middleware/12213/owsm/index.html">Oracle Web Services Manager</a></h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Oracle Web Services Manager (OWSM) provides a policy framework to consistently manage and secure Web services. Use OWSM to build, enforce, run and monitor Web service policies for security, reliable messaging, MTOM, and addressing policies.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleWebTier">Oracle Web Tier</h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Includes components that interact with end users at the outermost tier of application grid infrastructure, typically through HTTP requests and responses. Hosts Web pages (static and dynamic) and provides security and high performance along with built-in clustering, load balancing, and failover features.</div>
+                                            <ul class="topics">
+                                                <li>  <a href="/middleware/12213/webtier/index.html">Oracle HTTP Server, Web Server Plug-ins </a>
+                                            </li>
+                                            </ul>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                            
+                                                <h2 id="OracleWebCenter">Oracle WebCenter</h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Oracle WebCenter is the center of engagement for business powering exceptional experiences for customers, partners, and employees. It connects people, processes, and information with the most complete portfolio of portal, content management, Web experience management, and collaboration technologies.</div>
+                                            <ul class="topics">
+                                                <li>  <a href="/middleware/12213/wcp/index.html">WebCenter Portal </a>
+                                            </li>
+                                                <li>  <a href="/middleware/12213/wcc/index.html">WebCenter Content </a>
+                                            </li>
+                                                <li>  <a href="/middleware/12213/wcs/index.html">WebCenter Sites </a>
+                                            </li>
+                                                <li>  <a href="http://www.oracle.com/pls/topic/lookup?ctx=oitlatest&amp;id=homepage">Outside In Technology </a>
+                                            </li>
+                                            </ul>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                        
+                                    
+                                    </article>
+        
+                                    <div><div><!-- resizable column --></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                    <a href="#" class="offscreen skipto-bottom skipto">Back to main content</a>
+        
+                    <footer>
+                        <div>
+                            <div class="container">
+                                <div class="pull-left footer-left">
+                                    <ul class="footer-nav list-inline">
+                                        <li class="separator" style="height: 17px;"><a href="http://www.oracle.com/corporate/index.html">About Oracle</a></li>
+                                        <li style="height: 17px;"><a href="http://www.oracle.com/us/corporate/contact/index.html">Contact Us</a></li>
+                                        <li style="height: 17px;"><a href="http://www.oracle.com/us/legal/index.html">Legal Notices</a></li>
+                                        <li style="height: 17px;"><a href="http://www.oracle.com/us/legal/terms/index.html">Terms of Use</a></li>
+                                        <li style="height: 17px;"><a href="http://www.oracle.com/us/legal/privacy/index.html">Your Privacy Rights</a></li>
+                                        <li class="same-height-right" style="height: 17px;"><div id="teconsent" style="display: inline-block;"></div></li>
+                                    </ul>
+                                    <span class="copyright"><a href="https://www.oracle.com/pls/topic/lookup?ctx=cpyr&amp;id=en">Copyright &#xA9; 2018, Oracle and/or its affiliates. All rights reserved.</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+
+    
+
+</body></html>

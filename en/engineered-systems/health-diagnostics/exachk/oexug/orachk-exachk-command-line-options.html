@@ -1,0 +1,1191 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="Most command-line options apply to both Oracle ORAchk and Oracle EXAchk.">
+      <meta name="description" content="Most command-line options apply to both Oracle ORAchk and Oracle EXAchk.">
+      <title>Oracle ORAchk and Oracle EXAchk Command-Line Options</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide">
+      <meta property="og:description" content="Most command-line options apply to both Oracle ORAchk and Oracle EXAchk.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-orachk-and-exachk-users-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:43:23-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2016, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E83827-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/exachk">
+      
+      <link rel="prev" href="running-subsets-of-checks.html" title="Previous" type="text/html">
+      <link rel="next" href="apex5-managing-oracle-health-check-collection-manager.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"exachk","element_name":"EXAchk","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® ORAchk and EXAchk User's Guide">
+    <meta name="dcterms.isVersionOf" content="OEXUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="running-subsets-of-checks.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="apex5-managing-oracle-health-check-collection-manager.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="oracle-orachk-and-exachk-common-features-tasks.html" property="item" typeof="WebPage"><span property="name">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Oracle ORAchk and Oracle EXAchk Command-Line Options</li>
+            </ol>
+            <a id="GUID-775DBBA4-8A14-4EC0-9EB1-C3174929DAED" name="GUID-775DBBA4-8A14-4EC0-9EB1-C3174929DAED"></a>
+            
+            <h2 id="OEXUG-GUID-775DBBA4-8A14-4EC0-9EB1-C3174929DAED" class="sect2"><span class="enumeration_section">1.8 </span>Oracle ORAchk and Oracle EXAchk Command-Line Options
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>Most command-line options apply to both Oracle ORAchk and Oracle EXAchk.</p>
+               <div class="section">
+                  <p class="subhead1" id="GUID-775DBBA4-8A14-4EC0-9EB1-C3174929DAED__GUID-1CBB71D1-BDA8-468D-BC18-03ED50E0C295">Syntax</p>
+                  <p></p><pre class="pre codeblock"><code>$ ./orachk [options]</code></pre><pre class="pre codeblock"><code>[-h] [-a] [-b] [-v] [-p] [-m] [-u] [-f] [-o] 
+[-clusternodes <span class="variable" translate="no">clusternames</span>] 
+[-failedchecks <span class="variable" translate="no">previous_result</span>]
+[-nordbms]
+[-output <span class="variable" translate="no">path</span>] 
+[-dbnames <span class="variable" translate="no">dbnames</span>] 
+[-localonly] 
+[-debug] 
+[-dbnone | -dball] 
+[-c] 
+[-upgrade | -noupgrade] 
+[-syslog] 
+[-skip_usr_def_checks] 
+[-checkfaileduploads] 
+[-uploadfailed all | <span class="variable" translate="no">comma-delimited list of collections</span>]
+[-fileattr [start | check | remove ] [-includedir <span class="variable" translate="no">path</span> ] [-excludediscovery] [-baseline <span class="variable" translate="no">path</span> [-fileattronly]
+[-testemail all | "<code class="codeph">NOTIFICATION_EMAIL</code>=<span class="variable" translate="no">comma-delimited list of email addresses</span>"]
+[-setdbupload all | db upload variable, for example, <code class="codeph">RAT_UPLOAD_CONNECT_STRING</code>, <code class="codeph">RAT_UPLOAD_PASSWORD</code>]
+[-unsetdbupload all | db upload variable, for example, <code class="codeph">RAT_UPLOAD_CONNECT_STRING</code>, <code class="codeph">RAT_UPLOAD_PASSWORD</code>]
+[-checkdbupload]
+[-getdbupload]
+[-cmupgrade] 
+[-sendemail "<code class="codeph">NOTIFICATION_EMAIL</code>=<span class="variable" translate="no">comma-delimited list of email addresses</span>"]
+[-nopass] 
+[-noscore] 
+[-showpass] 
+[-show_critical] 
+[-diff <span class="variable" translate="no">Old Report</span> <span class="variable" translate="no">New Report</span> [-outfile <span class="variable" translate="no">Output HTML</span>] [-force]] 
+[-merge <span class="variable" translate="no">report 1</span> <span class="variable" translate="no">report 2</span> [-force]] 
+[-tag <span class="variable" translate="no">tagname</span>]
+[-nodaemon] 
+[-profile <code class="codeph">asm</code> | <code class="codeph">clusterware</code> | <code class="codeph">corroborate</code> | <code class="codeph">dba</code> | <code class="codeph">ebs</code> | <code class="codeph">emagent</code> | <code class="codeph">emoms</code> | <code class="codeph">em</code> | <code class="codeph">goldengate</code> | <code class="codeph">hardware</code> | <code class="codeph">maa</code> | <code class="codeph">oam</code> | <code class="codeph">oim</code> | <code class="codeph">oud</code> | <code class="codeph">ovn</code> | <code class="codeph">peoplesoft</code> | <code class="codeph">preinstall</code> | <code class="codeph">prepatch</code> | <code class="codeph">security</code> | <code class="codeph">siebel</code> | <code class="codeph">solaris_cluster</code> | <code class="codeph">storage</code> | <code class="codeph">switch</code> | <code class="codeph">sysadmin</code> | <code class="codeph">timesten</code> | <code class="codeph">user_defined_checks</code> | <code class="codeph"> zfs</code> ]
+[-excludeprofile <code class="codeph">asm</code> | <code class="codeph">clusterware</code> | <code class="codeph">corroborate</code> | <code class="codeph">dba</code> | <code class="codeph">ebs</code> | <code class="codeph">emagent</code> | <code class="codeph">emoms</code> | <code class="codeph">em</code> | <code class="codeph">goldengate</code> | <code class="codeph">hardware</code> | <code class="codeph">maa</code> | <code class="codeph">oam</code> | <code class="codeph">oim</code> | <code class="codeph">oud</code> | <code class="codeph">ovn</code> | <code class="codeph">peoplesoft</code> | <code class="codeph">preinstall</code> | <code class="codeph">prepatch</code> | <code class="codeph">security</code> | <code class="codeph">siebel</code> | <code class="codeph">solaris_cluster</code> | <code class="codeph">storage</code> | <code class="codeph">switch</code> | <code class="codeph">sysadmin</code> | <code class="codeph">timesten</code> | <code class="codeph">user_defined_checks</code> | <code class="codeph">zfs</code> ]
+[-acchk -javahome <span class="variable" translate="no">path to jdk8</span> 
+-asmhome <span class="variable" translate="no">path to asm-all-5.0.3.jar</span> -appjar <span class="variable" translate="no">directory where jar files are present for concrete class</span> -apptrc <span class="variable" translate="no">directory where trace files are present for coverage class</span>]
+[-check <span class="variable" translate="no">check ids</span> | -excludecheck <span class="variable" translate="no">check ids</span>]
+[-zfsnodes <span class="variable" translate="no">nodes</span>]
+[-zfssa <span class="variable" translate="no">appliance names</span>]
+[-dbserial | -dbparallel [n] | -dbparallelmax]
+[-idmpreinstall | -idmpostinstall | -idmruntime] [-topology <span class="variable" translate="no">topology.xml</span> |
+-credconfig <span class="variable" translate="no">credconfig</span>] | -idmdbpreinstall | -idmdbpostinstall | -idmdbruntime] 
+[-idm_config <span class="variable" translate="no">IDMCONFIG</span>] [-idmdiscargs <span class="variable" translate="no">IDMDISCARGS</span>] 
+[-idmhcargs <span class="variable" translate="no">IDMHCARGS</span> | -h]</code></pre></div>
+               <!-- class="section" -->
+               <div class="section">
+                  <p class="subhead1" id="GUID-775DBBA4-8A14-4EC0-9EB1-C3174929DAED__GUID-4B250C6E-D741-4E27-B7C0-CA3B27F97F4E">Syntax</p><pre class="pre codeblock"><code>$ ./exachk [options]</code></pre><pre class="pre codeblock"><code>[-h] [-a] [-b] [-v] [-p] [-m] [-u] [-f] [-o] 
+[-clusternodes <span class="variable" translate="no">clusternames</span>] 
+[-failedchecks <span class="variable" translate="no">previous_result</span>]
+[-nordbms]
+[-output <span class="variable" translate="no">path</span>] 
+[-dbnames <span class="variable" translate="no">dbnames</span>] 
+[-localonly] 
+[-debug] 
+[-dbnone | -dball] 
+[-c] 
+[-upgrade | -noupgrade] 
+[-syslog] [-skip_usr_def_checks] 
+[-checkfaileduploads] 
+[-uploadfailed all | <span class="variable" translate="no">comma-delimited list of collections</span>] 
+[-fileattr start | check | remove [-includedir <span class="variable" translate="no">path</span> [-excludediscovery] [-baseline <span class="variable" translate="no">path</span>[-fileattronly]
+[-testemail all | "<code class="codeph">NOTIFICATION_EMAIL</code>=<span class="variable" translate="no">comma-delimited list of email addresses</span>"]
+[-setdbupload all | db upload variable, for example, <code class="codeph">RAT_UPLOAD_CONNECT_STRING</code>, <code class="codeph">RAT_UPLOAD_PASSWORD</code>] 
+[-unsetdbupload all | db upload variable, for example, <code class="codeph">RAT_UPLOAD_CONNECT_STRING</code>, <code class="codeph">RAT_UPLOAD_PASSWORD</code>] 
+[-checkdbupload]
+[-getdbupload]
+[-cmupgrade] [-sendemail "<code class="codeph">NOTIFICATION_EMAIL</code>=<span class="variable" translate="no">comma-delimited list of email addresses</span>"]
+[-nopass] 
+[-noscore] 
+[-showpass] 
+[-show_critical] 
+[-diff <span class="variable" translate="no">Old Report</span> <span class="variable" translate="no">New Report</span> [-outfile <span class="variable" translate="no">Output HTML</span>] [-force]] 
+[-merge <span class="variable" translate="no">report 1</span> <span class="variable" translate="no">report 2</span> [-force]] 
+[-tag <span class="variable" translate="no">tagname</span>]
+[-auto_restart -initsetup | -initdebugsetup | -initrmsetup | -initcheck | -h]
+[-d start|start -debug|stop|status|info|stop_client|nextautorun|-h]
+[-nodaemon]
+[-unlockcells all | -cells <span class="variable" translate="no">comma-delimited list of names or IPs of cells</span>] [-lockcells all | -cells <span class="variable" translate="no">comma-delimited list of names or IPs of cells</span>]
+[-usecompute]
+[-exadiff <span class="variable" translate="no">Exalogic collection1</span> <span class="variable" translate="no">Exalogic collection2</span>]
+[-vmguest ]
+[-hybrid [-phy <span class="variable" translate="no">nodes</span>]]
+[-profile <code class="codeph">asm</code> | <code class="codeph">bi_middleware</code> | <code class="codeph">clusterware</code> | <code class="codeph">compute_node</code> | <code class="codeph">exatier1</code> | <code class="codeph">control_VM</code> | <code class="codeph">corroborate</code> | <code class="codeph">dba</code> | <code class="codeph">ebs</code> | <code class="codeph">el_extensive</code> | <code class="codeph">el_lite</code> | <code class="codeph">el_rackcompare</code> | <code class="codeph">emagent</code> | <code class="codeph">emoms</code> | <code class="codeph">em</code> | <code class="codeph">goldengate</code> | <code class="codeph">hardware</code> | <code class="codeph">maa</code> | <code class="codeph">nimbula</code> | <code class="codeph">obiee</code> | <code class="codeph">ovn</code> | <code class="codeph">peoplesoft</code> | <code class="codeph">platinum</code> | <code class="codeph">preinstall</code> | <code class="codeph">prepatch</code> | <code class="codeph">security</code> | <code class="codeph">siebel</code> | <code class="codeph">solaris_cluster</code> | <code class="codeph">storage</code> | <code class="codeph">switch</code> | <code class="codeph">sysadmin</code> | <code class="codeph">timesten</code> | <code class="codeph">user_defined_checks</code> | <code class="codeph">virtual_infra</code>]
+[-excludeprofile <code class="codeph">asm</code> | <code class="codeph">bi_middleware</code> | <code class="codeph">clusterware</code> | <code class="codeph">compute_node</code> | <code class="codeph">exatier1</code> | <code class="codeph">control_VM</code> | <code class="codeph">corroborate</code> | <code class="codeph">dba</code> | <code class="codeph">ebs</code> | <code class="codeph">el_extensive</code> | <code class="codeph">el_lite</code> | <code class="codeph">el_rackcompare</code> | <code class="codeph">emagent</code> | <code class="codeph">emoms</code> | <code class="codeph">em</code> | <code class="codeph">goldengate</code> | <code class="codeph">hardware</code> | <code class="codeph">maa</code> | <code class="codeph">nimbula</code> | <code class="codeph">obiee</code> | <code class="codeph">ovn</code> | <code class="codeph">peoplesoft</code> | <code class="codeph">platinum</code> | <code class="codeph">preinstall</code> | <code class="codeph">prepatch</code> | <code class="codeph">security</code> | <code class="codeph">siebel</code> | <code class="codeph">solaris_cluster</code> | <code class="codeph">storage</code> | <code class="codeph">switch</code> | <code class="codeph">sysadmin</code> | <code class="codeph">timesten</code> | <code class="codeph">user_defined_checks</code> | <code class="codeph">virtual_infra</code>]
+[-check <span class="variable" translate="no">check ids</span> | -excludecheck <span class="variable" translate="no">check ids</span>]
+[-cells <span class="variable" translate="no">cells</span>]
+[-ibswitches <span class="variable" translate="no">switches</span>]
+[-torswitches]
+[-extzfsnodes <span class="variable" translate="no">nodes</span>]
+[-dbserial | -dbparallel [<span class="variable" translate="no">n</span>] | -dbparallelmax | -allserial]
+[-allserial | -dbnodeserial |-cellserial | -switchserial]</code></pre></div>
+               <!-- class="section" -->
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="orachk-exachk-command-line-options.html#GUID-0C6109AE-621C-492C-9E45-460C09F72DD5">Running Generic Oracle ORAchk and Oracle EXAchk Commands</a><br>List of command options common to Oracle ORAchk and Oracle EXAchk.
+                  </li>
+                  <li class="ulchildlink"><a href="orachk-exachk-command-line-options.html#GUID-72F5AC8F-48D3-4553-BF89-F5AF5D794B92">Controlling the Scope of Checks</a><br>Use the list of commands in this section to control the scope of checks.
+                  </li>
+                  <li class="ulchildlink"><a href="orachk-exachk-command-line-options.html#GUID-E136A666-1F99-4618-B758-9B245043B997">Managing the Report Output</a><br>Use the list of commands in this section to manage the report output.
+                  </li>
+                  <li class="ulchildlink"><a href="orachk-exachk-command-line-options.html#GUID-1A0ADE10-0966-4184-AB4F-0022B661C2CD">Uploading Results to Database</a><br>Use the list of commands in this section to upload results to the database.
+                  </li>
+                  <li class="ulchildlink"><a href="orachk-exachk-command-line-options.html#GUID-5B58CE4E-61AF-490A-AB46-BE610C637229">Controlling the Behavior of the Daemon</a><br>Use the list of commands in this section to control the behavior of the daemon.
+                  </li>
+                  <li class="ulchildlink"><a href="orachk-exachk-command-line-options.html#GUID-99E5366A-6CDE-4B72-B96C-227E76B3DA10">Tracking File Attribute Differences</a><br>Use the list of commands in this section to find file attribute differences.
+                  </li>
+                  <li class="ulchildlink"><a href="orachk-exachk-command-line-options.html#GUID-413A8E05-A713-474E-961F-766BBB25A781">Running Oracle Health Check Collections Manager Commands</a><br>List of commands to manage Oracle Health Check Collections Manager.
+                  </li>
+                  <li class="ulchildlink"><a href="orachk-exachk-command-line-options.html#GUID-975506B0-15B0-4796-986D-AA6E62171A15">Command-Line Options to Generate Password Protected Collection zip Files</a><br>Use the list of commands in this section to encrypt and decrypt diagnostic collection <code>zip</code> files.
+                  </li>
+               </ul>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="oracle-orachk-and-exachk-common-features-tasks.html#GUID-50F7EA11-11FD-431C-B99A-EC9E2176BBDB" title="Oracle ORAchk and Oracle EXAchk share a common health check framework and a large portion of their features and tasks are common.">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</a></p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="sect2"><a id="GUID-0C6109AE-621C-492C-9E45-460C09F72DD5" name="GUID-0C6109AE-621C-492C-9E45-460C09F72DD5"></a><h3 id="OEXUG-GUID-0C6109AE-621C-492C-9E45-460C09F72DD5" class="sect3"><span class="enumeration_section">1.8.1 </span>Running Generic Oracle ORAchk and Oracle EXAchk Commands
+               </h3>
+               <div>
+                  <p>List of command options common to Oracle ORAchk and Oracle EXAchk.</p>
+                  <div class="section">
+                     <p class="subhead2" id="GUID-0C6109AE-621C-492C-9E45-460C09F72DD5__GUID-C66E6E16-5574-4CE2-B04A-58572A3578B5">Syntax</p>
+                     <div class="p"><pre class="pre codeblock"><code>[-a] 
+[-v] 
+[-debug] 
+[-nodaemon] 
+[-f] 
+[-upgrade] 
+[-noupgrade] 
+[-testemail all | "NOTIFICATION_EMAIL=<span class="variable" translate="no">comma-delimited list of email addresses</span>"] 
+[-sendemail “NOTIFICATION_EMAIL=<span class="variable" translate="no">comma-delimited list of email addresses</span>"] 
+[-dbserial] 
+[-dbparallel [<span class="variable" translate="no">n</span>]] 
+[-dbparallelmax]</code></pre></div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-0C6109AE-621C-492C-9E45-460C09F72DD5__GUID-65EB221E-FE72-43F5-9FAF-13A1C657B731">Parameters</p>
+                     <div class="tblformal" id="GUID-0C6109AE-621C-492C-9E45-460C09F72DD5__GUID-D24EDE3B-60D2-49D8-B621-68BA48FA4DDD">
+                        <p class="titleintable">Table 1-7 Generic Commands</p>
+                        <table cellpadding="4" cellspacing="0" class="Formal" title="Generic Commands" summary="This table lists and describes generic commands applicable to Oracle ORAchk and Oracle EXAchk." frame="hsides" border="1" rules="rows">
+                           <thead>
+                              <tr align="left" valign="top">
+                                 <th align="left" valign="bottom" width="20%" id="d19749e744">Option</th>
+                                 <th align="left" valign="bottom" width="20%" id="d19749e746">Description</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e750" headers="d19749e744 ">
+                                    <p><code class="codeph">-a</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e750 d19749e746 ">
+                                    <p>Runs all checks, including the best practice checks and the recommended patch check. If you do not specify any options, then the tools run all checks by default.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e758" headers="d19749e744 ">
+                                    <p><code class="codeph">-v</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e758 d19749e746 ">
+                                    <p>Shows the version of Oracle ORAchk and Oracle EXAchk tools.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e766" headers="d19749e744 ">
+                                    <p><code class="codeph">-debug</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e766 d19749e746 ">
+                                    <p>Runs in debug mode.</p>
+                                    <p>The generated <code>.zip</code> file contains a debug log and other files useful for Oracle Support.
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e779" headers="d19749e744 ">
+                                    <p><code class="codeph">-nodaemon</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e779 d19749e746 ">
+                                    <p>Does not send commands to the daemon, usage is interactive.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e787" headers="d19749e744 ">
+                                    <p><code class="codeph">-f</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e787 d19749e746 ">
+                                    <p>Runs Offline. The tools perform health checks on the data already collected from the system.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e795" headers="d19749e744 ">
+                                    <p><code class="codeph">-upgrade</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e795 d19749e746 ">
+                                    <p>Forces an upgrade of the version of the tools being run.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e803" headers="d19749e744 ">
+                                    <p><code class="codeph">-noupgrade</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e803 d19749e746 ">
+                                    <p>Does not prompt for an upgrade if a later version is available under the location specified in the <code class="codeph">RAT_UPGRADE_LOC</code> environment variable.
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e814" headers="d19749e744 ">
+                                    <p><code class="codeph">-testemail all | "NOTIFICATION_EMAIL=<span class="variable" translate="no">comma-delimited list of email addresses</span>"</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e814 d19749e746 ">
+                                    <p>Sends a test email to validate email configuration.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e825" headers="d19749e744 ">
+                                    <p><code class="codeph">-sendemail “NOTIFICATION_EMAIL=<span class="variable" translate="no">comma-delimited list of email addresses</span>"</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e825 d19749e746 ">
+                                    <p>Specify a comma-delimited list of email addresses.</p>
+                                    <p>Emails the generated HTML report on completion to the specified email addresses.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e838" headers="d19749e744 ">
+                                    <p><code class="codeph">-dbserial</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e838 d19749e746 ">
+                                    <p>Runs the <code class="codeph">SQL</code>, <code class="codeph">SQL_COLLECT</code>, and <code class="codeph">OS</code> health checks in serial.
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e855" headers="d19749e744 ">
+                                    <p><code class="codeph">-dbparallel [<span class="variable" translate="no">n</span>]</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e855 d19749e746 ">
+                                    <p>Runs the <code class="codeph">SQL</code>, <code class="codeph">SQL_COLLECT</code>, and <code class="codeph">OS</code> health checks in parallel, using <span class="variable" translate="no">n</span> number of child processes.
+                                    </p>
+                                    <p>Default is 25% of CPUs.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e881" headers="d19749e744 ">
+                                    <p><code class="codeph">-dbparallelmax</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e881 d19749e746 ">
+                                    <p>Runs the <code class="codeph">SQL</code>, <code class="codeph">SQL_COLLECT</code>, and <code class="codeph">OS</code> health checks in parallel, using the maximum number of child processes.
+                                    </p>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- class="inftblhruleinformal" -->
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="orachk-exachk-command-line-options.html#GUID-775DBBA4-8A14-4EC0-9EB1-C3174929DAED" title="Most command-line options apply to both Oracle ORAchk and Oracle EXAchk.">Oracle ORAchk and Oracle EXAchk Command-Line Options</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-72F5AC8F-48D3-4553-BF89-F5AF5D794B92" name="GUID-72F5AC8F-48D3-4553-BF89-F5AF5D794B92"></a><h3 id="OEXUG-GUID-72F5AC8F-48D3-4553-BF89-F5AF5D794B92" class="sect3"><span class="enumeration_section">1.8.2 </span>Controlling the Scope of Checks
+               </h3>
+               <div>
+                  <p>Use the list of commands in this section to control the scope of checks.</p>
+                  <div class="section">
+                     <p class="subhead2" id="GUID-72F5AC8F-48D3-4553-BF89-F5AF5D794B92__GUID-A2622C5F-323E-47EB-83A9-A40803FBCC8E">Syntax</p>
+                     <div class="p"><pre class="pre codeblock"><code>[-b] 
+[-p] 
+[-m] 
+[-u &#x2013;o pre] 
+[-u &#x2013;o post] 
+[-clusternodes <span class="variable" translate="no">nodes</span>] 
+[-failedchecks <span class="variable" translate="no">previous_result</span>]
+[-nordbms]
+[-dbnames <span class="variable" translate="no">db_names</span>] 
+[-dbnone] 
+[-dball] 
+[-localonly] 
+[-cells <span class="variable" translate="no">cells</span>]
+[-ibswitches <span class="variable" translate="no">switches</span>] 
+[-profile <span class="variable" translate="no">profile</span>] 
+[-excludeprofile <span class="variable" translate="no">profile</span>] 
+[-check <span class="variable" translate="no">check_id</span>] 
+[-excludecheck <span class="variable" translate="no">check_id</span>] 
+[-skip_usr_def_checks]</code></pre></div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-72F5AC8F-48D3-4553-BF89-F5AF5D794B92__GUID-2D60D4D3-62B3-49C0-AEC4-F08BECCFB85E">Parameters</p>
+                     <div class="tblformal" id="GUID-72F5AC8F-48D3-4553-BF89-F5AF5D794B92__GUID-9204646B-B79B-4C8B-B0CD-A2DF1BC13662">
+                        <p class="titleintable">Table 1-8 Scope of Checks</p>
+                        <table cellpadding="4" cellspacing="0" class="Formal" title="Scope of Checks" summary="This table lists and describes commands to control scope of checks." frame="hsides" border="1" rules="rows">
+                           <thead>
+                              <tr align="left" valign="top">
+                                 <th align="left" valign="bottom" width="20%" id="d19749e972">Command</th>
+                                 <th align="left" valign="bottom" width="20%" id="d19749e974">Description</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e978" headers="d19749e972 ">
+                                    <p><code class="codeph">-b</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e978 d19749e974 ">
+                                    <p>Runs only the best practice checks.</p>
+                                    <p>Does not run the recommended patch checks.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e988" headers="d19749e972 ">
+                                    <p><code class="codeph">-p</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e988 d19749e974 ">
+                                    <p>Runs only the patch checks.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e996" headers="d19749e972 ">
+                                    <p><code class="codeph">-m</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e996 d19749e974 ">
+                                    <p>Excludes the checks for Maximum Availability Architecture (MAA) scorecards.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1004" headers="d19749e972 ">
+                                    <p><code class="codeph">-u &#x2013;o pre</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1004 d19749e974 ">
+                                    <p>Runs the pre-upgrade checks for Oracle Clusterware and database.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1012" headers="d19749e972 ">
+                                    <p><code class="codeph">-u &#x2013;o post</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1012 d19749e974 ">
+                                    <p>Runs the post-upgrade checks for Oracle Clusterware and database.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1020" headers="d19749e972 ">
+                                    <p><code class="codeph">-clusternodes <span class="variable" translate="no">nodes</span></code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1020 d19749e974 ">
+                                    <p>Specify a comma-delimited list of node names to run only on a subset of nodes.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1030" headers="d19749e972 ">
+                                    <p><code class="codeph">-failedchecks <span class="variable" translate="no">previous_result</span></code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1030 d19749e974 ">
+                                    <p>Runs only checks from the <span class="variable" translate="no">presious_result</span>, which had failed.
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1043" headers="d19749e972 ">
+                                    <p><code class="codeph">-nordbms</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1043 d19749e974 ">
+                                    <p>Runs Oracle Grid Infrastructure checks only in environments with no Oracle Database checks performed.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1051" headers="d19749e972 ">
+                                    <p><code class="codeph">-dbnames <span class="variable" translate="no">db_names</span></code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1051 d19749e974 ">
+                                    <p>Specify a comma-delimited list of database names to run only on a subset of databases.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1061" headers="d19749e972 ">
+                                    <p><code class="codeph">-dbnone</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1061 d19749e974 ">
+                                    <p>Does not prompt for database selection and skips all the database checks.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1069" headers="d19749e972 ">
+                                    <p><code class="codeph">-dball</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1069 d19749e974 ">
+                                    <p>Does not prompt for database selection and runs the database checks on all databases discovered on the system.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1078" headers="d19749e972 ">
+                                    <p><code class="codeph">-localonly</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1078 d19749e974 ">
+                                    <p>Runs only on the local node.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1086" headers="d19749e972 ">
+                                    <p><code class="codeph">-cells <span class="variable" translate="no">cells</span></code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1086 d19749e974 ">
+                                    <p>Specify a comma-delimited list of storage server names to run the checks only on a subset of storage servers.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1096" headers="d19749e972 ">
+                                    <p><code class="codeph">-ibswitches <span class="variable" translate="no">switches</span></code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1096 d19749e974 ">
+                                    <p>Specify a comma-delimited list of InfiniBand switch names to run the checks only on a subset of InfiniBand switches.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1106" headers="d19749e972 ">
+                                    <p><code class="codeph">-profile <span class="variable" translate="no">profile</span></code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1106 d19749e974 ">
+                                    <p>Specify a comma-delimited list of profiles to run only the checks in the specified profiles.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1116" headers="d19749e972 ">
+                                    <p><code class="codeph">-excludeprofile <span class="variable" translate="no">profile</span></code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1116 d19749e974 ">
+                                    <p>Specify a comma-delimited list of profiles to exclude the checks in the specified profiles.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1126" headers="d19749e972 ">
+                                    <p><code class="codeph">-check <span class="variable" translate="no">check_id</span></code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1126 d19749e974 ">
+                                    <p>Specify a comma-delimited list of check IDs to run only the checks specified in the list check IDs.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1136" headers="d19749e972 ">
+                                    <p><code class="codeph">-excludecheck <span class="variable" translate="no">check_id</span></code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1136 d19749e974 ">
+                                    <p>Specify a comma-delimited list of check IDs to exclude the checks specified in the list of check IDs.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1146" headers="d19749e972 ">
+                                    <p><code class="codeph">-skip_usr_def_checks</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1146 d19749e974 ">
+                                    <p>Does not run the checks specified in the user-defined <code>xml</code> file.
+                                    </p>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- class="inftblhruleinformal" -->
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="running-subsets-of-checks.html#GUID-8DBDDDDE-778A-4D9B-9295-47BC04614839" title="During your pre-upgrade planning phase, run Oracle ORAchk and Oracle EXAchk in pre-upgrade mode as the Oracle Database owner or as root.">Oracle Clusterware and Oracle Database Pre-Upgrade Checks</a></li>
+                        <li><a href="running-subsets-of-checks.html#GUID-7B1DAAE8-52E2-4426-95F2-5C93502875CE" title="After performing the upgrade, you can run in post-upgrade mode as the Oracle Database software owner or root to see further recommendations.">Oracle Clusterware and Oracle Database Post-Upgrade Checks</a></li>
+                        <li><a href="running-subsets-of-checks.html#GUID-9DC5E577-0BDF-4F3E-BF68-9C7A5DFC9068" title="During Oracle ORAchk and Oracle EXAchk system checks, all Oracle database logins are performed by using local connections.">Running Database Checks</a></li>
+                        <li><a href="running-subsets-of-checks.html#GUID-F5C27C32-DA25-445C-9325-447091388F14" title="Limit the scope of health checks to a subset of switches by using the &#x2013;ibswitches switch option.">Running Switch Checks</a></li>
+                        <li><a href="running-subsets-of-checks.html#GUID-3C0AA9D4-CA39-4BA6-9605-70D157E54A52" title="Limit the scope of health checks to a subset of storage servers by using the&nbsp;&#x2013;cell cell option.">Running Cell Checks</a></li>
+                        <li><a href="running-subsets-of-checks.html#GUID-02206759-2685-4924-BFC2-6D412D0C1AE3" title="Profiles are logical groupings of related checks. These related checks are grouped by a particular role, a task, or a technology.">Using Profiles with Oracle ORAchk and Oracle EXAchk</a></li>
+                        <li><a href="running-subsets-of-checks.html#GUID-5F06CF02-13C3-4CAE-89AD-6D4D1EB07720" title="Excluding checks is recommended in situations where you have reviewed all check output and determined a particular check is not relevant for some particular business reason.">Excluding Individual Checks</a></li>
+                        <li><a href="running-subsets-of-checks.html#GUID-A5933B43-4E68-410B-8893-33B2B886A29F" title="There are times when you may want to run only specific checks.">Running Individual Checks</a></li>
+                        <li><a href="collection-manager.html#GUID-8F0EC9D7-AE07-4C63-B902-F2DF83FB0CC3" title="Define, test, and maintain your own checks that are specific to your environment.">Authoring User-Defined Checks</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="orachk-exachk-command-line-options.html#GUID-775DBBA4-8A14-4EC0-9EB1-C3174929DAED" title="Most command-line options apply to both Oracle ORAchk and Oracle EXAchk.">Oracle ORAchk and Oracle EXAchk Command-Line Options</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-E136A666-1F99-4618-B758-9B245043B997" name="GUID-E136A666-1F99-4618-B758-9B245043B997"></a><h3 id="OEXUG-GUID-E136A666-1F99-4618-B758-9B245043B997" class="sect3"><span class="enumeration_section">1.8.3 </span>Managing the Report Output
+               </h3>
+               <div>
+                  <p>Use the list of commands in this section to manage the report output.</p>
+                  <div class="section">
+                     <p class="subhead2" id="GUID-E136A666-1F99-4618-B758-9B245043B997__GUID-6683B9F3-656E-4E9B-9807-E90010D8C258">Syntax</p>
+                     <div class="p"><pre class="pre codeblock"><code>[-syslog] [-tag <span class="variable" translate="no">tagname</span>] 
+[-o] 
+[-nopass] 
+[-noscore] 
+[-diff <span class="variable" translate="no">old_report</span> <span class="variable" translate="no">new_report</span> [-outfile <span class="variable" translate="no">output_HTML</span>]] 
+[-merge [-force] <span class="variable" translate="no">collections</span>]</code></pre></div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-E136A666-1F99-4618-B758-9B245043B997__GUID-DB2D18F3-77FC-4F16-8491-196F3712FEDC">Parameters</p>
+                     <div class="tblformal" id="GUID-E136A666-1F99-4618-B758-9B245043B997__GUID-AAEDB4ED-F40E-4C52-A5BE-95D37DFDDA8E">
+                        <p class="titleintable">Table 1-9 Managing Output</p>
+                        <table cellpadding="4" cellspacing="0" class="Formal" title="Managing Output" summary="This table lists and describes commands to manage report output." frame="hsides" border="1" rules="rows">
+                           <thead>
+                              <tr align="left" valign="top">
+                                 <th align="left" valign="bottom" width="20%" id="d19749e1306">Option</th>
+                                 <th align="left" valign="bottom" width="20%" id="d19749e1308">Description</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1312" headers="d19749e1306 ">
+                                    <p><code class="codeph">-syslog</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1312 d19749e1308 ">
+                                    <p>Writes JSON results to syslog.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1320" headers="d19749e1306 ">
+                                    <p><code class="codeph">-tag <span class="variable" translate="no">tagname</span></code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1320 d19749e1308 ">
+                                    <p>Appends the <code class="codeph"><span class="variable" translate="no">tagname</span></code> specified to the output report name.
+                                    </p>
+                                    <p>The <code class="codeph"><span class="variable" translate="no">tagname</span></code> must contain only alphanumeric characters.
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1340" headers="d19749e1306 ">
+                                    <p><code class="codeph">-o</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1340 d19749e1308 ">
+                                    <p>Argument to an option.</p>
+                                    <p>If <code class="codeph">-o</code> is followed by <code class="codeph">v</code>, (or <code class="codeph">verbose</code>, and neither option is case-sensitive), then the command prints passed checks on the screen.
+                                    </p>
+                                    <p>If the <code class="codeph">-o</code> option is not specified, then the command prints only the failed checks on the screen.
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1364" headers="d19749e1306 ">
+                                    <p><code class="codeph">-nopass</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1364 d19749e1308 ">
+                                    <p>Does not show passed checks in the generated output.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1372" headers="d19749e1306 ">
+                                    <p><code class="codeph">-noscore</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1372 d19749e1308 ">
+                                    <p>Does not print health score in the HTML report.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1380" headers="d19749e1306 ">
+                                    <p><code class="codeph">-diff <span class="variable" translate="no">old_report</span> <span class="variable" translate="no">new_report</span> [-outfile <span class="variable" translate="no">output_HTML</span>]</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1380 d19749e1308 ">
+                                    <p>Reports the difference between the two HTML reports.</p>
+                                    <p>Specify a directory name or a ZIP file or an HTML report file as <code class="codeph"><span class="variable" translate="no">old_report</span></code> and <code class="codeph"><span class="variable" translate="no">new_report</span></code>.
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1407" headers="d19749e1306 ">
+                                    <p><code class="codeph">-merge [-force] <span class="variable" translate="no">collections</span></code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1407 d19749e1308 ">
+                                    <p>Merges a comma-delimited list of collections and prepares a single report.</p>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- class="inftblhruleinformal" -->
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="understanding-and-managing-reports-and-output.html#GUID-08E86872-4F50-48BF-9AE3-C052B79B7B9C" title="The health check HTML report is typically named: orachk_hostname_database_date_timestamp.html or exachk_hostname_database_date_timestamp.html.">Tagging Reports</a></li>
+                        <li><a href="understanding-and-managing-reports-and-output.html#GUID-D39A97FB-8185-43EC-9F56-D0663201EF68" title="Oracle ORAchk and Oracle EXAchk automatically compare the two most recent HTML reports and generate a third diff report, when run in automated daemon mode.">Comparing Two Reports</a></li>
+                        <li><a href="understanding-and-managing-reports-and-output.html#GUID-B9A0B0B7-B4DC-4102-B537-CE241D8E364C" title="Merging reports is useful in role-separated environments where different users are run different subsets of checks and then you want to view everything as a whole.">Merging Reports</a></li>
+                        <li><a href="integration-with-other-tools.html#GUID-0FB4466E-BE02-4D0B-BDC0-376BA03F5F59" title="Integrate health check results from Oracle ORAchk and Oracle EXAchk into various third-party log monitoring and analytics tools, such as Elasticsearch and Kibana.">Integrating Health Check Results with Third-Party Tool</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="orachk-exachk-command-line-options.html#GUID-775DBBA4-8A14-4EC0-9EB1-C3174929DAED" title="Most command-line options apply to both Oracle ORAchk and Oracle EXAchk.">Oracle ORAchk and Oracle EXAchk Command-Line Options</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-1A0ADE10-0966-4184-AB4F-0022B661C2CD" name="GUID-1A0ADE10-0966-4184-AB4F-0022B661C2CD"></a><h3 id="OEXUG-GUID-1A0ADE10-0966-4184-AB4F-0022B661C2CD" class="sect3"><span class="enumeration_section">1.8.4 </span>Uploading Results to Database
+               </h3>
+               <div>
+                  <p>Use the list of commands in this section to upload results to the database.</p>
+                  <div class="section">
+                     <p class="subhead2" id="GUID-1A0ADE10-0966-4184-AB4F-0022B661C2CD__GUID-8C00B5C9-9351-44D5-B7A3-003E3A55168A">Syntax</p><pre class="pre codeblock"><code>[-setdbupload all|<span class="variable" translate="no">list of variable names</span>] 
+[-unsetdbupload all|<span class="variable" translate="no">list of variable names</span>] 
+[-checkdbupload] 
+[-getdbupload] 
+[-checkfaileduploads] 
+[-uploadfailed all|<span class="variable" translate="no">list of failed collections</span>]</code></pre></div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-1A0ADE10-0966-4184-AB4F-0022B661C2CD__GUID-97699F2E-923B-4D91-9213-B948F5F97F3E">Parameters</p>
+                     <div class="tblformal" id="GUID-1A0ADE10-0966-4184-AB4F-0022B661C2CD__GUID-4AB30C0F-AD12-4EFC-A0DB-F480F27A016A">
+                        <p class="titleintable">Table 1-10 Uploading Results to Database</p>
+                        <table cellpadding="4" cellspacing="0" class="Formal" title="Uploading Results to Database" summary="This table lists and describes command to upload health check results to the database." frame="hsides" border="1" rules="rows">
+                           <thead>
+                              <tr align="left" valign="top">
+                                 <th align="left" valign="bottom" width="20%" id="d19749e1533">Option</th>
+                                 <th align="left" valign="bottom" width="20%" id="d19749e1535">Description</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1539" headers="d19749e1533 ">
+                                    <p><code class="codeph">-setdbupload all|<span class="variable" translate="no">variable_names</span></code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1539 d19749e1535 ">
+                                    <p>Sets the values in the wallet to upload health check run results to the database. </p>
+                                    <p><code class="codeph">all</code>: Sets all the variables in the wallet.
+                                    </p>
+                                    <p><span class="variable" translate="no">variable_names</span>: Specify a comma-delimited list of variables to set.
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1557" headers="d19749e1533 ">
+                                    <p><code class="codeph">-unsetdbupload all|<span class="variable" translate="no">variable_names</span></code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1557 d19749e1535 ">
+                                    <p>Unsets the values in the wallet to upload health check run results to the database. </p>
+                                    <p><code class="codeph">all</code>: Unsets all the variables in the wallet.
+                                    </p>
+                                    <p><span class="variable" translate="no">variable_names</span>: Specify a comma-delimited list of variables to unset.
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1575" headers="d19749e1533 ">
+                                    <p><code class="codeph">-checkdbupload</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1575 d19749e1535 ">
+                                    <p>Checks if the variables are set correctly for uploading the health check run results to the database.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1583" headers="d19749e1533 ">
+                                    <p><code class="codeph">-getdbupload</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1583 d19749e1535 ">
+                                    <p>Prints the variables with their values from wallet for uploading the health check run result to the database.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1591" headers="d19749e1533 ">
+                                    <p><code class="codeph">-checkfaileduploads</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1591 d19749e1535 ">
+                                    <p>Reports any failed collection uploads.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1599" headers="d19749e1533 ">
+                                    <p><code class="codeph">-uploadfailed all|<span class="variable" translate="no">list of failed collections</span></code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1599 d19749e1535 ">
+                                    <p>Reattempts to upload one or more failed collection uploads.</p>
+                                    <p><code class="codeph">all</code>: Reattempts to upload all the filed collection uploads.
+                                    </p>
+                                    <p><span class="variable" translate="no">list of failed collections</span>: Specify a comma-delimited list of collections to upload.
+                                    </p>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- class="inftblhruleinformal" -->
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="integration-with-other-tools.html#GUID-472B6261-B57B-43B8-9E0D-E1091324A398" title="Oracle ORAchk and Oracle EXAchk upload collection results from multiple instances into a single database for easier consumption of check results across your enterprise.">Integrating Health Check Results with Custom Application</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="orachk-exachk-command-line-options.html#GUID-775DBBA4-8A14-4EC0-9EB1-C3174929DAED" title="Most command-line options apply to both Oracle ORAchk and Oracle EXAchk.">Oracle ORAchk and Oracle EXAchk Command-Line Options</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-5B58CE4E-61AF-490A-AB46-BE610C637229" name="GUID-5B58CE4E-61AF-490A-AB46-BE610C637229"></a><h3 id="OEXUG-GUID-5B58CE4E-61AF-490A-AB46-BE610C637229" class="sect3"><span class="enumeration_section">1.8.5 </span>Controlling the Behavior of the Daemon
+               </h3>
+               <div>
+                  <p>Use the list of commands in this section to control the behavior of the daemon.</p>
+                  <div class="section">
+                     <p class="subhead2" id="GUID-5B58CE4E-61AF-490A-AB46-BE610C637229__GUID-9507DAAC-CBAE-43EE-A301-98ACCB882648">Syntax</p><pre class="pre codeblock"><code>[-id <span class="variable" translate="no">id</span>] &#x2013;set <span class="variable" translate="no">daemon_option</span>
+[-id <span class="variable" translate="no">id</span>] -unset <span class="variable" translate="no">daemon_option</span> | all
+[-id <span class="variable" translate="no">id</span>] -get <span class="variable" translate="no">parameter</span> | all
+[-d start]
+[-d start -debug]
+[-d stop]
+[-d stop_client]
+[-d status]
+[-d info]
+[-id <span class="variable" translate="no">id</span>] -d nextautorun
+[-initsetup]
+[-initrmsetup]
+[-initcheck]
+</code></pre></div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-5B58CE4E-61AF-490A-AB46-BE610C637229__GUID-C09BA601-64E1-47B3-A2F0-B4531D848345">Parameters</p>
+                     <div class="tblformal" id="GUID-5B58CE4E-61AF-490A-AB46-BE610C637229__GUID-16EEAE72-577B-4A7D-A22F-922C427302F7">
+                        <p class="titleintable">Table 1-11 Daemon Options</p>
+                        <table cellpadding="4" cellspacing="0" class="Formal" title="Daemon Options" summary="This table lists and describes the commands to control the behavior of the daemon." frame="hsides" border="1" rules="rows">
+                           <thead>
+                              <tr align="left" valign="top">
+                                 <th align="left" valign="bottom" width="20%" id="d19749e1693">Option</th>
+                                 <th align="left" valign="bottom" width="20%" id="d19749e1695">Description</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1699" headers="d19749e1693 ">
+                                    <p><code class="codeph">[-id <span class="variable" translate="no">id</span>] &#x2013;set <span class="variable" translate="no">daemon_option</span></code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1699 d19749e1695 ">
+                                    <p>Optionally use <code class="codeph">id</code> with the <code class="codeph">set</code> command to set specific daemon usage profiles.
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1718" headers="d19749e1693 ">
+                                    <p><code class="codeph">[-id <span class="variable" translate="no">id</span>] -unset <span class="variable" translate="no">daemon_option</span> | all</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1718 d19749e1695 ">
+                                    <p>Unsets the parameter.</p>
+                                    <p>Use with <code class="codeph">&#x2013;id <span class="variable" translate="no">id</span></code> to set a daemon profile-specific value.
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1739" headers="d19749e1693 ">
+                                    <p><code class="codeph">[-id <span class="variable" translate="no">id</span>] -get <span class="variable" translate="no">parameter</span> | all</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1739 d19749e1695 ">
+                                    <p>Displays the value of the specified parameter or all the parameters.</p>
+                                    <p>Use with <code class="codeph">&#x2013;id <span class="variable" translate="no">id</span></code> to set a daemon profile-specific value.
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1760" headers="d19749e1693 ">
+                                    <p><code class="codeph">-d start</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1760 d19749e1695 ">
+                                    <p>Starts the daemon.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1768" headers="d19749e1693 ">
+                                    <p><code class="codeph">-d start —debug</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1768 d19749e1695 ">
+                                    <p>Starts the daemon in debug mode.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1776" headers="d19749e1693 ">
+                                    <p><code class="codeph">-d stop</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1776 d19749e1695 ">
+                                    <p>Stops the daemon.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1784" headers="d19749e1693 ">
+                                    <p><code class="codeph">-d stop_client</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1784 d19749e1695 ">
+                                    <p>Forces a running daemon client to stop.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1792" headers="d19749e1693 ">
+                                    <p><code class="codeph">-d status</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1792 d19749e1695 ">
+                                    <p>Checks the current status of the daemon.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1800" headers="d19749e1693 ">
+                                    <p><code class="codeph">-d info</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1800 d19749e1695 ">
+                                    <p>Displays details about the daemon.</p>
+                                    <p>The details include installation and when the daemon was started.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1810" headers="d19749e1693 ">
+                                    <p><code class="codeph">[-id <span class="variable" translate="no">id</span>] -d nextautorun</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1810 d19749e1695 ">
+                                    <p>Displays details about when the next scheduled automatic run occurs.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1821" headers="d19749e1693 ">
+                                    <p><code class="codeph">-initsetup</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1821 d19749e1695 ">
+                                    <p>Sets the daemon auto restart function that starts the daemon when the node starts.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1830" headers="d19749e1693 ">
+                                    <p><code class="codeph">-initrmsetup</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1830 d19749e1695 ">
+                                    <p>Removes the automatic restart functionality.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1838" headers="d19749e1693 ">
+                                    <p><code class="codeph">-initcheck</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1838 d19749e1695 ">
+                                    <p>Checks if the automatic restart functionality is set up.</p>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- class="inftblhruleinformal" -->
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="automated-daemon-mode-operation.html#GUID-2C32CB18-C837-40E8-AB6E-1FC6672A83E8" title="Oracle recommends that you use the daemon process to schedule recurring health checks at regular intervals.">Using Oracle ORAchk and Oracle EXAchk to Automatically Check for Risks and System Health</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="orachk-exachk-command-line-options.html#GUID-775DBBA4-8A14-4EC0-9EB1-C3174929DAED" title="Most command-line options apply to both Oracle ORAchk and Oracle EXAchk.">Oracle ORAchk and Oracle EXAchk Command-Line Options</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-99E5366A-6CDE-4B72-B96C-227E76B3DA10" name="GUID-99E5366A-6CDE-4B72-B96C-227E76B3DA10"></a><h3 id="OEXUG-GUID-99E5366A-6CDE-4B72-B96C-227E76B3DA10" class="sect3"><span class="enumeration_section">1.8.6 </span>Tracking File Attribute Differences
+               </h3>
+               <div>
+                  <p>Use the list of commands in this section to find file attribute differences.</p>
+                  <div class="section">
+                     <p class="subhead2" id="GUID-99E5366A-6CDE-4B72-B96C-227E76B3DA10__GUID-F622C3E6-9E02-407D-8DAF-CCF990B2CA07">Parameters</p>
+                     <div class="tblformal" id="GUID-99E5366A-6CDE-4B72-B96C-227E76B3DA10__GUID-255B908B-2D83-4E25-AEB1-37D5EFE95E8D">
+                        <p class="titleintable">Table 1-12 File Attribute Differences</p>
+                        <table cellpadding="4" cellspacing="0" class="Formal" title="File Attribute Differences" summary="This table lists and describes commands to find file attribute differences." frame="hsides" border="1" rules="rows">
+                           <thead>
+                              <tr align="left" valign="top">
+                                 <th align="left" valign="bottom" width="20%" id="d19749e1894">Option</th>
+                                 <th align="left" valign="bottom" width="20%" id="d19749e1896">Description</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1900" headers="d19749e1894 ">
+                                    <p><code class="codeph">-fileattr start</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1900 d19749e1896 ">
+                                    <p>Takes file attributes snapshot of discovered directories and stores the snapshot in the output directory.</p>
+                                    <p>By default, the tool takes snapshot of Oracle Grid Infrastructure home and all the installed database homes.</p>
+                                    <p>If the user doesn't own a particular directory, then the tool does not take snapshot of the directory.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1912" headers="d19749e1894 ">
+                                    <p><code class="codeph">-fileattr check</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1912 d19749e1896 ">
+                                    <p>Takes a recent snapshot of discovered directories and compares with the previous snapshot</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1920" headers="d19749e1894 ">
+                                    <p><code class="codeph">-fileattr remove</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1920 d19749e1896 ">
+                                    <p>Removes the file attribute snapshots and related files.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1928" headers="d19749e1894 ">
+                                    <p><code class="codeph">-fileattr [start|check] -includedir <span class="variable" translate="no">directories</span></code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1928 d19749e1896 ">
+                                    <p>Includes the directories specified at the command-line to check file attributes.</p>
+                                    <div class="p">For example:<pre class="pre codeblock"><code>./orachk -fileattr start -includedir "/root/home,/etc"
+./orachk -fileattr check -includedir "/root/home,/etc"
+</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1942" headers="d19749e1894 ">
+                                    <p><code class="codeph">-fileattr [start|check] -excludediscovery</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1942 d19749e1896 ">
+                                    <p>Excludes the discovered directories.</p>
+                                    <div class="p"><pre class="pre codeblock"><code>./orachk -fileattr start -includedir "/root/home,/etc" -excludediscovery</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1953" headers="d19749e1894 ">
+                                    <p><code class="codeph">-fileattr check -baseline <span class="variable" translate="no">baseline snapshot path</span></code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1953 d19749e1896 ">
+                                    <p>For example:</p>
+                                    <div class="p"><pre class="pre codeblock"><code>./orachk -fileattr check -baseline "/tmp/Snapshot"</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d19749e1966" headers="d19749e1894 ">
+                                    <p><code class="codeph">-fileattr -check -fileattronly</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d19749e1966 d19749e1896 ">
+                                    <p>Performs file attributes check and exits ORAchk.</p>
+                                    <div class="p"><pre class="pre codeblock"><code>./orachk -fileattr check -fileattronly</code></pre></div>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- class="inftblhruleinformal" -->
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="orachk-exachk-command-line-options.html#GUID-775DBBA4-8A14-4EC0-9EB1-C3174929DAED" title="Most command-line options apply to both Oracle ORAchk and Oracle EXAchk.">Oracle ORAchk and Oracle EXAchk Command-Line Options</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-413A8E05-A713-474E-961F-766BBB25A781" name="GUID-413A8E05-A713-474E-961F-766BBB25A781"></a><h3 id="OEXUG-GUID-413A8E05-A713-474E-961F-766BBB25A781" class="sect3"><span class="enumeration_section">1.8.7 </span>Running Oracle Health Check Collections Manager Commands
+               </h3>
+               <div>
+                  <p>List of commands to manage Oracle Health Check Collections Manager.</p>
+                  <div class="tblformal" id="GUID-413A8E05-A713-474E-961F-766BBB25A781__GUID-B936338A-5165-4175-95E4-6E7467DB38AF">
+                     <p class="titleintable">Table 1-13 Oracle Health Check Collections Manager Commands</p>
+                     <table cellpadding="4" cellspacing="0" class="Formal" title="Oracle Health Check Collections Manager Commands" summary="This table lists and describes command options to manage Oracle Health Check Collections Manager." frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" width="20%" id="d19749e2013">Command</th>
+                              <th align="left" valign="bottom" width="20%" id="d19749e2015">Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d19749e2019" headers="d19749e2013 ">
+                                 <p><code class="codeph">./orachk &#x2013;cmupgrade</code></p>
+                                 <p>Or</p>
+                                 <p><code class="codeph">./exachk &#x2013;cmupgrade</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d19749e2019 d19749e2015 ">
+                                 <p>Upgrades Oracle Health Check Collections Manager from Oracle ORAchk or Oracle EXAchk.</p>
+                                 <p>Oracle Health Check Collections Manager upgrades to the latest version of whichever application your database supports.</p>
+                                 <p>You get the new theme interface only if you have APEX 5.</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="orachk-exachk-command-line-options.html#GUID-775DBBA4-8A14-4EC0-9EB1-C3174929DAED" title="Most command-line options apply to both Oracle ORAchk and Oracle EXAchk.">Oracle ORAchk and Oracle EXAchk Command-Line Options</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-975506B0-15B0-4796-986D-AA6E62171A15" name="GUID-975506B0-15B0-4796-986D-AA6E62171A15"></a><h3 id="OEXUG-GUID-975506B0-15B0-4796-986D-AA6E62171A15" class="sect3"><span class="enumeration_section">1.8.8 </span>Command-Line Options to Generate Password Protected Collection zip Files
+               </h3>
+               <div>
+                  <p>Use the list of commands in this section to encrypt and decrypt diagnostic collection <code>zip</code> files.
+                  </p>
+                  <div class="tblformal" id="GUID-975506B0-15B0-4796-986D-AA6E62171A15__GUID-255B908B-2D83-4E25-AEB1-37D5EFE95E8D">
+                     <p class="titleintable">Table 1-14 Encrypt and Decrypt Diagnostic Collection zip Files</p>
+                     <table cellpadding="4" cellspacing="0" class="Formal" title="Encrypt and Decrypt Diagnostic Collection zip Files" summary="This table lists and describes commands to encrypt and decrypt diagnostic collection zip files." frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" width="20%" id="d19749e2076">Option</th>
+                              <th align="left" valign="bottom" width="20%" id="d19749e2078">Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d19749e2082" headers="d19749e2076 ">
+                                 <p><code class="codeph">./orachk &#x2013;d start &#x2013;encryptzip</code></p>
+                                 <p><code class="codeph">./exachk &#x2013;d start &#x2013;encryptzip</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d19749e2082 d19749e2078 ">
+                                 <p>Starts the daemon with <code class="codeph">&#x2013;encryptzip</code> option.
+                                 </p>
+                                 <p>The daemon prompts for a password when it starts. The daemon then encrypts the subsequent on-demand and scheduled runs collections with that password.</p>
+                                 <div class="p">
+                                    <div class="infoboxnote" id="GUID-975506B0-15B0-4796-986D-AA6E62171A15__GUID-7C9B92A3-EDCC-4A29-9FD2-82BE5C9D4507">
+                                       <p class="notep1">Note:</p>
+                                       <p>When <code class="codeph">-encryptzip</code> is passed, Oracle ORAchk and Oracle EXAchk after successfully encrypting the diagnostic collection <code>zip</code> file delete the collections directory.
+                                       </p>
+                                    </div>
+                                 </div>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d19749e2108" headers="d19749e2076 ">
+                                 <p><code class="codeph">./orachk [-option <span class="variable" translate="no">value</span>] -encryptzip</code></p>
+                                 <p><code class="codeph">./exachk [-option <span class="variable" translate="no">value</span>] -encryptzip</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d19749e2108 d19749e2078 ">
+                                 <p>Encrypts the run result.</p>
+                                 <p>Prompts for the password, and encrypts the collections created at the end of the run with that password.</p>
+                                 <p>You can use <code class="codeph">-encryptzip</code> with other Oracle ORAchk and Oracle EXAchk options that generate a collection.
+                                 </p>
+                                 <div class="p">For example:<pre class="pre codeblock"><code>./orachk -profile <span class="variable" translate="no">profile-name</span> -encryptzip
+./orachk -profile <span class="variable" translate="no">sysadmin</span> -encryptzip</code></pre><pre class="pre codeblock"><code>./orachk -check <span class="variable" translate="no">check-id</span> -encryptzip
+./orachk -check <span class="variable" translate="no">D47661C55B1A291AE0431EC0E50A5C53</span> -encryptzip</code></pre></div>
+                                 <div class="p">
+                                    <div class="infoboxnote" id="GUID-975506B0-15B0-4796-986D-AA6E62171A15__GUID-68E2CF94-3C22-4EEA-88CE-4475916F34FD">
+                                       <p class="notep1">Note:</p>
+                                       <p>When <code class="codeph">-encryptzip</code> is passed, Oracle ORAchk and Oracle EXAchk after successfully encrypting the diagnostic collection <code>zip</code> file delete the collections directory.
+                                       </p>
+                                    </div>
+                                 </div>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d19749e2160" headers="d19749e2076 ">
+                                 <p><code class="codeph">./orachk &#x2013;encryptzip <span class="variable" translate="no">zip_file</span></code></p>
+                                 <p><code class="codeph">./exachk &#x2013;encryptzip <span class="variable" translate="no">zip_file</span></code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d19749e2160 d19749e2078 ">
+                                 <p>Encrypts the already generated collection.</p>
+                                 <p>Prompts for the password, encrypts the zip file specified with that password, and then renames the collections as, for example, <code class="codeph">orachk_<span class="variable" translate="no">host</span>_<span class="variable" translate="no">db</span>_encrypted_<span class="variable" translate="no">date</span>_<span class="variable" translate="no">time</span>.zip</code>.
+                                 </p>
+                                 <div class="p">
+                                    <div class="infoboxnote" id="GUID-975506B0-15B0-4796-986D-AA6E62171A15__GUID-243F79D5-E016-4207-8088-C1F4AFF94235">
+                                       <p class="notep1">Note:</p>
+                                       <p>When <code class="codeph">-encryptzip</code> is passed, Oracle ORAchk and Oracle EXAchk after successfully encrypting the diagnostic collection <code>zip</code> file delete the collections directory.
+                                       </p>
+                                    </div>
+                                 </div>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d19749e2202" headers="d19749e2076 ">
+                                 <p><code class="codeph">./orachk &#x2013;decryptzip <span class="variable" translate="no">zip_file</span></code></p>
+                                 <p><code class="codeph">./exachk &#x2013;decryptzip <span class="variable" translate="no">zip_file</span></code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d19749e2202 d19749e2078 ">
+                                 <p>Decrypts the encrypted collection.</p>
+                                 <p>Prompts for the password, decrypts the <code>zip</code> file specified with that password, and then renames the collections as, for example, <code class="codeph">orachk_<span class="variable" translate="no">host</span>_<span class="variable" translate="no">db</span>_<span class="variable" translate="no">date</span>_<span class="variable" translate="no">time</span>.zip</code>.
+                                 </p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="orachk-exachk-command-line-options.html#GUID-775DBBA4-8A14-4EC0-9EB1-C3174929DAED" title="Most command-line options apply to both Oracle ORAchk and Oracle EXAchk.">Oracle ORAchk and Oracle EXAchk Command-Line Options</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

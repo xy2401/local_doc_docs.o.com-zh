@@ -1,0 +1,379 @@
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+
+<title>Oracle Business Application Intelligence  Documentation content</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+
+<meta name="robots" content="INDEX, FOLLOW">
+
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="../dcommon/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="../dcommon/css/forms.css">
+<link rel="stylesheet" href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/main.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+
+<link rel="stylesheet" href="../dcommon/css/header.css">
+<link rel="stylesheet" href="../dcommon/css/footer.css">
+<link rel="stylesheet" href="../dcommon/css/leftnav.css">
+
+<script src="../dcommon/js/jquery-1.11.0.min.js"></script>
+<script src="../dcommon/js/jquery-ui-1.10.4.custom.js"></script>
+<link href="../dcommon/css/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+<link rel="stylesheet" href="../dcommon/css/search.css">
+<script src="../dcommon/js/common.js"></script>
+<script src="../dcommon/js/tabs.js"></script>
+<script src="../dcommon/js/booklist.js"></script>
+<script src="../dcommon/js/search.js"></script>
+<!--fonts--> 
+<link rel="stylesheet" href="../dcommon/glyphicons-pro/glyphicons/css/glyphicons.css">
+<link rel="stylesheet" href="../dcommon/glyphicons-pro/glyphicons-social/css/glyphicons-social.css">
+<!--bootstrap components-->
+<link rel="stylesheet" href="../dcommon/css/bootstrap-carousel.css">
+<script src="../dcommon/js/bootstrap.min.js"></script>
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="../dcommon/css/ltIE9.css">
+<![endif]-->  
+ 
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+        
+<style>
+.browseall {
+    font-size: 20px;
+    padding: 5px;
+    
+}
+</style>
+<script>
+$(window).load(function () {
+   $('#chooseProduct').change(function() {
+      var val = $(this).val();
+      var ext =	/:\/\//;
+      if (val !== null && val.indexOf("/") !== -1) {
+         //alert("matches slash");
+         window.location = val;
+      } else {
+        if(val === "rel1213") {
+          if(document.getElementById("libpn") !== null && document.getElementById("libpn") !== undefined) {
+            document.getElementById("libpn").innerHTML = "e38393-01";
+            setProductInfo();
+          }
+        } else if ( val === "rel1212") {
+          if(document.getElementById("libpn") !== null && document.getElementById("libpn") !== undefined) {
+            document.getElementById("libpn").innerHTML = "e26099-01";
+            setProductInfo();
+          }
+        } else {
+          if(document.getElementById("libpn") !== null && document.getElementById("libpn") !== undefined) {
+            document.getElementById("libpn").innerHTML = "e38393-01";
+            setProductInfo();
+          }        
+        }
+         if ($('div.' + val).length) {
+            //alert("exists");
+            $('div.releases').children().hide();
+            $('div.' + val).show();
+         } else {
+            //alert("does not exist");
+         }
+      }
+   });
+   $('#chooseProduct').change();
+});
+function setProductInfo() {
+var searchField, libpn;
+libpn = document.getElementById("libpn");
+searchField = document.getElementById("productSearch");
+if (libpn !== null && libpn !== undefined) {
+  if (searchField !== null && searchField !== undefined && libpn.innerHTML !== null && libpn.innerHTML !== undefined) {
+    searchField.value = libpn.innerHTML;
+  }
+}
+}
+</script>
+
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+
+
+<body id="applicationsbody" class="cloud-body category-page">
+<!--this body tag is only needed to highlight the navigation for demo-->
+<!-- <span id="category" style="display:none;">Middleware</span>
+
+ -->
+<a href="#main" class="accessibility-top skipto">Skip to main content</a>
+<header><div class="w1024" style="min-height: 55px; display: block; margin: 0px; padding: 0px;"><div class="oracle-logo"><a href="../"><img width="236" height="22" alt="Oracle Documentation" src="../dcommon/img/oracle-doc-logo.png"></a></div>
+<!--<div id="headernav" class="glyph"><ul><li id="login"><a id="signInLink" href="http://www.oracle.com/webapps/redirect/signon"><img width="14" height="19" style="vertical-align: text-bottom; padding: 0px;" alt="Sign In Icon" src="../dcommon/img/sign-on.png"> Sign In</a></li></ul></div>-->
+<div class="headersearch"><div id="searchcontent"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><form id="searchpage" name="searchpage" action="../apps/search/search.jsp"><label for="searchField" class="obscure">Search </label><label class="obscure" for="selectproduct">Select a product</label><select id="selectproduct" class="SELECTLRG" name="category"><option value="all">All Products</option><option value="cloud">Cloud</option><option value="applications" selected="selected">Applications</option><option value="middleware">Middleware</option><option value="database">Database</option><option value="bigdata">Big Data</option><option value="enterprisemanagement">Enterprise Manager</option><option value="engineeredsystems">Engineered Systems</option><option value="java">Java</option><option value="hardware">Hardware</option><option value="virtualization">Virtualization</option><option value="storage">Storage</option><option value="operatingsystems">Operating Systems</option></select><input type="hidden" name="product" value="undefined"><span class="gospan"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input type="text" id="searchField" class="ui-autocomplete-input name="q" autocomplete="off"><input type="submit" id="SEARCHBUTTON" value="Submit search"></span></form></div></div>
+<div class="sign-in-out">
+<!--<span>Welcome {name}</span><a href="http://www.oracle.com/webapps/redirect/signon">Sign out</a>-->
+</div>
+</div></header>  
+
+<div id="content">
+<div id="shownav" title="Show Navigation">
+<input type="image" src="../dcommon/img/btn-close-nav.png" alt="Open Left Navigation" title="Open Left Navigation">
+</div>
+<div id="hidenav">
+<input type="image" src="../dcommon/img/btn-close-nav.png" alt="Close Left Navigation" title="Close Left Navigation">
+</div>
+      <span id="libpn" style="display:none;"></span>
+        <div id="main" role="main" class="main-pad">
+           <div class="navback border-right"></div>
+      	<img  class="img-right" src="../../dcommon/img/5-applications.png" width="230" height="190" alt=""/>
+<h1> Oracle Business Intelligence Applications Documentation</h1>
+   <p class="margin-right">Oracle Business Intelligence Applications is comprehensive suite of prebuilt solutions that deliver intuitive, role-based intelligence throughout an organization. These solutions enable organizations to gain more insight and greater value from a range of data sources and applications including Oracle Fusion Applications, E-Business Suite, PeopleSoft, JD Edwards, Siebel, and third-party systems such as SAP.</p>
+    
+   
+    <div class="tabs">
+    <ul class="tab-links" role="tablist">
+	    <li class="active" role="tab"><a href="#tab1">Current Releases</a></li>
+
+        <li><a href="#tab2" role="tab">Related Releases</a></li>
+      </ul>
+ 
+ 
+    <div class="tab-content">
+        <div id="tab1" class="tab active" role="tabpanel">
+ <span id="pn1" style="display:none;">e53672-01 e51479-01</span>
+        <form action="">
+  <label for="chooseProduct" class="obscure">Select your release</label>
+<!--   <select name="chooseProduct" id="chooseProduct" class="SELECTLRG" onchange="window.location=this.value;"> -->
+  <select name="chooseProduct" id="chooseProduct" class="SELECTLRG">
+  <option selected="selected" value="bi1111102">BI Applications 11.1.1.10.2</option>
+  <option value="bi1111101">BI Applications 11.1.1.10.1</option>
+  <option value="bi111191">BI Applications 11.1.1.9</option>
+  <option value="bi111181">BI Applications 11.1.1.8</option>
+  </select>
+</form>
+
+<div class="releases">
+<div class="bi1111102">  <!-- bi1111102 begin -->
+<h3>Books</h3>
+<hr />
+<div class="left50 nobullets">
+<ul>
+<li><a href="../../applications/biapps102/relnotes/toc.htm">Release Notes</a></li>
+<li><a href="../../applications/biapps102/install/toc.htm">Installation Guide</a></li>
+<li><a href="../../applications/biapps102/upgrade/toc.htm">Upgrade Guide</a></li>
+<li><a href="../../applications/biapps102/admin/toc.htm">Administrator Guide</a></li>
+<li><a href="../../applications/biapps102/config/toc.htm">Configuration Guide</a></li>
+<li><a href="../../applications/biapps102/security/toc.htm">Security Guide</a></li>
+<li><a href="../../applications/biapps102/etl/toc.htm">ETL Guide</a></li>
+<li><a href="../../applications/biapps102/configref/toc.htm">Functional Configuration Reference</a></li>
+
+</ul>
+</div>
+</div> <!-- bi1111102 end -->
+<div class="bi1111101">  <!-- bi1111101 begin -->
+<h3>Books</h3>
+<hr />
+<div class="left50 nobullets">
+<ul>
+<li><a href="../../cd/E63231_01/doc/BIARL/toc.htm">Release Notes</a></li>
+<li><a href="../../cd/E63231_01/doc/BIAIN/toc.htm">Installation Guide</a></li>
+<li><a href="../../cd/E63231_01/doc/BIAUP/toc.htm">Upgrade Guide</a></li>
+<li><a href="../../cd/E63231_01/doc/BIASA/toc.htm">Administrator Guide</a></li>
+<li><a href="../../cd/E63231_01/doc/BIACF/toc.htm">Configuration Guide</a></li>
+<li><a href="../../cd/E63231_01/doc/BIASC/toc.htm">Security Guide</a></li>
+<li><a href="../../cd/E63231_01/doc/BIAET/toc.htm">ETL Guide</a></li>
+<li><a href="../../cd/E63231_01/doc/BIAFC/toc.htm">Functional Configuration Reference</a></li>
+
+</ul>
+</div>
+</div> <!-- bi1111101 end -->
+<div class="bi111191">  <!-- bi111191 begin -->
+<h3>Books</h3>
+<hr />
+<div class="left50 nobullets">
+<ul>
+<li><a href="../../cd/E53672_01/doc.111191/e53673/toc.htm">Installation Guide</a></li>
+<li><a href="../../cd/E51479_01/doc.111181/e51480/toc.htm">Configuration Guide</a></li>
+<li><a href="../../cd/E51479_01/doc.111181/e51481/toc.htm">ETL Guide</a></li>
+<li><a href="../../cd/E51479_01/doc.111181/e51483/toc.htm">Administrator Guide</a></li>
+<li><a href="../../cd/E51479_01/doc.111181/e51484/toc.htm">Security Guide</a></li>
+<li><a href="../../cd/E53672_01/doc.111191/e53678/toc.htm">Release Notes</a></li>
+
+
+</ul>
+</div>
+</div> <!-- bi111191 end -->
+
+
+
+
+<div class="bi111181">  <!-- bi111181 -->
+<h3>Books</h3>
+<hr />
+<div class="left50 nobullets">
+<ul>
+<li><a href="../../cd/E51479_01/doc.111181/e51478/toc.htm">Installation Guide</a></li>
+<li><a href="../../cd/E51479_01/doc.111181/e51480/toc.htm">Configuration Guide</a></li>
+<li><a href="../../cd/E51479_01/doc.111181/e51481/toc.htm">ETL Guide</a></li>
+<li><a href="../../cd/E51479_01/doc.111181/e51483/toc.htm">Administrator Guide</a></li>
+<li><a href="../../cd/E51479_01/doc.111181/e51484/toc.htm">Security Guide</a></li>
+<li><a href="../../cd/E51479_01/doc.111181/e51482/toc.htm">Release Notes</a></li>
+</ul>
+</div>
+</div><!--  end bi111181 -->
+
+
+<br class="clearfloat" />
+</br>
+
+
+
+</div>  <!-- end releases -->
+
+<br class="clearfloat" />
+        </div>
+
+        <div id="tab2" class="tab" role="tabpanel">
+        <span id="pn2" style="display:none"></span>
+
+       <h3 style="margin-bottom:10px">Previous Releases</h3>
+        <div class="left-50">
+        <p><a href="http://www.oracle.com/technetwork/middleware/bi-foundation/documentation/bi-apps-098545.html">Previous Releases</a></p>
+        
+        </div>
+        <br class="clearfloat"/>
+     
+ <h3 style="margin-bottom:10px">Other Documentation Sets</h3>
+        <div class="left-50">
+        <p><a href="https://docs.oracle.com/cd/E28280_01/bi.htm">Oracle Business Intelligence 11<em>g</em> Release 1 (11.1.1.7)</a></p>
+        <p><a class="old-layout" href="https://docs.oracle.com/cd/E28280_01/odi.htm">Oracle Data Integrator 11<em>g</em> Release 1 (11.1.1.7)</a></p>
+        <p><a href="https://docs.oracle.com/cd/E35209_01/index.htm">Oracle GoldenGate 11<em>g </em>Release 2 (11.2.1)</a></p>
+		        <p><a href="http://www.oracle.com/technetwork/middleware/endeca/documentation/index.html">Oracle Endeca Information Discovery </a></p>
+		        <p><a href="http://docs.oracle.com/cd/E52471_01/index.htm">Oracle Business Intelligence Mobile Products</a></p>
+		        <p><a href="http://docs.oracle.com/cd/E62968_01/index.htm">Oracle Exalytics Software Release 2.0</a></p>
+        </div>
+        <br class="clearfloat"/>
+        <h3 style="margin-bottom:10px">Other Resources</h3>
+        <div class="left-50">
+        <p><a href="http://www.oracle.com/technetwork/index.html">Oracle Technology Network</a></p>
+        <p><a href="https://support.oracle.com/CSP/ui/flash.html">My Oracle Support (requires registration)</a></p>
+        <p><a href="http://www.oracle.com/us/support/index.html">Oracle Support Services</a></p>
+		 <p><a href="http://www.oracle.com/technetwork/middleware/ias/downloads/fusion-requirements-100147.html">System Requirements and Specifications</a></p>
+        <p><a href="http://www.oracle.com/technetwork/middleware/ias/downloads/fusion-certification-100350.html">Supported System Configuration</a></p>
+        <p><a href="https://blogs.oracle.com/biapps/">Read Oracle BI Application Blog</a></p>
+        </div>
+        <br class="clearfloat"/>
+
+    </div>
+</div>
+     <script src="../dcommon/js/helpdrawer.js"></script>
+       
+      	<!--start help drawer -->
+
+<div id="helpdrawer" class="border-left shadow"  >
+
+<div id="helptab" class="border">
+<button aria-label="Help Drawer" id="helpbutton">
+<span class="glyphicons glyphicons-circle-question-mark helpicon" aria-hidden="true" ></span>
+</button>
+</div>
+<div id="helpdrawercontents">
+<!--start help drawer contents -->
+<div class="panel-group" id="accordion">
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a data-toggle="collapse" data-parent="#accordion" 
+          href="#collapseOne"><h4 class="panel-title">Feedback</h4></a>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse  in">
+      <div class="panel-body" id="feedbackForm">
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <a data-toggle="collapse" data-parent="#accordion" 
+          href="#collapseTwo"><h4 class="panel-title">Search tips</h4></a>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+   <h5 id="HelpDrawerfordocs.oracle.com-HowdoInarrowmysearchresults?">How do I narrow my search results?</h5>
+<p>After you submit your search query:</p>
+<ol>
+  <li>On the <strong>Refine Search</strong> results page, select one or more categories of products or services from the left sidebar.</li>
+  <li>Then for a category with search results, click <strong>Select</strong> to choose your product and release filters, and then click <strong>OK</strong>.</li>
+</ol>
+<p>For search queries that contain multiple words, surround the query with quotes, and then resubmit your query. Example: &quot;database cloud service&quot;</p>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <a data-toggle="collapse" data-parent="#accordion" 
+          href="#collapseThree"><h4 class="panel-title">Navigation tips</h4></a>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+<h5 id="HelpDrawerfordocs.oracle.com-HowdoIfindthedocumentationformyproductorservice?">How do I find the documentation for my product or service?</h5>
+<p>From the home page, click the technology categories for your products or services. If you do not know which category to pick, try the following features:</p>
+<ul>
+  <li>Click the <strong>Find a product</strong> tab and search for your product or service.</li>
+  <li>Click <strong>Browse All Products &amp; Services</strong> at the bottom of the home page to view an alphabetical listing of products and services.</li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <a data-toggle="collapse" data-parent="#accordion" 
+          href="#collapseFour"><h4 class="panel-title">Browser support</h4></a>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse">
+      <div class="panel-body">
+   <ul>
+  <li>Apple Safari: Version 6</li>
+  <li>Google Chrome: Version 29 and later</li>
+  <li>Mozilla Firefox: Version 24 and later</li>
+  <li>Microsoft Internet Explorer: Version 9 and later</li>
+</ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end help drawer contents -->
+</div>
+</div>
+<!--end help drawer -->
+     <br class="clearfloat" />
+
+
+       <br style="clear:both;" /> 
+       <br />
+        </div>
+</div>
+<!--end content-->
+  
+ <a href="#main" class="accessibility skipto">Back to main content</a>  
+    <footer>
+    </footer>
+
+<script src="../dcommon/js/main.js"></script>
+
+<script src="../dcommon/js/jquery.matchHeight.js" type="text/javascript"></script>
+
+
+
+</body>
+</html>

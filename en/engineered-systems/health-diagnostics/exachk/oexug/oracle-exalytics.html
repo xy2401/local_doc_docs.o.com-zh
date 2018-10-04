@@ -1,0 +1,496 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalytics.">
+      <meta name="description" content="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalytics.">
+      <title>Oracle Exalytics</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide">
+      <meta property="og:description" content="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalytics.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-orachk-and-exachk-users-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:43:23-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2016, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E83827-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/exachk">
+      
+      <link rel="prev" href="oracle-supercluster.html" title="Previous" type="text/html">
+      <link rel="next" href="oracle-big-data.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"exachk","element_name":"EXAchk","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® ORAchk and EXAchk User's Guide">
+    <meta name="dcterms.isVersionOf" content="OEXUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="oracle-supercluster.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="oracle-big-data.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="oracle-exachk-specific-features-and-tasks.html" property="item" typeof="WebPage"><span property="name">Oracle EXAchk Specific Features and Tasks</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Oracle Exalytics</li>
+            </ol>
+            <a id="GUID-D2F1F610-48EA-4EA6-BF6F-B6A6E252A0E0" name="GUID-D2F1F610-48EA-4EA6-BF6F-B6A6E252A0E0"></a>
+            
+            <h2 id="OEXUG-GUID-D2F1F610-48EA-4EA6-BF6F-B6A6E252A0E0" class="sect2"><span class="enumeration_section">3.5 </span>Oracle Exalytics
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalytics.</p>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="oracle-exalytics.html#GUID-8898612F-9022-4042-8BFD-07071ABC554B">Scope and Supported Platforms for Running Oracle EXAchk on Oracle Exalytics</a><br>Oracle EXAchk for Oracle Exalytics is a health check tool that audits important configuration settings within an Oracle Exalytics machine.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-exalytics.html#GUID-694CE481-B6E5-4860-B0D4-081874CDB71A">Prerequisites for Running Oracle EXAchk on Oracle Exalytics</a><br></li>
+                  <li class="ulchildlink"><a href="oracle-exalytics.html#GUID-22F838C0-0951-4858-9FD1-FAB6902248A5">Installing Oracle EXAchk on Oracle Exalytics</a><br>Follow these procedures to install Oracle EXAchk on Oracle Exalytics.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-exalytics.html#GUID-C0265691-9101-4BB5-B4F1-9ADB9BEF377C">Oracle EXAchk on Oracle Exalytics Usage</a><br>Oracle EXAchk runs the appropriate collections and audit checks based on the status of the components.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-exalytics.html#GUID-A31D6919-2E5D-49CB-9187-077F73A3DB4A">Oracle EXAchk on Oracle Exalytics Output</a><br>Identify the checks that you must act immediately to remediate, or investigate further to assess the checks that might cause performance or stability issues.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-exalytics.html#GUID-E6EB7F55-B172-408D-9572-6D4832B1EA17">Running Subsets of Checks</a><br>You can run Oracle EXAchk using a specific profile. A profile contains selective sets of checks pertaining to specific components.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-exalytics.html#GUID-BE616B0F-D8D0-460D-BD3F-4CD967734646">Troubleshooting Oracle EXAchk on Oracle Exalytics</a><br>Troubleshoot and fix issues related to Oracle EXAchk on Oracle Exalytics.
+                  </li>
+               </ul>
+               <div class="relinfo">
+                  <p><strong>Related Topics</strong></p>
+                  <ul>
+                     <li><a href="oracle-orachk-and-exachk-common-features-tasks.html#GUID-50F7EA11-11FD-431C-B99A-EC9E2176BBDB" title="Oracle ORAchk and Oracle EXAchk share a common health check framework and a large portion of their features and tasks are common.">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</a></li>
+                  </ul>
+               </div>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="oracle-exachk-specific-features-and-tasks.html#GUID-FFA47C35-4BC4-4B58-9C6D-3115D069A5F1" title="Review this information on the features of Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance, Oracle Exalogic, Oracle SuperCluster, Oracle Exalytics, and Oracle Big Data Appliance.">Oracle EXAchk Specific Features and Tasks</a></p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="sect2"><a id="GUID-8898612F-9022-4042-8BFD-07071ABC554B" name="GUID-8898612F-9022-4042-8BFD-07071ABC554B"></a><h3 id="OEXUG-GUID-8898612F-9022-4042-8BFD-07071ABC554B" class="sect3"><span class="enumeration_section">3.5.1 </span>Scope and Supported Platforms for Running Oracle EXAchk on Oracle Exalytics
+               </h3>
+               <div>
+                  <p>Oracle EXAchk for Oracle Exalytics is a health check tool that audits important configuration settings within an Oracle Exalytics machine.</p>
+                  <p>Oracle EXAchk examines the following components:</p>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p>Server</p>
+                     </li>
+                     <li>
+                        <p>Operating System, Firmware, BIOS</p>
+                     </li>
+                     <li>
+                        <p>Ethernet network, InfiniBand switches</p>
+                     </li>
+                     <li>
+                        <p>RAM, hard disks</p>
+                     </li>
+                     <li>
+                        <p>Software installed on the machine - OBIEE and TimesTen</p>
+                     </li>
+                  </ul>
+                  <p>Run Oracle EXAchk in the following conditions:</p>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p>Before and after deploying an Oracle Exalytics machine</p>
+                     </li>
+                     <li>
+                        <p>As part of the monthly maintenance program for an Oracle Exalytics machine</p>
+                     </li>
+                     <li>
+                        <p>Before and after making any changes in the system configuration</p>
+                     </li>
+                     <li>
+                        <p>Before and after any planned maintenance activity</p>
+                     </li>
+                     <li>
+                        <p>For troubleshooting hardware or software failures</p>
+                     </li>
+                     <li>
+                        <p>For troubleshooting performance degradation</p>
+                     </li>
+                  </ul>
+                  <div class="section">
+                     <p class="subhead2" id="GUID-8898612F-9022-4042-8BFD-07071ABC554B__GUID-9B0D2A22-DC31-498F-8BC1-71FA01B0B0BD">Supported Platforms</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p><span class="bold">Machine</span>: Oracle Exalytics In-Memory Machine
+                           </p>
+                        </li>
+                        <li>
+                           <p><span class="bold">Operating systems</span>: Oracle Exalytics Base Image 1.0.0.5.0 and later
+                           </p>
+                        </li>
+                     </ul>
+                     <div class="p">
+                        <div class="infoboxnote" id="GUID-8898612F-9022-4042-8BFD-07071ABC554B__GUID-A0D5B933-EE7C-4F8A-8A29-AA4778933A80">
+                           <p class="notep1">Note:</p>Virtualization is not supported for Oracle EXAchk on Oracle Exalytics.
+                        </div>
+                     </div>
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-exalytics.html#GUID-D2F1F610-48EA-4EA6-BF6F-B6A6E252A0E0" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalytics.">Oracle Exalytics</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-694CE481-B6E5-4860-B0D4-081874CDB71A" name="GUID-694CE481-B6E5-4860-B0D4-081874CDB71A"></a><h3 id="OEXUG-GUID-694CE481-B6E5-4860-B0D4-081874CDB71A" class="sect3"><span class="enumeration_section">3.5.2 </span>Prerequisites for Running Oracle EXAchk on Oracle Exalytics
+               </h3>
+               <div>
+                  <p></p>
+                  <ol>
+                     <li class="stepexpand"><span>If OBIEE was not installed by Domain Management Utility (DOMU), then you must set the <code class="codeph">RAT_BI_HOMES</code> environment variable before running Oracle EXAchk.</span><div><pre class="pre codeblock"><code>$ export RAT_BI_HOMES=<span class="variable" translate="no">location of BI Middleware homes</span></code></pre></div>
+                     </li>
+                     <li class="stepexpand"><span>Specify multiple BI homes installed on the machine in a space-delimited list.</span><div>
+                           <p>For example:</p><pre class="pre codeblock"><code>$ export RAT_BI_HOMES=<span class="variable" translate="no">/u01/app/oracle/product/fmw</span> <span class="variable" translate="no">/u02/app/oracle/product/fmw</span></code></pre><div class="infoboxnote" id="GUID-694CE481-B6E5-4860-B0D4-081874CDB71A__GUID-7B6F0661-C938-4266-AB44-AB8293F33A3B">
+                              <p class="notep1">Note:</p> If you run Oracle EXAchk using the <code class="codeph">TimesTen</code> profile, then you need not set the <code class="codeph">RAT_BI_HOMES</code> environment variable.
+                           </div>
+                        </div>
+                     </li>
+                     <li class="stepexpand"><span>To view Oracle EXAchk related environment variables that are already configured on the system:</span><div><pre class="pre codeblock"><code>$ env | grep RAT</code></pre></div>
+                     </li>
+                  </ol>
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-exalytics.html#GUID-D2F1F610-48EA-4EA6-BF6F-B6A6E252A0E0" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalytics.">Oracle Exalytics</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-22F838C0-0951-4858-9FD1-FAB6902248A5" name="GUID-22F838C0-0951-4858-9FD1-FAB6902248A5"></a><h3 id="OEXUG-GUID-22F838C0-0951-4858-9FD1-FAB6902248A5" class="sect3"><span class="enumeration_section">3.5.3 </span>Installing Oracle EXAchk on Oracle Exalytics
+               </h3>
+               <div>
+                  <p>Follow these procedures to install Oracle EXAchk on Oracle Exalytics.</p>
+                  <ol>
+                     <li class="stepexpand"><span>Log in to the machine as the <code class="codeph">root</code> user.</span></li>
+                     <li class="stepexpand"><span>Create a directory to hold the Oracle EXAchk binaries.</span><div>
+                           <div class="p">For example:<pre class="pre codeblock"><code>$ mkdir /opt/exalytics/exachk</code></pre></div>
+                        </div>
+                     </li>
+                     <li class="stepexpand"><span>Go to the <code>/opt/exalytics/exachk</code> directory.</span></li>
+                     <li class="stepexpand"><span>Download the <code>exachk.zip</code> file to the <code>/opt/exalytics/exachk</code> directory.</span></li>
+                     <li class="stepexpand"><span>Extract the contents of the <code>exachk.zip</code> file.</span><div><pre class="pre codeblock"><code>$ unzip exachk.zip</code></pre></div>
+                     </li>
+                  </ol>
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="quick-start-guide.html#GUID-9FCE03FA-58B0-4BC6-8DF5-AAFABF58B55D" title="Follow these procedures to install Oracle ORAchk and Oracle EXAchk.">Installing Oracle ORAchk and Oracle EXAchk</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-exalytics.html#GUID-D2F1F610-48EA-4EA6-BF6F-B6A6E252A0E0" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalytics.">Oracle Exalytics</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-C0265691-9101-4BB5-B4F1-9ADB9BEF377C" name="GUID-C0265691-9101-4BB5-B4F1-9ADB9BEF377C"></a><h3 id="OEXUG-GUID-C0265691-9101-4BB5-B4F1-9ADB9BEF377C" class="sect3"><span class="enumeration_section">3.5.4 </span>Oracle EXAchk on Oracle Exalytics Usage
+               </h3>
+               <div>
+                  <p>Oracle EXAchk runs the appropriate collections and audit checks based on the status of the components.</p>
+                  <ol>
+                     <li class="stepexpand"><span>Log in to the machine as the <code class="codeph">root</code> user.</span></li>
+                     <li class="stepexpand"><span>Go to the directory where you installed Oracle EXAchk.</span><div>
+                           <p>For example:</p><pre class="pre codeblock"><code>$ cd /opt/exalytics/exachk</code></pre></div>
+                     </li>
+                     <li class="stepexpand"><span>Start Oracle EXAchk.</span><div><pre class="pre codeblock"><code>$ ./exachk</code></pre></div>
+                     </li>
+                  </ol>
+                  <div class="section">
+                     <p>Oracle EXAchk checks the status of the components of the Oracle Exalytics machine. Depending on the status of each component, the tool runs the appropriate collections and audit checks. When Oracle EXAchk completes the health check, it produces an HTML report and a zip file. You can use the <code>zip</code> file to log a service request with My Oracle Support.
+                     </p>
+                     <div class="infoboxnote" id="GUID-C0265691-9101-4BB5-B4F1-9ADB9BEF377C__GUID-92C7D440-C6A0-4D2A-889D-46D5BB8FC9B6">
+                        <p class="notep1">Note:</p>
+                        <p>Do not rename any of the Oracle EXAchk output report files or folders.</p>
+                     </div>
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="orachk-exachk-command-line-options.html#GUID-775DBBA4-8A14-4EC0-9EB1-C3174929DAED" title="Most command-line options apply to both Oracle ORAchk and Oracle EXAchk.">Oracle ORAchk and Oracle EXAchk Command-Line Options</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-exalytics.html#GUID-D2F1F610-48EA-4EA6-BF6F-B6A6E252A0E0" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalytics.">Oracle Exalytics</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-A31D6919-2E5D-49CB-9187-077F73A3DB4A" name="GUID-A31D6919-2E5D-49CB-9187-077F73A3DB4A"></a><h3 id="OEXUG-GUID-A31D6919-2E5D-49CB-9187-077F73A3DB4A" class="sect3"><span class="enumeration_section">3.5.5 </span>Oracle EXAchk on Oracle Exalytics Output
+               </h3>
+               <div>
+                  <p>Identify the checks that you must act immediately to remediate, or investigate further to assess the checks that might cause performance or stability issues.</p>
+                  <p>The following is specific to Oracle EXAchk on Oracle Exalytics:</p>
+                  <div class="section">
+                     <p class="subhead2" id="GUID-A31D6919-2E5D-49CB-9187-077F73A3DB4A__GUID-7229E6D2-FD4D-4CE0-9D1B-6564440ED6F0">Oracle EXAchk Summary</p>
+                     <p>This section of the report summarizes the key data collected from the Oracle EXAchk environment:</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Operating system and Kernel version</p>
+                        </li>
+                        <li>
+                           <p>System identifier</p>
+                        </li>
+                        <li>
+                           <p>Base image version</p>
+                        </li>
+                        <li>
+                           <p>Compute node name</p>
+                        </li>
+                        <li>
+                           <p>Version of Oracle EXAchk</p>
+                        </li>
+                        <li>
+                           <p>Version of TimesTen </p>
+                        </li>
+                        <li>
+                           <p>Collection folder</p>
+                        </li>
+                        <li>
+                           <p>Date when the check was run</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-A31D6919-2E5D-49CB-9187-077F73A3DB4A__GUID-1FFCFE05-24EE-4E0F-B0F0-1253F0E493BF">Oracle EXAchk on Oracle Exalytics Message Definitions</p>
+                     <div class="tblformal" id="GUID-A31D6919-2E5D-49CB-9187-077F73A3DB4A__GUID-2286F061-3B0B-4174-97C4-57CECF7EAB1A">
+                        <p class="titleintable">Table 3-11 Oracle EXAchk on Oracle Exalytics Message Definitions</p>
+                        <table cellpadding="4" cellspacing="0" class="Formal" title="Oracle EXAchk on Oracle Exalytics Message Definitions" summary="This table describes what you can infer from the message status." frame="hsides" border="1" rules="rows">
+                           <thead>
+                              <tr align="left" valign="top">
+                                 <th align="left" valign="bottom" width="20%" id="d60981e446">Message Status</th>
+                                 <th align="left" valign="bottom" width="20%" id="d60981e448">Description or Possible Impact</th>
+                                 <th align="left" valign="bottom" width="20%" id="d60981e450">Action to be Taken</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d60981e454" headers="d60981e446 ">
+                                    <p>FAIL</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d60981e454 d60981e448 ">
+                                    <p>Shows checks that did not pass due to issues.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d60981e454 d60981e450 ">
+                                    <p>Address the issue immediately.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d60981e464" headers="d60981e446 ">
+                                    <p>WARNING</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d60981e464 d60981e448 ">
+                                    <p>Shows checks that might cause performance or stability issues if not addressed.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d60981e464 d60981e450 ">
+                                    <p>Investigate the issue further.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d60981e474" headers="d60981e446 ">
+                                    <p>INFO</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d60981e474 d60981e448 ">
+                                    <p>Indicates information about the system.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d60981e474 d60981e450 ">
+                                    <p>Read the information displayed in these checks and follow the instructions provided, if any.</p>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- class="inftblhruleinformal" -->
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="understanding-and-managing-reports-and-output.html#GUID-A5C2EA79-4935-44A1-8C3D-8A1E02CCC0A6" title="Hide individual findings from the report using Remove findings .">How to Remove Checks from an Existing HTML Report</a></li>
+                        <li><a href="understanding-and-managing-reports-and-output.html#GUID-CF99AAA0-E25C-4614-8C38-43B2B18442D0" title="Oracle ORAchk and Oracle EXAchk generate a detailed HTML report with findings and recommendations.">Understanding and Managing Reports and Output</a></li>
+                        <li><a href="understanding-and-managing-reports-and-output.html#GUID-2754E64A-BBE8-4F35-8D6A-C67B3A3B9974">HTML Report Output</a></li>
+                        <li><a href="understanding-and-managing-reports-and-output.html#GUID-D39A97FB-8185-43EC-9F56-D0663201EF68" title="Oracle ORAchk and Oracle EXAchk automatically compare the two most recent HTML reports and generate a third diff report, when run in automated daemon mode.">Comparing Two Reports</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-exalytics.html#GUID-D2F1F610-48EA-4EA6-BF6F-B6A6E252A0E0" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalytics.">Oracle Exalytics</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-E6EB7F55-B172-408D-9572-6D4832B1EA17" name="GUID-E6EB7F55-B172-408D-9572-6D4832B1EA17"></a><h3 id="OEXUG-GUID-E6EB7F55-B172-408D-9572-6D4832B1EA17" class="sect3"><span class="enumeration_section">3.5.6 </span>Running Subsets of Checks
+               </h3>
+               <div>
+                  <p>You can run Oracle EXAchk using a specific profile. A profile contains selective sets of checks pertaining to specific components.</p>
+                  <div class="p">To run Oracle EXAchk using a profile:<pre class="pre codeblock"><code>$ ./exachk -profile <span class="variable" translate="no">profile_name</span></code></pre></div>
+                  <p>Oracle supports the following profiles for Oracle EXAchk on Oracle Exalytics:</p>
+                  <div class="tblformal" id="GUID-E6EB7F55-B172-408D-9572-6D4832B1EA17__GUID-2B5D995D-3DAC-48D9-97EF-B3E092C491EA">
+                     <p class="titleintable">Table 3-12 Profiles Supported for Oracle EXAchk on Oracle Exalytics</p>
+                     <table cellpadding="4" cellspacing="0" class="Formal" title="Profiles Supported for Oracle EXAchk on Oracle Exalytics" summary="This table lists and describes the profiles supported for Oracle EXAchk on Oracle Exalytics." frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" width="20%" id="d60981e565">Profile</th>
+                              <th align="left" valign="bottom" width="20%" id="d60981e567">Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d60981e571" headers="d60981e565 ">
+                                 <p><code class="codeph">obiee</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d60981e571 d60981e567 ">
+                                 <p>Using this profile, you can run Oracle EXAchk to do a selective check of the OBIEE software component.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d60981e579" headers="d60981e565 ">
+                                 <p><code class="codeph">timesten</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d60981e579 d60981e567 ">
+                                 <p>Using this profile, you can run Oracle EXAchk to do a selective check of the TimesTen software component.</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-exalytics.html#GUID-D2F1F610-48EA-4EA6-BF6F-B6A6E252A0E0" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalytics.">Oracle Exalytics</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-BE616B0F-D8D0-460D-BD3F-4CD967734646" name="GUID-BE616B0F-D8D0-460D-BD3F-4CD967734646"></a><h3 id="OEXUG-GUID-BE616B0F-D8D0-460D-BD3F-4CD967734646" class="sect3"><span class="enumeration_section">3.5.7 </span>Troubleshooting Oracle EXAchk on Oracle Exalytics
+               </h3>
+               <div>
+                  <p>Troubleshoot and fix issues related to Oracle EXAchk on Oracle Exalytics.</p>
+                  <p>If you face any problems running Oracle EXAchk, then create a service request through My Oracle Support.</p>
+                  <p> Refer to My Oracle Support Note&nbsp;1566134.1 for the latest known issues specific to Oracle EXAchk on Oracle Exalytics.</p>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="oracle-exalytics.html#GUID-4FBC3CEF-E81B-4473-BDEC-415FDC7A11AE">Runtime Command Timeouts</a><br></li>
+                     <li class="ulchildlink"><a href="oracle-exalytics.html#GUID-DC58EB5B-C0C9-414D-B774-5B7A01857CAD">Error Messages in exachk_error.log</a><br></li>
+                  </ul>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="orachk-exachk-command-line-options.html#GUID-775DBBA4-8A14-4EC0-9EB1-C3174929DAED" title="Most command-line options apply to both Oracle ORAchk and Oracle EXAchk.">Oracle ORAchk and Oracle EXAchk Command-Line Options</a></li>
+                        <li><a href="troubleshoot-orachk-and-exachk.html#GUID-7179D6FF-995F-420C-96D0-239C8D2CA4E6" title="Follow the steps explained in this section to troubleshoot and fix Oracle ORAchk and Oracle EXAchk related issues.">Troubleshooting Oracle ORAchk and Oracle EXAchk</a></li>
+                        <li><a href="https://support.oracle.com/rs?type=doc&amp;amp;id=1566134.1" target="_blank">https://support.oracle.com/rs?type=doc&amp;id=1566134.1</a></li>
+                        <li><a href="http://support.oracle.com/" target="_blank">http://support.oracle.com</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-exalytics.html#GUID-D2F1F610-48EA-4EA6-BF6F-B6A6E252A0E0" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalytics.">Oracle Exalytics</a></p>
+                     </div>
+                  </div>
+               </div>
+               <div class="sect3"><a id="GUID-4FBC3CEF-E81B-4473-BDEC-415FDC7A11AE" name="GUID-4FBC3CEF-E81B-4473-BDEC-415FDC7A11AE"></a><h4 id="OEXUG-GUID-4FBC3CEF-E81B-4473-BDEC-415FDC7A11AE" class="sect4"><span class="enumeration_section">3.5.7.1 </span>Runtime Command Timeouts
+                  </h4>
+                  <div>
+                     <p></p>
+                     <div class="section">
+                        <p><span class="bold">Description</span>: During the health check process, if a particular compute node, storage server, or switch does not respond to the health check command within a pre-defined duration, Oracle EXAchk terminates that command.
+                        </p>
+                        <p><span class="bold">Cause</span>: To prevent the program from freezing, Oracle EXAchk automatically terminates commands that exceed default timeouts. On a busy system, Oracle EXAchk terminates commands when the target of the check does not respond within the default timeout.
+                        </p>
+                        <p><span class="bold">Action</span>: To avoid runtime command timeouts from occurring during health checks, ensure that you run the tool when there is least load on the system.
+                        </p>
+                     </div>
+                     <!-- class="section" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exalytics.html#GUID-BE616B0F-D8D0-460D-BD3F-4CD967734646" title="Troubleshoot and fix issues related to Oracle EXAchk on Oracle Exalytics.">Troubleshooting Oracle EXAchk on Oracle Exalytics</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-DC58EB5B-C0C9-414D-B774-5B7A01857CAD" name="GUID-DC58EB5B-C0C9-414D-B774-5B7A01857CAD"></a><h4 id="OEXUG-GUID-DC58EB5B-C0C9-414D-B774-5B7A01857CAD" class="sect4"><span class="enumeration_section">3.5.7.2 </span>Error Messages in exachk_error.log
+                  </h4>
+                  <div>
+                     <p></p>
+                     <div class="section">
+                        <p><span class="bold">Description</span>: Most of these errors do not indicate any serious problems with Oracle EXAchk or the system.
+                        </p>
+                        <p><span class="bold">Action</span>: To prevent these errors from appearing on the screen and cluttering the display, Oracle EXAchk directs them to the <code>exachk_error.log</code> file. You need not report any of these errors to Oracle Support.
+                        </p>
+                     </div>
+                     <!-- class="section" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exalytics.html#GUID-BE616B0F-D8D0-460D-BD3F-4CD967734646" title="Troubleshoot and fix issues related to Oracle EXAchk on Oracle Exalytics.">Troubleshooting Oracle EXAchk on Oracle Exalytics</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

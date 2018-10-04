@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Installing Advanced Management Console in a Clustered Environment &mdash; An Example</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="This section describes an example to install the Advanced Management Console on a Linux platform. You can deploy the Advanced Management Console in a WebLogic cluster environment to improve the performance. Multiple Managed servers running on different hosts,&nbsp; which are managed by the WebLogic cluster can work together to serve all requests in a round-robin mode." />
+<meta name="dcterms.created" content="2018-04-10T14:14:49Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Platform, Standard Edition Advanced Management Console Installation and Configuration Guide" />
+<meta name="dcterms.identifier" content="E58638-13" />
+<meta name="dcterms.isVersionOf" content="JSAMI" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2014, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="troubleshooting-tips-and-tricks.htm" title="Previous" type="text/html" />
+<link rel="alternate" href="JSAMI.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../../nav/css/html5.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-78A472A8-D9D6-4505-8C49-53D63FFE89C7"></a> <span id="PAGE" style="display:none;">17/17</span> <!-- End Header -->
+<h1 id="JSAMI-GUID-78A472A8-D9D6-4505-8C49-53D63FFE89C7" class="sect1"><span class="enumeration_appendix">D</span> Installing <span>Advanced Management Console</span> in a Clustered Environment &mdash; An Example</h1>
+<div>
+<p>This section describes an example to install the <span>Advanced Management Console</span> on a Linux platform. You can deploy the <span>Advanced Management Console</span> in a WebLogic cluster environment to improve the performance. Multiple Managed servers running on different hosts,&nbsp; which are managed by the WebLogic cluster can work together to serve all requests in a round-robin mode.</p>
+<div class="section">
+<p>This appendix contains the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="advanced-management-console-installation-alternate-method.htm#GUID-1442A433-A494-4611-8380-B7B65ED7BA89" title="You need to install the WebLogic server on each host on which, the target managed server is running. A domain needs to be created on the first host.">Installing and Configuring WebLogic Server</a></p>
+</li>
+<li>
+<p><a href="advanced-management-console-installation-alternate-method.htm#GUID-016AFCE8-BE1D-487D-878C-EE6B6A5CCA4C" title="To configure the WebLogic server, you need to configure the required machines and servers on the WebLogic server console.">Configuring Machines and Server (SRV1) on a WebLogic Server Console</a></p>
+</li>
+<li>
+<p><a href="advanced-management-console-installation-alternate-method.htm#GUID-D5AF83FC-ED21-40C4-8A2D-05D2B167FC4F">Creating Domain Pack</a></p>
+</li>
+<li>
+<p><a href="advanced-management-console-installation-alternate-method.htm#GUID-B5373F13-4818-4517-B2FC-E334C278892A">Configuring a Second Machine in Cluster (SRV2)</a></p>
+</li>
+<li>
+<p><a href="advanced-management-console-installation-alternate-method.htm#GUID-A053ACC7-68EB-4D43-A8A3-C8D162080BA2" title="A load balancer sits in front of the backend WebLogic servers. Any load balancer can be used. As the load balancer is a transfer station for each packet between the clients and the backend servers, it could be a single point bottleneck. Therefore a hardware load balancer is highly recommended.">Configuring Load Balancer</a></p>
+</li>
+<li>
+<p><a href="advanced-management-console-installation-alternate-method.htm#GUID-91567EA1-D5E3-4771-AB4E-90C5CD98888D">Deploying Java Advanced Management Console Application</a></p>
+</li>
+<li>
+<p><a href="advanced-management-console-installation-alternate-method.htm#GUID-55B10D51-2356-40A9-9C89-4E2BA2AD923E" title="Before you begin to install and configure the Oracle database, make sure you can get root authority as the configuration requires root authority.">Installing and Configuring Oracle Database</a></p>
+</li>
+<li>
+<p><a href="advanced-management-console-installation-alternate-method.htm#GUID-68CB6738-EDA8-464F-9E84-925B89C0DF17">Configuring Data Source in WebLogic Server</a></p>
+</li>
+</ul>
+The following is an overview of the process followed when installing the <span>Advanced Management Console</span> in a clustered environment:
+<ol>
+<li>
+<p>Ensure that all machines are available.</p>
+</li>
+<li>
+<p>Ensure that you can login with shell access and you have root credentials.</p>
+</li>
+<li>
+<p>Install setup on the first server, for example SRV1.</p>
+</li>
+<li>
+<p>Install setup on the 2nd server, for example, SRV2.</p>
+</li>
+<li>
+<p>Install setup on the database server (SRVDB).</p>
+</li>
+<li>
+<p>Deploy the <span>Advanced Management Console</span> application. You need to have the WebLogic Admin server running on SRV1 to access console and Node managers running on SRV1 and SRV2.</p>
+</li>
+<li>
+<p>Install the <span>Advanced Management Console</span> agents using SCCM or manual steps.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+<div class="sect2"><a id="GUID-1442A433-A494-4611-8380-B7B65ED7BA89"></a>
+<h2 id="JSAMI-GUID-1442A433-A494-4611-8380-B7B65ED7BA89" class="sect2">Installing and Configuring WebLogic Server</h2>
+<div>
+<p>You need to install the WebLogic server on each host on which, the target managed server is running. A domain needs to be created on the first host.</p>
+<div class="p">To install the <span>Advanced Management Console</span> in a WebLogic cluster, you need at least 4 machines &ndash; 2 of which are required for setting up the WebLogic servers and one machine for setting up the database. The load balancer is shared across multiple setups.</div>
+<!-- class="section" -->
+<div class="section">To install WebLogic server and create a domain:
+<ol>
+<li>
+<p>See <a href="oracle-weblogic-server-installation-example.htm#GUID-060F2F5F-C07E-4459-83B6-2A3FD47FAA0F">Installing WebLogic Server</a>.</p>
+</li>
+<li>
+<p>Create and configure a WebLogic server domain.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-016AFCE8-BE1D-487D-878C-EE6B6A5CCA4C"></a>
+<h2 id="JSAMI-GUID-016AFCE8-BE1D-487D-878C-EE6B6A5CCA4C" class="sect2">Configuring Machines and Server (SRV1) on a WebLogic Server Console</h2>
+<div>
+<p>To configure the WebLogic server, you need to configure the required machines and servers on the WebLogic server console.</p>
+<div class="section">
+<p>This topic mainly details how to create first machine in the cluster (SRV1). To configure machines and servers on a WebLogic server console:</p>
+<ol>
+<li>
+<p>Edit the nodemanager properties to start the Node manager on DNS name instead of localhost. In this guide, <code class="codeph">${MW_HOME}</code> represents the WebLogic Server home directory.</p>
+<pre dir="ltr">
+[deployment@SRV1 nodemanager]$ pwd
+${MW_HOME}/user_project/domains/base_domain/nodemanager
+[deployment@SRV1 nodemanager]$ vi nodemanager.properties 
+Set ListenAddress=SRV1.yourdomain.com
+</pre></li>
+<li>
+<p>Start the WebLogic console:</p>
+<pre dir="ltr">
+[deployment@SRV1 bin]$ pwd
+${MW_HOME}/user_projects/domains/base_domain/bin
+[deployment@SRV1 bin]$ nohup ./startWebLogic.sh &amp;
+[1] 7820
+[deployment@SRV1 bin]$
+</pre></li>
+<li>
+<p>Start the Node Manager:</p>
+<pre dir="ltr">
+[deployment@SRV1 bin]$ pwd
+${MW_HOME}/bin
+[deployment@SRV1 bin]$ nohup ./startNodeManager.sh &amp;
+[2] 7991
+[deployment@SRV1 bin]$
+</pre></li>
+<li>
+<p>Login to the WebLogic console with the WebLogic administration user: <code class="codeph">http://SRV1.yourdomain.com:7001/console/login/LoginForm.jsp</code>.</p>
+</li>
+<li>
+<p>Click <span class="bold">Environment</span> and click <span class="bold">Machines</span> from the left panel.</p>
+</li>
+<li>
+<p>Click <span class="bold">New</span> and enter SRV1 DNS name and select <span class="bold">Unix</span> from the drop-down list, and then click <span class="bold">Next</span>.</p>
+</li>
+<li>
+<p>Enter <code class="codeph">SRV1</code> DNS name and click <span class="bold">Finish</span>.</p>
+</li>
+<li>
+<p>Similarly, repeat step 6 and 7 to create machine for SRV2.</p>
+</li>
+<li>
+<p>Navigate to <span class="bold">Environment</span> and then click <span class="bold">Servers</span> from the left panel.</p>
+</li>
+<li>
+<p>Click <span class="bold">New</span> and enter server details, with the listen address as DNS name and a port number. Make sure to select <span class="bold">Yes, create a new cluster....</span>, and then click <span class="bold">Next</span>.</p>
+</li>
+<li>
+<p>Name new cluster, for example, <code class="codeph">cluster-0</code> and click <span class="bold">Finish</span>.</p>
+</li>
+<li>
+<p>Click the server name and associate this server with <code class="codeph">SRV1</code> and enable SSL and click <span class="bold">Save</span>.</p>
+</li>
+<li>
+<p>Configure server for SRV2 following steps 9 through 12. Make sure to associate this server with existing cluster you created earlier.</p>
+</li>
+<li>
+<p>Click on servers again and configure a heap size by navigating to <span class="bold">Server Start</span> from configuration page.</p>
+</li>
+<li>
+<p>Click <span class="bold">Services</span> and then click <span class="bold">JTA</span> from the left panel.</p>
+</li>
+<li>
+<p>Update the <span class="bold">Timeout Seconds</span> and then click <span class="bold">Save</span>. See <a href="oracle-weblogic-server-configuration-advanced-management-console.htm#GUID-CA5E86E4-9539-4465-A9D4-C158A21EDC2C" title="Errors in WebLogic Server may occur if the Java transaction timeout interval is not set to a long enough value for the database access. You need WebLogic Server administrator credentials to define the timeout interval using the Java Transaction API (JTA).">Setting Up WebLogic Server JTA</a> .</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-D5AF83FC-ED21-40C4-8A2D-05D2B167FC4F"></a>
+<h2 id="JSAMI-GUID-D5AF83FC-ED21-40C4-8A2D-05D2B167FC4F" class="sect2">Creating Domain Pack</h2>
+<div>
+<div class="section">
+<div class="p">To create a domain pack, in SRV1, update as follows:
+<pre dir="ltr">
+[deployment@SRV1 Oracle_Home]$ java -version
+java version "1.8.0_121"
+Java(TM) SE Runtime Environment (build 1.8.0_121-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.121-b13, mixed mode)
+[deployment@SRV1 ]$ export PATH=${MW_HOME}/oracle_common/common/bin:$PATH
+[deployment@SRV1 ]$ export DOMAIN=${MW_HOME}
+[deployment@SRV1 ]$ pack.sh -managed=true -domain=$DOMAIN -template=/tmp/template.jar -template_name="/tmp/template_name"
+&lt;&lt; read domain from ${MW_HOME}
+  succeed: read domain from ${MW_HOME}
+&lt;&lt; set config option Managed to "true"
+  succeed: set config option Managed to "true"
+&lt;&lt; write template to "/tmp/template.jar"
+..............................
+ &gt;&gt; succeed: write template to "/tmp/template.jar"
+&lt;&lt; close template
+  succeed: close template
+[deployment@SRV1 base_domain]$
+</pre></div>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-B5373F13-4818-4517-B2FC-E334C278892A"></a>
+<h2 id="JSAMI-GUID-B5373F13-4818-4517-B2FC-E334C278892A" class="sect2">Configuring a Second Machine in Cluster (SRV2)</h2>
+<div>
+<div class="section">
+<p>To configure a second machine:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Install the WebLogic server. See <a href="oracle-weblogic-server-installation-example.htm#GUID-060F2F5F-C07E-4459-83B6-2A3FD47FAA0F">Installing WebLogic Server</a>. Click <span class="bold">Cancel</span> when asked to create domain.</span></li>
+<li class="stepexpand"><span>Check if the pack was created by using&nbsp;<span class="bold">Create Domain Pack</span>.</span></li>
+<li class="stepexpand"><span>Copy the pack file from <code class="codeph">SRV1</code> to <code class="codeph">SRV2</code>.</span>
+<div>
+<pre dir="ltr">
+[deployment@SRV2 base_domain]$ scp /tmp/template.jar deployment@SRV2:/tmp/.
+</pre></div>
+</li>
+<li class="stepexpand"><span>Unpack the domain by <code class="codeph">ssh</code> onto <code class="codeph">SRV2</code>:</span>
+<div>
+<pre dir="ltr">
+[deployment@SRV2 Oracle_Home]$ java -version
+java version "1.8.0_121"
+Java(TM) SE Runtime Environment (build 1.8.0_121-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.121-b13, mixed mode)
+[deployment@SRV2 Oracle_Home]$ export DOMAIN=${MW_HOME}
+[deployment@SRV2 Oracle_Home]$ unpack.sh -domain=$DOMAIN -template=/tmp/template.jar
+&lt;&lt; read template from "/tmp/template.jar"
+  succeed: read template from "/tmp/template.jar"
+&lt;&lt; set config option DomainName to "base_domain"
+  succeed: set config option DomainName to "base_domain"
+  validateConfig "KeyStorePasswords"
+  succeed: validateConfig "KeyStorePasswords"
+&lt;&lt; write Domain to ${MW_HOME}
+..................................................
+&lt;&lt; close template
+  succeed: close template
+[deployment@SRV2 Oracle_Home]$
+</pre></div>
+</li>
+<li class="stepexpand"><span>Start the Node Manager on SRV2:</span>
+<div>
+<pre dir="ltr">
+[deployment@SRV2 bin]$ pwd
+${MW_HOME}/bin
+[deployment@SRV2 bin]$ nohup ./startManagedWebLogic.sh <span class="variable">second_server_name admin_url</span> &amp;
+[1] 10632
+[deployment@SRV2jb bin]$
+</pre></div>
+</li>
+</ol>
+<div class="section">
+<div class="infobox-note" id="GUID-B5373F13-4818-4517-B2FC-E334C278892A__GUID-70223A44-D311-4FCF-B781-010BAF3BABAE">
+<p class="notep1">Note:</p>
+<p>You may have to set up a <code class="codeph">boot.properties</code> file with the username and password for the <code class="codeph"><span class="variable">admin_url</span></code>.</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-A053ACC7-68EB-4D43-A8A3-C8D162080BA2"></a>
+<h2 id="JSAMI-GUID-A053ACC7-68EB-4D43-A8A3-C8D162080BA2" class="sect2">Configuring Load Balancer</h2>
+<p>A load balancer sits in front of the backend WebLogic servers. Any load balancer can be used. As the load balancer is a transfer station for each packet between the clients and the backend servers, it could be a single point bottleneck. Therefore a hardware load balancer is highly recommended.</p>
+</div>
+<div class="sect2"><a id="GUID-91567EA1-D5E3-4771-AB4E-90C5CD98888D"></a>
+<h2 id="JSAMI-GUID-91567EA1-D5E3-4771-AB4E-90C5CD98888D" class="sect2">Deploying Java <span>Advanced Management Console</span> Application</h2>
+<div>
+<div class="section">
+<p>To deploy the application:</p>
+<ol>
+<li>
+<p>Check if you have completed installation and configuration steps for&nbsp;SRV1 and SRV2.</p>
+</li>
+<li>
+<p>Check if the WebLogic Server is started on SRV1. If not, then you need to start it.</p>
+</li>
+<li>
+<p>Login to WebLogic console on SRV1.</p>
+</li>
+<li>
+<p>Click <span class="bold">Deployments</span> from the left panel.</p>
+</li>
+<li>
+<p>Click <span class="bold">Install</span> and Install <code class="codeph">jax-rs-2.0.war</code> from WebLogic deployment libraries. Click <span class="bold">Next</span> and then <span class="bold">Next</span>.</p>
+</li>
+<li>
+<p>In the Deployment targets page, select <span class="bold">All servers in the cluster</span> to deploy this library for all servers and then click <span class="bold">Next</span>.</p>
+</li>
+<li>
+<p>Click <span class="bold">Next</span> and <span class="bold">Finish</span> on next screens to accept defaults.</p>
+</li>
+<li>
+<p>To deploy the <span>Advanced Management Console</span> application, click <span class="bold">Deployments</span> from the left panel.</p>
+</li>
+<li>
+<p>Click <span class="bold">Install</span> and select <code class="codeph">JavaAMC</code> deployment package. Click <span class="bold">Next</span> and then <span class="bold">Next</span>.</p>
+</li>
+<li>
+<p>In the Deployment Targets page, select <span class="bold">All servers in the cluster</span> to deploy this library for all servers and click <span class="bold">Next</span>.</p>
+</li>
+<li>
+<p>Click <span class="bold">Next</span> and <span class="bold">Finish</span>.</p>
+</li>
+<li>
+<p>Click <span class="bold">Deployments</span> from left panel to make sure deployment is done.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-55B10D51-2356-40A9-9C89-4E2BA2AD923E"></a>
+<h2 id="JSAMI-GUID-55B10D51-2356-40A9-9C89-4E2BA2AD923E" class="sect2">Installing and Configuring Oracle Database</h2>
+<div>
+<p>Before you begin to install and configure the Oracle database, make sure you can get root authority as the configuration requires root authority.</p>
+<div class="section">
+<p>See <a href="oracle-database-installation-and-configuration-advanced-management-console.htm#GUID-DF2557D8-C727-4243-8387-6154E5C1C36A">Configuring Oracle Database on Linux</a>.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-68CB6738-EDA8-464F-9E84-925B89C0DF17"></a>
+<h2 id="JSAMI-GUID-68CB6738-EDA8-464F-9E84-925B89C0DF17" class="sect2">Configuring Data Source in WebLogic Server</h2>
+<div>
+<div class="section">To Configure Data Source in WebLogic server, see <a href="oracle-weblogic-server-configuration-advanced-management-console.htm#GUID-5561AE00-8D3C-4524-8078-05BF1CBBB2B2" title="You can configure Oracle WebLogic Server with the Oracle database to provide services to access and modify user data. The database is accessed by using JDBC.">Configuring WebLogic Server with Oracle Database</a>.
+<div class="infobox-note" id="GUID-68CB6738-EDA8-464F-9E84-925B89C0DF17__GUID-B4DAD052-13E5-40B6-8E47-6AFC582AB984">
+<p class="notep1">Note:</p>
+The data source needs to be deployed on the cluster instead of the single WebLogic server.</div>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment124">
+<tr>
+<td class="cellalignment131">
+<table class="cellalignment135">
+<tr>
+<td class="cellalignment128"><a href="troubleshooting-tips-and-tricks.htm"><img width="24" height="24" src="../../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2014, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment133">
+<table class="cellalignment127">
+<tr>
+<td class="cellalignment128"><a href="../../index.html"><img width="24" height="24" src="../../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment128"><a href="toc.htm"><img width="24" height="24" src="../../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment128"><a href="../../dcommon/html/feedback.htm"><img width="24" height="24" src="../../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

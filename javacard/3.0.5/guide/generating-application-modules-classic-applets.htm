@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Generating Application Modules From Classic Applets</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-04-13T10:24:54Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Development Kit User Guide, Classic Edition" />
+<meta name="dcterms.identifier" content="E59602-03" />
+<meta name="dcterms.isVersionOf" content="JCUGC" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="compatibility-classic-applets.htm" title="Previous" type="text/html" />
+<link rel="Next" href="working-cap-files.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCUGC.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-BFE8AAEF-D484-4F3C-B7EE-B3712C75AAAD"></a> <span id="PAGE" style="display:none;">97/161</span> <!-- End Header -->
+<a id="JCUGC217"></a>
+<h1 id="JCUGC-GUID-BFE8AAEF-D484-4F3C-B7EE-B3712C75AAAD" class="sect1">Generating Application Modules From Classic Applets</h1>
+<div>
+<p>Developers use the Normalizer to generate application modules for Java Card 3 Platform classic applets they are creating or from classic applets created for previous versions of the Java Card platform. These application modules contain CAP files and are downloadable on both the Java Card 3 platform Classic Edition and Connected Edition smart cards.</p>
+<p>The output from the tool is a classic module that contains the class files, the CAP components of the CAP file, SIO proxies for classic SIOs (if required), and associated classic application descriptors. The input to the tool must be classic CAP files and associated export (EXP) files. If the input files are not classic CAP files, the normalization fails.</p>
+</div>
+<a id="JCUGC218"></a>
+<div class="props_rev_3"><a id="GUID-AD4DE4C4-4C49-47E4-A8BA-77D71746471C"></a>
+<h2 id="JCUGC-GUID-AD4DE4C4-4C49-47E4-A8BA-77D71746471C" class="sect2">Running the Normalizer</h2>
+<div>
+<div class="section">
+<p>The file to invoke the Normalizer is a batch file (<code class="codeph">normalizer.bat</code>) that must be run from a working directory of <span class="italic">JC_CLASSIC_HOME</span><code class="codeph">\bin</code> in order for the code to execute properly.</p>
+<p>To run the Normalizer:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li><span>Enter the following command using the appropriate subcommands and options:</span></li>
+</ol>
+<div class="section">
+<p><code class="codeph">normalizer.bat</code> <span class="italic">subcommand</span> [<span class="italic">options</span>]</p>
+<p>The following is a list of the subcommands for the Normalizer:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">normalize</code> - Creates the package class files.</p>
+</li>
+<li>
+<p><code class="codeph">copyright</code> - Displays detailed copyright notice</p>
+</li>
+<li>
+<p><code class="codeph">help</code> - Displays information about the Normalizer command</p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+<a id="JCUGC219"></a>
+<div class="props_rev_3"><a id="GUID-8A29B079-7376-4F7C-83BC-51C5BC74D9A9"></a>
+<h3 id="JCUGC-GUID-8A29B079-7376-4F7C-83BC-51C5BC74D9A9" class="sect3">normalize Subcommands</h3>
+<div>
+<p>Use the <code class="codeph">normalize</code> subcommand and its options to create the package class files. Options are used with the <code class="codeph">normalize</code> subcommand to specify input files, export paths, export file names, and output directories.</p>
+</div>
+<a id="JCUGC221"></a><a id="JCUGC220"></a>
+<div class="props_rev_3"><a id="GUID-67FDB179-68E9-46F1-A8F4-8564534D6D08"></a>
+<h4 id="JCUGC-GUID-67FDB179-68E9-46F1-A8F4-8564534D6D08" class="sect4">normalize Subcommand Options</h4>
+<div>
+<div class="section">
+<p><a href="generating-application-modules-classic-applets.htm#GUID-67FDB179-68E9-46F1-A8F4-8564534D6D08__BHCHGIFA" title="list and description of normalize subcommand options">Table 6-1</a> identifies the <code class="codeph">normalize</code> subcommand options and provides their descriptions.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-67FDB179-68E9-46F1-A8F4-8564534D6D08__BHCHGIFA">
+<p class="titleintable">Table 6-1 normalize Subcommand Options</p>
+<table class="cellalignment12" title="normalize Subcommand Options" summary="list and description of normalize subcommand options">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment37" id="d21966e141">Option</th>
+<th class="cellalignment65" id="d21966e144">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d21966e149" headers="d21966e141">
+<p><code class="codeph">-i</code> <span class="italic">file</span></p>
+<p>or</p>
+<p><code class="codeph">--in</code> <span class="italic">file</span></p>
+</td>
+<td class="cellalignment66" headers="d21966e149 d21966e144">
+<p>Specifies the input CAP file name.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d21966e166" headers="d21966e141">
+<p><code class="codeph">-p</code> <span class="italic">path</span></p>
+<p>or</p>
+<p><code class="codeph">--exportpath</code> <span class="italic">path</span></p>
+</td>
+<td class="cellalignment66" headers="d21966e166 d21966e144">
+<p>Specifies the path of the export files used by the tool.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d21966e183" headers="d21966e141">
+<p><code class="codeph">-f</code> <span class="italic">file</span></p>
+<p>or</p>
+<p><code class="codeph">--exportfile</code> <span class="italic">file</span></p>
+</td>
+<td class="cellalignment66" headers="d21966e183 d21966e144">
+<p>Specifies the export files used by the tool.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d21966e201" headers="d21966e141">
+<p><code class="codeph">-o</code> <span class="italic">directory</span></p>
+<p>or</p>
+<p><code class="codeph">--out</code> <span class="italic">directory</span></p>
+</td>
+<td class="cellalignment66" headers="d21966e201 d21966e144">
+<p>(Optional) This the default setting and does not have to be explicitly set. Specifies the output directory that contains the export file.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d21966e218" headers="d21966e141">
+<p><code class="codeph">-k</code></p>
+<p>or</p>
+<p><code class="codeph">--keepall</code></p>
+</td>
+<td class="cellalignment66" headers="d21966e218 d21966e144">
+<p>Specifies the directory to keep class files, proxy classes, and CAP components. The output format is as follows:</p>
+<p><span class="italic">directory</span>/<span class="italic">application classes</span>/<code class="codeph">proxy</code>/<span class="italic">[proxy classes]</span>/<code class="codeph">javacard</code>/ <code class="codeph">*.cap</code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="JCUGC222"></a>
+<div class="props_rev_3"><a id="GUID-6ACEFBDA-6CE7-4F17-A886-8EFB47EB21D0"></a>
+<h4 id="JCUGC-GUID-6ACEFBDA-6CE7-4F17-A886-8EFB47EB21D0" class="sect4">normalize Subcommand Format</h4>
+<div>
+<div class="section">
+<p>The following is the format of the <code class="codeph">normalize</code> subcommand. Options in the subcommand are used in the sequence that are presented in <a href="generating-application-modules-classic-applets.htm#GUID-67FDB179-68E9-46F1-A8F4-8564534D6D08__BHCHGIFA" title="list and description of normalize subcommand options">Table 6-1</a>. In this format example, an input file and an output directory are specified as options:</p>
+<p><code class="codeph">normalizer.bat</code> <code class="codeph">normalize</code> <code class="codeph">--in</code> <span class="italic">file</span> <code class="codeph">--out</code> <span class="italic">directory</span></p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="JCUGC223"></a>
+<div class="props_rev_3"><a id="GUID-F1A122A5-EBFD-4D9E-A5E6-D71E32D1771A"></a>
+<h4 id="JCUGC-GUID-F1A122A5-EBFD-4D9E-A5E6-D71E32D1771A" class="sect4">normalize Subcommand Example</h4>
+<div>
+<div class="section">
+<p>The following is an example of the <code class="codeph">normalize</code> subcommand in which an input file (<code class="codeph">myCAP.cap</code>) is specified as an option:</p>
+<p><code class="codeph">normalizer.bat normalize -i myCAP.cap</code></p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="JCUGC224"></a>
+<div class="props_rev_3"><a id="GUID-EB1C8982-5C65-41FB-B3CF-34FBA7A7F115"></a>
+<h3 id="JCUGC-GUID-EB1C8982-5C65-41FB-B3CF-34FBA7A7F115" class="sect3">copyright Subcommand</h3>
+<div>
+<p>The <code class="codeph">copyright</code> subcommand displays the detailed copyright notice. There are no options associated with this subcommand.</p>
+</div>
+</div>
+<a id="JCUGC225"></a>
+<div class="props_rev_3"><a id="GUID-9834DAEC-D8F1-4639-91E1-F46A5D3DD663"></a>
+<h3 id="JCUGC-GUID-9834DAEC-D8F1-4639-91E1-F46A5D3DD663" class="sect3">help Subcommand</h3>
+<div>
+<p>The <code class="codeph">help</code> subcommand displays information about the Normalizer command. Options are used with the <code class="codeph">help</code> subcommand to specify the information that is displayed about each subcommand.</p>
+</div>
+<a id="JCUGC226"></a>
+<div class="props_rev_3"><a id="GUID-9E62AD76-5200-4F40-B2FE-57F81BC7662D"></a>
+<h4 id="JCUGC-GUID-9E62AD76-5200-4F40-B2FE-57F81BC7662D" class="sect4">Normalizer Summary Help</h4>
+<div>
+<div class="section">
+<p>The following command displays summary help about the Normalizer:</p>
+<p><code class="codeph">normalizer.bat help</code></p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="JCUGC227"></a>
+<div class="props_rev_3"><a id="GUID-5735E3D3-E298-4996-A08F-F8D8F33F3EFA"></a>
+<h4 id="JCUGC-GUID-5735E3D3-E298-4996-A08F-F8D8F33F3EFA" class="sect4">normalize Subcommand Help</h4>
+<div>
+<div class="section">
+<p>The following command displays help about the <code class="codeph">normalize</code> subcommand:</p>
+<p><code class="codeph">normalizer.bat help normalize</code></p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="compatibility-classic-applets.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="working-cap-files.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

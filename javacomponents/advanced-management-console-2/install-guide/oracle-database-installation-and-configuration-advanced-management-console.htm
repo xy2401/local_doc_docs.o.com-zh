@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Oracle Database Installation and Configuration for Advanced Management Console</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="The database for Advanced Management Console provides data storage to host all the data." />
+<meta name="dcterms.created" content="2018-04-10T14:14:49Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Platform, Standard Edition Advanced Management Console Installation and Configuration Guide" />
+<meta name="dcterms.identifier" content="E58638-13" />
+<meta name="dcterms.isVersionOf" content="JSAMI" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2014, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="mysql-database-installation-and-configuration-advanced-management-console.htm" title="Previous" type="text/html" />
+<link rel="Next" href="oracle-weblogic-server-configuration-advanced-management-console.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JSAMI.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../../nav/css/html5.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-520F3D1F-18EE-41DA-B238-FB9E3E8491C7"></a> <span id="PAGE" style="display:none;">7/17</span> <!-- End Header -->
+<a id="JSAMI180"></a><a id="JSAMI179"></a>
+<h1 id="JSAMI-GUID-520F3D1F-18EE-41DA-B238-FB9E3E8491C7" class="sect1"><span class="enumeration_chapter">4</span> Oracle Database Installation and Configuration for <span>Advanced Management Console</span></h1>
+<div>
+<p>The database for <span>Advanced Management Console</span> provides data storage to host all the data.</p>
+<p>The database stores information about MSI files, applications, deployment rules, and deployment rule sets. The database also stores information about agents, Java Runtime Environment (JRE) statistics, and Java Installer configurations. This chapter contains the following sections that describe software requirements for the Oracle Database as well as installation and configuration procedures:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="oracle-database-installation-and-configuration-advanced-management-console.htm#GUID-74876AD7-7AA7-4718-B79C-06B0E79D4953">Software Requirements for Oracle Database</a></p>
+</li>
+<li>
+<p><a href="oracle-database-installation-and-configuration-advanced-management-console.htm#GUID-B7AA0781-E0F9-41D3-8772-350F58501C3F">Installing Oracle Database on Windows</a></p>
+</li>
+<li>
+<p><a href="oracle-database-installation-and-configuration-advanced-management-console.htm#GUID-6298D716-EC83-4F49-A85E-7751430EF545" title="After installing Oracle database for Advanced Management Console on Windows, you need to configure it.">Configuring Oracle Database on Windows</a></p>
+</li>
+<li>
+<p><a href="oracle-database-installation-and-configuration-advanced-management-console.htm#GUID-DF2557D8-C727-4243-8387-6154E5C1C36A">Installing and Configuring the Oracle Database on Linux</a></p>
+</li>
+</ul>
+</div>
+<a id="JSAMI181"></a>
+<div class="props_rev_3"><a id="GUID-74876AD7-7AA7-4718-B79C-06B0E79D4953"></a>
+<h2 id="JSAMI-GUID-74876AD7-7AA7-4718-B79C-06B0E79D4953" class="sect2">Software Requirements for Oracle Database</h2>
+<div>
+<p>To use Oracle Database with <span>Advanced Management Console</span>, download and install a supported version of the Oracle database from <a href="http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html" target="_blank">Oracle Database Software Downloads</a>.</p>
+</div>
+</div>
+<div class="sect2"><a id="GUID-B7AA0781-E0F9-41D3-8772-350F58501C3F"></a>
+<h2 id="JSAMI-GUID-B7AA0781-E0F9-41D3-8772-350F58501C3F" class="sect2">Installing Oracle Database on Windows</h2>
+<div>
+<div class="p">
+<div class="infobox-note" id="GUID-B7AA0781-E0F9-41D3-8772-350F58501C3F__GUID-8F5D4AFF-7845-4439-8BF4-08329C222F79">
+<p class="notep1">Note:</p>
+To install Oracle 11g database, see <a href="http://www.oracle.com/pls/topic/lookup?ctx=javacomponents&amp;id=db11gr2-install" target="_blank">Oracle 11g Documentation</a>.</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>This topic describes installation steps for Oracle Database 12c.</p>
+</div>
+<!-- class="section" -->
+<div class="section">To install Oracle database for Windows operating system:</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Go to <a href="http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html" target="_blank">Oracle Database Software Downloads</a> in your browser.</span></li>
+<li class="stepexpand"><span>Download the 64-bit <code class="codeph">.zip</code> file. Select the<code class="codeph">.zip</code> file and right click to select <span class="bold">Extract All</span>. Extract both the <code class="codeph">.zip</code> files to the same folder.</span>
+<div>Don&rsquo;t extract the archive using <code class="codeph">unzip</code> command, which may result in an unsuccessful run of the <code class="codeph">setup.exe</code>.</div>
+</li>
+<li class="stepexpand"><span>Run the <code class="codeph">setup.exe</code> and select the installation options according to your database and Windows user requirements.</span></li>
+<li class="stepexpand"><span>In the <span class="bold">Specify Database Identifiers</span> screen of the installation process, enter the Global database name (for example, <code class="codeph">amc2</code>) and the Oracle system identifier, SID (for example, <code class="codeph">amc2</code>). Don&rsquo;t select the check box for the option <span class="bold">Create as Container database</span>. The Install button gets enabled.</span></li>
+<li class="stepexpand"><span>Click <span class="bold">Install</span> to install the product.</span>
+<div>Oracle Database is installed on Windows.</div>
+</li>
+<li class="stepexpand"><span>Start the SQL Plus application. From the command-line, enter the command SQLPLUS to start SQL Plus.</span></li>
+</ol>
+<div class="section">From Windows <span class="bold">Start</span>, click <span class="bold">Programs</span>, Oracle-<span class="italic">OraHomeName</span>, <span class="bold">Application Development</span>, and <span class="bold">SQL Plus</span>.</div>
+<!-- class="section" --></div>
+</div>
+<a id="JSAMI182"></a>
+<div class="props_rev_3"><a id="GUID-6298D716-EC83-4F49-A85E-7751430EF545"></a>
+<h2 id="JSAMI-GUID-6298D716-EC83-4F49-A85E-7751430EF545" class="sect2">Configuring Oracle Database on Windows</h2>
+<div>
+<p>After installing Oracle database for <span>Advanced Management Console</span> on Windows, you need to configure it.</p>
+<div class="section">To configure Oracle database on Windows:</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Log in to SQL*Plus application with <code class="codeph">sys as sysdba</code> and the password you opt during the installation process in the Schema Password step.</span></li>
+<li class="stepexpand"><span>Create the user (for example, <code class="codeph">amc2)</code> and grant access to the database (for example, <code class="codeph">amc2</code>). The database name is the one that you set in<a href="oracle-database-installation-and-configuration-advanced-management-console.htm#GUID-B7AA0781-E0F9-41D3-8772-350F58501C3F">Installing Oracle Database on Windows</a>.</span>
+<div>
+<pre dir="ltr">
+SQL&gt; CREATE USER amc2 IDENTIFIED BY amc2 
+DEFAULT TABLESPACE users
+QUOTA UNLIMITED ON users PASSWORD EXPIRE;
+SQL&gt; CREATE ROLE amc2_role;
+SQL&gt; GRANT CREATE SESSION, CREATE TABLE, CREATE SEQUENCE, CREATE VIEW, CREATE TRIGGER to amc2_role; 
+SQL&gt; GRANT amc2_role TO amc2;
+</pre>
+<p>Configure your Oracle database <code class="codeph">QUOTA</code> to <code class="codeph">UNLIMITED</code> to ensure that enough database storage is available to support large <code class="codeph">BLOB</code> entries, such as MSI binaries. If you encounter an issue with the SQL Create User statement, then log out of SQL*Plus application and repeat step 1 and step 2.</p>
+</div>
+</li>
+<li class="stepexpand"><span>After you successfully create the user, exit the SQL*Plus application and log back into SQL*Plus as user (for example, <code class="codeph">amc2</code>). You are prompted to set up the password. Set up a strong password.</span></li>
+</ol>
+<div class="section">
+<p>The Oracle Database user credentials provided in this topic are examples. The <span>Advanced Management Console</span> doesn&rsquo;t need to know your database user credentials. Oracle database user credentials are only required to configure the DataSource connection in the application server.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><a id="GUID-DF2557D8-C727-4243-8387-6154E5C1C36A"></a>
+<h2 id="JSAMI-GUID-DF2557D8-C727-4243-8387-6154E5C1C36A" class="sect2">Installing and Configuring the Oracle Database on Linux</h2>
+<div>
+<div class="p">The configuration requires root authority, so make sure that you can get root authority before you begin to install and configure the Oracle database. However, do not start the installer as root user.</div>
+<!-- class="section" -->
+<div class="section">To install and configure the Oracle database on Linux:</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Connect to the server by using SSH or VNC, as appropriate.</span></li>
+<li class="stepexpand"><span>Unzip your database installer.&nbsp;</span></li>
+<li class="stepexpand"><span>In your shell, run the <code class="codeph">ulimit -s 10240</code> command . This is the setting for maximum stack size limitation, which is required for the database installation. In addition, edit the <code>/etc/security/limits.conf</code> file to set the following <code class="codeph">nofile</code>, <code class="codeph">nproc</code>, <code class="codeph">stack</code>, and <code class="codeph">memlock</code> values for database user deployment:</span>
+<div>
+<pre dir="ltr">
+deployment   soft   nofile    1024
+ 
+deployment   hard   nofile    65536
+ 
+deployment   soft   nproc    16384
+ 
+deployment   hard   nproc    16384
+ 
+deployment   soft   stack    10240
+ 
+deployment   hard   stack    32768
+ 
+deployment   hard   memlock    134217728
+ 
+deployment   soft   memlock    134217728
+</pre></div>
+</li>
+<li class="stepexpand"><span>Validate that <code>/etc/pam.d/login</code> contains the following line:</span>
+<div>
+<pre dir="ltr">
+session include system-auth
+</pre>
+.</div>
+<div>If <code>/etc/pam.d/login</code> doesn&rsquo;t it, then add the following line:</div>
+<div>
+<pre dir="ltr">
+# echo &lsquo;session include system-auth&rsquo; &gt;&gt; /etc/pam.d/login
+</pre></div>
+</li>
+<li class="stepexpand"><span>Validate that <code>/etc/pam.d/system-auth</code> contains the following line:</span>
+<div>
+<pre dir="ltr">
+session required pam_limits.so
+</pre></div>
+<div>If <code class="codeph">/etc/pam.d/system-auth</code> doesn&rsquo;t it, then add the following line:</div>
+<div>
+<pre dir="ltr">
+# echo &lsquo;session required pam_limits.so&rsquo; &gt;&gt; /etc/pam.d/system-auth
+</pre></div>
+</li>
+<li class="stepexpand"><span>Log in as the database software owner and validate the following shell limits:</span>
+<div>
+<pre dir="ltr">
+-bash-4.2$ ulimit -Sn
+1024
+ 
+-bash-4.2$ ulimit -Hn
+65536
+ 
+-bash-4.2$ ulimit -Su
+16384
+ 
+-bash-4.2$ ulimit -Hu
+16384
+ 
+-bash-4.2$ ulimit -Ss
+10240
+ 
+-bash-4.2$ ulimit -Hs
+32768
+ 
+-bash-4.2$
+</pre></div>
+</li>
+<li class="stepexpand"><span>Change to the directory where your database installer is unzipped and start the Install wizard by running the <code class="codeph">./runInstaller</code> command. Provide the required information and then click <span class="bold">Next</span>. Use the default selection in this wizard and then click <span class="bold">Next</span>.</span></li>
+<li class="stepexpand"><span>On the <span class="wintitle">Select System Class</span> page, select <span class="bold">Desktop class</span> and click <span class="bold">Next</span>.</span></li>
+<li class="stepexpand"><span>On the <span class="wintitle">Typical Installation</span> page, perform the following:</span>
+<ol>
+<li><span>Specify the install location information.</span></li>
+<li><span>Verify that the Global database name is <code>orcl</code> and then click <span class="bold">Next</span>.</span></li>
+</ol>
+</li>
+<li class="stepexpand"><span>On the <span class="wintitle">Create Inventory</span> page, set the product inventory location and click <span class="bold">Next</span>.</span></li>
+<li class="stepexpand"><span>In the <span class="wintitle">Install</span> wizard, click <span class="bold">OK</span>.</span>
+<div>A summary of the prerequisite checks is displayed. Click <span class="bold">Install</span> to start the database installation. Ensure that you run the scripts during the installation.</div>
+</li>
+<li class="stepexpand"><span>Follow the instructions in the wizard and run the scripts.</span>
+<div>The <code class="codeph">ENV</code> scripts are copied to <code>/usr/local/bin</code>. You can change the path if you want to.</div>
+</li>
+<li class="stepexpand"><span>Click <span class="bold">OK</span> in the Installation wizard to continue with the installation.</span></li>
+<li class="stepexpand"><span>When installation is completed, click <span class="bold">Close</span> to close the wizard, and then run the <code class="codeph">cat/etc/oratab</code> command to check the installation information.</span></li>
+<li class="stepexpand"><span>Run the scripts under <code>scratch/deployment/app/oraInventory</code>. If you did not use the default Oracle base location during installation, then change it accordingly.</span></li>
+<li class="stepexpand"><span>Switch to the database file location and create an <code class="codeph">amc2</code> directory for PDB.</span></li>
+<li class="stepexpand"><span>Using sqlplus, connect to the database as <code class="codeph">sysdba</code> and enter the following command to create PDB:</span>
+<div>
+<pre dir="ltr">
+CREATE PLUGGABLE DATABASE amc2 ADMIN USER amc2 identified by "amc2" DEFAULT TABLESPACE USERS DATAFILE '/scratch/deployment/app/deployment/oradata/orcl/amc2/users01.dbf' SIZE 250M AUTOEXTEND ON FILE_NAME_CONVERT=('/scratch/deployment/app/deployment/oradata/orcl/pdbseed/', '/scratch/deployment/app/deployment/oradata/orcl/amc2/');
+</pre></div>
+</li>
+<li class="stepexpand"><span>Change the database session to <code class="codeph">AMC2</code> and make sure that <code class="codeph">AMC2</code> is open:</span>
+<div>
+<pre dir="ltr">
+alter session set container=amc2;
+</pre></div>
+<div>
+<pre dir="ltr">
+alter pluggable database amc2 open;
+</pre></div>
+<ol>
+<li class="substepexpand"><span>Configure and set the authority for user <code class="codeph">AMC2</code>.</span>
+<div>The following is the command to grant authority to <code class="codeph">amc2</code>:&nbsp;
+<pre dir="ltr">
+ grant CREATE SESSION, CREATE TABLE, CREATE SEQUENCE, CREATE VIEW to amc2;
+</pre></div>
+<div>The following is the command to set the quota:
+<pre dir="ltr">
+alter user amc2 quota unlimited on users;
+</pre></div>
+</li>
+<li class="substepexpand"><span>Save the state of <code class="codeph">AMC2</code>.</span></li>
+</ol>
+</li>
+<li class="stepexpand"><span>Stop the listener and exit sqlplus.</span>
+<div>To stop the listener, use the following command:&nbsp;
+<pre dir="ltr">
+$ORACLE_HOME/bin/lsnrctl stop
+</pre>
+.</div>
+</li>
+<li class="stepexpand"><span>Make sure the listener port in the configuration file is set to 1521.</span>
+<div>You can edit the configuration file <code class="codeph">$ORACLE_HOME/network/admin/listener.ora</code> as follows:
+<pre dir="ltr">
+LISTENER =
+  (DESCRIPTION_LIST =
+    (DESCRIPTION =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = <span class="variable">your_host_name</span>)(PORT = 1521))
+      (ADDRESS = (PROTOCOL = IPC)(KEY = EXTPROC1521))
+    )
+  ) 
+</pre></div>
+</li>
+<li class="stepexpand"><span>Edit the TNS configuration file, <code>$ORACLE_HOME/network/admin/tnsnames.ora</code>:</span>
+<div>
+<pre dir="ltr">
+LISTENER_AMC2 =
+  (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))
+ORCL =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = orcl)
+    )
+  )
+AMC2 =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = <span class="variable">your_host_name</span>)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = amc2)
+    )
+  ) 
+</pre></div>
+</li>
+<li class="stepexpand"><span>After setting the two configuration files correctly, start the listener again by entering the following command:</span>
+<div>
+<pre dir="ltr">
+$ORACLE_HOME/bin/lsnrctl start
+</pre></div>
+</li>
+<li class="stepexpand"><span>Make sure that the database listener is running by using the following command:</span>
+<div>
+<pre dir="ltr">
+$ORACLE_HOME/bin/lsnrctl services
+</pre></div>
+</li>
+</ol>
+<div class="section">If you are a database administrator, then use ORAchk to check for the Oracle database:
+<ol>
+<li>
+<div class="p">Download ORAchk from MOS.
+<div class="infobox-note" id="GUID-DF2557D8-C727-4243-8387-6154E5C1C36A__GUID-0B1B65E1-9BC0-4128-B786-FC3FAC454608">
+<p class="notep1">Note:</p>
+MOS is available at&nbsp;<a href="https://support.oracle.com/" target="_blank">https://support.oracle.com</a>.</div>
+</div>
+</li>
+<li>
+<p>Copy <code class="codeph">orachk.zip</code> on <code>SRVDB</code> and extract it.</p>
+</li>
+<li>
+<p>Run <code class="codeph">./orachk</code> as a root user to check the Oracle database and generate HTML report. This creates a zip file of the report that contains an HTML file. The report includes any issues that were found along with links to MOS notes or documentation to fix the issues.</p>
+</li>
+</ol>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment124">
+<tr>
+<td class="cellalignment131">
+<table class="cellalignment129">
+<tr>
+<td class="cellalignment128"><a href="mysql-database-installation-and-configuration-advanced-management-console.htm"><img width="24" height="24" src="../../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment128"><a href="oracle-weblogic-server-configuration-advanced-management-console.htm"><img width="24" height="24" src="../../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2014, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment133">
+<table class="cellalignment127">
+<tr>
+<td class="cellalignment128"><a href="../../index.html"><img width="24" height="24" src="../../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment128"><a href="toc.htm"><img width="24" height="24" src="../../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment128"><a href="../../dcommon/html/feedback.htm"><img width="24" height="24" src="../../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

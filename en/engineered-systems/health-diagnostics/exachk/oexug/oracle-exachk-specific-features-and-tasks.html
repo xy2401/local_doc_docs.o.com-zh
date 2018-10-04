@@ -1,0 +1,97 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="Review this information on the features of Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance, Oracle Exalogic, Oracle SuperCluster, Oracle Exalytics, and Oracle Big Data Appliance.">
+      <meta name="description" content="Review this information on the features of Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance, Oracle Exalogic, Oracle SuperCluster, Oracle Exalytics, and Oracle Big Data Appliance.">
+      <title>Oracle EXAchk Specific Features and Tasks</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide">
+      <meta property="og:description" content="Review this information on the features of Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance, Oracle Exalogic, Oracle SuperCluster, Oracle Exalytics, and Oracle Big Data Appliance.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-orachk-and-exachk-users-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:43:23-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2016, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E83827-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/exachk">
+      
+      <link rel="prev" href="troubleshooting-oracle-iam-health-checks.html" title="Previous" type="text/html">
+      <link rel="next" href="scope-and-supported-platforms-for-oracle-engineered-systems.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"exachk","element_name":"EXAchk","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® ORAchk and EXAchk User's Guide">
+    <meta name="dcterms.isVersionOf" content="OEXUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="troubleshooting-oracle-iam-health-checks.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="scope-and-supported-platforms-for-oracle-engineered-systems.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Oracle EXAchk Specific Features and Tasks</li>
+            </ol>
+            <a id="GUID-FFA47C35-4BC4-4B58-9C6D-3115D069A5F1" name="GUID-FFA47C35-4BC4-4B58-9C6D-3115D069A5F1"></a>
+            
+            <h2 id="OEXUG-GUID-FFA47C35-4BC4-4B58-9C6D-3115D069A5F1" class="sect2"><span class="enumeration_chapter">3 </span>Oracle EXAchk Specific Features and Tasks
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>Review this information on the features of Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance, Oracle Exalogic, Oracle SuperCluster, Oracle Exalytics, and Oracle Big Data Appliance.</p>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="scope-and-supported-platforms-for-oracle-engineered-systems.html#GUID-3F353C73-8E37-4CE1-A244-2F7E8483DC12">Scope and Supported Platforms for Running Oracle EXAchk on Oracle Engineered Systems</a><br>Oracle EXAchk supports all supported hardware types, operating systems, firmware versions, and Oracle versions of the following Oracle engineered systems.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-85C61138-2243-4435-967D-C5A477080186">Oracle Exadata and Zero Data Loss Recovery Appliance</a><br>Understand the features and tasks specific to Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-61B15081-6424-4F1E-A84C-0E0D8EEF0FF0">Oracle Exalogic</a><br>This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalogic.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-supercluster.html#GUID-0789AB58-9C67-4F22-98A3-874FAF2EA3E7">Oracle SuperCluster</a><br>This section explains the features and tasks specific to Oracle EXAchk on Oracle SuperCluster.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-exalytics.html#GUID-D2F1F610-48EA-4EA6-BF6F-B6A6E252A0E0">Oracle Exalytics</a><br>This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalytics.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-big-data.html#GUID-7534A5C5-E51E-4341-9D7D-3E2A3215415E">Oracle Big Data Appliance</a><br>This section explains the features and tasks specific to Oracle EXAchk on Oracle Big Data Appliance.
+                  </li>
+               </ul>
+               <div class="relinfo">
+                  <p><strong>Related Topics</strong></p>
+                  <ul>
+                     <li><a href="oracle-orachk-and-exachk-common-features-tasks.html#GUID-50F7EA11-11FD-431C-B99A-EC9E2176BBDB">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

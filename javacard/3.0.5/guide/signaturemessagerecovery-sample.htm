@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>SignatureMessageRecovery Sample</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-04-13T10:24:54Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Development Kit User Guide, Classic Edition" />
+<meta name="dcterms.identifier" content="E59602-03" />
+<meta name="dcterms.isVersionOf" content="JCUGC" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="running-securermipurse-sample-command-line.htm" title="Previous" type="text/html" />
+<link rel="Next" href="message-recovery-order-operations-signing.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCUGC.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-5552AC36-85AB-4DA7-B2C7-5A6564C59732"></a> <span id="PAGE" style="display:none;">65/161</span> <!-- End Header -->
+<a id="JCUGC173"></a>
+<h1 id="JCUGC-GUID-5552AC36-85AB-4DA7-B2C7-5A6564C59732" class="sect1">SignatureMessageRecovery Sample</h1>
+<div>
+<div class="infobox-note" id="GUID-5552AC36-85AB-4DA7-B2C7-5A6564C59732__GUID-9849B3B0-E72E-4C0A-9820-B3C84D97FDB4">
+<p class="notep1">Note:</p>
+<p>This sample is available only in bundles intended solely for distribution inside the U.S.</p>
+</div>
+<p>Message recovery refers to the mechanism whereby part of the message used to create the message digest is also included as padding in the signature block. During signature verification, the message data padding does not need to be explicitly sent to the verifying entity, it can automatically be extracted from the signature block.</p>
+<p>This sample consists of two scripts representing two scenarios for Signature with Message Recovery. The first script, <code class="codeph">sigMsgFullRec.scr</code>, shows the scenario in which the message to sign is small enough that the entire message itself becomes part of the signature padding (hence the name "Full Recovery" since you can recover the full message from the signature itself).</p>
+<p>The sequence of events resulting from running the first script, <code class="codeph">sigMsgFullRec.scr</code>, are:</p>
+<ol>
+<li>
+<p>The script sends to the sample application a small message to sign.</p>
+</li>
+<li>
+<p>The application initializes the signature object with the algorithm <code class="codeph">Signature.ALG_RSA_SHA_ISO9796_MR</code> and signs the message. Because the message is small enough, the application returns the signature data to the script.</p>
+</li>
+<li>
+<p>The script then simulates the verification phase in which it sends the signature data to the sample application asking it to verify the message.</p>
+<p>The application recovers the original message from the signature data and also verifies the signature, then returns the original data back to the script. If the signature verification fails, it returns an error code.</p>
+</li>
+</ol>
+<p>The second script, <code class="codeph">sigMsgPartRec.scr</code>, demonstrates a scenario in which the message to sign is large enough that only some part of it is included in the signature padding (hence the name "Partial Recovery"). The sequence of events resulting from running this script are:</p>
+<ol>
+<li>
+<p>The script sends to the sample application a large message to be signed.</p>
+</li>
+<li>
+<p>The application initializes the signature object with algorithm <code class="codeph">Signature.ALG_RSA_SHA_ISO9796_MR</code> and signs the message. Because the message is too large to fit in the signature, the application returns back to the script the number of bytes of original message that is embedded in the signature data. The application also returns back to the script the signature data.</p>
+</li>
+<li>
+<p>The script then simulates the verification phase in which it sends the signature data to the sample application.</p>
+</li>
+<li>
+<p>The application recovers the partial message and returns back to the script.</p>
+</li>
+<li>
+<p>The script sends the remainder of the message to the application to verify the signature.</p>
+</li>
+<li>
+<p>The application verifies the signature against the entire message and returns success.</p>
+</li>
+</ol>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="running-securermipurse-sample-command-line.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="message-recovery-order-operations-signing.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

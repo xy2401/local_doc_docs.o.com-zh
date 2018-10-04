@@ -1,0 +1,467 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="List of command-line options specific to Oracle ORAchk.">
+      <meta name="description" content="List of command-line options specific to Oracle ORAchk.">
+      <title>Oracle ORAchk Specific Command-Line Options</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide">
+      <meta property="og:description" content="List of command-line options specific to Oracle ORAchk.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-orachk-and-exachk-users-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:43:23-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2016, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E83827-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/exachk">
+      
+      <link rel="prev" href="oracle-zfs-storage-apliance-health-checks.html" title="Previous" type="text/html">
+      <link rel="next" href="troubleshooting-oracle-iam-health-checks.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"exachk","element_name":"EXAchk","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® ORAchk and EXAchk User's Guide">
+    <meta name="dcterms.isVersionOf" content="OEXUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="oracle-zfs-storage-apliance-health-checks.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="troubleshooting-oracle-iam-health-checks.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="oracle-orachk-specific-features-and-tasks.html" property="item" typeof="WebPage"><span property="name">Oracle ORAchk Specific Features and Tasks</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Oracle ORAchk Specific Command-Line Options</li>
+            </ol>
+            <a id="GUID-A50D620A-C2FC-40FD-9E22-35469B97C651" name="GUID-A50D620A-C2FC-40FD-9E22-35469B97C651"></a>
+            
+            <h2 id="OEXUG-GUID-A50D620A-C2FC-40FD-9E22-35469B97C651" class="sect2"><span class="enumeration_section">2.6 </span>Oracle ORAchk Specific Command-Line Options
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>List of command-line options specific to Oracle ORAchk.</p>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="oracle-orachk-specific-command-line-options.html#GUID-93B27AC2-C2D1-4C39-AD71-4EEF12708275">Running Auto Start</a><br>Use the list of commands in this section to run auto start.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-orachk-specific-command-line-options.html#GUID-8A4A3931-C3EC-4D13-AE93-1E190A94C081">Application Continuity Command-Line Options</a><br>List of Application Continuity command-line options.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-orachk-specific-command-line-options.html#GUID-466DCC84-809E-42ED-B4ED-E3DE58E8E8B7">Oracle ORAchk for Oracle Identity and Access Management Command-Line Options</a><br>List of Oracle ORAchk for Oracle Identity and Access Management command-line options.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-orachk-specific-command-line-options.html#GUID-6B9CBFDE-4897-4BA0-8011-4C900BCB1517">ZFS Storage Appliance Options</a><br>List of ZFS Storage Appliance options.
+                  </li>
+               </ul>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="oracle-orachk-specific-features-and-tasks.html#GUID-778B432D-9B59-431B-9796-E947E4FC0969" title="This chapter describes the features specific to Oracle ORAchk and the tasks that you can perform using Oracle ORAchk.">Oracle ORAchk Specific Features and Tasks</a></p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="sect2"><a id="GUID-93B27AC2-C2D1-4C39-AD71-4EEF12708275" name="GUID-93B27AC2-C2D1-4C39-AD71-4EEF12708275"></a><h3 id="OEXUG-GUID-93B27AC2-C2D1-4C39-AD71-4EEF12708275" class="sect3"><span class="enumeration_section">2.6.1 </span>Running Auto Start
+               </h3>
+               <div>
+                  <p>Use the list of commands in this section to run auto start.</p>
+                  <div class="tblformal" id="GUID-93B27AC2-C2D1-4C39-AD71-4EEF12708275__GUID-255B908B-2D83-4E25-AEB1-37D5EFE95E8D">
+                     <p class="titleintable">Table 2-8 Auto start</p>
+                     <table cellpadding="4" cellspacing="0" class="Formal" title="Auto start" summary="This table lists and describes commands to run auto start." frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" width="20%" id="d49036e82">Option</th>
+                              <th align="left" valign="bottom" width="20%" id="d49036e84">Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d49036e88" headers="d49036e82 ">
+                                 <p><code class="codeph">-autostart</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d49036e88 d49036e84 ">
+                                 <p>Configure auto start.</p>
+                                 <p>The daemon restarts at 1 am every day to discover any environment changes. The daemon runs a full local Oracle ORAchk check at 2 am every day, and a partial run of the most impactful checks every 6 hours through the <code class="codeph">oratier1</code> profile.
+                                 </p>
+                                 <p>The daemon automatically purges any collections older than 2 weeks.</p>
+                                 <p>Applicable only on Linux or Solaris on non-engineered systems.</p>
+                                 <p>You must run this command as <code class="codeph">root</code>.
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d49036e110" headers="d49036e82 ">
+                                 <p><code class="codeph">-autostop</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d49036e110 d49036e84 ">
+                                 <p>Remove auto start configuration.</p>
+                                 <p>You must run this command as <code class="codeph">root</code>.
+                                 </p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-orachk-specific-command-line-options.html#GUID-A50D620A-C2FC-40FD-9E22-35469B97C651" title="List of command-line options specific to Oracle ORAchk.">Oracle ORAchk Specific Command-Line Options</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-8A4A3931-C3EC-4D13-AE93-1E190A94C081" name="GUID-8A4A3931-C3EC-4D13-AE93-1E190A94C081"></a><h3 id="OEXUG-GUID-8A4A3931-C3EC-4D13-AE93-1E190A94C081" class="sect3"><span class="enumeration_section">2.6.2 </span>Application Continuity Command-Line Options
+               </h3>
+               <div>
+                  <p>List of Application Continuity command-line options.</p>
+                  <div class="tblformal" id="GUID-8A4A3931-C3EC-4D13-AE93-1E190A94C081__GUID-D84F98E5-D3A0-44FF-B45B-2F42AF7FFCB8">
+                     <p class="titleintable">Table 2-9 Application Continuity Command-Line Options</p>
+                     <table cellpadding="4" cellspacing="0" class="Formal" title="Application Continuity Command-Line Options" summary="This table lists and describes Application Continuity command-line options." frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" width="20%" id="d49036e161">Command-Line Argument</th>
+                              <th align="left" valign="bottom" width="20%" id="d49036e163">Shell Environment Variable</th>
+                              <th align="left" valign="bottom" width="20%" id="d49036e165">Usage</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d49036e169" headers="d49036e161 ">
+                                 <p><code class="codeph">&#x2013;asmhome jarfilename</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d49036e169 d49036e163 ">
+                                 <p><code class="codeph">RAT_AC_ASMJAR</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d49036e169 d49036e165 ">
+                                 <p>This must point to a version of <code>asm-all-5.0.3.jar</code> that you download from ASM Home Page.
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d49036e184" headers="d49036e161 ">
+                                 <p><code class="codeph">-javahome JDK8dirname</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d49036e184 d49036e163 ">
+                                 <p><code class="codeph">RAT_JAVA_HOME</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d49036e184 d49036e165 ">
+                                 <p>This must point to the <code>JAVA_HOME</code> directory for a JDK8 installation.
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d49036e199" headers="d49036e161 ">
+                                 <p><code class="codeph">-appjar dirname</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d49036e199 d49036e163 ">
+                                 <p><code class="codeph">RAT_AC_JARDIR</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d49036e199 d49036e165 ">
+                                 <p>To analyze the application code for references to Oracle concrete classes, this must point to the parent directory name for the code. The program analyzes <code>.class</code> files, and recursively <code>.jar</code> files and directories. 
+                                 </p>
+                                 <div class="p">To analyze the coverage, specify a directory name that contains one or more database server trace files. The trace directory is generally,<pre class="pre codeblock"><code>$ORACLE_BASE/diag/rdbms/$ORACLE_UNQNAME/$ORACLE_SID/trace</code></pre></div>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d49036e221" headers="d49036e161 ">
+                                 <p>NONE</p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d49036e221 d49036e163 ">
+                                 <p><code class="codeph">RAT_ACTRACEFILE_WINDOW</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d49036e221 d49036e165 ">
+                                 <p>When scanning the trace directory, this optional value limits the analysis to scanning to files created in the most recent specified number of days</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+                  <div class="example" id="GUID-8A4A3931-C3EC-4D13-AE93-1E190A94C081__GUID-ACCBB7AA-A558-436E-A1CC-A1D8D7FCBD22">
+                     <p class="titleinexample">Example 2-1 Application Continuity Command-Line Options</p><pre class="pre codeblock"><code>$ ./orachk -asmhome /tmp/asm-all-5.0.3.jar -javahome /tmp/jdk1.8.0_40 -apptrc $ORACLE_BASE/diag/rdbms/$ORACLE_SID/trace 3</code></pre></div>
+                  <!-- class="example" -->
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/exachk/oexug&amp;id=asm_framework" target="_blank">ASM - Home Page</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-orachk-specific-command-line-options.html#GUID-A50D620A-C2FC-40FD-9E22-35469B97C651" title="List of command-line options specific to Oracle ORAchk.">Oracle ORAchk Specific Command-Line Options</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-466DCC84-809E-42ED-B4ED-E3DE58E8E8B7" name="GUID-466DCC84-809E-42ED-B4ED-E3DE58E8E8B7"></a><h3 id="OEXUG-GUID-466DCC84-809E-42ED-B4ED-E3DE58E8E8B7" class="sect3"><span class="enumeration_section">2.6.3 </span>Oracle ORAchk for Oracle Identity and Access Management Command-Line Options
+               </h3>
+               <div>
+                  <p>List of Oracle ORAchk for Oracle Identity and Access Management command-line options.</p>
+                  <div class="tblformal" id="GUID-466DCC84-809E-42ED-B4ED-E3DE58E8E8B7__GUID-2FB6F5CD-4299-4379-85DC-23DFA590D2A6">
+                     <p class="titleintable">Table 2-10 Oracle Identity and Access Management Options</p>
+                     <table cellpadding="4" cellspacing="0" class="Formal" title="Oracle Identity and Access Management Options" summary="This table lists and describes command-line options available for Oracle ORAchk for Oracle Identity and Access Management health check tool." frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" width="20%" id="d49036e276">Option</th>
+                              <th align="left" valign="bottom" width="20%" id="d49036e278">Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d49036e282" headers="d49036e276 ">
+                                 <p><code class="codeph">-idm &#x2013;h</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d49036e282 d49036e278 ">
+                                 <p>Displays IDM help.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d49036e290" headers="d49036e276 ">
+                                 <p><code class="codeph">-idmpreinstall</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d49036e290 d49036e278 ">
+                                 <p>Runs all pre-install checks on Identity Management System.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d49036e298" headers="d49036e276 ">
+                                 <p><code class="codeph">-idmpostinstall</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d49036e298 d49036e278 ">
+                                 <p>Runs all post-install checks on Identity Management System.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d49036e306" headers="d49036e276 ">
+                                 <p><code class="codeph">-idmruntime</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d49036e306 d49036e278 ">
+                                 <p>Runs all runtime checks on Identity Management System.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d49036e314" headers="d49036e276 ">
+                                 <p><code class="codeph">-idmdbpreinstall</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d49036e314 d49036e278 ">
+                                 <p>Runs pre-install database checks on Identity Management System.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d49036e322" headers="d49036e276 ">
+                                 <p><code class="codeph">-idmpdbostinstall</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d49036e322 d49036e278 ">
+                                 <p>Runs post-install database checks on Identity Management System.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d49036e330" headers="d49036e276 ">
+                                 <p><code class="codeph">-idmdbruntime</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d49036e330 d49036e278 ">
+                                 <p>Runs runtime database checks on Identity Management System.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d49036e338" headers="d49036e276 ">
+                                 <p><code class="codeph">-idm_config</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d49036e338 d49036e278 ">
+                                 <p>Passes <code class="codeph">OAM</code>, <code class="codeph">OIM</code>, and one of the <code class="codeph">OUD</code> host from clusters.
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d49036e355" headers="d49036e276 ">
+                                 <p><code class="codeph">-Idmdiscargs</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d49036e355 d49036e278 ">
+                                 <p>Passes arguments to Identity Management Discovery Tool.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d49036e363" headers="d49036e276 ">
+                                 <p><code class="codeph">-idmhcargs</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d49036e363 d49036e278 ">
+                                 <p>Passes arguments to Identity Management Healthcheck Tool.</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-466DCC84-809E-42ED-B4ED-E3DE58E8E8B7__GUID-2A1AC67E-08AE-4D58-BFB4-67EB10D3D1B1">Oracle Identity and Access Management Health Check Scenarios</p>
+                     <div class="tblformal" id="GUID-466DCC84-809E-42ED-B4ED-E3DE58E8E8B7__GUID-1E74E74F-6807-459E-935C-06C6257B9578">
+                        <p class="titleintable">Table 2-11 Oracle Identity and Access Management Health Check Scenarios</p>
+                        <table cellpadding="4" cellspacing="0" class="Formal" title="Oracle Identity and Access Management Health Check Scenarios" summary="This table lists and describes the command-line options that you can use for a specific scenario." frame="hsides" border="1" rules="rows">
+                           <thead>
+                              <tr align="left" valign="top">
+                                 <th align="left" valign="bottom" width="20%" id="d49036e383">Scenario</th>
+                                 <th align="left" valign="bottom" width="20%" id="d49036e385">Command</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d49036e389" headers="d49036e383 ">
+                                    <p>Run pre-install checks.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d49036e389 d49036e385 ">
+                                    <div class="p"><pre class="pre codeblock"><code>./orachk -idmpreinstall -idm_config "OUD_HOST=<span class="variable" translate="no">h1</span>,<span class="variable" translate="no">h2</span>;OIM_HOST=<span class="variable" translate="no">h3</span>,<span class="variable" translate="no">h4</span>;OAM_HOST=<span class="variable" translate="no">h5</span>,<span class="variable" translate="no">h6</span>,<span class="variable" translate="no">h7</span>;OHS_HOST=<span class="variable" translate="no">h8</span>,<span class="variable" translate="no">h9</span>"</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d49036e425" headers="d49036e383 ">
+                                    <p>Run pre-install database checks.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d49036e425 d49036e385 ">
+                                    <div class="p"><pre class="pre codeblock"><code>./orachk &#x2013;idmdbpreinstall</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d49036e433" headers="d49036e383 ">
+                                    <p>Run post-install checks on single node Identity Management setup.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d49036e433 d49036e385 ">
+                                    <div class="p"><pre class="pre codeblock"><code>./orachk -idmpostinstall &#x2013;idm_config "singlenode"</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d49036e441" headers="d49036e383 ">
+                                    <p>Run runtime checks on multi-mode Identity Management setup.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d49036e441 d49036e385 ">
+                                    <div class="p"><pre class="pre codeblock"><code>./orachk -idmruntime -idm_config "OUD_HOST=<span class="variable" translate="no">host1</span>,<span class="variable" translate="no">host2</span>;OAM_HOST=<span class="variable" translate="no">host3</span>;OIM_HOST=<span class="variable" translate="no">host4</span>"</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d49036e461" headers="d49036e383 ">
+                                    <p>Run OIM runtime checks on multi-mode Identity Management setup.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d49036e461 d49036e385 ">
+                                    <div class="p"><pre class="pre codeblock"><code>./orachk -idmruntime -idm_config "OUD_HOST=<span class="variable" translate="no">host1</span>,<span class="variable" translate="no">host2</span>;OAM_HOST=<span class="variable" translate="no">host3</span>;OIM_HOST=<span class="variable" translate="no">host4</span>" -profile "OIM"</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d49036e481" headers="d49036e383 ">
+                                    <p>Run OIM and OAM post-install checks on single node Identity Management setup.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d49036e481 d49036e385 ">
+                                    <div class="p"><pre class="pre codeblock"><code>./orachk -idmpostinstall -idm_config "singlenode" -profile "OIM,OAM"</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d49036e489" headers="d49036e383 ">
+                                    <p>Run runtime checks with log level specified for Identity Management.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d49036e489 d49036e385 ">
+                                    <div class="p"><pre class="pre codeblock"><code>./orachk -idmruntime -idmdiscargs "-DlogLevel=FINEST" -idmhcargs "-DlogLevel=FINEST"</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d49036e497" headers="d49036e383 ">
+                                    <p>Discovery and Healthcheck tool Run checks directly passing <code>topology.xml</code> and <code>credconfig</code> location.
+                                    </p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d49036e497 d49036e385 ">
+                                    <div class="p"><pre class="pre codeblock"><code>./orachk - idmpreinstall | idmpostinstall | idmruntime -topology <span class="variable" translate="no">topology.xml</span> -credconfig <span class="variable" translate="no">credconfig</span></code></pre></div>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- class="inftblhruleinformal" -->
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-orachk-specific-command-line-options.html#GUID-A50D620A-C2FC-40FD-9E22-35469B97C651" title="List of command-line options specific to Oracle ORAchk.">Oracle ORAchk Specific Command-Line Options</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-6B9CBFDE-4897-4BA0-8011-4C900BCB1517" name="GUID-6B9CBFDE-4897-4BA0-8011-4C900BCB1517"></a><h3 id="OEXUG-GUID-6B9CBFDE-4897-4BA0-8011-4C900BCB1517" class="sect3"><span class="enumeration_section">2.6.4 </span>ZFS Storage Appliance Options
+               </h3>
+               <div>
+                  <p>List of ZFS Storage Appliance options.</p>
+                  <div class="tblformal" id="GUID-6B9CBFDE-4897-4BA0-8011-4C900BCB1517__GUID-4961614C-CF75-4494-B5C4-3124F6C207C0">
+                     <p class="titleintable">Table 2-12 ZFS Storage Appliance Options</p>
+                     <table cellpadding="4" cellspacing="0" class="Formal" title="ZFS Storage Appliance Options" summary="This table lists and describes options to run Oracle ORAchk on selected ZFS appliance nodes." frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" width="20%" id="d49036e552">Option</th>
+                              <th align="left" valign="bottom" width="20%" id="d49036e554">Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d49036e558" headers="d49036e552 ">
+                                 <p><code class="codeph">&#x2013;zfssa <span class="variable" translate="no">node</span></code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d49036e558 d49036e554 ">
+                                 <p>Runs Oracle ORAchk only on selected ZFS appliance nodes, where &nbsp;<span class="variable" translate="no">node</span> is a comma-delimited list of ZFS Storage Appliance names.
+                                 </p>
+                                 <div class="p">For example:<pre class="pre codeblock"><code>./orachk -zfssa <span class="variable" translate="no">node1</span>,<span class="variable" translate="no">node2</span></code></pre></div>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="oracle-zfs-storage-apliance-health-checks.html#GUID-62AA15A2-1E76-40E5-91B5-772FBF1DB7F4" title="Oracle ORAchk supports health checks for Oracle ZFS Storage Appliances.">Running Oracle ZFS Storage Appliance Health Checks</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-orachk-specific-command-line-options.html#GUID-A50D620A-C2FC-40FD-9E22-35469B97C651" title="List of command-line options specific to Oracle ORAchk.">Oracle ORAchk Specific Command-Line Options</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

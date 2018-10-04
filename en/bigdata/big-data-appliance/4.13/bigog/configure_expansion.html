@@ -1,0 +1,699 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Expanding an Oracle Big Data Appliance Starter Rack</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="Owner's Guide">
+      <meta property="og:description" content>
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="Owner's Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-big-data-appliance-owners-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-07T12:03:03-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2011, 2018">
+      <meta name="dcterms.category" content="bigdata">
+      <meta name="dcterms.identifier" content="E98477-01">
+      
+      <meta name="dcterms.product" content="en/bigdata/big-data-appliance/4.13">
+      
+      <link rel="prev" href="configure.html" title="Previous" type="text/html">
+      <link rel="next" href="hardware.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"bigdata","element_name":"Big Data","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"not-applicable","element_name":"Not applicable","display_in_url":false},"product":{"short_name":"big-data-appliance","element_name":"Big Data Appliance","display_in_url":true},"release":{"short_name":"4.13","element_name":"Release 4.13","display_in_url":true}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® Big Data Appliance Owner's Guide">
+    <meta name="dcterms.isVersionOf" content="BIGOG">
+    <meta name="dcterms.release" content="Release 4.13">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="configure.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="hardware.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">Owner's Guide</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="part-hardware-installation.html" property="item" typeof="WebPage"><span property="name">Hardware Installation and Configuration </span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Expanding an Oracle Big Data Appliance Starter Rack</li>
+            </ol>
+            <a id="GUID-486A0DB5-7FA4-4CE7-90C7-DE853D14F67A" name="GUID-486A0DB5-7FA4-4CE7-90C7-DE853D14F67A"></a><a id="BIGOG76885"></a>
+            
+            <h2 id="BIGOG-GUID-486A0DB5-7FA4-4CE7-90C7-DE853D14F67A" class="sect2"><span class="enumeration_chapter">8 </span>Expanding an Oracle Big Data Appliance Starter Rack
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>You can install and configure one or more Big Data Appliance High Capacity Nodes plus InfiniBand Infrastructure to add up to 12 new servers on a starter rack. This chapter explains the configuration steps for adding new servers on a starter rack.</p>
+               <p>Oracle Big Data Appliance supports clusters with mixed X5&#x2013;2L, X6&#x2013;2L, and X7&#x2013;2L servers. However if you include X7&#x2013;2L servers in the cluster, then you must first upgrade the cluster to Oracle Big Data Appliance release v4.10.0 or higher.</p>
+               <p>This chapter consists of the following sections:</p>
+               <ul style="list-style-type: disc;">
+                  <li>
+                     <p><a href="configure_expansion.html#GUID-73BD91BA-B9E5-4AA6-B84C-AC4D8E1F2F6A">About Expanding an Oracle Big Data Appliance Starter Rack</a></p>
+                  </li>
+                  <li>
+                     <p><a href="configure_expansion.html#GUID-A5141EED-02D8-4473-ABFC-B8D2D4B1BAEE">Installing New Servers to an Oracle Big Data Appliance Starter Rack</a></p>
+                  </li>
+                  <li>
+                     <p><a href="configure_expansion.html#GUID-B1E801CC-EE9F-4C0D-AAEB-954B9C10DDF6">Configuring the New Oracle Big Data Appliance Servers</a></p>
+                  </li>
+                  <li>
+                     <p><a href="configure_expansion.html#GUID-D24C1147-4059-4467-93F2-3B68383E7A5F">Setting Up the Network</a></p>
+                  </li>
+                  <li>
+                     <p><a href="configure_expansion.html#GUID-D7115845-7070-45C0-B304-BC4996370937">Installing Oracle Big Data Appliance Software on the New Servers</a></p>
+                  </li>
+               </ul>
+               <div class="infoboxnote" id="GUID-486A0DB5-7FA4-4CE7-90C7-DE853D14F67A__GUID-183667DD-D4F0-4026-B157-60DF4B868BF9">
+                  <p class="notep1">Note:</p>
+                  <p>Oracle recommends that an Oracle field engineer performs the procedures described in this chapter. </p>
+                  <p>Also note that physically adding servers to a partially-filled rack requires downtime. Extending a cluster onto new nodes in the same rack should not require downtime.</p>
+               </div>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="configure_expansion.html#GUID-73BD91BA-B9E5-4AA6-B84C-AC4D8E1F2F6A">About Expanding an Oracle Big Data Appliance Starter Rack</a><br></li>
+                  <li class="ulchildlink"><a href="configure_expansion.html#GUID-A5141EED-02D8-4473-ABFC-B8D2D4B1BAEE">Installing New Servers to an Oracle Big Data Appliance Starter Rack</a><br></li>
+                  <li class="ulchildlink"><a href="configure_expansion.html#GUID-B1E801CC-EE9F-4C0D-AAEB-954B9C10DDF6">Configuring the New Oracle Big Data Appliance Servers</a><br></li>
+                  <li class="ulchildlink"><a href="configure_expansion.html#GUID-D24C1147-4059-4467-93F2-3B68383E7A5F">Setting Up the Network</a><br></li>
+                  <li class="ulchildlink"><a href="configure_expansion.html#GUID-D7115845-7070-45C0-B304-BC4996370937">Installing Oracle Big Data Appliance Software on the New Servers</a><br></li>
+               </ul>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="part-hardware-installation.html#GUID-A1A5FA88-49BE-46DA-88BF-8A9497EACD81">Hardware Installation and Configuration</a></p>
+                  </div>
+               </div>
+            </div>
+            <a id="BIGOG76886"></a><div class="props_rev_3"><a id="GUID-73BD91BA-B9E5-4AA6-B84C-AC4D8E1F2F6A" name="GUID-73BD91BA-B9E5-4AA6-B84C-AC4D8E1F2F6A"></a><h3 id="BIGOG-GUID-73BD91BA-B9E5-4AA6-B84C-AC4D8E1F2F6A" class="sect3"><span class="enumeration_section">8.1 </span>About Expanding an Oracle Big Data Appliance Starter Rack
+               </h3>
+               <div>
+                  <p><a id="d46840e107" class="indexterm-anchor"></a>An Oracle Big Data Appliance starter rack has the same hardware configuration as a full rack, except that it comes with 6 servers instead of 18. All switches and power supplies are included in the starter rack, and do not need to be upgraded or supplemented to support additional servers.
+                  </p>
+                  <p>You can add up to 12 new servers on a starter rack by using a High Capacity node plus InfiniBand Infrastructure. You can either add all the new servers together or add some of the new servers at a later time on a starter rack.</p>
+                  <p>All Oracle Big Data Appliance expansion nodes come with the in-rack cables required for power as well as connections to the administrative and InfiniBand networks.&nbsp;Adding servers to a rack requires no changes to multi-rack InfiniBand connections, since that is a separate cabling task from switch to switch. </p>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="configure_expansion.html#GUID-48DFD14F-65A4-4295-8E88-397D76F6D7E5">Checking the Contents of a High Capacity Node plus Infiniband Infrastructure</a><br></li>
+                     <li class="ulchildlink"><a href="configure_expansion.html#GUID-530F7846-A65E-481C-A26E-00748F160545">Checking the Status of a Starter Rack</a><br></li>
+                     <li class="ulchildlink"><a href="configure_expansion.html#GUID-8A4CBC94-787D-4E85-9A7A-9D6EE92ABAA5">Expanding an Oracle Big Data Appliance X4-2 Starter Rack</a><br></li>
+                  </ul>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="configure_expansion.html#GUID-486A0DB5-7FA4-4CE7-90C7-DE853D14F67A">Expanding an Oracle Big Data Appliance Starter Rack</a></p>
+                     </div>
+                  </div>
+               </div>
+               <a id="BIGOG76888"></a><a id="BIGOG76889"></a><a id="BIGOG76887"></a><div class="props_rev_3"><a id="GUID-48DFD14F-65A4-4295-8E88-397D76F6D7E5" name="GUID-48DFD14F-65A4-4295-8E88-397D76F6D7E5"></a><h4 id="BIGOG-GUID-48DFD14F-65A4-4295-8E88-397D76F6D7E5" class="sect4"><span class="enumeration_section">8.1.1 </span>Checking the Contents of a High Capacity Node plus Infiniband Infrastructure
+                  </h4>
+                  <div>
+                     <div class="section">
+                        <p><a id="d46840e166" class="indexterm-anchor"></a>Before starting the installation, ensure that you received all components, cables, and accessories for the High Capacity node plus InfiniBand Infrastructure as shown in the following tables.
+                        </p>
+                        <p><a href="configure_expansion.html#GUID-48DFD14F-65A4-4295-8E88-397D76F6D7E5__CHDBIDJD" title="Expansion kit part numbers for components and accessories">Table 8-1</a> lists the components and accessories.
+                        </p>
+                        <div class="tblformal" id="GUID-48DFD14F-65A4-4295-8E88-397D76F6D7E5__CHDBIDJD">
+                           <p class="titleintable">Table 8-1 A High Capacity Node plus Infiniband Infrastructure Components and Accessories</p>
+                           <table cellpadding="4" cellspacing="0" class="Formal" title="A High Capacity Node plus Infiniband Infrastructure Components and Accessories" summary="Expansion kit part numbers for components and accessories" width="100%" frame="hsides" border="1" rules="rows">
+                              <thead>
+                                 <tr align="left" valign="top">
+                                    <th align="left" valign="bottom" width="21%" id="d46840e187">Quantity</th>
+                                    <th align="left" valign="bottom" width="79%" id="d46840e190">Description</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="21%" id="d46840e195" headers="d46840e187 ">
+                                       <p>1</p>
+                                    </td>
+                                    <td align="left" valign="top" width="79%" headers="d46840e195 d46840e190 ">
+                                       <p>Oracle Big Data Appliance High Capacity Node plus InfiniBand Infrastructure</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="21%" id="d46840e202" headers="d46840e187 ">
+                                       <p>2</p>
+                                    </td>
+                                    <td align="left" valign="top" width="79%" headers="d46840e202 d46840e190 ">
+                                       <p>2U snap-in slide rail kit</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="21%" id="d46840e209" headers="d46840e187 ">
+                                       <p>1</p>
+                                    </td>
+                                    <td align="left" valign="top" width="79%" headers="d46840e209 d46840e190 ">
+                                       <p>1U-2U slim-rail CMA kit</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="21%" id="d46840e216" headers="d46840e187 ">
+                                       <p>1</p>
+                                    </td>
+                                    <td align="left" valign="top" width="79%" headers="d46840e216 d46840e190 ">
+                                       <p>Velcro 25-foot roll</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="21%" id="d46840e223" headers="d46840e187 ">
+                                       <p>1</p>
+                                    </td>
+                                    <td align="left" valign="top" width="79%" headers="d46840e223 d46840e190 ">
+                                       <p>Cable labeling kit</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="21%" id="d46840e230" headers="d46840e187 ">
+                                       <p>1</p>
+                                    </td>
+                                    <td align="left" valign="top" width="79%" headers="d46840e230 d46840e190 ">
+                                       <p>Server documentation and license packages</p>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <!-- class="inftblhruleinformal" -->
+                        <p><a href="configure_expansion.html#GUID-48DFD14F-65A4-4295-8E88-397D76F6D7E5__CHDHBEBB" title="Kit cables">Table 8-2</a> lists the <a id="d46840e242" class="indexterm-anchor"></a>cables.
+                        </p>
+                        <div class="tblformal" id="GUID-48DFD14F-65A4-4295-8E88-397D76F6D7E5__CHDHBEBB">
+                           <p class="titleintable">Table 8-2 A High Capacity Node plus Infiniband Infrastructure Cables</p>
+                           <table cellpadding="4" cellspacing="0" class="Formal" title="A High Capacity Node plus Infiniband Infrastructure Cables" summary="Kit cables" width="100%" frame="hsides" border="1" rules="rows">
+                              <thead>
+                                 <tr align="left" valign="top">
+                                    <th align="left" valign="bottom" width="22%" id="d46840e258">Length</th>
+                                    <th align="left" valign="bottom" width="22%" id="d46840e261">Quantity</th>
+                                    <th align="left" valign="bottom" width="56%" id="d46840e264">Description</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="22%" id="d46840e269" headers="d46840e258 ">
+                                       <p>10 feet</p>
+                                    </td>
+                                    <td align="left" valign="top" width="22%" headers="d46840e269 d46840e261 ">
+                                       <p>1</p>
+                                    </td>
+                                    <td align="left" valign="top" width="56%" headers="d46840e269 d46840e264 ">
+                                       <p>Red Ethernet Cat 5 or Cat 5e</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="22%" id="d46840e279" headers="d46840e258 ">
+                                       <p>10 feet</p>
+                                    </td>
+                                    <td align="left" valign="top" width="22%" headers="d46840e279 d46840e261 ">
+                                       <p>1</p>
+                                    </td>
+                                    <td align="left" valign="top" width="56%" headers="d46840e279 d46840e264 ">
+                                       <p>Ethernet Black Cat 5 or Cat 5e</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="22%" id="d46840e289" headers="d46840e258 ">
+                                       <p>3 meters</p>
+                                    </td>
+                                    <td align="left" valign="top" width="22%" headers="d46840e289 d46840e261 ">
+                                       <p>2</p>
+                                    </td>
+                                    <td align="left" valign="top" width="56%" headers="d46840e289 d46840e264 ">
+                                       <p>InfiniBand QSFP</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="22%" id="d46840e299" headers="d46840e258 ">
+                                       <p>2 meters</p>
+                                    </td>
+                                    <td align="left" valign="top" width="22%" headers="d46840e299 d46840e261 ">
+                                       <p>2</p>
+                                    </td>
+                                    <td align="left" valign="top" width="56%" headers="d46840e299 d46840e264 ">
+                                       <p>Power</p>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <!-- class="inftblhruleinformal" -->
+                     </div>
+                     <!-- class="section" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="configure_expansion.html#GUID-73BD91BA-B9E5-4AA6-B84C-AC4D8E1F2F6A">About Expanding an Oracle Big Data Appliance Starter Rack</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div><a id="BIGOG76890"></a><div class="props_rev_3"><a id="GUID-530F7846-A65E-481C-A26E-00748F160545" name="GUID-530F7846-A65E-481C-A26E-00748F160545"></a><h4 id="BIGOG-GUID-530F7846-A65E-481C-A26E-00748F160545" class="sect4"><span class="enumeration_section">8.1.2 </span>Checking the Status of a Starter Rack
+                  </h4>
+                  <div>
+                     <div class="section">
+                        <p>Ensure that the starter rack is in a good working condition before you install the High Capacity node plus InfiniBand Infrastructure:</p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>Check the LEDs on all components to verify a normal operating state. Resolve any issues before proceeding.</p>
+                           </li>
+                           <li>
+                              <p><a id="d46840e346" class="indexterm-anchor"></a>Verify that the Sun Rack II PDU firmware is at or above the minimum version of 1.06. See <span class="q">"<a href="configure.html#GUID-355C1142-00D2-4FAC-900A-34A7342B58E6">Updating the PDU Firmware Version</a>."</span></p>
+                           </li>
+                        </ul>
+                     </div>
+                     <!-- class="section" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="configure_expansion.html#GUID-73BD91BA-B9E5-4AA6-B84C-AC4D8E1F2F6A">About Expanding an Oracle Big Data Appliance Starter Rack</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div><a id="BIGOG77066"></a><div class="props_rev_3"><a id="GUID-8A4CBC94-787D-4E85-9A7A-9D6EE92ABAA5" name="GUID-8A4CBC94-787D-4E85-9A7A-9D6EE92ABAA5"></a><h4 id="BIGOG-GUID-8A4CBC94-787D-4E85-9A7A-9D6EE92ABAA5" class="sect4"><span class="enumeration_section">8.1.3 </span>Expanding an Oracle Big Data Appliance X4-2 Starter Rack
+                  </h4>
+                  <div>
+                     <div class="section">
+                        <p>You can also add one or more Oracle Big Data Appliance servers to an Oracle Big Data Appliance X4-2 starter rack by using a High Capacity node plus InfiniBand Infrastructure.</p>
+                        <p>To prepare the starter rack for expanding the hardware:</p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>Upgrade the starter rack to Oracle Big Data Appliance 4.1 or later. </p>
+                              <div class="infoboxnote" id="GUID-8A4CBC94-787D-4E85-9A7A-9D6EE92ABAA5__GUID-36AFE412-2D84-40E1-98AD-213744CA94F5">
+                                 <p class="notep1">Note:</p>
+                                 <p>Starter rack hardware for the Oracle Big Data Appliance versions earlier to 4.1 cannot be expanded using a High Capacity node plus InfiniBand Infrastructure.</p>
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                     <!-- class="section" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="configure_expansion.html#GUID-73BD91BA-B9E5-4AA6-B84C-AC4D8E1F2F6A">About Expanding an Oracle Big Data Appliance Starter Rack</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div><a id="BIGOG76891"></a><div class="props_rev_3"><a id="GUID-A5141EED-02D8-4473-ABFC-B8D2D4B1BAEE" name="GUID-A5141EED-02D8-4473-ABFC-B8D2D4B1BAEE"></a><h3 id="BIGOG-GUID-A5141EED-02D8-4473-ABFC-B8D2D4B1BAEE" class="sect3"><span class="enumeration_section">8.2 </span>Installing New Servers to an Oracle Big Data Appliance Starter Rack
+               </h3>
+               <div>
+                  <div class="section">
+                     <p><a id="d46840e425" class="indexterm-anchor"></a><a id="d46840e429" class="indexterm-anchor"></a>The following instructions describe how to physically install new servers on a starter rack.
+                     </p>
+                     <div class="infoboxnote" id="GUID-A5141EED-02D8-4473-ABFC-B8D2D4B1BAEE__GUID-1E4D1BA6-EE0E-4698-8643-CCAD0F067DB8">
+                        <p class="notep1">Caution:</p>
+                        <p>Two people are needed to install new servers on a starter rack.</p>
+                     </div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2">To install new servers on a starter rack:</p>
+                     <ol>
+                        <li>
+                           <p>Unpack all power cables, Ethernet cables, and InfiniBand cables, and mark them with the labels provided in the kit:</p>
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>Mark each end of a cable with the appropriate label. Take care to put the "from" and "to" labels on the correct end.</p>
+                              </li>
+                              <li>
+                                 <p>Select the appropriate PDU power cord labels for your installation, either single-phase or three-phase.</p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>Plug in the cables at both ends. Refer to the cabling tables in the appendixes.</p>
+                        </li>
+                        <li>
+                           <p>Install the server rack mount kits in the rack. Start at the first empty unit at the bottom and work up toward the top of the rack.</p>
+                        </li>
+                        <li>
+                           <p>Install the servers in the rack rails. After installing each server, ensure that the server and the unit below it can slide in and out normally.</p>
+                        </li>
+                        <li>
+                           <p>Install the cable arms and cables into each server, starting with the first new server at the bottom and working up to the top unit. Ensure that all InfiniBand cables are plugged in to the correct ports on both ends. Keep the power cables out of the way while you route the InfiniBand and Ethernet cables.</p>
+                           <div class="infoboxnote" id="GUID-A5141EED-02D8-4473-ABFC-B8D2D4B1BAEE__GUID-E078C126-D104-4701-87FF-FB5FD16E0E59">
+                              <p class="notep1">Caution:</p>
+                              <p>Do not plug the power cables into the PDU strips until you are ready to turn on the PDU and configure it. Plug the power cables only into the servers now. </p>
+                           </div>
+                        </li>
+                     </ol>
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="configure_expansion.html#GUID-486A0DB5-7FA4-4CE7-90C7-DE853D14F67A">Expanding an Oracle Big Data Appliance Starter Rack</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div><a id="BIGOG76892"></a><div class="props_rev_3"><a id="GUID-B1E801CC-EE9F-4C0D-AAEB-954B9C10DDF6" name="GUID-B1E801CC-EE9F-4C0D-AAEB-954B9C10DDF6"></a><h3 id="BIGOG-GUID-B1E801CC-EE9F-4C0D-AAEB-954B9C10DDF6" class="sect3"><span class="enumeration_section">8.3 </span>Configuring the New Oracle Big Data Appliance Servers
+               </h3>
+               <div>
+                  <div class="section">
+                     <p><a id="d46840e493" class="indexterm-anchor"></a><a id="d46840e497" class="indexterm-anchor"></a>After installing the new servers in the rack, you can configure them as described in the following steps.
+                     </p>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2">To configure the new servers:</p>
+                     <p>At the &lt;<span class="italic"><code class="codeph">password</code></span>&gt; placeholder in these instructions, enter the password provided by the Oracle Install Coordinator.
+                     </p>
+                     <ol>
+                        <li>
+                           <p>Disconnect the Cisco switch uplink cable (port 48) from the network, in case the factory IP addresses duplicate those on the local network.</p>
+                        </li>
+                        <li>
+                           <p>Plug the power cords into the appropriate outlets. Route the cables to PDU-A last. When you are done, Oracle ILOM starts, the service processor LED is solid green, and the system is in Standby mode with a flashing OK LED.</p>
+                        </li>
+                        <li>
+                           <p>Press the power button on the servers to turn them on. The system automatically detects the factory IP addresses. See <span class="q">"<a href="network.html#GUID-70BDE0E8-9478-4B80-888A-C28079B86336">Factory Network Settings</a>."</span></p>
+                        </li>
+                        <li>
+                           <p>Using a laptop connected to the first new server, log in as <code class="codeph">root</code> using SSH. The default password is provided by the Oracle Install Coordinator.
+                           </p>
+                        </li>
+                        <li id="GUID-B1E801CC-EE9F-4C0D-AAEB-954B9C10DDF6__CHDIICGG">
+                           <p>Set up passwordless SSH for the <code class="codeph">root</code> user. For <span class="italic">range</span>, for example, enter [7:10] when you install four new servers.
+                           </p><pre class="oac_no_warn" dir="ltr"># <span class="bold">setup-root-ssh -j "eth0_ips[</span><span class="italic"><span class="bold">range</span></span><span class="bold">]" -p &lt;<span class="italic"><code class="codeph">password</code></span>&gt; </span>
+</pre><p>See <span class="q">"<a href="utilities.html#GUID-F363F27B-60AC-40AB-B5B5-29F75691F0C8">setup-root-ssh</a>."</span></p>
+                        </li>
+                        <li id="GUID-B1E801CC-EE9F-4C0D-AAEB-954B9C10DDF6__CHDDAIBG">
+                           <p>Confirm that passwordless SSH works properly across the range of new servers. Use the same value for <span class="italic">range</span> as you did in step <a href="configure_expansion.html#GUID-B1E801CC-EE9F-4C0D-AAEB-954B9C10DDF6__CHDIICGG">5</a>.
+                           </p><pre class="oac_no_warn" dir="ltr"># <span class="bold">dcli -j "eth0_ips[</span><span class="italic"><span class="bold">range</span></span><span class="bold">]" "hostname; date"</span>
+</pre></li>
+                        <li>
+                           <p>Compare the output of the following command with the system serial number (S/N) sticker on the front of each system.</p><pre class="oac_no_warn" dir="ltr"># <span class="bold">dcli -j "eth0_ips[range]" "dmidecode -s chassis-serial-number"</span>
+192.168.1.7: 1143FMM064
+     .
+     .
+     .
+192.168.1.10: 1144FMM1A0
+</pre><p>If you find inconsistencies, then verify that the InfiniBand cables are plugged into the correct ports on the gateway switches for each node.</p>
+                        </li>
+                        <li>
+                           <p>Set the rack master serial number in the ILOM to the S/N on the front left rack sticker (also displayed on the rear of the rack near PDU-A):</p><pre class="oac_no_warn" dir="ltr"># dcli -j "eth0_ips[<span class="italic">range</span>]" "ipmitool sunoem cli 'set /SP \system_identifier="\"Oracle Big Data Appliance <span class="italic">rack-master-serial-number</span>\""'"
+</pre><p>This example sets the range to [7:10] for the four new servers, and sets the serial number to AK00086253:</p><pre class="oac_no_warn" dir="ltr"># dcli -j "eth0_ips[7:10]" "ipmitool sunoem cli 'set /SP \system_identifier="\"Oracle Big Data Appliance AK00086253\""'"
+</pre><p>The system identifier has a 40-character limit.</p>
+                        </li>
+                        <li>
+                           <p>Verify that the rack master serial number is set correctly. This example uses the range for the four new servers:</p><pre class="oac_no_warn" dir="ltr"># <span class="bold">dcli -j "eth0_ips[7:10]" "ipmitool sunoem cli 'show /SP system_identifier'" | grep =</span>
+192.168.1.7: system_identifier = Oracle Big Data Appliance AK00086253
+     .
+     .
+     .
+192.168.1.10: system_identifier = Oracle Big Data Appliance AK00086253
+</pre></li>
+                        <li>
+                           <p>Complete the physical hardware checks beginning with Step <a href="configure.html#GUID-9063D141-7EE4-4D9F-9436-AAEC10ECF7E1__CACJGHDA">10</a> in <span class="q">"<a href="configure.html#GUID-9063D141-7EE4-4D9F-9436-AAEC10ECF7E1">Configuring the Oracle Big Data Appliance Servers</a>."</span> In all <code class="codeph">dcli</code> commands, be sure to enter the range, using the <code class="codeph">eth0_ips</code><span class="italic"><code class="codeph">[range]</code></span> syntax shown previously.
+                           </p>
+                        </li>
+                     </ol>
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="configure_expansion.html#GUID-486A0DB5-7FA4-4CE7-90C7-DE853D14F67A">Expanding an Oracle Big Data Appliance Starter Rack</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div><a id="BIGOG76893"></a><div class="props_rev_3"><a id="GUID-D24C1147-4059-4467-93F2-3B68383E7A5F" name="GUID-D24C1147-4059-4467-93F2-3B68383E7A5F"></a><h3 id="BIGOG-GUID-D24C1147-4059-4467-93F2-3B68383E7A5F" class="sect3"><span class="enumeration_section">8.4 </span>Setting Up the Network
+               </h3>
+               <div>
+                  <p>The following topics explain how to add the new servers to the Ethernet administrative network:</p>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p><a href="configure_expansion.html#GUID-D4585B4C-22A7-46C0-978A-7803C4B6B299">Copying the Configuration Files</a></p>
+                     </li>
+                     <li>
+                        <p><a href="configure_expansion.html#GUID-BB4982A7-8FB2-4FE9-920A-51192EDA2309">Configuring the Network</a></p>
+                     </li>
+                     <li>
+                        <p><a href="configure_expansion.html#GUID-0EA51BAA-FE42-4329-B459-29F12E7B6D86">Verifying the Network Configuration</a></p>
+                     </li>
+                  </ul>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="configure_expansion.html#GUID-D4585B4C-22A7-46C0-978A-7803C4B6B299">Copying the Configuration Files</a><br></li>
+                     <li class="ulchildlink"><a href="configure_expansion.html#GUID-BB4982A7-8FB2-4FE9-920A-51192EDA2309">Configuring the Network</a><br></li>
+                     <li class="ulchildlink"><a href="configure_expansion.html#GUID-0EA51BAA-FE42-4329-B459-29F12E7B6D86">Verifying the Network Configuration</a><br></li>
+                  </ul>
+                  <div class="infoboxnotealso" id="GUID-D24C1147-4059-4467-93F2-3B68383E7A5F__GUID-32A60841-FD5A-4FFF-B2E1-6D069CD6BF06">
+                     <p class="notep1">See Also:</p>
+                     <p><span class="q">"<a href="configure.html#GUID-0EFE7F4E-B14B-4D4F-A3A1-3C39C8ED39EF">Configuring the Network</a>"</span></p>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="configure_expansion.html#GUID-486A0DB5-7FA4-4CE7-90C7-DE853D14F67A">Expanding an Oracle Big Data Appliance Starter Rack</a></p>
+                     </div>
+                  </div>
+               </div>
+               <a id="BIGOG76894"></a><div class="props_rev_3"><a id="GUID-D4585B4C-22A7-46C0-978A-7803C4B6B299" name="GUID-D4585B4C-22A7-46C0-978A-7803C4B6B299"></a><h4 id="BIGOG-GUID-D4585B4C-22A7-46C0-978A-7803C4B6B299" class="sect4"><span class="enumeration_section">8.4.1 </span>Copying the Configuration Files
+                  </h4>
+                  <div>
+                     <div class="section">
+                        <p>These instructions use a serial connection to Oracle ILOM. If you use an SSH connection instead, then you lose the console connection when the IP addresses change from the factory settings to the custom settings in <span class="q">"<a href="configure_expansion.html#GUID-BB4982A7-8FB2-4FE9-920A-51192EDA2309">Configuring the Network</a>."</span></p>
+                        <p>Follow these steps to copy the <a id="d46840e736" class="indexterm-anchor"></a>configuration files to the first new server in the rack.
+                        </p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3">To copy the configuration files:</p>
+                        <p>At the &lt;<span class="italic"><code class="codeph">password</code></span>&gt; placeholder in these instructions, enter the password provided by the Oracle Install Coordinator.
+                        </p>
+                        <ol>
+                           <li>
+                              <p>Plug your laptop into the Oracle ILOM "SER MGT" port of the first new server.</p>
+                           </li>
+                           <li>
+                              <p>Log in as <code class="codeph">root</code> with the password provided to you:
+                              </p><pre class="oac_no_warn" dir="ltr">login as: <span class="bold">root</span>
+Using keyboard-interactive authentication.
+Password: <code class="codeph">password</code>
+Oracle(R) Integrated Lights Out Manager
+Version 3.1.2.12 r74388
+Copyright (c) 2012, Oracle and/or its affiliates. All rights reserved.
+-&gt;
+</pre></li>
+                           <li>
+                              <p>Open the console and log in with the same credentials:</p><pre class="oac_no_warn" dir="ltr">-&gt; <span class="bold">start /SP/console</span>
+Are you sure you want to start /SP/console (y/n)? <span class="bold">y</span>
+Serial console started. To stop, type ESC (
+bda7 login:
+User: <span class="bold">root</span>
+Password:  &lt;<span class="italic"><code class="codeph">password</code></span>&gt; 
+#
+</pre></li>
+                           <li>
+                              <p>If you do not see a prompt, press <span class="bold">Enter</span>.
+                              </p>
+                           </li>
+                           <li>
+                              <p>Copy the original Oracle Big Data Appliance configuration files from the first server in the rack (server 1) to the new server where you are logged in. Replace <span class="italic">IP_address</span> with the real IP address of server 1:
+                              </p><pre class="oac_no_warn" dir="ltr"># scp root@<span class="italic">IP_address</span>:/opt/oracle/bda/\{rack-network.json,cluster-network.json\} /opt/oracle/bda
+</pre><p>Alternatively, use a USB flash drive to copy the file between servers.</p>
+                           </li>
+                           <li>
+                              <p>Copy the new <a id="d46840e808" class="indexterm-anchor"></a> Copy the new <code class="codeph">&lt;<span class="codeinlineitalic">rackname</span>&gt;-rack-expansion.json</code> and <code class="codeph">&lt;<span class="codeinlineitalic">clustername</span>&gt;-cluster-expansion.json</code> configuration files from a USB flash drive to the same <code class="codeph">/opt/oracle/dba</code> directory. In the copy command, rename the files as shown in the example below.
+                              </p><pre class="oac_no_warn" dir="ltr"># mkdir /mnt/usb
+# /opt/oracle/bda/bin/showusb /dev/sdm1
+# mount /dev/sdm1 /mnt/usb
+# cp /mnt/usb/ &lt;clustername&gt;-cluster-expansion.json /opt/oracle/bda/cluster-expansion.json
+# cp /mnt/usb/ &lt;rackname&gt;-rack-expansion.json /opt/oracle/bda/rack-expansion.json
+</pre><p>See <span class="q">"<a href="configure.html#GUID-5C52B962-A412-43C4-957A-949B5946A0E1">Copying the Configuration Files to Oracle Big Data Appliance</a>"</span> for general instructions on using a flash drive.
+                              </p>
+                           </li>
+                        </ol>
+                     </div>
+                     <!-- class="section" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="configure_expansion.html#GUID-D24C1147-4059-4467-93F2-3B68383E7A5F">Setting Up the Network</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div><a id="BIGOG76895"></a><div class="props_rev_3"><a id="GUID-BB4982A7-8FB2-4FE9-920A-51192EDA2309" name="GUID-BB4982A7-8FB2-4FE9-920A-51192EDA2309"></a><h4 id="BIGOG-GUID-BB4982A7-8FB2-4FE9-920A-51192EDA2309" class="sect4"><span class="enumeration_section">8.4.2 </span>Configuring the Network
+                  </h4>
+                  <div>
+                     <div class="section">
+                        <p>Complete the following procedure to configure the network.</p>
+                        <ol>
+                           <li>
+                              <p>Run the <a id="d46840e875" class="indexterm-anchor"></a>rack-networksetup script:
+                              </p><pre class="oac_no_warn" dir="ltr"># cd /opt/oracle/bda
+# cd network
+# ./rack-networksetup
+</pre><p>After this step completes, the servers have their custom IP addresses.</p>
+                           </li>
+                           <li>
+                              <p>Reconnect the Cisco switch uplink cable to the local network.</p>
+                           </li>
+                           <li>
+                              <p>If you lost your SSH connection when the IP addresses changed, then reconnect:</p>
+                              <ol type="a">
+                                 <li>
+                                    <p>Use SSH to connect to Oracle ILOM of the first server, using the custom IP address.</p>
+                                 </li>
+                                 <li>
+                                    <p>Log in as the <code class="codeph">root</code> user with the password provided to you by the Oracle installation coordinator.
+                                    </p>
+                                 </li>
+                              </ol>
+                              <p>If you use a serial connection, you may still be connected when rack-networksetup completes. If not, type Esc+( to get the Oracle ILOM prompt before reconnecting.</p>
+                           </li>
+                           <li>
+                              <p>Verify that the administrative network is properly set up. Run the following command and check that the IP addresses reported back match the addresses in the configuration files.</p><pre class="pre codeblock"><code># dcli -j "eth0_ips[range]" "ifconfig eth0 | grep 'inet '"</code></pre></li>
+                           <li>
+                              <p>Verify the InfiniBand topology by running <code class="codeph">bdacheckib —m</code> on the rack configuration file:
+                              </p><pre class="oac_no_warn" dir="ltr"># cd /opt/oracle/bda
+# bdacheckib -m rack-network.json
+</pre></li>
+                           <li id="GUID-BB4982A7-8FB2-4FE9-920A-51192EDA2309__CHDJCIEA">
+                              <p>Verify that passwordless SSH still works:</p><pre class="oac_no_warn" dir="ltr"># cd /opt/oracle/bda
+# dcli  -j "eth0_ips[range]" "hostname ; date"
+</pre><p>If you are prompted for a password, type Ctrl+c several times. If the <code class="codeph">dcli</code> command fails, then repeat Steps <a href="configure_expansion.html#GUID-B1E801CC-EE9F-4C0D-AAEB-954B9C10DDF6__CHDIICGG">5</a> and <a href="configure_expansion.html#GUID-B1E801CC-EE9F-4C0D-AAEB-954B9C10DDF6__CHDDAIBG">6</a> of the first procedure to configure the servers.
+                              </p>
+                           </li>
+                           <li>
+                              <p>Use the output from the <code class="codeph">date</code> utility in Step <a href="configure_expansion.html#GUID-BB4982A7-8FB2-4FE9-920A-51192EDA2309__CHDJCIEA">6</a> to verify that the clocks for all servers and switches are synchronized. The times should be within a few seconds. 
+                              </p>
+                              <p>If they are not synchronized, then you can manually change the time, restart the device, or check the routing through the Cisco switch to the NTP server. Issue this command to check the status of an NTP client:</p><pre class="oac_no_warn" dir="ltr"># ntpq -p 127.0.0.1
+</pre></li>
+                           <li>
+                              <p>Run <a id="d46840e945" class="indexterm-anchor"></a>cluster-networksetup:
+                              </p><pre class="oac_no_warn" dir="ltr"># ./cluster-networksetup | tee /tmp/bdanet_exp.out
+</pre><p>The <a id="d46840e952" class="indexterm-anchor"></a><code class="codeph">tee</code> utility captures the output in a file while still allowing it to appear on your screen.
+                              </p>
+                           </li>
+                           <li>
+                              <p>Log out of the server, unless it is the first server in the cluster.</p>
+                           </li>
+                        </ol>
+                     </div>
+                     <!-- class="section" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="configure_expansion.html#GUID-D24C1147-4059-4467-93F2-3B68383E7A5F">Setting Up the Network</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div><a id="BIGOG76896"></a><div class="props_rev_3"><a id="GUID-0EA51BAA-FE42-4329-B459-29F12E7B6D86" name="GUID-0EA51BAA-FE42-4329-B459-29F12E7B6D86"></a><h4 id="BIGOG-GUID-0EA51BAA-FE42-4329-B459-29F12E7B6D86" class="sect4"><span class="enumeration_section">8.4.3 </span>Verifying the Network Configuration
+                  </h4>
+                  <div>
+                     <div class="section">
+                        <p>Complete the following procedure to ensure that the network is working properly</p>
+                     </div>
+                     <!-- class="section" -->
+                     <ol>
+                        <li class="stepexpand"><span>Log in to the first server in the cluster.</span></li>
+                        <li class="stepexpand"><span>Verify that the network and all network services are working properly:</span><div><pre class="oac_no_warn" dir="ltr"># <span class="bold">bdachecknet-cluster | tee -a /tmp/bdanet_exp.out</span>
+bdachecknet-cluster: do basic sanity checks on /opt/oracle/bda/rack-network.json and /opt/oracle/bda/cluster-network.json
+bdachecknet-cluster: passed
+bdachecknet-cluster: checking for  rack-expansion.json
+bdachecknet-cluster: ping test private infiniband ips (bondib0 40gbs)
+bdachecknet-cluster: passed
+bdachecknet-cluster: ping test admin ips (eth0 1gbs)
+bdachecknet-cluster: passed
+bdachecknet-cluster: test client network (eoib) resolve and reverse resolve
+bdachecknet-cluster: passed
+     .
+     .
+     .</pre></div>
+                        </li>
+                        <li class="stepexpand"><span>If the systems are not able to resolve and use the DNS names, then manually correct the <a id="d46840e1010" class="indexterm-anchor"></a><code class="codeph">/etc/resolv.conf </code> files and verify the reverse lookup.</span></li>
+                        <li class="stepexpand"><span>Submit an install base update service request in My Oracle Support to update your assets.</span></li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="configure_expansion.html#GUID-D24C1147-4059-4467-93F2-3B68383E7A5F">Setting Up the Network</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div><a id="BIGOG76897"></a><div class="props_rev_3"><a id="GUID-D7115845-7070-45C0-B304-BC4996370937" name="GUID-D7115845-7070-45C0-B304-BC4996370937"></a><h3 id="BIGOG-GUID-D7115845-7070-45C0-B304-BC4996370937" class="sect3"><span class="enumeration_section">8.5 </span>Installing Oracle Big Data Appliance Software on the New Servers
+               </h3>
+               <div>
+                  <div class="section">
+                     <p>You can add the new servers to an existing cluster, or configure them as a new cluster.</p>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2">To add the servers to an existing cluster:</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Complete the instructions in <span class="q">"<a href="mammoth.html#GUID-4B64DAA8-9624-484D-9B55-D2F09B2629C5">Adding Servers to a Cluster</a>."</span></p>
+                        </li>
+                     </ul>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2">To configure the servers as a separate cluster:</p>
+                     <ol>
+                        <li>
+                           <p>Run Oracle Big Data Appliance Configuration Generation Utility, and generate the configuration files. See <span class="q">"<a href="configurator.html#GUID-92C6E1FE-6107-4170-BC08-66C4CF9FEE41">Generating the Configuration Files</a>."</span></p>
+                        </li>
+                        <li>
+                           <p>Run the Mammoth utility to install the software. See <span class="q">"<a href="mammoth.html#GUID-E6355C9C-BCE5-485A-80A0-DC80CFC36842">Installing the Software on a New Rack</a>."</span></p>
+                        </li>
+                     </ol>
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="configure_expansion.html#GUID-486A0DB5-7FA4-4CE7-90C7-DE853D14F67A">Expanding an Oracle Big Data Appliance Starter Rack</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

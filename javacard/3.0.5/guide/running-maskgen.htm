@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Running maskgen</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-04-13T10:24:54Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Development Kit User Guide, Classic Edition" />
+<meta name="dcterms.identifier" content="E59602-03" />
+<meta name="dcterms.isVersionOf" content="JCUGC" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="overview-producing-mask-file-java-card.htm" title="Previous" type="text/html" />
+<link rel="Next" href="building-custom-ri-sources.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCUGC.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-7741903C-E995-4C8A-B394-92C05A381352"></a> <span id="PAGE" style="display:none;">122/161</span> <!-- End Header -->
+<a id="JCUGC330"></a><a id="JCUGC329"></a>
+<h1 id="JCUGC-GUID-7741903C-E995-4C8A-B394-92C05A381352" class="sect1">Running maskgen</h1>
+<div>
+<div class="section">
+<p>The file to invoke the <code class="codeph">maskgen</code> is a batch file (<code class="codeph">maskgen.bat</code>) that must be run from a working directory of <span class="italic">JC_CLASSIC_HOME</span><code class="codeph">\bin</code> in order for the code to execute properly.</p>
+<p>To run <code class="codeph">maskgen</code>:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Enter the following command (options are described in <a href="running-maskgen.htm#GUID-7741903C-E995-4C8A-B394-92C05A381352__CHDDFDGB" title="provides a list with descriptions of the command line arguments for the maskgen tool">Table 11-1</a>):</span>
+<div>
+<p><code class="codeph">maskgen [</code><span class="italic">options</span><code class="codeph">]</code> <span class="italic">generator</span> <span class="italic">filename</span> <code class="codeph">[</code><span class="italic">filename</span> <code class="codeph">...]</code></p>
+</div>
+</li>
+</ol>
+<div class="section">
+<div class="tblformal" id="GUID-7741903C-E995-4C8A-B394-92C05A381352__CHDDFDGB">
+<p class="titleintable">Table 11-1 Command Line Arguments for the maskgen Tool</p>
+<table class="cellalignment12" title="Command Line Arguments for the maskgen Tool " summary="provides a list with descriptions of the command line arguments for the maskgen tool">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment41" id="d35909e74">Argument</th>
+<th class="cellalignment91" id="d35909e77">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment43" id="d35909e82" headers="d35909e74">
+<p><code class="codeph">-help</code></p>
+</td>
+<td class="cellalignment92" headers="d35909e82 d35909e77">
+<p>Prints a help message.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment43" id="d35909e90" headers="d35909e74">
+<p><span class="italic">generator</span></p>
+</td>
+<td class="cellalignment92" headers="d35909e90 d35909e77">
+<p>Specifies the generator, the plug-in that formats the output for a specific target platform. The generators are:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">a51</code> - Output for the Keil A51 assembly language interpreter (not supported for this release).</p>
+</li>
+<li>
+<p><code class="codeph">cref</code> - Output for the <code class="codeph">cref</code> interpreter.</p>
+</li>
+<li>
+<p><code class="codeph">jref</code> - Output for the Java programming language Java Card RE interpreter (not supported for this release).</p>
+</li>
+<li>
+<p><code class="codeph">size</code> - Outputs mask size statistics.</p>
+</li>
+</ul>
+<p>In this release, the only supported generator is <code class="codeph">cref</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment43" id="d35909e127" headers="d35909e74">
+<p><span class="italic">filename</span> <code class="codeph">[</code><span class="italic">filename</span><code class="codeph">...]</code></p>
+</td>
+<td class="cellalignment92" headers="d35909e127 d35909e77">
+<p>Any number of Java Card Assembly and CAP files can be input to <code class="codeph">maskgen</code> as a whitespace-separated list.</p>
+<p>You can also create a text file containing a list of Java Card Assembly and CAP file names for a new mask, and prepend an "@" character to the name of this text file as an argument to <code class="codeph">maskgen</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment43" id="d35909e150" headers="d35909e74">
+<p><code class="codeph">-c</code> <span class="italic">filename</span></p>
+</td>
+<td class="cellalignment92" headers="d35909e150 d35909e77">
+<p>Specifies a configuration file, which contains generator-specific settings. For example, the following line maps a native Java Card API method to a native label:<code class="codeph">javacard/framework/JCSystem/beginTransaction()V=beginTransaction_NM</code></p>
+<p><code class="codeph">cref_mask.cfg</code> is an example of a maskgen configuration file.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment43" id="d35909e166" headers="d35909e74">
+<p><code class="codeph">-debuginfo</code></p>
+</td>
+<td class="cellalignment92" headers="d35909e166 d35909e77">
+<p>Generates debug information for the generated mask. This option is available only with the <code class="codeph">jref</code> generator.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment43" id="d35909e177" headers="d35909e74">
+<p><code class="codeph">-nobanner</code></p>
+</td>
+<td class="cellalignment92" headers="d35909e177 d35909e77">
+<p>Suppresses all banner messages.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment43" id="d35909e185" headers="d35909e74">
+<p><code class="codeph">-o</code> <span class="italic">filename</span></p>
+</td>
+<td class="cellalignment92" headers="d35909e185 d35909e77">
+<p>Specifies the file name output from <code class="codeph">maskgen</code>. If the output file is not specified, output defaults to <code class="codeph">a.out</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment43" id="d35909e201" headers="d35909e74">
+<p><code class="codeph">-version</code></p>
+</td>
+<td class="cellalignment92" headers="d35909e201 d35909e77">
+<p>Prints the version number of <code class="codeph">maskgen</code>, then exits.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+<a id="JCUGC331"></a>
+<div class="props_rev_3"><a id="GUID-7C76D2B9-62D0-4526-837A-28C510EF8453"></a>
+<h2 id="JCUGC-GUID-7C76D2B9-62D0-4526-837A-28C510EF8453" class="sect2">Order of Packages on the Command Line</h2>
+<div>
+<p>The Java Card Assembly files that can be listed on the command line can belong to API packages, the installer package, or the user's library and applet packages. CAP files for the user's library or applet packages may also be provided on the command line. The Java Card Assembly files that belong to API packages must be listed first on the command line, followed by the Java Card Assembly or CAP files belonging to any applets.</p>
+<p>If you include the installer package's Java Card Assembly file on the command line, it must be listed after all of the assembly files belonging to API packages and before the assembly or CAP files of any other applet packages. If a Java Card CAP file is listed on the command line, the export files needed to verify the CAP file by the verifier must also be listed on the command line.</p>
+<p>For example:</p>
+<pre dir="ltr">
+maskgen -nobanner cref <span class="italic">API_package_1.jca</span> .... <span class="italic">API_package_n.jca</span>     
+    <span class="italic">installer_package.jca applet_package_1.jca ... 
+    applet_package_n.jca</span>
+    <span class="italic">applet_package_a.CAP applet_package_a.exp lang.exp framework.exp</span> 
+</pre></div>
+</div>
+<a id="JCUGC332"></a>
+<div class="props_rev_3"><a id="GUID-903E65BA-7025-4C96-95AE-98DAE069F4D1"></a>
+<h2 id="JCUGC-GUID-903E65BA-7025-4C96-95AE-98DAE069F4D1" class="sect2">Version Numbers for Processed Packages</h2>
+<div>
+<p>The packages that you specify to generate a mask can import other packages. These imported packages must share the same major and minor version number as the specified packages.</p>
+<p>For example, presume that you are using <code class="codeph">Package A</code>, version 1.1 to create a mask, and that <code class="codeph">Package A</code> imports <code class="codeph">Package B</code>, version 1.1. Then you must ensure that <code class="codeph">Package B</code>, version 1.1 is listed in the <code class="codeph">import</code> component of the <code class="codeph">Package A</code> <code class="codeph">.jca</code> file.</p>
+</div>
+</div>
+<a id="JCUGC333"></a>
+<div class="props_rev_3"><a id="GUID-09543808-A2AA-4C20-8BEE-D63D7FD0E79C"></a>
+<h2 id="JCUGC-GUID-09543808-A2AA-4C20-8BEE-D63D7FD0E79C" class="sect2">maskgen Example</h2>
+<div>
+<p>This example uses a text file (<code class="codeph">args.txt</code>) to pass command line arguments to <code class="codeph">maskgen</code>:</p>
+<p><code class="codeph">maskgen -o mask.c cref @args.txt</code></p>
+<p>where the contents of the file <code class="codeph">args.txt</code> is:</p>
+<p><code class="codeph">first.jca second.jca third.jca</code></p>
+<p>This is equivalent to the command line:</p>
+<p><code class="codeph">maskgen -o mask.c cref first.jca second.jca third.jca</code></p>
+<p>This command produces an output file <code class="codeph">mask.c</code> that is compiled with a C compiler to produce <code class="codeph">mask.o</code>, which is linked with the Java Card RE interpreter. Refer to <a href="using-reference-implementation.htm" title="This chapter describes how to run the Reference Implementation (RI). The RI provides a Java Card runtime environment (RE) executable for the Microsoft Windows platform, Java Card RE packages, and an installer applet.">Using the Reference Implementation</a> for more information about this target platform.</p>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="overview-producing-mask-file-java-card.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="building-custom-ri-sources.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

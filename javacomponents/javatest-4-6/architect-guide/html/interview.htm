@@ -1,0 +1,1102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>Creating a Configuration Interview</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = document) - Version 1.0.24" />
+<meta name="date" content="2014-08-01T11:38:0Z" />
+<meta name="robots" content="noarchive" />
+<meta name="doctitle" content="Creating a Configuration Interview" />
+<meta name="relnum" content="JavaTest Harness 4.6" />
+<meta name="partnum" content="E20663-04" />
+<link rel="copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+<link rel="stylesheet" href="../../dcommon/css/blafdoc.css" title="Oracle BLAFDoc" type="text/css" />
+<link rel="contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="index" href="index.htm" title="Index" type="text/html" />
+<link rel="prev" href="tests.htm" title="Previous" type="text/html" />
+<link rel="next" href="part2.htm" title="Next" type="text/html" />
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<div class="header"><a id="top" name="top"></a>
+<div class="zz-skip-header"><a href="#BEGIN">Skip Headers</a></div>
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td align="left" valign="top"><b>JavaTest Harness Architect's Guide,</b><br />
+<b>JavaTest Harness 4.6 for the Java Platform</b><br />
+E20663-04</td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+<td align="center" valign="top"><a href="toc.htm"><img src="../../dcommon/gifs/toc.gif" alt="Go To Table Of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td align="center" valign="top"><a href="index.htm"><img src="../../dcommon/gifs/index.gif" alt="Go To Index" /><br />
+<span class="icon">Index</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<tr>
+<td align="center"><a href="tests.htm"><img src="../../dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="part2.htm"><img src="../../dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<a name="BEGIN" id="BEGIN"></a></div>
+<!-- class="header" -->
+<div class="ind"><!-- End Header --><a id="BBJGIBFG" name="BBJGIBFG"></a>
+<h1 class="chapter"><span class="secnum">6</span> <a id="sthref124" name="sthref124"></a>Creating a Configuration Interview</h1>
+<p>As you design your test suite, you must decide how to provide the JavaTest harness with all of the information required to execute your tests. Some of this information is static &mdash; it is known prior to runtime through the test description mechanism. However, some information cannot be determined ahead of time and differs based on the context in which the tests are run. This information is called the <span class="italic">configuration</span> and is obtained from the user through a configuration interview that you design. The configuration interview is presented to the user in the JavaTest configuration editor and consists of a series of simple questions that the user answers. The interview exports the answers in a format called a <span class="italic">test environment</span> that the JavaTest harness understands.</p>
+<p>This chapter describes how to create and package a configuration interview.</p>
+<a id="Z40036301017597" name="Z40036301017597"></a>
+<div class="sect1">
+<h2 class="sect1"><a id="sthref125" name="sthref125"></a>Designing Your Configuration</h2>
+<p>This section focuses on the design of the configuration information and how to determine what information is necessary to run your tests suite.</p>
+<a id="Z40036301017311" name="Z40036301017311"></a>
+<div class="sect2">
+<h3 class="sect2">What is a Configuration?</h3>
+<p>The configuration provides the JavaTest harness with the information it needs to execute tests. This information falls in the following categories:</p>
+<ul>
+<li>
+<p>Information required by the script to execute the tests</p>
+</li>
+<li>
+<p>Information required by tests. This information augments the test description and usually consists of information that changes based on the test execution context (for example, the platform or network).</p>
+</li>
+<li>
+<p>Information that determines which tests to include or exclude from a test run</p>
+</li>
+</ul>
+<p>These categories are discussed in the following sections.</p>
+<a id="Z40036301017150" name="Z40036301017150"></a>
+<div class="sect3">
+<h4 class="sect3"><a id="sthref126" name="sthref126"></a><a id="sthref127" name="sthref127"></a>Test Script Information</h4>
+<p>A test script is responsible for running your tests. The test script knows the series of steps required to execute each test. It typically relies on <a id="sthref128" name="sthref128"></a><a id="sthref129" name="sthref129"></a><span class="italic">test commands</span> to perform each step and you design your configuration to provide the test commands (and their arguments) that the test script uses to execute each test. Test commands are Java classes that the test script instantiates to run tests.</p>
+<p>As an example, the Standard Test Script&nbsp;uses a single step to execute tests; that step is defined in the configuration entry called <code>command.execute</code>. The configuration interview is responsible for setting the value of <code>command.execute</code> so that the Standard Test Script uses the appropriate command and arguments. For example, you can tell the Standard Test Script to use the <code>ExecStdTestOtherJVMCmd</code> command which executes tests in a process on the same computer that runs the JavaTest harness:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>command.execute=com.sun.javatest.lib.ExecStdTestOtherJVMCmd </code><span class="italic">args</span>
+</pre>
+<p>If you intend to execute the tests differently; for example, on a different computer, you would define <code>command.execute</code> differently in your configuration. For a list of test commands included with the JavaTest release, see <a href="stdcmds.htm#CGFJBCJB">Appendix A</a>. For information about creating custom test commands, see <a href="script.htm#CEHJBHGI">Chapter 10</a>.</p>
+</div>
+<!-- class="sect3" -->
+<a id="Z40036301017165" name="Z40036301017165"></a>
+<div class="sect3">
+<h4 class="sect3"><a id="sthref130" name="sthref130"></a><a id="sthref131" name="sthref131"></a>Test Description Entries</h4>
+<p>In the previous chapters of this manual, you have seen that most test descriptions are static; these entries consist of values that are known ahead of time and can be specified directly. In some cases these arguments cannot be determined ahead of time, especially test arguments (<code>executeArgs</code>). For example, tests that test network APIs may require the names of hosts on the network to exercise the API. If the test suite runs in different locations and on different networks, these values cannot be known ahead of time by the test developer. The configuration interview is expected to collect this information and make it available to the test.</p>
+<p><a id="sthref132" name="sthref132"></a><a id="sthref133" name="sthref133"></a>A script may allow the test developer to specify variables in some test description entries that are defined in the configuration; these variables are prefixed with the "<code>$</code>" character. For example the Standard Test Script allows variables in the <code>executeArg</code> entry; in the case of a network test, here is what the test description might look like:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>/** @test</code>
+  * @executeClass MyNetworkTest
+  * @sources MyNetworkTest.java
+  *@executeArgs -host $testHost -port $testPort
+ **/
+</pre>
+<p>The arguments to the <code>executeClass</code> and <code>sources</code> entries are static &mdash; they are known ahead of time and do not change based on the context in which the test runs. The host names or IP addresses cannot be known ahead of time and are specified as variables to which the JavaTest harness assigns values when the test is run. The test suite's configuration interview asks the user to specify the values of the hosts and port numbers required to run the test; the values of <code>$testHost</code> and <code>$testPort</code> are defined from those answers. The configuration interview creates entries in the test environment as name/value pairs. For example:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+testHost=129.42.1.50
+testPort=8080
+</pre></div>
+<!-- class="sect3" -->
+<a id="Z40036301017180" name="Z40036301017180"></a>
+<div class="sect3">
+<h4 class="sect3"><a id="sthref134" name="sthref134"></a><a id="sthref135" name="sthref135"></a>Which Tests to Run</h4>
+<p>The JavaTest harness provides a number of ways that the user can specify which tests in the test suite to run. These <span class="italic">standard values</span> can be specified by the user in the configuration editor window question mode or quick set mode. You can easily include interview questions that gather this information at the end of the interview for you and require no extra work on your part.</p>
+</div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="Z40036301017627" name="Z40036301017627"></a>
+<div class="sect1">
+<h2 class="sect1"><a id="sthref136" name="sthref136"></a>Designing Your Interview</h2>
+<p><a id="sthref137" name="sthref137"></a><a id="sthref138" name="sthref138"></a>The goal of the configuration interview is to create (or <span class="italic">export</span>) a test environment. The test environment consists of one or more command templates that the test script uses to execute tests and the set of name/value pairs that define values required to run the tests.</p>
+<p>The previous section described how to think about the kinds of configuration values your test suite needs; this section focuses on how you collect configuration values and translate them into test environment entries.</p>
+<a id="BBJDCFGC" name="BBJDCFGC"></a>
+<div class="sect2">
+<h3 class="sect2"><a id="sthref139" name="sthref139"></a><a id="sthref140" name="sthref140"></a>Command Strings</h3>
+<p>The most complex test environment entries are almost always the command strings the test script uses to execute the tests. A command string is a template that specifies the command used by the test script to execute the test. A command string contains symbolic values (variables) whose values are provided when the test is executed.</p>
+<p>The complexity of these entries is determined by the versatility required by the test suite. If the test suite is always run on the same computer, in the same network, the command string is probably very easy to specify. In many cases the computing environment varies considerably, in which case the command strings are built up largely from answers that users provide in the configuration interview.</p>
+<p>As previously described, test scripts depend on test commands to know how to execute tests in specific ways. The JavaTest release contains a set of standard library test commands that you can use to execute tests. The following table describes the most commonly used test commands. These test commands are described in more detail in <a href="stdcmds.htm#CGFJBCJB">Appendix A</a>.</p>
+<div class="tblhruleformal"><a id="sthref141" name="sthref141"></a><a id="Z40036301012890" name="Z40036301012890"></a>
+<p class="titleintable">Table 6-1 Commonly Used Test Commands</p>
+<table class="HRuleFormal" title="Commonly Used Test Commands" summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="37%" />
+<col width="*" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t2">Test Command</th>
+<th align="left" valign="bottom" id="r1c2-t2">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t2" headers="r1c1-t2">
+<p><code>ExecStdTestSameJVMCmd</code></p>
+</td>
+<td align="left" headers="r2c1-t2 r1c2-t2">
+<p>Executes a simple API test in the same JVM as the caller. Typically used with the JavaTest Agent.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t2" headers="r1c1-t2">
+<p><code>ActiveAgentCommand PassiveAgentCommand</code></p>
+</td>
+<td align="left" headers="r3c1-t2 r1c2-t2">
+<p>Execute a subcommand on a JavaTest Agent running in active or passive mode</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" -->
+<p>If your platform requires a custom agent in order to run tests, use the test command designed for use with that agent.</p>
+<p>Commands and command templates are described in more detail in <a href="script.htm#CEHJBHGI">Chapter 10</a>.</p>
+<p>The examples in this section show how to create command entries for the Standard Test Script using two of these commands: <code>ActiveAgentCommand</code> and <code>ExecStdTestOtherJVMCmd</code>.</p>
+<a id="BBJDCHAJ" name="BBJDCHAJ"></a>
+<div class="sect3">
+<h4 class="sect3">Example 1</h4>
+<p>The Standard Test Script uses the value of the command entry <code>command.execute</code> to execute tests. If the tests are executed on the same computer running the JavaTest harness, a typical command entry for the Standard Test Script looks something like the following:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+command.execute=com.sun.javatest.lib.ExecStdTestOtherJVMCmd 
+   C:\JDK\bin\java.exe -classpath $testSuiteRootDir\classes
+   $testExecuteClass $testExecuteArgs
+</pre>
+<p>The portion of the entry to the left of the "<code>=</code>" is the name of the test environment entry, the portion to the right is the command string.</p>
+<p>Let's examine the command string in detail:</p>
+<p><code>com.sun.javatest.lib.ExecStdTestOtherJVMCmd</code></p>
+<p>The first part of the command string is the name of the test command class used to execute the test classes. In this example the command executes tests in a process on the same computer that runs the JavaTest harness.</p>
+<p><span class="bold">Interview implications</span>:</p>
+<p>Your configuration interview specifies the command to use to execute the tests. If the API you are testing always runs in a known computing environment, your interview might create this part of the entry without input from the user. However, if the API being tested can be run in different ways, you must ask the user which way they choose to run it and provide the appropriate test command based on the user's input.</p>
+<p>Imagine an API that can be tested on the same computer running the JavaTest harness, or on a different computer on the same network. In this case the interview must determine which way the user intends to run the tests and provide the appropriate command &mdash; <code>ActiveAgentCommand</code> or <code>ExecStdTestOtherJVMCmd</code>.</p>
+<p><code>-classpath</code> <span class="italic">ts_dir</span><code>\classes</code></p>
+<p>The class path required by the tests. Replace <span class="italic">ts_dir</span> with the path to your test suite. To enhance performance, you should place all library classes required to run the test classes in the <code>classes</code> directory.</p>
+<p>See <a href="#BBJHEDBG">Test Environment Variables</a> for a list of available variables.</p>
+<p><span class="bold">Interview implications</span>:</p>
+<p>You can determine the path to your test suite inside your interview. See <a href="#BBJBCCCJ">Exporting the Test Environment</a> for details. If the test classes require no additional classes be on the class path other than the ones you provide in the test suite's <code>classes</code> directory, your interview can insert the class path value directly into the entry without asking the user for input. If additional class path entries may be required, your interview may include questions that ask the user to provide additional entries that your interview appends to the class path.</p>
+<p>This environment entry that can get more complicated if the test suite may be run using different versions of the Java runtime. Some Java runtime systems do not use the <code>-classpath</code> option; for example, they might use a syntax such as <code>-cp</code> or <code>/cp</code>. Additionally, some systems use the "<code>:</code>" character as the class path separator and others use the "<code>;</code>" character. If this is the case, your interview must include additional questions that determine the platform on which the tests are run so that you can create the appropriate command entry.</p>
+<p><code>C:\</code><span class="italic">JDK</span><code>\bin\java.exe</code></p>
+<p>The path to the Java runtime command used to execute the test classes.</p>
+<p><span class="bold">Interview implications:</span></p>
+<p>This path almost certainly differs from user to user, so almost any interview must obtain this path from the user. The interview libraries include a question type named "file" that is very useful for obtaining path names.</p>
+<p>Although no additional options or arguments are shown in this example, many Java runtimes or test suites require additional options and arguments. If your tests require any additional options, you include them in additional portions of the entry.</p>
+<p><code>$testExecuteClass</code></p>
+<p>A variable that represents the name of the test class. The test script obtains the class name from the <code>executeClass</code> entry in the test description and provides it at runtime.</p>
+<p><span class="bold">Interview implications:</span></p>
+<p>The interview adds the variable to the environment entry.</p>
+<p><code>$testExecuteArgs</code></p>
+<p>A variable that represents the arguments specified in the test description. The test script obtains this value from the test description and provides it at runtime.</p>
+<p><span class="bold">Interview implications:</span></p>
+<p>The interview adds the variable to the environment entry.</p>
+</div>
+<!-- class="sect3" -->
+<a id="Z40036301017216" name="Z40036301017216"></a>
+<div class="sect3">
+<h4 class="sect3">Example 2</h4>
+<p>For this example, imagine a test suite that runs in a limited environment &mdash; it always runs on a remote system using the JavaTest Agent in passive mode. The command entry looks like this:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+command.execute=com.sun.javatest.lib.PassiveAgentCommand
+   -host myHost -port 501 
+   com.sun.javatest.lib.ExecStdTestSameJVMCmd
+   $testExecuteClass $testExecuteArgs
+</pre>
+<p>Although this command is quite long, because of its limitations most of it is boilerplate; the only values that your interview has to gather from the user are the arguments to the <code>-host</code> and <code>-port</code> options.</p>
+</div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" -->
+<a id="BBJHEDBG" name="BBJHEDBG"></a>
+<div class="sect2">
+<h3 class="sect2"><a id="sthref142" name="sthref142"></a>Test Environment Variables</h3>
+<p>The following variables are available for use in test descriptions if you use the Standard Test Script or a test script derived from it. If you create a custom test script, it can provide additional values.</p>
+<div class="tblhruleformal"><a id="sthref143" name="sthref143"></a><a id="Z40036301012903" name="Z40036301012903"></a>
+<p class="titleintable">Table 6-2 Test Environment Variables</p>
+<table class="HRuleFormal" title="Test Environment Variables" summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="31%" />
+<col width="*" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t3">Variable Name</th>
+<th align="left" valign="bottom" id="r1c2-t3">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t3" headers="r1c1-t3">
+<p><code>$testExecuteArgs</code><a id="sthref144" name="sthref144"></a></p>
+</td>
+<td align="left" headers="r2c1-t3 r1c2-t3">
+<p>The value for the <code>executeArgs</code> parameter from the test description of the test being run</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t3" headers="r1c1-t3">
+<p><code>$testExecuteClass</code><a id="sthref145" name="sthref145"></a></p>
+</td>
+<td align="left" headers="r3c1-t3 r1c2-t3">
+<p>The value of the <code>executeClass</code> parameter from the test description of the test being run</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t3" headers="r1c1-t3">
+<p><code>$testSource</code><a id="sthref146" name="sthref146"></a></p>
+</td>
+<td align="left" headers="r4c1-t3 r1c2-t3">
+<p>The value of the <code>source</code> parameter defined in the test description of the test being run. Valid only when using the JavaTest harness to compile a test suite. See <a href="compile.htm#CGFCDEDA">Chapter 7</a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" --></div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="Z40036301017681" name="Z40036301017681"></a>
+<div class="sect1">
+<h2 class="sect1"><a id="sthref147" name="sthref147"></a>Writing Your Interview</h2>
+<p>The previous two sections focused on the design of your configuration and your interview; this section focuses on writing the code to implement the interview.</p>
+<p>This section takes a high-level view of the process of writing configuration interviews; complete, working code examples are provided separately from this manual. These examples are described in the following subsections.</p>
+<a id="Z40036301019028" name="Z40036301019028"></a>
+<div class="sect2"><a id="CJAFJEJF" name="CJAFJEJF"></a>
+<h3 class="sect2"><a id="sthref148" name="sthref148"></a>Demo TCK interview</h3>
+<p>The Demo TCK is a simple test suite created to demonstrate the basic principles of writing and running test suites. The Demo TCK was featured in <a href="compile.htm#CGFCDEDA">Chapter 7</a>. The source code and More Info files for the configuration interview used in the Demo TCK test suite are included in the JavaTest Architect's release at the following location:</p>
+<p><span class="italic">jt_install</span><code>\examples\javatest\simpleTags\src</code></p>
+</div>
+<!-- class="sect2" -->
+<a id="Z40036301019038" name="Z40036301019038"></a>
+<div class="sect2"><a id="CJAGFGHI" name="CJAGFGHI"></a>
+<h3 class="sect2"><a id="sthref149" name="sthref149"></a>Demo Interview</h3>
+<p>The Demo Interview is a self-documenting JavaTest interview that demonstrates all of the interview question types, and other important interview techniques. A special viewer allows you to view the source of a question as you run it. Follow these instructions to start the Demo Interview:</p>
+<a id="Z40036301018887" name="Z40036301018887"></a>
+<div class="sect3">
+<h4 class="sect3">Start the Demo Interview</h4>
+<ol>
+<li><a id="Z40036301016914" name="Z40036301016914"></a>
+<p>In a command window make the following your current directory:</p>
+<p><span class="italic">jt_install</span><code>\examples\javatest\interviewDemo\demotck</code></p>
+</li>
+<li><a id="Z40036301016918" name="Z40036301016918"></a>
+<p>Start the Demo Interview test suite</p>
+<p>At the command prompt enter:</p>
+<p><code>C:\&gt;java -jar lib\javatest.jar -newDesktop</code></p>
+<p>The <code>-newdesktop</code> option is used here to ensure that the JavaTest harness loads the correct test suite. For information about JavaTest options, see the online help.</p>
+</li>
+<li><a id="Z40036301016922" name="Z40036301016922"></a>
+<p>Choose Configure &gt; New Configuration to start the interview</p>
+<p>Follow the directions in the interview. You can also browse the source for the interview at:</p>
+<p><span class="italic">jt_install</span><code>\examples\javatest\interviewDemo\src</code></p>
+</li>
+</ol>
+</div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" -->
+<a id="Z40036301017395" name="Z40036301017395"></a>
+<div class="sect2">
+<h3 class="sect2"><a id="sthref150" name="sthref150"></a>Interview Classes</h3>
+<p>Interviews are built from the following classes:<a id="sthref151" name="sthref151"></a><a id="sthref152" name="sthref152"></a></p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>com.sun.javatest.InterviewParameters</code>
+</pre>
+<p>The top-level class used to build JavaTest configuration interviews. This class is a special subtype of <code>com.sun.interview.Interview</code>that provides the API required by the JavaTest harness. You do not normally use this class directly, see <code>BasicInterviewParameters</code> below.<a id="sthref153" name="sthref153"></a><a id="sthref154" name="sthref154"></a></p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>com.sun.interview.Question</code> (and its subtypes)
+</pre>
+<p>Questions are the primary constituent elements of interviews. Questions provide text and appropriate controls and serve as a place to store the user's response.<a id="sthref155" name="sthref155"></a><a id="sthref156" name="sthref156"></a></p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>com.sun.interview.Interview</code>
+</pre>
+<p>The base interview class. This class is used directly to implement sub-interviews (if any).</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>com.sun.javatest.interview.BasicInterviewParameters</code>
+</pre>
+<p><a id="sthref157" name="sthref157"></a><a id="sthref158" name="sthref158"></a>A subtype of <code>com.sun.javatest.InterviewParameters</code> that provides standard questions for all of the "standard" configuration values (for example, which tests to execute). You usually subtype this interview and expand it to obtain your specific test environment information. The <code>BasicInterviewParameters</code> class is flexible, see <a href="#BBJDHGCF">Putting it All Together</a> for details.</p>
+<p>For more information about these classes, please refer to the API documentation available in <code>doc\javatest\api</code>.</p>
+<p>To create a configuration interview, you normally provide a subclass of the <code>BasicInterviewParameters</code> class and add questions to the interview. This class is responsible for collecting all test environment and standard value information and providing it to the JavaTest harness.</p>
+<p>Interviews can contain nested sub-interviews. The choice of whether to break interviews into smaller sub-interviews is a design decision based on manageability &mdash; generally interviews over 20 questions are candidates for this kind of hierarchical organization. Interviews often contain a number of branches, and these branches are also often good candidates for becoming sub-interviews. Sub-interviews directly extend <code>com.sun.interview.Interview</code>.</p>
+</div>
+<!-- class="sect2" -->
+<a id="Z40036301017417" name="Z40036301017417"></a>
+<div class="sect2">
+<h3 class="sect2"><a id="sthref159" name="sthref159"></a><a id="sthref160" name="sthref160"></a>The Current Interview Path</h3>
+<p>As mentioned in the previous section, interviews are often composed from sub-interviews that branch off of the main interview. During the interview process, branches of the interview can become inactive because the user changes the answer to a question; the branch can become reactivated if the user later changes the answer back. When a user completes a configuration interview, the answers to all questions the user has ever answered are stored on disk in an interview data file with the <code>.jti</code> extension. Because active and inactive questions are present in the interview data file, whenever the JavaTest harness needs configuration information (for example, to run tests or to display the environment) the JavaTest harness must determine the <span class="italic">current interview path</span>.</p>
+<p>To determine the current interview path, the JavaTest harness starts at the first question and queries each question for the next question on the path, attempting to reach the <a id="sthref161" name="sthref161"></a>Final question (see <a href="#BBJIAGJB">Table 6-3</a> for a description of different question types). If it does not reach the Final question, the interview is considered incomplete; the test configuration cannot be exported and the test suite cannot be run until the missing questions are answered. If the user attempts to run the test suite with an incomplete interview, they are asked whether they want to complete the interview at that time &mdash; if they do, the configuration editor is activated.</p>
+</div>
+<!-- class="sect2" -->
+<a id="Z40036301017428" name="Z40036301017428"></a>
+<div class="sect2">
+<h3 class="sect2">Determining the Next Question</h3>
+<p><a id="sthref162" name="sthref162"></a><a id="sthref163" name="sthref163"></a>Every question except the Final question must provide a <code>getNext()</code> method that determines the next (successor) question. The successor question can be fixed (constant) or determined based on the answer of a current question or on the cumulative answers of multiple preceding questions. Questions can also provide no successor question (by returning <code>null</code>). Lack of a successor question usually means that the current question is unanswered or contains an error; in that case the interview is incomplete.</p>
+<p>You may add questions to the interview that gather no configuration information, they are only used to determine the next question in the interview. These are typically Choice questions used to determine a branch point in the interview. For example, you might include a question that asks the user whether they want to execute the tests locally (on the computer running the JavaTest harness) or on a remote computer using the JavaTest agent. Depending on the answer, you branch to the questions that gather information about how to run the JavaTest Agent.</p>
+</div>
+<!-- class="sect2" -->
+<a id="Z40036301017435" name="Z40036301017435"></a>
+<div class="sect2">
+<h3 class="sect2"><a id="sthref164" name="sthref164"></a><a id="sthref165" name="sthref165"></a>Error Checking</h3>
+<p>If the user provides an invalid answer to a question, the interview cannot proceed. You use the boolean <code>isValueValid()</code> method to check the validity of an answer before you proceed to the getNext() method. You can handle error conditions in two ways: by returning <code>null</code> which causes the configuration editor to display the "Invalid response" message in red at the bottom of the question pane, or by making the successor question an Error question that causes the configuration editor to display a pop-up window with an error message that you provide (see <code>ErrorQuestion</code> in ).</p>
+<p>Generally, an "Invalid response" message is sufficient if the error is a simple one; for example, if the user answers an integer question with a letter. However, for more subtle errors (for example, if an answer conflicts with a previous answer), it is necessary to provide more information to the user in a pop-up window.</p>
+</div>
+<!-- class="sect2" -->
+<a id="BBJBCCCJ" name="BBJBCCCJ"></a>
+<div class="sect2">
+<h3 class="sect2">Exporting the Test Environment</h3>
+<p><a id="sthref166" name="sthref166"></a><a id="sthref167" name="sthref167"></a><a id="sthref168" name="sthref168"></a>As previously mentioned, one of the goals of the interview is to produce a test environment. The JavaTest harness uses the <code>InterviewParameters</code> class's <a id="sthref169" name="sthref169"></a><code>getEnv()</code> method to obtain the test environment.</p>
+<p>If you extend <code>BasicInterviewParameters</code> to create your interview, it provides an implementation of the <code>getEnv()</code> method that uses the values you export.</p>
+<p>If, however, you extend <code>InterviewParameters</code> directly, you must provide a <code>getEnv()</code> method that gathers answers from the main interview and any sub-interviews and returns an <code>TestEnvironment</code> object. The best and simplest way to implement the <code>getEnv()</code> method is to use the interview's <a id="sthref170" name="sthref170"></a><code>export()</code> method, which in turn calls the <code>export()</code> method of each question on the current interview path that provides one. Note that an interview does not normally override/provide <code>export()</code>&mdash; it is provided automatically. When it is time to export the test environment, the <code>getEnv()</code> method calls <code>export()</code> to gather their test environment information. These questions export their values into a <code>Map</code> object from which you can construct a test environment. For detailed examples see the source code examples in the <span class="italic">jt_install</span><code>\examples</code> directory.</p>
+<p>When exporting the test environment, you can use the <code>getTestSuite()</code> method to get information about the test suite. This information (for example, the location of the test suite) is often useful in building test environment entries.<a id="sthref171" name="sthref171"></a></p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>It is generally a very good idea for the controlling question to precede the questions that collect a given value, because the question text can provide information to the user about the series of questions coming up.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</div>
+<!-- class="sect2" -->
+<a id="Z40036301017475" name="Z40036301017475"></a>
+<div class="sect2">
+<h3 class="sect2"><a id="sthref172" name="sthref172"></a><a id="sthref173" name="sthref173"></a>Question Types</h3>
+<p>The <code>Question</code> class is a base class that provides the different types of questions that you use to build your interview. You need not concern yourself about the GUI layout of a question; the configuration editor automatically determines the presentation of each question based on the question's type.</p>
+<p>The following table lists all of the question types and shows (when applicable) how they are represented in the configuration editor.</p>
+<div class="tblhruleformalwide"><a id="sthref174" name="sthref174"></a><a id="BBJIAGJB" name="BBJIAGJB"></a>
+<p class="titleintable">Table 6-3 Question Types</p>
+<table class="HRuleFormalWide" title="Question Types" summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="13%" />
+<col width="35%" />
+<col width="*" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t5">Question Type</th>
+<th align="left" valign="bottom" id="r1c2-t5">Description</th>
+<th align="left" valign="bottom" id="r1c3-t5">GUI</th>
+</tr>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t5" headers="r1c1-t5">
+<p>ChoiceArray</p>
+</td>
+<td align="left" headers="r2c1-t5 r1c2-t5">
+<p>A set of independent boolean choices</p>
+</td>
+<td align="left" headers="r2c1-t5 r1c3-t5">
+<p>Set of named checkboxes <img src="img/choicearrayq.gif" alt="Surrounding text describes choicearrayq.gif." title="Surrounding text describes choicearrayq.gif." /></p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t5" headers="r1c1-t5">
+<p>Choice</p>
+</td>
+<td align="left" headers="r3c1-t5 r1c2-t5">
+<p>A set of alternative choices</p>
+</td>
+<td align="left" headers="r3c1-t5 r1c3-t5">
+<p>Combo box or radio buttons, depending on the number of choices</p>
+<img src="img/choiceq.gif" alt="Surrounding text describes choiceq.gif." title="Surrounding text describes choiceq.gif." /></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t5" headers="r1c1-t5">
+<p>Error</p>
+</td>
+<td align="left" headers="r4c1-t5 r1c2-t5">
+<p>A pseudo question used to present error messages</p>
+</td>
+<td align="left" headers="r4c1-t5 r1c3-t5">
+<p>Pop-up dialog box</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t5" headers="r1c1-t5">
+<p>File</p>
+</td>
+<td align="left" headers="r5c1-t5 r1c2-t5">
+<p>A single file</p>
+</td>
+<td align="left" headers="r5c1-t5 r1c3-t5">
+<p>Type-in field with associated file chooser</p>
+<img src="img/fileq.gif" alt="Surrounding text describes fileq.gif." title="Surrounding text describes fileq.gif." /></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r6c1-t5" headers="r1c1-t5">
+<p>FileList</p>
+</td>
+<td align="left" headers="r6c1-t5 r1c2-t5">
+<p>A set of files</p>
+</td>
+<td align="left" headers="r6c1-t5 r1c3-t5">
+<p>A list box with an associated file chooser</p>
+<img src="img/filelistq.gif" alt="Surrounding text describes filelistq.gif." title="Surrounding text describes filelistq.gif." /></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r7c1-t5" headers="r1c1-t5">
+<p>Final</p>
+</td>
+<td align="left" headers="r7c1-t5 r1c2-t5">
+<p>1. A pseudo question that marks successful completion of the interview</p>
+</td>
+<td align="left" headers="r7c1-t5 r1c3-t5">
+<p>Text only, no user input</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r8c1-t5" headers="r1c1-t5"><br /></td>
+<td align="left" headers="r8c1-t5 r1c2-t5">
+<p>2. A pseudo question that marks the end of a sub-interview</p>
+</td>
+<td align="left" headers="r8c1-t5 r1c3-t5">
+<p>For internal use only; never displayed</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r9c1-t5" headers="r1c1-t5">
+<p>Float</p>
+</td>
+<td align="left" headers="r9c1-t5 r1c2-t5">
+<p>A floating point value (optional min./max. values)</p>
+</td>
+<td align="left" headers="r9c1-t5 r1c3-t5">
+<p>Either slider or type-in field depending on the range</p>
+<img src="img/floatq.gif" alt="Surrounding text describes floatq.gif." title="Surrounding text describes floatq.gif." /></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r10c1-t5" headers="r1c1-t5">
+<p>InetAddress</p>
+</td>
+<td align="left" headers="r10c1-t5 r1c2-t5">
+<p>An IPv4 or IPv6 address</p>
+</td>
+<td align="center" headers="r10c1-t5 r1c3-t5">
+<p>Either four integer fields, each of value 0 - 255, or a type-in field with a lookup button.</p>
+<img src="img/inetaddressq.gif" alt="Surrounding text describes inetaddressq.gif." title="Surrounding text describes inetaddressq.gif." /> <img src="img/ipv6q.gif" alt="Surrounding text describes ipv6q.gif." title="Surrounding text describes ipv6q.gif." /></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r11c1-t5" headers="r1c1-t5">
+<p>Int</p>
+</td>
+<td align="left" headers="r11c1-t5 r1c2-t5">
+<p>An integer value</p>
+</td>
+<td align="left" headers="r11c1-t5 r1c3-t5">
+<p>Either slider or type-in field depending on the range</p>
+<img src="img/intq.gif" alt="Surrounding text describes intq.gif." title="Surrounding text describes intq.gif." /></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r12c1-t5" headers="r1c1-t5">
+<p>Interview</p>
+</td>
+<td align="left" headers="r12c1-t5 r1c2-t5">
+<p>A pseudo question used for sub-interviews; see <code>interview.callInterview(</code>...<code>)</code> in the API</p>
+</td>
+<td align="left" headers="r12c1-t5 r1c3-t5">
+<p>For internal use only; never displayed</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r13c1-t5" headers="r1c1-t5">
+<p>List</p>
+</td>
+<td align="left" headers="r13c1-t5 r1c2-t5">
+<p>A list of complex values built from a set of questions.</p>
+</td>
+<td align="left" headers="r13c1-t5 r1c3-t5">
+<p>A list box that displays the current contents of the list. The following questions add or edit a selected value in the list. This sequence is automatically terminated by a corresponding marker question.</p>
+<img src="img/filelistq.gif" alt="Surrounding text describes filelistq.gif." title="Surrounding text describes filelistq.gif." /></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r14c1-t5" headers="r1c1-t5">
+<p>Null</p>
+</td>
+<td align="left" headers="r14c1-t5 r1c2-t5">
+<p>Expository text; generally used to introduce a set of questions</p>
+</td>
+<td align="left" headers="r14c1-t5 r1c3-t5">
+<p>Text only; no user input</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r15c1-t5" headers="r1c1-t5">
+<p>Properties</p>
+</td>
+<td align="left" headers="r15c1-t5 r1c2-t5">
+<p>Enables configuring multiple key-value pairs in a single question.</p>
+</td>
+<td align="left" headers="r15c1-t5 r1c3-t5"><br /></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r16c1-t5" headers="r1c1-t5">
+<p>String</p>
+</td>
+<td align="left" headers="r16c1-t5 r1c2-t5">
+<p>String information</p>
+</td>
+<td align="left" headers="r16c1-t5 r1c3-t5">
+<p>Type-in field that optionally includes suggested answers</p>
+<img src="img/stringq.gif" alt="Surrounding text describes stringq.gif." title="Surrounding text describes stringq.gif." /></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r17c1-t5" headers="r1c1-t5">
+<p>StringList</p>
+</td>
+<td align="left" headers="r17c1-t5 r1c2-t5">
+<p>A list of strings</p>
+</td>
+<td align="left" headers="r17c1-t5 r1c3-t5">
+<p>A list box</p>
+<img src="img/filelistq.gif" alt="Surrounding text describes filelistq.gif." title="Surrounding text describes filelistq.gif." /></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r18c1-t5" headers="r1c1-t5">
+<p>Tree</p>
+</td>
+<td align="left" headers="r18c1-t5 r1c2-t5">
+<p>A tree selection</p>
+</td>
+<td align="left" headers="r18c1-t5 r1c3-t5">
+<p>A tree selection GUI based on JTree</p>
+<img src="img/treeq.gif" alt="Surrounding text describes treeq.gif." title="Surrounding text describes treeq.gif." /></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r19c1-t5" headers="r1c1-t5">
+<p>YesNo</p>
+</td>
+<td align="left" headers="r19c1-t5 r1c2-t5">
+<p>A convenience choice question for Yes/No answers</p>
+</td>
+<td align="left" headers="r19c1-t5 r1c3-t5">
+<p>Radio buttons</p>
+<img src="img/yesnoq.gif" alt="Surrounding text describes yesnoq.gif." title="Surrounding text describes yesnoq.gif." /></td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformalwide" -->
+<a id="Z40036301017223" name="Z40036301017223"></a>
+<div class="sect3">
+<h4 class="sect3"><a id="sthref175" name="sthref175"></a><a id="sthref176" name="sthref176"></a>Designing Your Questions</h4>
+<p>Be sure to break down complex environment entries into simple values that can be answered by a single question, then build up the entry from those values. For example, if you are creating an environment entry that requires the name of a remote host and its port address, it's best not to ask for both pieces of information in a single question, but to ask for each piece of information in a separate question.</p>
+<p>For example, the following entry (previously seen in <a href="#BBJDCHAJ">Example 1</a>) could be built up from a number of interview answers:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+command.execute=com.sun.javatest.lib.ExecStdTestOtherJVMCmd 
+   C:\JDK\bin\java.exe -classpath $testSuiteRootDir\classes
+   $testExecuteClass $testExecuteArgs
+</pre>
+<ul>
+<li>
+<p>Questions to determine whether the user plans to run the test locally or on a remote computer, and whether they plan to run the tests in the same JVM as the JavaTest Agent</p>
+</li>
+<li>
+<p>A question to determine the path of the Java runtime command</p>
+</li>
+<li>
+<p>One or more questions to determine the class path</p>
+</li>
+<li>
+<p>Questions that determine the path separator on the test platform</p>
+</li>
+</ul>
+</div>
+<!-- class="sect3" -->
+<a id="Z40036301017232" name="Z40036301017232"></a>
+<div class="sect3">
+<h4 class="sect3"><a id="sthref177" name="sthref177"></a><a id="sthref178" name="sthref178"></a>Landing Point Questions</h4>
+<p>You might find it convenient and useful to include questions that do not gather any information, but rather provide space between sections of the interview or provide a frame of reference to the user about where they are in the interview. You can use the Null question type for this type of interview question. In some cases you can use landing points as bridges between the main interview and sub-interviews.</p>
+</div>
+<!-- class="sect3" -->
+<a id="Z40036301017237" name="Z40036301017237"></a>
+<div class="sect3">
+<h4 class="sect3"><a id="sthref179" name="sthref179"></a><a id="sthref180" name="sthref180"></a>Sub-Interviews</h4>
+<p>If your interview contains a large number of questions, you can break it up into sub-interviews. To create a sub interview, create a subtype of an <code>Interview</code> class. For example:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+class MySubInterview extends Interview {
+      ....
+   }
+</pre>
+<p>The constructor should take a reference to the parent interview as an argument, and this reference should be passed to the superclass constructor. This identifies this interview as a sub-interview of the parent interview. For example:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+MySubInterview(MyParentInterview parent) {
+       super(parent, "myTag");
+       ...
+}
+</pre>
+<p>In the constructor, use the <code>setFirstQuestion</code> method to specify the first question in the sub-interview. Subsequent questions are found in the normal way using the <code>getNext</code> method. For example:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+MySubInterview(Interview parent) {
+   super(parent, "myTag");
+   setFirstQuestion(qIntro);
+}
+</pre>
+<p>By default, a sub-interview shares a resource file and More Info help files (see <a href="#BBJHECGD">Creating Question Text and More Info</a>) with its parent interview (another reason to pass in that parent pointer). You can choose to use a different resource file and HelpSet if you want, although that is not typical for simple or moderately complex interviews. See the API specifications for <code>setResourceBundle</code> and <code>setHelpSet</code> for details.</p>
+<p>At the end of the interview, have the last question return an instance of a <code>FinalQuestion</code>. This <code>FinalQuestion</code> is only a marker and does not have any question text, More Info, or a <code>getNext</code> method. For example:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+Question qXXX = ......... {
+   Question getNext() {
+      return qEnd;
+      }
+   };
+Question qEnd = new FinalQuestion(this);
+</pre>
+<p>For the parent interview to use a sub-interview, it must first create an instance of the sub-interview. This should be created once and stored in a field of the interview. For example:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>Interview iMySubInterview = new SubInterview(this);</code>
+</pre>
+<p>To call the sub-interview, use <code>callInterview</code> in a <code>getNext</code> method. The <code>callInterview</code> method takes two parameters &mdash; a reference to the interview to be called, and a follow-on question to be called when all the questions in the sub-interview have been asked. When the JavaTest harness sees the <code>FinalQuestion</code> at the end of a sub-interview, it goes back to where the interview was called and automatically uses the follow-on question that was specified there. For example:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+Question getNext() {
+   return callInterview(iMySubInterview, qFollowOnQuestion)
+}
+</pre>
+<a id="Z40036301017145" name="Z40036301017145"></a>
+<div class="sect4">
+<h5 class="sect4"><a id="sthref181" name="sthref181"></a><a id="sthref182" name="sthref182"></a>Flow Charts</h5>
+<p>Experience has shown that flow charting tools can be very helpful if the interview becomes large and complicated. These tools can help you track the logical flow of the interview and keep track of sub-interviews.</p>
+</div>
+<!-- class="sect4" --></div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" -->
+<a id="BBJDHGCF" name="BBJDHGCF"></a>
+<div class="sect2">
+<h3 class="sect2">Putting it All Together</h3>
+<p><a id="sthref183" name="sthref183"></a>To write a configuration interview, you must provide a class that implements the abstract class <code>InterviewParameters</code>. This class provides the JavaTest harness access to both the environment values and to the <span class="italic">standard values</span>. Standard values are configuration values used by the JavaTest harness to determine:</p>
+<ul>
+<li>
+<p>Which tests in the test suite to run</p>
+</li>
+<li>
+<p>How to run them</p>
+</li>
+</ul>
+<p>To simplify this task, the JavaTest harness provides an implementation called <code>BasicInterviewParameters</code><a id="sthref184" name="sthref184"></a> that does a lot of the work for you. This class provides a standard prolog, questions for all the standard values, and a standard epilog. All you have to do is to implement the methods and questions for your test environment. However, you can also customize the other parts of the interview if you wish to.</p>
+<p>The questions in <code>BasicInterviewParameters</code> are divided into the following groups:</p>
+<div class="tblhruleformal"><a id="sthref185" name="sthref185"></a><a id="Z40036301013030" name="Z40036301013030"></a>
+<p class="titleintable">Table 6-4 Interview Question Groups</p>
+<table class="HRuleFormal" title="Interview Question Groups" summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="17%" />
+<col width="*" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t6">Group</th>
+<th align="left" valign="bottom" id="r1c2-t6">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t6" headers="r1c1-t6">
+<p>prolog</p>
+</td>
+<td align="left" headers="r2c1-t6 r1c2-t6">
+<p>Identifies the interview and provides helpful information to the user about the interview such as how many questions the average interview consists of and how to proceed. Optionally, provides questions about the environment name and description.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t6" headers="r1c1-t6">
+<p>environment</p>
+</td>
+<td align="left" headers="r3c1-t6 r1c2-t6">
+<p>The questions you write to gather information for the test environment</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t6" headers="r1c1-t6">
+<p>tests</p>
+</td>
+<td align="left" headers="r4c1-t6 r1c2-t6">
+<p>Allows users to specify sub-branches of test trees as a way of limiting which tests are executed during a test run</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t6" headers="r1c1-t6">
+<p>keywords</p>
+</td>
+<td align="left" headers="r5c1-t6 r1c2-t6">
+<p>Allows uses to filter tests based on keyword values. Test suites can associate keywords with tests so that the keywords can be used as a basis for including and excluding tests from test runs.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r6c1-t6" headers="r1c1-t6">
+<p>prior status</p>
+</td>
+<td align="left" headers="r6c1-t6 r1c2-t6">
+<p>Allows users to include and exclude tests based on their outcome in a prior test run. Test can be excluded and included based on the following status values: passed, failed, not run, error (test could not be run).</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r7c1-t6" headers="r1c1-t6">
+<p>concurrency</p>
+</td>
+<td align="left" headers="r7c1-t6 r1c2-t6">
+<p>Allows users to run tests concurrently on multi-processor computers</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r8c1-t6" headers="r1c1-t6">
+<p>timeout factor</p>
+</td>
+<td align="left" headers="r8c1-t6 r1c2-t6">
+<p>A value that is multiplied against a test's default timeout if a larger timeout is needed. The default timeout is 10 minutes.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r9c1-t6" headers="r1c1-t6">
+<p>epilog</p>
+</td>
+<td align="left" headers="r9c1-t6 r1c2-t6">
+<p>Informs the user that they have completed the interview. May also provide information about how to run tests.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" -->
+<p>The groups of questions are presented in the order shown. Each group provides a method that identifies the first question in its group. The last question in the group uses another method to determine the next question. By default, the next question is the first question of the following group.</p>
+<p><a href="#CJACIBDG">Figure 6-1</a> shows the "first" and "next" questions for each group of questions.</p>
+<div class="figure"><a id="CJACIBDG" name="CJACIBDG"></a>
+<p class="titleinfigure">Figure 6-1 Interview Question Group First/Next Question Methods</p>
+<img src="img/qfirstnext.jpg" alt="Description of Figure 6-1 follows" title="Description of Figure 6-1 follows" longdesc="img_text/qfirstnext.htm" /><br />
+<a id="sthref186" name="sthref186" href="img_text/qfirstnext.htm">Description of "Figure 6-1 Interview Question Group First/Next Question Methods"</a><br />
+<br /></div>
+<!-- class="figure" -->
+<p><a id="sthref187" name="sthref187"></a>In most cases you only need to concern yourself with the environment group. For all the other groups, <code>BasicInterviewParameters</code> provides standard questions. If you find that you must customize the standard questions, you can replace the questions for a group by redefining <code>get</code><span class="italic">Xxx</span><code>FirstQuestion()</code> to get your custom questions. In this case, you must also override the methods that provide access to these configuration values. See the API for more details.</p>
+<p><a id="sthref188" name="sthref188"></a>If you find that any of the standard questions do not apply to your test suite, you can override the <code>get</code><span class="italic">Xxx</span><code>FirstQuestion()</code> question of any group you wish to skip so that it directly returns that group's <code>get</code><span class="italic">Xxx</span><code>SuccessorQuestion()</code>. This circumvents the code that executes the group's questions and jumps directly to the next group. For example, if your test suite does not use keywords, you can override the <code>getKeywordsFirstQuestion()</code> method and implement it so that it returns <code>getKeywordsSuccessorQuestion()</code> as shown in <a href="#Z4000f3c1016898">Figure 6-2, "Skipping the Keywords Standard Question"</a>.</p>
+<div class="figure"><a id="Z4000f3c1016898" name="Z4000f3c1016898"></a>
+<p class="titleinfigure">Figure 6-2 Skipping the Keywords Standard Question</p>
+<img src="img/kwdskip.jpg" alt="Description of Figure 6-2 follows" title="Description of Figure 6-2 follows" longdesc="img_text/kwdskip.htm" /><br />
+<a id="sthref189" name="sthref189" href="img_text/kwdskip.htm">Description of "Figure 6-2 Skipping the Keywords Standard Question"</a><br />
+<br /></div>
+<!-- class="figure" -->
+<a id="Z40036301017261" name="Z40036301017261"></a>
+<div class="sect3">
+<h4 class="sect3"><a id="sthref190" name="sthref190"></a><a id="sthref191" name="sthref191"></a>Providing the Prolog</h4>
+<p>The standard prolog always contains a standard welcome question; it also contains optional environment name and description questions. By default, the name and description questions are <span class="italic">not</span> displayed. You can enable the name and description questions by calling the <code>setNameAndDescriptionInPrologEnabled</code> method in your interview.</p>
+<p>If the standard prolog questions do not meet your needs, you can override the prolog with one of your own. Specify your prolog by means of the standard <code>setFirstQuestion()</code> method of the interview. At the end of your prolog you must call the <code>getPrologSuccessorQuestion()</code> method to determine the first question of the next group.</p>
+</div>
+<!-- class="sect3" -->
+<a id="Z40036301017272" name="Z40036301017272"></a>
+<div class="sect3">
+<h4 class="sect3">Providing the Environment Group</h4>
+<p><a id="sthref192" name="sthref192"></a>This section describes the basic tasks necessary to write the environment portion of the interview. Unless your test suite requires you to make changes to the standard questions (prolog, standard values, epilog), the steps in this section describe what is required for you to produce your interview.</p>
+<p>Put the group of questions that gather information for your test environment in your interview class. Remember to implement the <code>getEnvFirstQuestion</code> method to identify the first question of the group.</p>
+<p>You must link the last question in the environment group to the rest of the interview (the standard values and epilog). In the <code>getNext()</code> method of the last question of your environment group, use <code>getEnvSuccessorQuestion()</code> to determine the next question in the interview &mdash; <code>BasicInterviewParameters</code> provides the rest of the interview.</p>
+<p><a id="sthref193" name="sthref193"></a><a id="sthref194" name="sthref194"></a>Finally, you must implement the <code>getEnv()</code> method. The <code>getEnv()</code> method returns a <code>TestEnvironment</code> created from the responses to the questions. The easiest way is to call the interview's <code>export</code> method. The interview's export method calls the export methods for the questions on the current interview path. These questions export their values into a <code>Map</code> object from which you can construct a test environment. For detailed examples see the source code examples in the <span class="italic">jt_install</span><code>\examples</code> directory.</p>
+</div>
+<!-- class="sect3" -->
+<a id="Z40036301017290" name="Z40036301017290"></a>
+<div class="sect3">
+<h4 class="sect3"><a id="sthref195" name="sthref195"></a><a id="sthref196" name="sthref196"></a>Providing the Resource File for the Interview</h4>
+<p>In the constructor for your interview class, call:<a id="sthref197" name="sthref197"></a></p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>setResourceBundle(</code><span class="italic">bundle_name</span><code>);</code>
+</pre>
+<p>For example:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>setResourceBundle("i18n");</code>
+</pre>
+<p>This uses a file called <code>i18n.properties</code> (or a localized variant) in the same directory as the interview class. See <a href="#BBJHECGD">Creating Question Text and More Info</a> below for more information.</p>
+</div>
+<!-- class="sect3" -->
+<a id="Z40036301017300" name="Z40036301017300"></a>
+<div class="sect3">
+<h4 class="sect3">Providing the More Info Help for the Interview</h4>
+<p><a id="sthref198" name="sthref198"></a><a id="sthref199" name="sthref199"></a>In the constructor for your interview class, call:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>setHelpSet(</code><span class="italic">moreInfo_helpset_name</span><code>);</code>
+</pre>
+<p>For example:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>setHelpSet("moreInfo\demotck.hs");</code>
+</pre>
+<p>This uses a HelpSet called <code>demotck.hs</code> (or a localized variant) in the <code>moreInfo</code> directory located in the directory that contains the interview class. See <a href="#BBJHECGD">Creating Question Text and More Info</a> for more information.</p>
+</div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="BBJHECGD" name="BBJHECGD"></a>
+<div class="sect1">
+<h2 class="sect1"><a id="sthref200" name="sthref200"></a><a id="sthref201" name="sthref201"></a><a id="sthref202" name="sthref202"></a><a id="sthref203" name="sthref203"></a>Creating Question Text and More Info</h2>
+<p>As you saw when you ran the tutorial in <a href="tutorial.htm#CJBFADIE">Chapter 2</a>, the configuration interview is presented to the user in the configuration editor. The question text and answer controls are presented in the Question pane, and information that helps the user answer the question is presented in the More Info pane.</p>
+<div class="figure"><a id="Z4000f3c1016902" name="Z4000f3c1016902"></a>
+<p class="titleinfigure">Figure 6-3 The JavaTest Configuration Editor: Question and More Info Panes</p>
+<img src="img/confeditorfull.gif" alt="Description of Figure 6-3 follows" title="Description of Figure 6-3 follows" longdesc="img_text/confeditorfull.htm" /><br />
+<a id="sthref204" name="sthref204" href="img_text/confeditorfull.htm">Description of "Figure 6-3 The JavaTest Configuration Editor: Question and More Info Panes"</a><br />
+<br /></div>
+<!-- class="figure" -->
+<p>The following sections focus on the text portions of the interview &mdash; the question text and the More Info help.</p>
+<a id="Z40036301017566" name="Z40036301017566"></a>
+<div class="sect2">
+<h3 class="sect2">Writing Style</h3>
+<p>The style that you use for writing question text is very important. Experience has shown that it is very important to make the question text as clear, concise, and unambiguous as you can. Always try to use imperative statements, direct questions, and short explanations. If possible, have a proficient writer edit the questions to ensure readability and consistency.</p>
+<p>Only put question text in the question pane. Information that helps the user answer the questions, including examples, should be provided in the More Info pane. The following figure shows a question where examples and other helpful information are included in the question pane with the question text:</p>
+<div class="figure"><a id="sthref205" name="sthref205"></a>
+<p class="titleinfigure">Figure 6-4 Question Without More Info Help</p>
+<img src="img/qnoinfo.jpg" alt="Description of Figure 6-4 follows" title="Description of Figure 6-4 follows" longdesc="img_text/qnoinfo.htm" /><br />
+<a id="sthref206" name="sthref206" href="img_text/qnoinfo.htm">Description of "Figure 6-4 Question Without More Info Help"</a><br />
+<br /></div>
+<!-- class="figure" -->
+<p>The following example shows how this question can be improved by reorganizing and slightly rewriting the question text and moving the examples and extra information to the More Info pane:</p>
+<div class="figure"><a id="sthref207" name="sthref207"></a>
+<p class="titleinfigure">Figure 6-5 Question With More Info Help</p>
+<img src="img/qmoreinfo.jpg" alt="Description of Figure 6-5 follows" title="Description of Figure 6-5 follows" longdesc="img_text/qmoreinfo.htm" /><br />
+<a id="sthref208" name="sthref208" href="img_text/qmoreinfo.htm">Description of "Figure 6-5 Question With More Info Help"</a><br />
+<br /></div>
+<!-- class="figure" -->
+<p>There are a number of advantages to using the More Info pane to provide examples and other explanatory information:</p>
+<ul>
+<li>
+<p>It allows you to keep the questions simpler. As users become familiar with the interview, they may no longer need the additional information to answer the questions. Displaying the extra information to the More Info pane moves it out of the way.</p>
+</li>
+<li>
+<p>The HTML-based More Info pane offers richer formatting, including: images, fonts, and tables</p>
+</li>
+<li>
+<p>The More Info pane can be scrolled to enable longer discussions and examples</p>
+</li>
+</ul>
+</div>
+<!-- class="sect2" -->
+<a id="Z40036301017570" name="Z40036301017570"></a>
+<div class="sect2">
+<h3 class="sect2"><a id="sthref209" name="sthref209"></a><a id="sthref210" name="sthref210"></a>Creating Question Text and Keys</h3>
+<p>Every interview question has its own unique key. The key is based on a name assigned by you and should uniquely identify the question with the interview. Normally, keys are of the form:</p>
+<p><span class="italic">interview_class_name</span><code>.</code><span class="italic">question_name</span></p>
+<p>You specify the <span class="italic">question_name</span> when you create the question, the <span class="italic">interview_class_name</span> is automatically added for you.</p>
+<p>Question keys are used to identify question titles and text in resource files. The title of the interview and the title and text for every question in the interview is located in a Java resource file. The file contains the following types of elements:</p>
+<ul>
+<li>
+<p>The title of the full interview</p>
+</li>
+<li>
+<p>A title for each question of the form: <span class="italic">question_key</span><code>.smry</code></p>
+</li>
+<li>
+<p>The text for each question of the form: <span class="italic">question_key</span><code>.text</code></p>
+</li>
+<li>
+<p>Additional entries for choice items that must be localized</p>
+</li>
+</ul>
+<p>For every interview question you create you must add corresponding <code>.smry</code> and <code>.text</code> entries into the resource file.</p>
+<p>The following example shows a fragment of the Demo TCK <a id="sthref211" name="sthref211"></a><a id="sthref212" name="sthref212"></a>configuration interview resource file:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+title=Demo Interview Configuration Editor
+AgentInterview.mapArgs.smry=Agent Map File
+AgentInterview.mapArgs.text=Will you use a map file when you run the JavaTest Agent?
+DemoInterview.name.smry=Configuration Name
+DemoInterview.name.text=Please provide a short identifier to name the configuration you are creating here.
+</pre>
+<p>You can find the full Demo TCK configuration interview resource file in:</p>
+<p><span class="italic">jt_install</span><code>\examples\javatest\simpleTags\src\i18n.properties</code></p>
+<p>The JavaTest harness uses the standard rules for accessing resource files. You can provide alternate versions for other locales by creating additional files in the same directory as <code>i18n.properties</code> with names of the form: <code>i18n_</code><span class="italic">locale</span><code>.properties</code>. See the Java SE platform resource file specification for more details.<a id="sthref213" name="sthref213"></a><a id="sthref214" name="sthref214"></a></p>
+</div>
+<!-- class="sect2" -->
+<a id="BBJDJBEF" name="BBJDJBEF"></a>
+<div class="sect2">
+<h3 class="sect2"><a id="sthref215" name="sthref215"></a><a id="sthref216" name="sthref216"></a>Creating More Info</h3>
+<p>The JavaTest configuration editor enables architects and technical writers to present supplemental information for every question in the interview in the More Info pane. This information may include background information about the question, and examples and suggestions about how to answer them.</p>
+<p>The More Info pane is implemented using an embedded JavaHelp window. The JavaHelp viewer supports HTML 3.2 with some additional extensions. For information about the JavaHelp technology, see: <a href="http://java.net/projects/javahelp"><code>http://java.net/projects/javahelp</code></a></p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>The JavaHelp libraries required to display More Info help are included in <code>javatest.jar</code> and should not be included separately.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+<p>The following procedures describe how to set up the More Info system for your interview and how to add More Info topics as you add questions to the interview.</p>
+<a id="Z40036301017080" name="Z40036301017080"></a>
+<div class="sect3">
+<h4 class="sect3">Set Up the More Info System</h4>
+<p>Create the directories and files used by the More Info system:</p>
+<ol>
+<li><a id="Z40036301016948" name="Z40036301016948"></a>
+<p>Create a top-level directory called <code>moreInfo</code></p>
+<p>The <code>moreInfo</code> directory should be located in the same directory as your interview class file(s).</p>
+</li>
+<li><a id="Z40036301016955" name="Z40036301016955"></a>
+<p>Create directories named <code>default</code> and <code>images</code> in the <code>moreInfo</code> directory</p>
+<p>The <code>default</code> directory contains the default localization. If your test suite is ever localized, the other locales can be added beside the <code>default</code> directory. The <code>images</code> directory contains any images you may use in the More Info help.</p>
+</li>
+<li><a id="Z40036301016967" name="Z40036301016967"></a>
+<p>Copy the Demo TCK HelpSet file to your <code>moreInfo</code> directory and rename it appropriately (retaining the <code>.hs</code> extension)</p>
+<p><a id="sthref217" name="sthref217"></a><a id="sthref218" name="sthref218"></a>The HelpSet file is the XML file that the JavaHelp libraries look for to find all of the help information that defines the HelpSet. Rename it to reflect the name of your test suite. When you write your interview you specify the path to your HelpSet file.</p>
+<p>The path to the Demo TCK HelpSet file is:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<span class="italic">jt_install</span><code>\examples\javatest\simpleTags\src\moreInfo\demotck.hs</code>
+</pre></li>
+<li><a id="Z40036301016975" name="Z40036301016975"></a>
+<p>Edit the HelpSet file</p>
+<p>The Demo TCK HelpSet file looks like:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+&lt;?xml version='1.0' encoding='ISO-8859-1' ?&gt;
+&lt;!DOCTYPE helpset
+ 
+  "http://java.sun.com/products/javahelp/helpset_1_0.dtd"&gt;
+&lt;helpset version="1.0"&gt;
+&lt;!-- title --&gt;
+  &lt;title&gt;DemoTCK Configuration Interview - Help&lt;/title&gt;
+&lt;!-- maps --&gt;
+  &lt;maps&gt;
+     &lt;mapref location="default/map.xml"/&gt;
+  &lt;/maps&gt;
+&lt;/helpset&gt;
+</pre>
+<p>Edit the contents of the <code>&lt;title&gt;</code> tag to reflect the name of your test suite.</p>
+</li>
+<li><a id="Z40036301016981" name="Z40036301016981"></a>
+<p>Copy the Demo TCK map file to the <code>default</code> directory</p>
+<p>The JavaHelp map file is an XML file that contains a <code>&lt;mapID&gt;</code> entry for every More Info topic. The JavaHelp system uses it to assign an ID to every HTML file.</p>
+</li>
+<li><a id="Z40036301016989" name="Z40036301016989"></a>
+<p>Copy the Demo TCK style sheet to the <code>default</code> directory</p>
+<p>Use the CSS, level 1 style sheet from the Demo TCK example for your More Info topics. Feel free to change it to suite your needs.</p>
+<p>The path to the Demo TCK style sheet file is:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<span class="italic">jt_install</span><code>\examples\javatest\simpleTags\src\moreInfo\default\moreInfo.css</code>
+</pre></li>
+</ol>
+</div>
+<!-- class="sect3" -->
+<a id="Z40011761019581" name="Z40011761019581"></a>
+<div class="sect3">
+<h4 class="sect3">Create HTML Topics for All Interview Questions</h4>
+<p>For every question in your interview, you should create an HTML topic file and add an entry for that topic in the map file. The following steps describe how to do both:</p>
+<ol>
+<li><a id="Z40036301017003" name="Z40036301017003"></a>
+<p>Create a map entry for the More Info topic<a id="sthref219" name="sthref219"></a><a id="sthref220" name="sthref220"></a></p>
+<p>Every More Info topic file must have a corresponding <code>&lt;mapID&gt;</code> entry in the <code>map.xml</code> file. The JavaHelp system uses the IDs created in these files. The <code>target</code> attribute defines the ID, and the <code>url</code> attribute defines the path to HTML topic file (relative to the map file). The following example shows the map file for the Demo TCK test suite that you copied to your interview in a previous step.</p>
+<pre xml:space="preserve" class="oac_no_warn">
+&lt;?xml version='1.0' encoding='ISO-8859-1' ?&gt;
+&lt;!DOCTYPE map
+  PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 1.0//EN"
+    "http://java.sun.com/products/javahelp/map_1_0.dtd"&gt;
+&lt;map version="1.0"&gt;
+&lt;!-- More Info IDs --&gt;
+    &lt;mapID target="DemoTCKParameters.cmd Type"            url="cmdType.html" /&gt;
+    &lt;mapID target="DemoTCKParameters.testVerboseLevel"    url="testVerboseLevel.html" /&gt; 
+    &lt;mapID target="DemoTCKParameters.desc"                url="desc.html" /&gt;
+    &lt;mapID target="DemoTCKParameters.envEnd"              url="envEnd.html" /&gt;
+    &lt;mapID target="DemoTCKParameters.epilog"              url="epilog.html" /&gt;
+    &lt;mapID target="DemoTCKParameters.jvm"                 url="jvm.html" /&gt;
+    &lt;mapID target="DemoTCKParameters.name"                url="name.html" /&gt;
+    &lt;mapID target="DemoTCKParameters.prolog"              url="prolog.html" /&gt;
+&lt;/map&gt;
+</pre>
+<p>Replace the <code>target</code> and <code>url</code> attributes to match your More Info topics. Remove any extra entries and add new entries as required.</p>
+</li>
+<li><a id="Z40036301019776" name="Z40036301019776"></a>
+<p>Create an HTML More Info topic file in the <code>default</code> directory</p>
+<p>Copy one of the Demo TCK More Info files from:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<span class="italic">jt_install</span><code>\examples\javatest\simpleTags\src\moreInfo\default</code>
+</pre>
+<p>and use it as a template. Be sure to include the <code>&lt;link&gt;</code> tag that references the style sheet.</p>
+<p>Experience has shown that it is helpful for the architect to create "stub" files for every question in the interview. These files are later completed by a technical writer and can provide information that the writer can use.</p>
+</li>
+</ol>
+</div>
+<!-- class="sect3" -->
+<a id="Z40036301017124" name="Z40036301017124"></a>
+<div class="sect3">
+<h4 class="sect3">Customizing Standard Question More Info</h4>
+<p>The JavaTest package includes default versions of the More Info HTML topics that describe the standard interview questions in both Question mode and Quick Set mode. <a id="sthref221" name="sthref221"></a>However, should you wish to customize the content for some or all of these questions, you can override the defaults with files of your own. The following steps describe how to substitute your More Info topics for one of the standard interview questions:</p>
+<ol>
+<li><a id="Z40036301017016" name="Z40036301017016"></a>
+<p>Determine the More Info ID for the question</p>
+<p>You will override the More Info ID in your interview HelpSet. To do so, you have to determine the ID name of the standard question.</p>
+<ol>
+<li><a id="Z40036301016934" name="Z40036301016934"></a>
+<p>Open the configuration editor window to the question you wish to override</p>
+<p>Make sure that you establish cursor focus in the question pane.</p>
+</li>
+<li><a id="Z40036301016938" name="Z40036301016938"></a>
+<p><a id="sthref222" name="sthref222"></a>Press Alt-Shift-D</p>
+<p>This opens the Configuration Editor Details Browser. The More Info ID is listed in the "id" field.</p>
+</li>
+</ol>
+</li>
+<li><a id="Z40036301017021" name="Z40036301017021"></a>
+<p>Create a map entry in your map file as described in the previous section with the same name as the More Info ID you found in step 1.</p>
+<p>For example:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>&lt;mapID target="TestsInterview.needTests"   url="my_needTests.html" /&gt;</code>
+</pre>
+<p>Note that the URL must contain the path to a file you create and must be included in your interview HelpSet.</p>
+</li>
+<li><a id="Z40036301017025" name="Z40036301017025"></a>
+<p>Create your custom version of the HTML More Info topic</p>
+<p>Be sure that you create it at the location you specified in the map file URL field.<a id="sthref223" name="sthref223"></a><a id="sthref224" name="sthref224"></a></p>
+</li>
+</ol>
+</div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="Z40036301017862" name="Z40036301017862"></a>
+<div class="sect1">
+<h2 class="sect1">Creating the JAR File</h2>
+<p><a id="sthref225" name="sthref225"></a>After you have created your interview, you must package it into a JAR file for inclusion with your test suite. If you include other custom components with your test suite, they can be packaged together with the interview. See <a href="createts.htm#CJBHEFFH">The Test Suite JAR File</a> for more information. You can also use the following file as an example:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<span class="italic">jt_install</span><code>\examples\javatest\simpleTags\demotck\lib\jtdemotck.jar</code>
+</pre>
+<p><a id="sthref226" name="sthref226"></a>After you create the JAR file, put it in the test suite's <code>lib</code> directory and add it to the <code>classpath</code> entry in the <code>testsuite.jtt</code> file.</p>
+</div>
+<!-- class="sect1" --></div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+<div class="footer">
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<col width="33%" />
+<col width="*" />
+<col width="33%" />
+<tr>
+<td valign="bottom">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<col width="*" />
+<col width="48%" />
+<col width="48%" />
+<tr>
+<td>&nbsp;</td>
+<td align="center"><a href="tests.htm"><img src="../../dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="part2.htm"><img src="../../dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="copyrightlogo"><img class="copyrightlogo" src="../../dcommon/gifs/oracle.gif" alt="Oracle Logo" /><br />
+<span class="copyrightlogo">Copyright&nbsp;&copy;&nbsp;2002, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span> <a href="../../dcommon/html/cpyr.htm"><br />
+<span class="copyrightlogo">Legal Notices</span></a></td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+<td align="center" valign="top"><a href="toc.htm"><img src="../../dcommon/gifs/toc.gif" alt="Go To Table Of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td align="center" valign="top"><a href="index.htm"><img src="../../dcommon/gifs/index.gif" alt="Go To Index" /><br />
+<span class="icon">Index</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<!-- class="footer" -->
+</body>
+</html>

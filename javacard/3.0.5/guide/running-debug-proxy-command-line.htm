@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Running the Debug Proxy from the Command Line</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="If you are not using Eclipse for development, you can run the debug proxy and attach another Java technology-enabled debugger to it from the command line." />
+<meta name="dcterms.created" content="2018-04-13T10:24:54Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Development Kit User Guide, Classic Edition" />
+<meta name="dcterms.identifier" content="E59602-03" />
+<meta name="dcterms.isVersionOf" content="JCUGC" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="debugging-helloworld-eclipse.htm" title="Previous" type="text/html" />
+<link rel="Next" href="packaging-and-deploying-your-application.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCUGC.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-4999BE09-5B10-42C9-8F90-447AC5F3EEC3"></a> <span id="PAGE" style="display:none;">106/161</span> <!-- End Header -->
+<a id="JCUGC242"></a>
+<h1 id="JCUGC-GUID-4999BE09-5B10-42C9-8F90-447AC5F3EEC3" class="sect1">Running the Debug Proxy from the Command Line</h1>
+<div>
+<p>If you are not using Eclipse for development, you can run the debug proxy and attach another Java technology-enabled debugger to it from the command line.</p>
+<p>To run the debugger:</p>
+<ol>
+<li>
+<p>Compile the application's class files using the <code class="codeph">-g</code> option. If the -g option is not used, it is not possible to set breakpoints in the source code</p>
+</li>
+<li>
+<p>Generate APDU scripts for applet installation, instance creation and selection by using the script generator tool (<code class="codeph">scriptgen.bat</code>).</p>
+</li>
+<li>
+<p>Start <code class="codeph">cref</code> in debug mode.</p>
+<p>You must set the <code class="codeph">-debugPort</code> option so that <code class="codeph">cref</code> opens the specified port to communication with debug proxy. Without this option, the debugging functionality in <code class="codeph">cref</code> is disabled.</p>
+<p>For example:</p>
+<code class="codeph"><span class="codeinlineitalic">JC_CLASSIC_HOME</span><code class="codeph">\bin\cref_tdual.exe -debugPort 9090</code> [<span class="codeinlineitalic">options</span>]</code></li>
+<li>
+<p>Run the APDU scripts.</p>
+<p>APDU scripts can be executed using <code class="codeph">apdutool.bat</code>. At a minimum, the installation script must be executed before the debug proxy connects to the VM. Other scripts can be executed later to debug the applet's <code class="codeph">install()</code> and <code class="codeph">process()</code> methods</p>
+</li>
+<li>
+<p>Start <code class="codeph">jc-debug-proxy</code> as described in <a href="running-debug-proxy-command-line.htm#GUID-1255A5D7-3158-42FC-BBC0-C7E3510E229F">Starting the Debugger</a>.</p>
+<p>For example:</p>
+<p><code class="codeph">&nbsp; java.exe -jar lib\jc-debug-proxy.jar -capPath C:\workspace\HelloWorld\deliverables\hello\javacard\hello.cap -vmPort 9090 &nbsp; -port 8000</code></p>
+</li>
+<li>
+<p>Attach the debugger to the debug proxy.</p>
+<p>NetBeans or any other Java-compatible debugger can be used to connect to the debug proxy using the JDWP protocol. The debugger needs to be configured to connect to the remote Java application running on a specific host and port.</p>
+</li>
+</ol>
+<p>For an example, see:</p>
+<ul class="simple" style="list-style-type: none;padding-left:0;">
+<li><a href="running-debug-proxy-command-line.htm#GUID-FDAF7748-7395-4837-B434-411677E0E764">Debugging the HelloWorld Sample from the Command Line</a></li>
+</ul>
+</div>
+<a id="JCUGC245"></a>
+<div class="props_rev_3"><a id="GUID-1255A5D7-3158-42FC-BBC0-C7E3510E229F"></a>
+<h2 id="JCUGC-GUID-1255A5D7-3158-42FC-BBC0-C7E3510E229F" class="sect2">Debug Proxy Options</h2>
+<div>
+<p>To run the debug proxy from the command line, use the following command syntax:</p>
+<p><code class="codeph">java.exe &ndash;jar lib\jc-debug-proxy.jar</code> <code class="codeph"><span class="variable">&lt;debug proxy arguments&gt;</span></code></p>
+<p>The command line arguments for the debug proxy are:</p>
+<div class="tblformal" id="GUID-1255A5D7-3158-42FC-BBC0-C7E3510E229F__GUID-4D968696-FA2E-4B9C-8880-90135F643FF6">
+<table class="cellalignment105" summary="Command line arguments for the debug proxy">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment84" id="d24696e138">Command Line Argument</th>
+<th class="cellalignment84" id="d24696e140">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24696e144" headers="d24696e138"><code class="codeph">-debug-info</code></td>
+<td class="cellalignment2" headers="d24696e144 d24696e140">The source debug-info file that contains debug information for system classes</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24696e150" headers="d24696e138"><code class="codeph">-gen-debug-info</code></td>
+<td class="cellalignment2" headers="d24696e150 d24696e140">Starts debug proxy in <span class="italic">generate debug-info mode</span>&nbsp; to generate the system classes debug information file using <code class="codeph">.exp</code> files found on the provided path</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24696e162" headers="d24696e138"><code class="codeph">-port</code>&nbsp;</td>
+<td class="cellalignment2" headers="d24696e162 d24696e140">The port that the Java debugger connects to</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24696e169" headers="d24696e138"><code class="codeph">-vmPort</code>&nbsp;</td>
+<td class="cellalignment2" headers="d24696e169 d24696e140">The port that the VM listens on.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24696e176" headers="d24696e138"><code class="codeph">-vmHost</code></td>
+<td class="cellalignment2" headers="d24696e176 d24696e140">The hostname of the system the VM is running on</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24696e182" headers="d24696e138"><code class="codeph">-capPath</code></td>
+<td class="cellalignment2" headers="d24696e182 d24696e140">Required. Path to the cap file(s) being debugged.</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment2" id="d24696e188" headers="d24696e138"><code class="codeph">-help</code></td>
+<td class="cellalignment2" headers="d24696e188 d24696e140">Short description of help</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p>For example:</p>
+<p><code class="codeph">java.exe -jar lib\jc-debug-proxy.jar -capPath C:\workspace\HelloWorld\deliverables\hello\javacard\hello.cap -vmPort 9090 -port 8000</code></p>
+</div>
+</div>
+<div class="sect2"><a id="GUID-FDAF7748-7395-4837-B434-411677E0E764"></a>
+<h2 id="JCUGC-GUID-FDAF7748-7395-4837-B434-411677E0E764" class="sect2">Debugging the HelloWorld Sample from the Command Line</h2>
+<div>
+<div class="section">To debug the <code class="codeph">HelloWorld</code> sample from the command line:</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Open a <span class="wintitle">Command Prompt</span> window and perform the following:</span>
+<ol>
+<li class="substepexpand"><span>Navigate to the <span class="italic">JC_CLASSIC_HOME</span><code class="codeph">\bin</code> directory.</span></li>
+<li class="substepexpand"><span>Start the RI by entering the following command at the command prompt:</span>
+<div>
+<p><code class="codeph">cref &ndash;o hello.eeprom</code></p>
+<div class="infobox-note" id="GUID-FDAF7748-7395-4837-B434-411677E0E764__GUID-21741175-6B56-45DD-A3E0-A50745AE8FA9">
+<p class="notep1">Note:</p>
+<p>The <code class="codeph">-o</code> command line option instructs <code class="codeph">cref</code> to save the EEPROM data to the <code class="codeph">hello.eeprom</code> file before terminating.</p>
+</div>
+</div>
+</li>
+</ol>
+</li>
+<li class="stepexpand"><span>Open a second <span class="wintitle">Command Prompt</span> window and perform the following:</span>
+<ol>
+<li class="substepexpand"><span>Navigate to the <span class="italic">JC_CLASSIC_HOME</span><code class="codeph">\samples\classic_applets\HelloWorld\applet</code> directory.</span></li>
+<li class="substepexpand"><span>Open the <code class="codeph">applet.opt</code> file in a text editor and add a new line with <code class="codeph">-debug</code> option. This option will be passed to the converter to generate debug information.</span></li>
+<li class="substepexpand"><span>At the command prompt, invoke <code class="codeph">ant</code> with a target set to <code class="codeph">all</code>. The output file is <code class="codeph">default.out</code> or, optionally, you can specify a different output file with the <code class="codeph">-D</code> parameter:</span>
+<div>
+<p><code class="codeph">ant -Dredirect.output=<span class="codeinlineitalic">outputfile_name</span> all</code></p>
+</div>
+<div>This builds the applet, executes the APDU script, and creates an output file in the applet directory.</div>
+</li>
+</ol>
+</li>
+<li class="stepexpand"><span><code class="codeph">cref</code> terminates. Restart it in the first window by entering this command:</span>
+<div>
+<p><code class="codeph">cref &ndash;debugPort 9090 &ndash;i hello.eeprom</code></p>
+</div>
+</li>
+<li class="stepexpand"><span>In the second command prompt, navigate to the <span class="italic">JC_CLASSIC_HOME</span><code class="codeph">\lib</code> directory and start the debug proxy:</span>
+<div><code class="codeph">java.exe -jar jc-debug-proxy.jar -capPath <span class="codeinlineitalic">JC_CLASSIC_HOME</span>\samples\classic_applets\HelloWorld\applet\build\classes\com\sun\jcclassic\samples\helloworld\javacard\helloworld.cap</code></div>
+</li>
+<li class="stepexpand"><span>Start the Java debugger of your choice and attach it to the 8000 port of the localhost.</span></li>
+<li class="stepexpand"><span>Now you can set a breakpoint and see it hit after a proper APDU is issued using the <code class="codeph">apdutool</code>.</span></li>
+</ol>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="debugging-helloworld-eclipse.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="packaging-and-deploying-your-application.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

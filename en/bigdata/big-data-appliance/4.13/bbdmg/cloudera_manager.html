@@ -1,0 +1,140 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="Oracle Big Data Manager is automatically included as a service in Cloudera Manager.">
+      <meta name="description" content="Oracle Big Data Manager is automatically included as a service in Cloudera Manager.">
+      <title>Using Cloudera Manager to Work With Oracle Big Data Manager</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="Oracle Big Data Manager User’s Guide ">
+      <meta property="og:description" content="Oracle Big Data Manager is automatically included as a service in Cloudera Manager.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="Oracle Big Data Manager User’s Guide For Oracle Big Data Appliance">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-big-data-manager-users-guide-oracle-big-data-appliance.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-13T16:17:47-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2018">
+      <meta name="dcterms.category" content="bigdata">
+      <meta name="dcterms.identifier" content="E98480-01">
+      
+      <meta name="dcterms.product" content="en/bigdata/big-data-appliance/4.13">
+      
+      <link rel="prev" href="managing-notebook-interpreter-settings.html" title="Previous" type="text/html">
+      <link rel="next" href="managing-data-oracle-big-data-manager-sdks.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"bigdata","element_name":"Big Data","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"not-applicable","element_name":"Not applicable","display_in_url":false},"product":{"short_name":"big-data-appliance","element_name":"Big Data Appliance","display_in_url":true},"release":{"short_name":"4.13","element_name":"Release 4.13","display_in_url":true}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle Big Data Manager User's Guide (for Oracle Big Data Appliance)">
+    <meta name="dcterms.isVersionOf" content="BBDMG">
+    <meta name="dcterms.release" content="Release 4.13">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="managing-notebook-interpreter-settings.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="managing-data-oracle-big-data-manager-sdks.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">Oracle Big Data Manager User’s Guide </span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Using Cloudera Manager to Work With Oracle Big Data Manager</li>
+            </ol>
+            <a id="GUID-9CB28409-030F-461D-9A20-6C12E84B56E4" name="GUID-9CB28409-030F-461D-9A20-6C12E84B56E4"></a>
+            
+            <h2 id="BBDMG-GUID-9CB28409-030F-461D-9A20-6C12E84B56E4" class="sect2"><span class="enumeration_chapter">7 </span>Using Cloudera Manager to Work With Oracle Big Data Manager
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>Oracle Big Data Manager is automatically included as a service in Cloudera Manager.</p>
+               <p>As with other services in Cloudera Manager, you can use the interface to monitor, stop, start, and change the configuration of Oracle Big Data Manager. </p>
+               <div class="section">
+                  <ol>
+                     <li>
+                        <p>Log on to Cloudera Manager.</p>
+                     </li>
+                     <li>
+                        <p>On the Home page, find <span class="bold">bigdatamanager</span> in the list of services. 
+                        </p>
+                        <p><img src="img/bdm_in_cm_1.png" alt="Description of bdm_in_cm_1.png follows" title="Description of bdm_in_cm_1.png follows" longdesc="img_text/bdm_in_cm_1.html"><br><a href="img_text/bdm_in_cm_1.html">Description of the illustration bdm_in_cm_1.png</a></p>
+                     </li>
+                  </ol>
+                  <p></p>
+               </div>
+               <!-- class="section" -->
+               <div class="section">
+                  <p class="subhead1" id="GUID-9CB28409-030F-461D-9A20-6C12E84B56E4__GUID-A9C6B416-6963-4661-B6D0-40CCA0E6B818">Oracle Big Data Manager Roles</p>
+                  <p>Cloudera Manager supports four Oracle Big Data Manager roles. Cloudera Manager provides the usual administrative, monitoring and reporting facilities for each of these roles.</p>
+                  <div class="tblformal" id="GUID-9CB28409-030F-461D-9A20-6C12E84B56E4__GUID-B46A3512-F720-467D-A6D3-86BD2C9C5F94">
+                     <table cellpadding="4" cellspacing="0" class="Formal" frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" id="d7480e45">Oracle Big Data Manager Role</th>
+                              <th align="left" valign="bottom" id="d7480e47">Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" id="d7480e51" headers="d7480e45 ">Big Data Manager</td>
+                              <td align="left" valign="top" headers="d7480e51 d7480e47 ">Runs the Oracle Big Data Manager web interface and the back-end server.</td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" id="d7480e56" headers="d7480e45 ">Big Data Manager Notebook</td>
+                              <td align="left" valign="top" headers="d7480e56 d7480e47 ">Runs Apache Zeppelin Notebook.</td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" id="d7480e61" headers="d7480e45 ">Big Data Manager Proxy</td>
+                              <td align="left" valign="top" headers="d7480e61 d7480e47 ">Provides a reverse proxy to route requests from the web client to the Big Data Manager and Big Data Manager Notebook roles.</td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" id="d7480e66" headers="d7480e45 ">Hosts</td>
+                              <td align="left" valign="top" headers="d7480e66 d7480e47 ">Provides representations of physical or virtual nodes where Oracle Big Data Manager is running. (By default, this product runs on the third node of the cluster. )</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+               </div>
+               <!-- class="section" -->
+               <div class="section">
+                  <p class="subhead1" id="GUID-9CB28409-030F-461D-9A20-6C12E84B56E4__GUID-48098337-1371-4FB2-9C99-775E09C7C69C">Stopping and Starting Oracle Big Data Manager</p>
+                  <p>On the Cloudera Manager Home page, you can you can stop, start (or restart) the Oracle BigDataManager service from the <span class="wintitle">Actions</span> pulldown menu. 
+                  </p><img src="img/bdm_restart_bdm_in_cm.png" alt="Description of bdm_restart_bdm_in_cm.png follows" title="Description of bdm_restart_bdm_in_cm.png follows" longdesc="img_text/bdm_restart_bdm_in_cm.html"><br><a href="img_text/bdm_restart_bdm_in_cm.html">Description of the illustration bdm_restart_bdm_in_cm.png</a><div class="infobox-tip" id="GUID-9CB28409-030F-461D-9A20-6C12E84B56E4__GUID-7CEA43A8-0DCC-4C12-95A9-F1BFFE7D19DC">
+                     <p class="notep1">Tip:</p>If you stop or start BigDataManager, the same action is applied to all Big Data Manager roles. If there are problems that require a restart, you may only need to restart one role. 
+                  </div>
+               </div>
+               <!-- class="section" -->
+               <div class="section">
+                  <p class="subhead1" id="GUID-9CB28409-030F-461D-9A20-6C12E84B56E4__GUID-6DB6C45E-C688-4844-BFF6-4848E5E961EA">Running Health Tests on BigDataManager Roles</p>
+                  <p>You can test the health of individual roles within the BigDataManager service. In the example below, the Big Data Manager Notebook service is down. </p><img src="img/bdm_roles_in_cm.png" alt="Description of bdm_roles_in_cm.png follows" title="Description of bdm_roles_in_cm.png follows" longdesc="img_text/bdm_roles_in_cm.html"><br><a href="img_text/bdm_roles_in_cm.html">Description of the illustration bdm_roles_in_cm.png</a><p>The <span class="bold">Actions</span> pulldown menu provides the actions for BigDataManager roles that are shown in the screen below.
+                  </p><img src="img/bdm_cm_restart_notebook.png" alt="Description of bdm_cm_restart_notebook.png follows" title="Description of bdm_cm_restart_notebook.png follows" longdesc="img_text/bdm_cm_restart_notebook.html"><br><a href="img_text/bdm_cm_restart_notebook.html">Description of the illustration bdm_cm_restart_notebook.png</a><div class="infobox-tip" id="GUID-9CB28409-030F-461D-9A20-6C12E84B56E4__GUID-489EFFF5-F146-40EC-A22E-C8ADBE38E872">
+                     <p class="notep1">Tip:</p>In the case of the Big Data Manager Notebook role, the restart through Configuration Manager is equivalent to the following shell commands, which would need to be executed on the node where Configuration Manger is hosted. <pre class="pre codeblock"><code>sudo su -
+/etc/init.d/bdm-notebook restart</code></pre></div>
+               </div>
+               <!-- class="section" -->
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Using the On-card Installer for Deletion</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-04-13T10:24:54Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Development Kit User Guide, Classic Edition" />
+<meta name="dcterms.identifier" content="E59602-03" />
+<meta name="dcterms.isVersionOf" content="JCUGC" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="downloading-cap-files-and-creating-applets.htm" title="Previous" type="text/html" />
+<link rel="Next" href="using-reference-implementation.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCUGC.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-E44C3F71-CB52-4862-9CEB-288F6D8975EC"></a> <span id="PAGE" style="display:none;">113/161</span> <!-- End Header -->
+<a id="JCUGC299"></a>
+<h1 id="JCUGC-GUID-E44C3F71-CB52-4862-9CEB-288F6D8975EC" class="sect1">Using the On-card Installer for Deletion</h1>
+<div>
+<p>The on-card installer in the reference implementation provides the ability to delete package and applet instances from the card's memory. Once the on-card installer is selected, it can receive deletion requests from the terminal in the form of ADPU commands. Requests to delete an applet or package cannot be sent from an applet on the card. For more information on package and applet deletion, see the <span class="italic">Runtime Environment Specification, Java Card Platform, Version 3.0.5, Classic Edition</span>.</p>
+</div>
+<a id="JCUGC300"></a>
+<div class="props_rev_3"><a id="GUID-FEA5A139-3FD0-4144-B4C2-8DECD1298E90"></a>
+<h2 id="JCUGC-GUID-FEA5A139-3FD0-4144-B4C2-8DECD1298E90" class="sect2">How to Send a Deletion Request</h2>
+<div>
+<ol>
+<li>
+<p>Select the on-card installer applet on the card.</p>
+</li>
+<li>
+<p>Send the ADPU for the appropriate deletion request to the installer. The requests that you can send are described in the following sections:</p>
+<ol>
+<li>
+<p><a href="using-card-installer-deletion.htm#GUID-C733A192-326C-45F6-939A-B31E473D47E0">Delete Package</a></p>
+</li>
+<li>
+<p><a href="using-card-installer-deletion.htm#GUID-397D1E5E-1D8F-495E-8550-EFBA2A1C24BA">Delete Package and Applets</a></p>
+</li>
+<li>
+<p><a href="using-card-installer-deletion.htm#GUID-84FF0233-DBC1-472D-9AB6-882738257CA7">Delete Applets</a></p>
+</li>
+</ol>
+<p>For information on the responses that the ADPU requests can return, see <a href="using-card-installer-deletion.htm#GUID-31464B29-E944-44BE-A855-196441F82FD5">APDU Responses to Deletion Requests</a>.</p>
+</li>
+</ol>
+</div>
+</div>
+<a id="JCUGC301"></a>
+<div class="props_rev_3"><a id="GUID-80996580-C110-437B-8CC1-F8103499B11E"></a>
+<h2 id="JCUGC-GUID-80996580-C110-437B-8CC1-F8103499B11E" class="sect2">APDU Requests to Delete Packages and Applets</h2>
+<div>
+<p>You can send requests to delete a package, a package and its applets, and individual applets.</p>
+<div class="infobox-note" id="GUID-80996580-C110-437B-8CC1-F8103499B11E__GUID-63F54968-2C39-4CCF-9FA9-BDBA1DD7C6B6">
+<p class="notep1">Note:</p>
+<p>In the following APDU commands, the x in the second nibble of the class byte indicates that the installer can be invoked on channels 0, 1, or 2. For example, <code class="codeph">0x8x</code>.</p>
+</div>
+</div>
+<a id="JCUGC303"></a><a id="JCUGC302"></a>
+<div class="props_rev_3"><a id="GUID-C733A192-326C-45F6-939A-B31E473D47E0"></a>
+<h3 id="JCUGC-GUID-C733A192-326C-45F6-939A-B31E473D47E0" class="sect3">Delete Package</h3>
+<div>
+<div class="section">
+<p>In this request, the Data field contains the size of the package AID and the AID of the package to be deleted. <a href="using-card-installer-deletion.htm#GUID-C733A192-326C-45F6-939A-B31E473D47E0__CCHEEIDB" title="example and description of the delete package command">Table 9-15</a> shows the format of the Delete Package request and the expected response.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-C733A192-326C-45F6-939A-B31E473D47E0__CCHEEIDB">
+<p class="titleintable">Table 9-15 Delete Package Command</p>
+<table class="cellalignment12" title="Delete Package Command " summary="example and description of the delete package command">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment22" id="d32115e128">Command</th>
+<th class="cellalignment22" id="d32115e131">Lc</th>
+<th class="cellalignment22" id="d32115e134">data</th>
+<th class="cellalignment22" id="d32115e137">Le</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment26" id="d32115e142" headers="d32115e128">
+<p><code class="codeph">0x8x, 0xc0, 0x, 0x</code><span class="italic">XX</span><span class="italic">XX</span></p>
+</td>
+<td class="cellalignment26" headers="d32115e142 d32115e131">
+<p>Lc field</p>
+</td>
+<td class="cellalignment26" headers="d32115e142 d32115e134">
+<p>Data field</p>
+</td>
+<td class="cellalignment26" headers="d32115e142 d32115e137">
+<p>Le field</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="section">
+<p>The value of 0xXX can be any value for the <code class="codeph">P1</code> and <code class="codeph">P2</code> parameters. The installer ignores the 0xXX values. An example of a delete package request on channel 1 would be:</p>
+<pre dir="ltr">
+//Delete Package Request:
+ 0x81 0xC0 0x00 0x00 0x08 0x07 0xa0 0x00 0x00 0x00 0x62 0x12 0x34 0x7F;
+</pre>
+<p>In this example, <code class="codeph">0x07</code> is the AID length and <code class="codeph">0xa0 0x00 0x00 0x00 0x62 0x12 0x34</code> is the package AID.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="JCUGC305"></a><a id="JCUGC304"></a>
+<div class="props_rev_3"><a id="GUID-397D1E5E-1D8F-495E-8550-EFBA2A1C24BA"></a>
+<h3 id="JCUGC-GUID-397D1E5E-1D8F-495E-8550-EFBA2A1C24BA" class="sect3">Delete Package and Applets</h3>
+<div>
+<div class="section">
+<p>This request is similar to the Delete Package command. In this case the package and applets are removed simultaneously. The data field contains the size of the package AID and the AID of the package to be deleted. <a href="using-card-installer-deletion.htm#GUID-397D1E5E-1D8F-495E-8550-EFBA2A1C24BA__CCHGJHDD" title="example and description of the delete package and applets command">Table 9-16</a> shows the format of the Delete Packages and Applets request and the expected response.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-397D1E5E-1D8F-495E-8550-EFBA2A1C24BA__CCHGJHDD">
+<p class="titleintable">Table 9-16 Delete Package and Applets Command</p>
+<table class="cellalignment12" title="Delete Package and Applets Command " summary="example and description of the delete package and applets command">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment22" id="d32115e215">Command</th>
+<th class="cellalignment22" id="d32115e218">Lc</th>
+<th class="cellalignment22" id="d32115e221">data</th>
+<th class="cellalignment22" id="d32115e224">Le</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment26" id="d32115e229" headers="d32115e215">
+<p>0x8x, 0xc2, 0x<span class="italic">XX</span>, 0x<span class="italic">XX</span></p>
+</td>
+<td class="cellalignment26" headers="d32115e229 d32115e218">
+<p>Lc field</p>
+</td>
+<td class="cellalignment26" headers="d32115e229 d32115e221">
+<p>Data field</p>
+</td>
+<td class="cellalignment26" headers="d32115e229 d32115e224">
+<p>Le field</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="section">
+<p>The value of 0xXX can be any value for the <code class="codeph">P1</code> and <code class="codeph">P2</code> parameters. The installer ignores the 0xXX values. An example of a package and applets deletion request on channel 1 would be:</p>
+<pre dir="ltr">
+//Delete Package And Applets request
+0x81 0xC2 0x00 0x00 0x08 0x07 0xa0 0x00 0x00 0x00 0x62 0x12 0x34 0x7F;
+</pre>
+<p>In this example, <code class="codeph">0x07</code> is the AID length and <code class="codeph">0xa0 0x00 0x00 0x00 0x62 0x12 0x34</code> is the package AID.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="JCUGC307"></a><a id="JCUGC306"></a>
+<div class="props_rev_3"><a id="GUID-84FF0233-DBC1-472D-9AB6-882738257CA7"></a>
+<h3 id="JCUGC-GUID-84FF0233-DBC1-472D-9AB6-882738257CA7" class="sect3">Delete Applets</h3>
+<div>
+<div class="section">
+<p>In this request, the "#" symbol in the <code class="codeph">P1</code> byte indicates the number of applets to be deleted, which can have a maximum value of eight. The <code class="codeph">Lc</code> field contains the size of the data field. Data field contains a list of AID size and AID pairs. <a href="using-card-installer-deletion.htm#GUID-84FF0233-DBC1-472D-9AB6-882738257CA7__CCHFBBEA" title="example and description of the delete applet command">Table 9-17</a> shows the format of the Delete Applet request and the expected response.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-84FF0233-DBC1-472D-9AB6-882738257CA7__CCHFBBEA">
+<p class="titleintable">Table 9-17 Delete Applet Command</p>
+<table class="cellalignment12" title="Delete Applet Command " summary="example and description of the delete applet command">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment22" id="d32115e309">Command</th>
+<th class="cellalignment22" id="d32115e312">Lc</th>
+<th class="cellalignment22" id="d32115e315">data</th>
+<th class="cellalignment22" id="d32115e318">Le</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment26" id="d32115e323" headers="d32115e309">
+<p><code class="codeph">0x8x, 0xc4, 0x0#, 0x</code><span class="italic">XX</span></p>
+</td>
+<td class="cellalignment26" headers="d32115e323 d32115e312">
+<p>Lc field</p>
+</td>
+<td class="cellalignment26" headers="d32115e323 d32115e315">
+<p>Data field</p>
+</td>
+<td class="cellalignment26" headers="d32115e323 d32115e318">
+<p>Le field</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="section">
+<p>The value of 0xXX can be any value for the <code class="codeph">P2</code> parameter. The installer ignores the 0xXX values. An example of a applet deletion request on channel 1 would be:</p>
+<pre dir="ltr">
+//Delete the applet's request for two applets
+0x81 0xC4 0x02 0x00 0x12 0x08 0xa0 0x00 0x00 0x00 0x62 0x12 0x34 0x12 0x08 0xa0 0x00 0x00 0x00 0x62 0x12 0x34 0x13 0x7F;
+</pre>
+<p>In this example, the "#" symbol is replaced with "2" (<code class="codeph">0x02</code>) indicating that there are two applets to be deleted. The first applet is <code class="codeph">0xa0 0x00 0x00 0x00 0x62 0x12 0x34 0x12</code> and the second applet is <code class="codeph">0xa0 0x00 0x00 0x00 0x62 0x12 0x34 0x13</code>.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<a id="JCUGC309"></a><a id="JCUGC310"></a><a id="JCUGC308"></a>
+<div class="props_rev_3"><a id="GUID-31464B29-E944-44BE-A855-196441F82FD5"></a>
+<h2 id="JCUGC-GUID-31464B29-E944-44BE-A855-196441F82FD5" class="sect2">APDU Responses to Deletion Requests</h2>
+<div>
+<div class="section">
+<p>When the on-card installer receives the request from the terminal, it can return any of the responses shown in <a href="using-card-installer-deletion.htm#GUID-31464B29-E944-44BE-A855-196441F82FD5__CCHFIJGJ" title="list and descriptions of the apdu responses to deletion requests">Table 9-18</a>.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-31464B29-E944-44BE-A855-196441F82FD5__CCHFIJGJ">
+<p class="titleintable">Table 9-18 APDU Responses to Deletion Requests</p>
+<table class="cellalignment12" title="APDU Responses to Deletion Requests " summary="list and descriptions of the apdu responses to deletion requests">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment22" id="d32115e394">Response Code</th>
+<th class="cellalignment27" id="d32115e397">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment26" id="d32115e402" headers="d32115e394">
+<p><code class="codeph">0x6a86</code></p>
+</td>
+<td class="cellalignment28" headers="d32115e402 d32115e397">
+<p>Invalid value for <code class="codeph">P1</code> or <code class="codeph">P2</code> parameter.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> Value for <code class="codeph">P1</code> is less than 1 or greater than 8.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Ensure that the value for <code class="codeph">P1</code> is between 1 and 8.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment26" id="d32115e433" headers="d32115e394">
+<p><code class="codeph">0x6443</code></p>
+</td>
+<td class="cellalignment28" headers="d32115e433 d32115e397">
+<p>Applet not found for deletion.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> The applet with the specified AID does not exist.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Check and correct the AID.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment26" id="d32115e452" headers="d32115e394">
+<p><code class="codeph">0x644b</code></p>
+</td>
+<td class="cellalignment28" headers="d32115e452 d32115e397">
+<p>Package not found.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> The package with the specified AID does not exist.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Check and correct the AID.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment26" id="d32115e471" headers="d32115e394">
+<p><code class="codeph">0x644c</code></p>
+</td>
+<td class="cellalignment28" headers="d32115e471 d32115e397">
+<p>Dependencies on package.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> Package has other packages dependent on it, or there are some object instances of classes belonging to this package residing in memory.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Determine which packages are dependent and remove them. If there are object instances of classes belonging to this package residing in memory, try the package and applet deletion combination command to remove the package from card memory.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment26" id="d32115e490" headers="d32115e394">
+<p><code class="codeph">0x644d</code></p>
+</td>
+<td class="cellalignment28" headers="d32115e490 d32115e397">
+<p>One or more applet instances of this package are present.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> One or more applet instances of this package are present</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Remove the applets first and then try package deletion, or try the package and applet deletion combination command.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment26" id="d32115e509" headers="d32115e394">
+<p><code class="codeph">0x644e</code></p>
+</td>
+<td class="cellalignment28" headers="d32115e509 d32115e397">
+<p>Package is ROM package.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> An attempt was made to delete a package in ROM.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> There is no solution to this problem since packages in ROM cannot be deleted.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment26" id="d32115e528" headers="d32115e394">
+<p><code class="codeph">0x6448</code></p>
+</td>
+<td class="cellalignment28" headers="d32115e528 d32115e397">
+<p>Dependencies on applet.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> Other applets are using objects owned by this applet.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Remove references from other applets to this applet's objects, or try to delete the dependent applets along with this applet.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment26" id="d32115e547" headers="d32115e394">
+<p><code class="codeph">0x6449</code></p>
+</td>
+<td class="cellalignment28" headers="d32115e547 d32115e397">
+<p>Internal memory constraints.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> There is not enough memory available for the intermediate structures required by applet deletion.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> It may not be possible to recover from this error. One possible thing that can be tried in case of multiple applet deletion is to try to delete applets individually.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment26" id="d32115e566" headers="d32115e394">
+<p><code class="codeph">0x6451</code></p>
+</td>
+<td class="cellalignment28" headers="d32115e566 d32115e397">
+<p>Cannot delete applet; the applet is currently active on one of the logical channels.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> An attempt was made to delete an applet which is currently active on one of the logical channels.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Make sure that the applet is not selected on any of the logical channels. Then, re-attempt to delete the applet.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment26" id="d32115e585" headers="d32115e394">
+<p><code class="codeph">0x6700</code></p>
+</td>
+<td class="cellalignment28" headers="d32115e585 d32115e397">
+<p>Invalid value for <code class="codeph">Lc</code> parameter.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> In case of package deletion, the value for <code class="codeph">Lc</code> is less than 6 or greater than 17. In case of applet deletion, the value for <code class="codeph">Lc</code> is less than 7 or greater than 136.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Value of <code class="codeph">Lc</code> in both of these cases depends on the AIDs being passed in the APDU. Make sure the AIDs are correct and value for <code class="codeph">Lc</code> is between 6 and 16 in case of package deletion and between 7 and 135 in case of applet deletion.</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="section">
+<p>The response has the format shown in <a href="using-card-installer-deletion.htm#GUID-31464B29-E944-44BE-A855-196441F82FD5__CCHCAFFI" title="example and description of the apdu response format">Table 9-19</a>.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-31464B29-E944-44BE-A855-196441F82FD5__CCHCAFFI">
+<p class="titleintable">Table 9-19 APDU Response Format</p>
+<table class="cellalignment12" title="APDU Response Format " summary="example and description of the apdu response format">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment22" id="d32115e636">data</th>
+<th class="cellalignment27" id="d32115e639">Response</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment26" id="d32115e644" headers="d32115e636">
+<p>[optional response data]</p>
+</td>
+<td class="cellalignment28" headers="d32115e644 d32115e639">
+<p>SW1SW2</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="JCUGC311"></a>
+<div class="props_rev_3"><a id="GUID-7B00188C-69F4-4418-8507-42262CC209F3"></a>
+<h2 id="JCUGC-GUID-7B00188C-69F4-4418-8507-42262CC209F3" class="sect2">On-Card Installer Limits</h2>
+<div>
+<div class="section">
+<p>The limits for the on-card installer are as follows.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The maximum length of the parameter in the applet creation APDU command is 110.</p>
+</li>
+<li>
+<p>The maximum number of packages to be downloaded is 32, including up to 16 applet packages.</p>
+</li>
+<li>
+<p>The maximum number of applet instances to be created is 16.</p>
+</li>
+<li>
+<p>The maximum length of data in the installer APDU commands is 128.</p>
+</li>
+<li>
+<p>No on-card CAP file verification is supported.</p>
+</li>
+<li>
+<p>All subsequent APDU commands enclosed in a <code class="codeph">CAP Begin</code>, <code class="codeph">CAP End</code> APDU pair continue to fail after an error occurs.</p>
+</li>
+<li>
+<p>The maximum number of applets that can be deleted using one command is eight.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="downloading-cap-files-and-creating-applets.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="using-reference-implementation.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

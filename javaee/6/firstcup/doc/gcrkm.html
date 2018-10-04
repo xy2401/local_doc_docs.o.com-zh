@@ -1,0 +1,276 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 25226-->
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>Coding the DukesAgeResource Example Application - Your First Cup: An Introduction to the Java EE Platform</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2012-04-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gcqyw.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gcqyb.html">1.&nbsp;&nbsp;Introduction</a></p>
+<p class="toc level1 tocsp"><a href="gcrlo.html">2.&nbsp;&nbsp;Understanding Java Platform, Enterprise Edition</a></p>
+<p class="toc level1 tocsp"><a href="gcrkp.html">3.&nbsp;&nbsp;Creating Your First Java EE Application</a></p>
+<p class="toc level2"><a href="gkhqt.html">Architecture of the Example Applications</a></p>
+<p class="toc level3"><a href="gkhqt.html#gcrlr">Tiers in the Example Applications</a></p>
+<p class="toc level3"><a href="gkhqt.html#gcrlu">Java EE Technologies Used in the Example Applications</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level2 tocsp"><a href="">Coding the <tt>DukesAgeResource</tt> Example Application</a></p>
+<p class="toc level3"><a href="#gcskg">Getting Started</a></p>
+<p class="toc level4"><a href="#gcskj">Create a Directory for the Example</a></p>
+<p class="toc level3 tocsp"><a href="#gcrkn">Creating the Web Service</a></p>
+<p class="toc level4"><a href="#gcrom">JAX-RS Resources</a></p>
+<p class="toc level4"><a href="#gcroi">Creating the Endpoint</a></p>
+<p class="toc level4"><a href="#gctoz">Building and Deploying the Web Service</a></p>
+</div>
+<p class="toc level1 tocsp"><a href="glcfc.html">4.&nbsp;&nbsp;Creating Your Second Web Application</a></p>
+<p class="toc level1 tocsp"><a href="gcrll.html">5.&nbsp;&nbsp;Next Steps</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><p class="Banner">Your First Cup
+</p></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="./gcqzl.html#gcrnx">Download</a> | 
+<a href="./firstcup.pdf">PDF</a> | 
+<a href="http://docs.oracle.com/javaee/support/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="gkhqt.html"><img src="graphics/leftButton.gif" border="0" alt="Previous" title="Previous"></a>
+                 <a href="p1.html"><img src="graphics/upButton.gif" border="0" alt="Contents" title="Contents"></a>
+                 <a href="glcfc.html"><img src="graphics/rightButton.gif" border="0" alt="Next" title="Next"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="gcrkm"></a><h2>Coding the <tt>DukesAgeResource</tt> Example Application</h2>
+<p>This section describes how to code the <tt>DukesAgeResource</tt> example application, a JAX-RS RESTful
+web service endpoint.</p>
+
+
+
+<a name="gcskg"></a><h3>Getting Started</h3>
+<p>Before you start coding the example, you need to perform some configuration tasks:</p>
+
+
+<ol><li><p>Register the server with your NetBeans IDE as described in <a href="gcqzl.html#gfuze">Configuring Your Environment</a>.</p>
+
+</li>
+<li><p>Create a directory for the example you will build.</p>
+
+</li></ol>
+
+
+<a name="gcskj"></a><h4>Create a Directory for the Example</h4>
+<ul>
+<li><b>Create another directory at the same level as the <tt></tt><i>tut-install</i><tt>/example</tt> directory, where
+<i>tut-install</i> is the location of the <tt>firstcup</tt> tutorial installation, and call it
+<tt>myexample</tt>.</b><p>You'll create the applications described in this tutorial in this directory.</p></li></ul>
+
+<a name="gcrkn"></a><h3>Creating the Web Service</h3>
+<p>The <tt>DukesAgeResource</tt> endpoint is a simple RESTful web service. REST stands for <b>representational state transfer</b>, and
+software architectures that conform to the principles of REST are referred to as
+<b>RESTful</b>. RESTful web services are web-based applications that use the HTTP protocol to
+access, modify, or delete information contained within a <b>resource</b>. A RESTful web service
+resource is a source of specific information identifiable by a uniform resource identifier (URI),
+for example <tt>http://example.com/someResource</tt>, and may be manipulated by calling the HTTP protocol's methods,
+for example <tt>GET</tt> or <tt>POST</tt>.</p>
+
+<p>RESTful web services are often contrasted to SOAP web services (for example, web
+services created with the JAX-WS API that is part of Java EE
+6). Compared to SOAP web services, RESTful web services are simpler, as they
+use HTTP directly rather than as a transport mechanism for an underlying XML
+document format, and typically offer better performance.</p>
+
+<p>Web services are designed to be independent of their clients. Typically RESTful web
+services are publicly available to a wide variety of clients, and the clients
+are located throughout the Internet. This is called &ldquo;loose coupling,&rdquo; as the clients
+and servers are connected only by the standard HTTP-based requests and responses, and
+do not need to know each other's implementation details. For this reason, <tt>DukesAge</tt>
+will be developed in its own application module, and deployed separately from the
+<tt>DukesBirthdayBean</tt> enterprise bean and <tt>firstcup</tt> web client. <tt>DukesAge</tt> could be deployed on
+a completely different machine without affecting the functionality of the <tt>firstcup</tt> web client.</p>
+
+
+
+<a name="gcrom"></a><h4>JAX-RS Resources</h4>
+<p><tt>DukesAgeResource</tt> is a JAX-RS resource class that responds to HTTP <tt>GET</tt> requests and
+returns a <tt>String</tt> representing the age of Duke at the time of the
+request.</p>
+
+<p>To create <tt>DukesAgeResource</tt>, use the wizard provided by the JAX-RS plug-in for NetBeans
+IDE to generate the resource class. This class is annotated with the <tt>javax.ws.rs.Path</tt>
+annotation, which specifies the URL suffix to which the resource will respond. <tt>DukesAgeResource</tt>
+has a single method, <tt>getText</tt>, annotated with the <tt>javax.ws.rs.GET</tt> and <tt>javax.ws.rs.Produces</tt> annotations. <tt>@GET</tt>
+marks the method as a responder to HTTP <tt>GET</tt> requests, and <tt>@Produces</tt> specifies the
+MIME-type of the response sent back from <tt>getText</tt> to clients. In this case,
+the MIME-type is <tt>text/plain</tt>.</p>
+
+
+
+<a name="gcroi"></a><h4>Creating the Endpoint</h4>
+<p>In NetBeans IDE, create a web project with a source file called
+<tt>DukesAgeResource.java</tt> in the <tt>firstcup.webservice</tt> package using the RESTful Web Service wizard.</p>
+
+
+
+<a name="gcrpl"></a><h4>Create the Project in NetBeans</h4>
+<ol>
+<li><b>From the File menu, choose New Project.</b></li>
+<li><b>In the Categories pane, select Java Web.</b></li>
+<li><b>In the Projects pane, select Web Application.</b></li>
+<li><b>Click Next.</b></li>
+<li><b>In the Project Name field, type <tt>dukes-age</tt>.</b></li>
+<li><b>In the Project Location field, browse to <tt><i>tut-install</i>/myexample</tt>, where <i>tut-install</i> is the
+location of the <tt>firstcup</tt> tutorial installation.</b></li>
+<li><b>Click Next.</b></li>
+<li><b>Select your GlassFish Server instance from the Server menu.</b></li>
+<li><b>Select Java EE 6 Web from the Java EE Version menu.</b></li>
+<li><b>In the Context Path field, type <tt>/DukesAgeService</tt>.</b></li>
+<li><b>Click Finish.</b><p>You should now see the module you created in the Projects tab. </p></li>
+<li><b>From the Projects tab, right-click the <tt>index.jsp</tt> file and select Delete. Click Yes
+in the dialog.</b></li></ol>
+
+<a name="gcrpp"></a><h4>Create the <tt>DukesAgeResource</tt> Class</h4>
+<ol>
+<li><b>Select the <tt>dukes-age</tt> project in the Projects tab.</b></li>
+<li><b>From the File menu, choose New File.</b></li>
+<li><b>In the Categories pane, select Web Services.</b></li>
+<li><b>In the File Types pane, select RESTful Web Services From Patterns.</b></li>
+<li><b>Click Next.</b></li>
+<li><b>Under Select Pattern, select Simple Root Resource and click Next.</b></li>
+<li><b>In the Resource Package field, type <tt>firstcup.webservice</tt>.</b></li>
+<li><b>In the Path field, type <tt>dukesAge</tt>.</b></li>
+<li><b>In the Class Name field, type <tt>DukesAgeResource</tt>.</b></li>
+<li><b>From the MIME Type menu, select <tt>text/plain</tt>.</b></li>
+<li><b>Click Finish.</b></li>
+<li><b>In the REST Resources Configuration dialog, uncheck Add Jersey Library and click OK.</b><p>You should now see the <tt>DukesAgeResource.java</tt> file inside the <tt>firstcup.webservice</tt> package in the
+Projects tab. The <tt>DukesAgeResource.java</tt> file should also be open in the editor pane.</p></li></ol>
+
+<a name="giooe"></a><h4>Configure the <tt>dukes-age</tt> Web Application</h4>
+<p>Set the default URL that is brought up in a web browser
+when you run <tt>dukes-age</tt>.</p>
+
+<ol>
+<li><b>Right-click the <tt>dukes-age</tt> project in the Projects tab and select Properties.</b></li>
+<li><b>In the Categories pane, click Run.</b></li>
+<li><b>Set Relative URL to <tt>/resources/dukesAge</tt>.</b></li>
+<li><b>Click OK.</b></li></ol>
+
+<a name="gcsxx"></a><h4>Remove the <tt>putText</tt> Method</h4>
+<p>The <tt>DukesAgeResource</tt> JAX-RS resource doesn't respond to HTTP <tt>PUT</tt> requests. Delete the generated
+<tt>putText</tt> method in <tt>DukesAgeResource</tt>.</p>
+
+<ul>
+<li><b>Highlight the following generated Javadoc and method definition and delete it.</b><pre>/**
+ * PUT method for updating or creating an instance of DukesAgeResource
+ * @param content representation for the resource
+ * @return an HTTP response with content of the updated or created resource.
+ */
+@PUT
+@Consumes("text/plain")
+public void putText(String content) {
+}</pre></li></ul>
+
+<a name="gcrpj"></a><h4>Implement the <tt>getText</tt> Method</h4>
+<p>Add code to <tt>DukesAgeResource.getText</tt> that calculates Duke's age at the time of the
+request. To do this, use the <tt>java.util.Calendar</tt> and <tt>java.util.GregorianCalendar</tt> classes to create an
+object representing the date May 23, 1995, Duke's birthday. Then create another <tt>Calendar</tt>
+object representing today's date, and subtract today's year from Duke's birth year. If
+today's date falls before May 23, subtract a year from this result. Then
+return the result as a <tt>String</tt> representation.</p>
+
+<ol>
+<li><b>Highlight the current code in <tt>getText</tt> and replace it with the following code:</b><pre>// Create a new Calendar for Duke's birthday
+Calendar dukesBirthday = new GregorianCalendar(1995, Calendar.MAY, 23);
+// Create a new Calendar for today
+Calendar now = GregorianCalendar.getInstance();
+
+// Subtract today's year from Duke's birth year, 1995
+int dukesAge = now.get(Calendar.YEAR) - dukesBirthday.get(Calendar.YEAR);
+dukesBirthday.add(Calendar.YEAR, dukesAge);
+
+// If today's date is before May 23, subtract a year from Duke's age
+if (now.before(dukesBirthday)) {
+    dukesAge--;
+}
+// Return a String representation of Duke's age
+return "" + dukesAge;</pre></li>
+<li><b>Right-click in the editor window and select Format.</b></li>
+<li><b>Right-click in the Editor and select Fix Imports.</b></li>
+<li><b>From the File menu, choose Save to save the file.</b></li></ol>
+
+<a name="gctoz"></a><h4>Building and Deploying the Web Service</h4>
+<p>Build the JAX-RS web application and deploy it to your GlassFish Server
+instance.</p>
+
+
+
+<a name="gctov"></a><h4>Build and Deploy the Web Service Endpoint</h4>
+<p>Compile, package, and deploy <tt>dukes-age.war</tt> to GlassFish Server. This task gives instructions on
+deploying <tt>dukes-age.war</tt> in NetBeans IDE.</p>
+
+<ul>
+<li><b>Right-click <tt>dukes-age</tt> in the Projects tab and select Run.</b><p>After <tt>dukes-age.war</tt> deploys successfully to GlassFish Server a web browser will load the
+URL of the <tt>DukesAgeResource</tt> path, and you'll see the returned <tt>String</tt> representing Duke's
+age.</p></li></ul><a name="gimpf"></a><p class="caption">Example&nbsp;3-1 Output of <tt>DukesAgeResource</tt></p><p>Here's an example of the output of <tt>DukesAgeResource</tt> displayed in a web browser.</p>
+
+<pre>16</pre><p>At this point, you've successfully created, deployed, and run your first Java
+EE application. Now you will create a web application that uses this web
+service data.</p>
+
+
+         </div>
+         <div class="navigation">
+             <a href="gkhqt.html"><img src="graphics/leftButton.gif" border="0" alt="Previous" title="Previous"></a>
+             <a href="p1.html"><img src="graphics/upButton.gif" border="0" alt="Contents" title="Contents"></a>
+             <a href="glcfc.html"><img src="graphics/rightButton.gif" border="0" alt="Next" title="Next"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+<!-- Start SiteCatalyst code   -->
+<script language="JavaScript" src="http://www.oracle.com/ocom/groups/systemobject/@mktg_admin/documents/systemobject/s_code_download.js"></script>
+<script language="JavaScript" src="http://www.oracle.com/ocom/groups/systemobject/@mktg_admin/documents/systemobject/s_code.js"></script>
+ 
+<!-- ********** DO NOT ALTER ANYTHING BELOW THIS LINE ! *********** -->
+<!--  Below code will send the info to Omniture server -->
+<script language="javascript">var s_code=s.t();if(s_code)document.write(s_code)</script>
+<noscript><p>Scripting on this page tracks web page traffic,
+but does not change the content in any way.</p></noscript>
+<!-- End SiteCatalyst code -->
+</body>
+</html>
+

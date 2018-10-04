@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>SecureRMIPurse Sample</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-04-13T10:24:54Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Development Kit User Guide, Classic Edition" />
+<meta name="dcterms.identifier" content="E59602-03" />
+<meta name="dcterms.isVersionOf" content="JCUGC" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="running-stringhandlingapp-sample-command-line.htm" title="Previous" type="text/html" />
+<link rel="Next" href="running-securermipurse-sample-eclipse.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCUGC.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-6639410D-FD98-4073-9A0E-50E03C7C7E29"></a> <span id="PAGE" style="display:none;">62/161</span> <!-- End Header -->
+<a id="JCUGC171"></a><a id="JCUGC170"></a>
+<h1 id="JCUGC-GUID-6639410D-FD98-4073-9A0E-50E03C7C7E29" class="sect1">SecureRMIPurse Sample</h1>
+<div>
+<p>This sample is available only in bundles intended solely for distribution inside the U.S.</p>
+<p>The <code class="codeph">SecureRMIPurse</code> sample is a version of <code class="codeph">RMIPurse</code> with an added security service. <code class="codeph">SecureRMIPurse</code> uses the card applet <code class="codeph">SecurePurseApplet</code>, the <code class="codeph">Purse</code> interface and its implementation <code class="codeph">SecurePurseImpl</code>, and a definition of the security service <code class="codeph">MySecurityService</code>. These classes reside in the package <code class="codeph">com.sun.javacard.samples.SecureRMIDemo</code>. The sample also uses the client-side program <code class="codeph">SecurePurseClient</code> and the specialized card accessor <code class="codeph">CustomCardAccessor</code>. These classes reside in the package <code class="codeph">com.sun.javacard.clientsamples.SecurePurseClient</code>.</p>
+<p>The <code class="codeph">Purse</code> interface is similar to the interface used in the non-secure case, however, there is an extra constant: <code class="codeph">REQUEST_DENIED</code>. This constant is used to report situations where the client tries to invoke a method that it is not allowed to access.</p>
+<p>The <code class="codeph">MySecurityService</code> class is a security service that is responsible for ensuring data integrity by verifying checksums on incoming commands and attaching checksums to outgoing commands. The program also requires the client to authenticate itself as the principal application provider or principal cardholder by sending a two-byte PIN.</p>
+<p>The implementation of <code class="codeph">Purse</code>, <code class="codeph">SecurePurseImpl</code>, is similar to the non-secure case, however, at the beginning of each method call, a call is made to the security service that ensures that the business rules are satisfied and that the data is not corrupted.</p>
+<p>The applet, <code class="codeph">SecurePurseApplet</code>, is similar to the non-secure case, except that it creates and registers an instance of <code class="codeph">MySecurityService</code>.</p>
+<p>The client-side program, <code class="codeph">SecurePurseClient</code>, is similar to the non-secure case, except that instead of a generic card accessor, it uses its own implementation, <code class="codeph">CustomCardAccessor</code>, to perform additional preprocessing and postprocessing of data and to support the additional command, <code class="codeph">authenticateUser</code>.</p>
+<p><code class="codeph">SecurePurseClient</code> also requires verification of the user. After the applet is inserted, a PIN must be given to the card-side applet by calling <code class="codeph">authenticateUser</code> on <code class="codeph">CustomCardAccessor</code>.</p>
+<p>When <code class="codeph">authenticateUser</code> is called, <code class="codeph">CustomCardAccessor</code> prepares and sends the command described in <a href="securermipurse-sample.htm#GUID-6639410D-FD98-4073-9A0E-50E03C7C7E29__BABIBCJA" title="structure and description of the authenticate user command">Table 4-2</a>.</p>
+<div class="tblformal" id="GUID-6639410D-FD98-4073-9A0E-50E03C7C7E29__BABIBCJA">
+<p class="titleintable">Table 4-2 Authenticate User Command</p>
+<table class="cellalignment12" title="Authenticate User Command" summary="structure and description of the authenticate user command">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment30" id="d13386e131">CLA_AUTH</th>
+<th class="cellalignment42" id="d13386e134">INS_AUTH</th>
+<th class="cellalignment15" id="d13386e137">P1 field</th>
+<th class="cellalignment103" id="d13386e140">P2 field</th>
+<th class="cellalignment15" id="d13386e143">LC field</th>
+<th class="cellalignment15" id="d13386e146">PIN (byte 1)</th>
+<th class="cellalignment103" id="d13386e149">PIN (byte 2)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment33" id="d13386e154" headers="d13386e131">
+<p>0x80</p>
+</td>
+<td class="cellalignment44" headers="d13386e154 d13386e134">
+<p>0x39</p>
+</td>
+<td class="cellalignment18" headers="d13386e154 d13386e137">
+<p>0</p>
+</td>
+<td class="cellalignment104" headers="d13386e154 d13386e140">
+<p>0</p>
+</td>
+<td class="cellalignment18" headers="d13386e154 d13386e143">
+<p>2</p>
+</td>
+<td class="cellalignment18" headers="d13386e154 d13386e146">
+<p>xx</p>
+</td>
+<td class="cellalignment104" headers="d13386e154 d13386e149">
+<p>xx</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p>On the card side, <code class="codeph">MySecurityService</code> processes the command. If the PIN is correct, then the appropriate flags are set in the security service and a confirmation response is returned to the client. Once authentication is passed, the client program receives the balance, credits the account, and again receives the balance. The program demonstrates error handling when the client attempts to debit a number of units from the account. This causes the program to throw a <code class="codeph">UserException</code> with the code <code class="codeph">REQUEST_DENIED</code>.</p>
+<p>As with <code class="codeph">RMIDemo</code>, the client part of the <code class="codeph">SecureRMIDemo</code> can be run without parameters or with the <code class="codeph">-i</code> parameter:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>If the sample is run without parameters, remote references are identified using the class name of the remote object.</p>
+</li>
+<li>
+<p>If the sample is run with the <code class="codeph">-i</code> parameter, remote references are identified using the list of remote interfaces implemented by the remote object.</p>
+</li>
+</ul>
+<p>Follow one of these sets of instructions to run this sample:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="running-securermipurse-sample-eclipse.htm" title="The SecureRMIPurse sample is the same as RMIPurse , but with an added security service. It consists of two projects: a Java Card project with the Java Card applet and a Java SE project with the Java application that is designed to communicate with the applet.">Running the SecureRMIPurse Sample in Eclipse</a></p>
+</li>
+<li>
+<p><a href="running-securermipurse-sample-command-line.htm">Running the SecureRMIPurse Sample from the Command Line</a></p>
+</li>
+</ul>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="running-stringhandlingapp-sample-command-line.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="running-securermipurse-sample-eclipse.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

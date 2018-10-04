@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>Overview</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = document) - Version 1.0.24" />
+<meta name="date" content="2014-08-01T11:38:0Z" />
+<meta name="robots" content="noarchive" />
+<meta name="doctitle" content="Overview" />
+<meta name="relnum" content="JavaTest Harness 4.6" />
+<meta name="partnum" content="E20663-04" />
+<link rel="copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+<link rel="stylesheet" href="../../dcommon/css/blafdoc.css" title="Oracle BLAFDoc" type="text/css" />
+<link rel="contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="index" href="index.htm" title="Index" type="text/html" />
+<link rel="prev" href="tutorial.htm" title="Previous" type="text/html" />
+<link rel="next" href="createts.htm" title="Next" type="text/html" />
+
+                    <script>var w=window;if(w.performance||w.mozPerformance||w.msPerformance||w.webkitPerformance){var d=document;AKSB=w.AKSB||{},AKSB.q=AKSB.q||[],AKSB.mark=AKSB.mark||function(e,_){AKSB.q.push(["mark",e,_||(new Date).getTime()])},AKSB.measure=AKSB.measure||function(e,_,t){AKSB.q.push(["measure",e,_,t||(new Date).getTime()])},AKSB.done=AKSB.done||function(e){AKSB.q.push(["done",e])},AKSB.mark("firstbyte",(new Date).getTime()),AKSB.prof={custid:"322179",ustr:"",originlat:"0",clientrtt:"1",ghostip:"23.212.3.15",ipv6:false,pct:"10",clientip:"45.78.37.67",requestid:"29b7177b",region:"32996",protocol:"",blver:14,akM:"dsca",akN:"ae",akTT:"O",akTX:"1",akTI:"29b7177b",ai:"206465",ra:"false",pmgn:"",pmgi:"",pmp:"",qc:""},function(e){var _=d.createElement("script");_.async="async",_.src=e;var t=d.getElementsByTagName("script"),t=t[t.length-1];t.parentNode.insertBefore(_,t)}(("https:"===d.location.protocol?"https:":"http:")+"//ds-aksb-a.akamaihd.net/aksb.min.js")}</script>
+                    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<div class="header"><a id="top" name="top"></a>
+<div class="zz-skip-header"><a href="#BEGIN">Skip Headers</a></div>
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td align="left" valign="top"><b>JavaTest Harness Architect's Guide,</b><br />
+<b>JavaTest Harness 4.6 for the Java Platform</b><br />
+E20663-04</td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+<td align="center" valign="top"><a href="toc.htm"><img src="../../dcommon/gifs/toc.gif" alt="Go To Table Of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td align="center" valign="top"><a href="index.htm"><img src="../../dcommon/gifs/index.gif" alt="Go To Index" /><br />
+<span class="icon">Index</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<tr>
+<td align="center"><a href="tutorial.htm"><img src="../../dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="createts.htm"><img src="../../dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<a name="BEGIN" id="BEGIN"></a></div>
+<!-- class="header" -->
+<div class="ind"><!-- End Header --><a id="CJBEEGAG" name="CJBEEGAG"></a>
+<h1 class="chapter"><span class="secnum">3</span> Overview</h1>
+<p>JavaTest test suites are comprised of a number of components, many of which you, as the test suite architect, provide. This chapter introduces you to these components and some underlying concepts that are discussed in much greater detail later in this manual.<a id="sthref36" name="sthref36"></a><a id="sthref37" name="sthref37"></a></p>
+<a id="Z400226c46207" name="Z400226c46207"></a>
+<div class="sect1">
+<h2 class="sect1">Test Suite Components</h2>
+<p>The most fundamental components of a test suite are the tests themselves. Tests are typically Java programs that exercise aspects of an API or compiler. To work well with the JavaTest harness, these files are organized in the file system hierarchically. The JavaTest harness finds the tests and displays them in the JavaTest GUI test tree based on this hierarchy.</p>
+<p>Before the JavaTest harness can execute a test, it must know some fundamental things about the test &mdash; for example, where to find the class file that implements the test and what arguments the test takes. This information is contained in a <a id="sthref38" name="sthref38"></a><span class="italic">test description</span>. The test description is a group of name/value pairs that can be embodied in different ways &mdash; for example, as <a id="sthref39" name="sthref39"></a><a id="sthref40" name="sthref40"></a><span class="italic">tag test descriptions</span> and <a id="sthref41" name="sthref41"></a><a id="sthref42" name="sthref42"></a><span class="italic">HTML test descriptions</span>. Tag test descriptions are inserted directly into the test source files using Javadoc style tags. HTML test descriptions are HTML tables contained in HTML files separate from the test source and class files. The examples included with the JavaTest Architect's release demonstrate both types of test descriptions.</p>
+<p>The JavaTest harness uses a specialized class called a <a id="sthref43" name="sthref43"></a><a id="sthref44" name="sthref44"></a><span class="italic">test finder</span> to locate tests, read test descriptions, and pass test description values to the JavaTest harness. As the architect, you specify a test finder that knows how to read the test descriptions you have designed for your test suite. The JavaTest Architect's release includes test finders that know how to read tag and HTML test descriptions; you can use the included test finders as-is, modify them, or create your own.</p>
+<p>Once the test finder locates the test and reads the test description, it is up to the <a id="sthref45" name="sthref45"></a><a id="sthref46" name="sthref46"></a><span class="italic">test script</span> to actually run the test. The test script is a Java class whose job is to interpret the test description values, run the tests, and report the results back to the JavaTest harness. As the test suite architect, you are responsible for providing the test script that JavaTest uses. Test scripts can be very simple or complex, depending on the requirements of your test suite. A number of test script examples are included with the JavaTest Architect's release that you can use as is, extend, or use as a template for your test script.</p>
+<p>In addition to the fundamental information about each test, the test script might also require platform-specific information about each test to execute it. This information is provided by the person running the tests, usually by completing a wizard-like <a id="sthref47" name="sthref47"></a>configuration interview designed by you. Platform-specific information includes information such as the location of the JVM to be used when running the tests, the names of remote computers, and other resources required to run the tests.</p>
+<p>When test execution is complete, a test normally creates a <code>Status</code> object and passes it back to the test script; the test script <a id="sthref48" name="sthref48"></a><a id="sthref49" name="sthref49"></a>then stores the test results in the <a id="sthref50" name="sthref50"></a><code>TestResult</code> object. Test status includes an integer that represents the status (pass, fail, error, not run) and a short message that describes what happened &mdash; for example, an error message. Test results include more detailed information about the results of the test's execution &mdash; for example, any additional messages produced by the test.</p>
+<p>When the JavaTest harness loads a test suite, the first thing it does is read a file named <a id="sthref51" name="sthref51"></a><a id="sthref52" name="sthref52"></a><code>testsuite.jtt</code> located in the top-level directory of the test suite. The <code>testsuite.jtt</code> file is a registry of information about the test suite that includes the paths to the components described above and other static information about the test suite. The JavaTest harness internalizes this information in a <a id="sthref53" name="sthref53"></a><code>TestSuite</code> object that acts as a portal to all information about the test suite. Whenever the JavaTest harness requires information about the test suite, it queries the <code>TestSuite</code> object. As test suite architect, you create and maintain the <code>testsuite.jtt</code> file.</p>
+<p><a href="#CJBFBDAF">Figure 3-1</a> shows a graphical representation of the different test suite components:</p>
+<div class="figure"><a id="CJBFBDAF" name="CJBFBDAF"></a>
+<p class="titleinfigure">Figure 3-1 Test Suite Components</p>
+<img src="img/arch-fig9.jpg" alt="Description of Figure 3-1 follows" title="Description of Figure 3-1 follows" longdesc="img_text/arch-fig9.htm" /><br />
+<a id="sthref54" name="sthref54" href="img_text/arch-fig9.htm">Description of "Figure 3-1 Test Suite Components"</a><br />
+<br /></div>
+<!-- class="figure" -->
+<p>The <a id="sthref55" name="sthref55"></a>following <a id="sthref56" name="sthref56"></a>table summarizes the sequence of steps the JavaTest harness uses to run test suites and your responsibility for each step. These steps are described in more detail in the following chapters.</p>
+<div class="tblhruleformalwide"><a id="sthref57" name="sthref57"></a><a id="Z400361045415" name="Z400361045415"></a>
+<p class="titleintable">Table 3-1 Summary of JavaTest Harness Operation&nbsp;</p>
+<table class="HRuleFormalWide" title="Summary of JavaTest Harness Operation " summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="8%" />
+<col width="*" />
+<col width="44%" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t2">Events<a id="sthref58" name="sthref58"></a></th>
+<th align="left" valign="bottom" id="r1c2-t2">Architect's Role</th>
+<th align="left" valign="bottom" id="r1c3-t2">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t2" headers="r1c1-t2">
+<p>1</p>
+</td>
+<td align="left" headers="r2c1-t2 r1c2-t2">
+<p>The user starts the JavaTest harness</p>
+</td>
+<td align="left" headers="r2c1-t2 r1c3-t2">
+<p>Optionally, create a wrapper command to start the JavaTest harness in the right location and with the correct arguments.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t2" headers="r1c1-t2">
+<p>2</p>
+</td>
+<td align="left" headers="r3c1-t2 r1c2-t2">
+<p>The JavaTest harness reads <code>testsuite.jtt</code> to gather information about the test suite including the names and class paths for classes such as the finder, test script, and configuration interview. The JavaTest harness calls the <code>TestSuite</code> class, which in turn creates the <code>TestSuite</code> object. The JavaTest harness passes information from <code>testsuite.jtt</code> to the <code>TestSuite</code> class when it is created.</p>
+</td>
+<td align="left" headers="r3c1-t2 r1c3-t2">
+<p>Determine what information is included in <code>testsuite.jtt</code> and what information (if any) is built directly into your test suite class. The components you create, including your test suite class are contained in a Java archive (JAR) file installed in the test suite. The path to the JAR file is specified in the <code>testsuite.jtt</code> file.</p>
+<p>Provide your test suite class</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t2" headers="r1c1-t2">
+<p>3</p>
+</td>
+<td align="left" headers="r4c1-t2 r1c2-t2">
+<p>The JavaTest harness queries the <a id="sthref59" name="sthref59"></a><code>TestSuite</code> object to determine which test finder to use.</p>
+</td>
+<td align="left" headers="r4c1-t2 r1c3-t2">
+<p>Provide your test finder class</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t2" headers="r1c1-t2">
+<p>4</p>
+</td>
+<td align="left" headers="r5c1-t2 r1c2-t2">
+<p>The JavaTest harness <a id="sthref60" name="sthref60"></a>starts the test finder. The test finder reads test descriptions and creates <code>TestDescription</code> objects. The JavaTest GUI displays the test tree.</p>
+</td>
+<td align="left" headers="r5c1-t2 r1c3-t2">
+<p>&nbsp;</p>
+<br /></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r6c1-t2" headers="r1c1-t2">
+<p>5</p>
+</td>
+<td align="left" headers="r6c1-t2 r1c2-t2">
+<p>The user starts the test run. If the configuration information is incomplete, the JavaTest harness activates the configuration editor.</p>
+</td>
+<td align="left" headers="r6c1-t2 r1c3-t2">
+<p>Provide the configuration interview</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r7c1-t2" headers="r1c1-t2">
+<p>6</p>
+</td>
+<td align="left" headers="r7c1-t2 r1c2-t2">
+<p>The JavaTest harness asks the <code>TestSuite</code> object to create a fresh copy of the test script for each test. The test script runs tests according to the information in the test description and environment. When the test is complete, the test script reports the test's exit status to the JavaTest harness.</p>
+</td>
+<td align="left" headers="r7c1-t2 r1c3-t2">
+<p>Design the test execution model and create the test script</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r8c1-t2" headers="r1c1-t2">
+<p>6</p>
+</td>
+<td align="left" headers="r8c1-t2 r1c2-t2">
+<p>The test suite updates the <code>TestResult</code> object with the results of the test execution and writes the test results to a file in the work directory. Test results are described in <a href="script.htm#CEHHBGCJ">Test Result</a>.</p>
+</td>
+<td align="left" headers="r8c1-t2 r1c3-t2">
+<p>&nbsp;</p>
+<br /></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r9c1-t2" headers="r1c1-t2">
+<p>8</p>
+</td>
+<td align="left" headers="r9c1-t2 r1c2-t2">
+<p>The JavaTest harness updates the GUI and/or displays information at the command line.</p>
+</td>
+<td align="left" headers="r9c1-t2 r1c3-t2">
+<p>&nbsp;</p>
+<br /></td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformalwide" --></div>
+<!-- class="sect1" -->
+<a id="Z400361045974" name="Z400361045974"></a>
+<div class="sect1">
+<h2 class="sect1">Remote Execution</h2>
+<p><a id="sthref61" name="sthref61"></a><a id="sthref62" name="sthref62"></a>It is often convenient or necessary to run tests on a system other than the one running the JavaTest harness. In this case, an agent must be used to run the tests on the test platform and communicate with JavaTest harness. The JavaTest harness provides a general purpose agent (JavaTest Agent), but test architects can also create custom agents.</p>
+<p><a id="sthref63" name="sthref63"></a><a id="sthref64" name="sthref64"></a>The JavaTest Agent is a lightweight program compatible with JDK 1.1 (does not require the Java SE platform, or Swing). The JavaTest Agent uses a bidirectional connection to communicate between the test platform and JavaTest&mdash;it supports both the TCP/IP and RS-232 protocols. Other types of connections can be added through the JavaTest API, for example, infrared, parallel, USB, firewire connections can be added and modelled on the existing system. If a test platform meets the following requirements the JavaTest Agent will probably work well:</p>
+<ul>
+<li>
+<p>The device supports a communication layer that can last the duration of a test (couple of minutes)</p>
+</li>
+<li>
+<p>The agent code can be loaded into the device</p>
+</li>
+</ul>
+<p>If the test platform does not meet these requirements, the JavaTest API can be used to create a custom agent. Agents have been created to run tests on devices such as cell phones, PDAs, and pagers.</p>
+</div>
+<!-- class="sect1" --></div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+<div class="footer">
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<col width="33%" />
+<col width="*" />
+<col width="33%" />
+<tr>
+<td valign="bottom">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<col width="*" />
+<col width="48%" />
+<col width="48%" />
+<tr>
+<td>&nbsp;</td>
+<td align="center"><a href="tutorial.htm"><img src="../../dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="createts.htm"><img src="../../dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="copyrightlogo"><img class="copyrightlogo" src="../../dcommon/gifs/oracle.gif" alt="Oracle Logo" /><br />
+<span class="copyrightlogo">Copyright&nbsp;&copy;&nbsp;2002, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span> <a href="../../dcommon/html/cpyr.htm"><br />
+<span class="copyrightlogo">Legal Notices</span></a></td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+<td align="center" valign="top"><a href="toc.htm"><img src="../../dcommon/gifs/toc.gif" alt="Go To Table Of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td align="center" valign="top"><a href="index.htm"><img src="../../dcommon/gifs/index.gif" alt="Go To Index" /><br />
+<span class="icon">Index</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<!-- class="footer" -->
+</body>
+</html>

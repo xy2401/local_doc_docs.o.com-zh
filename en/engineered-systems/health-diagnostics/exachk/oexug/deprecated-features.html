@@ -1,0 +1,104 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="Review information about changes, deprecations, and desupports.">
+      <meta name="description" content="Review information about changes, deprecations, and desupports.">
+      <title>Behavior Changes, Deprecated and Desupported Features</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide">
+      <meta property="og:description" content="Review information about changes, deprecations, and desupports.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-orachk-and-exachk-users-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:43:23-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2016, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E83827-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/exachk">
+      
+      <link rel="prev" href="oracle-big-data.html" title="Previous" type="text/html">
+      <link rel="next" href="book-index.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"exachk","element_name":"EXAchk","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® ORAchk and EXAchk User's Guide">
+    <meta name="dcterms.isVersionOf" content="OEXUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="oracle-big-data.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="book-index.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Behavior Changes, Deprecated and Desupported Features</li>
+            </ol>
+            <a id="GUID-12FF8A50-6C9D-4183-8C71-8401AA693C25" name="GUID-12FF8A50-6C9D-4183-8C71-8401AA693C25"></a>
+            
+            <h2 id="OEXUG-GUID-12FF8A50-6C9D-4183-8C71-8401AA693C25" class="sect2"><span class="enumeration_chapter">4 </span>Behavior Changes, Deprecated and Desupported Features
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>Review information about changes, deprecations, and desupports.</p>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="deprecated-features.html#GUID-61197002-3E69-4FF4-978C-1911A027ACD7">EBS Support is Deprecated</a><br>Starting with 18.3.0 release, the Oracle ORAchk and Oracle EXAchk checks for EBS feature has been deprecated.
+                  </li>
+               </ul>
+            </div>
+            
+            <div class="sect2"><a id="GUID-61197002-3E69-4FF4-978C-1911A027ACD7" name="GUID-61197002-3E69-4FF4-978C-1911A027ACD7"></a><h3 id="OEXUG-GUID-61197002-3E69-4FF4-978C-1911A027ACD7" class="sect3"><span class="enumeration_section">4.1 </span>EBS Support is Deprecated
+               </h3>
+               <div>
+                  <p>Starting with 18.3.0 release, the Oracle ORAchk and Oracle EXAchk checks for EBS feature has been deprecated.</p>
+                  <p>This means running health checks against EBS feature is no longer enhanced, but it is still supported until the Oracle ORAchk and Oracle EXAchk 19.3.0 release (approximately one year).</p>
+                  <p>In the Oracle ORAchk and Oracle EXAchk 19.3.0 release, the EBS checks feature will be desupported, meaning Oracle will no longer fix bugs in Oracle ORAchk and Oracle EXAchk related to EBS checks, and the EBS checking feature will be removed altogether.</p>
+                  <p>Run all EBS health checks using the EBS Analyzers, which is available at My Oracle Support Note 1545562.1.</p>
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="https://support.oracle.com/rs?type=doc&amp;amp;id=1545562.1" target="_blank">https://support.oracle.com/rs?type=doc&amp;id=1545562.1</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="deprecated-features.html#GUID-12FF8A50-6C9D-4183-8C71-8401AA693C25" title="Review information about changes, deprecations, and desupports.">Behavior Changes, Deprecated and Desupported Features</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

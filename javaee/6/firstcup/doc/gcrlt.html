@@ -1,0 +1,801 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 25226-->
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>Creating the Web Client - Your First Cup: An Introduction to the Java EE Platform</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2012-04-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+
+                    <script>var w=window;if(w.performance||w.mozPerformance||w.msPerformance||w.webkitPerformance){var d=document;AKSB=w.AKSB||{},AKSB.q=AKSB.q||[],AKSB.mark=AKSB.mark||function(e,_){AKSB.q.push(["mark",e,_||(new Date).getTime()])},AKSB.measure=AKSB.measure||function(e,_,t){AKSB.q.push(["measure",e,_,t||(new Date).getTime()])},AKSB.done=AKSB.done||function(e){AKSB.q.push(["done",e])},AKSB.mark("firstbyte",(new Date).getTime()),AKSB.prof={custid:"322179",ustr:"",originlat:"0",clientrtt:"1",ghostip:"23.212.3.15",ipv6:false,pct:"10",clientip:"45.78.37.67",requestid:"2b49b6c9",region:"32996",protocol:"",blver:14,akM:"dsca",akN:"ae",akTT:"O",akTX:"1",akTI:"2b49b6c9",ai:"206465",ra:"false",pmgn:"",pmgi:"",pmp:"",qc:""},function(e){var _=d.createElement("script");_.async="async",_.src=e;var t=d.getElementsByTagName("script"),t=t[t.length-1];t.parentNode.insertBefore(_,t)}(("https:"===d.location.protocol?"https:":"http:")+"//ds-aksb-a.akamaihd.net/aksb.min.js")}</script>
+                    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gcqyw.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gcqyb.html">1.&nbsp;&nbsp;Introduction</a></p>
+<p class="toc level1 tocsp"><a href="gcrlo.html">2.&nbsp;&nbsp;Understanding Java Platform, Enterprise Edition</a></p>
+<p class="toc level1 tocsp"><a href="gcrkp.html">3.&nbsp;&nbsp;Creating Your First Java EE Application</a></p>
+<p class="toc level1 tocsp"><a href="glcfc.html">4.&nbsp;&nbsp;Creating Your Second Web Application</a></p>
+<p class="toc level2"><a href="gjbca.html">Creating the <tt>firstcup</tt> Project</a></p>
+<p class="toc level3"><a href="gjbca.html#gimnt">Create the Web Application Project</a></p>
+<p class="toc level2 tocsp"><a href="gjbcs.html">Creating the Java Persistence API Entity</a></p>
+<p class="toc level3"><a href="gjbcs.html#gjbam">Create the <tt>FirstcupUser</tt> Entity Class</a></p>
+<p class="toc level3"><a href="gjbcs.html#gjbao">Add Properties to the <tt>FirstcupUser</tt> Entity</a></p>
+<p class="toc level3"><a href="gjbcs.html#gkknn">Add Constructors to the <tt>FirstcupUser</tt> Entity</a></p>
+<p class="toc level3"><a href="gjbcs.html#gjbcm">Add a Named Query to the <tt>FirstcupUser</tt> Entity</a></p>
+<p class="toc level2 tocsp"><a href="gcrlx.html">Creating the Enterprise Bean</a></p>
+<p class="toc level3"><a href="gcrlx.html#gcrpv">Create the <tt>DukesBirthdayBean</tt> Enterprise Bean Class</a></p>
+<p class="toc level3"><a href="gcrlx.html#gcrpg">Add a Logger Instance to <tt>DukesBirthdayBean.java</tt></a></p>
+<p class="toc level3"><a href="gcrlx.html#gjbcu">Add a Business Method to <tt>DukesBirthdayBean</tt> that Gets the Average Age Difference of <tt>firstcup</tt> Users</a></p>
+<p class="toc level3"><a href="gcrlx.html#gkgot">Add a Business Method for Calculating the Age Difference Between Duke and the User</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level2 tocsp"><a href="">Creating the Web Client</a></p>
+<p class="toc level3"><a href="#gcrpf">Creating a Resource Bundle</a></p>
+<p class="toc level4"><a href="#gcrrz">Create a Resource Bundle</a></p>
+<p class="toc level3 tocsp"><a href="#gcrri">Configuring the Resource Bundle in the Configuration File</a></p>
+<p class="toc level4"><a href="#gjbco">Create a Configuration File</a></p>
+<p class="toc level4"><a href="#gcrqy">Configure the Resource Bundle</a></p>
+<p class="toc level3 tocsp"><a href="#gcrqx">Creating the <tt>DukesBDay</tt> Managed Bean Class</a></p>
+<p class="toc level4"><a href="#gcrrq">Create the Managed Bean Class</a></p>
+<p class="toc level4"><a href="#gcrre">Add an Enterprise Bean Reference</a></p>
+<p class="toc level4"><a href="#gcuzv">Add Properties to the Bean</a></p>
+<p class="toc level4"><a href="#gcrsa">Get the Age Difference from the <tt>DukesBirthdayBean</tt> Enterprise Bean</a></p>
+<p class="toc level3 tocsp"><a href="#gimvd">Creating the Facelets Client</a></p>
+<p class="toc level4"><a href="#gimug">Resource Libraries in <tt>firstcup</tt></a></p>
+<p class="toc level4"><a href="#gimtw">The <tt>inputDate</tt> Composite Component</a></p>
+<p class="toc level4"><a href="#gimwv">Create the <tt>inputDate</tt> Composite Component</a></p>
+<p class="toc level4"><a href="#gimum">The Facelets Web Interface</a></p>
+<p class="toc level4"><a href="#gimxf">Create the XHTML Files</a></p>
+<p class="toc level4"><a href="#giplb">Set the Welcome File in the <tt>web.xml</tt> Deployment Descriptor</a></p>
+<p class="toc level4"><a href="#gimua">Modify the XHTML Files</a></p>
+<p class="toc level4"><a href="#gimta">Add the Form to <tt>greeting.xhtml</tt></a></p>
+<p class="toc level4"><a href="#gimvw">Add the Form to <tt>response.html</tt></a></p>
+</div>
+<p class="toc level2 tocsp"><a href="gctnx.html">Building, Packaging, Deploying, and Running the <tt>firstcup</tt> Web Application</a></p>
+<p class="toc level3"><a href="gctnx.html#gctoj">Build, Package, and Deploy the <tt>firstcup</tt> Web Application</a></p>
+<p class="toc level3"><a href="gctnx.html#gctqc">Run the <tt>firstcup</tt> Application</a></p>
+<p class="toc level1 tocsp"><a href="gcrll.html">5.&nbsp;&nbsp;Next Steps</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><p class="Banner">Your First Cup
+</p></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="./gcqzl.html#gcrnx">Download</a> | 
+<a href="./firstcup.pdf">PDF</a> | 
+<a href="http://docs.oracle.com/javaee/support/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="gcrlx.html"><img src="graphics/leftButton.gif" border="0" alt="Previous" title="Previous"></a>
+                 <a href="p1.html"><img src="graphics/upButton.gif" border="0" alt="Contents" title="Contents"></a>
+                 <a href="gctnx.html"><img src="graphics/rightButton.gif" border="0" alt="Next" title="Next"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="gcrlt"></a><h2>Creating the Web Client</h2>
+<p>To create the web client, you need to perform the following tasks:</p>
+
+
+<ul><li><p>Create a resource bundle to hold localized messages used by the Facelets pages.</p>
+
+</li>
+<li><p>Configure the resource bundle in the configuration file.</p>
+
+</li>
+<li><p>Create the <tt>DukesBDay</tt> managed bean class.</p>
+
+</li>
+<li><p>Create the Facelets pages.</p>
+
+</li></ul>
+
+
+<a name="gcrpf"></a><h3>Creating a Resource Bundle</h3>
+<p>In this section, you'll create the resource bundle that contains the static text
+and error messages used by the Facelets pages. The <tt>firstcup</tt> client supports both
+English and Spanish locales. Therefore you need to create two properties files, each
+of which will contain the messages for one of the locales.</p>
+
+
+
+<a name="gcrrz"></a><h4>Create a Resource Bundle</h4>
+<ol>
+<li><b>Right-click the <tt>firstcup</tt> project in the Projects tab.</b></li>
+<li><b>From the popup menu, choose New, then choose Other.</b></li>
+<li><b>In the Categories pane, select Other.</b></li>
+<li><b>In the File Types pane, select Properties File, then click Next.</b></li>
+<li><b>In the File Name field, type <tt>WebMessages</tt>.</b></li>
+<li><b>In the Folder field, type <tt>src/java/firstcup/web</tt> as the location of the file.</b></li>
+<li><b>Click Finish.</b></li>
+<li><b>After NetBeans IDE creates the properties file, type the following messages or copy
+them from here to the file: </b><pre>Welcome=Hi. My name is Duke. Let us find out who is older -- you or I. 
+DukeIs=Duke is
+YearsOldToday=years old today.
+Instructions=Type your birthday and click submit.
+YourBD=Your birthday
+Pattern=MM/dd/yyyy
+YouAre=You are 
+Year=year
+Years=years
+Older=older than Duke!
+Younger=younger than Duke!
+SameAge= the same age as Duke!
+Submit=Submit
+Back=Back
+AverageAge=The average age difference of all First Cup users is</pre><p>These messages will be referenced from the XHTML pages.</p></li>
+<li><b>From the File menu, choose Save.</b></li>
+<li><b>To add the Spanish translations of the messages, copy the properties file <tt>WebMessages_es.properties</tt>
+from <tt><i>tut-install</i>/firstcup/example/firstcup/src/java/com/sun/firstcup/web</tt> to <tt><i>tut-install</i>/firstcup/myexample/firstcup/src/java/firstcup/web</tt>.</b><p>You can create multiple properties files, each with a set of messages for
+a different locale. By storing localized static text and messages in resource bundles,
+you don't need to create a separate set of XHTML pages for each
+locale.</p></li></ol>
+
+<a name="gcrri"></a><h3>Configuring the Resource Bundle in the Configuration File</h3>
+<p>To make the resource bundle available to the application, you need to configure
+it in the configuration file, by performing the following task.</p>
+
+
+
+<a name="gjbco"></a><h4>Create a Configuration File</h4>
+<p>The <tt>faces-config.xml</tt> deployment descriptor contains configuration settings for the JavaServer Faces application. JSF
+applications don't require a deployment descriptor unless they use features that can only be
+configured in <tt>faces-config.xml</tt>. In <tt>firstcup</tt>, the deployment descriptor has settings defining the resource
+bundle that provides localized strings in English and Spanish.</p>
+
+<ol>
+<li><b>Select the <tt>firstcup</tt> project in the Projects tab.</b></li>
+<li><b>From the File menu, choose New File.</b></li>
+<li><b>In the Categories pane, select JavaServer Faces.</b></li>
+<li><b>In the File Types pane, select JSF Faces Configuration.</b></li>
+<li><b>Click Next, then click Finish.</b></li></ol>
+
+<a name="gcrqy"></a><h4>Configure the Resource Bundle</h4>
+<p>The <tt>firstcup</tt> application is localized for the English and Spanish languages. JavaServer Faces
+applications can automatically select the proper language based on the locale of the
+user's web browser. Specify the default and supported locales in the <tt>faces-config.xml</tt> file.</p>
+
+<ol>
+<li><b>With the newly created <tt>faces-config.xml</tt> file open, click XML.</b></li>
+<li><b>Place the cursor between the opening and closing <tt>faces-config</tt> tags.</b></li>
+<li><b>Add the following <tt>&lt;application></tt> tag to configure the resource bundle: </b><pre>&lt;application>
+    &lt;resource-bundle>
+        &lt;base-name>firstcup.web.WebMessages&lt;/base-name>
+        &lt;var>bundle&lt;/var>
+    &lt;/resource-bundle>
+    &lt;locale-config>
+        &lt;default-locale>en&lt;/default-locale>
+        &lt;supported-locale>es&lt;/supported-locale>
+    &lt;/locale-config>
+&lt;/application></pre><p>The <tt>base-name</tt> element of the <tt>resource-bundle</tt> element identifies the fully qualified class name
+of the resource bundle. The <tt>var</tt> element identifies the name by which
+the XHTML pages will reference the resource bundle. The <tt>locale-config</tt> element identifies the locales
+supported by the resource bundle.</p></li>
+<li><b>Right-click in the editor window and select Format.</b></li>
+<li><b>From the File menu, choose Save.</b></li></ol>
+
+<a name="gcrqx"></a><h3>Creating the <tt>DukesBDay</tt> Managed Bean Class</h3>
+<p>The <tt>DukesBDay</tt> JavaBeans component is a backing bean. A backing bean is a
+JavaServer Faces managed bean that acts as a temporary data storage for the
+values of the components included on a particular JavaServer Faces page. A managed
+bean is a JavaBeans component that a JavaServer Faces application instantiates and stores
+in scope. The section following this one describes more about managed beans and
+how to configure them.</p>
+
+<p>This section describes how to create the <tt>DukesBDay</tt> class. To create the class
+you need to do the following:</p>
+
+
+<ul><li><p>Create the managed bean class.</p>
+
+</li>
+<li><p>Add a property that stores Duke's current age from the JAX-RS web service.</p>
+
+</li>
+<li><p>Add a property that stores the user's current birth date.</p>
+
+</li>
+<li><p>Add a property that stores the age difference from the <tt>DukesBirthdayBean</tt> enterprise bean.</p>
+
+</li>
+<li><p>Add a property that stores the absolute value of the age difference.</p>
+
+</li>
+<li><p>Add a property that stores the average age difference of all users.</p>
+
+</li>
+<li><p>Add a method that calls <tt>DukesBirthdaybean.getAgeDifference</tt>, sets the absolute age difference, and forwards the user to the display page.</p>
+
+</li></ul>
+
+
+<a name="gcrrq"></a><h4>Create the Managed Bean Class</h4>
+<p>Create a JavaServer Faces managed bean class that will subsequently be modified.</p>
+
+<ol>
+<li><b>Right-click the <tt>firstcup.web</tt> package in the Projects tab.</b></li>
+<li><b>From the popup menu, choose New, then choose Other.</b></li>
+<li><b>In the Categories pane, select JavaServer Faces.</b></li>
+<li><b>In the File Types pane, select JSF Managed Bean, then click Next.</b></li>
+<li><b>In the Class Name field, type <tt>DukesBDay</tt>.</b></li>
+<li><b>In the Package field, select <tt>firstcup.web</tt>.</b></li>
+<li><b>Select session from the Scope menu.</b></li>
+<li><b>Click Finish.</b><p>You should now see the <tt>DukesBDay.java</tt> file inside the <tt>firstcup.web</tt> package in
+the Projects tab. The <tt>DukesBDay.java</tt> file should also be open in the editor pane.</p></li>
+<li><b>In the editor pane, find the <tt>@Named</tt> annotation and modify the <tt>value</tt> attribute,
+with the value <tt>DukesBDay</tt>. The resulting code should look like this:</b><pre>@Named(value = "DukesBDay")</pre></li></ol>
+
+<a name="gcrre"></a><h4>Add an Enterprise Bean Reference</h4>
+<p>Add a <tt>javax.ejb.EJB</tt> annotation to inject a reference to the <tt>DukesBirthdayBean</tt> enterprise bean.
+This session bean will be called from the methods in <tt>DukesBDay</tt>.</p>
+
+<ol>
+<li><b>Right-click in the editor window inside the class and select Insert Code, then
+select Call Enterprise Bean.</b></li>
+<li><b>In the Call Enterprise Bean dialog, expand the <tt>firstcup</tt> application, select <tt>DukesBirthdayBean</tt>, and
+click OK.</b><p>The following field will be added:</p><pre>@EJB
+private DukesBirthdayBean dukesBirthdayBean;</pre></li></ol>
+
+<a name="gcuzv"></a><h4>Add Properties to the Bean</h4>
+<p>During this task, you will add the following properties to the <tt>DukesBDay</tt>
+bean:</p>
+
+
+<ul><li><p><tt>age</tt> for getting Duke's age from the web service</p>
+
+</li>
+<li><p><tt>yourBD</tt> to hold the user's birth date</p>
+
+</li>
+<li><p><tt>ageDiff</tt> to get the age difference from the enterprise bean</p>
+
+</li>
+<li><p><tt>absAgeDiff</tt> to hold the absolute value of the age difference</p>
+
+</li>
+<li><p><tt>averageAgeDifference</tt> to hold the average age difference of all users</p>
+
+</li></ul>
+<p>The getter method for the <tt>age</tt> property uses the <tt>java.net</tt> and <tt>java.io</tt>
+classes to create an HTTP connection to the Duke's Age web service and
+stores the result.</p>
+
+<p>The <tt>yourBD</tt> property is annotated <tt>@NotNull</tt> to indicate that this property must be
+set. The <tt>@NotNull</tt> annotation is one of the Bean Validation constraints.</p>
+
+<ol>
+<li><b>In the <tt>DukesBDay</tt> class, copy and paste the following field definitions:</b><pre>    protected int age;
+    @NotNull protected Date yourBD;
+    protected int ageDiff;
+    protected int absAgeDiff;
+    protected Double averageAgeDifference;
+    private static final Logger logger = Logger.getLogger("firstcup.web.DukesBDay");</pre></li>
+<li><b>Add a default constructor that sets the initial values of the fields by
+copying and pasting the following code:</b><pre>    public DukesBDay() {
+        age = -1;
+        yourBD = null;
+        ageDiff = -1;
+        absAgeDiff = -1;
+        averageAgeDifference = -1.0;
+    }</pre></li>
+<li><b>Add the following getter and setter methods for the new fields by copying
+and pasting the following code:</b><pre>    public int getAge() {
+        // Use the java.net.* APIs to access the Duke's Age RESTful web service
+        HttpURLConnection connection = null;
+        BufferedReader rd = null;
+        StringBuilder sb = null;
+        String line = null;
+        URL serverAddress = null;
+
+        try {
+            serverAddress = new URL(
+                    "http://localhost:8080/DukesAgeService/resources/dukesAge");
+            connection = (HttpURLConnection) serverAddress.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setDoOutput(true);
+            connection.setReadTimeout(10000);
+
+            // Make the connection to Duke's Age
+            connection.connect();
+
+            // Read in the response
+            rd = new BufferedReader(
+                    new InputStreamReader(connection.getInputStream()));
+            sb = new StringBuilder();
+            while ((line = rd.readLine()) != null) {
+                sb.append(line);
+            }
+
+            // Convert the response to an int
+            age = Integer.parseInt(sb.toString());
+        } catch (MalformedURLException e) {
+            logger.warning("A MalformedURLException occurred.");
+            e.printStackTrace();
+        } catch (ProtocolException e) {
+            logger.warning("A ProtocolException occurred.");
+            e.printStackTrace();
+        } catch (IOException e) {
+            logger.warning("An IOException occurred");
+            e.printStackTrace();
+        }
+
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Date getYourBD() {
+        return yourBD;
+    }
+
+    public void setYourBD(Date yourBD) {
+        this.yourBD = yourBD;
+    }
+
+    public int getAgeDiff() {
+        return ageDiff;
+    }
+
+    public void setAgeDiff(int ageDiff) {
+        this.ageDiff = ageDiff;
+    }
+
+    public int getAbsAgeDiff() {
+        return absAgeDiff;
+    }
+
+    public void setAbsAgeDiff(int absAgeDiff) {
+        this.absAgeDiff = absAgeDiff;
+    }
+
+    public Double getAverageAgeDifference() {
+        return averageAgeDifference;
+    }
+
+    public void setAverageAgeDifference(Double averageAgeDifference) {
+        this.averageAgeDifference = averageAgeDifference;
+    }</pre></li>
+<li><b>Right-click in the editor window and select Format.</b></li>
+<li><b>Right-click in the editor window and select Fix Imports, and click OK.</b></li></ol>
+
+<a name="gcrsa"></a><h4>Get the Age Difference from the <tt>DukesBirthdayBean</tt> Enterprise Bean</h4>
+<p>During this task, you will create a <tt>processBirthday</tt> method to get the difference
+in age between the user's age and Duke's age from the EJB, set
+the <tt>absAgeDiff</tt> variable to the absolute value of the age difference, and set
+a result string that will forward the user to the display page.</p>
+
+<ol>
+<li><b>Add a <tt>processBirthday</tt> method by copying and pasting the following code just before
+the end of the class:</b><pre>    public String processBirthday() {
+        this.setAgeDiff(dukesBirthdayBean.getAgeDifference(yourBD));
+        logger.info("age diff from dukesbday " + ageDiff);
+        this.setAbsAgeDiff(Math.abs(this.getAgeDiff()));
+        logger.info("absAgeDiff " + absAgeDiff);
+        this.setAverageAgeDifference(dukesBirthdayBean.getAverageAgeDifference());
+        logger.info("averageAgeDifference " + averageAgeDifference);
+        return "/response.xhtml";
+    }</pre><p>This method calls the <tt>getAgeDifference</tt> method of <tt>DukesBirthdayBean</tt> to get the age difference
+and store it in the <tt>ageDiff</tt> property, sets the absolute age difference stored in
+the <tt>absAgeDiff</tt> property, and sets the average age difference stored in the <tt>averageAgeDifference</tt>
+property. It returns the relative URL of the response page to which the
+user will be forwarded.</p></li>
+<li><b>Right-click in the editor window and select Format.</b></li>
+<li><b>From the File menu, choose Save.</b></li></ol>
+
+<a name="gimvd"></a><h3>Creating the Facelets Client</h3>
+<p>The Facelets client consists of a <b>resource library</b>, a <b>composite component</b>, and two XHTML files.</p>
+
+
+
+<a name="gimug"></a><h4>Resource Libraries in <tt>firstcup</tt></h4>
+<p>A JavaServer Faces resource library is a collection of user-created components collected in
+a standard location in a web application. Resource libraries are identified according to
+a <b>resource identifier</b>, a string that represents a particular resource within a web application.
+Resources can be packaged either at the root of the web application or
+on the web application's classpath.</p>
+
+<p>A resource packaged in the web application root must be in a
+subdirectory of a <tt>resources</tt> directory at the web application root.</p>
+
+<pre>resources/<i>resource-identifier</i></pre><p>A resource packaged in the web application classpath must be in a
+subdirectory of the <tt>META-INF/resources</tt> directory within a web application.</p>
+
+<pre>META-INF/resources/<i>resource-identifier</i></pre><p>Resource identifiers are unique strings that conform to the following format:</p>
+
+<pre>[<i>locale-prefix</i>/][<i>library-name</i>/][<i>library-version</i>/]<i>resource-name</i>[/<i>resource-version</i>]</pre><p>Elements of the resource identifier in brackets (<tt>[]</tt>) are optional. A resource name,
+identifying a particular resource (a file or a graphic, for example), is required.
+In <tt>firstcup</tt>, a resource library with the name <tt>components</tt> is packaged in the
+web application root, and this library contains one resource, a file called <tt>inputDate.xhtml</tt>.
+The resource identifier for this resource is therefore <tt>components/inputDate.xhtml</tt>, and it is
+located in the web application root at <tt>resources/components/inputDate.xhtml</tt>.</p>
+
+
+
+<a name="gimtw"></a><h4>The <tt>inputDate</tt> Composite Component</h4>
+<p>A composite component is a set of user-defined JavaServerFaces and Facelets components located
+in a resource. In <tt>firstcup</tt>, the <tt>inputDate.xhtml</tt> resource, located in the <tt>components</tt> resource
+library, is a composite component that contains tags for reading in a date
+the user enters in a form. Composite components consist of an <b>interface</b> definition
+and an <b>implementation</b>.</p>
+
+<p>The interface definition is specified with the <tt>&lt;cc:interface></tt> tag to define which attributes
+are exposed to pages that use the composite component. Attributes are identified with
+the <tt>&lt;cc:attribute></tt> tag. </p>
+
+<p>The <tt>inputDate.xhtml</tt> interface definition is as follows. It defines a single attribute, <tt>date</tt>,
+that must be specified in pages that use the <tt>inputDate</tt> composite component.</p>
+
+<pre>&lt;cc:interface>
+    &lt;cc:attribute name="date" />
+&lt;/cc:interface></pre><p>The implementation of the composite component is specified with the <tt>&lt;cc:implementation></tt> tag.
+The tags within the <tt>&lt;cc:implementation></tt> are the actual component tags that will
+be added to pages that use the composite component. They can be any
+HTML Render Kit, JavaServer Faces, or Facelets tags. The <tt>#{cc.attrs.<i>attribute-name</i>}</tt> expression is
+used to get the value of the specified attribute from the page or
+component that is using the composite component.</p>
+
+<p>The implementation of the <tt>inputDate</tt> composite component is as follows. An HTML input
+text component will store the entered text into the <tt>date</tt> attribute, accessed by
+the <tt>#{cc.attrs.date}</tt> expression. A JavaServer Faces <tt>convertDateTime</tt> component will convert the entered text to
+a date with the form of <tt>MM/dd/yyyy</tt> (04/13/2009, for example).</p>
+
+<pre>&lt;cc:implementation>
+    &lt;h:inputText value="#{cc.attrs.date}">
+        &lt;f:convertDateTime pattern="MM/dd/yyyy" />
+    &lt;/h:inputText>
+&lt;/cc:implementation></pre>
+
+<a name="gimwv"></a><h4>Create the <tt>inputDate</tt> Composite Component</h4>
+<p>Create the <tt>inputDate</tt> composite component as a resource in the <tt>components</tt> resource library.</p>
+
+<ol>
+<li><b>Select the <tt>firstcup</tt> project in the Projects tab.</b></li>
+<li><b>From the File menu, choose New File.</b></li>
+<li><b>In the Categories pane, select JavaServer Faces.</b></li>
+<li><b>In the File Types pane, select JSF Composite Component, then click Next.</b></li>
+<li><b>In the File Name field, type <tt>inputDate</tt>.</b></li>
+<li><b>In the Folder field, type <tt>resources/components</tt>, then click Finish.</b></li>
+<li><b>Add the composite component interface definition between the opening and closing <tt>&lt;cc:interface></tt> tags
+in <tt>inputDate.xhtml</tt>:</b><pre>    &lt;cc:interface>
+        <b>&lt;cc:attribute name="date" /></b>
+    &lt;/cc:interface></pre></li>
+<li><b>Add the composite component implementation between the opening and closing <tt>cc:implementation</tt> tags:</b><pre>    &lt;cc:implementation>
+        <b>&lt;h:inputText value="#{cc.attrs.date}"></b>
+            <b>&lt;f:convertDateTime pattern="MM/dd/yyyy" /></b>
+        <b>&lt;/h:inputText></b>
+    &lt;/cc:implementation></pre></li>
+<li><b>On each of the other two lines where error glyphs appear, press Alt-Enter
+and select the library declaration that appears.</b></li>
+<li><b>Right-click in the editor window and select Format.</b></li>
+<li><b>From the File menu, choose Save.</b></li></ol>
+
+<a name="gimum"></a><h4>The Facelets Web Interface</h4>
+<p>The <tt>firstcup</tt> web application interface has two XHTML files. The <tt>greeting.xhtml</tt> file displays
+Duke's current age and the form where the user can enter a birthday.
+The <tt>response.xhtml</tt> file displays the age difference between the user and Duke.</p>
+
+<p>The <tt>greeting.xhtml</tt> file contains several pieces of the <tt>firstcup</tt> application detailed previously. It
+uses the localized strings contained in <tt>WebMessages.properties</tt> and <tt>WebMessages_es.properties</tt>. It uses the <tt>DukesBDay</tt>
+managed bean to call both the <tt>DukesAgeResource</tt> JAX-RS web service and the <tt>DukesBirthdayBean</tt> enterprise
+bean. It uses the <tt>inputDate</tt> composite component to create the input for the user
+to enter a birthday.</p>
+
+<p>Here's the content of the <tt>greeting.xhtml</tt> file.</p>
+
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;!DOCTYPE html
+      PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:fc="http://java.sun.com/jsf/composite/components">
+    &lt;h:head>
+        &lt;title>Firstcup Greeting Page&lt;/title>
+    &lt;/h:head>
+    &lt;h:body>
+        &lt;h:form>
+            &lt;h2>
+                &lt;h:outputText value="#{bundle.Welcome}"/>
+            &lt;/h2>
+            &lt;h:outputText value="#{bundle.DukeIs} "/>
+            &lt;h:outputText value="#{DukesBDay.age} #{bundle.YearsOldToday}"/>
+            &lt;p/>
+            &lt;h:outputText value="#{bundle.Instructions}"/>
+            &lt;p/>
+            &lt;h:outputText value="#{bundle.YourBD} "/>
+            &lt;fc:inputDate id="userBirthday" date="#{DukesBDay.yourBD}" />
+            &lt;h:outputText value=" #{bundle.Pattern}"/>
+            &lt;p/>
+            &lt;h:commandButton value="#{bundle.Submit}"
+                             action="#{DukesBDay.processBirthday}"/>
+            &lt;p/>
+            &lt;h:message for="userBirthday" style="color:red"/>
+        &lt;/h:form>
+
+    &lt;/h:body>
+&lt;/html></pre><p>The <tt>greeting.xhtml</tt> file uses the HTML Render Kit and the <tt>components</tt> resource library
+tag libraries. The <tt>components</tt> tag library has a prefix of <tt>fc</tt>, and is
+used to specify the <tt>inputDate</tt> composite component in the form below. The <tt>&lt;fc:inputDate id="userBirthday" date="#{DukesBDay.yourBD}" /></tt>
+tag has the required <tt>date</tt> attribute, and it stores the value in the
+<tt>yourBD</tt> property in the <tt>DukesBDay</tt> managed bean by using the EL expression
+<tt>#{DukesBDay.yourBD}</tt>.</p>
+
+<p>The localized strings are referred to by using the EL expressions <tt>#{bundle.<i>property-name</i>}</tt>.
+For example, the <tt>&lt;h:outputText value="#{bundle.Welcome}"/></tt> tag will display the following string in English locales:</p>
+
+<pre>Hi. I'm Duke. Let's find out who's older -- you or I.</pre><p>The <tt>&lt;h:commandButton></tt> tag creates a Submit button and specifies that a successful submission
+should render the <tt>response.xhtml</tt> file by setting the <tt>action</tt> attribute to <tt>#{DukesBDay.processBirthday}</tt>.
+The <tt>processBirthday</tt> method returns the value <tt>"/response.xhtml"</tt>. The <tt>action</tt> attribute is used to define
+navigation rules for forms in Facelets pages.</p>
+
+<p>If the form submission is unsuccessful, a warning message is displayed. This is
+done with the <tt>&lt;h:message for="userBirthday" style="color:red"/></tt> tag, which is connected to the <tt>inputDate</tt> composite component
+with the id <tt>userBirthday</tt>. That is, if there's an error with the input
+of the <tt>inputDate</tt> component, a warning message is displayed.</p>
+
+<p>The <tt>response.xhtml</tt> file displays the age difference between the user and Duke and
+the average age difference of all users so far. Different strings are displayed
+based on whether the user is the same age, younger, or older than
+Duke. The text can be displayed or not based on the conditions specified
+by the <tt>rendered</tt> attribute of the <tt>&lt;h:outputText></tt> tag. The conditions used in
+the <tt>rendered</tt> attribute are EL language alternatives to the Java programming language conditional operators
+to allow XML parsing of the XHTML file.</p>
+
+<a name="gimvg"></a><p class="caption">Table&nbsp;4-1 Conditional Operator EL Language Alternatives</p><table><col width="21%"><col width="52%"><col width="26%"><tr><th align="left" valign="top" scope="column"><p>Logical Condition</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Java Programming Language Conditional
+Operator</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>EL Language Alternative</p>
+
+</th>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>AND</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>&amp;&amp;</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>&amp;&amp;</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>EQUALS</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>==</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>==</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>LESS THAN</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>&lt;</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>lt</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>GREATER THAN</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>></tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>gt</tt></p>
+
+</td>
+</tr>
+</table><p>Here's the content of the <tt>response.xhtml</tt> file.</p>
+
+<pre>&lt;?xml version='1.0' encoding='UTF-8' ?>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+&lt;html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    &lt;h:head>
+        &lt;title>Response Page&lt;/title>
+    &lt;/h:head>
+    &lt;h:body>
+        &lt;h:form>
+            &lt;h:outputText value="#{bundle.YouAre} "/>
+            &lt;h:outputText value="#{bundle.SameAge}"
+                          rendered="#{DukesBDay.ageDiff == 0}"/>
+            &lt;h:outputText value="#{DukesBDay.absAgeDiff}"
+                          rendered="#{DukesBDay.ageDiff lt 0}"/>
+            &lt;h:outputText value=" #{bundle.Year} "
+                          rendered="#{DukesBDay.ageDiff == -1}"/>
+            &lt;h:outputText value=" #{bundle.Years} "
+                          rendered="#{DukesBDay.ageDiff lt -1}"/>
+            &lt;h:outputText value="#{bundle.Younger}"
+                          rendered="#{DukesBDay.ageDiff lt 0}"/>
+            &lt;h:outputText value="#{DukesBDay.absAgeDiff}"
+                          rendered="#{DukesBDay.ageDiff gt 0}"/>
+            &lt;h:outputText value=" #{bundle.Year} "
+                          rendered="#{DukesBDay.ageDiff == 1}"/>
+            &lt;h:outputText value=" #{bundle.Years} "
+                          rendered="#{DukesBDay.ageDiff gt 1}"/>
+            &lt;h:outputText value="#{bundle.Older}"
+                          rendered="#{DukesBDay.ageDiff gt 0}"/>
+            &lt;p/>
+            &lt;h:outputText 
+                value="#{bundle.AverageAge} #{DukesBDay.averageAgeDifference}."/>
+            &lt;p/>
+            &lt;h:commandButton id="back" value="#{bundle.Back}" action="greeting"/>
+        &lt;/h:form>
+    &lt;/h:body>
+&lt;/html></pre><p>For example, the <tt>#{bundle.SameAge}</tt> string is displayed if the user and Duke have
+the same birthday as specified by the condition <tt>#{DukesBDay.ageDiff == 0}</tt> in the <tt>rendered</tt>
+attribute. That is, display the following string if the <tt>ageDiff</tt> property of <tt>DukesBDay</tt> equals
+<tt>0</tt>:</p>
+
+<pre>You are the same age as Duke!</pre><p>The form also contains a <tt>&lt;h:commandButton></tt> tag that creates a back button that
+will direct the user back to the <tt>greeting.xhtml</tt> page, as specified in
+the <tt>action</tt> attribute.</p>
+
+
+
+<a name="gimxf"></a><h4>Create the XHTML Files</h4>
+<p>Create the Facelets XHTML files in NetBeans IDE.</p>
+
+<ol>
+<li><b>Select Web Pages under the <tt>firstcup</tt> project in the Projects tab.</b></li>
+<li><b>From the File menu, choose New File.</b></li>
+<li><b>In the Categories pane, select JavaServer Faces.</b></li>
+<li><b>In the File Types pane, select JSF Page, then click Next.</b></li>
+<li><b>In the File Name field, type <tt>greeting</tt>, then click Finish.</b></li>
+<li><b>Repeat the previous steps to create a new Facelets file named <tt>response</tt>.</b></li></ol>
+
+<a name="giplb"></a><h4>Set the Welcome File in the <tt>web.xml</tt> Deployment Descriptor</h4>
+<p>Configure the application to use <tt>greeting.xhtml</tt> as the welcome file by modifying <tt>web.xml</tt>.</p>
+
+<ol>
+<li><b>In the <tt>firstcup</tt> project, expand the Configuration Files node, then double-click <tt>web.xml</tt>.</b></li>
+<li><b>Click Pages.</b></li>
+<li><b>Click Browse under Welcome Files, expand Web Pages, select <tt>greeting.xhtml</tt>, and click
+Select File.</b></li>
+<li><b>Edit the Welcome Files text field so that the field looks like this:</b><pre>faces/greeting.xhtml</pre></li>
+<li><b>From the File menu, choose Save.</b></li></ol>
+
+<a name="gimua"></a><h4>Modify the XHTML Files</h4>
+<p>Modify <tt>greeting.xhtml</tt> to include the <tt>components</tt> tag library. Modify the titles of
+both files.</p>
+
+<ol>
+<li><b>In the <tt>firstcup</tt> project, double-click <tt>greeting.xhtml</tt> under Web Pages.</b></li>
+<li><b>Replace the current <tt>&lt;html></tt> tag with the following, which includes the <tt>components</tt> tag
+library:</b><pre>&lt;html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:fc="http://java.sun.com/jsf/composite/components"></pre><p>The <tt>components</tt> resource library is referred to by the <tt>fc</tt> prefix. The HTML
+Render Kit tag library is also used in <tt>greeting.xhtml</tt>.</p></li>
+<li><b>Modify the title directly after the <tt>&lt;html></tt> tag.</b><pre>&lt;h:head>
+    &lt;title><b>First Cup Greeting Page</b>&lt;/title>
+&lt;/h:head></pre></li>
+<li><b>From the File menu, choose Save.</b></li>
+<li><b>Double-click <tt>response.xhtml</tt> and modify the title as follows:</b><pre>&lt;h:head>
+    &lt;title><b>Response Page</b>&lt;/title>
+&lt;/h:head></pre></li>
+<li><b>From the File menu, choose Save.</b></li></ol>
+
+<a name="gimta"></a><h4>Add the Form to <tt>greeting.xhtml</tt></h4>
+<p>Add the form that provides the user interface for displaying Duke's age and
+specifying the user's birthday.</p>
+
+<ol>
+<li><b>In the <tt>firstcup</tt> project, in <tt>greeting.xhtml</tt>, replace the text between the <tt>&lt;h:body></tt>
+and <tt>&lt;/h:body></tt> tags with the following:</b><pre>&lt;h:form>
+    &lt;h2>
+        &lt;h:outputText value="#{bundle.Welcome}"/>
+    &lt;/h2>
+    &lt;h:outputText value="#{bundle.DukeIs} "/>
+    &lt;h:outputText value="#{DukesBDay.age} #{bundle.YearsOldToday}"/>
+    &lt;p/>
+    &lt;h:outputText value="#{bundle.Instructions}"/>
+    &lt;p/>
+    &lt;h:outputText value="#{bundle.YourBD} "/>
+    &lt;fc:inputDate id="userBirthday" date="#{DukesBDay.yourBD}" />
+    &lt;h:outputText value=" #{bundle.Pattern}"/>
+    &lt;p/>
+    &lt;h:commandButton value="#{bundle.Submit}" 
+                     action="#{DukesBDay.processBirthday}"/>
+    &lt;p/>
+    &lt;h:message for="userBirthday" style="color:red"/>
+&lt;/h:form></pre></li>
+<li><b>Right-click in the editor window and select Format.</b></li>
+<li><b>From the File menu, choose Save.</b></li></ol>
+
+<a name="gimvw"></a><h4>Add the Form to <tt>response.html</tt></h4>
+<p>Add a form that displays the age difference between Duke and the
+user, displays the average age difference of all users, and allows the user
+to navigate back to <tt>greeting.xhtml</tt>.</p>
+
+<ol>
+<li><b>In the <tt>firstcup</tt> project, in <tt>response.xhtml</tt>, replace the text between the <tt>&lt;h:body></tt>
+and <tt>&lt;/h:body></tt> tags with the following:</b><pre>&lt;h:form>
+    &lt;h:outputText value="#{bundle.YouAre} "/>
+    &lt;h:outputText value="#{bundle.SameAge}"
+                  rendered="#{DukesBDay.ageDiff == 0}"/>
+    &lt;h:outputText value="#{DukesBDay.absAgeDiff}"
+                  rendered="#{DukesBDay.ageDiff lt 0}"/>
+    &lt;h:outputText value=" #{bundle.Year} "
+                  rendered="#{DukesBDay.ageDiff == -1}"/>
+    &lt;h:outputText value=" #{bundle.Years} "
+                  rendered="#{DukesBDay.ageDiff lt -1}"/>
+    &lt;h:outputText value="#{bundle.Younger}"
+                  rendered="#{DukesBDay.ageDiff lt 0}"/>
+    &lt;h:outputText value="#{DukesBDay.absAgeDiff}"
+                  rendered="#{DukesBDay.ageDiff gt 0}"/>
+    &lt;h:outputText value=" #{bundle.Year} "
+                  rendered="#{DukesBDay.ageDiff == 1}"/>
+    &lt;h:outputText value=" #{bundle.Years} "
+                  rendered="#{DukesBDay.ageDiff gt 1}"/>
+    &lt;h:outputText value="#{bundle.Older}" 
+                  rendered="#{DukesBDay.ageDiff gt 0}"/>
+    &lt;p/>
+    &lt;h:outputText 
+        value="#{bundle.AverageAge} #{DukesBDay.averageAgeDifference}." />
+    &lt;p/>
+    &lt;h:commandButton id="back" value="#{bundle.Back}" action="greeting"/>
+&lt;/h:form></pre></li>
+<li><b>Right-click in the editor window and select Format.</b></li>
+<li><b>From the File menu, choose Save.</b></li></ol>
+         </div>
+         <div class="navigation">
+             <a href="gcrlx.html"><img src="graphics/leftButton.gif" border="0" alt="Previous" title="Previous"></a>
+             <a href="p1.html"><img src="graphics/upButton.gif" border="0" alt="Contents" title="Contents"></a>
+             <a href="gctnx.html"><img src="graphics/rightButton.gif" border="0" alt="Next" title="Next"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+<!-- Start SiteCatalyst code   -->
+<script language="JavaScript" src="http://www.oracle.com/ocom/groups/systemobject/@mktg_admin/documents/systemobject/s_code_download.js"></script>
+<script language="JavaScript" src="http://www.oracle.com/ocom/groups/systemobject/@mktg_admin/documents/systemobject/s_code.js"></script>
+ 
+<!-- ********** DO NOT ALTER ANYTHING BELOW THIS LINE ! *********** -->
+<!--  Below code will send the info to Omniture server -->
+<script language="javascript">var s_code=s.t();if(s_code)document.write(s_code)</script>
+<noscript><p>Scripting on this page tracks web page traffic,
+but does not change the content in any way.</p></noscript>
+<!-- End SiteCatalyst code -->
+</body>
+</html>
+

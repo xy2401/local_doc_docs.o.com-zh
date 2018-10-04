@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+
+<title>Oracle Communications Session Border Controller Documentation</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta charset="utf-8" />
+
+<meta name="robots" content="INDEX, FOLLOW" />
+<meta name="description" content="Oracle Communications Session Border Controller is the industry-leading session border controller (SBC) for fixed line, mobile, and over-the-top (OTT) services. Based on Acme Packet OS, Oracle Communications Session Border Controller operates on Oracle's range of purpose-built hardware platforms or general-purpose servers to deliver a unique combination of performance, capacity, high availability, and manageability that has made it the most widely deployed SBC in the world." />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+<link rel="stylesheet" href="table.css" />
+<link rel="stylesheet" href="../../../dcommon/bootstrap/css/bootstrap.css" />
+<link rel="stylesheet" href="../../../dcommon/css/forms.css" />
+<link rel="stylesheet" href="../../../dcommon/css/fonts.css" />
+<link rel="stylesheet" href="../../../dcommon/css/main.css" />
+<link rel="stylesheet" href="../../../dcommon/css/respond-480-tablet.css" />
+<link rel="stylesheet" href="../../../dcommon/css/respond-768-laptop.css" />
+<link rel="stylesheet" href="../../../dcommon/css/respond-1140-deskop.css" />
+
+<link rel="stylesheet" href="../../../dcommon/css/header.css" />
+<link rel="stylesheet" href="../../../dcommon/css/footer.css" />
+<link rel="stylesheet" href="../../../dcommon/css/leftnav.css" />
+
+<script src="../../../dcommon/js/jquery-1.11.0.min.js"></script>
+<script src="../../../dcommon/js/jquery-ui-1.10.4.custom.js"></script>
+<link href="../../../dcommon/css/jquery-ui-1.10.4.custom.css" rel="stylesheet" />
+<link rel="stylesheet" href="../../../dcommon/css/search.css" />
+<script src="../../../dcommon/js/common.js"></script>
+<script src="../../../dcommon/js/tabs.js"></script>
+<script src="../../../dcommon/js/booklist.js"></script>
+<script src="../../../dcommon/js/search.js"></script>
+<!--fonts--> 
+<link rel="stylesheet" href="../../../dcommon/glyphicons-pro/glyphicons/css/glyphicons.css" />
+<link rel="stylesheet" href="../../../dcommon/glyphicons-pro/glyphicons-social/css/glyphicons-social.css" />
+<!--bootstrap components-->
+<link rel="stylesheet" href="../../../dcommon/css/bootstrap-carousel.css" />
+<script src="../../../dcommon/js/bootstrap.min.js"></script>
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="../../../dcommon/css/ltIE9.css">
+<![endif]-->  
+ 
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+        
+<style>
+.browseall {
+    font-size: 20px;
+    padding: 5px;
+    
+}
+</style>
+<style>
+table {
+	width: 85%;
+	border-collapse: collapse;
+}
+thead > tr {
+	border-bottom: 1px solid black;
+}
+th, td {
+  padding: 5px !important;
+  text-align: center !important;
+}
+
+tr {
+  padding: 1px;
+  margin: 1px;
+  border-bottom: 1px solid #bababa;
+}
+tbody tr:hover td {
+  background-color: #f5f5f5;
+}
+
+</style>
+
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script><script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+
+
+<body id="industriesbody"  class="cloud-body category-page">
+<a href="#main" class="accessibility-top skipto">Skip to main content</a>
+<!--this body tag is only needed to highlight the navigation for demo-->
+<header>
+<div class="w1024" style="min-height: 55px; display: block; margin: 0px; padding: 0px;"><div class="oracle-logo"><a href="../"><img width="236" height="22" alt="Oracle Documentation" src="../../../dcommon/img/oracle-doc-logo.png"></a></div>
+<!--<div id="headernav" class="glyph"><ul><li id="login"><a id="signInLink" href="http://www.oracle.com/webapps/redirect/signon"><img width="14" height="19" style="vertical-align: text-bottom; padding: 0px;" alt="Sign In Icon" src="../../../dcommon/img/sign-on.png"> Sign In</a></li></ul></div>-->
+<div class="headersearch"><div id="searchcontent"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><form id="searchpage" name="searchpage" action="../apps/search/search.jsp"><label for="searchField" class="obscure">Search </label><label class="obscure" for="selectproduct">Select a product</label><select id="selectproduct" class="SELECTLRG" name="category"><option value="all">All Products</option><option value="cloud">Cloud</option><option value="applications">Applications</option><option value="middleware">Middleware</option><option value="database">Database</option><option value="bigdata">Big Data</option><option value="enterprisemanagement">Enterprise Manager</option><option value="engineeredsystems">Engineered Systems</option><option value="java">Java</option><option value="hardware">Hardware</option><option value="virtualization">Virtualization</option><option value="storage">Storage</option><option value="operatingsystems">Operating Systems</option><option value="industries" selected="selected">Industries</option></select><input type="hidden" name="product" value="undefined"><span class="gospan"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input type="text" id="searchField" class="ui-autocomplete-input" name="q" autocomplete="off"><input type="submit" id="SEARCHBUTTON" value="Submit search"></span></form></div></div>
+<div class="sign-in-out">
+<!--<span>Welcome {name}</span><a href="http://www.oracle.com/webapps/redirect/signon">Sign out</a>-->
+</div>
+</div>
+</header>
+
+<div id="content">
+<div class="left-nav">
+<ul>
+	<li class="home"><a href="../index.html"><span class="JetFW-caret02-w_16"></span>Communications</a></li>
+	<li id=""><a class="selected" href="#" style="text-decoration:none">Documentation</a></li>
+</ul></div>
+<div id="shownav" title="Show Navigation">
+<input type="image" src="../../../dcommon/img/btn-close-nav.png" alt="Open Left Navigation" title="Open Left Navigation">
+</div>
+<div id="hidenav">
+<input type="image" src="../../../dcommon/img/btn-close-nav.png" alt="Close Left Navigation" title="Close Left Navigation">
+</div>
+      <span id="libpn" style="display:none;"></span>
+        <div id="main" role="main" class="main-pad">
+           <div class="navback border-right"></div>
+      	
+
+
+    <h1>Session Border Controller Documentation</h1>
+    <p>Oracle Communications Session Border Controller is the industry-leading session border controller (SBC) for fixed line, mobile, and over-the-top (OTT) services. Based on Acme Packet OS, Oracle Communications Session Border Controller operates on Oracle's range of purpose-built hardware platforms or general-purpose servers to deliver a unique combination of performance, capacity, high availability, and manageability that has made it the most widely deployed SBC in the world. </p>
+    <p>The functions offered by Oracle Communications Session Border Controller satisfy critical service provider requirements in five major areas: security, interoperability, reliability and quality, regulatory compliance, and revenue/cost optimization. </p>
+
+	<div>
+
+	<div class="left50">
+	<h3 style="margin-top:24px">Session Border Controller</h3>
+	<hr>
+  <p><span class="Object-hover"><a href="//docs.oracle.com/cd/E95618_01/index.htm">Release S-CZ8.1.0</a></span></p>	
+
+  <p><span class="Object"><a href="//docs.oracle.com/cd/E89499_01/index.htm">Release S-CZ8.0.0</a></span></p>	
+  <p><span class="Object"><a href="//docs.oracle.com/cd/E92619_01/index.htm">Release S-CZ7.4.1m1</a></span></p>	
+  <p><span class="Object"><a href="//docs.oracle.com/cd/E81287_01/index.htm">Release S-CZ7.4.0</a></span></p>	
+  <p><span class="Object"><a href="//docs.oracle.com/cd/E85213_01/index.htm">Release S-CZ7.3.9</a></span></p>
+  <p><span class="Object"><a href="//docs.oracle.com/cd/E67973_01/index.htm">Release S-CZ7.3.0</a></span></p>
+  <p><span class="Object"><a href="//docs.oracle.com/cd/E63557_01/index.htm">Release S-CZ7.2.9</a></span></p>
+  <p><span class="Object"><a href="//docs.oracle.com/cd/E55601_01/index.htm">Release S-CZ7.2.0</a></span></p>
+  <p><span class="Object"><a href="//docs.oracle.com/cd/E50384_01/index.htm">Release S-CZ7.1.2</a></span></p>
+  <p><span class="Object"><a href="//docs.oracle.com/cd/E50366_01/index.htm">Release S-CX6.4.0</a></span></p>
+  <p><span class="Object"><a href="//docs.oracle.com/cd/E50373_01/index.htm">Release S-CX6.3.9</a></span></p>
+  <p><span class="Object"><a href="//docs.oracle.com/cd/E50376_01/index.htm">Release S-CX6.3.7</a></span></p>
+  <p><span class="Object"><a href="//docs.oracle.com/cd/E50369_01/index.htm">Release S-CX6.3.0</a></span></p>
+  <p><span class="Object"><a href="//docs.oracle.com/cd/E52358_01/index.htm">Release S-CX6.2.0</a></span></p>
+  <p><span class="Object"><a href="//docs.oracle.com/cd/E52356_01/index.htm">Release S-CX6.1.0</a></span></p>
+  
+  </div>
+
+  <div class="clear">
+  </div>
+
+  <div>
+  <h3 style="margin-top:24px">Platform Support</h3>
+	<hr>
+
+  <table>
+   <caption>Supported platforms per release</caption>
+   <thead>
+   <tr>
+    <th class="release">Releases</th>
+	<th class="NVF">NVF</th>
+	<th class="6350">AP6350</th>
+	<th class="6300">AP6300</th>
+	<th class="6100">AP6100</th>
+	<th class="4600">AP4600</th>
+	<th class="4500">AP4500</th>
+	<th class="3820">AP3820</th>
+   </tr>
+   </thead>
+   <tbody>
+      <tr>
+	<td class="release"><a href="//docs.oracle.com/cd/E95618_01/index.htm">S-CZ8.1.0</a></td>
+		<td class="NVF">&#x2714;</td>
+		<td class="6350">&#x2714;</td>
+		<td class="6300">&#x2714;</td>
+		<td class="6100">&#x2714;</td>
+		<td class="4600">&#x2714;</td>
+		<td class="4500"></td>
+		<td class="3820"></td>
+	</tr>
+   <tr>
+	<td class="release"><a href="//docs.oracle.com/cd/E89499_01/index.htm">S-CZ8.0.0</a></td>
+		<td class="NVF">&#x2714;</td>
+		<td class="6350">&#x2714;</td>
+		<td class="6300">&#x2714;</td>
+		<td class="6100">&#x2714;</td>
+		<td class="4600">&#x2714;</td>
+		<td class="4500"></td>
+		<td class="3820"></td>
+	</tr>
+	<tr>
+	<td class="release"><a href="//docs.oracle.com/cd/E81287_01/index.htm">S-CZ7.4.0</a></td>
+		<td class="NVF"></td>
+		<td class="6350"></td>
+		<td class="6300">&#x2714;</td>
+		<td class="6100">&#x2714;</td>
+		<td class="4600">&#x2714;</td>
+		<td class="4500">&#x2714;</td>
+		<td class="3820">&#x2714;</td>
+	</tr>
+	<tr>
+	<td class="release"><a href="//docs.oracle.com/cd/E85213_01/index.htm">S-CZ7.3.9</a></td>
+		<td class="NVF">&#x2714;</td>
+		<td class="6350"></td>
+		<td class="6300"></td>
+		<td class="6100"></td>
+		<td class="4600"></td>
+		<td class="4500"></td>
+		<td class="3820"></td>
+	</tr>
+	<tr>
+	<td class="release"><a href="//docs.oracle.com/cd/E67973_01/index.htm">S-CZ7.3.0</a></td>
+		<td class="NVF"></td>
+		<td class="6350"></td>
+		<td class="6300">&#x2714;</td>
+		<td class="6100">&#x2714;</td>
+		<td class="4600">&#x2714;</td>
+		<td class="4500">&#x2714;</td>
+		<td class="3820">&#x2714;</td>
+	</tr>
+	<tr>
+	<td class="release"><a href="//docs.oracle.com/cd/E63557_01/index.htm">S-CZ7.2.9</a></td>
+		<td class="NVF">&#x2714;</td>
+		<td class="6350"></td>
+		<td class="6300"></td>
+		<td class="6100"></td>
+		<td class="4600"></td>
+		<td class="4500"></td>
+		<td class="3820"></td>
+	</tr>
+	<tr>
+	<td class="release"><a href="//docs.oracle.com/cd/E55601_01/index.htm">S-CZ7.2.0</a></td>
+		<td class="NVF"></td>
+		<td class="6350"></td>
+		<td class="6300">&#x2714;</td>
+		<td class="6100">&#x2714;</td>
+		<td class="4600">&#x2714;</td>
+		<td class="4500">&#x2714;</td>
+		<td class="3820">&#x2714;</td>
+	</tr>
+	<tr>
+	<td class="release"><a href="//docs.oracle.com/cd/E50384_01/index.htm">S-CZ7.1.2</a></td>
+		<td class="NVF"></td>
+		<td class="6350"></td>
+		<td class="6300">&#x2714;</td>
+		<td class="6100"></td>
+		<td class="4600"></td>
+		<td class="4500"></td>
+		<td class="3820"></td>
+	</tr>
+	<tr>
+	<td class="release"><a href="//docs.oracle.com/cd/E50366_01/index.htm">S-CX6.4.0</a></td>
+		<td class="NVF"></td>
+		<td class="6350"></td>
+		<td class="6300"></td>
+		<td class="6100"></td>
+		<td class="4600"></td>
+		<td class="4500">&#x2714;</td>
+		<td class="3820">&#x2714;</td>
+	</tr>
+	<tr>
+	<td class="release"><a href="//docs.oracle.com/cd/E50373_01/index.htm">S-CX6.3.9</a></td>
+		<td class="NVF"></td>
+		<td class="6350"></td>
+		<td class="6300"></td>
+		<td class="6100"></td>
+		<td class="4600"></td>
+		<td class="4500">&#x2714;</td>
+		<td class="3820">&#x2714;</td>
+	</tr>
+	<tr>
+	<td class="release"><a href="//docs.oracle.com/cd/E50376_01/index.htm">S-CX6.3.7</a></td>
+		<td class="NVF"></td>
+		<td class="6350"></td>
+		<td class="6300"></td>
+		<td class="6100"></td>
+		<td class="4600"></td>
+		<td class="4500">&#x2714;</td>
+		<td class="3820">&#x2714;</td>
+	</tr>
+	<tr>
+	<td class="release"><a href="//docs.oracle.com/cd/E50369_01/index.htm">S-CX6.3.0</a></td>
+		<td class="NVF"></td>
+		<td class="6350"></td>
+		<td class="6300"></td>
+		<td class="6100"></td>
+		<td class="4600"></td>
+		<td class="4500">&#x2714;</td>
+		<td class="3820">&#x2714;</td>
+	</tr>
+	<tr>
+	<td class="release"><a href="//docs.oracle.com/cd/E52358_01/index.htm">S-CX6.2.0</a></td>
+		<td class="NVF"></td>
+		<td class="6350"></td>
+		<td class="6300"></td>
+		<td class="6100"></td>
+		<td class="4600"></td>
+		<td class="4500">&#x2714;</td>
+		<td class="3820">&#x2714;</td>
+	</tr>
+	<tr>
+	<td class="release"><a href="//docs.oracle.com/cd/E52356_01/index.htm">S-CX6.1.0</a></td>
+		<td class="NVF"></td>
+		<td class="6350"></td>
+		<td class="6300"></td>
+		<td class="6100"></td>
+		<td class="4600"></td>
+		<td class="4500">&#x2714;</td>
+		<td class="3820">&#x2714;</td>
+	</tr>
+	</tbody>
+  </table>
+  </div>
+  
+  <div class="clear">
+  </div>
+  
+  <div class="left50">
+	<h3 style="margin-top:24px">9200 Platform Releases</h3>
+	<hr>
+  <p><span class="Object"><a href="//docs.oracle.com/cd/E50397_01/index.htm">Release S-D7.2.0</a></span></p>
+  <p><span class="Object"><a href="//docs.oracle.com/cd/E52139_01/index.htm">Release S-D7.1.0</a></span></p>
+  
+  
+  </div>
+ 
+  
+<br>
+<br>
+
+   </div>
+  </div>
+    <script src="../../../dcommon/js/helpdrawer.js"></script>
+       
+      	<!--start help drawer -->
+
+<div id="helpdrawer" class="border-left shadow"  >
+
+<div id="helptab" class="border">
+<button aria-label="Help Drawer" id="helpbutton">
+<span class="glyphicons glyphicons-circle-question-mark helpicon" aria-hidden="true" ></span>
+</button>
+</div>
+<div id="helpdrawercontents">
+<!--start help drawer contents -->
+<div class="panel-group" id="accordion">
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a data-toggle="collapse" data-parent="#accordion" 
+          href="#collapseOne"><h4 class="panel-title">Feedback</h4></a>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse  in">
+      <div class="panel-body" id="feedbackForm">
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <a data-toggle="collapse" data-parent="#accordion" 
+          href="#collapseTwo"><h4 class="panel-title">Search tips</h4></a>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+   <h5 id="HelpDrawerfordocs.oracle.com-HowdoInarrowmysearchresults?">How do I narrow my search results?</h5>
+<p>After you submit your search query:</p>
+<ol>
+  <li>On the <strong>Refine Search</strong> results page, select one or more categories of products or services from the left sidebar.</li>
+  <li>Then for a category with search results, click <strong>Select</strong> to choose your product and release filters, and then click <strong>OK</strong>.</li>
+</ol>
+<p>For search queries that contain multiple words, surround the query with quotes, and then resubmit your query. Example: &quot;database cloud service&quot;</p>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <a data-toggle="collapse" data-parent="#accordion" 
+          href="#collapseThree"><h4 class="panel-title">Navigation tips</h4></a>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+<h5 id="HelpDrawerfordocs.oracle.com-HowdoIfindthedocumentationformyproductorservice?">How do I find the documentation for my product or service?</h5>
+<p>From the home page, click the technology categories for your products or services. If you do not know which category to pick, try the following features:</p>
+<ul>
+  <li>Click the <strong>Find a product</strong> tab and search for your product or service.</li>
+  <li>Click <strong>Browse All Products &amp; Services</strong> at the bottom of the home page to view an alphabetical listing of products and services.</li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <a data-toggle="collapse" data-parent="#accordion" 
+          href="#collapseFour"><h4 class="panel-title">Browser support</h4></a>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse">
+      <div class="panel-body">
+   <ul>
+  <li>Apple Safari: Version 6</li>
+  <li>Google Chrome: Version 29 and later</li>
+  <li>Mozilla Firefox: Version 24 and later</li>
+  <li>Microsoft Internet Explorer: Version 9 and later</li>
+</ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end help drawer contents -->
+</div>
+</div>
+<!--end help drawer -->
+
+<!--<div id="helpful" class="w834 margin-top"><div class="innertube-10">Was this page helpful? 
+    <form name="form1" method="post" action="" style="margin-left:5px;display:inline;">  
+        <label style="display:inline; margin-left:5px;">
+          <input type="radio" name="RadioGroup1" value="radio" id="RadioGroup1_0">
+          Yes</label>
+  
+        <label style="display:inline; margin-left:5px;">
+          <input type="radio" name="RadioGroup1" value="radio" id="RadioGroup1_1">
+          No</label>
+
+
+    </form>
+<div style="float:right;display:inline;"><a href="#">Send Feedback</a></div></div></div>-->
+       <br style="clear:both;"> 
+       <br>
+        </div>
+</div>
+</div>
+      
+</div>
+<!--end content-->
+
+<a href="#main" class="accessibility skipto">Back to main content</a>  
+  
+ <footer></footer>
+
+<script src="../../../dcommon/js/main.js"></script>
+<script src="../../../dcommon/js/jquery.matchHeight.js" type="text/javascript"></script>
+
+</body>
+</html>     
+

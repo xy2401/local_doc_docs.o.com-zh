@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Add Security Support</title>
+<meta name="generator" content="DITA Open Toolkit version 1.7.5" />
+<meta name="dcterms.created" content="2015-05-27T21:10:48Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Programming Notes" />
+<meta name="dcterms.identifier" content="E59598-01" />
+<meta name="dcterms.isVersionOf" content="JCPCL" />
+<meta name="dcterms.rights" content="Copyright &nbsp;&copy;&nbsp;1998, 2015, Oracle and/or its affiliates. All rights reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="card_terminal_interaction.htm" title="Previous" type="text/html" />
+<link rel="Next" href="initialize_a_security_service.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCPCL.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-0F1BBC62-DC27-459C-A705-E2F51DAF5DD1"></a> <span id="PAGE" style="display:none;">58/72</span> <!-- End Header --><a id="JCPCL160"></a>
+<h1 id="JCPCL-GUID-0F1BBC62-DC27-459C-A705-E2F51DAF5DD1" class="sect1">Add Security Support</h1>
+<div>
+<p>The previous <a href="sample_applet.htm#GUID-F73227F3-771D-4628-A702-54740B787F87">Sample Applet</a> example is extremely simple and is not realistic. In particular, it does not include any form of security. Users are not authenticated and no transport security is provided. Of course, every smart card that implements the Java Card platform includes such security mechanisms, because they are central to Java Card technology.</p>
+<p>The following section describes how to add security support to the <code>Purse</code> example.</p>
+<p>The <code>Purse</code> interface in the package <code>examples.securepurse</code> is similar to the <code>Purse</code> interface used in the <a href="sample_applet.htm#GUID-F73227F3-771D-4628-A702-54740B787F87">Sample Applet</a> example. In addition, it might include reason codes for exceptions to report security violations to the terminal. This example replaces the <code>Purse</code> interface used in the<a href="sample_applet.htm#GUID-F73227F3-771D-4628-A702-54740B787F87">Sample Applet</a> example with the following <code>examples.securepurse</code> code. The<code>Purse</code> interface in the <code>examples.securepurse</code> does not include an implementation, which means that, in particular, it does not include any support for security.</p>
+<p>The applet keeps its original organization but it also includes additional code that is dedicated to the management of security.</p>
+<pre>
+package examples.securepurse;
+
+import javacard.framework.*;
+import javacard.framework.service.*;
+import java.rmi.*;
+
+public class SecurePurseImpl implements Purse {
+    private short balance;
+    private SecurityService security;
+
+    SecurePurseImpl(SecurityService security) {
+        this.security = security;
+    }
+
+    public short debit(short amount) throws RemoteException, UserException {
+        if ((!security
+                .isCommandSecure(SecurityService.PROPERTY_INPUT_INTEGRITY))
+                || (!security
+                         .isAuthenticated(SecurityService.PRINCIPAL_CARDHOLDER)))
+           UserException.throwIt(REQUEST_FAILED);
+        if (( amount &lt; 0 )|| ( balance &lt; amount ))
+            UserException.throwIt(REQUEST_FAILED);
+        balance -= amount;
+        return balance;
+    }
+
+    public short credit(short amount) throws RemoteException, UserException {
+        if ((!security
+                .isCommandSecure(SecurityService.PROPERTY_INPUT_INTEGRITY))
+                || (!security
+                        .isAuthenticated(SecurityService.PRINCIPAL_APP_PROVIDER)))
+           UserException.throwIt(REQUEST_FAILED);
+        if (( amount &lt; 0 )||( amount &gt; MAX_AMOUNT ))
+           UserException.throwIt(REQUEST_FAILED);
+        balance += amount;
+        return balance;
+    }
+
+    public short getBalance() throws RemoteException, UserException {
+        if ((!security.isAuthenticated(SecurityService.PRINCIPAL_CARDHOLDER))
+                &amp;&amp; (!security
+                        .isAuthenticated(SecurityService.PRINCIPAL_APP_PROVIDER)))
+            UserException.throwIt(REQUEST_FAILED);
+        return balance;
+    }
+}
+
+</pre></div>
+<div>
+<div class="linklist">The following topics describe how to perform tasks associated with adding security support to the example:<br />
+<div><a href="initialize_a_security_service.htm#GUID-97EA0B23-0F73-40E1-88DD-1721B0961E79">Initialize a Security Service</a></div>
+<div><a href="use_the_service_to_check_the_current_security_status.htm#GUID-A21CF100-FE84-44A2-87CA-47EA213C2A6A">Use the Service to Check the Current Security Status</a></div>
+<div><a href="security_service_example.htm#GUID-29D5E2F9-3925-482C-AAAF-73C85D3A5D0B">Security Service Example</a></div>
+<div><a href="more_secure_applet.htm#GUID-0821D1AF-B877-4043-9ED0-A0176CA4D1E5">More Secure Applet</a></div>
+<div><a href="client_changes_to_support_security.htm#GUID-680E6158-39B7-4C8F-A50D-AE629DA0A98C">Client Changes to Support Security</a></div>
+<div><a href="customcardaccessor_class_for_authentication_and_signing.htm#GUID-1539B715-4D76-4052-B851-2FC5619A09B7">CustomCardAccessor Class for Authentication and Signing</a></div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment106">
+<tr>
+<td class="cellalignment113">
+<table class="cellalignment111">
+<tr>
+<td class="cellalignment110"><a href="card_terminal_interaction.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment110"><a href="initialize_a_security_service.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright &nbsp;&copy;&nbsp;1998, 2015, Oracle and/or its affiliates. All rights reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment115">
+<table class="cellalignment109">
+<tr>
+<td class="cellalignment110"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment110"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment110"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

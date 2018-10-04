@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<title>Introduction</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = document) - Version 1.0.24" />
+<meta name="dcterms.created" content="2014-07-01T13:22:30Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="SigTest User's Guide" />
+<meta name="dcterms.identifier" content="E19036-03" />
+<meta name="dcterms.isVersionOf" content="SIGTS" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2006, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="security.htm" title="Previous" type="text/html" />
+<link rel="Next" href="part1.htm" title="Next" type="text/html" />
+<link rel="alternate" href="SIGTS.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../../nav/css/html5.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<span id="PAGE" style="display:none;">8/25</span> <!-- End Header --><a id="Z4000c4324081"></a>
+<h1 class="chapter"><span class="secnum">2</span> Introduction</h1>
+<p>The SigTest product is a collection of tools that can be used to compare APIs and to measure the test coverage of an API. The tools were originally created to assist in the creation of Java technology compatibility test suites (TCKs), but are also useful in the creation of other types of test suites and in the software development process. The SigTest product consists of the following tools.</p>
+<p><span class="bold">Signature Test tool</span> makes it easy to compare the signatures of two different implementations or different versions of the same API. When it compares different implementations of the same API, the tool verifies that all of the members are present, reports when new members are added, and checks the specified behavior of each API member. When it compares different versions of the same API, the tool checks that the old version can be replaced by the new one without adversely affecting existing clients of the API.</p>
+<p><span class="bold">API Coverage tool</span> can be used to estimate the test coverage a test suite provides for an implementation of a specified API. It does this by determining how many public class members the test suite references within the API specification. The tool uses a signature file representation of the API specification as the source of specification analysis. It does not process a formal specification in any form.</p>
+<p><span class="bold">API Check tool</span> tracks API changes and roughly checks for source and binary compatibility. Much like Signature Test tool, it compares the reference implementation of an API recorded as golden signature file with a tested implementation. Unlike Signature Test tool, which requires that all classes (and the classes they depend on) be specified to the tool, API Check tool does not require dependencies to be specified. For that reason, API Check tool is faster than Signature Test tool, but less rigorous.</p>
+<p>Part I of this manual describes how to use the Signature Test Tool, Part II describes how to use the API Coverage tool, Part III describes how to use the API Check tool, and Part IV contains two appendices that include step-by-step examples that show how to use the Signature Test tool and the rules used in the Signature Test API migration feature.</p>
+<a id="Z4000c4324066"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">2.1</span> Global Functionality</h2>
+<p>This section describes functionality that is available to all the tools and their commands.</p>
+<a id="Z4000c4324047"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">2.1.1</span> Option File</h3>
+<p>All of the tools accept options from a option file as well as from the command line. Option files allow you to create complex command lines in a text editor and then reuse them.</p>
+<p>The option file is specified on the tool command line using the &rdquo;@&rdquo; character as shown in the following example.</p>
+<pre>
+java -jar sigtest.jar test @<span class="italic">file</span>
+</pre>
+<p>In this case, <span class="italic">file</span> is the path to a option file. You can use a combination of option files and command-line options as shown in the following example.</p>
+<pre>
+java -jar sigtest.jar test @<span class="italic">file</span> -package com.acme.api.printing.color
+</pre>
+<a id="Z4000c4324041"></a>
+<div class="sect3">
+<h4 class="sect3"><span class="secnum">2.1.1.1</span> Option File Format</h4>
+<p>In addition to options and their arguments, option files can also contain &rdquo;set&rdquo; commands that you can use to set variables for use within the option file. The option file syntax is demonstrated in <a href="#Z4000fc724488">Example 2-1</a>.</p>
+<div class="example">
+<p class="titleinexample"><a id="Z4000fc724488"></a>Example 2-1 Option File</p>
+<pre>
+#--------------------------------------------------
+#This option file checks the API against JRE 1.6
+#--------------------------------------------------
+
+set HOME=/home/ersh
+set JRE=/opt/java/jre16
+set AMCE_HOME=$(HOME)/projects/release
+set API=$(ACME_HOME)/lib/ams.jar
+
+
+static
+backward
+classpath=$(JRE)/lib/rt.jar:$(API)
+filename=$(ACME_HOME)/misc/reference.sig
+</pre></div>
+<!-- class="example" -->
+<p>This option file is equivalent to the following command line.</p>
+<pre>
+java -jar sigtest.jar test -static -backward -classpath /opt/java/jre16/lib/rt.jar:/home/ersh/projects/release/lib/ams.jar 
+-filename /home/ersh/projects/acmesystem/msc/reference.sig 
+-package com.acme.api.printing.color
+</pre></div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" -->
+<a id="Z4000c4324059"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">2.1.2</span> The -version Option</h3>
+<p>All of the tools and commands support the <code>-version</code> option as a way to display information about the tools and will list which signature files they are compatible with. In addition, you can specify the <code>-version</code> option as an argument directly to the JAR file as well as shown here.</p>
+<pre>
+java -jar sigtest.jar -version
+</pre></div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" --></div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment24">
+<tr>
+<td class="cellalignment31">
+<table class="cellalignment29">
+<tr>
+<td class="cellalignment28"><a href="security.htm"><img width="24" height="24" src="../../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment28"><a href="part1.htm"><img width="24" height="24" src="../../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2006, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment33">
+<table class="cellalignment27">
+<tr>
+<td class="cellalignment28"><a href="../../index.html"><img width="24" height="24" src="../../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment28"><a href="toc.htm"><img width="24" height="24" src="../../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment28"><a href="../../dcommon/html/feedback.htm"><img width="24" height="24" src="../../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

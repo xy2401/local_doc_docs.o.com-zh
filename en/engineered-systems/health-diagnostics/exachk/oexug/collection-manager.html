@@ -1,0 +1,2141 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="Oracle Health Check Collections Manager for Oracle Application Express 4.2 provides you an enterprise-wide view of your health check collection data.">
+      <meta name="description" content="Oracle Health Check Collections Manager for Oracle Application Express 4.2 provides you an enterprise-wide view of your health check collection data.">
+      <title>Oracle Health Check Collections Manager for Oracle Application Express 4.2</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide">
+      <meta property="og:description" content="Oracle Health Check Collections Manager for Oracle Application Express 4.2 provides you an enterprise-wide view of your health check collection data.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-orachk-and-exachk-users-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:43:23-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2016, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E83827-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/exachk">
+      
+      <link rel="prev" href="apex5-managing-oracle-health-check-collection-manager.html" title="Previous" type="text/html">
+      <link rel="next" href="integration-with-other-tools.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"exachk","element_name":"EXAchk","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® ORAchk and EXAchk User's Guide">
+    <meta name="dcterms.isVersionOf" content="OEXUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="apex5-managing-oracle-health-check-collection-manager.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="integration-with-other-tools.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="oracle-orachk-and-exachk-common-features-tasks.html" property="item" typeof="WebPage"><span property="name">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Oracle Health Check Collections Manager for Oracle Application Express 4.2</li>
+            </ol>
+            <a id="GUID-BC64F401-438E-4CE5-914C-577BD3A12EB1" name="GUID-BC64F401-438E-4CE5-914C-577BD3A12EB1"></a>
+            
+            <h2 id="OEXUG-GUID-BC64F401-438E-4CE5-914C-577BD3A12EB1" class="sect2"><span class="enumeration_section">1.10 </span>Oracle Health Check Collections Manager for Oracle Application Express 4.2
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>Oracle Health Check Collections Manager for Oracle Application Express 4.2 provides you an enterprise-wide view of your health check collection data.</p>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="collection-manager.html#GUID-2C9453CE-7CFB-4F5D-AF46-5428226A70BE">Installation</a><br>Follow the installation procedures sequentially to install Oracle Health Check Collections Manager.
+                  </li>
+                  <li class="ulchildlink"><a href="collection-manager.html#GUID-59FE5056-A343-4E36-852A-C0F7A965B16C">Upgrading Oracle Health Check Collections Manager Application</a><br>Oracle ORAchk or Oracle EXAchk automatically upgrades new versions of the Oracle Health Check Collections Manager.
+                  </li>
+                  <li class="ulchildlink"><a href="collection-manager.html#GUID-09B56D9E-8534-48D4-BEFE-AC8622C1AEC6">Getting Started</a><br>Familiarize yourself with the Oracle Health Check Collections Manager Application.
+                  </li>
+                  <li class="ulchildlink"><a href="collection-manager.html#GUID-B519798F-588A-474A-BA00-0A4AECDE91FE">Oracle Health Check Collections Manager Application Features</a><br>Familiarize yourself with the features of Oracle Health Check Collections Manager Application. 
+                  </li>
+                  <li class="ulchildlink"><a href="collection-manager.html#GUID-E603563E-350A-41B9-9AC6-A4D57163C74E">Uploading Collections Automatically</a><br>Configure Oracle ORAchk and Oracle EXAchk to automatically upload check results to the Oracle Health Check Collections Manager database.
+                  </li>
+                  <li class="ulchildlink"><a href="collection-manager.html#GUID-61C2670E-9475-4D39-8305-EE67F8E42AEE">Viewing and Reattempting Failed Uploads</a><br>Use these procedures to view and reattempt to upload the failed uploads.
+                  </li>
+                  <li class="ulchildlink"><a href="collection-manager.html#GUID-2CB944BB-9A12-4291-898A-0E42199CACA3">Oracle Health Check Collections Manager Application Uninstallation</a><br>Anytime you can decommission Oracle Health Check Collections Manager Application setup. Follow these steps sequentially to uninstall the application leaving no residual files.
+                  </li>
+                  <li class="ulchildlink"><a href="collection-manager.html#GUID-5C80908E-52BD-4048-9165-6CB3F88F2ED4">Troubleshooting Oracle Health Check Collections Manager</a><br>This topic describes how to troubleshoot Oracle Health Check Collections Manager.
+                  </li>
+               </ul>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="oracle-orachk-and-exachk-common-features-tasks.html#GUID-50F7EA11-11FD-431C-B99A-EC9E2176BBDB" title="Oracle ORAchk and Oracle EXAchk share a common health check framework and a large portion of their features and tasks are common.">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</a></p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="sect2"><a id="GUID-2C9453CE-7CFB-4F5D-AF46-5428226A70BE" name="GUID-2C9453CE-7CFB-4F5D-AF46-5428226A70BE"></a><h3 id="OEXUG-GUID-2C9453CE-7CFB-4F5D-AF46-5428226A70BE" class="sect3"><span class="enumeration_section">1.10.1 </span>Installation
+               </h3>
+               <div>
+                  <p>Follow the installation procedures sequentially to install Oracle Health Check Collections Manager.</p>
+                  <div class="infoboxnote" id="GUID-2C9453CE-7CFB-4F5D-AF46-5428226A70BE__GUID-1B51E295-475F-4B38-A863-428BF2F2E5C7">
+                     <p class="notep1">Note:</p>
+                     <p>Upgrade Oracle Health Check Collections Manager directly from the Oracle ORAchk or Oracle EXAchk tool.</p>
+                  </div>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="collection-manager.html#GUID-EF73A7DD-2983-4FFB-98AB-640C06326A17">Configuring Oracle Application Express and Creating a Workspace</a><br>To configure Oracle Application Express and create a workspace, follow these procedures.
+                     </li>
+                     <li class="ulchildlink"><a href="collection-manager.html#GUID-0ECE5F90-F3AF-49DD-A612-EE578B8ED513">Install Oracle Health Check Collections Manager Application</a><br>To install Oracle Health Check Collections Manager, follow these procedures.
+                     </li>
+                     <li class="ulchildlink"><a href="collection-manager.html#GUID-B04743C6-B044-40D9-B842-3600688F69F4">Log in to Oracle Health Check Collections Manager Application</a><br>To log in to Oracle Health Check Collections Manager, follow these procedures.
+                     </li>
+                  </ul>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="orachk-exachk-command-line-options.html#GUID-413A8E05-A713-474E-961F-766BBB25A781" title="List of commands to manage Oracle Health Check Collections Manager.">Running Oracle Health Check Collections Manager Commands</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-BC64F401-438E-4CE5-914C-577BD3A12EB1" title="Oracle Health Check Collections Manager for Oracle Application Express 4.2 provides you an enterprise-wide view of your health check collection data.">Oracle Health Check Collections Manager for Oracle Application Express 4.2</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="sect3"><a id="GUID-EF73A7DD-2983-4FFB-98AB-640C06326A17" name="GUID-EF73A7DD-2983-4FFB-98AB-640C06326A17"></a><h4 id="OEXUG-GUID-EF73A7DD-2983-4FFB-98AB-640C06326A17" class="sect4"><span class="enumeration_section">1.10.1.1 </span>Configuring Oracle Application Express and Creating a Workspace
+                  </h4>
+                  <div>
+                     <p>To configure Oracle Application Express and create a workspace, follow these procedures.</p>
+                     <div class="section">If the Oracle Application Express 4.2 component is already installed and configured on your database, then skip to <a href="collection-manager.html#GUID-0ECE5F90-F3AF-49DD-A612-EE578B8ED513" title="To install Oracle Health Check Collections Manager, follow these procedures.">Install Collection Manager Application</a>.
+                     </div>
+                     <!-- class="section" -->
+                     <ol>
+                        <li class="stepexpand"><span>Download the latest version of Oracle Application Express.</span></li>
+                        <li class="stepexpand"><span>To install and configure Oracle Application Express, refer to the Application Express Installation Guide.</span></li>
+                        <li class="stepexpand"><span>Create a workspace.</span><ol type="a">
+                              <li class="substepexpand"><span>Log in to Oracle Application Express administration services.</span><div>
+                                    <div class="p">
+                                       <div class="infoboxnote" id="GUID-EF73A7DD-2983-4FFB-98AB-640C06326A17__GUID-01860D5E-843E-4135-A915-6AB56C5B1E26">
+                                          <p class="notep1">Note:</p>
+                                          <p>The URLs used for accessing the Oracle Health Check Collections Manager application depend on how Oracle Application Express was deployed initially.</p>
+                                          <ul style="list-style-type: disc;">
+                                             <li>
+                                                <div class="p">If you have configured Oracle Application Express using the Oracle HTTP Server with <code class="codeph">mod_plsql</code>, then specify the URL as follows:<pre class="pre codeblock"><code>http://host:port/pls/apex/apex_admin</code></pre></div>
+                                             </li>
+                                             <li>
+                                                <div class="p">If you have configured Oracle Application Express the Oracle XML DB HTTP listener with the embedded PL/SQL gateway, then specify the URL as follows:<pre class="pre codeblock"><code>http://host:port/apex/apex_admin</code></pre></div>
+                                                <div class="p">For example:<pre class="pre codeblock"><code>http://dbserver.domain.com:8080/apex/apex_admin</code></pre></div>
+                                             </li>
+                                          </ul>
+                                       </div>
+                                    </div>
+                                    <ul style="list-style-type: disc;">
+                                       <li>
+                                          <p>The default schema user for Oracle Application Express administration services in the Oracle database is <code class="codeph">ADMIN</code>.
+                                          </p>
+                                       </li>
+                                       <li>
+                                          <p>The password is the one you gave at the time of configuring the Oracle Application Express component in the Oracle database.</p>
+                                       </li>
+                                    </ul>
+                                    <div class="p">
+                                       <div class="figure" id="GUID-EF73A7DD-2983-4FFB-98AB-640C06326A17__GUID-7AC31F57-22F0-431D-9DA5-2C381D746084">
+                                          <p class="titleinfigure">Figure 1-88 Administration Services Login</p><img src="img/administration-services-login.png" alt="Description of Figure 1-88 follows" title="Description of Figure 1-88 follows" longdesc="img_text/administration-services-login.html"><br><a href="img_text/administration-services-login.html">Description of "Figure 1-88 Administration Services Login"</a></div>
+                                       <!-- class="figure" -->
+                                    </div>
+                                 </div>
+                              </li>
+                              <li class="substepexpand"><span>In the Oracle Application Express Admin home page, click <span class="bold">Manage Workspaces</span>.</span><div>
+                                    <div class="p">
+                                       <div class="figure" id="GUID-EF73A7DD-2983-4FFB-98AB-640C06326A17__GUID-588DCADF-7281-4136-8015-13905F60E0A9">
+                                          <p class="titleinfigure">Figure 1-89 Manage Workspaces</p><img src="img/manage-workspaces.png" alt="Description of Figure 1-89 follows" title="Description of Figure 1-89 follows" longdesc="img_text/manage-workspaces.html"><br><a href="img_text/manage-workspaces.html">Description of "Figure 1-89 Manage Workspaces"</a></div>
+                                       <!-- class="figure" -->
+                                    </div>
+                                 </div>
+                              </li>
+                              <li class="substepexpand"><span>Under <span class="bold">Workspace Actions</span>, click <span class="bold">Create Workspace</span>.</span><div>
+                                    <p>The Create Workspace Wizard appears.</p>
+                                    <div class="p">
+                                       <div class="figure" id="GUID-EF73A7DD-2983-4FFB-98AB-640C06326A17__GUID-29EADD8B-DC31-4FE6-BAD1-DD6CB90446AD">
+                                          <p class="titleinfigure">Figure 1-90 Identify Workspace</p><img src="img/identify-workspace.png" alt="Description of Figure 1-90 follows" title="Description of Figure 1-90 follows" longdesc="img_text/identify-workspace.html"><br><a href="img_text/identify-workspace.html">Description of "Figure 1-90 Identify Workspace"</a></div>
+                                       <!-- class="figure" -->
+                                    </div>
+                                    <ul style="list-style-type: disc;">
+                                       <li>
+                                          <p><span class="bold">Identify Workspace:</span></p>
+                                          <ol type="i">
+                                             <li>
+                                                <p><span class="bold">Workspace Name</span>: Enter a unique workspace name, for example, <code class="codeph">ORAchk_CM_WS</code>.
+                                                </p>
+                                             </li>
+                                             <li>
+                                                <p><span class="bold">Workspace ID</span>: Leave Workspace ID blank to have the new Workspace ID automatically generated.
+                                                </p>
+                                                <p>Workspace ID must be a positive integer greater than 100000.</p>
+                                             </li>
+                                             <li>
+                                                <p><span class="bold">Workspace Description</span>: Enter workspace description.
+                                                </p>
+                                             </li>
+                                             <li>
+                                                <p>Click <span class="bold">Next</span>.
+                                                </p>
+                                             </li>
+                                          </ol>
+                                          <div class="p">
+                                             <div class="infoboxnote" id="GUID-EF73A7DD-2983-4FFB-98AB-640C06326A17__GUID-3CCEBD7F-9E99-4C71-8D0E-1E2F142386E4">
+                                                <p class="notep1">Note:</p>
+                                                <p>Associate a workspace with a database schema.</p>
+                                             </div>
+                                          </div>
+                                       </li>
+                                       <li>
+                                          <p><span class="bold">Identify Schema:</span></p>
+                                          <ol type="i">
+                                             <li>
+                                                <p>Specify whether you are reusing an existing schema or creating a new one. This depends on whether you already have Oracle ORAchk and Oracle EXAchk configured to upload data to a schema in the database.  If you do, then specify the existing schema.  If not, then the name of the schema you create must be the one you intend to use for uploading the Oracle ORAchk data once configured.</p>
+                                             </li>
+                                             <li>
+                                                <p>If you choose an existing schema in the database, then it should not be an Oracle Application Express administration schema (admin).</p>
+                                                <ul style="list-style-type: disc;">
+                                                   <li>
+                                                      <p>If you are using an existing schema:</p>
+                                                      <ol>
+                                                         <li>
+                                                            <p>For <span class="bold">Re-use existing schema</span>, select <span class="bold">YES</span>.
+                                                            </p>
+                                                         </li>
+                                                         <li>
+                                                            <p>Select a schema from the list.</p>
+                                                         </li>
+                                                         <li>
+                                                            <p>Click <span class="bold">Next</span>.
+                                                            </p>
+                                                            <div class="p">
+                                                               <div class="figure" id="GUID-EF73A7DD-2983-4FFB-98AB-640C06326A17__GUID-8D37F0E0-D86B-4B6C-A380-D024B09D417F">
+                                                                  <p class="titleinfigure">Figure 1-91 Identify Schema - Reuse Schema</p><img src="img/identify-schema.png" alt="Description of Figure 1-91 follows" title="Description of Figure 1-91 follows" longdesc="img_text/identify-schema.html"><br><a href="img_text/identify-schema.html">Description of "Figure 1-91 Identify Schema - Reuse Schema"</a></div>
+                                                               <!-- class="figure" -->
+                                                            </div>
+                                                         </li>
+                                                      </ol>
+                                                   </li>
+                                                   <li>
+                                                      <p>If you are creating a new schema:</p>
+                                                      <ol>
+                                                         <li>
+                                                            <p>For <span class="bold">Re-use existing schema</span>, select <span class="bold">NO</span>.
+                                                            </p>
+                                                         </li>
+                                                         <li>
+                                                            <p>Enter the schema name and password, for example, ORAchk_admin, and so on.</p>
+                                                         </li>
+                                                         <li>
+                                                            <p>Specify the space quota.</p>
+                                                         </li>
+                                                         <li>
+                                                            <p>Click <span class="bold">Next</span>.
+                                                            </p>
+                                                            <div class="p">
+                                                               <div class="figure" id="GUID-EF73A7DD-2983-4FFB-98AB-640C06326A17__GUID-F7A105EF-F362-43AD-A1BD-92F9CCAAA857">
+                                                                  <p class="titleinfigure">Figure 1-92 Identify Schema - New Schema</p><img src="img/identify-schema-new-schema.png" alt="Description of Figure 1-92 follows" title="Description of Figure 1-92 follows" longdesc="img_text/identify-schema-new-schema.html"><br><a href="img_text/identify-schema-new-schema.html">Description of "Figure 1-92 Identify Schema - New Schema"</a></div>
+                                                               <!-- class="figure" -->
+                                                            </div>
+                                                            <div class="infoboxnote" id="GUID-EF73A7DD-2983-4FFB-98AB-640C06326A17__GUID-0B00B044-608F-4BC8-A4DF-B3AAB806F6FF">
+                                                               <p class="notep1">Note:</p>
+                                                               <p>Minimum Space Quota should not be less than 100 MB to prevent application import failures.</p>
+                                                            </div>
+                                                         </li>
+                                                      </ol>
+                                                   </li>
+                                                </ul>
+                                             </li>
+                                          </ol>
+                                       </li>
+                                       <li>
+                                          <p><span class="bold">Identify Administrator:</span></p>
+                                          <ol type="i">
+                                             <li>
+                                                <p>Enter administrator user name and password.</p>
+                                             </li>
+                                             <li>
+                                                <p>Enter Personal details.</p>
+                                             </li>
+                                             <li>
+                                                <p>Click <span class="bold">Next</span>.
+                                                </p>
+                                                <div class="p">
+                                                   <div class="figure" id="GUID-EF73A7DD-2983-4FFB-98AB-640C06326A17__GUID-5471C3E9-0BA6-490A-B9CE-7EE08240EEB8">
+                                                      <p class="titleinfigure">Figure 1-93 Identify Administrator</p><img src="img/identify-administrator.png" alt="Description of Figure 1-93 follows" title="Description of Figure 1-93 follows" longdesc="img_text/identify-administrator.html"><br><a href="img_text/identify-administrator.html">Description of "Figure 1-93 Identify Administrator"</a></div>
+                                                   <!-- class="figure" -->
+                                                </div>
+                                             </li>
+                                          </ol>
+                                       </li>
+                                       <li>
+                                          <p>Confirm your selections and then click <span class="bold">Create Workspace</span>.
+                                          </p>
+                                          <div class="p">
+                                             <div class="figure" id="GUID-EF73A7DD-2983-4FFB-98AB-640C06326A17__GUID-1E1C591B-D1DB-4566-8233-E2ECBF5A83DE">
+                                                <p class="titleinfigure">Figure 1-94 Create Workspace - Confirm Request</p><img src="img/create-workspace-confirm-request.png" alt="Description of Figure 1-94 follows" title="Description of Figure 1-94 follows" longdesc="img_text/create-workspace-confirm-request.html"><br><a href="img_text/create-workspace-confirm-request.html">Description of "Figure 1-94 Create Workspace - Confirm Request"</a></div>
+                                             <!-- class="figure" -->
+                                          </div>
+                                          <p>Your workspace is created.</p>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                           </ol>
+                        </li>
+                        <li class="stepexpand"><span>Click <span class="bold">Manage Workspaces</span>.</span><div>
+                              <ul style="list-style-type: disc;">
+                                 <li>
+                                    <p>Under <span class="bold">Workspace Reports</span>, click <span class="bold">Existing Workspaces</span>.
+                                    </p>
+                                    <div class="p">
+                                       <div class="figure" id="GUID-EF73A7DD-2983-4FFB-98AB-640C06326A17__GUID-AAD35513-D9DF-46EA-98FD-D7B476248FAB">
+                                          <p class="titleinfigure">Figure 1-95 Manage Workspaces - Existing Workspaces</p><img src="img/manage-workspaces-existing-workspaces.png" alt="Description of Figure 1-95 follows" title="Description of Figure 1-95 follows" longdesc="img_text/manage-workspaces-existing-workspaces.html"><br><a href="img_text/manage-workspaces-existing-workspaces.html">Description of "Figure 1-95 Manage Workspaces - Existing Workspaces"</a></div>
+                                       <!-- class="figure" -->
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <p>To edit Workspace information, click the workspace name, edit any necessary details, and then click <span class="bold">Apply Changes</span>.
+                                    </p>
+                                 </li>
+                                 <li>
+                                    <p>Log out from Oracle Application Express Administration services.</p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <ul class="ullinks">
+                        <li class="ulchildlink"><a href="collection-manager.html#GUID-A9C2BF65-BFAC-4178-A96D-F1C31FB6866A">Log in to the Workspace</a><br>To log in to Application Express admin user workspace, follow these procedures.
+                        </li>
+                        <li class="ulchildlink"><a href="collection-manager.html#GUID-3B8C051B-32FE-4EF0-B614-59D140B52487">Application Express User Accounts</a><br>Application Express provides three types of users, namely, workspace administrators, developers, and end users.
+                        </li>
+                     </ul>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="http://www.oracle.com/technetwork/developer-tools/apex/downloads/index.html" target="_blank">http://www.oracle.com/technetwork/developer-tools/apex/downloads/index.html</a></li>
+                           <li><a href="https://docs.oracle.com/cd/E59726_01/install.50/e39144/toc.htm" target="_blank">https://docs.oracle.com/cd/E59726_01/install.50/e39144/toc.htm</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-2C9453CE-7CFB-4F5D-AF46-5428226A70BE" title="Follow the installation procedures sequentially to install Oracle Health Check Collections Manager.">Installation</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="sect4"><a id="GUID-A9C2BF65-BFAC-4178-A96D-F1C31FB6866A" name="GUID-A9C2BF65-BFAC-4178-A96D-F1C31FB6866A"></a><h5 id="OEXUG-GUID-A9C2BF65-BFAC-4178-A96D-F1C31FB6866A" class="sect5"><span class="enumeration_section">1.10.1.1.1 </span>Log in to the Workspace
+                     </h5>
+                     <div>
+                        <p>To log in to Application Express admin user workspace, follow these procedures.</p>
+                        <ol>
+                           <li class="stepexpand"><span>Log in to Oracle Application Express Admin User Workspace.</span><div>
+                                 <div class="infoboxnote" id="GUID-A9C2BF65-BFAC-4178-A96D-F1C31FB6866A__GUID-AD784408-4ED9-4E73-81E5-DD046DC5AE6A">
+                                    <p class="notep1">Note:</p>
+                                    <p>The URLs used for accessing the Oracle Health Check Collections Manager application depend on how Oracle Application Express was deployed initially.</p>
+                                    <ul style="list-style-type: disc;">
+                                       <li>
+                                          <div class="p">If you have configured Oracle Application Express the Oracle HTTP Server with <code class="codeph">mod_plsql</code>, then specify the URL as follows:<pre class="pre codeblock"><code>http://host:port/pls/apex/apex_admin</code></pre></div>
+                                       </li>
+                                       <li>
+                                          <div class="p">If you have configured Oracle Application Express using the Oracle XML DB HTTP listener with the embedded PL/SQL gateway, then specify the URL as follows:<pre class="pre codeblock"><code>http://host:port/apex/apex_admin</code></pre></div>
+                                          <div class="p">For example:<pre class="pre codeblock"><code>http://dbserver.domain.com:8080/apex/apex_admin</code></pre></div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </li>
+                           <li class="stepexpand"><span>Enter the workspace name, workspace user name, and password details to log in.</span><div>
+                                 <div class="p">
+                                    <div class="figure" id="GUID-A9C2BF65-BFAC-4178-A96D-F1C31FB6866A__GUID-EFB78649-1BF8-4AEF-8536-74614856697E">
+                                       <p class="titleinfigure">Figure 1-96 Log into the Workspace</p><img src="img/log-workspace.png" alt="Description of Figure 1-96 follows" title="Description of Figure 1-96 follows" longdesc="img_text/log-workspace.html"><br><a href="img_text/log-workspace.html">Description of "Figure 1-96 Log into the Workspace"</a></div>
+                                    <!-- class="figure" -->
+                                 </div>
+                              </div>
+                           </li>
+                           <li class="stepexpand"><span>For the first time login, Application Express prompts you to change the password.</span></li>
+                           <li class="stepexpand"><span>Log in again using the new password.</span></li>
+                        </ol>
+                     </div>
+                     <div>
+                        <div class="familylinks">
+                           <div class="parentlink">
+                              <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-EF73A7DD-2983-4FFB-98AB-640C06326A17" title="To configure Oracle Application Express and create a workspace, follow these procedures.">Configuring Oracle Application Express and Creating a Workspace</a></p>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+                  <div class="sect4"><a id="GUID-3B8C051B-32FE-4EF0-B614-59D140B52487" name="GUID-3B8C051B-32FE-4EF0-B614-59D140B52487"></a><h5 id="OEXUG-GUID-3B8C051B-32FE-4EF0-B614-59D140B52487" class="sect5"><span class="enumeration_section">1.10.1.1.2 </span>Application Express User Accounts
+                     </h5>
+                     <div>
+                        <p>Application Express provides three types of users, namely, workspace administrators, developers, and end users.</p>
+                        <div class="section">
+                           <div class="tblformal" id="GUID-3B8C051B-32FE-4EF0-B614-59D140B52487__GUID-3D8061B5-29F6-4B3C-A283-DDFC47946C3D">
+                              <p class="titleintable">Table 1-16 Application Express Types of Users</p>
+                              <table cellpadding="4" cellspacing="0" class="Formal" title="Application Express Types of Users" summary="Describes the types of Application Express users, their privileges, and the actions they can perform." frame="hsides" border="1" rules="rows">
+                                 <thead>
+                                    <tr align="left" valign="top">
+                                       <th align="left" valign="bottom" width="20%" id="d32831e575">Type of User</th>
+                                       <th align="left" valign="bottom" width="20%" id="d32831e577">Description</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr align="left" valign="top">
+                                       <td align="left" valign="top" width="20%" id="d32831e581" headers="d32831e575 ">
+                                          <p>Workspace administrators</p>
+                                       </td>
+                                       <td align="left" valign="top" width="20%" headers="d32831e581 d32831e577 ">
+                                          <p>Workspace administrators can also create and edit user accounts, manage groups, and manage development services.</p>
+                                       </td>
+                                    </tr>
+                                    <tr align="left" valign="top">
+                                       <td align="left" valign="top" width="20%" id="d32831e588" headers="d32831e575 ">
+                                          <p>Developers</p>
+                                       </td>
+                                       <td align="left" valign="top" width="20%" headers="d32831e588 d32831e577 ">
+                                          <p>Developers&nbsp;can create and modify applications and database objects.</p>
+                                       </td>
+                                    </tr>
+                                    <tr align="left" valign="top">
+                                       <td align="left" valign="top" width="20%" id="d32831e595" headers="d32831e575 ">
+                                          <p>End users</p>
+                                       </td>
+                                       <td align="left" valign="top" width="20%" headers="d32831e595 d32831e577 ">
+                                          <p>End users are non-administrative who have no development privileges and can only access applications that do not use an external authentication scheme. For the Oracle Health Check Collections Manager Application, almost all the users fall into this category. A special role within the Oracle Health Check Collections Manager Application, DBA Managers, and the DBAs manage all application users.</p>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </div>
+                           <!-- class="inftblhruleinformal" -->
+                           <p>To grant access to the Oracle Health Check Collections Manager Application for non-administrative users (End users), you must log in to the Workspace as an Admin user.</p>
+                        </div>
+                        <!-- class="section" -->
+                        <ol>
+                           <li class="stepexpand"><span>Log in to Oracle Application Express admin user workspace.</span></li>
+                           <li class="stepexpand"><span>Click the <span class="bold">Administration</span> tab.</span></li>
+                           <li class="stepexpand"><span>Click <span class="bold">Manage Users and Groups</span>.</span></li>
+                           <li class="stepexpand"><span>Click <span class="bold">Create User</span>.</span><div>
+                                 <ul style="list-style-type: disc;">
+                                    <li>
+                                       <p>These users are application admin users, DBA Managers, and DBAs who can authenticate to the application and manage their collections.</p>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </li>
+                           <li class="stepexpand"><span>Fill in the user details.</span><div>
+                                 <ul style="list-style-type: disc;">
+                                    <li>
+                                       <p>Follow a consistent naming convention and specify unique user names. A reasonable naming convention would be <code class="codeph">firstname.lastname</code>.
+                                       </p>
+                                       <div class="p">
+                                          <div class="figure" id="GUID-3B8C051B-32FE-4EF0-B614-59D140B52487__GUID-6469EB9D-FFA5-4C0E-9623-20A6A94C0E3F">
+                                             <p class="titleinfigure">Figure 1-97 Application Express User Accounts</p><img src="img/application-express-user-accounts.png" alt="Description of Figure 1-97 follows" title="Description of Figure 1-97 follows" longdesc="img_text/application-express-user-accounts.html"><br><a href="img_text/application-express-user-accounts.html">Description of "Figure 1-97 Application Express User Accounts"</a></div>
+                                          <!-- class="figure" -->
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <p>For non-administrators, use the default, <span class="bold">No</span> for <span class="bold">User is a developer</span> and <span class="bold">User is a Workspace Administrator</span> options.
+                                       </p>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </li>
+                           <li class="stepexpand"><span>Assign a temporary password for each user and communicate that password to the end user.  Application Express prompts them to change this password the first time they log in.</span></li>
+                           <li class="stepexpand"><span>Click <span class="bold">Create User</span>.</span></li>
+                        </ol>
+                     </div>
+                     <div>
+                        <div class="familylinks">
+                           <div class="parentlink">
+                              <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-EF73A7DD-2983-4FFB-98AB-640C06326A17" title="To configure Oracle Application Express and create a workspace, follow these procedures.">Configuring Oracle Application Express and Creating a Workspace</a></p>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+               </div>
+               <div class="sect3"><a id="GUID-0ECE5F90-F3AF-49DD-A612-EE578B8ED513" name="GUID-0ECE5F90-F3AF-49DD-A612-EE578B8ED513"></a><h4 id="OEXUG-GUID-0ECE5F90-F3AF-49DD-A612-EE578B8ED513" class="sect4"><span class="enumeration_section">1.10.1.2 </span>Install Oracle Health Check Collections Manager Application
+                  </h4>
+                  <div>
+                     <p>To install Oracle Health Check Collections Manager, follow these procedures.</p>
+                     <ol>
+                        <li class="stepexpand"><span>Verify if the workspace admin schema owner and the owner of the schema used for import of the Oracle Health Check Collections Manager Application have grants to:</span><div>
+                              <ul style="list-style-type: disc;">
+                                 <li>
+                                    <p><code class="codeph">Create Job</code></p>
+                                 </li>
+                                 <li>
+                                    <p>Execute on the database packages <code class="codeph">DBMS_RLS</code> and <code class="codeph">UTL_SMTP</code> owned by the <code class="codeph">SYS</code> user.
+                                    </p>
+                                 </li>
+                              </ul>
+                              <p>The Oracle Health Check Collections Manager Application is distributed as an SQL script. Stage the script on the workstation that is used to install the application.</p>
+                              <p>Execute privilege on the database package <code class="codeph">UTL_SMTP</code> is required only if you use Oracle Health Check Collections Manager Email Notification System Feature. Oracle Health Check Collections Manager uses <code class="codeph">UTL_SMTP</code> package on one of the objects <code class="codeph">RAC13_EMAIL</code>. Failing to grant <code class="codeph">EXECUTE ON UTL_SMTP</code> privilege to workspace owner ends up in compilation error. You can see this information in the <span class="bold">Installation Summary</span>. Ignore this information, if you are not using the Oracle Health Check Collections Manager Email Notification System feature.
+                              </p>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Verify if you have required privileges by running the SQL query as follows: </span><div>
+                              <div class="p"><pre class="pre codeblock"><code>select GRANTEE,TABLE_NAME,PRIVILEGE  from USER_TAB_PRIVS; 
+GRANTEE      TABLE_NAME	PRIVILEGE
+CM_USER     DBMS_RLS		EXECUTE
+CM_USER     UTL_SMTP		EXECUTE
+
+select USERNAME,PRIVILEGE from USER_SYS_PRIVS;
+USERNAME    PRIVILEGE
+CM_USER     CREATE JOB
+</code></pre></div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Log in to the Oracle Application Express workspace administration services.</span></li>
+                        <li class="stepexpand"><span>Click <span class="bold">Application Builder</span> on the&nbsp;<span class="bold">Home</span> page.</span><div>
+                              <div class="p">
+                                 <div class="figure" id="GUID-0ECE5F90-F3AF-49DD-A612-EE578B8ED513__GUID-0C614105-D977-40BE-B2E2-BA18ECD83C1C">
+                                    <p class="titleinfigure">Figure 1-98 Home Page</p><img src="img/home-page.png" alt="Description of Figure 1-98 follows" title="Description of Figure 1-98 follows" longdesc="img_text/home-page.html"><br><a href="img_text/home-page.html">Description of "Figure 1-98 Home Page"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                              <div class="p">
+                                 <div class="figure" id="GUID-0ECE5F90-F3AF-49DD-A612-EE578B8ED513__GUID-AF45556A-7F2D-47E9-AFC4-16771C61C233">
+                                    <p class="titleinfigure">Figure 1-99 Application Builder</p><img src="img/application-builder.png" alt="Description of Figure 1-99 follows" title="Description of Figure 1-99 follows" longdesc="img_text/application-builder.html"><br><a href="img_text/application-builder.html">Description of "Figure 1-99 Application Builder"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Click <span class="bold">Import </span>.</span></li>
+                        <li class="stepexpand"><span>Click <span class="bold">Choose import file</span>, select the SQL script appropriate for the Oracle Application Express version you are using.</span><div>
+                              <p><code class="codeph">CollectionManager_App.sql</code> when using Oracle Application Express 4.2
+                              </p>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span><span class="bold">File type</span>: select the default option <span class="bold">Database Application</span>, or <span class="bold">Component Export</span>.</span></li>
+                        <li class="stepexpand"><span><span class="bold">File Character Set</span>: select the default option <span class="bold">Unicode UTF-8</span>.</span></li>
+                        <li class="stepexpand"><span>Click <span class="bold">Next</span>.</span><div>
+                              <div class="p">
+                                 <div class="figure" id="GUID-0ECE5F90-F3AF-49DD-A612-EE578B8ED513__GUID-B5BA5579-B267-4AEC-91D5-79BECB40043A">
+                                    <p class="titleinfigure">Figure 1-100 Specify File</p><img src="img/specify-file.png" alt="Description of Figure 1-100 follows" title="Description of Figure 1-100 follows" longdesc="img_text/specify-file.html"><br><a href="img_text/specify-file.html">Description of "Figure 1-100 Specify File"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Click <span class="bold">Install Application</span>.</span><div>
+                              <div class="p">
+                                 <div class="figure" id="GUID-0ECE5F90-F3AF-49DD-A612-EE578B8ED513__GUID-A66EE871-0580-4D0C-A848-9C7D25E933C6">
+                                    <p class="titleinfigure">Figure 1-101 File Import Confirmation</p><img src="img/file-import-confirmation.png" alt="Description of Figure 1-101 follows" title="Description of Figure 1-101 follows" longdesc="img_text/file-import-confirmation.html"><br><a href="img_text/file-import-confirmation.html">Description of "Figure 1-101 File Import Confirmation"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Click <span class="bold">Next</span>.</span><div>
+                              <div class="p">
+                                 <div class="infoboxnote" id="GUID-0ECE5F90-F3AF-49DD-A612-EE578B8ED513__GUID-0086FE2B-A56F-4544-BDFB-EA6C307E9C75">
+                                    <p class="notep1">Note:</p>
+                                    <p>Ensure that the execute privilege on <code class="codeph">DBMS_RLS</code> and <code class="codeph">UTL_SMTP</code> packages and <code class="codeph">create job</code> sys privilege are granted to parsing schema owner before starting the import of the application. This prevents database support object creation failures that prevent the proper installation of the application.
+                                    </p>
+                                 </div>
+                              </div>
+                              <ul style="list-style-type: disc;">
+                                 <li>
+                                    <p>For Parsing Schema, select the schema specified for the workspace.</p>
+                                 </li>
+                                 <li>
+                                    <p><span class="bold">Build Status</span>: select default option <span class="bold">Run and Build Application</span>.
+                                    </p>
+                                 </li>
+                                 <li>
+                                    <p>Install As Application.</p>
+                                 </li>
+                                 <li>
+                                    <p>Select any one option based on your requirement or if possible use the same application id as it is easy to upgrade the application in future. However, the application Id must be unique. Ensure that the application ID is not used by any other application, or any workspace administrators within Oracle Application Express Administration server.</p>
+                                    <div class="p">
+                                       <div class="figure" id="GUID-0ECE5F90-F3AF-49DD-A612-EE578B8ED513__GUID-BEAFE5A7-BCA2-423E-B791-04197B91DAA6">
+                                          <p class="titleinfigure">Figure 1-102 Install Application</p><img src="img/install-application.png" alt="Description of Figure 1-102 follows" title="Description of Figure 1-102 follows" longdesc="img_text/install-application.html"><br><a href="img_text/install-application.html">Description of "Figure 1-102 Install Application"</a></div>
+                                       <!-- class="figure" -->
+                                    </div>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Click <span class="bold">Install Application</span>.</span><div>
+                              <ul style="list-style-type: disc;">
+                                 <li>
+                                    <p>Installing Application takes some time, please wait.</p>
+                                 </li>
+                                 <li>
+                                    <p>Verify the application name and parsing schema, free space allocated for the application. Ensure that install Supporting Objects, is always<span class="bold">Yes</span>.
+                                    </p>
+                                    <div class="p">
+                                       <div class="figure" id="GUID-0ECE5F90-F3AF-49DD-A612-EE578B8ED513__GUID-ED1715DB-3EDC-4603-BCE4-A9B2624EFC9B">
+                                          <p class="titleinfigure">Figure 1-103 Supporting Objects</p><img src="img/supporting-objects.png" alt="Description of Figure 1-103 follows" title="Description of Figure 1-103 follows" longdesc="img_text/supporting-objects.html"><br><a href="img_text/supporting-objects.html">Description of "Figure 1-103 Supporting Objects"</a></div>
+                                       <!-- class="figure" -->
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <p>Grant the required privileges to the workspace owner.</p>
+                                    <div class="p">
+                                       <div class="figure" id="GUID-0ECE5F90-F3AF-49DD-A612-EE578B8ED513__GUID-C4114F8A-FB04-4A69-80BF-7C1C481B3952">
+                                          <p class="titleinfigure">Figure 1-104 Validations</p><img src="img/validations.png" alt="Description of Figure 1-104 follows" title="Description of Figure 1-104 follows" longdesc="img_text/validations.html"><br><a href="img_text/validations.html">Description of "Figure 1-104 Validations"</a></div>
+                                       <!-- class="figure" -->
+                                    </div>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Click <span class="bold">Next</span>.</span><div>
+                              <div class="p">
+                                 <div class="figure" id="GUID-0ECE5F90-F3AF-49DD-A612-EE578B8ED513__GUID-7F6CF550-C5B9-4B0B-965F-29D0F73335E2">
+                                    <p class="titleinfigure">Figure 1-105 Install Applications Supporting Objects</p><img src="img/install-applications-supporting-objects.png" alt="Description of Figure 1-105 follows" title="Description of Figure 1-105 follows" longdesc="img_text/install-applications-supporting-objects.html"><br><a href="img_text/install-applications-supporting-objects.html">Description of "Figure 1-105 Install Applications Supporting Objects"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Click <span class="bold">Install</span>.</span><div>
+                              <div class="p">
+                                 <div class="figure" id="GUID-0ECE5F90-F3AF-49DD-A612-EE578B8ED513__GUID-2785CE9C-231B-4B96-8CE1-DFEDBE0E4014">
+                                    <p class="titleinfigure">Figure 1-106 Application Installed Successfully</p><img src="img/application-installed-successfully.png" alt="Description of Figure 1-106 follows" title="Description of Figure 1-106 follows" longdesc="img_text/application-installed-successfully.html"><br><a href="img_text/application-installed-successfully.html">Description of "Figure 1-106 Application Installed Successfully"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Review the <span class="bold">Installation summary</span> for any errors or installation of database objects and seed data has failures.</span></li>
+                        <li class="stepexpand"><span>Capture the application ID generated for the application from the dialog upon successful installation of the application.</span><div>
+                              <p>The application ID is used in the URLs for accessing the application. Distribute the correct URL to the eventual users of the application.</p>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Click <span class="bold">Run Application</span>.</span></li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-2C9453CE-7CFB-4F5D-AF46-5428226A70BE" title="Follow the installation procedures sequentially to install Oracle Health Check Collections Manager.">Installation</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-B04743C6-B044-40D9-B842-3600688F69F4" name="GUID-B04743C6-B044-40D9-B842-3600688F69F4"></a><h4 id="OEXUG-GUID-B04743C6-B044-40D9-B842-3600688F69F4" class="sect4"><span class="enumeration_section">1.10.1.3 </span>Log in to Oracle Health Check Collections Manager Application
+                  </h4>
+                  <div>
+                     <p>To log in to Oracle Health Check Collections Manager, follow these procedures.</p>
+                     <ol>
+                        <li class="stepexpand"><span>Enter user name and password details to log in to the Oracle Health Check Collections Manager Application, click <span class="bold">Login</span>.</span><div>
+                              <div class="p">
+                                 <div class="figure" id="GUID-B04743C6-B044-40D9-B842-3600688F69F4__GUID-E3DF1D79-A4E8-4E74-AC93-0668A3F13426">
+                                    <p class="titleinfigure">Figure 1-107 Log in to Oracle Health Check Collections Manager Application</p><img src="img/login-collection-manager-application.png" alt="Description of Figure 1-107 follows" title="Description of Figure 1-107 follows" longdesc="img_text/login-collection-manager-application.html"><br><a href="img_text/login-collection-manager-application.html">Description of "Figure 1-107 Log in to Oracle Health Check Collections Manager Application"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                              <p>After successful login, you are all set to use Oracle Health Check Collections Manager Application and its features.</p>
+                              <p>By default, the Oracle Health Check Collections Manager Application is deployed with some default sample data for acclimating new users to the application. Oracle Health Check Collections Manager displays the sample data In the <span class="bold">Home</span> page. Sample data is hidden automatically once your own data starts streaming into the application as you establish the automation and upload functionality of the tool. If you are already using the upload functionality and have your audit check results data in the database tables, and that data replaces the sample data.
+                              </p>
+                              <div class="p">
+                                 <div class="figure" id="GUID-B04743C6-B044-40D9-B842-3600688F69F4__GUID-068B1549-D354-4875-A3C5-B69EC7B064C1">
+                                    <p class="titleinfigure">Figure 1-108 Oracle Health Check Collections Manager Default View</p><img src="img/collection-manager-default-view.png" alt="Description of Figure 1-108 follows" title="Description of Figure 1-108 follows" longdesc="img_text/collection-manager-default-view.html"><br><a href="img_text/collection-manager-default-view.html">Description of "Figure 1-108 Oracle Health Check Collections Manager Default View"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Log in to Oracle Health Check Collections Manager Application as End user:</span><div>
+                              <ul style="list-style-type: disc;">
+                                 <li>
+                                    <p>The end user is not an administrator. The end users have only limited access to the application. Non-administrator users cannot do any administrative access unless administrator or developer privileges are granted.</p>
+                                 </li>
+                                 <li>
+                                    <p>The <span class="bold">End User</span> accounts must exist in the workspace where the application is installed.
+                                    </p>
+                                 </li>
+                                 <li>
+                                    <p>To log in to the application, end user needs an application URL and login credentials.</p>
+                                    <div class="p"> Provide the end users with one of the following URLs (they are interchangeable) and the temporary password that was assigned for them.<pre class="pre codeblock"><code>http://hostname:port/apex/f?p=ApplicationID</code></pre><pre class="pre codeblock"><code>http://hostname:port/pls/apex/f?p=ApplicationID</code></pre></div>
+                                    <div class="p">For example:<pre class="pre codeblock"><code>http://dbserver.domain.com:8080/apex/f?p=103</code></pre></div>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-2C9453CE-7CFB-4F5D-AF46-5428226A70BE" title="Follow the installation procedures sequentially to install Oracle Health Check Collections Manager.">Installation</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-59FE5056-A343-4E36-852A-C0F7A965B16C" name="GUID-59FE5056-A343-4E36-852A-C0F7A965B16C"></a><h3 id="OEXUG-GUID-59FE5056-A343-4E36-852A-C0F7A965B16C" class="sect3"><span class="enumeration_section">1.10.2 </span>Upgrading Oracle Health Check Collections Manager Application
+               </h3>
+               <div>
+                  <p>Oracle ORAchk or Oracle EXAchk automatically upgrades new versions of the Oracle Health Check Collections Manager.</p>
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="apex5-managing-oracle-health-check-collection-manager.html#GUID-311BB1E6-5A37-40A0-AA18-915171CAE47C" title="Oracle ORAchk or Oracle EXAchk automatically upgrades new versions of the Oracle Health Check Collections Manager.">Upgrading Oracle Health Check Collections Manager Application</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-BC64F401-438E-4CE5-914C-577BD3A12EB1" title="Oracle Health Check Collections Manager for Oracle Application Express 4.2 provides you an enterprise-wide view of your health check collection data.">Oracle Health Check Collections Manager for Oracle Application Express 4.2</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-09B56D9E-8534-48D4-BEFE-AC8622C1AEC6" name="GUID-09B56D9E-8534-48D4-BEFE-AC8622C1AEC6"></a><h3 id="OEXUG-GUID-09B56D9E-8534-48D4-BEFE-AC8622C1AEC6" class="sect3"><span class="enumeration_section">1.10.3 </span>Getting Started
+               </h3>
+               <div>
+                  <p>Familiarize yourself with the Oracle Health Check Collections Manager Application.</p>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="collection-manager.html#GUID-3D856148-5642-4B8F-867C-6816A6A3185E">Incident Ticket System Lookup Lists and Seed Data</a><br>Oracle Health Check Collections Manager Application provides a basic Incident Ticket system.
+                     </li>
+                     <li class="ulchildlink"><a href="collection-manager.html#GUID-E1AC4E34-88A2-4D63-A48A-EB6289B82F68">Access Control System</a><br>Limit and control access based on functional roles.
+                     </li>
+                     <li class="ulchildlink"><a href="collection-manager.html#GUID-E25981CD-E37E-490F-A175-1647E77F99B9">Oracle Health Check Collections Manager Application Administration</a><br>To restrict authorized users alone to access the application, grant sufficient privileges to different roles.
+                     </li>
+                     <li class="ulchildlink"><a href="collection-manager.html#GUID-E9C9297F-F375-4D93-83F8-4303E5E45296">Selectively Capturing Users During Login</a><br>Configure Oracle Health Check Collections Manager to capture user details and assign the users Oracle Health Check Collections Manager roles.
+                     </li>
+                     <li class="ulchildlink"><a href="collection-manager.html#GUID-8542ABA2-AB70-42E6-80D7-E261E21D1B68">Configuring Email Notification System</a><br>Oracle Health Check Collections Manager provides an email notification system that users can subscribe to.
+                     </li>
+                     <li class="ulchildlink"><a href="collection-manager.html#GUID-EF6C0974-FB09-4A98-B6F3-D7E4F84AF70B">Bulk Mapping Systems to Business Units</a><br>Oracle Health Check Collections Manager provides an XML bulk upload option so that you can quickly map many systems to business units.
+                     </li>
+                     <li class="ulchildlink"><a href="collection-manager.html#GUID-BBB21140-6A33-4023-91A4-6059AFFA4C0A">Adjusting or Disabling Old Collections Purging</a><br>Modify or disable the purge schedule for Oracle Health Check Collections Manager collection data. 
+                     </li>
+                  </ul>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-BC64F401-438E-4CE5-914C-577BD3A12EB1" title="Oracle Health Check Collections Manager for Oracle Application Express 4.2 provides you an enterprise-wide view of your health check collection data.">Oracle Health Check Collections Manager for Oracle Application Express 4.2</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="sect3"><a id="GUID-3D856148-5642-4B8F-867C-6816A6A3185E" name="GUID-3D856148-5642-4B8F-867C-6816A6A3185E"></a><h4 id="OEXUG-GUID-3D856148-5642-4B8F-867C-6816A6A3185E" class="sect4"><span class="enumeration_section">1.10.3.1 </span>Incident Ticket System Lookup Lists and Seed Data
+                  </h4>
+                  <div>
+                     <p>Oracle Health Check Collections Manager Application provides a basic Incident Ticket system.</p>
+                     <p>Oracle Health Check Collections Manager Application is deployed with seed data for the lookup lists used for data entry for incident tickets:</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Products</p>
+                        </li>
+                        <li>
+                           <p>Category</p>
+                        </li>
+                        <li>
+                           <p>Customer Contacts</p>
+                        </li>
+                        <li>
+                           <p>Notifications</p>
+                        </li>
+                        <li>
+                           <p>Status Codes</p>
+                        </li>
+                        <li>
+                           <p>Incident Severity</p>
+                        </li>
+                        <li>
+                           <p>Incident Urgency</p>
+                        </li>
+                     </ul>
+                     <p>The seed data is values that are commonly used. Add or change the seed data provided with the application. However, you must have administrator privileges to manage seed data through the <span class="bold">Administration</span> tab.
+                     </p>
+                     <p>To access the <span class="bold">Administration</span> tab, click the gear icon at the upper-right corner.
+                     </p>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-09B56D9E-8534-48D4-BEFE-AC8622C1AEC6" title="Familiarize yourself with the Oracle Health Check Collections Manager Application.">Getting Started</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-E1AC4E34-88A2-4D63-A48A-EB6289B82F68" name="GUID-E1AC4E34-88A2-4D63-A48A-EB6289B82F68"></a><h4 id="OEXUG-GUID-E1AC4E34-88A2-4D63-A48A-EB6289B82F68" class="sect4"><span class="enumeration_section">1.10.3.2 </span>Access Control System
+                  </h4>
+                  <div>
+                     <p>Limit and control access based on functional roles.</p>
+                     <p>By default, the Access Control system is disabled. If Access Control is disabled, then all authenticated users are granted administrator privileges and can access all application features. To assign one or more roles to the end users, manage access controls through the <span class="bold">Administration</span> tab. You can enable the following three functional roles available in the Oracle Health Check Collections Manager.
+                     </p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p><span class="bold">Admin:</span> Admin role user can also be a Workspace Administrator for the application and it depends on your functional roles requirements.
+                           </p>
+                        </li>
+                        <li>
+                           <p><span class="bold">DBA Manager</span></p>
+                        </li>
+                        <li>
+                           <p><span class="bold">DBA</span></p>
+                        </li>
+                     </ul>
+                     <p>Assign role to the users after configuring the Access Control system.</p>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-09B56D9E-8534-48D4-BEFE-AC8622C1AEC6" title="Familiarize yourself with the Oracle Health Check Collections Manager Application.">Getting Started</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-E25981CD-E37E-490F-A175-1647E77F99B9" name="GUID-E25981CD-E37E-490F-A175-1647E77F99B9"></a><h4 id="OEXUG-GUID-E25981CD-E37E-490F-A175-1647E77F99B9" class="sect4"><span class="enumeration_section">1.10.3.3 </span>Oracle Health Check Collections Manager Application Administration
+                  </h4>
+                  <div>
+                     <p>To restrict authorized users alone to access the application, grant sufficient privileges to different roles.</p>
+                     <div class="section">
+                        <p class="subhead3" id="GUID-E25981CD-E37E-490F-A175-1647E77F99B9__GUID-62E3116F-05C6-4C6E-B3DB-7F77AD78798A">Admin</p>
+                        <p>Any end user who is granted an admin role by the workspace administrator has administrator privileges within the Collection Manager application.</p>
+                        <div class="p">Log in to Oracle Health Check Collections Manager Application using a URL as follows:<pre class="pre codeblock"><code>http://hostname:port/apex/f?p=ApplicationID
+http://hostname:port/pls/apex/f?p=ApplicationID)</code></pre>For example: <pre class="pre codeblock"><code>http://dbserver.domain.com:8080/apex/f?p=103</code></pre></div>
+                        <p>As an admin user, you must see the Administration menu (gear icon) at the upper-right corner. Click this icon to go to the Administration page.</p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>Following are the admin user privileges:</p>
+                              <ul style="list-style-type: disc;">
+                                 <li>
+                                    <p>Add or revoke admin privileges</p>
+                                 </li>
+                                 <li>
+                                    <p>Define Business Units (BU)</p>
+                                 </li>
+                                 <li>
+                                    <p>Assign DBA Manager role to users</p>
+                                 </li>
+                                 <li>
+                                    <p>Assign DBA Managers to one or more BUs</p>
+                                 </li>
+                                 <li>
+                                    <p>Assign systems to BUs (a system can belong to one BU)</p>
+                                 </li>
+                                 <li>
+                                    <p>Assign DBAs to DBA Managers</p>
+                                 </li>
+                                 <li>
+                                    <p>Assign systems to DBAs</p>
+                                 </li>
+                                 <li>
+                                    <p>Ignore any check on a collection, BU, or system</p>
+                                 </li>
+                                 <li>
+                                    <p>Create and assign incidents to any user</p>
+                                 </li>
+                                 <li>
+                                    <p>Manage all incidents</p>
+                                 </li>
+                              </ul>
+                              <div class="p">
+                                 <div class="figure" id="GUID-E25981CD-E37E-490F-A175-1647E77F99B9__GUID-1A5A0020-0E15-446D-A667-3C7997A9E6EF">
+                                    <p class="titleinfigure">Figure 1-109 Oracle Health Check Collections Manager - Administration</p><img src="img/collection-manager-administration.png" alt="Description of Figure 1-109 follows" title="Description of Figure 1-109 follows" longdesc="img_text/collection-manager-administration.html"><br><a href="img_text/collection-manager-administration.html">Description of "Figure 1-109 Oracle Health Check Collections Manager - Administration"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </li>
+                           <li>
+                              <p>Only Admin role can edit any section under the <span class="bold">Administration</span> menu.
+                              </p>
+                           </li>
+                           <li>
+                              <p>The administrator must configure data based on their requirements under the administration menu to prepare for the wider usage of the application. This is a one-time activity, however, change the configuration over time to suit your needs.</p>
+                              <p>Examples of the configuration data that you need set up are:</p>
+                              <ul style="list-style-type: disc;">
+                                 <li>
+                                    <p>Products</p>
+                                 </li>
+                                 <li>
+                                    <p>Customers (internal designations for workgroups)</p>
+                                 </li>
+                                 <li>
+                                    <p>Categories</p>
+                                 </li>
+                                 <li>
+                                    <p>Notifications</p>
+                                 </li>
+                                 <li>
+                                    <p>Status codes</p>
+                                 </li>
+                                 <li>
+                                    <p>Manage Email Server and Job details</p>
+                                 </li>
+                                 <li>
+                                    <p>Manage Notifications</p>
+                                 </li>
+                                 <li>
+                                    <p>Incident Severity</p>
+                                 </li>
+                                 <li>
+                                    <p>Urgency</p>
+                                 </li>
+                                 <li>
+                                    <p>Manage User Roles and Assign systems to users</p>
+                                 </li>
+                                 <li>
+                                    <p>Business Units (BUs)</p>
+                                 </li>
+                                 <li>
+                                    <p>Assign systems to BUs</p>
+                                 </li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-E25981CD-E37E-490F-A175-1647E77F99B9__EBC67238">DBA Manager</p>
+                        <p>Any user who is granted the DBA Manager role.</p>
+                        <div class="p">Log in to Oracle Health Check Collections Manager Application using a URL as follows:<pre class="pre codeblock"><code>http://hostname:port/apex/f?p=ApplicationID
+http://hostname:port/pls/apex/f?p=ApplicationID)</code></pre></div>
+                        <p>The DBA Managers must see an Administration menu (gear icon) at the upper-right corner of the application.</p>
+                        <div class="p">
+                           <div class="figure" id="GUID-E25981CD-E37E-490F-A175-1647E77F99B9__GUID-10C44ECB-2B2A-4E7C-BD5E-C5229715A361">
+                              <p class="titleinfigure">Figure 1-110 Oracle Health Check Collections Manager - DBA Manager Administration</p><img src="img/collection-manager-dba-manager-administration.png" alt="Description of Figure 1-110 follows" title="Description of Figure 1-110 follows" longdesc="img_text/collection-manager-dba-manager-administration.html"><br><a href="img_text/collection-manager-dba-manager-administration.html">Description of "Figure 1-110 Oracle Health Check Collections Manager - DBA Manager Administration"</a></div>
+                           <!-- class="figure" -->
+                        </div>
+                        <p>Click <span class="bold">Manage User Roles</span>.
+                        </p>
+                        <div class="p">
+                           <div class="figure" id="GUID-E25981CD-E37E-490F-A175-1647E77F99B9__GUID-B6271D63-5F06-43AE-A7F2-E220E0EB2857">
+                              <p class="titleinfigure">Figure 1-111 Oracle Health Check Collections Manager - DBA Manager - Manage User Roles</p><img src="img/collection-manager-dba-manager-manage-user-roles.png" alt="Description of Figure 1-111 follows" title="Description of Figure 1-111 follows" longdesc="img_text/collection-manager-dba-manager-manage-user-roles.html"><br><a href="img_text/collection-manager-dba-manager-manage-user-roles.html">Description of "Figure 1-111 Oracle Health Check Collections Manager - DBA Manager - Manage User Roles"</a></div>
+                           <!-- class="figure" -->
+                        </div>
+                        <div class="p">Following are the DBA manager privileges:
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>Assign DBAs to BUs the manager manages</p>
+                              </li>
+                              <li>
+                                 <p>Assign DBAs to one or more systems</p>
+                              </li>
+                              <li>
+                                 <p>Ignore any check on a collection, BU, or system</p>
+                              </li>
+                              <li>
+                                 <p>Create incidents for any system</p>
+                              </li>
+                              <li>
+                                 <p>Assign incidents to DBAs that manage the systems in their BUs</p>
+                              </li>
+                              <li>
+                                 <p>Manage any incidents for systems within their assigned BUs</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-E25981CD-E37E-490F-A175-1647E77F99B9__EBC6E130">DBA</p>
+                        <p>Any user who is granted the DBA role.</p>
+                        <div class="p">Log in to Oracle Health Check Collections Manager Application using a URL as follows:<pre class="pre codeblock"><code>http://hostname:port/apex/f?p=ApplicationID
+http://hostname:port/pls/apex/f?p=ApplicationID)</code></pre></div>
+                        <p>The DBA must see the Administration menu (gear icon) at the upper-right corner of the application.</p>
+                        <p>Any end user who is granted administrator role by the workspace administrator has administrator privileges within the Oracle Health Check Collections Manager application.</p>
+                        <div class="p">
+                           <div class="figure" id="GUID-E25981CD-E37E-490F-A175-1647E77F99B9__GUID-2DC3D2DD-CF8D-4223-962B-EF7C7F79AD7A">
+                              <p class="titleinfigure">Figure 1-112 Oracle Health Check Collections Manager - DBA Administration</p><img src="img/collection-manager-dba-administration.png" alt="Description of Figure 1-112 follows" title="Description of Figure 1-112 follows" longdesc="img_text/collection-manager-dba-administration.html"><br><a href="img_text/collection-manager-dba-administration.html">Description of "Figure 1-112 Oracle Health Check Collections Manager - DBA Administration"</a></div>
+                           <!-- class="figure" -->
+                        </div>
+                        <p>Click <span class="bold">Manage User Roles</span>.
+                        </p>
+                        <p>DBA has read-only access.</p>
+                        <div class="p">
+                           <div class="figure" id="GUID-E25981CD-E37E-490F-A175-1647E77F99B9__GUID-B72E7762-4880-4B6F-A28D-AD4AE19E3B79">
+                              <p class="titleinfigure">Figure 1-113 Oracle Health Check Collections Manager - DBA - Manage User Roles</p><img src="img/collection-manager-dba-manage-user-roles.png" alt="Description of Figure 1-113 follows" title="Description of Figure 1-113 follows" longdesc="img_text/collection-manager-dba-manage-user-roles.html"><br><a href="img_text/collection-manager-dba-manage-user-roles.html">Description of "Figure 1-113 Oracle Health Check Collections Manager - DBA - Manage User Roles"</a></div>
+                           <!-- class="figure" -->
+                        </div>
+                        <div class="p">Following are the DBA privileges:
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>Cannot manage Access Control List</p>
+                              </li>
+                              <li>
+                                 <p>Manage systems within one or more BUs, if the DBA Managers of those BUs assign them</p>
+                              </li>
+                              <li>
+                                 <p>Ignore any check on a collection or system they manage</p>
+                              </li>
+                              <li>
+                                 <p>Manage any incidents assigned to them</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     <!-- class="section" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-09B56D9E-8534-48D4-BEFE-AC8622C1AEC6" title="Familiarize yourself with the Oracle Health Check Collections Manager Application.">Getting Started</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-E9C9297F-F375-4D93-83F8-4303E5E45296" name="GUID-E9C9297F-F375-4D93-83F8-4303E5E45296"></a><h4 id="OEXUG-GUID-E9C9297F-F375-4D93-83F8-4303E5E45296" class="sect4"><span class="enumeration_section">1.10.3.4 </span>Selectively Capturing Users During Login
+                  </h4>
+                  <div>
+                     <p>Configure Oracle Health Check Collections Manager to capture user details and assign the users Oracle Health Check Collections Manager roles.</p>
+                     <div class="section">
+                        <p>Automatically capturing users during login automates user management. You need not create users manually.</p>
+                        <div class="p">By default, Oracle Health Check Collections Manager:
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>Captures details of users that are logging in with LDAP authentication</p>
+                              </li>
+                              <li>
+                                 <p>Assigns them Oracle Health Check Collections Manager roles, for example, DBA role.</p>
+                              </li>
+                           </ul>
+                           <div class="infoboxnote" id="GUID-E9C9297F-F375-4D93-83F8-4303E5E45296__GUID-02B64029-853D-4E5F-97B4-04EE17EE0408">
+                              <p class="notep1">Note:</p>
+                              <p>The Oracle Health Check Collections Manager roles are specific to Oracle Health Check Collections Manager and do not equate to system privileges. For example, the DBA role is not granted SYSDBA system privilege.</p>
+                           </div>
+                        </div>
+                        <p>However, you can disable automatic capture and re-enable anytime later. If you disable, then you must manually create users and assign them roles.</p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-E9C9297F-F375-4D93-83F8-4303E5E45296__GUID-81368DD6-A322-4BCD-A2B5-EDD188A9266D">To enable or disable capturing user details automatically:</p>
+                     </div>
+                     <!-- class="section" -->
+                     <ol>
+                        <li class="stepexpand"><span>Click <span class="bold">Administration</span>, and then select&nbsp;<span class="bold">Manage Users, User Roles and assign System to users</span>.</span><div>
+                              <div class="p">
+                                 <div class="figure" id="GUID-E9C9297F-F375-4D93-83F8-4303E5E45296__126B2A36">
+                                    <p class="titleinfigure">Figure 1-114 Manage Users, User Roles and assign System to users</p><img src="img/manage-users-user-roles-and-assign-system-users.png" alt="Description of Figure 1-114 follows" title="Description of Figure 1-114 follows" longdesc="img_text/manage-users-user-roles-and-assign-system-users.html"><br><a href="img_text/manage-users-user-roles-and-assign-system-users.html">Description of "Figure 1-114 Manage Users, User Roles and assign System to users"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>To disable automatic capture of users details, click&nbsp;<span class="bold">Don’t Capture User Details (When Login)</span>.</span><div>
+                              <div class="p">
+                                 <div class="figure" id="GUID-E9C9297F-F375-4D93-83F8-4303E5E45296__126B3823">
+                                    <p class="titleinfigure">Figure 1-115 Don’t Capture User Details (When Login)</p><img src="img/dont-capture-user-details-when-login.png" alt="Description of Figure 1-115 follows" title="Description of Figure 1-115 follows" longdesc="img_text/dont-capture-user-details-when-login.html"><br><a href="img_text/dont-capture-user-details-when-login.html">Description of "Figure 1-115 Don’t Capture User Details (When Login)"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>To re-enable automatic capture of user details, click <span class="bold">Capture User Details (When Login)</span>.</span><div>
+                              <div class="p">
+                                 <div class="figure" id="GUID-E9C9297F-F375-4D93-83F8-4303E5E45296__126B430D">
+                                    <p class="titleinfigure">Figure 1-116 Capture User Details (When Login)</p><img src="img/capture-user-details-when-login.png" alt="Description of Figure 1-116 follows" title="Description of Figure 1-116 follows" longdesc="img_text/capture-user-details-when-login.html"><br><a href="img_text/capture-user-details-when-login.html">Description of "Figure 1-116 Capture User Details (When Login)"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </div>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-09B56D9E-8534-48D4-BEFE-AC8622C1AEC6" title="Familiarize yourself with the Oracle Health Check Collections Manager Application.">Getting Started</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-8542ABA2-AB70-42E6-80D7-E261E21D1B68" name="GUID-8542ABA2-AB70-42E6-80D7-E261E21D1B68"></a><h4 id="OEXUG-GUID-8542ABA2-AB70-42E6-80D7-E261E21D1B68" class="sect4"><span class="enumeration_section">1.10.3.5 </span>Configuring Email Notification System
+                  </h4>
+                  <div>
+                     <p>Oracle Health Check Collections Manager provides an email notification system that users can subscribe to.</p>
+                     <div class="section">The setup involves:
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>Configuring the email server, port, and the frequency of email notifications.</p>
+                           </li>
+                           <li>
+                              <p>Registering the email address</p>
+                           </li>
+                        </ul>
+                        <div class="p">
+                           <div class="infoboxnote" id="GUID-8542ABA2-AB70-42E6-80D7-E261E21D1B68__GUID-FA6DE72F-A7B6-4758-9EC2-086267301070">
+                              <p class="notep1">Note:</p>
+                              <p>Only the users who are assigned Admin role can manage <span class="bold">Email Notification Server and Job details</span>.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-8542ABA2-AB70-42E6-80D7-E261E21D1B68__GUID-D6919619-7B38-496D-8598-EE4B56B01B10">To configure the email notification system:</p>
+                     </div>
+                     <!-- class="section" -->
+                     <ol>
+                        <li class="stepexpand"><span>Log in to Oracle Health Check Collections Manager, and then click <span class="bold">Administration</span> at the upper-right corner.</span><div>
+                              <div class="p">
+                                 <div class="figure" id="GUID-8542ABA2-AB70-42E6-80D7-E261E21D1B68__GUID-4F16A5C5-D396-4125-822C-8FF9B0C57B3D">
+                                    <p class="titleinfigure">Figure 1-117 Oracle Health Check Collections Manager - Administration</p><img src="img/collection-manager-administration_1.png" alt="Description of Figure 1-117 follows" title="Description of Figure 1-117 follows" longdesc="img_text/collection-manager-administration_1.html"><br><a href="img_text/collection-manager-administration_1.html">Description of "Figure 1-117 Oracle Health Check Collections Manager - Administration"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Under <span class="bold">Administration</span>, click <span class="bold">Manage Email Server &amp; Job Details</span>.</span><div>
+                              <div class="figure" id="GUID-8542ABA2-AB70-42E6-80D7-E261E21D1B68__GUID-0DAD1520-7047-4036-895E-F94169AC0A44">
+                                 <p class="titleinfigure">Figure 1-118 Oracle Health Check Collections Manager - Configure Email Server</p><img src="img/collection-manager-configure-email-server.png" alt="Description of Figure 1-118 follows" title="Description of Figure 1-118 follows" longdesc="img_text/collection-manager-configure-email-server.html"><br><a href="img_text/collection-manager-configure-email-server.html">Description of "Figure 1-118 Oracle Health Check Collections Manager - Configure Email Server"</a></div>
+                              <!-- class="figure" -->
+                           </div>
+                           <ol type="a">
+                              <li class="substepexpand"><span>Specify a valid <span class="bold">Email Server Name</span>, <span class="bold">Port Number</span>, and then click <span class="bold">Set My Email Server Settings</span>.</span></li>
+                              <li class="substepexpand"><span>Set <span class="bold">Email Notification Frequency</span> as per your needs.</span><div>See the <span class="bold">Notification Job Run Details</span> on the same page.
+                                    <div class="figure" id="GUID-8542ABA2-AB70-42E6-80D7-E261E21D1B68__GUID-1AAB90F1-1948-4A42-9EFD-1A732A964B8B">
+                                       <p class="titleinfigure">Figure 1-119 Oracle Health Check Collections Manager - Notification Job Run status details</p><img src="img/collection-manager-notification-job-run-status-details.png" alt="Description of Figure 1-119 follows" title="Description of Figure 1-119 follows" longdesc="img_text/collection-manager-notification-job-run-status-details.html"><br><a href="img_text/collection-manager-notification-job-run-status-details.html">Description of "Figure 1-119 Oracle Health Check Collections Manager - Notification Job Run status details"</a></div>
+                                    <!-- class="figure" -->
+                                 </div>
+                              </li>
+                           </ol>
+                        </li>
+                        <li class="stepexpand"><span>Go back to the <span class="bold">Administration</span> page, and click <span class="bold">Manage Notifications</span>.</span><div>
+                              <div class="figure" id="GUID-8542ABA2-AB70-42E6-80D7-E261E21D1B68__GUID-FECC2F85-992D-4E9F-B4DD-76853E16D255">
+                                 <p class="titleinfigure">Figure 1-120 Oracle Health Check Collections Manager - Manage Notifications</p><img src="img/collection-manager-manage-notifications.png" alt="Description of Figure 1-120 follows" title="Description of Figure 1-120 follows" longdesc="img_text/collection-manager-manage-notifications.html"><br><a href="img_text/collection-manager-manage-notifications.html">Description of "Figure 1-120 Oracle Health Check Collections Manager - Manage Notifications"</a></div>
+                              <!-- class="figure" -->
+                           </div>
+                           <ol type="a">
+                              <li class="substepexpand"><span>If you are configuring for the first time, then enter your email address. </span><div>Subsequent access to <span class="bold">Manage Notifications</span> page shows your email address automatically.
+                                 </div>
+                              </li>
+                              <li class="substepexpand"><span>By default, <span class="bold">Subscribe/Unsubscribe My Mail Notifications</span> is checked. Leave as is.</span></li>
+                              <li class="substepexpand"><span>Under <span class="bold">Collection Notifications</span>, choose the type of collections for which you want to receive notifications.</span></li>
+                              <li class="substepexpand"><span>Select to receive notification when the available space in ORAchk CM Tablespace falls below 100 MB.</span></li>
+                              <li class="substepexpand"><span>Validate the notification delivery by clicking <span class="bold">Test</span> under <span class="bold">Test your email settings</span>.</span><div>
+                                    <p>If the configuration is correct, then you must receive an email. If you do not receive an email, then check with your administrator.</p>
+                                    <div class="p">Following is the sample notification:<pre class="pre codeblock"><code>From: username@example.com
+Sent: Thursday, January 28, 2016 12:21 PM
+To: username@example.com
+Subject: Test Mail From Collection Manager
+
+Testing Collection Manager Email Notification System</code></pre></div>
+                                 </div>
+                              </li>
+                              <li class="substepexpand"><span>Click <span class="bold">Submit</span>.</span></li>
+                           </ol>
+                        </li>
+                     </ol>
+                     <div class="section">
+                        <div class="p">
+                           <div class="infoboxnote" id="GUID-8542ABA2-AB70-42E6-80D7-E261E21D1B68__GUID-C31C9055-7172-4ADA-9170-BDD45A4C357C">
+                              <p class="notep1">Note:</p>
+                              <p><span class="bold">Manage Notifications</span> section under the <span class="bold">Administration</span> menu is available for all users irrespective of the role.
+                              </p>
+                              <p>If the ACL system is enabled, then the registered users receive notifications for the systems that they have access to. If the ACL system is not configured, then all the registered users receive all notifications.</p>
+                           </div>
+                        </div>
+                        <p>Depending on the selections, you made under <span class="bold">Collection Notifications</span> section, you receive an email with <samp class="msgph">Subject: Collection Manager Notifications</samp> containing application URL with results.
+                        </p>
+                        <div class="p">
+                           <div class="figure" id="GUID-8542ABA2-AB70-42E6-80D7-E261E21D1B68__GUID-BE45A84F-A1FF-48D0-AD84-C312F4E95276">
+                              <p class="titleinfigure">Figure 1-121 Oracle Health Check Collections Manager - Sample Email Notification</p><img src="img/collection-manager-sample-email-notification.png" alt="Description of Figure 1-121 follows" title="Description of Figure 1-121 follows" longdesc="img_text/collection-manager-sample-email-notification.html"><br><a href="img_text/collection-manager-sample-email-notification.html">Description of "Figure 1-121 Oracle Health Check Collections Manager - Sample Email Notification"</a></div>
+                           <!-- class="figure" -->
+                        </div>
+                        <p>Under <span class="bold">Comments</span> column, click the&nbsp;<span class="bold">Click here</span> &nbsp;links for details. Click the respective URLs, authenticate, and then view respective comparison report.
+                        </p>
+                        <div class="p">
+                           <div class="figure" id="GUID-8542ABA2-AB70-42E6-80D7-E261E21D1B68__GUID-ED590E21-7887-44FB-AF8D-F0244EDBAD87">
+                              <p class="titleinfigure">Figure 1-122 Oracle Health Check Collections Manager - Sample Diff Report</p><img src="img/collection-manager-sample-diff-report.png" alt="Description of Figure 1-122 follows" title="Description of Figure 1-122 follows" longdesc="img_text/collection-manager-sample-diff-report.html"><br><a href="img_text/collection-manager-sample-diff-report.html">Description of "Figure 1-122 Oracle Health Check Collections Manager - Sample Diff Report"</a></div>
+                           <!-- class="figure" -->
+                        </div>
+                     </div>
+                     <!-- class="section" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-09B56D9E-8534-48D4-BEFE-AC8622C1AEC6" title="Familiarize yourself with the Oracle Health Check Collections Manager Application.">Getting Started</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-EF6C0974-FB09-4A98-B6F3-D7E4F84AF70B" name="GUID-EF6C0974-FB09-4A98-B6F3-D7E4F84AF70B"></a><h4 id="OEXUG-GUID-EF6C0974-FB09-4A98-B6F3-D7E4F84AF70B" class="sect4"><span class="enumeration_section">1.10.3.6 </span>Bulk Mapping Systems to Business Units
+                  </h4>
+                  <div>
+                     <p>Oracle Health Check Collections Manager provides an XML bulk upload option so that you can quickly map many systems to business units.</p>
+                     <div class="section">
+                        <p class="subhead3" id="GUID-EF6C0974-FB09-4A98-B6F3-D7E4F84AF70B__GUID-F89B9748-6B3E-4BDC-9A8D-DBB829239D54">To bulk map systems to the business units:</p>
+                     </div>
+                     <!-- class="section" -->
+                     <ol>
+                        <li class="stepexpand"><span>Click <span class="bold">Administration</span>, then select <span class="bold">Assign System to Business Unit</span>.</span><div>
+                              <div class="p">
+                                 <div class="figure" id="GUID-EF6C0974-FB09-4A98-B6F3-D7E4F84AF70B__126CD276">
+                                    <p class="titleinfigure">Figure 1-123 Assign System to Business Unit</p><img src="img/assign-system-business-unit.png" alt="Description of Figure 1-123 follows" title="Description of Figure 1-123 follows" longdesc="img_text/assign-system-business-unit.html"><br><a href="img_text/assign-system-business-unit.html">Description of "Figure 1-123 Assign System to Business Unit"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Click <span class="bold">Bulk Mapping</span>.</span><div>
+                              <div class="p">
+                                 <div class="figure" id="GUID-EF6C0974-FB09-4A98-B6F3-D7E4F84AF70B__126CDDAC">
+                                    <p class="titleinfigure">Figure 1-124 Bulk Mapping</p><img src="img/bulk-mapping.png" alt="Description of Figure 1-124 follows" title="Description of Figure 1-124 follows" longdesc="img_text/bulk-mapping.html"><br><a href="img_text/bulk-mapping.html">Description of "Figure 1-124 Bulk Mapping"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Upload a mapping XML.</span><ol type="a">
+                              <li class="substepexpand"><span>Click <span class="bold">Generate XML File (Current Mapping)</span>.</span></li>
+                              <li class="substepexpand"><span>Download the resulting XML file that contains your current system to business unit mappings.</span><div>
+                                    <div class="p">
+                                       <div class="figure" id="GUID-EF6C0974-FB09-4A98-B6F3-D7E4F84AF70B__126CE601">
+                                          <p class="titleinfigure">Figure 1-125 Upload a mapping XML</p><img src="img/upload-mapping-xml.png" alt="Description of Figure 1-125 follows" title="Description of Figure 1-125 follows" longdesc="img_text/upload-mapping-xml.html"><br><a href="img_text/upload-mapping-xml.html">Description of "Figure 1-125 Upload a mapping XML"</a></div>
+                                       <!-- class="figure" -->
+                                    </div>
+                                 </div>
+                              </li>
+                              <li class="substepexpand"><span>Amend the XML to show mappings that you want.</span></li>
+                              <li class="substepexpand"><span>Upload new Mapping XML through <span class="bold">Upload Mapping (XML File)</span>.</span></li>
+                           </ol>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-09B56D9E-8534-48D4-BEFE-AC8622C1AEC6" title="Familiarize yourself with the Oracle Health Check Collections Manager Application.">Getting Started</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-BBB21140-6A33-4023-91A4-6059AFFA4C0A" name="GUID-BBB21140-6A33-4023-91A4-6059AFFA4C0A"></a><h4 id="OEXUG-GUID-BBB21140-6A33-4023-91A4-6059AFFA4C0A" class="sect4"><span class="enumeration_section">1.10.3.7 </span>Adjusting or Disabling Old Collections Purging
+                  </h4>
+                  <div>
+                     <p>Modify or disable the purge schedule for Oracle Health Check Collections Manager collection data. </p>
+                     <div class="section">
+                        <p>By default, Oracle Health Check Collections Manager purges collections older than three months.</p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-BBB21140-6A33-4023-91A4-6059AFFA4C0A__GUID-8DD3D761-B6C3-403A-A6F7-F9A725B6BCC1">To adjust or disable the collection purging frequency:</p>
+                     </div>
+                     <!-- class="section" -->
+                     <ol>
+                        <li class="stepexpand"><span>Click <span class="bold">Administration</span>, and then select <span class="bold">Manage Email Server &amp; Job Details</span>.</span><div>
+                              <div class="p">
+                                 <div class="figure" id="GUID-BBB21140-6A33-4023-91A4-6059AFFA4C0A__1270B819">
+                                    <p class="titleinfigure">Figure 1-126 Manage Email Server and Job Details</p><img src="img/manage-email-server-and-job-details.png" alt="Description of Figure 1-126 follows" title="Description of Figure 1-126 follows" longdesc="img_text/manage-email-server-and-job-details.html"><br><a href="img_text/manage-email-server-and-job-details.html">Description of "Figure 1-126 Manage Email Server and Job Details"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Select an appropriate option:</span><div>
+                              <ul style="list-style-type: disc;">
+                                 <li>
+                                    <p>Change the frequency of purges by setting different values in <span class="bold">Purge Frequency</span> . Then click <span class="bold">Click To Purge Every</span>.
+                                    </p>
+                                 </li>
+                                 <li>
+                                    <p>To disable purging, click <span class="bold">Click To Disable Purging</span>.
+                                    </p>
+                                 </li>
+                                 <li>
+                                    <p>To re-enable purging, click <span class="bold">Click To Enable Purging</span>.
+                                    </p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                     </ol>
+                     <div class="section">
+                        <div class="p">
+                           <div class="figure" id="GUID-BBB21140-6A33-4023-91A4-6059AFFA4C0A__1270D2CA">
+                              <p class="titleinfigure">Figure 1-127 Configure Purging</p><img src="img/configure-email-server.png" alt="Description of Figure 1-127 follows" title="Description of Figure 1-127 follows" longdesc="img_text/configure-email-server.html"><br><a href="img_text/configure-email-server.html">Description of "Figure 1-127 Configure Purging"</a></div>
+                           <!-- class="figure" -->
+                        </div>
+                     </div>
+                     <!-- class="section" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-09B56D9E-8534-48D4-BEFE-AC8622C1AEC6" title="Familiarize yourself with the Oracle Health Check Collections Manager Application.">Getting Started</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-B519798F-588A-474A-BA00-0A4AECDE91FE" name="GUID-B519798F-588A-474A-BA00-0A4AECDE91FE"></a><h3 id="OEXUG-GUID-B519798F-588A-474A-BA00-0A4AECDE91FE" class="sect3"><span class="enumeration_section">1.10.4 </span>Oracle Health Check Collections Manager Application Features
+               </h3>
+               <div>
+                  <p>Familiarize yourself with the features of Oracle Health Check Collections Manager Application. </p>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="collection-manager.html#GUID-AAF87093-527B-4091-8134-C29DCEDEBFD3">Global Select Lists</a><br>Oracle Health Check Collections Manager Application provides an option to display the data based on select lists like Business Units, Systems, and Data for last periods of time.
+                     </li>
+                     <li class="ulchildlink"><a href="collection-manager.html#GUID-98758154-582D-4C16-8334-8C3373C8D2B5">Home Tab</a><br>Displays systems and their statuses, and recent activities of all users who has permission to access the application.
+                     </li>
+                     <li class="ulchildlink"><a href="collection-manager.html#GUID-3234BF2E-1B69-4C78-9D6C-1DC600A3AB5C">Collections Tab</a><br>Displays incidence information for each collection, and collection score for failed, warning, and failed checks.
+                     </li>
+                     <li class="ulchildlink"><a href="collection-manager.html#GUID-C5A13020-AFD2-4C68-A563-7A310C02541A">Browse Tab</a><br>Browse tab enables you to list individual checks based on the filters set.
+                     </li>
+                     <li class="ulchildlink"><a href="collection-manager.html#GUID-9585008E-7AFF-485F-98A2-C68D66D63EC4">Compare Tab</a><br>Compare tab enables you to compare audit check results and patch results.
+                     </li>
+                     <li class="ulchildlink"><a href="collection-manager.html#GUID-75B5AA06-B3B0-40D1-BC34-C4225D9B9D21">Report View Tab</a><br>Provides a graphical representation of database checks, instance checks, home path checks, and system health checks.
+                     </li>
+                     <li class="ulchildlink"><a href="collection-manager.html#GUID-6D4C9F7F-1E56-4258-958E-C354CEB69571">Upload Collections Tab</a><br>Provides an interface to manually upload a collection into Oracle Health Check Collections Manager Application and provides a list of uploaded collections and file details.
+                     </li>
+                     <li class="ulchildlink"><a href="collection-manager.html#GUID-F53AB1E0-1236-469E-BDCD-150D3F1DCBD9">Tracking Support Incidents</a><br>The <span class="bold">Incidents</span> tab gives you a complete system for tracking support incidents.
+                     </li>
+                     <li class="ulchildlink"><a href="collection-manager.html#GUID-8F0EC9D7-AE07-4C63-B902-F2DF83FB0CC3">Authoring User-Defined Checks</a><br>Define, test, and maintain your own checks that are specific to your environment.
+                     </li>
+                  </ul>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-BC64F401-438E-4CE5-914C-577BD3A12EB1" title="Oracle Health Check Collections Manager for Oracle Application Express 4.2 provides you an enterprise-wide view of your health check collection data.">Oracle Health Check Collections Manager for Oracle Application Express 4.2</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="sect3"><a id="GUID-AAF87093-527B-4091-8134-C29DCEDEBFD3" name="GUID-AAF87093-527B-4091-8134-C29DCEDEBFD3"></a><h4 id="OEXUG-GUID-AAF87093-527B-4091-8134-C29DCEDEBFD3" class="sect4"><span class="enumeration_section">1.10.4.1 </span>Global Select Lists
+                  </h4>
+                  <div>
+                     <p>Oracle Health Check Collections Manager Application provides an option to display the data based on select lists like Business Units, Systems, and Data for last periods of time.</p>
+                     <p>All these select lists are global within the application and options available on starting of each tab.</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Business Unit</p>
+                        </li>
+                        <li>
+                           <p>System</p>
+                        </li>
+                        <li>
+                           <p>Data interval</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-B519798F-588A-474A-BA00-0A4AECDE91FE" title="Familiarize yourself with the features of Oracle Health Check Collections Manager Application.">Oracle Health Check Collections Manager Application Features</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-98758154-582D-4C16-8334-8C3373C8D2B5" name="GUID-98758154-582D-4C16-8334-8C3373C8D2B5"></a><h4 id="OEXUG-GUID-98758154-582D-4C16-8334-8C3373C8D2B5" class="sect4"><span class="enumeration_section">1.10.4.2 </span>Home Tab
+                  </h4>
+                  <div>
+                     <p>Displays systems and their statuses, and recent activities of all users who has permission to access the application.</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Displays systems and their statuses in graphs with color coded green, orange, and red based on check results (passed, warning, and failed).</p>
+                        </li>
+                        <li>
+                           <p>The <span class="bold">Home</span> tab provides an option to display the data based on select lists like Business Units and Data for last periods of time. There is also an option to filter the most failed/warned checks and recent collections based on system name.
+                           </p>
+                        </li>
+                        <li>
+                           <p>The <span class="bold">Most Failed Checks</span> region displays information for the most frequently failed checks for all collections for the time period, Business Unit, or System selected, and displays the check name, fail count. There is a similar region for most warned checks.
+                           </p>
+                        </li>
+                        <li>
+                           <p>The <span class="bold">Recent Collections</span> region displays brief information about recently uploaded collections based on time frame, Overall score with Fail, Warning, and Pass counts and a Status flag. Recent collections are automatically compared to the last collection from the same system, whenever it occurred, if there is one.
+                           </p>
+                           <p>Status Flags are color-coded green, orange, or red based on the comparison between the recent collection and the last collection, if any.</p>
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>GREEN: There is no difference at all between the two collections or one or more findings from the last collection improved from WARNING or FAIL to PASS or there was no earlier collection to compare with. </p>
+                              </li>
+                              <li>
+                                 <p>ORANGE: There were one or more regressions between the last collection and the most recent on a given system. In other words some findings transitioned in a negative way, for example, PASS to WARNING.</p>
+                              </li>
+                              <li>
+                                 <p>RED: There were one or more regressions between the last collection and the most recent on a given system. In other words some findings transitioned in a negative way, for example, PASS to FAIL.</p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>Recent Activity in <span class="bold">User Range</span> shows recent activities by all users across all collections specific to the access role granted the user.
+                           </p>
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>DBA role users can see everything that happens in the systems assigned to them.</p>
+                              </li>
+                              <li>
+                                 <p>DBA Manager role users can see everything within their Business Unit and the systems assigned to them.</p>
+                              </li>
+                              <li>
+                                 <p>Admin role user can see everything when there is a collection data uploaded in to the application.</p>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <div class="p">
+                        <div class="figure" id="GUID-98758154-582D-4C16-8334-8C3373C8D2B5__GUID-AED68677-5C47-4EC5-8539-BFF91463BABF">
+                           <p class="titleinfigure">Figure 1-128 Home Tab</p><img src="img/home-tab.png" alt="Description of Figure 1-128 follows" title="Description of Figure 1-128 follows" longdesc="img_text/home-tab.html"><br><a href="img_text/home-tab.html">Description of "Figure 1-128 Home Tab"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-B519798F-588A-474A-BA00-0A4AECDE91FE" title="Familiarize yourself with the features of Oracle Health Check Collections Manager Application.">Oracle Health Check Collections Manager Application Features</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-3234BF2E-1B69-4C78-9D6C-1DC600A3AB5C" name="GUID-3234BF2E-1B69-4C78-9D6C-1DC600A3AB5C"></a><h4 id="OEXUG-GUID-3234BF2E-1B69-4C78-9D6C-1DC600A3AB5C" class="sect4"><span class="enumeration_section">1.10.4.3 </span>Collections Tab
+                  </h4>
+                  <div>
+                     <p>Displays incidence information for each collection, and collection score for failed, warning, and failed checks.</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Displays all collections and allows you to filter the list of collections based on Business units and System. You can also filter based on Status flag. The list is also inherently filtered to those collections the user has access to, based on their assigned role.</p>
+                        </li>
+                        <li>
+                           <div class="p">Displays incident information for each collection indicated by Delta (Δ) color coded red, blue, and green based on ticket status. Click the delta symbol to raise a new ticket or alter the ticket for an entire collection.
+                              <ul style="list-style-type: disc;">
+                                 <li>
+                                    <p><span class="bold">RED (No Incident ticket exists)</span>: Click to create a new incident ticket for the collection or individual checks.
+                                    </p>
+                                 </li>
+                                 <li>
+                                    <p><span class="bold">BLUE (An open Incident ticket exists)</span>: Click to open the incident ticket for editing.
+                                    </p>
+                                 </li>
+                                 <li>
+                                    <p><span class="bold">GREEN (A closed Incident ticket exists)</span>: Click opens the closed incident ticket for viewing.
+                                    </p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                        <li>
+                           <p>Collection Score is calculated based on failed, warning, and passed checks.</p>
+                           <p>If a user raised a ticket for the collection, resolved the issues and the ticket is closed signifying the issues have all been resolved, then Oracle Health Check Collections Manager changes the collection score to 100%.</p>
+                           <p>If a user raised a ticket for an individual check and if it is closed signifying that the finding has been resolved, then Oracle Health Check Collections Manager changes the status of the check as PASS and recalculates the collection score.</p>
+                           <p>Collection Score is derived using following formula. </p>
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>Every check has 10 points.</p>
+                              </li>
+                              <li>
+                                 <p>Failure deducts 10 points.</p>
+                              </li>
+                              <li>
+                                 <p>Warning deducts 5 points.</p>
+                              </li>
+                              <li>
+                                 <p>Info deducts 3 points.</p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>A <span class="bold">More Info</span> link next to a collection indicates that the collection was manually uploaded into the application.
+                           </p>
+                        </li>
+                        <li>
+                           <p>Click the linked collection name in the list to load the collection in the <span class="bold">Browse</span> tab.
+                           </p>
+                        </li>
+                     </ul>
+                     <div class="p">
+                        <div class="figure" id="GUID-3234BF2E-1B69-4C78-9D6C-1DC600A3AB5C__GUID-98DD648C-C38D-4112-8182-7473E24CBEBA">
+                           <p class="titleinfigure">Figure 1-129 Collections Tab</p><img src="img/collections-tab.png" alt="Description of Figure 1-129 follows" title="Description of Figure 1-129 follows" longdesc="img_text/collections-tab.html"><br><a href="img_text/collections-tab.html">Description of "Figure 1-129 Collections Tab"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-B519798F-588A-474A-BA00-0A4AECDE91FE" title="Familiarize yourself with the features of Oracle Health Check Collections Manager Application.">Oracle Health Check Collections Manager Application Features</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-C5A13020-AFD2-4C68-A563-7A310C02541A" name="GUID-C5A13020-AFD2-4C68-A563-7A310C02541A"></a><h4 id="OEXUG-GUID-C5A13020-AFD2-4C68-A563-7A310C02541A" class="sect4"><span class="enumeration_section">1.10.4.4 </span>Browse Tab
+                  </h4>
+                  <div>
+                     <p>Browse tab enables you to list individual checks based on the filters set.</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Set filters once the list of checks is created.</p>
+                        </li>
+                        <li>
+                           <p>Create and alter incident tickets for individual audit check findings similar to as described in the <span class="bold">Collections</span> tab.
+                           </p>
+                        </li>
+                        <li>
+                           <p>Select checks to ignore and to undo previously ignored checks. Select the check box beside the audit check and click <span class="bold">Ignore Selected</span>. Oracle Health Check Collections Manager marks them as <span class="bold">FAIL-IGNORED</span>, indicating that the check had failed but is ignored.
+                           </p>
+                           <p>Oracle Health Check Collections Manager ignores the checks for the entire level based on the level selected for ignoring.</p>
+                           <p>To ignore selected failed checks, you must choose the ignore type from the following list:</p>
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>Ignore from collection</p>
+                              </li>
+                              <li>
+                                 <p>Ignore from system</p>
+                              </li>
+                              <li>
+                                 <p>Ignore from a business unit</p>
+                              </li>
+                              <li>
+                                 <p>Ignore from all business units</p>
+                                 <div class="infoboxnote" id="GUID-C5A13020-AFD2-4C68-A563-7A310C02541A__GUID-3B34F4A2-7AC8-44FC-B31C-35C5E55C505A">
+                                    <p class="notep1">Note:</p>
+                                    <p>The domain for ignoring checks is within the role assigned to the user.</p>
+                                 </div>
+                              </li>
+                           </ul>
+                           <p>All ignored checks are listed under the <span class="bold">Ignored Checks</span> tab. If needed, undo ignore.
+                           </p>
+                           <p>To undo the selected Ignored checks, consider the type from the following list:</p>
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>Undo ignore from collection</p>
+                              </li>
+                              <li>
+                                 <p>Undo ignore from system</p>
+                              </li>
+                              <li>
+                                 <p>Undo ignore from business unit</p>
+                              </li>
+                              <li>
+                                 <p>Undo ignore from all business units</p>
+                                 <div class="p">
+                                    <div class="infoboxnote" id="GUID-C5A13020-AFD2-4C68-A563-7A310C02541A__GUID-CF75FE4E-2D71-4388-AA51-903768FF86AA">
+                                       <p class="notep1">Note:</p>
+                                       <p>The domain for undoing ignored checks is within the role assigned to the user.</p>
+                                    </div>
+                                 </div>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <div class="figure" id="GUID-C5A13020-AFD2-4C68-A563-7A310C02541A__GUID-DB31BC46-E693-4052-B19E-F497FC7548C1">
+                        <p class="titleinfigure">Figure 1-130 Browse Tab</p><img src="img/browse-tab.png" alt="Description of Figure 1-130 follows" title="Description of Figure 1-130 follows" longdesc="img_text/browse-tab.html"><br><a href="img_text/browse-tab.html">Description of "Figure 1-130 Browse Tab"</a></div>
+                     <!-- class="figure" -->
+                     <div class="figure" id="GUID-C5A13020-AFD2-4C68-A563-7A310C02541A__GUID-BA0523F9-6D72-4A3D-9222-F69ADA042EE5">
+                        <p class="titleinfigure">Figure 1-131 Ignored Checks</p><img src="img/browse-tab-ignored-checks.png" alt="Description of Figure 1-131 follows" title="Description of Figure 1-131 follows" longdesc="img_text/browse-tab-ignored-checks.html"><br><a href="img_text/browse-tab-ignored-checks.html">Description of "Figure 1-131 Ignored Checks"</a></div>
+                     <!-- class="figure" -->
+                     <div class="figure" id="GUID-C5A13020-AFD2-4C68-A563-7A310C02541A__GUID-620C4EF3-9B86-4D5C-B0C9-ACCE7B74E5CD">
+                        <p class="titleinfigure">Figure 1-132 Browse Tab - Apply Filters</p><img src="img/browse-tab-apply-filters.png" alt="Description of Figure 1-132 follows" title="Description of Figure 1-132 follows" longdesc="img_text/browse-tab-apply-filters.html"><br><a href="img_text/browse-tab-apply-filters.html">Description of "Figure 1-132 Browse Tab - Apply Filters"</a></div>
+                     <!-- class="figure" -->
+                     <div class="figure" id="GUID-C5A13020-AFD2-4C68-A563-7A310C02541A__GUID-A48C7447-BB9B-4ACB-89EB-D8FA3DF8FEA1">
+                        <p class="titleinfigure">Figure 1-133 Browse Tab - Apply Filters - Ignored Checks</p><img src="img/browse-tab-apply-filters-ignored-checks.png" alt="Description of Figure 1-133 follows" title="Description of Figure 1-133 follows" longdesc="img_text/browse-tab-apply-filters-ignored-checks.html"><br><a href="img_text/browse-tab-apply-filters-ignored-checks.html">Description of "Figure 1-133 Browse Tab - Apply Filters - Ignored Checks"</a></div>
+                     <!-- class="figure" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-B519798F-588A-474A-BA00-0A4AECDE91FE" title="Familiarize yourself with the features of Oracle Health Check Collections Manager Application.">Oracle Health Check Collections Manager Application Features</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-9585008E-7AFF-485F-98A2-C68D66D63EC4" name="GUID-9585008E-7AFF-485F-98A2-C68D66D63EC4"></a><h4 id="OEXUG-GUID-9585008E-7AFF-485F-98A2-C68D66D63EC4" class="sect4"><span class="enumeration_section">1.10.4.5 </span>Compare Tab
+                  </h4>
+                  <div>
+                     <p>Compare tab enables you to compare audit check results and patch results.</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p><span class="bold">Compare Audit check Results</span></p>
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>Compare the audit check findings from two different collections based on Business Unit, System, DB Version and Platform. The collections available for comparison are limited to filters set.</p>
+                              </li>
+                              <li>
+                                 <p>Compare collections from the same or different systems.</p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p><span class="bold">Compare Patch Results</span></p>
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>Compare installed Oracle patches from two different collections. The comparison displays the difference between the two collections based on patch results.</p>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <div class="figure" id="GUID-9585008E-7AFF-485F-98A2-C68D66D63EC4__GUID-E531FD5F-DE35-41BF-B669-399F36BBC418">
+                        <p class="titleinfigure">Figure 1-134 Compare Tab</p><img src="img/compare-tab.png" alt="Description of Figure 1-134 follows" title="Description of Figure 1-134 follows" longdesc="img_text/compare-tab.html"><br><a href="img_text/compare-tab.html">Description of "Figure 1-134 Compare Tab"</a></div>
+                     <!-- class="figure" -->
+                     <div class="figure" id="GUID-9585008E-7AFF-485F-98A2-C68D66D63EC4__GUID-F2FB3D96-1CF1-4121-A39E-9D0B2C6A5C25">
+                        <p class="titleinfigure">Figure 1-135 Compare Tab - Audit Checks Diff</p><img src="img/compare-tab-audit-checks-diff.png" alt="Description of Figure 1-135 follows" title="Description of Figure 1-135 follows" longdesc="img_text/compare-tab-audit-checks-diff.html"><br><a href="img_text/compare-tab-audit-checks-diff.html">Description of "Figure 1-135 Compare Tab - Audit Checks Diff"</a></div>
+                     <!-- class="figure" -->
+                     <div class="figure" id="GUID-9585008E-7AFF-485F-98A2-C68D66D63EC4__GUID-01C4ECD0-1736-4FC3-B105-F4F5DAB7CA86">
+                        <p class="titleinfigure">Figure 1-136 Compare Tab - Patch Results Diff</p><img src="img/compare-tab-patch-results-diff.png" alt="Description of Figure 1-136 follows" title="Description of Figure 1-136 follows" longdesc="img_text/compare-tab-patch-results-diff.html"><br><a href="img_text/compare-tab-patch-results-diff.html">Description of "Figure 1-136 Compare Tab - Patch Results Diff"</a></div>
+                     <!-- class="figure" -->
+                     <div class="p">
+                        <div class="infoboxnote" id="GUID-9585008E-7AFF-485F-98A2-C68D66D63EC4__GUID-FFE9E69B-E345-42BB-BAD6-F0C6E39E871E">
+                           <p class="notep1">Note:</p>
+                           <p>Row highlighted in blue indicates that the patch is recommended, but it is not installed in one of the collections.</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-B519798F-588A-474A-BA00-0A4AECDE91FE" title="Familiarize yourself with the features of Oracle Health Check Collections Manager Application.">Oracle Health Check Collections Manager Application Features</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-75B5AA06-B3B0-40D1-BC34-C4225D9B9D21" name="GUID-75B5AA06-B3B0-40D1-BC34-C4225D9B9D21"></a><h4 id="OEXUG-GUID-75B5AA06-B3B0-40D1-BC34-C4225D9B9D21" class="sect4"><span class="enumeration_section">1.10.4.6 </span>Report View Tab
+                  </h4>
+                  <div>
+                     <p>Provides a graphical representation of database checks, instance checks, home path checks, and system health checks.</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Provides a printable view option to print the graphical summary of system collection</p>
+                        </li>
+                        <li>
+                           <p>Displays separate graphical summary view for database checks, instance checks, and home path checks breakup based on check type and check status in collection</p>
+                        </li>
+                        <li>
+                           <p>Displays system health check details based on status and check type in collection</p>
+                        </li>
+                     </ul>
+                     <div class="figure" id="GUID-75B5AA06-B3B0-40D1-BC34-C4225D9B9D21__GUID-4C19D901-0332-41DC-8357-B11C76A0000C">
+                        <p class="titleinfigure">Figure 1-137 Report View Tab - Summary</p><img src="img/report-view-tab-summary.png" alt="Description of Figure 1-137 follows" title="Description of Figure 1-137 follows" longdesc="img_text/report-view-tab-summary.html"><br><a href="img_text/report-view-tab-summary.html">Description of "Figure 1-137 Report View Tab - Summary"</a></div>
+                     <!-- class="figure" -->
+                     <div class="figure" id="GUID-75B5AA06-B3B0-40D1-BC34-C4225D9B9D21__GUID-21F0A379-B454-461F-9ED6-5E6C01805DB9">
+                        <p class="titleinfigure">Figure 1-138 Report View Tab - Details</p><img src="img/report-view-tab-details.png" alt="Description of Figure 1-138 follows" title="Description of Figure 1-138 follows" longdesc="img_text/report-view-tab-details.html"><br><a href="img_text/report-view-tab-details.html">Description of "Figure 1-138 Report View Tab - Details"</a></div>
+                     <!-- class="figure" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-B519798F-588A-474A-BA00-0A4AECDE91FE" title="Familiarize yourself with the features of Oracle Health Check Collections Manager Application.">Oracle Health Check Collections Manager Application Features</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-6D4C9F7F-1E56-4258-958E-C354CEB69571" name="GUID-6D4C9F7F-1E56-4258-958E-C354CEB69571"></a><h4 id="OEXUG-GUID-6D4C9F7F-1E56-4258-958E-C354CEB69571" class="sect4"><span class="enumeration_section">1.10.4.7 </span>Upload Collections Tab
+                  </h4>
+                  <div>
+                     <p>Provides an interface to manually upload a collection into Oracle Health Check Collections Manager Application and provides a list of uploaded collections and file details.</p>
+                     <p>These manually uploaded collections are unzipped and their data imported into the framework as if they had been uploaded at runtime when the tool was run. Therefore, even if the tool is not configured for automatic upload into the Oracle Health Check Collections Manager Application, you can always upload collections manually.</p>
+                     <div class="p">
+                        <div class="infoboxnote" id="GUID-6D4C9F7F-1E56-4258-958E-C354CEB69571__GUID-8140A720-E372-4C05-B32B-97E477EA1A3F">
+                           <p class="notep1">Note:</p>
+                           <p>Using a combination of tables and environment variables, you can automate the process of uploading collections into the database hosting the Oracle Health Check Collections Manager Application at runtime.</p>
+                        </div>
+                     </div>
+                     <div class="figure" id="GUID-6D4C9F7F-1E56-4258-958E-C354CEB69571__GUID-975FA881-5E55-4D94-9A4E-DF18730671D7">
+                        <p class="titleinfigure">Figure 1-139 Upload Collections Tab</p><img src="img/upload-collections-tab.png" alt="Description of Figure 1-139 follows" title="Description of Figure 1-139 follows" longdesc="img_text/upload-collections-tab.html"><br><a href="img_text/upload-collections-tab.html">Description of "Figure 1-139 Upload Collections Tab"</a></div>
+                     <!-- class="figure" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-B519798F-588A-474A-BA00-0A4AECDE91FE" title="Familiarize yourself with the features of Oracle Health Check Collections Manager Application.">Oracle Health Check Collections Manager Application Features</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-F53AB1E0-1236-469E-BDCD-150D3F1DCBD9" name="GUID-F53AB1E0-1236-469E-BDCD-150D3F1DCBD9"></a><h4 id="OEXUG-GUID-F53AB1E0-1236-469E-BDCD-150D3F1DCBD9" class="sect4"><span class="enumeration_section">1.10.4.8 </span>Tracking Support Incidents
+                  </h4>
+                  <div>
+                     <p>The <span class="bold">Incidents</span> tab gives you a complete system for tracking support incidents.
+                     </p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Specify contact details of each customer, products and categories, and then set up values to limit status codes, severity, and urgency attributes for an incident</p>
+                        </li>
+                        <li>
+                           <p>Raise a new ticket by clicking the Delta (Δ) symbol. Oracle Health Check Collections Manager displays this symbol only in the&nbsp;<span class="bold">Collections</span> and <span class="bold">Browse</span> tabs.
+                           </p>
+                        </li>
+                        <li>
+                           <p>The <span class="bold">Browse</span> tab enables you to create a new ticket on individual checks
+                           </p>
+                        </li>
+                        <li>
+                           <p>The <span class="bold">Collections</span> tab enables you to create a single ticket for entire the collection
+                           </p>
+                        </li>
+                        <li>
+                           <p>Delta (Δ) symbol is color coded red, blue, and green based on the ticket status.</p>
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p><span class="bold">RED (No Incident ticket exists)</span>: initiates the process to create a new incident ticket for the collection or individual checks
+                                 </p>
+                              </li>
+                              <li>
+                                 <p><span class="bold">BLUE (An open Incident ticket exists)</span>: opens the incident ticket for editing
+                                 </p>
+                              </li>
+                              <li>
+                                 <p><span class="bold">GREEN (A closed Incident ticket exists)</span>: opens the closed incident ticket for viewing
+                                 </p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>Track the progress of the ticket in an update area of the ticket, or add attachments and links to the incident</p>
+                        </li>
+                        <li>
+                           <p>Use tags to classify incidents and use the resulting tag cloud in your reports</p>
+                        </li>
+                        <li>
+                           <p>Incident access and management happen only within your access control range</p>
+                        </li>
+                     </ul>
+                     <div class="p">
+                        <div class="infoboxnote" id="GUID-F53AB1E0-1236-469E-BDCD-150D3F1DCBD9__GUID-D274D7B2-74ED-4514-986B-0A133FA0244B">
+                           <p class="notep1">Note:</p>
+                           <p>Incident Tracking feature is a basic stand-alone system and it is not designed for integration with other commercial enterprise-level trouble ticketing systems.</p>
+                        </div>
+                     </div>
+                     <div class="p">
+                        <div class="figure" id="GUID-F53AB1E0-1236-469E-BDCD-150D3F1DCBD9__GUID-0159E29E-396F-4CBC-A808-FFFEC1AD9C45">
+                           <p class="titleinfigure">Figure 1-140 Incidents Tab</p><img src="img/incidents-tab.png" alt="Description of Figure 1-140 follows" title="Description of Figure 1-140 follows" longdesc="img_text/incidents-tab.html"><br><a href="img_text/incidents-tab.html">Description of "Figure 1-140 Incidents Tab"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                     <div class="section">
+                        <p class="subhead3" id="GUID-F53AB1E0-1236-469E-BDCD-150D3F1DCBD9__GUID-AB75760C-01DF-4487-9779-BEE4E84293ED">Incident Tracking Features</p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>Search options</p>
+                           </li>
+                           <li>
+                              <p>Track and analyze incident tickets</p>
+                           </li>
+                           <li>
+                              <p>Flexible and updateable incident status</p>
+                           </li>
+                           <li>
+                              <p>Robust reporting</p>
+                           </li>
+                           <li>
+                              <p>Link, Note, and File Attachments</p>
+                           </li>
+                           <li>
+                              <p>Flexible Access Control (reader, contributor, administrator model)</p>
+                           </li>
+                        </ul>
+                     </div>
+                     <!-- class="section" -->
+                  </div>
+                  <div>
+                     <ul class="ullinks">
+                        <li class="ulchildlink"><a href="collection-manager.html#GUID-7B487B44-004B-4772-99B1-B5000B064A45">Creating or Editing Incidents Tickets</a><br>Create or edit incident tickets for individual checks or for an entire collection.
+                        </li>
+                     </ul>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-B519798F-588A-474A-BA00-0A4AECDE91FE" title="Familiarize yourself with the features of Oracle Health Check Collections Manager Application.">Oracle Health Check Collections Manager Application Features</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div class="sect4"><a id="GUID-7B487B44-004B-4772-99B1-B5000B064A45" name="GUID-7B487B44-004B-4772-99B1-B5000B064A45"></a><h5 id="OEXUG-GUID-7B487B44-004B-4772-99B1-B5000B064A45" class="sect5"><span class="enumeration_section">1.10.4.8.1 </span>Creating or Editing Incidents Tickets
+                     </h5>
+                     <div>
+                        <p>Create or edit incident tickets for individual checks or for an entire collection.</p>
+                        <p>The statuses of each ticket is represented by icons with different colors. You can act upon by clicking the icons.</p>
+                     </div>
+                     <div>
+                        <ul class="ullinks">
+                           <li class="ulchildlink"><a href="collection-manager.html#GUID-E13587A9-50C1-44D8-A2B1-34717F9CDB2E">Creating Incident Tickets</a><br></li>
+                           <li class="ulchildlink"><a href="collection-manager.html#GUID-E337A1B4-A0B6-4873-A467-A3160365D758">Editing Incident Tickets</a><br></li>
+                        </ul>
+                        <div class="familylinks">
+                           <div class="parentlink">
+                              <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-F53AB1E0-1236-469E-BDCD-150D3F1DCBD9" title="The Incidents tab gives you a complete system for tracking support incidents.">Tracking Support Incidents</a></p>
+                           </div>
+                        </div>
+                     </div>
+                     
+                     <div class="sect5"><a id="GUID-E13587A9-50C1-44D8-A2B1-34717F9CDB2E" name="GUID-E13587A9-50C1-44D8-A2B1-34717F9CDB2E"></a><h6 id="OEXUG-GUID-E13587A9-50C1-44D8-A2B1-34717F9CDB2E" class="sect6"><span class="enumeration_section">1.10.4.8.1.1 </span>Creating Incident Tickets
+                        </h6>
+                        <div>
+                           <p></p>
+                           <div class="section">
+                              <p class="subhead3" id="GUID-E13587A9-50C1-44D8-A2B1-34717F9CDB2E__GUID-2371034F-D81A-4305-9AD1-15B7F77E3B98">To create incident tickets:</p>
+                           </div>
+                           <!-- class="section" -->
+                           <ol>
+                              <li><span>Click the <span class="bold">Delta (Δ)</span> symbol colored RED.</span></li>
+                              <li><span>Add your ticket details.</span></li>
+                              <li><span>Click <span class="bold">Next.</span></span></li>
+                              <li><span>Select the <span class="bold">Product</span> and <span class="bold">Product Version</span>.</span></li>
+                              <li><span>Click <span class="bold">Next</span>.</span></li>
+                              <li><span>Select the <kbd class="userinput">Urgency</kbd> of the ticket.</span></li>
+                              <li><span>Select the <span class="bold">Severity</span> of the ticket.</span></li>
+                              <li><span>Select the <span class="bold">Status</span> of the ticket.</span></li>
+                              <li><span>Select the <span class="bold">Category</span> of the ticket.</span></li>
+                              <li><span>Enter a summary and description of the incident.</span></li>
+                              <li><span>Click <span class="bold">Create Ticket</span>.</span></li>
+                           </ol>
+                        </div>
+                        <div>
+                           <div class="familylinks">
+                              <div class="parentlink">
+                                 <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-7B487B44-004B-4772-99B1-B5000B064A45" title="Create or edit incident tickets for individual checks or for an entire collection.">Creating or Editing Incidents Tickets</a></p>
+                              </div>
+                           </div>
+                        </div>
+                        
+                     </div>
+                     <div class="sect5"><a id="GUID-E337A1B4-A0B6-4873-A467-A3160365D758" name="GUID-E337A1B4-A0B6-4873-A467-A3160365D758"></a><h6 id="OEXUG-GUID-E337A1B4-A0B6-4873-A467-A3160365D758" class="sect6"><span class="enumeration_section">1.10.4.8.1.2 </span>Editing Incident Tickets
+                        </h6>
+                        <div>
+                           <p></p>
+                           <div class="section">
+                              <p class="subhead3" id="GUID-E337A1B4-A0B6-4873-A467-A3160365D758__GUID-99850CF2-DB5A-4810-A769-068A3E7224B4">To edit incident tickets:</p>
+                           </div>
+                           <!-- class="section" -->
+                           <ol>
+                              <li><span>Click the <span class="bold">Incident</span> tab.</span></li>
+                              <li><span>Click <span class="bold">Open Tickets</span>.</span></li>
+                              <li><span>Click the ticket.</span></li>
+                              <li><span>Click <span class="bold">Edit Ticket</span>.</span></li>
+                              <li><span>Alter required details, click <span class="bold">Apply Changes</span>.</span></li>
+                           </ol>
+                           <div class="section">
+                              <div class="p">
+                                 <div class="infoboxnote" id="GUID-E337A1B4-A0B6-4873-A467-A3160365D758__GUID-7BBC3E2F-5B72-4A55-9525-A6BEAE1F93A7">
+                                    <p class="notep1">Note:</p>Click the delta symbol colored GREEN in the <span class="bold">Collections</span> or <span class="bold">Browse</span> tabs to edit incident tickets.
+                                 </div>
+                              </div>
+                           </div>
+                           <!-- class="section" -->
+                        </div>
+                        <div>
+                           <div class="familylinks">
+                              <div class="parentlink">
+                                 <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-7B487B44-004B-4772-99B1-B5000B064A45" title="Create or edit incident tickets for individual checks or for an entire collection.">Creating or Editing Incidents Tickets</a></p>
+                              </div>
+                           </div>
+                        </div>
+                        
+                     </div>
+                  </div>
+               </div>
+               <div class="sect3"><a id="GUID-8F0EC9D7-AE07-4C63-B902-F2DF83FB0CC3" name="GUID-8F0EC9D7-AE07-4C63-B902-F2DF83FB0CC3"></a><h4 id="OEXUG-GUID-8F0EC9D7-AE07-4C63-B902-F2DF83FB0CC3" class="sect4"><span class="enumeration_section">1.10.4.9 </span>Authoring User-Defined Checks
+                  </h4>
+                  <div>
+                     <p>Define, test, and maintain your own checks that are specific to your environment.</p>
+                     <div class="section">
+                        <p>Oracle supports the framework for creating and running user-defined checks, but not the logic of the checks. It is your responsibility to test, verify, author, maintain, and support user-defined checks. At runtime, Oracle ORAchk and Oracle EXAchk script run the user-defined checks and display the results in the <span class="bold">User Defined Checks</span> section of the HTML report. 
+                        </p>
+                        <p>The user-defined checks are stored in the Oracle Health Check Collections Manager schema and output to an XML file, which is co-located with the ORAchk script. When run on your system, ORAchk 12.1.0.2.5 and later tries to find the XML file. If found, then Oracle ORAchk runs the checks contained therein and includes the results in the standard HTML report.</p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-8F0EC9D7-AE07-4C63-B902-F2DF83FB0CC3__GUID-45637CCE-880E-47F6-8E7E-07641D680CDF">To author user-defined checks:</p>
+                     </div>
+                     <!-- class="section" -->
+                     <ol>
+                        <li class="stepexpand"><span>Click the <span class="bold">User Defined Checks</span> tab, then select <span class="bold">Add New Check</span>.</span><div>
+                              <div class="figure" id="GUID-8F0EC9D7-AE07-4C63-B902-F2DF83FB0CC3__GUID-94C96EDE-B109-4C4B-B970-C92E8DF18452">
+                                 <p class="titleinfigure">Figure 1-141 User-Defined Checks Tab</p><img src="img/user-defined-checks-tab.png" alt="Description of Figure 1-141 follows" title="Description of Figure 1-141 follows" longdesc="img_text/user-defined-checks-tab.html"><br><a href="img_text/user-defined-checks-tab.html">Description of "Figure 1-141 User-Defined Checks Tab"</a></div>
+                              <!-- class="figure" -->
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Select <span class="bold">OS Check</span> or <span class="bold">SQL Check</span> as <span class="bold">Audit Check Type</span>.</span><div>
+                              <p>Operating system checks use a system command to determine the check status. SQL checks run an SQL statement to determine the check status.</p>
+                              <div class="p">
+                                 <div class="figure" id="GUID-8F0EC9D7-AE07-4C63-B902-F2DF83FB0CC3__GUID-1F35CE21-3E6B-48E4-8E86-5DFDA153FCF0">
+                                    <p class="titleinfigure">Figure 1-142 User-Defined Checks Tab - Audit Check Type</p><img src="img/user-defined-checks-tab-audit-check-type.png" alt="Description of Figure 1-142 follows" title="Description of Figure 1-142 follows" longdesc="img_text/user-defined-checks-tab-audit-check-type.html"><br><a href="img_text/user-defined-checks-tab-audit-check-type.html">Description of "Figure 1-142 User-Defined Checks Tab - Audit Check Type"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                              <p>Once you have selected an <span class="bold">Audit Check Type</span>, Oracle Health Check Collections Manager updates the applicable fields.
+                              </p>
+                              <p>Any time during authoring, click the title of a field to see help documentation specific to that field.</p>
+                              <p>Operating system and SQL commands are supported. Running user-defined checks as <code class="codeph">root</code> is <strong class="term">NOT</strong> supported.
+                              </p>
+                              <div class="p">
+                                 <div class="figure" id="GUID-8F0EC9D7-AE07-4C63-B902-F2DF83FB0CC3__GUID-F996AF7C-3770-4182-A553-3766F9F53B0E">
+                                    <p class="titleinfigure">Figure 1-143 User-Defined Checks Tab - Audit Check Type - OS Check</p><img src="img/user-defined-checks-tab-audit-check-type-os-check.png" alt="Description of Figure 1-143 follows" title="Description of Figure 1-143 follows" longdesc="img_text/user-defined-checks-tab-audit-check-type-os-check.html"><br><a href="img_text/user-defined-checks-tab-audit-check-type-os-check.html">Description of "Figure 1-143 User-Defined Checks Tab - Audit Check Type - OS Check"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                              <p>Once a check is created, the check is listed in the <span class="bold">Available Audit Checks</span> section.
+                              </p>
+                              <p>Filter the checks using the filters on this page.</p>
+                              <div class="p">
+                                 <div class="figure" id="GUID-8F0EC9D7-AE07-4C63-B902-F2DF83FB0CC3__GUID-A285FA1C-4527-405F-8616-1431EEDBFDFA">
+                                    <p class="titleinfigure">Figure 1-144 User-Defined Checks Tab - Available Audit Checks</p><img src="img/user-defined-checks-tab-available-audit-checks.png" alt="Description of Figure 1-144 follows" title="Description of Figure 1-144 follows" longdesc="img_text/user-defined-checks-tab-available-audit-checks.html"><br><a href="img_text/user-defined-checks-tab-available-audit-checks.html">Description of "Figure 1-144 User-Defined Checks Tab - Available Audit Checks"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Click the <span class="bold">Generate XML</span>.</span><div>
+                              <p>On the right, find a link to download the generated <code>user_defined_checks.xml</code> file.
+                              </p>
+                              <p>The generated XML file includes all the checks that have been authored and have not been placed on hold. Placing checks on hold is equivalent to a logical delete. If there is a problem with a check or the logic is not perfect, then place the check on hold. The check that is placed on hold is not included in the XML file. If the check is production ready, then remove the hold to include the check the next time the XML file is generated.</p>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Download and save the <code>user_defined_checks.xml</code> file into the same directory as the Oracle ORAchk and Oracle EXAchk tools.</span><div>
+                              <p>Oracle ORAchk and Oracle EXAchk run the user-defined checks the next time they run.</p>
+                              <div class="p">
+                                 <div class="figure" id="GUID-8F0EC9D7-AE07-4C63-B902-F2DF83FB0CC3__GUID-2E2C3250-37FC-4E58-B2E0-E6033BE8C226">
+                                    <p class="titleinfigure">Figure 1-145 User-Defined Checks Tab - Download User-Defined Checks</p><img src="img/user-defined-checks-tab-download-user-defined-checks.png" alt="Description of Figure 1-145 follows" title="Description of Figure 1-145 follows" longdesc="img_text/user-defined-checks-tab-download-user-defined-checks.html"><br><a href="img_text/user-defined-checks-tab-download-user-defined-checks.html">Description of "Figure 1-145 User-Defined Checks Tab - Download User-Defined Checks"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Alternatively, to run only the user-defined checks use the profile <code class="codeph">user_defined_checks</code>.</span><div>
+                              <div class="p">When this option is used, then the user-defined checks are the only checks run and the<span class="bold">User Defined Checks</span> section is the only one with results displayed in the report.<pre class="pre codeblock"><code>./orachk &#x2013;profile user_defined_checks</code></pre><pre class="pre codeblock"><code>./exachk &#x2013;profile user_defined_checks</code></pre></div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>To omit the user-defined checks at runtime, use the <code>&#x2013;excludeprofile</code>&nbsp;option.</span><div>
+                              <div class="p"><pre class="pre codeblock"><code>./orachk &#x2013;excludeprofile user_defined_checks</code></pre><pre class="pre codeblock"><code>./exachk &#x2013;excludeprofile user_defined_checks</code></pre></div>
+                           </div>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="running-subsets-of-checks.html#GUID-B7E09DB3-A839-4C98-A40F-765D527C1BF9" title="Run a subset of health checks where necessary.">Running Subsets of Checks</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-B519798F-588A-474A-BA00-0A4AECDE91FE" title="Familiarize yourself with the features of Oracle Health Check Collections Manager Application.">Oracle Health Check Collections Manager Application Features</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-E603563E-350A-41B9-9AC6-A4D57163C74E" name="GUID-E603563E-350A-41B9-9AC6-A4D57163C74E"></a><h3 id="OEXUG-GUID-E603563E-350A-41B9-9AC6-A4D57163C74E" class="sect3"><span class="enumeration_section">1.10.5 </span>Uploading Collections Automatically
+               </h3>
+               <div>
+                  <p>Configure Oracle ORAchk and Oracle EXAchk to automatically upload check results to the Oracle Health Check Collections Manager database.</p>
+                  <p>Specify the connection string and the password to connect to the database and upload collection results. Oracle Health Check Collections Manager stores the connection details in an encrypted wallet.</p>
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="apex5-managing-oracle-health-check-collection-manager.html#GUID-196CDEB0-0FC1-4B0B-8A93-6ECA1FAC39D5" title="Use these procedures to configure Oracle ORAchk and Oracle EXAchk to automatically upload check results to the Oracle Health Check Collections Manager database.">Uploading Collections Automatically</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-BC64F401-438E-4CE5-914C-577BD3A12EB1" title="Oracle Health Check Collections Manager for Oracle Application Express 4.2 provides you an enterprise-wide view of your health check collection data.">Oracle Health Check Collections Manager for Oracle Application Express 4.2</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-61C2670E-9475-4D39-8305-EE67F8E42AEE" name="GUID-61C2670E-9475-4D39-8305-EE67F8E42AEE"></a><h3 id="OEXUG-GUID-61C2670E-9475-4D39-8305-EE67F8E42AEE" class="sect3"><span class="enumeration_section">1.10.6 </span>Viewing and Reattempting Failed Uploads
+               </h3>
+               <div>
+                  <p>Use these procedures to view and reattempt to upload the failed uploads.</p>
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="apex5-managing-oracle-health-check-collection-manager.html#GUID-1E93D99D-9BE8-4A89-BADF-58B07D26C83E" title="Configure Oracle ORAchk and Oracle EXAchk to display and reattempt to upload the failed uploads.">Viewing and Reattempting Failed Uploads</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-BC64F401-438E-4CE5-914C-577BD3A12EB1" title="Oracle Health Check Collections Manager for Oracle Application Express 4.2 provides you an enterprise-wide view of your health check collection data.">Oracle Health Check Collections Manager for Oracle Application Express 4.2</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-2CB944BB-9A12-4291-898A-0E42199CACA3" name="GUID-2CB944BB-9A12-4291-898A-0E42199CACA3"></a><h3 id="OEXUG-GUID-2CB944BB-9A12-4291-898A-0E42199CACA3" class="sect3"><span class="enumeration_section">1.10.7 </span>Oracle Health Check Collections Manager Application Uninstallation
+               </h3>
+               <div>
+                  <p>Anytime you can decommission Oracle Health Check Collections Manager Application setup. Follow these steps sequentially to uninstall the application leaving no residual files.</p>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="collection-manager.html#GUID-B5A764FA-A9BA-4600-A153-1A6D5DEA19E9">Deleting Oracle Health Check Collections Manager Application</a><br>You need administrative privileges to uninstall Oracle Health Check Collections Manager Application.
+                     </li>
+                     <li class="ulchildlink"><a href="collection-manager.html#GUID-63CA4ACB-EE56-4186-BF68-BA2D17409104">Deleting Workspace Admin</a><br>You need administrative privileges to delete a workspace. There may exist one or more workspaces so be cautious while deleting workspaces.
+                     </li>
+                  </ul>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-BC64F401-438E-4CE5-914C-577BD3A12EB1" title="Oracle Health Check Collections Manager for Oracle Application Express 4.2 provides you an enterprise-wide view of your health check collection data.">Oracle Health Check Collections Manager for Oracle Application Express 4.2</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="sect3"><a id="GUID-B5A764FA-A9BA-4600-A153-1A6D5DEA19E9" name="GUID-B5A764FA-A9BA-4600-A153-1A6D5DEA19E9"></a><h4 id="OEXUG-GUID-B5A764FA-A9BA-4600-A153-1A6D5DEA19E9" class="sect4"><span class="enumeration_section">1.10.7.1 </span>Deleting Oracle Health Check Collections Manager Application
+                  </h4>
+                  <div>
+                     <p>You need administrative privileges to uninstall Oracle Health Check Collections Manager Application.</p>
+                     <div class="section">
+                        <p>After successful uninstallation, application definition and the supporting objects are deleted from the hosting database.</p>
+                     </div>
+                     <!-- class="section" -->
+                     <ol>
+                        <li class="stepexpand"><span>Log in to Oracle Health Check Collections Manager Application.</span><div><pre class="pre codeblock"><code>http://hostname:port/apex
+http://hostname:port/pls/apex/</code></pre><div class="p">For example: <pre class="pre codeblock"><code>http://dbserver.domain.com:8080/apex/</code></pre></div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Specify the <span class="bold">Workspace Name</span>, <span class="bold">Workspace Username</span>, and <span class="bold">Password</span>, and then click <span class="bold">Login</span>.</span><div>
+                              <div class="p">
+                                 <div class="figure" id="GUID-B5A764FA-A9BA-4600-A153-1A6D5DEA19E9__GUID-0CF4BF11-F9AE-4E0E-A1CB-D7D7CB25489B">
+                                    <p class="titleinfigure">Figure 1-146 Application Express Login</p><img src="img/application-express-login.png" alt="Description of Figure 1-146 follows" title="Description of Figure 1-146 follows" longdesc="img_text/application-express-login.html"><br><a href="img_text/application-express-login.html">Description of "Figure 1-146 Application Express Login"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Click <span class="bold">Application Builder</span>.</span></li>
+                        <li class="stepexpand"><span>Select <span class="bold">Collection Manager Application</span>, then click <span class="bold">Edit</span>.</span></li>
+                        <li class="stepexpand"><span>Click <span class="bold">Edit Application Page</span>.</span><div>
+                              <div class="p">
+                                 <div class="figure" id="GUID-B5A764FA-A9BA-4600-A153-1A6D5DEA19E9__GUID-600EFEF2-149E-47B1-A5AB-3A9339D597D7">
+                                    <p class="titleinfigure">Figure 1-147 Application Express - Edit Application</p><img src="img/application-express-edit-application.png" alt="Description of Figure 1-147 follows" title="Description of Figure 1-147 follows" longdesc="img_text/application-express-edit-application.html"><br><a href="img_text/application-express-edit-application.html">Description of "Figure 1-147 Application Express - Edit Application"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Click <span class="bold">Delete</span>.</span><div>
+                              <div class="p">
+                                 <div class="figure" id="GUID-B5A764FA-A9BA-4600-A153-1A6D5DEA19E9__GUID-4BEB7898-79F5-4526-9319-043BB60ED062">
+                                    <p class="titleinfigure">Figure 1-148 Application Express - Delete</p><img src="img/application-express-delete.png" alt="Description of Figure 1-148 follows" title="Description of Figure 1-148 follows" longdesc="img_text/application-express-delete.html"><br><a href="img_text/application-express-delete.html">Description of "Figure 1-148 Application Express - Delete"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Choose <span class="bold">Deinstallation Options</span>.</span><div>
+                              <ul style="list-style-type: disc;">
+                                 <li>
+                                    <p>Select the <span class="bold">Remove Application Definition</span> &amp; <span class="bold">Deinstall Supporting Objects</span> Deinstallation Options.
+                                    </p>
+                                 </li>
+                                 <li>
+                                    <p>Click <span class="bold">Deinstall</span>.
+                                    </p>
+                                    <div class="p">
+                                       <div class="figure" id="GUID-B5A764FA-A9BA-4600-A153-1A6D5DEA19E9__GUID-9D582AB4-CFF8-45D2-8173-13491049D913">
+                                          <p class="titleinfigure">Figure 1-149 Application Express - Deinstall</p><img src="img/application-express-deinstall.png" alt="Description of Figure 1-149 follows" title="Description of Figure 1-149 follows" longdesc="img_text/application-express-deinstall.html"><br><a href="img_text/application-express-deinstall.html">Description of "Figure 1-149 Application Express - Deinstall"</a></div>
+                                       <!-- class="figure" -->
+                                       <div class="figure" id="GUID-B5A764FA-A9BA-4600-A153-1A6D5DEA19E9__GUID-ACBF09B2-766A-4E7B-A6FB-031DD5A01076">
+                                          <p class="titleinfigure">Figure 1-150 Application Express - Deinstall Summary</p><img src="img/application-express-deinstall-summary.png" alt="Description of Figure 1-150 follows" title="Description of Figure 1-150 follows" longdesc="img_text/application-express-deinstall-summary.html"><br><a href="img_text/application-express-deinstall-summary.html">Description of "Figure 1-150 Application Express - Deinstall Summary"</a></div>
+                                       <!-- class="figure" -->
+                                    </div>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-2CB944BB-9A12-4291-898A-0E42199CACA3" title="Anytime you can decommission Oracle Health Check Collections Manager Application setup. Follow these steps sequentially to uninstall the application leaving no residual files.">Oracle Health Check Collections Manager Application Uninstallation</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-63CA4ACB-EE56-4186-BF68-BA2D17409104" name="GUID-63CA4ACB-EE56-4186-BF68-BA2D17409104"></a><h4 id="OEXUG-GUID-63CA4ACB-EE56-4186-BF68-BA2D17409104" class="sect4"><span class="enumeration_section">1.10.7.2 </span>Deleting Workspace Admin
+                  </h4>
+                  <div>
+                     <p>You need administrative privileges to delete a workspace. There may exist one or more workspaces so be cautious while deleting workspaces.</p>
+                     <ol>
+                        <li class="stepexpand"><span>Log in to Oracle Application Express.</span></li>
+                        <li class="stepexpand"><span>Click <span class="bold">Manage Workspaces</span>.</span></li>
+                        <li class="stepexpand"><span>Under <span class="bold">Workspace Reports</span>, click <span class="bold">Existing Workspaces</span>, and check the <span class="bold">Workspace</span> name.</span><div>
+                              <div class="p">
+                                 <div class="figure" id="GUID-63CA4ACB-EE56-4186-BF68-BA2D17409104__GUID-1586472C-8AAD-46F8-B8D5-ED22F9D1A45B">
+                                    <p class="titleinfigure">Figure 1-151 Application Express - Manage Workspaces</p><img src="img/application-express-manage-workspaces.png" alt="Description of Figure 1-151 follows" title="Description of Figure 1-151 follows" longdesc="img_text/application-express-manage-workspaces.html"><br><a href="img_text/application-express-manage-workspaces.html">Description of "Figure 1-151 Application Express - Manage Workspaces"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Under <span class="bold">Action</span>, click <span class="bold">Delete</span>.</span></li>
+                        <li class="stepexpand"><span>Select the check box to confirm that you want to proceed with the removal and then click <span class="bold">Next</span>.</span><div>
+                              <div class="p">
+                                 <div class="figure" id="GUID-63CA4ACB-EE56-4186-BF68-BA2D17409104__GUID-BD4EE37C-B983-4AB5-8B2A-837228F1D6AF">
+                                    <p class="titleinfigure">Figure 1-152 Application Express - Confirm Delete</p><img src="img/application-express-confirm-delete.png" alt="Description of Figure 1-152 follows" title="Description of Figure 1-152 follows" longdesc="img_text/application-express-confirm-delete.html"><br><a href="img_text/application-express-confirm-delete.html">Description of "Figure 1-152 Application Express - Confirm Delete"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Click <span class="bold">Remove Workspace</span>.</span><div>
+                              <div class="p">
+                                 <div class="figure" id="GUID-63CA4ACB-EE56-4186-BF68-BA2D17409104__GUID-CC47C5BC-A58E-480C-AF1A-1E7F5921A6B7">
+                                    <p class="titleinfigure">Figure 1-153 Application Express - Remove Workspace</p><img src="img/application-express-remove-workspace.png" alt="Description of Figure 1-153 follows" title="Description of Figure 1-153 follows" longdesc="img_text/application-express-remove-workspace.html"><br><a href="img_text/application-express-remove-workspace.html">Description of "Figure 1-153 Application Express - Remove Workspace"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </div>
+                        </li>
+                     </ol>
+                     <div class="section">
+                        <p>The install process displays the <samp class="msgph">Workspace has been successfully removed</samp> message.
+                        </p>
+                     </div>
+                     <!-- class="section" -->
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="http://docs.oracle.com/cd/E59726_01/install.50/e39144/db_pluggable.htm#HTMIG29436" target="_blank">http://docs.oracle.com/cd/E59726_01/install.50/e39144/db_pluggable.htm#HTMIG29436</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-2CB944BB-9A12-4291-898A-0E42199CACA3" title="Anytime you can decommission Oracle Health Check Collections Manager Application setup. Follow these steps sequentially to uninstall the application leaving no residual files.">Oracle Health Check Collections Manager Application Uninstallation</a></p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-5C80908E-52BD-4048-9165-6CB3F88F2ED4" name="GUID-5C80908E-52BD-4048-9165-6CB3F88F2ED4"></a><h3 id="OEXUG-GUID-5C80908E-52BD-4048-9165-6CB3F88F2ED4" class="sect3"><span class="enumeration_section">1.10.8 </span>Troubleshooting Oracle Health Check Collections Manager
+               </h3>
+               <div>
+                  <p>This topic describes how to troubleshoot Oracle Health Check Collections Manager.</p>
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="apex5-managing-oracle-health-check-collection-manager.html#GUID-28716C5D-FD64-4329-9801-32435048EB39" title="This topic describes how to troubleshoot Oracle Health Check Collections Manager.">Troubleshooting Oracle Health Check Collections Manager</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="collection-manager.html#GUID-BC64F401-438E-4CE5-914C-577BD3A12EB1" title="Oracle Health Check Collections Manager for Oracle Application Express 4.2 provides you an enterprise-wide view of your health check collection data.">Oracle Health Check Collections Manager for Oracle Application Express 4.2</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

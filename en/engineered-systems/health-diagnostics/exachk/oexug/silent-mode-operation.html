@@ -1,0 +1,164 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="Run health checks automatically by scheduling them with the Automated Daemon Mode operation.">
+      <meta name="description" content="Run health checks automatically by scheduling them with the Automated Daemon Mode operation.">
+      <title>Running Health Checks in Silent Mode</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide">
+      <meta property="og:description" content="Run health checks automatically by scheduling them with the Automated Daemon Mode operation.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-orachk-and-exachk-users-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:43:23-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2016, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E83827-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/exachk">
+      
+      <link rel="prev" href="on-demand-mode-operation.html" title="Previous" type="text/html">
+      <link rel="next" href="understanding-and-managing-reports-and-output.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"exachk","element_name":"EXAchk","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® ORAchk and EXAchk User's Guide">
+    <meta name="dcterms.isVersionOf" content="OEXUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="on-demand-mode-operation.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="understanding-and-managing-reports-and-output.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="oracle-orachk-and-exachk-common-features-tasks.html" property="item" typeof="WebPage"><span property="name">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Running Health Checks in Silent Mode</li>
+            </ol>
+            <a id="GUID-82AEFE23-908D-42EA-8BD5-480C24A52F7A" name="GUID-82AEFE23-908D-42EA-8BD5-480C24A52F7A"></a>
+            
+            <h2 id="OEXUG-GUID-82AEFE23-908D-42EA-8BD5-480C24A52F7A" class="sect2"><span class="enumeration_section">1.4 </span>Running Health Checks in Silent Mode
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p> Run health checks automatically by scheduling them with the Automated Daemon Mode operation.</p>
+               <div class="p">
+                  <div class="infoboxnote" id="GUID-82AEFE23-908D-42EA-8BD5-480C24A52F7A__GUID-824F2BF0-A56B-4146-9100-15D23EAFBCEB">
+                     <p class="notep1">Note:</p>
+                     <p>Silent mode operation is maintained for backwards compatibility for the customers who were using it before the daemon mode was available. Silent mode is limited in the checks it runs and Oracle does not actively enhance it any further.</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Running health checks in silent mode using the <code class="codeph">-s</code> option does not run any checks on the storage servers and switches.
+                           </p>
+                        </li>
+                        <li>
+                           <p>Running health checks in silent mode using the <code class="codeph">-S</code> option excludes checks on database server that require <code class="codeph">root</code> access. Also, does not run any checks on the storage servers and database servers.
+                           </p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <p>To run health checks silently, configure passwordless SSH equivalency. It is not required to run remote checks, such as running against a single-instance database.</p>
+               <p>When health checks are run silently, output is similar to that described in On-Demand Mode Operation.</p>
+               <div class="p">
+                  <div class="infoboxnote" id="GUID-82AEFE23-908D-42EA-8BD5-480C24A52F7A__GUID-6EED65E4-47C8-4806-A368-95D8E6767EFF">
+                     <p class="notep1">Note:</p>
+                     <p> If not configured to run in silent mode operation on an Oracle Engineered System, then the tool does not perform storage server or InfiniBand switch checks.</p>
+                  </div>
+               </div>
+               <div class="section">
+                  <p class="subhead1" id="GUID-82AEFE23-908D-42EA-8BD5-480C24A52F7A__GUID-87B4D321-288D-498A-9390-06A14A56C4D8">Including Health Checks that Require root Access</p>
+                  <p>Run as <code class="codeph">root</code> &nbsp;or configure <code class="codeph">sudo</code>&nbsp; access to run health checks in silent mode and include checks that require <code class="codeph">root</code> access.
+                  </p>
+                  <div class="p">To run health checks including checks that require <code class="codeph">root</code> access, use the <code class="codeph">&#x2013;s</code> &nbsp;option followed by other required options:<pre class="pre codeblock"><code>$ ./orachk &#x2013;s</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;s</code></pre></div>
+               </div>
+               <!-- class="section" -->
+               <div class="section">
+                  <p class="subhead1" id="GUID-82AEFE23-908D-42EA-8BD5-480C24A52F7A__GUID-B68C84A8-C302-4EE9-9793-98032F7F15BA">Excluding Health Checks that Require root Access</p>
+                  <div class="p">To run health checks excluding checks that require <code class="codeph">root</code> access, use the <code class="codeph">&#x2013;S</code> &nbsp;option followed by other required options:<pre class="pre codeblock"><code>$ ./orachk &#x2013;S</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;S</code></pre></div>
+               </div>
+               <!-- class="section" -->
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="silent-mode-operation.html#GUID-8CE0C52B-57E4-4D62-8814-E652C99831E3">Including Health Checks that Require root Access</a><br>Run as <code class="codeph">root</code> &nbsp;or configure <code class="codeph">sudo</code>&nbsp; access to run health checks in silent mode and include checks that require <code class="codeph">root</code> access.
+                  </li>
+                  <li class="ulchildlink"><a href="silent-mode-operation.html#GUID-52EE4013-65A6-4ADE-90CD-B70B86472BB5">Excluding Health Checks that Require root Access</a><br>To run health checks in silent mode and exclude checks that require <code class="codeph">root</code> access, use <code class="codeph">&#x2013;S</code> followed by other required options.
+                  </li>
+               </ul>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="oracle-orachk-and-exachk-common-features-tasks.html#GUID-50F7EA11-11FD-431C-B99A-EC9E2176BBDB" title="Oracle ORAchk and Oracle EXAchk share a common health check framework and a large portion of their features and tasks are common.">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</a></p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="sect2"><a id="GUID-8CE0C52B-57E4-4D62-8814-E652C99831E3" name="GUID-8CE0C52B-57E4-4D62-8814-E652C99831E3"></a><h3 id="OEXUG-GUID-8CE0C52B-57E4-4D62-8814-E652C99831E3" class="sect3"><span class="enumeration_section">1.4.1 </span>Including Health Checks that Require root Access
+               </h3>
+               <div>
+                  <p>Run as <code class="codeph">root</code> &nbsp;or configure <code class="codeph">sudo</code>&nbsp; access to run health checks in silent mode and include checks that require <code class="codeph">root</code> access.
+                  </p>
+                  <div class="p">To run health checks including checks that require <code class="codeph">root</code> access, use the <code class="codeph">&#x2013;s</code> option followed by other required options:<pre class="pre codeblock"><code>$ ./orachk &#x2013;s</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;s</code></pre></div>
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="quick-start-guide.html#GUID-20CD79D7-E1B2-4236-8484-3064DDF86BC9" title="Run health checks as root. Also, run health checks as the Oracle Database home owner or the Oracle Grid Infrastructure home owner.">Deciding Which User Should Run Oracle ORAchk or Oracle EXAchk</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="silent-mode-operation.html#GUID-82AEFE23-908D-42EA-8BD5-480C24A52F7A" title="Run health checks automatically by scheduling them with the Automated Daemon Mode operation.">Running Health Checks in Silent Mode</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-52EE4013-65A6-4ADE-90CD-B70B86472BB5" name="GUID-52EE4013-65A6-4ADE-90CD-B70B86472BB5"></a><h3 id="OEXUG-GUID-52EE4013-65A6-4ADE-90CD-B70B86472BB5" class="sect3"><span class="enumeration_section">1.4.2 </span>Excluding Health Checks that Require root Access
+               </h3>
+               <div>
+                  <p>To run health checks in silent mode and exclude checks that require <code class="codeph">root</code> access, use <code class="codeph">&#x2013;S</code> followed by other required options.
+                  </p>
+                  <div class="p"><pre class="pre codeblock"><code>$ ./orachk &#x2013;S</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;S</code></pre></div>
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="silent-mode-operation.html#GUID-82AEFE23-908D-42EA-8BD5-480C24A52F7A" title="Run health checks automatically by scheduling them with the Automated Daemon Mode operation.">Running Health Checks in Silent Mode</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

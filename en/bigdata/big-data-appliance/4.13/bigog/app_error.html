@@ -1,0 +1,188 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Error Messages for Oracle Big Data Appliance</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="Owner's Guide">
+      <meta property="og:description" content>
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="Owner's Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-big-data-appliance-owners-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-07T12:03:03-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2011, 2018">
+      <meta name="dcterms.category" content="bigdata">
+      <meta name="dcterms.identifier" content="E98477-01">
+      
+      <meta name="dcterms.product" content="en/bigdata/big-data-appliance/4.13">
+      
+      <link rel="prev" href="appendices.html" title="Previous" type="text/html">
+      <link rel="next" href="app_fru.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"bigdata","element_name":"Big Data","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"not-applicable","element_name":"Not applicable","display_in_url":false},"product":{"short_name":"big-data-appliance","element_name":"Big Data Appliance","display_in_url":true},"release":{"short_name":"4.13","element_name":"Release 4.13","display_in_url":true}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® Big Data Appliance Owner's Guide">
+    <meta name="dcterms.isVersionOf" content="BIGOG">
+    <meta name="dcterms.release" content="Release 4.13">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="appendices.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="app_fru.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">Owner's Guide</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="appendices.html" property="item" typeof="WebPage"><span property="name">Appendixes </span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Error Messages for Oracle Big Data Appliance</li>
+            </ol>
+            <a id="GUID-06006FC6-1110-49BF-A469-3A4F80349637" name="GUID-06006FC6-1110-49BF-A469-3A4F80349637"></a><a id="BIGOG76743"></a>
+            
+            <h2 id="BIGOG-GUID-06006FC6-1110-49BF-A469-3A4F80349637" class="sect2"><span class="enumeration_chapter">A </span>Error Messages for Oracle Big Data Appliance
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <div class="section">
+                  <p>This appendix describes the hardware messages for Oracle Big Data Appliance.</p>
+                  <p>The following messages are Auto Service Request (ASR) alerts. ASR automatically submits a service request to Oracle Support Services in response to these alerts.</p>
+                  <p>Information is also written to the system logs.</p>
+                  <dl>
+                     <dt class="dlterm"><a name="GUID-06006FC6-1110-49BF-A469-3A4F80349637__GUID-BC75EAA0-534B-49A8-8D92-D99B6503D237">
+                           <!-- --></a>DISKALRT-02001 System OS hard disk failure
+                     </dt>
+                     <dd>
+                        <p><span class="keyword">Cause:</span> A physical disk that is hosting the operating system failed or an operating system RAID volume has lost redundancy. HDFS might also raise an alert.
+                        </p>
+                     </dd>
+                     <dd class="ddexpand">
+                        <p><span class="keyword">Action:</span> Replace the physical disk as soon as possible. Follow the instructions in <a href="disks.html#GUID-56941B7D-591A-4712-8343-EA1E04DA34D8">Replacing a Server Disk</a> for configuring an operating system disk.
+                        </p>
+                     </dd>
+                     <dt class="dlterm"><a name="GUID-06006FC6-1110-49BF-A469-3A4F80349637__GUID-04CA3C98-2019-4F11-8F78-2EF5A1DF3FE6">
+                           <!-- --></a>DISKALRT-02002 System OS hard disk predictive failure
+                     </dt>
+                     <dd>
+                        <p><span class="keyword">Cause:</span> A physical disk that is hosting the operating system is in a state of predictive failure.
+                        </p>
+                     </dd>
+                     <dd class="ddexpand">
+                        <p><span class="keyword">Action:</span> Replace the physical disk as soon as possible. Follow the instructions in <a href="disks.html#GUID-56941B7D-591A-4712-8343-EA1E04DA34D8">Replacing a Server Disk</a> for configuring an operating system disk.
+                        </p>
+                     </dd>
+                     <dt class="dlterm"><a name="GUID-06006FC6-1110-49BF-A469-3A4F80349637__GUID-66CFEA6D-0C56-48E0-A4D5-9C12A3E7320E">
+                           <!-- --></a>DISKALRT-02003 System OS hard disk poor performance
+                     </dt>
+                     <dd>
+                        <p><span class="keyword">Cause:</span> A physical disk that is hosting the operating system is performing poorly, which indicates that it is failing.
+                        </p>
+                     </dd>
+                     <dd class="ddexpand">
+                        <p><span class="keyword">Action:</span> Plan to replace the disk. If multiple disk disks in a server are identified as poor performers, then check for problems with the cable connections, the controllers, and the disk backplane before replacing the disks. To replace a disk, follow the instructions in <a href="disks.html#GUID-56941B7D-591A-4712-8343-EA1E04DA34D8">Replacing a Server Disk</a> for configuring an operating system disk.
+                        </p>
+                     </dd>
+                     <dt class="dlterm"><a name="GUID-06006FC6-1110-49BF-A469-3A4F80349637__GUID-369C3E01-3586-4DD4-BD85-91608C46263D">
+                           <!-- --></a>DISKALRT-02004 Data hard disk failure
+                     </dt>
+                     <dd>
+                        <p><span class="keyword">Cause:</span> A physical disk that is <span class="italic">not</span> hosting the operating system failed.
+                        </p>
+                     </dd>
+                     <dd class="ddexpand">
+                        <p><span class="keyword">Action:</span> Replace the physical disk as soon as possible. Follow the instructions in <a href="disks.html#GUID-56941B7D-591A-4712-8343-EA1E04DA34D8">Replacing a Server Disk</a> for configuring a disk for either HDFS or Oracle NoSQL Database.
+                        </p>
+                     </dd>
+                     <dt class="dlterm"><a name="GUID-06006FC6-1110-49BF-A469-3A4F80349637__GUID-8D5220A2-0502-4AB0-8402-94D99A43A591">
+                           <!-- --></a>DISKALRT-02005 Data hard disk predictive failure
+                     </dt>
+                     <dd>
+                        <p><span class="keyword">Cause:</span> A physical disk that is <span class="italic">not</span> hosting the operating system is in a state of predictive failure.
+                        </p>
+                     </dd>
+                     <dd class="ddexpand">
+                        <p><span class="keyword">Action:</span> Replace the physical disk as soon as possible. Follow the instructions in <a href="disks.html#GUID-56941B7D-591A-4712-8343-EA1E04DA34D8">Replacing a Server Disk</a> for configuring a disk for either HDFS or Oracle NoSQL Database.
+                        </p>
+                     </dd>
+                     <dt class="dlterm"><a name="GUID-06006FC6-1110-49BF-A469-3A4F80349637__GUID-FAD065D4-FBC4-4CA0-B6D0-D1DE2F9FF864">
+                           <!-- --></a>DISKALRT-02006 Data hard disk poor performance
+                     </dt>
+                     <dd>
+                        <p><span class="keyword">Cause:</span> A physical disk that is <span class="italic">not</span> hosting the operating system is performing poorly, which indicates that it is failing.
+                        </p>
+                     </dd>
+                     <dd class="ddexpand">
+                        <p><span class="keyword">Action:</span> Replace the physical disk as soon as possible. Follow the instructions in <a href="disks.html#GUID-56941B7D-591A-4712-8343-EA1E04DA34D8">Replacing a Server Disk</a> for configuring a disk for either HDFS or Oracle NoSQL Database.
+                        </p>
+                     </dd>
+                     <dt class="dlterm"><a name="GUID-06006FC6-1110-49BF-A469-3A4F80349637__GUID-54D41D44-CB79-44D8-982C-2058F9D8F899">
+                           <!-- --></a>DISKALRT-02007 Solid-state drive disk failure
+                     </dt>
+                     <dd>
+                        <p><span class="keyword">Cause:</span> A solid-state drive failed.
+                        </p>
+                     </dd>
+                     <dd class="ddexpand">
+                        <p><span class="keyword">Action:</span> Replace the drive as soon as possible.
+                        </p>
+                     </dd>
+                     <dt class="dlterm"><a name="GUID-06006FC6-1110-49BF-A469-3A4F80349637__GUID-EBC7BB62-9971-4F0D-BEAA-F08F0F39683E">
+                           <!-- --></a>DISKALRT-02008 Solid-state disk predictive failure
+                     </dt>
+                     <dd>
+                        <p><span class="keyword">Cause:</span> A solid-state drive is in a state of predictive failure.
+                        </p>
+                     </dd>
+                     <dd class="ddexpand">
+                        <p><span class="keyword">Action:</span> Replace the drive as soon as possible.
+                        </p>
+                     </dd>
+                     <dt class="dlterm"><a name="GUID-06006FC6-1110-49BF-A469-3A4F80349637__GUID-FA10F0CA-7560-4226-87DA-E63626A7217A">
+                           <!-- --></a>DISKALRT-02009 Solid-state disk poor performance
+                     </dt>
+                     <dd>
+                        <p><span class="keyword">Cause:</span> A solid-state drive is performing poorly, which indicates that it is failing.
+                        </p>
+                     </dd>
+                     <dd class="ddexpand">
+                        <p><span class="keyword">Action:</span> Replace the drive as soon as possible.
+                        </p>
+                     </dd>
+                  </dl>
+               </div>
+               <!-- class="section" -->
+            </div>
+            <div>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="appendices.html">Appendixes</a></p>
+                  </div>
+               </div>
+            </div>
+            
+         </div>
+      </article>
+   </body>
+</html>

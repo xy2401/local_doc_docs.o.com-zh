@@ -1,0 +1,391 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>Test Finder</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = document) - Version 1.0.24" />
+<meta name="date" content="2014-08-01T11:38:1Z" />
+<meta name="robots" content="noarchive" />
+<meta name="doctitle" content="Test Finder" />
+<meta name="relnum" content="JavaTest Harness 4.6" />
+<meta name="partnum" content="E20663-04" />
+<link rel="copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+<link rel="stylesheet" href="../../dcommon/css/blafdoc.css" title="Oracle BLAFDoc" type="text/css" />
+<link rel="contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="index" href="index.htm" title="Index" type="text/html" />
+<link rel="prev" href="testsuite.htm" title="Previous" type="text/html" />
+<link rel="next" href="script.htm" title="Next" type="text/html" />
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<div class="header"><a id="top" name="top"></a>
+<div class="zz-skip-header"><a href="#BEGIN">Skip Headers</a></div>
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td align="left" valign="top"><b>JavaTest Harness Architect's Guide,</b><br />
+<b>JavaTest Harness 4.6 for the Java Platform</b><br />
+E20663-04</td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+<td align="center" valign="top"><a href="toc.htm"><img src="../../dcommon/gifs/toc.gif" alt="Go To Table Of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td align="center" valign="top"><a href="index.htm"><img src="../../dcommon/gifs/index.gif" alt="Go To Index" /><br />
+<span class="icon">Index</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<tr>
+<td align="center"><a href="testsuite.htm"><img src="../../dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="script.htm"><img src="../../dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<a name="BEGIN" id="BEGIN"></a></div>
+<!-- class="header" -->
+<div class="ind"><!-- End Header --><a id="CEHJBHHG" name="CEHJBHHG"></a>
+<h1 class="chapter"><span class="secnum">9</span> Test Finder</h1>
+<p>After the <code>TestSuite</code> object is created, the JavaTest harness starts the test finder for the test suite. The <code>TestFinder</code> class creates the object responsible for finding and reading test descriptions &mdash; information required to execute a test is provided in its test description. At a basic level, the <code>TestFinder</code> class does the following:</p>
+<ol>
+<li>
+<p>Given an object (for example, a file) that contains a test description, the test finder uses the <code>read()</code> method to read the object. The <code>read()</code> method in turn calls the <code>scan()</code> method that must be provided by the test finder. The <code>scan()</code> method scans the file object for a test description or any references to other files that must be read (for example, if the file object is a directory).</p>
+</li>
+<li>
+<p>The test finder creates one <code>TestDescription</code> object per test from the information it reads from the test description.</p>
+</li>
+<li>
+<p>The <code>getTests()</code> method returns any test description information that it finds, and the <code>getFiles()</code> method returns a list of any other files that it must read to locate other tests.</p>
+</li>
+</ol>
+<a id="Z40036451004711" name="Z40036451004711"></a>
+<div class="sect1">
+<h2 class="sect1">Test Finder Subtypes</h2>
+<p>Because test descriptions can be embodied in a wide variety of formats, you can extend the base <code>TestFinder</code> class, customizing the <code>read()</code> method to meet the test suite's needs. The JavaTest Architect's release provides library classes that you can use directly; however, these classes do not provide much error checking. You can conveniently subtype a library class to provide additional validity checking.</p>
+<a id="Z40036451004304" name="Z40036451004304"></a>
+<div class="sect2">
+<h3 class="sect2">Tag Test Finder</h3>
+<p><a id="sthref265" name="sthref265"></a><a id="sthref266" name="sthref266"></a><a id="sthref267" name="sthref267"></a>The <code>TagTestFinder</code> extends the <code>TestFinder</code> class. This class is also provided so that you can further extend and customize it to your own needs.</p>
+<p>The <code>TagTestFinder</code> looks for test description information in specially commented tags in Java programs and shell scripts. The <code>TagTestFinder</code> recursively scans test directories looking for files with the <code>.java</code> extension and extracts test description information embedded directly in the test source files using specialized tags. These tags are located with Java language comments and begin with the @ character. The following figure shows an example of a file that contains tag test description entries.</p>
+<pre xml:space="preserve" class="oac_no_warn">
+/* @test
+ * @bug 4105080
+ * @summary Activation retry during a remote method call     
+ * to an activatable object can cause infinite recursion in
+ * some situations. 
+ * @author John Brown
+ *
+ * @bug 4164971
+ * @summary Allow non-public activatable class and/or
+ * constructor Main test class has a non-public
+ * constructor to ensure functionality is in 
+ * place
+ *
+ * @library ../../../testlibrary
+ * @build TestLibrary RMID
+ * @build ActivateMe CheckActivateRef_Stub CheckActivateRef
+ * @run main/othervm/policy=security.policy/timeout=240 
+ */
+ 
+import java.io.*;
+import java.rmi.*;
+import java.rmi.server.*;
+ 
+    public class CheckActivateRef
+    extends Activatable
+    implements ActivateMe, Runnable
+{
+ 
+    private CheckActivateRef(ActivationID id, MarshalledObject obj)
+    throws ActivationException, RemoteException
+    {
+    super(id, 0);
+    }
+[...]
+</pre>
+<p>This format has the advantage of being very convenient for the test developer.</p>
+<p>Examples of tag test descriptions can be found in <span class="italic">jt_install</span><code>\examples\javatest\simpleTags\demotck\tests.</code></p>
+</div>
+<!-- class="sect2" -->
+<a id="Z40036451004317" name="Z40036451004317"></a>
+<div class="sect2">
+<h3 class="sect2">HTML Test Finder</h3>
+<p><a id="sthref268" name="sthref268"></a><a id="sthref269" name="sthref269"></a><a id="sthref270" name="sthref270"></a>An example of a test finder that reads HTML test descriptions is the <code>JCKTestFinder</code> &mdash; a subtype of the <code>HTMLTestFinder</code> class that provides additional error checking. The <code>JCKTestFinder</code> is described in some detail here to demonstrate how a test finder works. <code>HTMLTestFinder</code> is provided with the JavaTest harness so that you can further extend it and customize it to your own needs.</p>
+<p>Test suites that use the <code>HTMLTestFinder</code> class use <a id="sthref271" name="sthref271"></a>HTML-based test descriptions to provide the information required to execute their tests. Distributed throughout the directories that contain the tests are HTML <span class="italic">test description files</span> that contain one or more <span class="italic">test description tables</span>. Each HTML test description table contains information about a single test (for example, its name in the class path). Every test must be represented by its own unique test description table; however, test description files can contain multiple test description tables. Test description tables are always assigned the HTML class "TestDescription" using the <code>class</code> attribute:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>&lt;TABLE BORDER="1" class="TestDescription"&gt;</code>
+</pre>
+<p>The following HTML source produces the test description table that follows:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+&lt;table border="1" class="TestDescription"&gt;
+&lt;tr&gt;
+  &lt;td&gt;title&lt;/td&gt;
+  &lt;td&gt;Checkbox Tests&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;source&lt;/td&gt;
+  &lt;td&gt;CheckboxTest.java&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;executeClass&lt;/td&gt;
+  &lt;td&gt;<code>javasoft.sqe.tests.api.java.awt.Checkbox.CheckboxTests</code>&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;executeArgs&lt;/td&gt;
+  &lt;td&gt;-TestCaseID ALL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;keywords&lt;/td&gt;
+  &lt;td&gt;runtime positive&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+<div class="tblhruleformal"><a id="sthref272" name="sthref272"></a><a id="Z40009721002749" name="Z40009721002749"></a>
+<p class="titleintable">Table 9-1 Test Description Table</p>
+<table class="HRuleFormal" title="Test Description Table" summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="22%" />
+<col width="*" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t2">Title</th>
+<th align="left" valign="bottom" id="r1c2-t2">Checkbox Tests</th>
+</tr>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t2" headers="r1c1-t2">
+<p>source</p>
+</td>
+<td align="left" headers="r2c1-t2 r1c2-t2">
+<p>CheckboxTest.java</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t2" headers="r1c1-t2">
+<p>executeClass</p>
+</td>
+<td align="left" headers="r3c1-t2 r1c2-t2">
+<p><code>javasoft.sqe.tests.api.java.awt.Checkbox.CheckboxTest</code></p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t2" headers="r1c1-t2">
+<p>executeArgs</p>
+</td>
+<td align="left" headers="r4c1-t2 r1c2-t2">
+<p><code>-TestCaseID ALL</code></p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t2" headers="r1c1-t2">
+<p>keywords</p>
+</td>
+<td align="left" headers="r5c1-t2 r1c2-t2">
+<p>runtime positive</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" -->
+<p>The <code>JCKTestFinder</code><a id="sthref273" name="sthref273"></a> test finder locates the HTML test description files by recursively scanning directories to look for files with the <code>.html</code> suffix, ignoring any other types of files. It reads the test description table, ignoring all information in the file except the content of the basic table tags.</p>
+<p>If you include multiple test description tables in a single test description file, each test description table must be preceded by an <code>&lt;A NAME&gt;</code> HTML tag that provides a unique identifier for each test description table.</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>Test description files should also contain comments and text that describe the test.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+<p>The <code>HTMLTestFinder</code> class can also check the validity of test description values. For example, the <code>HTMLTestFinder</code> can be run with flags that cause error messages to be printed if any of the test description fields are invalid. When you extend <code>HTMLTestFinder</code>, you can add your own validity checks.</p>
+<p>The benefit of this format is that it makes it easy and convenient for users to browse test descriptions using the JavaTest harness GUI or a web browser. The trade-offs are that more work is required of the test developers to create and maintain the HTML files, and parsing these separate files has an impact on performance.</p>
+<p>Examples of HTML test descriptions can be found in <span class="italic">jt_install</span><code>\examples\javatest\simpleHTML\demotck\tests.</code></p>
+</div>
+<!-- class="sect2" -->
+<a id="Z40036451004346" name="Z40036451004346"></a>
+<div class="sect2">
+<h3 class="sect2"><a id="sthref274" name="sthref274"></a><a id="sthref275" name="sthref275"></a><a id="sthref276" name="sthref276"></a>Binary Test Finder</h3>
+<p>BinaryTestFinder was created to improve the startup performance of large test suites. It is capable of reading test description information from a highly optimized format created from any type of native test description.</p>
+<p>The optimized format (<span class="italic">filename</span><code>.jtd</code>) is created using a companion program called BinaryTestWriter. BinaryTestWriter uses a native test finder such as HTMLTestFinder, or TagTestFinder to find and read native test descriptions (for example, HTML files or source tags) and then creates a single, optimized file that contains the test description information for all the tests in the test suite. If one is available for the test suite, the test suite uses the BinaryTestFinder to read test descriptions from that optimized file. Use of the BinaryTestFinder is highly recommended for larger test suites &mdash; it greatly reduces the time required to populate the JavaTest harness test tree.</p>
+<a id="Z40036451004241" name="Z40036451004241"></a>
+<div class="sect3">
+<h4 class="sect3">BinaryTestWriter</h4>
+<p>BinaryTestWriter is a standalone utility that creates compressed file that contains a a set of binary test descriptions. It uses a test finder that you specify to locate the test descriptions for your test suite, and writes a compact representation of those test descriptions to a file that can be read by BinaryTestFinder (described in the next section).</p>
+<p>BinaryTestWriter is run from the command line as follows:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+java -cp javatest.jar com.sun.javatest.finder.BinaryTestWriter <span class="italic">arguments</span> <span class="italic">test-suite</span>[<span class="italic">tests</span>]
+</pre>
+<p>The following table describes the parts of the command:</p>
+<div class="tblhruleformalwide"><a id="sthref277" name="sthref277"></a><a id="Z40036451002730" name="Z40036451002730"></a>
+<p class="titleintable">Table 9-2 BinaryTestWriter Command Components</p>
+<table class="HRuleFormalWide" title="BinaryTestWriter Command Components" summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="22%" />
+<col width="*" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t4">Component</th>
+<th align="left" valign="bottom" id="r1c2-t4">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t4" headers="r1c1-t4">
+<p><code>-cp javatest.jar</code></p>
+</td>
+<td align="left" headers="r2c1-t4 r1c2-t4">
+<p>Puts <code>javatest.jar</code> on the class path</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t4" headers="r1c1-t4">
+<p><span class="italic">arguments</span></p>
+</td>
+<td align="left" headers="r3c1-t4 r1c2-t4">
+<p><code>-finder</code> <span class="italic">finderClass</span> <code>[</code><span class="italic">finderArgs</span><code>]</code> <code>-end</code></p>
+<p>Specifies the test finder to use to locate the test descriptions in the specified test suite.</p>
+<p><span class="italic">finderClass</span>: The name of the plug-in class for the desired test finder. The class must be on the class path used to run BinaryTestWriter.</p>
+<p><span class="italic">finderArgs</span>: Any optional arguments passed to the test finder's <code>init</code> method.</p>
+<p><code>-o</code> <span class="italic">output-file</span></p>
+<p>Specifies where the set of compressed test descriptions is written. The output file always contains the <code>.jtd</code> suffix and is typically named <code>testsuite.jtd</code>. The <code>testsuite.jtd</code> file is usually placed in the test suite <code>tests/</code> directory.</p>
+<p><code>-end</code></p>
+<p>Defines the end of the finder specification</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t4" headers="r1c1-t4">
+<p><span class="italic">test-suite</span></p>
+</td>
+<td align="left" headers="r4c1-t4 r1c2-t4">
+<p>The path to the directory in the test suite that contains the test descriptions (typically, the <code>tests/</code> directory)</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t4" headers="r1c1-t4">
+<p><span class="italic">tests</span></p>
+</td>
+<td align="left" headers="r5c1-t4 r1c2-t4">
+<p>An optional list of directories in which to search for test descriptions (typically, directories under <code>tests/</code>)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformalwide" -->
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>The <span class="italic">finderClass</span>, <span class="italic">finderArgs</span>, <span class="italic">test-suite</span> arguments are specified here exactly as they are when you run the JavaTest harness without using BinaryTestWriter.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</div>
+<!-- class="sect3" -->
+<a id="Z40036451004271" name="Z40036451004271"></a>
+<div class="sect3">
+<h4 class="sect3">BinaryTestFinder</h4>
+<p>BinaryTestFinder is a standard JavaTest test finder that knows how to read test descriptions stored in the file written by BinaryTestWriter. The full name of the class is:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>com.sun.javatest.finder.BinaryTestFinder</code>
+</pre>
+<p>The <code>BinaryTestFinder</code> class is provided in the standard <code>javatest.jar</code> file. You can use it through the standard string interface, or directly via the API. For details about the API, see the Javadoc documentation.</p>
+<p>There are two ways you can use BinaryTestFinder:</p>
+<ul>
+<li>
+<p>If you use the standard <code>TestSuite</code> class, you can place <code>testsuite.jtd</code> in the test suite <code>tests\</code> directory. If the file is found there it is used, otherwise the uncompressed files in this directory are used.</p>
+</li>
+<li>
+<p>Specify the finder explicitly in the <code>testsuite.jtt</code> file:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+finder=com.sun.javatest.finder.BinaryTestFinder -binary <span class="italic">testsuite</span>.jtd
+</pre>
+<p>This method requires that <code>testsuite.jtd</code> be present when the test suite is run. If it is not present, the tests are not run and an error condition exists. You can use the <code>testsuite.jtd</code> property in the <code>testsuite.jtt</code> file to specify the location of the <code>testsuite.jtd</code> file. You must remember to run BinaryTestWriter before running the test suite.</p>
+</li>
+<li>
+<p>Override the <code>createTestFinder</code> method for the <code>TestSuite</code> class you provide for your test suite. This method allows you to dynamically determine whether to use BinaryTestFinder. The TestSuite class can check for the existence of the binary test description file (<span class="italic">testsuite</span><code>.jtd</code>) before running tests; if the <code>.jtd</code> file is not found, it can choose to use an alternate finder.</p>
+</li>
+</ul>
+<a id="Z40036451004229" name="Z40036451004229"></a>
+<div class="sect4">
+<h5 class="sect4">Examples</h5>
+<p>The following example shows the command line used to start the basic non-customized TestFinder class:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>java -cp lib/javatest.jar com.sun.javatest.finder.BinaryTestWriter</code>
+-finder com.sun.javatest.lib.HTMLTestFinder -dirWalk
+-end top_level_testsuite_dir/tests
+</pre>
+<p>This example shows the command line for starting a customized TestFinder class (MyTestFinder). The finder class takes <code>-dirWalk</code> and <code>-specialMode</code> as arguments. Note that the JAR file that contains the custom finder class (in this case <code>lib/mytck.jar</code>) is added to the class path.</p>
+<pre xml:space="preserve" class="oac_no_warn">
+java -cp lib/javatest.jar:lib/mytck.jar com.sun.javatest.finder.BinaryTestWriter 
+-finder com.sun.mytck.lib.MyTestFinder -dirWalk 
+-specialMode 2 -end top_level_testsuite_dir/tests
+</pre></div>
+<!-- class="sect4" --></div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" --></div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+<div class="footer">
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<col width="33%" />
+<col width="*" />
+<col width="33%" />
+<tr>
+<td valign="bottom">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<col width="*" />
+<col width="48%" />
+<col width="48%" />
+<tr>
+<td>&nbsp;</td>
+<td align="center"><a href="testsuite.htm"><img src="../../dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="script.htm"><img src="../../dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="copyrightlogo"><img class="copyrightlogo" src="../../dcommon/gifs/oracle.gif" alt="Oracle Logo" /><br />
+<span class="copyrightlogo">Copyright&nbsp;&copy;&nbsp;2002, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span> <a href="../../dcommon/html/cpyr.htm"><br />
+<span class="copyrightlogo">Legal Notices</span></a></td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+<td align="center" valign="top"><a href="toc.htm"><img src="../../dcommon/gifs/toc.gif" alt="Go To Table Of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td align="center" valign="top"><a href="index.htm"><img src="../../dcommon/gifs/index.gif" alt="Go To Index" /><br />
+<span class="icon">Index</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<!-- class="footer" -->
+</body>
+</html>

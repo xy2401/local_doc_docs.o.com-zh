@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Diagnostic Command Reference</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="Diagnostic commands provided by the jcmd utility are available to control Java Flight Recorder." />
+<meta name="dcterms.created" content="2018-03-13T00:14:21Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Platform, Standard Edition Java Flight Recorder Command Reference" />
+<meta name="dcterms.identifier" content="E92740-01" />
+<meta name="dcterms.isVersionOf" content="JFRCR" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2001, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="command-line-options.htm" title="Previous" type="text/html" />
+<link rel="alternate" href="JFRCR.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../../nav/css/html5.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-BA5A1AA8-50C8-497E-BF4F-525872D643EC"></a> <span id="PAGE" style="display:none;">5/5</span> <!-- End Header -->
+<h1 id="JFRCR-GUID-BA5A1AA8-50C8-497E-BF4F-525872D643EC" class="sect1"><span class="enumeration_chapter">2</span> Diagnostic Command Reference</h1>
+<div>
+<p>Diagnostic commands provided by the <code class="codeph">jcmd</code> utility are available to control Java Flight Recorder.</p>
+<div class="section">
+<p>The <code class="codeph">jcmd</code> utility is used to send diagnostic command requests to a running Java process. Information about the diagnostic commands is available by using the <code class="codeph">help</code> parameter. The process ID for a running Java process is required.</p>
+<p>To see a list of the available diagnostic commands, do not include a command name. For example, the following command lists the diagnostic commands for the process with the identifier 10568:</p>
+<pre dir="ltr">
+jcmd 10568 help
+</pre>
+<p>To see information about a specific diagnostic command, include the command name after the <code class="codeph">help</code> parameter. For example, the following command requests information about the <code class="codeph">JFR.start</code> diagnostic command for the process with the identifier 5361:</p>
+<pre dir="ltr">
+jcmd 5361 help JFR.start
+</pre>
+<p>The following diagnostic commands are available for Java Flight Recorder:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="diagnostic-command-reference.htm#GUID-737D234E-FD69-4E8E-A9F7-06AE073648DD" title="To set the parameters for a flight recording, use the JFR.configure diagnostic command for the jcmd utility.">JFR.configure</a></p>
+</li>
+<li>
+<p><a href="diagnostic-command-reference.htm#GUID-8DC13618-1515-4479-B0FC-9F4394BE5455" title="To start a flight recording, use the JFR.start diagnostic command for the jcmd utility.">JFR.start</a></p>
+</li>
+<li>
+<p><a href="diagnostic-command-reference.htm#GUID-DA391CC1-B5D8-44F1-AEDD-9A534C8DD009" title="To show information about a flight recording that is running, use the JFR.check diagnostic command for the jcmd utility.">JFR.check</a></p>
+</li>
+<li>
+<p><a href="diagnostic-command-reference.htm#GUID-66CC94C8-8EDF-4BB6-8E7A-49973025D4D9" title="To stop a flight recording, use the JFR.stop diagnostic command for the jcmd utility.">JFR.stop</a></p>
+</li>
+<li>
+<p><a href="diagnostic-command-reference.htm#GUID-6EB11926-4DAF-4B99-AF20-7FCD284EE6C1" title="To write data to a file while a flight recording is running, use the JFR.dump diagnostic command for the jcmd utility.">JFR.dump</a></p>
+</li>
+<li>
+<p><a href="diagnostic-command-reference.htm#GUID-BA318BD8-3ECD-4E2D-A004-E2B472CDDF1D" title="To unlock commercial features in a Java process that is already running, use the VM.unlock_commercial_features diagnostic command for the jcmd utility.">VM.unlock_commercial_features</a></p>
+</li>
+<li>
+<p><a href="diagnostic-command-reference.htm#GUID-1B9B0A50-99CB-463B-9FC3-BA0EBD940569" title="To check if commercial features are locked or unlocked in a Java process that is already running, use the VM.check_commercial_features diagnostic command for the jcmd utility.">VM.check_commercial_features</a></p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+<div class="sect2"><a id="GUID-737D234E-FD69-4E8E-A9F7-06AE073648DD"></a>
+<h2 id="JFRCR-GUID-737D234E-FD69-4E8E-A9F7-06AE073648DD" class="sect2">JFR.configure</h2>
+<div>
+<p>To set the parameters for a flight recording, use the <code class="codeph">JFR.configure</code> diagnostic command for the <code class="codeph">jcmd</code> utility.</p>
+<div class="section">
+<p><a href="diagnostic-command-reference.htm#GUID-737D234E-FD69-4E8E-A9F7-06AE073648DD__GUID-2B8EBECC-EEA1-4A6B-A579-9F86006E23C2" title="Four-column table that identifies the parameters for the JFR.configure command. The first column contains the parameter name. The second column contains a parameter description. The third column contains the parameter type. The fourth column contains the parameter&rsquo;s default value, if any.">Table 2-1</a> shows the parameters for the <code class="codeph">JFR.configure</code> command. All parameters are optional. If no parameters are entered, the current settings are displayed.</p>
+<div class="tblformalwide" id="GUID-737D234E-FD69-4E8E-A9F7-06AE073648DD__GUID-2B8EBECC-EEA1-4A6B-A579-9F86006E23C2">
+<p class="titleintable">Table 2-1 JFR.configure Parameters</p>
+<table class="cellalignment80" title="JFR.configure Parameters" summary="Four-column table that identifies the parameters for the JFR.configure command. The first column contains the parameter name. The second column contains a parameter description. The third column contains the parameter type. The fourth column contains the parameter&rsquo;s default value, if any.">
+<thead>
+<tr class="cellalignment64">
+<th class="cellalignment76" id="d791e180">Parameter</th>
+<th class="cellalignment81" id="d791e183">Description</th>
+<th class="cellalignment82" id="d791e186">Type of Value</th>
+<th class="cellalignment83" id="d791e189">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment64">
+<td class="cellalignment78" id="d791e194" headers="d791e180">
+<p><code class="codeph">globalbuffercount</code></p>
+</td>
+<td class="cellalignment84" headers="d791e194 d791e183">
+<p>Number of global buffers. Change the <code class="codeph">memorysize</code> parameter to alter the number of global buffers.</p>
+</td>
+<td class="cellalignment85" headers="d791e194 d791e186">
+<p>Long</p>
+</td>
+<td class="cellalignment86" headers="d791e194 d791e189">
+<p>The default value is determined by the value for the <code class="codeph">memorysize</code> parameter.</p>
+</td>
+</tr>
+<tr class="cellalignment64">
+<td class="cellalignment78" id="d791e214" headers="d791e180">
+<p><code class="codeph">globalbuffersize</code></p>
+</td>
+<td class="cellalignment84" headers="d791e214 d791e183">
+<p>Size of the global buffers, in bytes. Change the <code class="codeph">memorysize</code> parameter to alter the size of the global buffers.</p>
+</td>
+<td class="cellalignment85" headers="d791e214 d791e186">
+<p>Long</p>
+</td>
+<td class="cellalignment86" headers="d791e214 d791e189">
+<p>The default value is determined by the value for the <code class="codeph">memorysize</code> parameter.</p>
+</td>
+</tr>
+<tr class="cellalignment64">
+<td class="cellalignment78" id="d791e234" headers="d791e180">
+<p><code class="codeph">maxchunksize</code></p>
+</td>
+<td class="cellalignment84" headers="d791e234 d791e183">
+<p>Maximum size of an individual data chunk, in bytes</p>
+</td>
+<td class="cellalignment85" headers="d791e234 d791e186">
+<p>Long</p>
+</td>
+<td class="cellalignment86" headers="d791e234 d791e189">
+<p>12582912</p>
+</td>
+</tr>
+<tr class="cellalignment64">
+<td class="cellalignment78" id="d791e248" headers="d791e180">
+<p><code class="codeph">memorysize</code></p>
+</td>
+<td class="cellalignment84" headers="d791e248 d791e183">
+<p>Overall memory size, in bytes</p>
+</td>
+<td class="cellalignment85" headers="d791e248 d791e186">
+<p>Long</p>
+</td>
+<td class="cellalignment86" headers="d791e248 d791e189">
+<p>10485760</p>
+</td>
+</tr>
+<tr class="cellalignment64">
+<td class="cellalignment78" id="d791e262" headers="d791e180">
+<p><code class="codeph">repositorypath</code></p>
+</td>
+<td class="cellalignment84" headers="d791e262 d791e183">
+<p>Path to the location where recordings are stored until they are written to a permanent file</p>
+</td>
+<td class="cellalignment85" headers="d791e262 d791e186">
+<p>String</p>
+</td>
+<td class="cellalignment86" headers="d791e262 d791e189">
+<p>The default location is the temporary directory for the operating system. On Oracle Solaris and Linux operating systems the temporary directory is <code>/tmp</code>. On Windows the temporary directory is specified by the <code class="codeph">TMP</code> environment variable.</p>
+</td>
+</tr>
+<tr class="cellalignment64">
+<td class="cellalignment78" id="d791e282" headers="d791e180">
+<p><code class="codeph">stackdepth</code></p>
+</td>
+<td class="cellalignment84" headers="d791e282 d791e183">
+<p>Stack depth for stack traces</p>
+</td>
+<td class="cellalignment85" headers="d791e282 d791e186">
+<p>Long</p>
+</td>
+<td class="cellalignment86" headers="d791e282 d791e189">
+<p>64</p>
+</td>
+</tr>
+<tr class="cellalignment64">
+<td class="cellalignment78" id="d791e296" headers="d791e180">
+<p><code class="codeph">thread_buffer_size</code></p>
+</td>
+<td class="cellalignment84" headers="d791e296 d791e183">
+<p>Local buffer size for each thread, in bytes. Overriding this parameter could reduce performance and is not recommended.</p>
+</td>
+<td class="cellalignment85" headers="d791e296 d791e186">
+<p>Long</p>
+</td>
+<td class="cellalignment86" headers="d791e296 d791e189">
+<p>8192</p>
+</td>
+</tr>
+<tr class="cellalignment64">
+<td class="cellalignment78" id="d791e310" headers="d791e180">
+<p><code class="codeph">threadbufferstodisk</code></p>
+</td>
+<td class="cellalignment84" headers="d791e310 d791e183">
+<p>Flag for allowing thread buffers to write directly to disk if the buffer thread is blocked</p>
+</td>
+<td class="cellalignment85" headers="d791e310 d791e186">
+<p>Boolean</p>
+</td>
+<td class="cellalignment86" headers="d791e310 d791e189">
+<p>false</p>
+</td>
+</tr>
+<tr class="cellalignment64">
+<td class="cellalignment78" id="d791e324" headers="d791e180">
+<p><code class="codeph">samplethreads</code></p>
+</td>
+<td class="cellalignment84" headers="d791e324 d791e183">
+<p>Flag for activating thread sampling</p>
+</td>
+<td class="cellalignment85" headers="d791e324 d791e186">
+<p>Boolean</p>
+</td>
+<td class="cellalignment86" headers="d791e324 d791e189">
+<p>true</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" -->
+<div class="section"></div>
+<!-- class="section" -->
+<div class="example" id="GUID-737D234E-FD69-4E8E-A9F7-06AE073648DD__GUID-B3939BC2-317C-4D5C-900D-D5B7308FD5B8">
+<p class="titleinexample">Example 2-1 JFR.configure Example</p>
+<p>The following command configures Java Flight Recorder to store recordings in <code class="codeph">D:\jfr\recordings</code>. The value for <span class="variable">pid</span> is the process ID of the Java process to record.</p>
+<pre dir="ltr">
+jcmd <span class="variable">pid</span> JFR.configure repositorypath=D:\jfr\recordings
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<a id="resourceid-15323-48C8362C"></a><a id="resourceid-15322-48C8362A"></a>
+<div class="props_rev_3"><a id="GUID-8DC13618-1515-4479-B0FC-9F4394BE5455"></a>
+<h2 id="JFRCR-GUID-8DC13618-1515-4479-B0FC-9F4394BE5455" class="sect2">JFR.start</h2>
+<div>
+<p>To start a flight recording, use the <code class="codeph">JFR.start</code> diagnostic command for the <code class="codeph">jcmd</code> utility.</p>
+<div class="section">
+<p><a href="diagnostic-command-reference.htm#GUID-8DC13618-1515-4479-B0FC-9F4394BE5455__BABJEIEH" title="Four-column table that identifies the parameters for the JFR.start command. The first column contains the parameter name. The second column contains a parameter description. The third column contains the parameter type. The fourth column contains the parameter&rsquo;s default value, if any.">Table 2-2</a> shows the parameters for the <code class="codeph">JFR.start</code> command. All parameters are optional. If no parameters are entered, a recording is started by using default values.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformalwide" id="GUID-8DC13618-1515-4479-B0FC-9F4394BE5455__BABJEIEH">
+<p class="titleintable">Table 2-2 JFR.start Parameters</p>
+<table class="cellalignment80" title="JFR.start Parameters" summary="Four-column table that identifies the parameters for the JFR.start command. The first column contains the parameter name. The second column contains a parameter description. The third column contains the parameter type. The fourth column contains the parameter&rsquo;s default value, if any.">
+<thead>
+<tr class="cellalignment64">
+<th class="cellalignment87" id="d791e402">Parameter</th>
+<th class="cellalignment88" id="d791e405">Description</th>
+<th class="cellalignment89" id="d791e408">Type of Value</th>
+<th class="cellalignment90" id="d791e411">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment64">
+<td class="cellalignment91" id="d791e416" headers="d791e402">
+<p><code class="codeph">delay</code></p>
+</td>
+<td class="cellalignment92" headers="d791e416 d791e405">
+<p>Length of time to wait before starting to record</p>
+</td>
+<td class="cellalignment93" headers="d791e416 d791e408">
+<p>Integer followed by <code class="codeph">s</code> for seconds, <code class="codeph">m</code> for minutes, or <code class="codeph">h</code> for hours</p>
+</td>
+<td class="cellalignment94" headers="d791e416 d791e411">
+<p>0s</p>
+</td>
+</tr>
+<tr class="cellalignment64">
+<td class="cellalignment91" id="d791e439" headers="d791e402">
+<p><code class="codeph">disk</code></p>
+</td>
+<td class="cellalignment92" headers="d791e439 d791e405">
+<p>Flag for writing the data to disk while recording</p>
+</td>
+<td class="cellalignment93" headers="d791e439 d791e408">
+<p>Boolean</p>
+</td>
+<td class="cellalignment94" headers="d791e439 d791e411">
+<p>true</p>
+</td>
+</tr>
+<tr class="cellalignment64">
+<td class="cellalignment91" id="d791e453" headers="d791e402">
+<p><code class="codeph">dumponexit</code></p>
+</td>
+<td class="cellalignment92" headers="d791e453 d791e405">
+<p>Flag for writing the recording to disk when the Java Virtual Machine (JVM) shuts down. If set to <code class="codeph">true</code> and no value is entered for <code class="codeph">filename</code>, the recording is written to a file in the directory where the process was started. The file name is a system-generated name that contains the process ID, recording ID, and current time stamp (for example,<code>hotspot-pid-47496-id-1-2018_01_25_19_10_41.jfr</code>).</p>
+</td>
+<td class="cellalignment93" headers="d791e453 d791e408">
+<p>Boolean</p>
+</td>
+<td class="cellalignment94" headers="d791e453 d791e411">
+<p>false</p>
+</td>
+</tr>
+<tr class="cellalignment64">
+<td class="cellalignment91" id="d791e476" headers="d791e402">
+<p><code class="codeph">duration</code></p>
+</td>
+<td class="cellalignment92" headers="d791e476 d791e405">
+<p>Length of time to record</p>
+</td>
+<td class="cellalignment93" headers="d791e476 d791e408">
+<p>Integer followed by <code class="codeph">s</code> for seconds, <code class="codeph">m</code> for minutes, or <code class="codeph">h</code> for hours</p>
+</td>
+<td class="cellalignment94" headers="d791e476 d791e411">
+<p>0s (forever)</p>
+</td>
+</tr>
+<tr class="cellalignment64">
+<td class="cellalignment91" id="d791e499" headers="d791e402">
+<p><code class="codeph">filename</code></p>
+</td>
+<td class="cellalignment92" headers="d791e499 d791e405">
+<p>Name of the file to which the recording is written when the recording is stopped. If no path is provided, the file is in the directory where the process was started. Examples of filenames:</p>
+<ul style="list-style-type: disc;">
+<li><code>recording.jfr</code></li>
+<li><code>/home/user/recordings/recording.jfr</code></li>
+<li><code>c:\recordings\recording.jfr</code></li>
+</ul>
+</td>
+<td class="cellalignment93" headers="d791e499 d791e408">
+<p>String</p>
+</td>
+<td class="cellalignment94" headers="d791e499 d791e411">
+<p>No default value</p>
+</td>
+</tr>
+<tr class="cellalignment64">
+<td class="cellalignment91" id="d791e523" headers="d791e402">
+<p><code class="codeph">maxage</code></p>
+</td>
+<td class="cellalignment92" headers="d791e523 d791e405">
+<p>Maximum time to keep the recorded data on disk. This parameter is valid only when the <code class="codeph">disk</code> parameter is set to <code class="codeph">true</code>.</p>
+</td>
+<td class="cellalignment93" headers="d791e523 d791e408">
+<p>Integer followed by <code class="codeph">s</code> for seconds, <code class="codeph">m</code> for minutes, or <code class="codeph">h</code> for hours</p>
+</td>
+<td class="cellalignment94" headers="d791e523 d791e411">
+<p>0s (forever)</p>
+</td>
+</tr>
+<tr class="cellalignment64">
+<td class="cellalignment91" id="d791e552" headers="d791e402">
+<p><code class="codeph">maxsize</code></p>
+</td>
+<td class="cellalignment92" headers="d791e552 d791e405">
+<p>Maximum size of the data to keep on disk, in bytes if one of the following suffixes is not used:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">m</code> or <code class="codeph">M</code> for megabytes</p>
+</li>
+<li>
+<p><code class="codeph">g</code> or <code class="codeph">G</code> for gigabytes</p>
+</li>
+</ul>
+<p>This parameter is valid only when the <code class="codeph">disk</code> parameter is set to <code class="codeph">true</code>. The value must not be less than the value for the <code class="codeph">maxchunksize</code> parameter set with the <code class="codeph">JFR.configure</code> command.</p>
+</td>
+<td class="cellalignment93" headers="d791e552 d791e408">
+<p>Long</p>
+</td>
+<td class="cellalignment94" headers="d791e552 d791e411">
+<p>0 (no maximum size)</p>
+</td>
+</tr>
+<tr class="cellalignment64">
+<td class="cellalignment91" id="d791e597" headers="d791e402">
+<p><code class="codeph">name</code></p>
+</td>
+<td class="cellalignment92" headers="d791e597 d791e405">
+<p>Name of the recording. If no name is provided, a name is generated. Make note of the generated name that is shown in the response to the command so that you can use it with other commands.</p>
+</td>
+<td class="cellalignment93" headers="d791e597 d791e408">
+<p>String</p>
+</td>
+<td class="cellalignment94" headers="d791e597 d791e411">
+<p>The default is a system-generated name.</p>
+</td>
+</tr>
+<tr class="cellalignment64">
+<td class="cellalignment91" id="d791e611" headers="d791e402">
+<p><code class="codeph">path-to-gc-roots</code></p>
+</td>
+<td class="cellalignment92" headers="d791e611 d791e405">
+<p>Flag for collecting the path to garbage collection (GC) roots at the end of a recording. This flag was introduced in JDK 10.</p>
+<p>The path information is useful for finding memory leaks, but collecting it is time-consuming. Turn this flag on only when you start a recording for an application that you suspect has a memory leak. If the <code class="codeph">settings</code> parameter is set to <code class="codeph">profile</code>, then the information collected includes the stack trace from where the potential leaking object was allocated.</p>
+</td>
+<td class="cellalignment93" headers="d791e611 d791e408">
+<p>Boolean</p>
+</td>
+<td class="cellalignment94" headers="d791e611 d791e411">
+<p>false</p>
+</td>
+</tr>
+<tr class="cellalignment64">
+<td class="cellalignment91" id="d791e633" headers="d791e402">
+<p><code class="codeph">settings</code></p>
+</td>
+<td class="cellalignment92" headers="d791e633 d791e405">
+<p>Name of the settings file that identifies the events to record. To specify more than one file, separate the names with a comma (,). Include the path if the file is not in <code>JRE_HOME/lib/jfr</code>. The following profiles are included with the JDK in the <code>JRE_HOME/lib/jfr</code> directory:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code>default.jfc</code>: Collects a predefined set of information with low overhead, so it has minimal impact on performance and can be used with recordings that run continuously.</p>
+</li>
+<li>
+<p><code>profile.jfc</code>: Provides more data than the <code>default.jfc</code> profile, but with more overhead and impact on performance. Use this configuration for short periods of time when more information is needed.</p>
+</li>
+</ul>
+<p>Examples of settings file names:</p>
+<ul style="list-style-type: disc;">
+<li><code>profile</code></li>
+<li><code>default</code></li>
+<li><code>default.jfc</code></li>
+<li><code>/home/user/settings/my-events.jfc,profile</code></li>
+<li><code>c:\settings\custom.jfc</code></li>
+</ul>
+</td>
+<td class="cellalignment93" headers="d791e633 d791e408">
+<p>String</p>
+</td>
+<td class="cellalignment94" headers="d791e633 d791e411">
+<p><code>JRE_HOME/lib/jfr/default.jfc</code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="example" id="GUID-8DC13618-1515-4479-B0FC-9F4394BE5455__GUID-F18C7C0D-90DB-42FD-B870-C7972A79D01A">
+<p class="titleinexample">Example 2-2 JFR.start Examples</p>
+<p>The following command starts a recording that runs for 1 minute, uses the settings file named <code>profile</code> to identify the events to record, and writes the recording to a file named <code>d:\recordings\page-load.jfr</code>. Because no value is provided for the <code class="codeph">name</code> parameter, a system-generated name is used. The value for <span class="variable">pid</span> is the process ID of the Java process to record.</p>
+<pre dir="ltr">
+jcmd <span class="variable">pid</span> JFR.start duration=1m settings=profile filename=d:\recordings\page-load.jfr
+</pre>
+<p>The following command starts a recording named <code class="codeph">monitor1hour</code> that keeps data for a maximum of 1 hour, and limits the size of the recording to 500 megabytes. The value for <span class="variable">pid</span> is the process ID of the Java process to record.</p>
+<pre dir="ltr">
+jcmd <span class="variable">pid</span> JFR.start name=monitor1hour maxage=1h maxsize=500M
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<a id="resourceid-15423-48C8362D"></a><a id="resourceid-15422-48C8362C"></a>
+<div class="props_rev_3"><a id="GUID-DA391CC1-B5D8-44F1-AEDD-9A534C8DD009"></a>
+<h2 id="JFRCR-GUID-DA391CC1-B5D8-44F1-AEDD-9A534C8DD009" class="sect2">JFR.check</h2>
+<div>
+<p>To show information about a flight recording that is running, use the <code class="codeph">JFR.check</code> diagnostic command for the <code class="codeph">jcmd</code> utility.</p>
+<div class="section">
+<p><a href="diagnostic-command-reference.htm#GUID-DA391CC1-B5D8-44F1-AEDD-9A534C8DD009__CACHCJBC" title="Four-column table that identifies the parameters for the JFR.check command. The first column contains the parameter name. The second column contains a parameter description. The third column contains the parameter type. The fourth column contains the parameter&rsquo;s default value, if any.">Table 2-3</a> lists the parameters for the <code class="codeph">JFR.check</code> command. All parameters are optional. If no parameters are entered, information for all active recordings is shown.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-DA391CC1-B5D8-44F1-AEDD-9A534C8DD009__CACHCJBC">
+<p class="titleintable">Table 2-3 JFR.check Parameters</p>
+<table class="cellalignment75" title="JFR.check Parameters" summary="Four-column table that identifies the parameters for the JFR.check command. The first column contains the parameter name. The second column contains a parameter description. The third column contains the parameter type. The fourth column contains the parameter&rsquo;s default value, if any.">
+<thead>
+<tr class="cellalignment64">
+<th class="cellalignment76" id="d791e767">Parameter</th>
+<th class="cellalignment81" id="d791e770">Description</th>
+<th class="cellalignment82" id="d791e773">Type of Value</th>
+<th class="cellalignment83" id="d791e776">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment64">
+<td class="cellalignment78" id="d791e781" headers="d791e767">
+<p><code class="codeph">name</code></p>
+</td>
+<td class="cellalignment84" headers="d791e781 d791e770">
+<p>Name of the recording</p>
+</td>
+<td class="cellalignment85" headers="d791e781 d791e773">
+<p>String</p>
+</td>
+<td class="cellalignment86" headers="d791e781 d791e776">
+<p>No default value</p>
+</td>
+</tr>
+<tr class="cellalignment64">
+<td class="cellalignment78" id="d791e795" headers="d791e767">
+<p><code class="codeph">verbose</code></p>
+</td>
+<td class="cellalignment84" headers="d791e795 d791e770">
+<p>Flag for printing the event settings for the recording</p>
+</td>
+<td class="cellalignment85" headers="d791e795 d791e773">
+<p>Boolean</p>
+</td>
+<td class="cellalignment86" headers="d791e795 d791e776">
+<p>false</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="example" id="GUID-DA391CC1-B5D8-44F1-AEDD-9A534C8DD009__GUID-3A6BFF3F-37D1-4E5D-B899-5ADF3D9EEC67">
+<p class="titleinexample">Example 2-3 JFR.check Example</p>
+<p>The following command shows the information for a recording named <code class="codeph">Recording-1</code>. The value for <span class="variable">pid</span> is the process ID of the Java process being recorded.</p>
+<pre dir="ltr">
+jcmd <span class="variable">pid</span> JFR.check name=Recording-1
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<a id="resourceid-15523-48C8362D"></a><a id="resourceid-15522-48C8362D"></a>
+<div class="props_rev_3"><a id="GUID-66CC94C8-8EDF-4BB6-8E7A-49973025D4D9"></a>
+<h2 id="JFRCR-GUID-66CC94C8-8EDF-4BB6-8E7A-49973025D4D9" class="sect2">JFR.stop</h2>
+<div>
+<p>To stop a flight recording, use the <code class="codeph">JFR.stop</code> diagnostic command for the <code class="codeph">jcmd</code> utility.</p>
+<div class="section">
+<p><a href="diagnostic-command-reference.htm#GUID-66CC94C8-8EDF-4BB6-8E7A-49973025D4D9__BABGCHHD" title="Four-column table that identifies the parameters for the JFR.stop command. The first column contains the parameter name. The second column contains a parameter description. The third column contains the parameter type. The fourth column contains the parameter&rsquo;s default value, if any.">Table 2-4</a> shows the parameters for the <code class="codeph">JFR.stop</code> command. All parameters are optional. However, if no name is entered, then no recording is stopped.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-66CC94C8-8EDF-4BB6-8E7A-49973025D4D9__BABGCHHD">
+<p class="titleintable">Table 2-4 JFR.stop Parameters</p>
+<table class="cellalignment75" title="JFR.stop Parameters" summary="Four-column table that identifies the parameters for the JFR.stop command. The first column contains the parameter name. The second column contains a parameter description. The third column contains the parameter type. The fourth column contains the parameter&rsquo;s default value, if any.">
+<thead>
+<tr class="cellalignment64">
+<th class="cellalignment76" id="d791e871">Parameter</th>
+<th class="cellalignment81" id="d791e874">Description</th>
+<th class="cellalignment82" id="d791e877">Type of Value</th>
+<th class="cellalignment83" id="d791e880">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment64">
+<td class="cellalignment78" id="d791e885" headers="d791e871">
+<p><code class="codeph">filename</code></p>
+</td>
+<td class="cellalignment84" headers="d791e885 d791e874">
+<p>Name of the file to which the recording is written when the recording is stopped. If no path is provided, the file is in the directory where the process was started. Examples of filenames:</p>
+<ul style="list-style-type: disc;">
+<li><code>recording.jfr</code></li>
+<li><code>/home/user/recordings/recording.jfr</code></li>
+<li><code>c:\recordings\recording.jfr</code></li>
+</ul>
+</td>
+<td class="cellalignment85" headers="d791e885 d791e877">
+<p>String</p>
+</td>
+<td class="cellalignment86" headers="d791e885 d791e880">
+<p>No default value</p>
+</td>
+</tr>
+<tr class="cellalignment64">
+<td class="cellalignment78" id="d791e909" headers="d791e871">
+<p><code class="codeph">name</code></p>
+</td>
+<td class="cellalignment84" headers="d791e909 d791e874">
+<p>Name of the recording</p>
+</td>
+<td class="cellalignment85" headers="d791e909 d791e877">
+<p>String</p>
+</td>
+<td class="cellalignment86" headers="d791e909 d791e880">
+<p>No default value</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="example" id="GUID-66CC94C8-8EDF-4BB6-8E7A-49973025D4D9__GUID-463DD362-A803-42C5-933F-852B51C05C03">
+<p class="titleinexample">Example 2-4 JFR.stop Example</p>
+<p>The following command stops the recording named <code class="codeph">debugrun1</code> and writes it to <code>debugrun1.jfr</code> in the directory where the process was started. The value for <span class="variable">pid</span> is the process ID of the Java process being recorded.</p>
+<pre dir="ltr">
+jcmd <span class="variable">pid</span> JFR.stop name=debugrun1 filename=debugrun1.jfr
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<a id="resourceid-15623-48C8362F"></a><a id="resourceid-15622-48C8362F"></a>
+<div class="props_rev_3"><a id="GUID-6EB11926-4DAF-4B99-AF20-7FCD284EE6C1"></a>
+<h2 id="JFRCR-GUID-6EB11926-4DAF-4B99-AF20-7FCD284EE6C1" class="sect2">JFR.dump</h2>
+<div>
+<p>To write data to a file while a flight recording is running, use the <code class="codeph">JFR.dump</code> diagnostic command for the <code class="codeph">jcmd</code> utility.</p>
+<div class="section">
+<p><a href="diagnostic-command-reference.htm#GUID-6EB11926-4DAF-4B99-AF20-7FCD284EE6C1__BABJGJGB" title="Four-column table that identifies the parameters for the JFR.dump command. The first column contains the parameter name. The second column contains a parameter description. The third column contains the parameter type. The fourth column contains the parameter&rsquo;s default value, if any.">Table 2-5</a> shows the parameters for the <code class="codeph">JFR.dump</code> command. The <code class="codeph">name</code> and <code class="codeph">filename</code> parameters are required. The recording continues to run after the data is written.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-6EB11926-4DAF-4B99-AF20-7FCD284EE6C1__BABJGJGB">
+<p class="titleintable">Table 2-5 JFR.dump Parameters</p>
+<table class="cellalignment75" title="JFR.dump Parameters" summary="Four-column table that identifies the parameters for the JFR.dump command. The first column contains the parameter name. The second column contains a parameter description. The third column contains the parameter type. The fourth column contains the parameter&rsquo;s default value, if any.">
+<thead>
+<tr class="cellalignment64">
+<th class="cellalignment76" id="d791e995">Parameter</th>
+<th class="cellalignment81" id="d791e998">Description</th>
+<th class="cellalignment82" id="d791e1001">Type of Value</th>
+<th class="cellalignment83" id="d791e1004">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment64">
+<td class="cellalignment78" id="d791e1009" headers="d791e995">
+<p><code class="codeph">filename</code></p>
+<p>(required)</p>
+</td>
+<td class="cellalignment84" headers="d791e1009 d791e998">
+<p>Name of the file to which the recording is written. If no path is provided, the file is in the directory where the process was started. Examples of filenames:</p>
+<ul style="list-style-type: disc;">
+<li><code>recording.jfr</code></li>
+<li><code>/home/user/recordings/recording.jfr</code></li>
+<li><code>c:\recordings\recording.jfr</code></li>
+</ul>
+</td>
+<td class="cellalignment85" headers="d791e1009 d791e1001">
+<p>String</p>
+</td>
+<td class="cellalignment86" headers="d791e1009 d791e1004">
+<p>No default value</p>
+</td>
+</tr>
+<tr class="cellalignment64">
+<td class="cellalignment78" id="d791e1035" headers="d791e995">
+<p><code class="codeph">name</code></p>
+<p>(required)</p>
+</td>
+<td class="cellalignment84" headers="d791e1035 d791e998">
+<p>Name for the recording</p>
+</td>
+<td class="cellalignment85" headers="d791e1035 d791e1001">
+<p>String</p>
+</td>
+<td class="cellalignment86" headers="d791e1035 d791e1004">
+<p>No default value</p>
+</td>
+</tr>
+<tr class="cellalignment64">
+<td class="cellalignment78" id="d791e1052" headers="d791e995">
+<p><code class="codeph">path-to-gc-roots</code></p>
+</td>
+<td class="cellalignment84" headers="d791e1052 d791e998">
+<p>Flag for collecting the path to garbage collection (GC) roots at the time that the recording data is dumped. This flag was introduced in JDK 10.</p>
+<p>This information is useful for finding memory leaks, but collecting it can cause the application to halt for a short period of time. If you suspect a memory leak in an application that is running, use this flag to collect the information without having to start another recording.</p>
+</td>
+<td class="cellalignment85" headers="d791e1052 d791e1001">
+<p>Boolean</p>
+</td>
+<td class="cellalignment86" headers="d791e1052 d791e1004">
+<p>false</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="example" id="GUID-6EB11926-4DAF-4B99-AF20-7FCD284EE6C1__GUID-51CAECA1-B0F6-4E88-9E5E-028A6CBA4CBD">
+<p class="titleinexample">Example 2-5 JFR.dump Example</p>
+<p>The following command writes a recording named <code class="codeph">monitor1hour</code> to a file named <code>/usr/testsamples/recordings/monitor1hour-halfway.jfr</code>. The value for <span class="variable">pid</span> is the process ID of the Java process being recorded.</p>
+<pre dir="ltr">
+jcmd <span class="variable">pid</span> JFR.dump name=monitor1hour filename=/usr/testsamples/recordings/monitor1hour-halfway.jfr
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<a id="resourceid-15722-48C83631"></a>
+<div class="props_rev_3"><a id="GUID-BA318BD8-3ECD-4E2D-A004-E2B472CDDF1D"></a>
+<h2 id="JFRCR-GUID-BA318BD8-3ECD-4E2D-A004-E2B472CDDF1D" class="sect2">VM.unlock_commercial_features</h2>
+<div>
+<p>To unlock commercial features in a Java process that is already running, use the <code class="codeph">VM.unlock_commercial_features</code> diagnostic command for the <code class="codeph">jcmd</code> utility.</p>
+<p>The <code class="codeph">VM.unlock_commercial_features</code> command has no parameters. The following example shows the command for unlocking commercial features. The value for <span class="variable">pid</span> is the process ID of the Java process:</p>
+<pre dir="ltr">
+jcmd <span class="variable">pid</span> VM.unlock_commercial_features
+</pre></div>
+</div>
+<a id="resourceid-15822-48C83631"></a>
+<div class="props_rev_3"><a id="GUID-1B9B0A50-99CB-463B-9FC3-BA0EBD940569"></a>
+<h2 id="JFRCR-GUID-1B9B0A50-99CB-463B-9FC3-BA0EBD940569" class="sect2">VM.check_commercial_features</h2>
+<div>
+<p>To check if commercial features are locked or unlocked in a Java process that is already running, use the <code class="codeph">VM.check_commercial_features</code> diagnostic command for the <code class="codeph">jcmd</code> utility.</p>
+<p>The <code class="codeph">VM.check_commercial_features</code> command has no parameters. The following example shows the command for checking the status of commercial features. The value for <span class="variable">pid</span> is the process ID of the Java process:</p>
+<pre dir="ltr">
+jcmd <span class="variable">pid</span> VM.check_commercial_features
+</pre></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment63">
+<tr>
+<td class="cellalignment70">
+<table class="cellalignment68">
+<tr>
+<td class="cellalignment67"><a href="command-line-options.htm"><img width="24" height="24" src="../../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2001, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment72">
+<table class="cellalignment73">
+<tr>
+<td class="cellalignment67"><a href="../../index.html"><img width="24" height="24" src="../../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment67"><a href="toc.htm"><img width="24" height="24" src="../../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment67"><a href="../../dcommon/html/feedback.htm"><img width="24" height="24" src="../../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

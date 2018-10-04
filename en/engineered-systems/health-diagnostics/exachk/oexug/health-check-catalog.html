@@ -1,0 +1,219 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="The Health Check Catalogs list the health checks that are included within Oracle ORAchk or Oracle EXAchk.">
+      <meta name="description" content="The Health Check Catalogs list the health checks that are included within Oracle ORAchk or Oracle EXAchk.">
+      <title>Health Check Catalog</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide">
+      <meta property="og:description" content="The Health Check Catalogs list the health checks that are included within Oracle ORAchk or Oracle EXAchk.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-orachk-and-exachk-users-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:43:23-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2016, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E83827-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/exachk">
+      
+      <link rel="prev" href="understanding-and-managing-reports-and-output.html" title="Previous" type="text/html">
+      <link rel="next" href="running-subsets-of-checks.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"exachk","element_name":"EXAchk","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® ORAchk and EXAchk User's Guide">
+    <meta name="dcterms.isVersionOf" content="OEXUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="understanding-and-managing-reports-and-output.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="running-subsets-of-checks.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="oracle-orachk-and-exachk-common-features-tasks.html" property="item" typeof="WebPage"><span property="name">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Health Check Catalog</li>
+            </ol>
+            <a id="GUID-B26FAD6B-4D22-40FF-ADC8-0319010DB2C2" name="GUID-B26FAD6B-4D22-40FF-ADC8-0319010DB2C2"></a>
+            
+            <h2 id="OEXUG-GUID-B26FAD6B-4D22-40FF-ADC8-0319010DB2C2" class="sect2"><span class="enumeration_section">1.6 </span>Health Check Catalog
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>The Health Check Catalogs list the health checks that are included within Oracle ORAchk or Oracle EXAchk.</p>
+               <p>Health Check Catalogs are HTML pages that require JavaScript. Enable JavaScript in your browser to view the Health Check Catalogs.</p>
+               <p>Each tool has its own Health Check Catalog. Refer to My Oracle Support Note 1268927.2.</p>
+               <p>As well as being available at the above links, Health Check Catalogs are also available in the download install zip (<code>orachk.zip</code>, <code>orachk_idm.zip</code>, or <code>exachk.zip</code>) file to view them offline in environments with no internet connection.
+               </p>
+               <p>Each of the respective Health Check Catalogs is called:</p>
+               <ul style="list-style-type: disc;">
+                  <li>
+                     <p><code>ORAchk_Health_Check_Catalog.html</code></p>
+                  </li>
+                  <li>
+                     <p><code>EXAchk_Health_Check_Catalog.html</code></p>
+                  </li>
+               </ul>
+               <p>For each check, the Health Check Catalogs display:</p>
+               <ul style="list-style-type: disc;">
+                  <li>
+                     <p>Name of the check</p>
+                  </li>
+                  <li>
+                     <p>Benefit and impact of the check</p>
+                  </li>
+                  <li>
+                     <p>Alert level of the check</p>
+                  </li>
+                  <li>
+                     <p>Links to any My Oracle Support Notes or other documentation linked from the check</p>
+                  </li>
+               </ul>
+               <p>Checks can be filtered by various attributes:</p>
+               <div class="tblformal" id="GUID-B26FAD6B-4D22-40FF-ADC8-0319010DB2C2__GUID-4ECF1CFC-A45E-4461-BBA1-CD9D3975B71E">
+                  <p class="titleintable">Table 1-5 Health Check Filters</p>
+                  <table cellpadding="4" cellspacing="0" class="Formal" title="Health Check Filters" summary="This table lists and describes health check filters." frame="hsides" border="1" rules="rows">
+                     <thead>
+                        <tr align="left" valign="top">
+                           <th align="left" valign="bottom" width="20%" id="d15755e67">Filter</th>
+                           <th align="left" valign="bottom" width="20%" id="d15755e69">Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr align="left" valign="top">
+                           <td align="left" valign="top" width="20%" id="d15755e73" headers="d15755e67 ">
+                              <p><code class="codeph">Product Area</code></p>
+                           </td>
+                           <td align="left" valign="top" width="20%" headers="d15755e73 d15755e69 ">
+                              <p><span class="bold">Oracle ORAchk Only</span>: Filters checks by the product area to which they apply.
+                              </p>
+                           </td>
+                        </tr>
+                        <tr align="left" valign="top">
+                           <td align="left" valign="top" width="20%" id="d15755e83" headers="d15755e67 ">
+                              <p><code class="codeph">Engineered System</code></p>
+                           </td>
+                           <td align="left" valign="top" width="20%" headers="d15755e83 d15755e69 ">
+                              <p><span class="bold">Oracle EXAchk Only</span>: Filters checks by the engineered system to which they apply.
+                              </p>
+                           </td>
+                        </tr>
+                        <tr align="left" valign="top">
+                           <td align="left" valign="top" width="20%" id="d15755e93" headers="d15755e67 ">
+                              <p><code class="codeph">Profiles</code></p>
+                           </td>
+                           <td align="left" valign="top" width="20%" headers="d15755e93 d15755e69 ">
+                              <p>Filters checks by the profile to which they apply.</p>
+                           </td>
+                        </tr>
+                        <tr align="left" valign="top">
+                           <td align="left" valign="top" width="20%" id="d15755e101" headers="d15755e67 ">
+                              <p><code class="codeph">Alert Level</code></p>
+                           </td>
+                           <td align="left" valign="top" width="20%" headers="d15755e101 d15755e69 ">
+                              <p>Filters checks by the Alert Level of the check, <code class="codeph">FAIL</code>, <code class="codeph">WARN</code>, and <code class="codeph">INFO</code>.
+                              </p>
+                           </td>
+                        </tr>
+                        <tr align="left" valign="top">
+                           <td align="left" valign="top" width="20%" id="d15755e118" headers="d15755e67 ">
+                              <p><code class="codeph">Release Authored</code></p>
+                           </td>
+                           <td align="left" valign="top" width="20%" headers="d15755e118 d15755e69 ">
+                              <p>Filters checks by the Oracle ORAchk or Oracle EXAchk release in which they first published.</p>
+                           </td>
+                        </tr>
+                        <tr align="left" valign="top">
+                           <td align="left" valign="top" width="20%" id="d15755e126" headers="d15755e67 ">
+                              <p><code class="codeph">Platforms</code></p>
+                           </td>
+                           <td align="left" valign="top" width="20%" headers="d15755e126 d15755e69 ">
+                              <p>Filters checks by platform.</p>
+                           </td>
+                        </tr>
+                        <tr align="left" valign="top">
+                           <td align="left" valign="top" width="20%" id="d15755e134" headers="d15755e67 ">
+                              <p><code class="codeph">Privileged User</code></p>
+                           </td>
+                           <td align="left" valign="top" width="20%" headers="d15755e134 d15755e69 ">
+                              <p>Filters checks that require specific privileged user roles, such as root.</p>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+               <!-- class="inftblhruleinformal" -->
+               <p>You can also filter checks based on searching for checks containing particular text.</p>
+               <div class="example" id="GUID-B26FAD6B-4D22-40FF-ADC8-0319010DB2C2__GUID-96607002-20AB-491D-A8C1-CE2FE0B7E36E">
+                  <p class="titleinexample">Example 1-20 Health Check Catalog</p>
+                  <p><span class="bold">Oracle ORAchk Health Check Catalog:</span></p>
+                  <div class="p">
+                     <div class="figure" id="GUID-B26FAD6B-4D22-40FF-ADC8-0319010DB2C2__GUID-12F42E72-A9F1-4598-954E-9FF67F0D9E91">
+                        <p class="titleinfigure">Figure 1-26 Oracle ORAchk Health Check Catalog</p><img src="img/orachk-health-check-catalog.png" alt="Description of Figure 1-26 follows" title="Description of Figure 1-26 follows" longdesc="img_text/orachk-health-check-catalog.html"><br><a href="img_text/orachk-health-check-catalog.html">Description of "Figure 1-26 Oracle ORAchk Health Check Catalog"</a></div>
+                     <!-- class="figure" -->
+                  </div>
+                  <p><span class="bold">Oracle EXAchk Health Check Catalog:</span></p>
+                  <div class="p">
+                     <div class="figure" id="GUID-B26FAD6B-4D22-40FF-ADC8-0319010DB2C2__GUID-E92FDCA9-6F11-4084-AD61-977A22C0DE2B">
+                        <p class="titleinfigure">Figure 1-27 Oracle EXAchk Health Check Catalog</p><img src="img/exachk-health-check-catalog.png" alt="Description of Figure 1-27 follows" title="Description of Figure 1-27 follows" longdesc="img_text/exachk-health-check-catalog.html"><br><a href="img_text/exachk-health-check-catalog.html">Description of "Figure 1-27 Oracle EXAchk Health Check Catalog"</a></div>
+                     <!-- class="figure" -->
+                  </div>
+                  <p>Using the Health Check Catalog, you can find the Check Id for a particular check without running a health check report.</p>
+                  <p>To view the check Id, select the <span class="bold">Show Check Id</span> check box.
+                  </p>
+                  <p>The catalog displays the <span class="bold">Check Id</span> field to the left of each the checks.
+                  </p>
+                  <div class="p">
+                     <div class="figure" id="GUID-B26FAD6B-4D22-40FF-ADC8-0319010DB2C2__GUID-C61FA278-733F-4D34-8CEF-4587AAA00F86">
+                        <p class="titleinfigure">Figure 1-28 Show Check Id</p><img src="img/show-check-id.png" alt="Description of Figure 1-28 follows" title="Description of Figure 1-28 follows" longdesc="img_text/show-check-id.html"><br><a href="img_text/show-check-id.html">Description of "Figure 1-28 Show Check Id"</a></div>
+                     <!-- class="figure" -->
+                  </div>
+               </div>
+               <!-- class="example" -->
+            </div>
+            <div>
+               <div class="relinfo">
+                  <p><strong>Related Topics</strong></p>
+                  <ul>
+                     <li><a href="https://support.oracle.com/epmos/main/downloadattachmentprocessor?parent=DOCUMENT&amp;sourceId=1268927.2&amp;attachid=1268927.1:HC_CATALOG&amp;clickstream=no" target="_blank">Oracle ORAchk Health Check Catalog</a></li>
+                     <li><a href="https://support.oracle.com/epmos/main/downloadattachmentprocessor?attachid=1268927.1:EXACHK_HC_CATALOG" target="_blank">Oracle EXAchk Health Check Catalog</a></li>
+                  </ul>
+               </div>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="oracle-orachk-and-exachk-common-features-tasks.html#GUID-50F7EA11-11FD-431C-B99A-EC9E2176BBDB" title="Oracle ORAchk and Oracle EXAchk share a common health check framework and a large portion of their features and tasks are common.">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</a></p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 25226-->
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>Differences between Java EE and Java SE - Your First Cup: An Introduction to the Java EE Platform</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2012-04-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gcqyw.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gcqyb.html">1.&nbsp;&nbsp;Introduction</a></p>
+<p class="toc level1 tocsp"><a href="gcrlo.html">2.&nbsp;&nbsp;Understanding Java Platform, Enterprise Edition</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level2"><a href="">Differences between Java EE and Java SE</a></p>
+<p class="toc level3"><a href="#gcrkk">The Java Programming Language Platforms</a></p>
+<p class="toc level4"><a href="#gcrlb">Java SE</a></p>
+<p class="toc level4"><a href="#gcrlz">Java EE</a></p>
+<p class="toc level4"><a href="#gcrld">Java ME</a></p>
+<p class="toc level4"><a href="#gjvih">JavaFX</a></p>
+</div>
+<p class="toc level2 tocsp"><a href="gcrky.html">Overview of Enterprise Applications</a></p>
+<p class="toc level3"><a href="gcrky.html#gcrkr">Tiered Applications</a></p>
+<p class="toc level4"><a href="gcrky.html#gcrla">The Client Tier</a></p>
+<p class="toc level4"><a href="gcrky.html#gcrnl">The Web Tier</a></p>
+<p class="toc level5"><a href="gcrky.html#gcroc">Java EE Technologies Used in the Web Tier</a></p>
+<p class="toc level4 tocsp"><a href="gcrky.html#gcrls">The Business Tier</a></p>
+<p class="toc level5"><a href="gcrky.html#gcrlc">Java EE Technologies Used in the Business Tier</a></p>
+<p class="toc level4 tocsp"><a href="gcrky.html#gcrkw">The Enterprise Information Systems Tier</a></p>
+<p class="toc level5"><a href="gcrky.html#gcrkx">Java EE Technologies Used in the EIS Tier</a></p>
+<p class="toc level2 tocsp"><a href="gcrkq.html">Java EE Servers</a></p>
+<p class="toc level3"><a href="gcrkq.html#gcrkz">Java EE Containers</a></p>
+<p class="toc level4"><a href="gcrkq.html#gcrmb">The Web Container</a></p>
+<p class="toc level4"><a href="gcrkq.html#gcrlj">The Application Client Container</a></p>
+<p class="toc level4"><a href="gcrkq.html#gcrma">The EJB Container</a></p>
+<p class="toc level1 tocsp"><a href="gcrkp.html">3.&nbsp;&nbsp;Creating Your First Java EE Application</a></p>
+<p class="toc level1 tocsp"><a href="glcfc.html">4.&nbsp;&nbsp;Creating Your Second Web Application</a></p>
+<p class="toc level1 tocsp"><a href="gcrll.html">5.&nbsp;&nbsp;Next Steps</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><p class="Banner">Your First Cup
+</p></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="./gcqzl.html#gcrnx">Download</a> | 
+<a href="./firstcup.pdf">PDF</a> | 
+<a href="http://docs.oracle.com/javaee/support/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="gcrlo.html"><img src="graphics/leftButton.gif" border="0" alt="Previous" title="Previous"></a>
+                 <a href="p1.html"><img src="graphics/upButton.gif" border="0" alt="Contents" title="Contents"></a>
+                 <a href="gcrky.html"><img src="graphics/rightButton.gif" border="0" alt="Next" title="Next"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="gkhoy"></a><h2>Differences between Java EE and Java SE</h2>
+<p>Java technology is both a programming language and a platform. The Java programming
+language is a high-level object-oriented language that has a particular syntax and style. A
+Java platform is a particular environment in which Java programming language applications run.</p>
+
+<p>There are several Java platforms. Many developers, even long-time Java programming language developers,
+do not understand how the different platforms relate to each other.</p>
+
+
+
+<a name="gcrkk"></a><h3>The Java Programming Language Platforms</h3>
+<p>There are four platforms of the Java programming language:</p>
+
+
+<ul><li><p>Java Platform, Standard Edition (Java SE)</p>
+
+</li>
+<li><p>Java Platform, Enterprise Edition (Java EE)</p>
+
+</li>
+<li><p>Java Platform, Micro Edition (Java ME)</p>
+
+</li>
+<li><p>JavaFX</p>
+
+</li></ul>
+<p>All Java platforms consist of a Java Virtual Machine (VM) and an application
+programming interface (API). The Java Virtual Machine is a program, for a particular
+hardware and software platform, that runs Java technology applications. An API is a
+collection of software components that you can use to create other software components or
+applications. Each Java platform provides a virtual machine and an API, and this
+allows applications written for that platform to run on any compatible system with
+all the advantages of the Java programming language: platform-independence, power, stability, ease-of-development, and security.</p>
+
+
+
+<a name="gcrlb"></a><h4>Java SE</h4>
+<p>When most people think of the Java programming language, they think of the
+Java SE API. Java SE's API provides the core functionality of the Java
+programming language. It defines everything from the basic types and objects of the
+Java programming language to high-level classes that are used for networking, security, database
+access, graphical user interface (GUI) development, and XML parsing.</p>
+
+<p>In addition to the core API, the Java SE platform consists of a
+virtual machine, development tools, deployment technologies, and other class libraries and toolkits commonly
+used in Java technology applications.</p>
+
+
+
+<a name="gcrlz"></a><h4>Java EE</h4>
+<p>The Java EE platform is built on top of the Java SE
+platform. The Java EE platform provides an API and runtime environment for developing
+and running large-scale, multi-tiered, scalable, reliable, and secure network applications.</p>
+
+
+
+<a name="gcrld"></a><h4>Java ME</h4>
+<p>The Java ME platform provides an API and a small-footprint virtual machine for
+running Java programming language applications on small devices, like mobile phones. The API
+is a subset of the Java SE API, along with special class libraries useful
+for small device application development. Java ME applications are often clients of Java
+EE platform services.</p>
+
+
+
+<a name="gjvih"></a><h4>JavaFX</h4>
+<p>JavaFX is a platform for creating rich internet applications using a lightweight user-interface
+API. JavaFX applications use hardware-accelerated graphics and media engines to take advantage of
+higher-performance clients and a modern look-and-feel as well as high-level APIs for connecting to
+networked data sources. JavaFX applications may be clients of Java EE platform services.</p>
+
+
+         </div>
+         <div class="navigation">
+             <a href="gcrlo.html"><img src="graphics/leftButton.gif" border="0" alt="Previous" title="Previous"></a>
+             <a href="p1.html"><img src="graphics/upButton.gif" border="0" alt="Contents" title="Contents"></a>
+             <a href="gcrky.html"><img src="graphics/rightButton.gif" border="0" alt="Next" title="Next"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+<!-- Start SiteCatalyst code   -->
+<script language="JavaScript" src="http://www.oracle.com/ocom/groups/systemobject/@mktg_admin/documents/systemobject/s_code_download.js"></script>
+<script language="JavaScript" src="http://www.oracle.com/ocom/groups/systemobject/@mktg_admin/documents/systemobject/s_code.js"></script>
+ 
+<!-- ********** DO NOT ALTER ANYTHING BELOW THIS LINE ! *********** -->
+<!--  Below code will send the info to Omniture server -->
+<script language="javascript">var s_code=s.t();if(s_code)document.write(s_code)</script>
+<noscript><p>Scripting on this page tracks web page traffic,
+but does not change the content in any way.</p></noscript>
+<!-- End SiteCatalyst code -->
+</body>
+</html>
+

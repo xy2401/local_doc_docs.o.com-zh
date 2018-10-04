@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Running the PhotoCard Sample in Eclipse</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="The PhotoCard sample consists of two projects: a Java Card project with the Java Card applet and a Java SE project with the Java application that is designed to communicate with the applet." />
+<meta name="dcterms.created" content="2018-04-13T10:24:54Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Development Kit User Guide, Classic Edition" />
+<meta name="dcterms.identifier" content="E59602-03" />
+<meta name="dcterms.isVersionOf" content="JCUGC" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="photocard-sample.htm" title="Previous" type="text/html" />
+<link rel="Next" href="running-photocard-sample-command-line.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCUGC.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-F78DA7F4-27CF-4173-B0D6-68E0C1667BFA"></a> <span id="PAGE" style="display:none;">48/161</span> <!-- End Header -->
+<h1 id="JCUGC-GUID-F78DA7F4-27CF-4173-B0D6-68E0C1667BFA" class="sect1">Running the PhotoCard Sample in Eclipse</h1>
+<div>
+<p>The PhotoCard sample consists of two projects: a Java Card project with the Java Card applet and a Java SE project with the Java application that is designed to communicate with the applet.</p>
+<div class="p">Start Eclipse. Sample_Platform and Sample_Device must already be created.</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Import the <code class="codeph">PhotoCard_Applet</code> Java Card project and the <code class="codeph">PhotoCard_Client</code> Java project into your workspace. You can import both projects in the same Import wizard.&nbsp;If the builds don't start automatically, start them manually.</span>
+<div>The <code class="codeph">PhotoCard_Applet</code> project build creates <code class="codeph">apdu_scripts</code> and <code class="codeph">deliverables</code> directories.</div>
+</li>
+<li class="stepexpand"><span>In <span class="wintitle">Java Card View</span>, double-click on Sample_Device. In the <span class="wintitle">Properties for Sample_Device</span> dialog, select the <span class="bold">CREF</span> tab:</span>
+<ol>
+<li><span>In the <span class="bold">Combined (input and output) file for EEPROM data</span> field, type a file name to be used for saving EEPROM between simulator sessions, e.g., <code class="codeph">PhotoCard.eeprom</code>. The file will be automatically created in the bin directory. Later, after the sample run, you can safely delete it.</span></li>
+<li><span>Clear the <span class="bold">Input file with EEPROM data</span> and the <span class="bold">Combined (input and output) file for EEPROM data</span> fields.</span></li>
+<li><span>Clear <span class="bold">Do not open APDU console</span>.</span></li>
+<li><span>Click <span class="bold">OK</span>.</span></li>
+</ol>
+</li>
+<li class="stepexpand"><span>In <span class="wintitle">Java Card View</span>, right-click on Sample_Device and select <span class="bold">Start</span>.</span>
+<div>The simulator starts and you can see that Sample_Device console is created.</div>
+</li>
+<li class="stepexpand"><span>In <span class="wintitle">Sample_Device console</span> toolbar, click the <span class="bold">Select Script</span> drop-down button and select <code class="codeph">cap-com.sun.jcclassic.samples.photocard</code>.&nbsp; Wait until the script execution completes and the <span class="bold">CMD&gt;</span> prompt is displayed</span></li>
+<li class="stepexpand"><span>Click the <span class="bold">Select Script</span> drop-down button again and select <code class="codeph">create-com.sun.jcclassic.samples.photocard.PhotoCardApplet</code>. Verify that the script finished successfully, i.e., with <code class="codeph">SW1: 90, SW2: 00</code></span></li>
+<li class="stepexpand"><span>In <span class="wintitle">Sample_Device console</span> toolbar, click the <span class="bold">Stop the device</span> button.</span>
+<div>The simulator stops, and EEPROM data is saved in <code class="codeph">PhotoCard.eeprom</code> file.</div>
+</li>
+<li class="stepexpand"><span>In <span class="wintitle">Java Card View</span>, double-click on Sample_Device. In the <span class="wintitle">Properties for Sample_Device</span> dialog, select the <span class="bold">CREF</span> tab:</span>
+<ol>
+<li><span>&nbsp;In the <span class="bold">Input file with EEPROM data</span> field, click <span class="bold">Browse..</span> and select the<code class="codeph">PhotoCard.eeprom</code> file.</span></li>
+<li><span>Clear the <span class="bold">Output file with EEPROM data</span>.</span></li>
+<li><span>Select <span class="bold">Do not open APDU console</span>.</span></li>
+<li><span>Click <span class="bold">OK</span>.</span></li>
+</ol>
+</li>
+<li class="stepexpand"><span>In <span class="wintitle">Java Card View</span>, right-click on Sample_Device and select <span class="bold">Start</span>.</span>
+<div>The simulator starts and you can see the output in the Console view.</div>
+</li>
+<li class="stepexpand"><span>In the <span class="wintitle">Package Explorer</span> view, right-click on PhotoCard_Client and select&nbsp; <span class="bold">Run As</span> and <span class="bold">Run Configurations...</span></span></li>
+<li class="stepexpand"><span>In the <span class="wintitle">Run Configurations</span> dialog:</span>
+<ol>
+<li><span>Right-click on <span class="bold">Java Application</span> and select <span class="bold">New</span>.</span></li>
+<li><span>Select the <span class="bold">Arguments</span> tab.</span></li>
+<li><span>Enter the following program arguments: &nbsp;<kbd class="userinput">duke_magnify.gif duke_pencil.gif duke_wave.gif duke_thumbsup.gif</kbd> and click <span class="bold">Run</span></span></li>
+</ol>
+</li>
+</ol>
+<div class="section">When the program completes you can compare its output with the <code class="codeph">photocard-client.expected.out</code> file.</div>
+<!-- class="section" --></div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="photocard-sample.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="running-photocard-sample-command-line.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

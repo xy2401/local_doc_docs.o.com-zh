@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>File Naming for the Converter</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-04-13T10:24:54Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Development Kit User Guide, Classic Edition" />
+<meta name="dcterms.identifier" content="E59602-03" />
+<meta name="dcterms.isVersionOf" content="JCUGC" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="running-converter.htm" title="Previous" type="text/html" />
+<link rel="Next" href="using-export-files.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCUGC.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-C79585C3-D935-412B-8FA7-B0EE823386DB"></a> <span id="PAGE" style="display:none;">94/161</span> <!-- End Header -->
+<a id="JCUGC206"></a>
+<h1 id="JCUGC-GUID-C79585C3-D935-412B-8FA7-B0EE823386DB" class="sect1">File Naming for the Converter</h1>
+<div>
+<p>This section describes the names of input and output files for the Converter, and gives the correct location for these files. With some exceptions, the Converter follows the Java programming language naming conventions for default directories for input and output files. These naming conventions comply with the definitions in the Virtual Machine specification.</p>
+<p>This section includes the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="file-naming-converter.htm#GUID-FE7A1173-9F9B-4215-B50F-6CD70B122337">Input File Naming Conventions</a></p>
+</li>
+<li>
+<p><a href="file-naming-converter.htm#GUID-F1C87A7E-42B0-4CBA-B0C3-90F48C5067A4">Output File Naming Conventions</a></p>
+</li>
+<li>
+<p><a href="file-naming-converter.htm#GUID-1EC36C85-3146-488D-BEF9-21F8AF5930F9">Verification of Input and Output Files</a></p>
+</li>
+<li>
+<p><a href="file-naming-converter.htm#GUID-6A915BBC-67F5-4F40-9E14-0DE6B7C9932C">Creating a debug.msk Output File</a></p>
+</li>
+</ul>
+</div>
+<a id="JCUGC207"></a>
+<div class="props_rev_3"><a id="GUID-FE7A1173-9F9B-4215-B50F-6CD70B122337"></a>
+<h2 id="JCUGC-GUID-FE7A1173-9F9B-4215-B50F-6CD70B122337" class="sect2">Input File Naming Conventions</h2>
+<div>
+<p>The files input to the Converter are Java class files named with the<code class="codeph">.class</code> suffix. Generally, there are several class files making up a package. All the class files for a package must be located in the same directory under the root directory, following the Java programming language naming conventions. The root directory can be set from the command line using the <code class="codeph">-classdir</code> option. If this option is not specified, the root directory defaults to the directory from which the user invoked the Converter.</p>
+<p>Suppose, for example, you want to convert the package <code class="codeph">java.lang</code>. If you use the <code class="codeph">-classdir</code> flag to specify the root directory as <code class="codeph">C:\</code><span class="italic">mywork</span>, the command line is:</p>
+<p><code class="codeph">converter -classdir C:\</code><span class="italic">mywork</span> <code class="codeph">java.lang</code> <span class="italic">package_aid</span> <span class="italic">package_version</span></p>
+<p>where <span class="italic">package_aid</span> is the application ID of the package and <span class="italic">package_version</span> is the user-defined version of the package.</p>
+<p>The Converter looks for all class files in the <code class="codeph">java.lang</code> package in the directory <code class="codeph">C:\</code><span class="italic">mywork</span><code class="codeph">\java\lang</code>.</p>
+</div>
+</div>
+<a id="JCUGC208"></a>
+<div class="props_rev_3"><a id="GUID-F1C87A7E-42B0-4CBA-B0C3-90F48C5067A4"></a>
+<h2 id="JCUGC-GUID-F1C87A7E-42B0-4CBA-B0C3-90F48C5067A4" class="sect2">Output File Naming Conventions</h2>
+<div>
+<p>The name of the CAP file, export file, and the Java Card Assembly file must be the last portion of the package specification followed by the extensions<code class="codeph">.cap</code>,<code class="codeph">.exp</code>, and<code class="codeph">.jca</code>, respectively.</p>
+<p>By default, the files output from the Converter are written to a directory called <code class="codeph">javacard</code>, a subdirectory of the input package's directory.</p>
+<p>In the above example, the output files are written by default to the directory <code class="codeph">C:\</code><span class="italic">mywork</span><code class="codeph">\java\lang\javacard</code>.</p>
+<p>The <code class="codeph">-d</code> flag enables you to specify a different root directory for output.</p>
+<p>In the above example, if you use the <code class="codeph">-d</code> flag to specify the root directory for output to be <code class="codeph">C:\</code><span class="italic">myoutput</span>, the Converter writes the output files to the directory <code class="codeph">C:\</code><span class="italic">myoutput</span><code class="codeph">\java\lang\javacard</code>.</p>
+<p>When generating a CAP file, the Converter creates a Java Card Assembly file in the output directory as an intermediate result. If you do not want a Java Card Assembly file to be produced, omit the option <code class="codeph">-out JCA</code>. The Converter deletes the Java Card Assembly file at the end of the conversion.</p>
+</div>
+</div>
+<a id="JCUGC209"></a>
+<div class="props_rev_3"><a id="GUID-1EC36C85-3146-488D-BEF9-21F8AF5930F9"></a>
+<h2 id="JCUGC-GUID-1EC36C85-3146-488D-BEF9-21F8AF5930F9" class="sect2">Verification of Input and Output Files</h2>
+<div>
+<p>By default, the Converter invokes the Java Card technology-based off-card verifier ("Java Card off-card verifier") for every input EXP file and on the output CAP and EXP files.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>If any of the input EXP files do not pass verification, then no output files are created.</p>
+</li>
+<li>
+<p>If the output CAP or EXP files does not pass verification, then the output EXP and CAP files are deleted.</p>
+</li>
+</ul>
+<p>If you want to bypass verification of your input and output files, use the <code class="codeph">-noverify</code> command line option. Note that if the Converter finds any errors, output files are not produced.</p>
+</div>
+</div>
+<a id="JCUGC210"></a>
+<div class="props_rev_3"><a id="GUID-6A915BBC-67F5-4F40-9E14-0DE6B7C9932C"></a>
+<h2 id="JCUGC-GUID-6A915BBC-67F5-4F40-9E14-0DE6B7C9932C" class="sect2">Creating a debug.msk Output File</h2>
+<div>
+<div class="section">
+<p>To create a <code class="codeph">debug.msk</code> output file:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li><span>Set the <code class="codeph">-mask</code> and <code class="codeph">-debug</code> options described in <a href="running-converter.htm#GUID-7A26B008-6F3B-4E69-800F-D04B3DDF76B1__BGBFFCCH" title="Lists and describes the converter command line arguments.">Table 5-1</a> when you run the Converter.</span></li>
+<li><span>Verify that the file <code class="codeph">debug.msk</code> is created in the same directory as the other output files.</span></li>
+</ol>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="running-converter.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="using-export-files.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

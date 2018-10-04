@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="generator" content="DITA Open Toolkit version 1.8.5" />
+<title>Description of image file</title>
+<link rel="stylesheet" href="../../../dcommon/css/blafdoc.css" title="Oracle BLAFDoc" type="text/css" />
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<div>
+<div class="p">The <span>Advanced Management Console</span> Components and Installation Steps diagram describes the components of the <span>Advanced Management Console</span> and the installation sequence:
+<ol>
+<li>
+<p>Install a database to store all the data collected by the <span>Advanced Management Console</span>. The following database management systems are supported: MySQL 5.x, Oracle 12c, and Oracle 11g.</p>
+</li>
+<li>
+<p>Install a WebLogic server to run <span>Advanced Management Console</span>. Exact steps how to install it depend on the type of WebLogic installer used. For example, if it is installed using a standard Oracle installer, it shows an interactive wizard that guides you through the installation process. Development installer is just a <code class="codeph">.zip</code> file that you need to extracted to a local disk, and then a call a configuration script.</p>
+<p>After you have installed the WebLogic Server, you need to create a new domain, by using the <code class="codeph">oracle_common/common/bin/config.sh|cmd</code> script. <span>Advanced Management Console</span> documentation contain sample instructions about creating and configuring WebLogic Server domain to run <span>Advanced Management Console</span>, including WebLogic machines, servers, and data source. For more information, see <a href="../oracle-weblogic-server-installation-example.htm#GUID-60A88C2B-48E3-490C-9E72-91FF2F4365F1" title="There are different ways of installing Oracle WebLogic Server. This topic contains an example to install Oracle WebLogic Server.">Oracle WebLogic Server Installation Example</a>.</p>
+</li>
+<li>
+<p>Deploy the <span>Advanced Management Console</span> to WebLogic Server. For example, from the WebLogic Administration Console, which is usually available using the following URL: <code class="codeph">http://server:7001/console</code> (the port can be configured), you can deploy the <span>Advanced Management Console</span>. Exact URL for the current environment is shown as the last step in WebLogic Server domain configuration wizard.</p>
+</li>
+<li>
+<p>Install the <span>Advanced Management Console</span> agents on to all the desktops that are managed by <span>Advanced Management Console</span>. You can download the agent installer from <code class="codeph">amcwebui</code>, for example, <code class="codeph">https://<span class="codeinlineitalic">wls-hostname</span>:<span class="codeinlineitalic">port</span>/amcwebui</code>, Configuration tab &gt; Agent Bundles sub-tab. This installer is wired to the <span>Advanced Management Console</span> server where it is downloaded from, so it cannot be used to install an agent to work with another <span>Advanced Management Console</span> server.</p>
+<p>The agent installer bundle is a <code class="codeph">.zip</code> file that you must extracted to a disk, and then run <code class="codeph">bin/AMCAgent.exe -install</code> to install the agent as a Windows service. This action requires administrator privileges.</p>
+<p>As an optional step, before you install <code class="codeph">AMCAgent.exe -install</code>, create a <code class="codeph">AMCUser.properties</code> file in the <code class="codeph">conf</code> directory, and edit it to provide information about desktop owner. File template is available in the same folder. This optional step is only required, if the <span>Advanced Management Console</span> is used to manage other platforms than Windows.</p>
+</li>
+<li>
+<p>The <code class="codeph">amcwebui</code> is a way to configure <span>Advanced Management Console</span>, view collected Java data, and manage desktops. Enter <code class="codeph">https://server:port/amcwebui</code> in the browser to access this <code class="codeph">amcwebui</code>. HTTP is not supported.</p>
+<p>The very first time the <span>Advanced Management Console</span> is loaded, the <span>Advanced Management Console</span> prompts to initialize the server by specifying certain configuration options (such as the Java Usage Tracker listener port) and administrator user credentials. After initialization, the <span>Advanced Management Console</span> shows a login dialog box.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="footer"><img class="copyrightlogo" src="../../../dcommon/gifs/oracle.gif" alt="Oracle Logo" /> <a href="../../../dcommon/html/cpyr.htm"><br />
+<span class="copyrightlogo">Copyright&nbsp;©&nbsp;2014, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span></a></div>
+</body>
+</html>

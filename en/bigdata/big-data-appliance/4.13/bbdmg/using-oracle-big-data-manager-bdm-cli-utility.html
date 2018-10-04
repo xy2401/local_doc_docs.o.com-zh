@@ -1,0 +1,1394 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="Use the bdm-cli (Oracle Big Data Manager Command Line Interface) utility to copy data and manage copy jobs at the command line.">
+      <meta name="description" content="Use the bdm-cli (Oracle Big Data Manager Command Line Interface) utility to copy data and manage copy jobs at the command line.">
+      <title>Using the Oracle Big Data Manager bdm-cli Utility</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="Oracle Big Data Manager User’s Guide ">
+      <meta property="og:description" content="Use the bdm-cli (Oracle Big Data Manager Command Line Interface) utility to copy data and manage copy jobs at the command line.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="Oracle Big Data Manager User’s Guide For Oracle Big Data Appliance">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-big-data-manager-users-guide-oracle-big-data-appliance.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-13T16:17:47-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2018">
+      <meta name="dcterms.category" content="bigdata">
+      <meta name="dcterms.identifier" content="E98480-01">
+      
+      <meta name="dcterms.product" content="en/bigdata/big-data-appliance/4.13">
+      
+      <link rel="prev" href="managing-data-oracle-big-data-manager-sdks.html" title="Previous" type="text/html">
+      <link rel="next" href="keyboard-shortcuts-oracle-big-data-manager.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"bigdata","element_name":"Big Data","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"not-applicable","element_name":"Not applicable","display_in_url":false},"product":{"short_name":"big-data-appliance","element_name":"Big Data Appliance","display_in_url":true},"release":{"short_name":"4.13","element_name":"Release 4.13","display_in_url":true}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle Big Data Manager User's Guide (for Oracle Big Data Appliance)">
+    <meta name="dcterms.isVersionOf" content="BBDMG">
+    <meta name="dcterms.release" content="Release 4.13">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="managing-data-oracle-big-data-manager-sdks.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="keyboard-shortcuts-oracle-big-data-manager.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">Oracle Big Data Manager User’s Guide </span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Using the Oracle Big Data Manager bdm-cli Utility</li>
+            </ol>
+            <a id="GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF" name="GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF"></a>
+            
+            <h2 id="BBDMG-GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF" class="sect2"><span class="enumeration_chapter">9 </span>Using the Oracle Big Data Manager <span>bdm-cli</span> Utility
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>Use the <code class="codeph"><span>bdm-cli</span></code> (<span>Oracle Big Data Manager</span> Command Line Interface) utility to copy data and manage copy jobs at the command line.
+               </p>
+               <div class="section" id="GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF__USINGBDM-CLI-D1AB10F5">
+                  <p><code class="codeph"><span>bdm-cli</span></code>  has several commands that duplicate <code class="codeph"><span>odcp</span></code> commands , but <code class="codeph"><span>bdm-cli</span></code> also includes additional commands for scheduling and managing copy jobs and other administrative tasks.
+                  </p>
+                  <p>You have to download and install <code class="codeph"><span>bdm-cli</span></code> yourself, either on a node of the cluster or on a remote operating system. If you install it on your cluster, you must use SSH to connect to the cluster. If you install it on a remote system, you can run the commands without SSH. See <a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-083E1709-7202-4F11-B2BD-0D74BD214F1F" title="The bdm-cli (Big Data Command Line Interface) is a command line utility for copying data and managing copy jobs. You can download and install bdm-cli from GitHub. You can install it on a remote operating system, so you don’t have to use SSH to connect to the cluster.">Installing the bdm-cli Utility</a>.
+                  </p> There are no special requirements for using <code class="codeph"><span>bdm-cli</span></code> when it’s installed outside the cluster. 
+               </div>
+               <!-- class="section" -->
+               <div class="section" id="GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF__SYNTAX-D1AB0F1B"></div>
+               <!-- class="section" -->
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-083E1709-7202-4F11-B2BD-0D74BD214F1F">Installing the bdm-cli Utility</a><br>The <code class="codeph"><span>bdm-cli</span></code> (Big Data Command Line Interface) is a command line utility for copying data and managing copy jobs. You can download and install <code class="codeph"><span>bdm-cli</span></code> from GitHub. You can install it on a remote operating system, so you don’t have to use SSH to connect to the cluster.
+                  </li>
+                  <li class="ulchildlink"><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-2BAA45A4-3836-4FAE-BD02-E1CCF85DE3B4">Usage</a><br>You can use <code class="codeph"><span>bdm-cli</span></code> at the command line to create and manage copy jobs. 
+                  </li>
+                  <li class="ulchildlink"><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-70B6242C-7BD0-4BDB-B38B-BF7700D84C35">Options</a><br>Options that can be used by all <span>bdm-cli</span> commands are explained below.
+                  </li>
+                  <li class="ulchildlink"><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-CCCDB16A-AABD-40EF-A1DA-5ACF8842197C">Subcommands</a><br>The following table summarizes the <span>bdm-cli</span> subcommands. For more details on each, click the name of the command.
+                  </li>
+                  <li class="ulchildlink"><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-2585250F-7BE2-43FA-B8E3-BEFC7B8B6470">bdm-cli abort_job</a><br>Abort a running job.
+                  </li>
+                  <li class="ulchildlink"><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-54EC50C1-5E4C-46D2-9734-16C2F8A68C8D">bdm-cli copy</a><br>Execute a job to copy sources to destination.
+                  </li>
+                  <li class="ulchildlink"><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-39A0F6F0-BE45-4B09-B82B-0CAEC8C5709F">bdm-cli create_job</a><br>Execute a new job from an existing template.
+                  </li>
+                  <li class="ulchildlink"><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-31B94CB2-62B0-4838-8910-C265027DDE0A">bdm-cli create_job_template</a><br>Create a new job template.
+                  </li>
+                  <li class="ulchildlink"><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-866C995A-F11E-4623-9A88-A0920EF7FA15">bdm-cli get_data_source</a><br>Find a data source by name.
+                  </li>
+                  <li class="ulchildlink"><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-650B0477-46B0-4556-90B8-7204BCCAC7F1">bdm-cli get_job</a><br>Get a job by UUID.
+                  </li>
+                  <li class="ulchildlink"><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-1F825C7E-0637-479D-A7BF-EE7D8DA5E3A7">bdm-cli get_job_log</a><br>Get a job log.
+                  </li>
+                  <li class="ulchildlink"><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-60730EFA-6CEA-4CF9-8D30-E7C215396C13">bdm-cli list_all_jobs</a><br>List all jobs from the execution history.
+                  </li>
+                  <li class="ulchildlink"><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-63E66E41-B6E9-489E-B406-0A70B69C4CEA">bdm-cli list_template_executions</a><br>List all jobs from the execution history for the given template.
+                  </li>
+                  <li class="ulchildlink"><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-201FED3F-0354-4693-98FF-011139852431">bdm-cli ls</a><br>List files from a specific location.
+                  </li>
+               </ul>
+            </div>
+            
+            <div class="sect2"><a id="GUID-083E1709-7202-4F11-B2BD-0D74BD214F1F" name="GUID-083E1709-7202-4F11-B2BD-0D74BD214F1F"></a><h3 id="BBDMG-GUID-083E1709-7202-4F11-B2BD-0D74BD214F1F" class="sect3"><span class="enumeration_section">9.1 </span>Installing the <span>bdm-cli</span> Utility
+               </h3>
+               <div>
+                  <p>The <code class="codeph"><span>bdm-cli</span></code> (Big Data Command Line Interface) is a command line utility for copying data and managing copy jobs. You can download and install <code class="codeph"><span>bdm-cli</span></code> from GitHub. You can install it on a remote operating system, so you don’t have to use SSH to connect to the cluster.
+                  </p>
+                  <div class="section">
+                     <p>To install <code class="codeph"><span>bdm-cli</span></code>:
+                     </p>
+                     <ol>
+                        <li>
+                           <p>If you use a proxy server, first call:</p>
+                           <div class="p"><pre class="pre codeblock"><code>export http_proxy="<span class="variable" translate="no">your_proxy_server</span>" 
+export https_proxy="<span class="variable" translate="no">your_proxy_server</span>"</code></pre></div>
+                        </li>
+                        <li>
+                           <p>Then call:</p>
+                           <p><code class="codeph">curl -L https://github.com/jazeman/bdm-python-cli/blob/1.0/install-rpm?raw=true | bash</code></p>
+                        </li>
+                     </ol>
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF" title="Use the bdm-cli (Oracle Big Data Manager Command Line Interface) utility to copy data and manage copy jobs at the command line.">Using the Oracle Big Data Manager bdm-cli Utility</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-2BAA45A4-3836-4FAE-BD02-E1CCF85DE3B4" name="GUID-2BAA45A4-3836-4FAE-BD02-E1CCF85DE3B4"></a><h3 id="BBDMG-GUID-2BAA45A4-3836-4FAE-BD02-E1CCF85DE3B4" class="sect3"><span class="enumeration_section">9.2 </span>Usage
+               </h3>
+               <div>
+                  <p>You can use <code class="codeph"><span>bdm-cli</span></code> at the command line to create and manage copy jobs. 
+                  </p>
+                  <div class="section">
+                     <p class="subhead2" id="GUID-2BAA45A4-3836-4FAE-BD02-E1CCF85DE3B4__GUID-450688BF-532A-49D5-A622-8C09F899C896">Syntax</p><pre class="pre codeblock"><code>bdm-cli [<span class="italic">global_options</span>] <span class="italic">subcommand</span> [<span class="italic">options</span>][<span class="italic">arguments</span>]...</code></pre></div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-2BAA45A4-3836-4FAE-BD02-E1CCF85DE3B4__GUID-5D14F076-7978-4AD9-899F-50ED003692F1">Supported Storage Protocols and Paths</p>
+                     <p>The protocols and paths to the file systems and storage services supported by <code class="codeph"><span>bdm-cli</span></code> are:
+                     </p>
+                     <div class="p">
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>HDFS: </p>
+                              <p><code class="codeph">hdfs:///</code></p>
+                           </li>
+                           <li>
+                              <p><span>Oracle Cloud Infrastructure Object Storage Classic</span> (formerly known as Oracle Storage Cloud Service): 
+                              </p>
+                              <p><code class="codeph">swift://container.provider/</code></p>
+                           </li>
+                           <li>
+                              <p><span>Oracle Cloud Infrastructure Object Storage</span> (formerly known as Oracle Bare Metal Cloud Object Storage Service): 
+                              </p>
+                              <p><code class="codeph">oss:///container</code> 
+                              </p>
+                              <p>For operations with <span>Oracle Cloud Infrastructure Object Storage</span>, you must specify the provider by using the options <code class="codeph">src-provider</code> and <code class="codeph">dst-provider</code>. For example, those options are used with <code class="codeph"><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-39A0F6F0-BE45-4B09-B82B-0CAEC8C5709F" title="Execute a new job from an existing template.">bdm-cli create_job</a></code> when used with <span>Oracle Cloud Infrastructure Object Storage</span>.
+                              </p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-2BAA45A4-3836-4FAE-BD02-E1CCF85DE3B4__GUID-5D774770-8F9D-4BC9-8D52-41DF4C5FA0E4">Finding a Job’s UUID</p>
+                     <p>A number of <span>bdm-cli</span> subcommands require that you identify a job by its Universally Unique Identifier (UUID). To find UUIDs, execute <a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-60730EFA-6CEA-4CF9-8D30-E7C215396C13" title="List all jobs from the execution history.">bdm-cli list_all_jobs</a>.
+                     </p>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-2BAA45A4-3836-4FAE-BD02-E1CCF85DE3B4__GUID-B6B6CC70-FB1D-45D2-A442-B01044A64604">Specifying Source and Destination Paths</p>
+                     <p></p>
+                     <p>When specifying sources and destinations, fully qualify the paths:</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p> <code class="codeph"><span class="variable" translate="no">source </span>...</code></p>
+                           <p>File name qualified by protocol and full path, for example: <code class="codeph">hdfs:///user/oracle/test.raw</code></p>
+                        </li>
+                        <li>
+                           <p><code class="codeph"><span class="variable" translate="no">destination</span></code></p>
+                           <p>Directory name qualified by protocol and full path, for example: <code class="codeph">swift://container.storagename/test-dir</code></p>
+                        </li>
+                     </ul>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-2BAA45A4-3836-4FAE-BD02-E1CCF85DE3B4__GUID-F1806C83-2626-4717-BE13-8520396229A0">Setting Environment Variables</p>
+                     <div class="p">You can set some <code class="codeph"><span>bdm-cli</span></code> options as environment variables. For example, you can set <span>Oracle Big Data Manager</span> URL and user password  file, as follows:<pre class="pre codeblock"><code>export BDM_URL=https://<span class="italic">hostname</span>:8888/bdcs/api &amp;&amp; export BDM_PASSWORD=/tmp/<span class="italic">password_file</span></code></pre></div>
+                     <p>All the <code class="codeph"><span>bdm-cli</span></code> options that can be set as environment variables are documented in the sections below.
+                     </p>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-2BAA45A4-3836-4FAE-BD02-E1CCF85DE3B4__GUID-80B801B8-0128-4C98-BCA2-59040E00114D">Getting Help</p>
+                     <div class="p">To get help for <code class="codeph">bdm-cli </code> use: <pre class="pre codeblock"><code>bdm-cli --help</code></pre></div>
+                     <div class="p">To get help for a specific command use: <pre class="pre codeblock"><code>bdm-cli <span class="italic">command</span> --help</code></pre> </div>
+                     <div class="p">For  example: <pre class="pre codeblock"><code>bdm-cli edit_job_template --help</code></pre></div>
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF" title="Use the bdm-cli (Oracle Big Data Manager Command Line Interface) utility to copy data and manage copy jobs at the command line.">Using the Oracle Big Data Manager bdm-cli Utility</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-70B6242C-7BD0-4BDB-B38B-BF7700D84C35" name="GUID-70B6242C-7BD0-4BDB-B38B-BF7700D84C35"></a><h3 id="BBDMG-GUID-70B6242C-7BD0-4BDB-B38B-BF7700D84C35" class="sect3"><span class="enumeration_section">9.3 </span>Options
+               </h3>
+               <div>
+                  <p>Options that can be used by all <span>bdm-cli</span> commands are explained below.
+                  </p>
+                  <div class="section" id="GUID-70B6242C-7BD0-4BDB-B38B-BF7700D84C35__OPTIONS-D1AB096D">
+                     <div class="tblformal" id="GUID-70B6242C-7BD0-4BDB-B38B-BF7700D84C35__GUID-317CF4A0-AE85-47A3-8310-6C40E0B66283">
+                        <table cellpadding="4" cellspacing="0" class="Formal" title summary="This table shows the options of the bdm-cli command. " width="100%" frame="hsides" border="1" rules="rows">
+                           <thead>
+                              <tr align="left" valign="top">
+                                 <th align="left" valign="bottom" width="40%" id="d7880e512">Option</th>
+                                 <th align="left" valign="bottom" width="60%" id="d7880e514">Description</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="40%" id="d7880e518" headers="d7880e512 "><code class="codeph">--bdm-passwd <span class="variable" translate="no">path_to_password_file</span></code></td>
+                                 <td align="left" valign="top" width="60%" headers="d7880e518 d7880e514 ">
+                                    <p>Path to the <span>Oracle Big Data Manager</span> user password file.
+                                    </p>
+                                    <p>Environment variable: <code class="codeph">BDM_PASSWORD</code></p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="40%" id="d7880e534" headers="d7880e512 "><code class="codeph">--bdm-url <span class="variable" translate="no">bdm_url</span></code></td>
+                                 <td align="left" valign="top" width="60%" headers="d7880e534 d7880e514 ">
+                                    <p><span>Oracle Big Data Manager</span> server URL.
+                                    </p>
+                                    <p>Environment variable: <code class="codeph">BDM_URL</code></p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="40%" id="d7880e549" headers="d7880e512 "><code class="codeph">--bdm-username <span class="variable" translate="no">username</span></code></td>
+                                 <td align="left" valign="top" width="60%" headers="d7880e549 d7880e514 ">
+                                    <p><span>Oracle Big Data Manager</span> server user name.
+                                    </p>
+                                    <p>Default value: <code class="codeph">oracle</code></p>
+                                    <p>Environment variable: <code class="codeph">BDM_USERNAME</code></p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="40%" id="d7880e568" headers="d7880e512 "><code class="codeph">-f [table|csv|json]</code></td>
+                                 <td align="left" valign="top" width="60%" headers="d7880e568 d7880e514 ">Specify the output format:
+                                    <ul style="list-style-type: disc;">
+                                       <li>
+                                          <p><code class="codeph">table </code>(default) 
+                                          </p>
+                                          <p>Each field is displayed in a separate column.</p>
+                                       </li>
+                                       <li>
+                                          <p>csv</p>
+                                          <p>Each record is displayed as a comma-separated list on a single line.</p>
+                                       </li>
+                                       <li>
+                                          <p><code class="codeph">json</code>: 
+                                          </p>
+                                          <p>The output is displayed in JavaScript Object Notation (JSON) format. </p>
+                                       </li>
+                                    </ul>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="40%" id="d7880e594" headers="d7880e512 "><code class="codeph">--fields <span class="variable" translate="no">fields</span></code></td>
+                                 <td align="left" valign="top" width="60%" headers="d7880e594 d7880e514 ">
+                                    <p>Specifies comma-separated fields depending on the type of object.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="40%" id="d7880e603" headers="d7880e512 ">
+                                    <p><code class="codeph">-h</code></p>
+                                    <p><code class="codeph">--help</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="60%" headers="d7880e603 d7880e514 ">
+                                    <p>Show this message and exit.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="40%" id="d7880e614" headers="d7880e512 "><code class="codeph">--no-check-certificate</code></td>
+                                 <td align="left" valign="top" width="60%" headers="d7880e614 d7880e514 ">
+                                    <p>Don't validate the server's certificate.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="40%" id="d7880e621" headers="d7880e512 "><code class="codeph">--proxy <span class="variable" translate="no">proxy</span></code></td>
+                                 <td align="left" valign="top" width="60%" headers="d7880e621 d7880e514 ">
+                                    <p>Proxy server.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="40%" id="d7880e630" headers="d7880e512 "><code class="codeph">--tenant-name <span class="variable" translate="no">tenant_name</span></code></td>
+                                 <td align="left" valign="top" width="60%" headers="d7880e630 d7880e514 ">
+                                    <p>Name of the tenant.</p>
+                                    <p>Default value: <code class="codeph">admin</code></p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="40%" id="d7880e643" headers="d7880e512 "><code class="codeph">-v</code></td>
+                                 <td align="left" valign="top" width="60%" headers="d7880e643 d7880e514 ">
+                                    <p>Print the REST request body.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="40%" id="d7880e650" headers="d7880e512 "><code class="codeph">--version</code> 
+                                 </td>
+                                 <td align="left" valign="top" width="60%" headers="d7880e650 d7880e514 ">Show the <span>Oracle Big Data Manager</span> version and exit.
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- class="inftblhruleinformal" -->
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF" title="Use the bdm-cli (Oracle Big Data Manager Command Line Interface) utility to copy data and manage copy jobs at the command line.">Using the Oracle Big Data Manager bdm-cli Utility</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-CCCDB16A-AABD-40EF-A1DA-5ACF8842197C" name="GUID-CCCDB16A-AABD-40EF-A1DA-5ACF8842197C"></a><h3 id="BBDMG-GUID-CCCDB16A-AABD-40EF-A1DA-5ACF8842197C" class="sect3"><span class="enumeration_section">9.4 </span>Subcommands
+               </h3>
+               <div>
+                  <p>The following table summarizes the <span>bdm-cli</span> subcommands. For more details on each, click the name of the command.
+                  </p>
+                  <div class="section" id="GUID-CCCDB16A-AABD-40EF-A1DA-5ACF8842197C__SUMMARYOFSUBCOMMANDS-D21DC341">
+                     <div class="tblformal" id="GUID-CCCDB16A-AABD-40EF-A1DA-5ACF8842197C__GUID-6D517AFD-EE2C-44F4-91DE-04AA60E141EB">
+                        <table cellpadding="4" cellspacing="0" class="Formal" title summary="This table list the subcommands you can use with the bdm-cli command." width="100%" frame="hsides" border="1" rules="rows">
+                           <thead>
+                              <tr align="left" valign="top">
+                                 <th align="left" valign="bottom" width="25%" id="d7880e712">Command</th>
+                                 <th align="left" valign="bottom" width="75%" id="d7880e714">Description</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="25%" id="d7880e718" headers="d7880e712 "><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-2585250F-7BE2-43FA-B8E3-BEFC7B8B6470" title="Abort a running job.">bdm-cli abort_job</a></td>
+                                 <td align="left" valign="top" width="75%" headers="d7880e718 d7880e714 ">Abort a running job.</td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="25%" id="d7880e727" headers="d7880e712 "><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-54EC50C1-5E4C-46D2-9734-16C2F8A68C8D" title="Execute a job to copy sources to destination.">bdm-cli copy</a></td>
+                                 <td align="left" valign="top" width="75%" headers="d7880e727 d7880e714 ">Execute a job to copy sources to destination.</td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="25%" id="d7880e736" headers="d7880e712 "><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-39A0F6F0-BE45-4B09-B82B-0CAEC8C5709F" title="Execute a new job from an existing template.">bdm-cli create_job</a></td>
+                                 <td align="left" valign="top" width="75%" headers="d7880e736 d7880e714 ">Execute a new job from an existing template.</td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="25%" id="d7880e745" headers="d7880e712 "><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-31B94CB2-62B0-4838-8910-C265027DDE0A" title="Create a new job template.">bdm-cli create_job_template</a></td>
+                                 <td align="left" valign="top" width="75%" headers="d7880e745 d7880e714 ">Create a new job template.</td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="25%" id="d7880e754" headers="d7880e712 "><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-866C995A-F11E-4623-9A88-A0920EF7FA15" title="Find a data source by name.">bdm-cli get_data_source</a></td>
+                                 <td align="left" valign="top" width="75%" headers="d7880e754 d7880e714 ">Find a data source by name.</td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="25%" id="d7880e763" headers="d7880e712 "><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-650B0477-46B0-4556-90B8-7204BCCAC7F1" title="Get a job by UUID.">bdm-cli get_job</a></td>
+                                 <td align="left" valign="top" width="75%" headers="d7880e763 d7880e714 ">Get a job by UUID.</td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="25%" id="d7880e772" headers="d7880e712 "><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-1F825C7E-0637-479D-A7BF-EE7D8DA5E3A7" title="Get a job log.">bdm-cli get_job_log</a></td>
+                                 <td align="left" valign="top" width="75%" headers="d7880e772 d7880e714 ">Get a job log.</td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="25%" id="d7880e781" headers="d7880e712 "><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-60730EFA-6CEA-4CF9-8D30-E7C215396C13" title="List all jobs from the execution history.">bdm-cli list_all_jobs</a></td>
+                                 <td align="left" valign="top" width="75%" headers="d7880e781 d7880e714 ">List all jobs from the execution history.</td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="25%" id="d7880e790" headers="d7880e712 "><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-63E66E41-B6E9-489E-B406-0A70B69C4CEA" title="List all jobs from the execution history for the given template.">bdm-cli list_template_executions</a></td>
+                                 <td align="left" valign="top" width="75%" headers="d7880e790 d7880e714 ">List all jobs from the execution history for the given template.</td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="25%" id="d7880e799" headers="d7880e712 "><a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-201FED3F-0354-4693-98FF-011139852431" title="List files from a specific location.">bdm-cli ls</a></td>
+                                 <td align="left" valign="top" width="75%" headers="d7880e799 d7880e714 ">List files from a specific location.</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- class="inftblhruleinformal" -->
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF" title="Use the bdm-cli (Oracle Big Data Manager Command Line Interface) utility to copy data and manage copy jobs at the command line.">Using the Oracle Big Data Manager bdm-cli Utility</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-2585250F-7BE2-43FA-B8E3-BEFC7B8B6470" name="GUID-2585250F-7BE2-43FA-B8E3-BEFC7B8B6470"></a><h3 id="BBDMG-GUID-2585250F-7BE2-43FA-B8E3-BEFC7B8B6470" class="sect3"><span class="enumeration_section">9.5 </span>bdm-cli abort_job
+               </h3>
+               <div>
+                  <p>Abort a running job.</p>
+                  <div class="section" id="GUID-2585250F-7BE2-43FA-B8E3-BEFC7B8B6470__ABORT_JOB-D21DC6BF">
+                     <p class="subhead2" id="GUID-2585250F-7BE2-43FA-B8E3-BEFC7B8B6470__GET_JOB-D1C29BBF">Syntax</p>
+                     <div class="p"><pre class="pre codeblock"><code>bdm-cli abort_job [<span class="variable" translate="no">options</span>] <span class="variable" translate="no">job_uuid</span></code></pre></div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-2585250F-7BE2-43FA-B8E3-BEFC7B8B6470__GUID-9FEB0FE7-F11A-4F5E-AD9F-2531D41EDF2B">Options</p>
+                     <div class="p">
+                        <div class="tblformal" id="GUID-2585250F-7BE2-43FA-B8E3-BEFC7B8B6470__THISTABLESHOWSTHEOPTIONSFORTHISBDM--D1C29BBF">
+                           <table cellpadding="4" cellspacing="0" class="Formal" title summary="This table shows the options for this bdm-cli subcommand." width="100%" frame="hsides" border="1" rules="rows">
+                              <thead>
+                                 <tr align="left" valign="top">
+                                    <th align="left" valign="bottom" width="40%" id="d7880e868">Option</th>
+                                    <th align="left" valign="bottom" width="60%" id="d7880e870">Description</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e874" headers="d7880e868 ">
+                                       <p><code class="codeph">--force</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e874 d7880e870 ">
+                                       <p>Force abort job.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e882" headers="d7880e868 ">
+                                       <p><code class="codeph">-h</code></p>
+                                       <p><code class="codeph">--help</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e882 d7880e870 ">
+                                       <p>Show this message and exit.</p>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <!-- class="inftblhruleinformal" -->
+                     </div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section" id="GUID-2585250F-7BE2-43FA-B8E3-BEFC7B8B6470__GUID-D7FA1A5E-1CDF-4F6D-AE29-263B24BAEFE4">
+                     <p class="subhead2" id="GUID-2585250F-7BE2-43FA-B8E3-BEFC7B8B6470__GUID-A92F20A5-6598-4FC3-8D99-0F6DC8840A66">Example</p>
+                     <p>Abort a job.</p>
+                     <div class="p"><pre class="pre codeblock"><code>/usr/bin/bdm-cli -f json --no-check-certificate&nbsp;--bdm-url ${DATA_HOST}:8888/bdcs/api --bdm-username ${DATA_USER} --bdm-passwd ${USER_PASSWORD_FILE}&nbsp;abort_job 24ef30e8-913b-4402-baf8-74b99c211f50</code></pre></div>
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF" title="Use the bdm-cli (Oracle Big Data Manager Command Line Interface) utility to copy data and manage copy jobs at the command line.">Using the Oracle Big Data Manager bdm-cli Utility</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-54EC50C1-5E4C-46D2-9734-16C2F8A68C8D" name="GUID-54EC50C1-5E4C-46D2-9734-16C2F8A68C8D"></a><h3 id="BBDMG-GUID-54EC50C1-5E4C-46D2-9734-16C2F8A68C8D" class="sect3"><span class="enumeration_section">9.6 </span><span>bdm-cli</span> copy
+               </h3>
+               <div>
+                  <p>Execute a job to copy sources to destination.</p>
+                  <div class="section" id="GUID-54EC50C1-5E4C-46D2-9734-16C2F8A68C8D__COPY-D224341E">
+                     <p class="subhead2" id="GUID-54EC50C1-5E4C-46D2-9734-16C2F8A68C8D__COPY-D23A9EE6">Syntax</p>
+                     <div class="p"><pre class="pre codeblock"><code>bdm-cli copy [<span class="variable" translate="no">options</span>] <span class="variable" translate="no">source...</span> <span class="variable" translate="no">destination</span></code></pre></div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-54EC50C1-5E4C-46D2-9734-16C2F8A68C8D__GUID-33FF0D0B-E1F9-42EB-8283-DAF95475B192">Options</p>
+                     <div class="p">
+                        <div class="tblformal" id="GUID-54EC50C1-5E4C-46D2-9734-16C2F8A68C8D__THISTABLESHOWSTHEOPTIONSFORTHISBDM--D1C8D86B">
+                           <table cellpadding="4" cellspacing="0" class="Formal" title summary="This table shows the options for this bdm-clisubcommand." width="100%" frame="hsides" border="1" rules="rows">
+                              <thead>
+                                 <tr align="left" valign="top">
+                                    <th align="left" valign="bottom" width="40%" id="d7880e968">Option</th>
+                                    <th align="left" valign="bottom" width="60%" id="d7880e970">Description</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e974" headers="d7880e968 ">
+                                       <p><code class="codeph">block-size</code> <span class="variable" translate="no">block_size</span></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e974 d7880e970 ">
+                                       <p>Specify the block size in bytes.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e985" headers="d7880e968 ">
+                                       <p><code class="codeph">--description <span class="variable" translate="no">description</span></code> 
+                                       </p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e985 d7880e970 ">
+                                       <p>Data source description.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e996" headers="d7880e968 ">
+                                       <p><code class="codeph">--driver-memory-size<span class="variable" translate="no"> driver_memory_size</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e996 d7880e970 ">
+                                       <p>Specify the maximum amount of memory for the Oracle Storage Cloud Service driver. </p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1006" headers="d7880e968 ">
+                                       <p><code class="codeph">--dst-provider <span class="variable" translate="no">oss_destination_provider</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1006 d7880e970 ">
+                                       <p>Specify the provider of the destination, when using <span>Oracle Cloud Infrastructure Object Storage Classic</span> destination.
+                                       </p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1019" headers="d7880e968 ">
+                                       <p><code class="codeph">-h</code></p>
+                                       <p><code class="codeph">--help</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1019 d7880e970 ">
+                                       <p>Show this message and exit.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1030" headers="d7880e968 ">
+                                       <p><code class="codeph">--memory-size-per-node <span class="variable" translate="no">memory_size_per_node</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1030 d7880e970 ">
+                                       <p>Specify the Spark executors memory limit in GB per node, for example, <code class="codeph">40GB</code>.
+                                       </p> 
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1044" headers="d7880e968 ">
+                                       <p><code class="codeph">--number-of-executor-nodes<span class="variable" translate="no">number_of_executors_per_node</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1044 d7880e970 ">
+                                       <p>Specify the maximum number of Spark executors per node, for example, <code class="codeph">10GB</code>. 
+                                       </p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1057" headers="d7880e968 ">
+                                       <p><code class="codeph">--number-of-threads—per-node<span class="variable" translate="no">number_of_threads_per_node</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1057 d7880e970 ">
+                                       <p>Specify the maximum number of threads per node.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1067" headers="d7880e968 ">
+                                       <p><code class="codeph">part-size <span class="variable" translate="no">part_size</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1067 d7880e970 ">
+                                       <p>Specify the part size in bytes.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1077" headers="d7880e968 ">
+                                       <p><code class="codeph">--recursive</code></p>
+                                       <p><code class="codeph">--no-recursive</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1077 d7880e970 ">
+                                       <p>Recursively copy (enabled by default).</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1088" headers="d7880e968 ">
+                                       <p><code class="codeph">--retry</code></p>
+                                       <p><code class="codeph">--no-retry</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1088 d7880e970 ">
+                                       <p>Retry data transfer in case of failure.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1100" headers="d7880e968 ">
+                                       <p><code class="codeph">--src-provider <span class="variable" translate="no">oss_source_provider</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1100 d7880e970 ">
+                                       <p>Specify the provider of the source, when using for <span>Oracle Cloud Infrastructure Object Storage Classic</span>.
+                                       </p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1113" headers="d7880e968 ">
+                                       <p><code class="codeph">--sync</code></p>
+                                       <p><code class="codeph">--no-sync</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1113 d7880e970 ">
+                                       <p>Synchronize the source with the destination.</p>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <!-- class="inftblhruleinformal" -->
+                     </div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-54EC50C1-5E4C-46D2-9734-16C2F8A68C8D__GUID-CF49F2C3-5D1D-49C3-832A-2219D1C2CC34">Example</p>
+                     <p>Copy a file from HDFS to Oracle Storage Cloud Service:</p>
+                     <p><code class="codeph">/usr/bin/bdm-cli&nbsp; -f json&nbsp; --no-check-certificate&nbsp; --bdm-url ${DATA_HOST}:8888/bdcs/api --bdm-username ${DATA_USER} --bdm-passwd ${USER_PASSWORD_FILE}&nbsp;&nbsp; copy hdfs:///user/${DATA_USER}/1MFile.raw oss:///${DATA_USER} --dst-provider ${OSS_PROVIDER}</code></p>
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF" title="Use the bdm-cli (Oracle Big Data Manager Command Line Interface) utility to copy data and manage copy jobs at the command line.">Using the Oracle Big Data Manager bdm-cli Utility</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-39A0F6F0-BE45-4B09-B82B-0CAEC8C5709F" name="GUID-39A0F6F0-BE45-4B09-B82B-0CAEC8C5709F"></a><h3 id="BBDMG-GUID-39A0F6F0-BE45-4B09-B82B-0CAEC8C5709F" class="sect3"><span class="enumeration_section">9.7 </span><span>bdm-cli</span> create_job
+               </h3>
+               <div>
+                  <p>Execute a new job from an existing template.</p>
+                  <div class="section" id="GUID-39A0F6F0-BE45-4B09-B82B-0CAEC8C5709F__CREATE_JOB-D2242F4C">
+                     <p class="subhead2" id="GUID-39A0F6F0-BE45-4B09-B82B-0CAEC8C5709F__CREATE_JOB-D23AA55E">Syntax</p>
+                     <div class="p"><pre class="pre codeblock"><code>bdm-cli create_job [<span class="variable" translate="no">options</span>] <span class="variable" translate="no">job_template_name</span></code></pre></div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-39A0F6F0-BE45-4B09-B82B-0CAEC8C5709F__GUID-3BE3FB03-F98F-4A2D-996D-97195E964914">Options</p>
+                     <div class="p">
+                        <div class="tblformal" id="GUID-39A0F6F0-BE45-4B09-B82B-0CAEC8C5709F__THISTABLESHOWSTHEOPTIONSFORTHISBDM--D21E58F7">
+                           <table cellpadding="4" cellspacing="0" class="Formal" title summary="This table shows the options for this bdm-cli subcommand." width="100%" frame="hsides" border="1" rules="rows">
+                              <thead>
+                                 <tr align="left" valign="top">
+                                    <th align="left" valign="bottom" width="40%" id="d7880e1193">Option</th>
+                                    <th align="left" valign="bottom" width="60%" id="d7880e1195">Description</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1199" headers="d7880e1193 ">
+                                       <p><code class="codeph">--run-now</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1199 d7880e1195 ">
+                                       <p>Execute job immediately if job scheduling is set. Ignored otherwise.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1207" headers="d7880e1193 ">
+                                       <p><code class="codeph">--source <span class="variable" translate="no">source</span></code> 
+                                       </p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1207 d7880e1195 ">
+                                       <p>Source file, for example:</p>
+                                       <p><code class="codeph">hdfs:///user/oracle/test.raw</code></p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1221" headers="d7880e1193 ">
+                                       <p><code class="codeph">--destination <span class="variable" translate="no">destination </span></code> 
+                                       </p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1221 d7880e1195 ">
+                                       <p>The destination directory, for example: <code class="codeph">swift://container.storagename/test-dir</code>.
+                                       </p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1235" headers="d7880e1193 ">
+                                       <p><code class="codeph">--driver-memory-size <span class="variable" translate="no">driver_memory_size</span></code> 
+                                       </p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1235 d7880e1195 ">
+                                       <p>Specify the maximum amount of memory for an Oracle Storage Cloud Service driver.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1246" headers="d7880e1193 ">
+                                       <p><code class="codeph">--memory-size-per-node <span class="variable" translate="no">memory_size_per_node</span></code> 
+                                       </p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1246 d7880e1195 ">
+                                       <p>Specify the Spark executors memory limit in GB per node, for example: <code class="codeph">40G</code>.
+                                       </p> 
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1261" headers="d7880e1193 ">
+                                       <p><code class="codeph">--number-of-executor-nodes <span class="variable" translate="no">number_of_executors_per_node</span></code> 
+                                       </p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1261 d7880e1195 ">
+                                       <p>Specify the maximum number of Spark executors per node, for example: <code class="codeph">10G</code>.
+                                       </p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1275" headers="d7880e1193 ">
+                                       <p><code class="codeph">--number-of-threads-per-node</code> <span class="variable" translate="no">number_of_threads_per_node</span></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1275 d7880e1195 ">
+                                       <p>Specify the maximum number of threads per node.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1286" headers="d7880e1193 ">
+                                       <p><code class="codeph">--block-size <span class="variable" translate="no">block_size</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1286 d7880e1195 ">
+                                       <p>Specify the block size in bytes.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1296" headers="d7880e1193 ">
+                                       <p><code class="codeph">--part-size <span class="variable" translate="no">part_size</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1296 d7880e1195 ">
+                                       <p>Specify the part size in bytes.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1306" headers="d7880e1193 ">
+                                       <p><code class="codeph">--retry</code></p>
+                                       <p><code class="codeph">--no-retry</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1306 d7880e1195 ">
+                                       <p>Retry data transfer in case of failure.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1317" headers="d7880e1193 ">
+                                       <p><code class="codeph">--sync</code></p>
+                                       <p><code class="codeph">--no-sync</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1317 d7880e1195 ">
+                                       <p>Synchronize the source with the destination.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1329" headers="d7880e1193 ">
+                                       <p><code class="codeph">--recursive</code></p>
+                                       <p><code class="codeph">--no-recursive</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1329 d7880e1195 ">
+                                       <p>Recursively copy (enabled by default).</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1340" headers="d7880e1193 ">
+                                       <p><code class="codeph">--job-executable-class <span class="variable" translate="no">job_executable_class</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1340 d7880e1195 ">
+                                       <p>Main Java class used for the Spark job execution.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1350" headers="d7880e1193 ">
+                                       <p><code class="codeph">--src-provider <span class="variable" translate="no">oss_source_provider</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1350 d7880e1195 ">
+                                       <p>Specify the provider of the source, when using an <span>Oracle Cloud Infrastructure Object Storage Classic</span> source.
+                                       </p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1363" headers="d7880e1193 ">
+                                       <p><code class="codeph">--dst-provider <span class="variable" translate="no">oss_destination_provider</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1363 d7880e1195 ">
+                                       <p>Specify the provider of the destination, when using an <span>Oracle Cloud Infrastructure Object Storage Classic</span> destination.
+                                       </p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1376" headers="d7880e1193 ">
+                                       <p><code class="codeph">-h</code></p>
+                                       <p><code class="codeph">--help</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1376 d7880e1195 ">
+                                       <p>Show this message and exit.</p>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <!-- class="inftblhruleinformal" -->
+                     </div>
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF" title="Use the bdm-cli (Oracle Big Data Manager Command Line Interface) utility to copy data and manage copy jobs at the command line.">Using the Oracle Big Data Manager bdm-cli Utility</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-31B94CB2-62B0-4838-8910-C265027DDE0A" name="GUID-31B94CB2-62B0-4838-8910-C265027DDE0A"></a><h3 id="BBDMG-GUID-31B94CB2-62B0-4838-8910-C265027DDE0A" class="sect3"><span class="enumeration_section">9.8 </span><span>bdm-cli</span> create_job_template
+               </h3>
+               <div>
+                  <p>Create a new job template.</p>
+                  <div class="section" id="GUID-31B94CB2-62B0-4838-8910-C265027DDE0A__CREATE_JOB_TEMPLATE-D21DCD76">
+                     <p class="subhead2" id="GUID-31B94CB2-62B0-4838-8910-C265027DDE0A__CREATE_JOB_TEMPLATE-D23AA8DF">Syntax</p>
+                     <div class="p"><pre class="pre codeblock"><code>bdm-cli create_job_template [<span class="variable" translate="no">options</span>] <span class="variable" translate="no">job_template_name</span> <span class="variable" translate="no">source</span> ... <span class="variable" translate="no">destination</span></code></pre></div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-31B94CB2-62B0-4838-8910-C265027DDE0A__GUID-015FC49F-76E7-460E-9782-A97A8F818095">Options</p>
+                     <div class="p">
+                        <div class="tblformal" id="GUID-31B94CB2-62B0-4838-8910-C265027DDE0A__GUID-6C3CDDEE-EAFA-4538-BBF6-50DC92031337">
+                           <table cellpadding="4" cellspacing="0" class="Formal" title summary="This table shows the options for this bdm-cli subcommand." width="100%" frame="hsides" border="1" rules="rows">
+                              <thead>
+                                 <tr align="left" valign="top">
+                                    <th align="left" valign="bottom" width="40%" id="d7880e1455">Option</th>
+                                    <th align="left" valign="bottom" width="60%" id="d7880e1457">Description</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1461" headers="d7880e1455 ">
+                                       <p><code class="codeph">--abort-running-job</code></p>
+                                       <p><code class="codeph">--no-abort-running-job</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1461 d7880e1457 ">
+                                       <p>Abort an already running execution if the next scheduled execution is started.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1472" headers="d7880e1455 ">
+                                       <p><code class="codeph">--block-size <span class="variable" translate="no">block_size</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1472 d7880e1457 ">
+                                       <p>Specify block size in bytes.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1482" headers="d7880e1455 ">
+                                       <p><code class="codeph">--data-source-name <span class="variable" translate="no">data_source_name</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1482 d7880e1457 ">
+                                       <p>Job's data source name.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1492" headers="d7880e1455 ">
+                                       <p><code class="codeph">--description <span class="variable" translate="no">description</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1492 d7880e1457 ">
+                                       <p>Job template description.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1502" headers="d7880e1455 ">
+                                       <p><code class="codeph">--dst-provider <span class="variable" translate="no">destination_provider</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1502 d7880e1457 ">
+                                       <p>Specify for <code class="codeph">oss:///</code> destination.
+                                       </p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1515" headers="d7880e1455 ">
+                                       <p><code class="codeph">--environment <span class="variable" translate="no">environment</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1515 d7880e1457 ">
+                                       <p>Environment in JSON format:</p>
+                                       <p><code class="codeph">{"envName1": "envValue2", "envName2": "envValue2"}</code></p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1528" headers="d7880e1455 ">
+                                       <p><code class="codeph">-h</code></p>
+                                       <p><code class="codeph">--help</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1528 d7880e1457 ">
+                                       <p>Show this message and exit.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1539" headers="d7880e1455 ">
+                                       <p><code class="codeph">--history-size <span class="variable" translate="no">history_size</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1539 d7880e1457 ">
+                                       <p>Count of executions history log.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1549" headers="d7880e1455 ">
+                                       <p><code class="codeph">--job-executable-class <span class="variable" translate="no">job_executable_class</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1549 d7880e1457 ">
+                                       <p>Main Java class used for the Spark job execution.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1559" headers="d7880e1455 ">
+                                       <p><code class="codeph">--job-schedule <span class="variable" translate="no">job_schedule</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1559 d7880e1457 ">
+                                       <p>Specify cron-like job schedule, for example:</p>
+                                       <p><code class="codeph">"0 56 8 * * ?"</code> means run every day at 08h 56m UTC time.
+                                       </p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1573" headers="d7880e1455 ">
+                                       <p><code class="codeph">--job-template-type <span class="variable" translate="no">job_template_type</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1573 d7880e1457 ">
+                                       <p> Specify job template type. Allowed values are:                                   </p>
+                                       <ul style="list-style-type: disc;">
+                                          <li>
+                                             <p><code class="codeph">DATA_MOVEMENT_COPY</code></p>
+                                          </li>
+                                          <li>
+                                             <p><code class="codeph">GENERAL</code></p>
+                                          </li>
+                                       </ul>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1593" headers="d7880e1455 ">
+                                       <p><code class="codeph">--libraries <span class="variable" translate="no">libraries</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1593 d7880e1457 ">
+                                       <p> Hadoop libraries, for example: <code class="codeph">OdcpLibraries</code>.
+                                       </p>
+                                       <p>This option can have multiple values, for example: </p>
+                                       <p><code class="codeph">--libraries OdcpLibraries --libraries OdcpLibraries</code></p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1611" headers="d7880e1455 ">
+                                       <p><code class="codeph">--memory-size-per-node <span class="variable" translate="no">memory_size_per_node</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1611 d7880e1457 ">
+                                       <p>Specify the Spark executors memory limit in GB per node, for example: <code class="codeph">40G</code>.
+                                       </p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1624" headers="d7880e1455 ">
+                                       <p><code class="codeph">--number-of-executor-nodes <span class="variable" translate="no">number_of_executor_per_node</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1624 d7880e1457 ">
+                                       <p>Specify the maximum number of Spark executors per node, for example: <code class="codeph">10G</code>.
+                                       </p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1637" headers="d7880e1455 ">
+                                       <p><code class="codeph">--number-of-threads-per-node <span class="variable" translate="no">number_of_threads_per_node</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1637 d7880e1457 ">
+                                       <p>Specify the maximum of threads per node.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1647" headers="d7880e1455 ">
+                                       <p><code class="codeph">--part-size <span class="variable" translate="no">part_size</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1647 d7880e1457 ">
+                                       <p>Specify part size in bytes.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1657" headers="d7880e1455 ">
+                                       <p><code class="codeph">--recursive</code></p>
+                                       <p><code class="codeph">--no-recursive</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1657 d7880e1457 ">
+                                       <p>Recursively copy (enabled by default).</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1668" headers="d7880e1455 ">
+                                       <p><code class="codeph">--retry</code></p>
+                                       <p><code class="codeph">--no-retry</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1668 d7880e1457 ">
+                                       <p>Retry data transfer in case of failure.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1679" headers="d7880e1455 ">
+                                       <p><code class="codeph">--src-provider <span class="variable" translate="no">oss_source_provider</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1679 d7880e1457 ">
+                                       <p>Specify the provider of the source, when using for Oracle Bare Metal Cloud Object Storage Service.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1689" headers="d7880e1455 ">
+                                       <p><code class="codeph">--sync</code></p>
+                                       <p><code class="codeph">--no-sync</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1689 d7880e1457 ">
+                                       <p>Synchronize source with destination.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1700" headers="d7880e1455 ">
+                                       <p><code class="codeph">--tags <span class="variable" translate="no">tags</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1700 d7880e1457 ">
+                                       <p>User defined tag. This option can have                                   multiple values, for example: </p>
+                                       <p><code class="codeph">--tags system --tags datamovement --tags copy</code></p>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <!-- class="inftblhruleinformal" -->
+                     </div>
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF" title="Use the bdm-cli (Oracle Big Data Manager Command Line Interface) utility to copy data and manage copy jobs at the command line.">Using the Oracle Big Data Manager bdm-cli Utility</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-866C995A-F11E-4623-9A88-A0920EF7FA15" name="GUID-866C995A-F11E-4623-9A88-A0920EF7FA15"></a><h3 id="BBDMG-GUID-866C995A-F11E-4623-9A88-A0920EF7FA15" class="sect3"><span class="enumeration_section">9.9 </span><span>bdm-cli</span> get_data_source
+               </h3>
+               <div>
+                  <p>Find a data source by name.</p>
+                  <div class="section" id="GUID-866C995A-F11E-4623-9A88-A0920EF7FA15__GET_DATA_SOURCE-D21DD706">
+                     <p class="subhead2" id="GUID-866C995A-F11E-4623-9A88-A0920EF7FA15__GET_DATA_SOURCE-D23AB36F">Syntax</p>
+                     <div class="p"><pre class="pre codeblock"><code>bdm-cli get_data_source [<span class="variable" translate="no">options</span>] <span class="variable" translate="no">data_source_name</span></code></pre></div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-866C995A-F11E-4623-9A88-A0920EF7FA15__GUID-E96A9A28-675E-4F3E-AB85-BD2B306FDB5F">Options</p>
+                     <div class="p">
+                        <div class="tblformal" id="GUID-866C995A-F11E-4623-9A88-A0920EF7FA15__THISTABLESHOWSTHEOPTIONSFORTHISBDM--D1B7C313">
+                           <table cellpadding="4" cellspacing="0" class="Formal" title summary="This table shows the options for this bdm-cli subcommand." width="100%" frame="hsides" border="1" rules="rows">
+                              <thead>
+                                 <tr align="left" valign="top">
+                                    <th align="left" valign="bottom" width="40%" id="d7880e1774">Option</th>
+                                    <th align="left" valign="bottom" width="60%" id="d7880e1776">Description</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1780" headers="d7880e1774 ">
+                                       <p><code class="codeph">-h</code></p>
+                                       <p><code class="codeph">--help</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1780 d7880e1776 ">
+                                       <p>Show this message and exit.</p>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <!-- class="inftblhruleinformal" -->
+                     </div>
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF" title="Use the bdm-cli (Oracle Big Data Manager Command Line Interface) utility to copy data and manage copy jobs at the command line.">Using the Oracle Big Data Manager bdm-cli Utility</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-650B0477-46B0-4556-90B8-7204BCCAC7F1" name="GUID-650B0477-46B0-4556-90B8-7204BCCAC7F1"></a><h3 id="BBDMG-GUID-650B0477-46B0-4556-90B8-7204BCCAC7F1" class="sect3"><span class="enumeration_section">9.10 </span><span>bdm-cli</span> get_job
+               </h3>
+               <div>
+                  <p>Get a job by UUID.</p>
+                  <div class="section" id="GUID-650B0477-46B0-4556-90B8-7204BCCAC7F1__GET_JOB-D21DDDD1">
+                     <p class="subhead2" id="GUID-650B0477-46B0-4556-90B8-7204BCCAC7F1__GET_JOB-D23AB5C6">Syntax</p>
+                     <div class="p"><pre class="pre codeblock"><code>bdm-cli get_job [<span class="variable" translate="no">options</span>] <span class="variable" translate="no">job_uuid</span></code></pre></div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-650B0477-46B0-4556-90B8-7204BCCAC7F1__GUID-8A71F98C-8895-4A47-97B5-E01A24A0B97E">Options</p>
+                     <div class="p">
+                        <div class="tblformal" id="GUID-650B0477-46B0-4556-90B8-7204BCCAC7F1__THISTABLESHOWSTHEOPTIONSFORTHISBDM--D1B7C398">
+                           <table cellpadding="4" cellspacing="0" class="Formal" title summary="This table shows the options for this bdm-cli subcommand." width="100%" frame="hsides" border="1" rules="rows">
+                              <thead>
+                                 <tr align="left" valign="top">
+                                    <th align="left" valign="bottom" width="40%" id="d7880e1852">Option</th>
+                                    <th align="left" valign="bottom" width="60%" id="d7880e1854">Description</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1858" headers="d7880e1852 ">
+                                       <p><code class="codeph">-h</code></p>
+                                       <p><code class="codeph">--help</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1858 d7880e1854 ">
+                                       <p>Show this message and exit.</p>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <!-- class="inftblhruleinformal" -->
+                     </div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-650B0477-46B0-4556-90B8-7204BCCAC7F1__GUID-603E6A36-BE7A-4B3B-8EC8-A7E3F971CCA6">Example</p>
+                     <p>Get information on a job.</p>
+                     <p><code class="codeph">/usr/bin/bdm-cli&nbsp; -f json&nbsp; --no-check-certificate&nbsp; --bdm-url ${DATA_HOST}:8888/bdcs/api --bdm-username ${DATA_USER} --bdm-passwd ${USER_PASSWORD_FILE}&nbsp;&nbsp; get_job ${JOB_UUID}</code></p>
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF" title="Use the bdm-cli (Oracle Big Data Manager Command Line Interface) utility to copy data and manage copy jobs at the command line.">Using the Oracle Big Data Manager bdm-cli Utility</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-1F825C7E-0637-479D-A7BF-EE7D8DA5E3A7" name="GUID-1F825C7E-0637-479D-A7BF-EE7D8DA5E3A7"></a><h3 id="BBDMG-GUID-1F825C7E-0637-479D-A7BF-EE7D8DA5E3A7" class="sect3"><span class="enumeration_section">9.11 </span><span>bdm-cli</span> get_job_log
+               </h3>
+               <div>
+                  <p>Get a job log.</p>
+                  <div class="section" id="GUID-1F825C7E-0637-479D-A7BF-EE7D8DA5E3A7__GET_JOB_LOG-D21DE480">
+                     <p class="subhead2" id="GUID-1F825C7E-0637-479D-A7BF-EE7D8DA5E3A7__GET_JOB_LOG-D23AB825">Syntax</p>
+                     <div class="p"><pre class="pre codeblock"><code>bdm-cli get_job_log [<span class="variable" translate="no">options</span>] <span class="variable" translate="no">job_uuid</span></code></pre></div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-1F825C7E-0637-479D-A7BF-EE7D8DA5E3A7__GUID-C09D82EB-191A-4CD8-9430-A0F6DC5A1245">Options</p>
+                     <div class="p">
+                        <div class="tblformal" id="GUID-1F825C7E-0637-479D-A7BF-EE7D8DA5E3A7__THISTABLESHOWSTHEOPTIONSFORTHISBDM--D1C8D8B4">
+                           <table cellpadding="4" cellspacing="0" class="Formal" title summary="This table shows the options for this bdm-cli subcommand." width="100%" frame="hsides" border="1" rules="rows">
+                              <thead>
+                                 <tr align="left" valign="top">
+                                    <th align="left" valign="bottom" width="40%" id="d7880e1939">Option</th>
+                                    <th align="left" valign="bottom" width="60%" id="d7880e1941">Description</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e1945" headers="d7880e1939 ">
+                                       <p><code class="codeph">-h</code></p>
+                                       <p><code class="codeph">--help</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e1945 d7880e1941 ">
+                                       <p>Show this message and exit.</p>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <!-- class="inftblhruleinformal" -->
+                     </div>
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF" title="Use the bdm-cli (Oracle Big Data Manager Command Line Interface) utility to copy data and manage copy jobs at the command line.">Using the Oracle Big Data Manager bdm-cli Utility</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-60730EFA-6CEA-4CF9-8D30-E7C215396C13" name="GUID-60730EFA-6CEA-4CF9-8D30-E7C215396C13"></a><h3 id="BBDMG-GUID-60730EFA-6CEA-4CF9-8D30-E7C215396C13" class="sect3"><span class="enumeration_section">9.12 </span><span>bdm-cli</span> list_all_jobs
+               </h3>
+               <div>
+                  <p>List all jobs from the execution history.</p>
+                  <div class="section" id="GUID-60730EFA-6CEA-4CF9-8D30-E7C215396C13__LIST_ALL_JOBS-D21DDB8A">
+                     <p class="subhead2" id="GUID-60730EFA-6CEA-4CF9-8D30-E7C215396C13__LIST_ALL_JOBS-D23ABFB0">Syntax</p>
+                     <div class="p"><pre class="pre codeblock"><code>bdm-cli list_all_jobs [<span class="variable" translate="no">options</span>]</code></pre></div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-60730EFA-6CEA-4CF9-8D30-E7C215396C13__GUID-702FB276-326F-45B8-86FD-95E758931CF8">Options</p>
+                     <div class="p">
+                        <div class="tblformal" id="GUID-60730EFA-6CEA-4CF9-8D30-E7C215396C13__THISTABLESHOWSTHEOPTIONSFORTHISBDM--D1B7C2F4">
+                           <table cellpadding="4" cellspacing="0" class="Formal" title summary="This table shows the options for this bdm-cli subcommand." width="100%" frame="hsides" border="1" rules="rows">
+                              <thead>
+                                 <tr align="left" valign="top">
+                                    <th align="left" valign="bottom" width="40%" id="d7880e2015">Option</th>
+                                    <th align="left" valign="bottom" width="60%" id="d7880e2017">Description</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e2021" headers="d7880e2015 ">
+                                       <p><code class="codeph">-h</code></p>
+                                       <p><code class="codeph">--help</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e2021 d7880e2017 ">
+                                       <p>Show this message and exit.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e2032" headers="d7880e2015 ">
+                                       <p><code class="codeph">--limit <span class="variable" translate="no">limit</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e2032 d7880e2017 ">
+                                       <p>Specify the size of the page.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e2042" headers="d7880e2015 ">
+                                       <p><code class="codeph">--offset <span class="variable" translate="no">offset</span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e2042 d7880e2017 ">
+                                       <p>Specify the paging offset.</p>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <!-- class="inftblhruleinformal" -->
+                     </div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-60730EFA-6CEA-4CF9-8D30-E7C215396C13__GUID-1751068E-3BBF-4EEC-A0C8-EE8DF1FF0ADC">Example</p>
+                     <p>List all jobs.</p>
+                     <div class="p"><pre class="pre codeblock"><code>/usr/bin/bdm-cli&nbsp; -f json&nbsp; --no-check-certificate&nbsp; --bdm-url ${DATA_HOST}:8888/bdcs/api --bdm-username ${DATA_USER} --bdm-passwd ${USER_PASSWORD_FILE}&nbsp;&nbsp; list_all_jobs</code></pre></div>
+                     <p>Use the <code class="codeph">--offset</code> and <code class="codeph">--limit</code> options to restrict the results. For example to get the eighth page when there are 20 rows per page, do the following:
+                     </p><pre class="pre codeblock"><code>bdm-cli list_all_jobs --offset 8 --limit 20</code></pre></div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF" title="Use the bdm-cli (Oracle Big Data Manager Command Line Interface) utility to copy data and manage copy jobs at the command line.">Using the Oracle Big Data Manager bdm-cli Utility</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-63E66E41-B6E9-489E-B406-0A70B69C4CEA" name="GUID-63E66E41-B6E9-489E-B406-0A70B69C4CEA"></a><h3 id="BBDMG-GUID-63E66E41-B6E9-489E-B406-0A70B69C4CEA" class="sect3"><span class="enumeration_section">9.13 </span><span>bdm-cli</span> list_template_executions
+               </h3>
+               <div>
+                  <p>List all jobs from the execution history for the given template.</p>
+                  <div class="section" id="GUID-63E66E41-B6E9-489E-B406-0A70B69C4CEA__LIST_TEMPLATE_EXECUTIONS-D2242242">
+                     <p class="subhead2" id="GUID-63E66E41-B6E9-489E-B406-0A70B69C4CEA__LIST_TEMPLATE_EXECUTIONS-D23AC6FD">Syntax</p>
+                     <div class="p"><pre class="pre codeblock"><code>bdm-cli list_template_executions  [<span class="variable" translate="no">options</span>] <span class="variable" translate="no">job_uuid</span></code></pre></div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-63E66E41-B6E9-489E-B406-0A70B69C4CEA__GUID-02D11C4B-A85A-4960-B1DB-2666D852A899">Options</p>
+                     <div class="p">
+                        <div class="tblformal" id="GUID-63E66E41-B6E9-489E-B406-0A70B69C4CEA__THISTABLESHOWSTHEOPTIONSFORTHISBDM--D1DE4ECD">
+                           <table cellpadding="4" cellspacing="0" class="Formal" title summary="This table shows the options for this bdm-cli subcommand." width="100%" frame="hsides" border="1" rules="rows">
+                              <thead>
+                                 <tr align="left" valign="top">
+                                    <th align="left" valign="bottom" width="40%" id="d7880e2131">Option</th>
+                                    <th align="left" valign="bottom" width="60%" id="d7880e2133">Description</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e2137" headers="d7880e2131 ">
+                                       <p><code class="codeph">-h</code></p>
+                                       <p><code class="codeph">--help</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e2137 d7880e2133 ">
+                                       <p>Show this message and exit.</p>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <!-- class="inftblhruleinformal" -->
+                     </div>
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF" title="Use the bdm-cli (Oracle Big Data Manager Command Line Interface) utility to copy data and manage copy jobs at the command line.">Using the Oracle Big Data Manager bdm-cli Utility</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-201FED3F-0354-4693-98FF-011139852431" name="GUID-201FED3F-0354-4693-98FF-011139852431"></a><h3 id="BBDMG-GUID-201FED3F-0354-4693-98FF-011139852431" class="sect3"><span class="enumeration_section">9.14 </span>bdm-cli ls
+               </h3>
+               <div>
+                  <p>List files from a specific location.</p>
+                  <div class="section" id="GUID-201FED3F-0354-4693-98FF-011139852431__LS-D2242584">
+                     <p class="subhead2" id="GUID-201FED3F-0354-4693-98FF-011139852431__LS-D23AC495">Syntax</p>
+                     <div class="p"><pre class="pre codeblock"><code>bdm-cli ls [<span class="variable" translate="no">options</span>] <span class="variable" translate="no">path_1</span> ... <span class="variable" translate="no">path_n</span></code></pre></div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-201FED3F-0354-4693-98FF-011139852431__GUID-3520E7FB-AEC6-4DE0-B6EA-39CE452854D5">Options</p>
+                     <div class="p">
+                        <div class="tblformal" id="GUID-201FED3F-0354-4693-98FF-011139852431__THISTABLESHOWSTHEOPTIONSFORTHISBDM--D1C8D8E3">
+                           <table cellpadding="4" cellspacing="0" class="Formal" title summary="This table shows the options for this bdm-cli subcommand." width="100%" frame="hsides" border="1" rules="rows">
+                              <thead>
+                                 <tr align="left" valign="top">
+                                    <th align="left" valign="bottom" width="40%" id="d7880e2211">Option</th>
+                                    <th align="left" valign="bottom" width="60%" id="d7880e2213">Description</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e2217" headers="d7880e2211 ">
+                                       <p><code class="codeph">-h</code></p>
+                                       <p><code class="codeph">-&#x2013;human-readable</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e2217 d7880e2213 ">
+                                       <p>Human readable file sizes.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e2228" headers="d7880e2211 ">
+                                       <p><code class="codeph">-d</code></p>
+                                       <p><code class="codeph">--dirs-only </code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e2228 d7880e2213 ">
+                                       <p>List directories only.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e2239" headers="d7880e2211 ">
+                                       <p><code class="codeph">--provider <span class="variable" translate="no">oss_provider </span></code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e2239 d7880e2213 ">
+                                       <p>Specify for Oracle Bare Metal Cloud Object Storage Service paths.</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="40%" id="d7880e2249" headers="d7880e2211 ">
+                                       <p><code class="codeph">-h</code></p>
+                                       <p><code class="codeph">--help</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="60%" headers="d7880e2249 d7880e2213 ">
+                                       <p>Show this message and exit.</p>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <!-- class="inftblhruleinformal" -->
+                     </div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-201FED3F-0354-4693-98FF-011139852431__GUID-4A48294B-C847-4D54-824E-4E685EF8B845">Examples</p>
+                     <p>List HDFS content under selected user.</p><pre class="pre codeblock"><code>/usr/bin/bdm-cli&nbsp; -f json&nbsp; --no-check-certificate&nbsp; --bdm-url ${DATA_HOST}:8888/bdcs/api --bdm-username ${DATA_USER} --bdm-passwd ${USER_PASSWORD_FILE}&nbsp;&nbsp; ls hdfs:///user/${DATA_USER}/integration_in --provider hdfs</code></pre><p>List <span>Oracle Cloud Infrastructure Object Storage Classic</span> content under selected user.
+                     </p><pre class="pre codeblock"><code>/usr/bin/bdm-cli&nbsp; -f json&nbsp; --no-check-certificate&nbsp; --bdm-url ${DATA_HOST}:8888/bdcs/api --bdm-username test20170324113533 --bdm-passwd ${USER_PASSWORD_FILE}&nbsp;&nbsp;&nbsp; ls oss:///${OSS_CONTAINER}/ --provider ${OSS_PROVIDER}</code></pre></div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="using-oracle-big-data-manager-bdm-cli-utility.html#GUID-EE0DD17D-EF2F-468D-878B-3E4ED82448FF" title="Use the bdm-cli (Oracle Big Data Manager Command Line Interface) utility to copy data and manage copy jobs at the command line.">Using the Oracle Big Data Manager bdm-cli Utility</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

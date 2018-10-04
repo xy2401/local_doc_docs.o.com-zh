@@ -1,0 +1,1798 @@
+<html lang="en" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<title>Using the Signature Test Tool</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = document) - Version 1.0.24" />
+<meta name="dcterms.created" content="2014-07-01T13:22:30Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="SigTest User's Guide" />
+<meta name="dcterms.identifier" content="E19036-03" />
+<meta name="dcterms.isVersionOf" content="SIGTS" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2006, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="sig_intro.htm" title="Previous" type="text/html" />
+<link rel="Next" href="part2.htm" title="Next" type="text/html" />
+<link rel="alternate" href="SIGTS.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../../nav/css/html5.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<span id="PAGE" style="display:none;">11/25</span> <!-- End Header -->
+<script  >
+<!-- // <![CDATA[
+window.name='sig_using'
+// ]]> -->
+</script> <script  >
+// <![CDATA[
+function footdisplay(footnum,footnote) {
+    var msg = window.open('', 'NewWindow' + footnum,
+        'directories=no,height=120,location=no,menubar=no,resizable=yes,' +
+        'scrollbars=yes,status=no,toolbar=no,width=598');
+    msg.document.open('text/html');
+    msg.document.write('<!DOCTYPE html ');
+    msg.document.write('PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" ');
+
+    msg.document.write('"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">');
+    msg.document.write('<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><title>');
+    msg.document.write('Footnote ' + footnum);
+    msg.document.write('<\/title><meta http-equiv="Content-Type" ');
+    msg.document.write('content="text/html; charset=utf-8" />');
+    msg.document.write('');
+    msg.document.write('<style> <![CDATA[ ');
+    msg.document.write('h1 {text-align: center; font-size: 14pt;}');
+    msg.document.write('fieldset {border: none;}');
+    msg.document.write('form {text-align: center;}');
+    msg.document.write(' ]]\u003e <\/style>');
+    msg.document.write('<\/head><body><h1>Footnote ' + footnum + '<\/h1><p>');
+    msg.document.write(footnote);
+    msg.document.write('<\/p><form action="" method="post"><fieldset>');
+    msg.document.write('<input type="button" value="OK" ');
+    msg.document.write('onclick="window.close();" />');
+    msg.document.write('<\/fieldset><\/form><\/body><\/html>');
+    msg.document.close();
+    msg.focus();
+}
+// ]]>
+</script> <noscript>
+<p>The script content on this page is for navigation purposes only and does not alter the content in any way.</p>
+</noscript><a id="Z4000c461059399"></a>
+<h1 class="chapter"><span class="secnum">4</span> Using the Signature Test Tool</h1>
+<p>This chapter provides a synopsis of each of the Signature Test tool commands along with their available options and arguments. It contains these sections:</p>
+<ul>
+<li>
+<p><a href="#Z4000c461058975">Signature Test Tool Basics</a></p>
+</li>
+<li>
+<p><a href="#Z4000c461059107"><code>Setup</code> Command</a></p>
+</li>
+<li>
+<p><a href="#Z4000c461059240"><code>SignatureTest</code> Command</a></p>
+</li>
+<li>
+<p><a href="#Z4000c461059340"><code>SetupAndTest</code> Command</a></p>
+</li>
+<li>
+<p><a href="#Z4000c461059373"><code>Merge</code> Command</a></p>
+</li>
+<li>
+<p><a href="#Z4000c461058912">Report Formats</a></p>
+<div class="infobox-note">
+<p class="notep1">Note:</p>
+<p><a href="a_sig_examples.htm#Z40001031034631">Appendix A</a> includes examples of each command.</p>
+</div>
+</li>
+</ul>
+<a id="Z4000c461058975"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">4.1</span> Signature Test Tool Basics</h2>
+<p>The Signature Test tool operates from the command line to generate or manipulate signature files. A signature file is a text representation of the set of public and protected features provided by an API. Test suite developers include it in a finished test suite as a signature reference for comparison to the technology implementation under test. The following list shows the commands that are available.</p>
+<ul>
+<li>
+<p><code>Setup</code> - Creates a signature file from either an API defined by a specification or a reference API implementation.</p>
+</li>
+<li>
+<p><code>SignatureTest</code> - Compares the reference API represented in the signature file to the API under test and produces a report. This is the test that becomes part of a finished test suite.</p>
+</li>
+<li>
+<p><code>SetupAndTest</code> - Executes the <code>Setup</code> and <code>SignatureTest</code> commands in one operation.</p>
+</li>
+<li>
+<p><code>Merge</code> - Creates a combined signature file from several signature files representing different Java APIs in one Java runtime environment according to the JSR 68 rules.</p>
+</li>
+</ul>
+<p>The Signature Test tool distribution includes a Java Archive (JAR) file used for developing a signature test and one for distribution within a finished test suite to run its signature test. The description of each follows:</p>
+<ul>
+<li>
+<p><code>sigtestdev.jar</code> - Contains classes for running the commands used during signature test development.</p>
+</li>
+<li>
+<p><code>sigtest.jar</code> - Contains only the classes for running the <code>SignatureTest</code> command. This file is distributed in a finished test suite.</p>
+</li>
+</ul>
+<p>Test suite developers perform these operations while using <code>sigtestdev.jar</code> to develop a signature test.</p>
+<ol>
+<li>
+<p>Run the <code>Setup</code> command to create a signature file from either an API defined by a specification or a reference API implementation.</p>
+</li>
+<li>
+<p>Include the files required to run the signature test in the finished test suite distribution.</p>
+</li>
+</ol>
+<a id="Z4000c461058585"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">4.1.1</span> Reflection and Static Run Modes</h3>
+<p>Two run modes are available during command execution. These modes determine how the class descriptions are examined and retrieved, as follows:</p>
+<ul>
+<li>
+<p><span class="bold">Reflection Mode</span> - Uses reflection to examine API classes and retrieve information about them. The reflection mode is of greatest advantage when the API to be analyzed has no external class files.</p>
+</li>
+<li>
+<p><span class="bold">Static Mode</span> - Specified with the <code>-static</code> flag, the tool parses only the class files listed in the <code>-classpath</code> command-line option.</p>
+<div class="infobox-note">
+<p class="notep1">Note:</p>
+<p>In static mode you can test specified classes in another runtime environment. For example, this can be useful to analyze APIs that are part of a Java SE platform 1.4.2 environment when the <code>SignatureTest</code> command is run on a Java SE platform version 5.0.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- class="sect2" -->
+<a id="Z4000c461058595"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">4.1.2</span> Constant Checking in Differing Run Modes</h3>
+<p>The requirements related to constant checking differ in binary and source compatibility testing. Although constant checking can be applied to binary compatibility, it is a necessary prerequisite for source code compatibility. Use the <code>-static</code> mode to enforce strict constant checking in source code compatibility testing.</p>
+<p>When running a signature test in source compatibility mode and using the static mode, constant checking is strict and two way. This means that all the constant fields specified in the reference API must exist and have the same values in the API under test. Likewise, all the constant fields and their related values specified in the API under test must exist and have the same values in the reference API.</p>
+<p>In binary compatibility mode, the requirements related to constant checking are less strict. The signature test verifies that all the constant fields and associated values contained in the reference API are also available in the API under test. If any field values are missing or different, it reports an error. However, the signature test does not report an error if constant values are found in the API under test that are not available in the reference API.</p>
+</div>
+<!-- class="sect2" -->
+<a id="Z4000c461058601"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">4.1.3</span> Generics Checking in Binary Mode</h3>
+<p>The information related to generics is not used by the Java Virtual Machine<a id="Z4000c461052338" href="#Z4000c461052338" onclick='footdisplay(1,"The terms &rdquo;Java Virtual Machine&rdquo; and &rdquo;JVM&rdquo; mean a Virtual Machine for the Java platform.")'><sup class="tablefootnote">Foot&nbsp;1&nbsp;</sup></a> at runtime. This information is used only by the compiler at compile time. Because the information does not effect the runtime linkage process, it cannot cause binary incompatibility.</p>
+<p>In binary mode the <code>SignatureTest</code> command compares the signatures of parameterized types after omitting the type parameters and arguments from both the signature file and the analyzed API (termed &rdquo;type erasure&rdquo;). This is to ensure that they are compatible at runtime. See <span class="italic">The Java Language Specification</span> at <code><a href="http://docs.oracle.com/javase/specs/">http://docs.oracle.com/javase/specs/</a></code> for a detailed description of type erasure.</p>
+<p>The bridge methods that are generated by the compiler during type erasure are not a part of the API and so they are ignored by the Signature Test tool.</p>
+</div>
+<!-- class="sect2" -->
+<a id="Z4000c461058612"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">4.1.4</span> <code>CLASSPATH</code> and <code>-classpath</code> Settings</h3>
+<p><a href="#Z4000c461052593">Table 4-1</a> lists the requirements for setting the <code>CLASSPATH</code> environment variable and the <code>-classpath</code> option when running either the <code>Setup</code> or <code>SignatureTest</code> commands. The table uses the following terms to describe the classes that must be included:</p>
+<ul>
+<li>
+<p><span class="bold">Required classes -</span> All superclasses and superinterfaces of the classes under test</p>
+</li>
+<li>
+<p><span class="bold">Classes under test -</span> The set of classes specified by a combination of the following options:</p>
+<ul>
+<li>
+<p><code>-package</code></p>
+</li>
+<li>
+<p><code>-PackageWithoutSubpackages</code></p>
+</li>
+<li>
+<p><code>-exclude</code></p>
+</li>
+<li>
+<p><code>-ApiInclude / -ApiExclude</code></p>
+<div class="infobox-note">
+<p class="notep1">Note:</p>
+<p>The <code>Setup</code> command can only be run in static mode.</p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<div class="tblhruleformal">
+<p class="titleintable"><a id="sthref9"></a><a id="Z4000c461052593"></a>Table 4-1 Settings for the <code>Setup</code> and <code>SignatureTest</code> Commands</p>
+<table class="cellalignment36" title="Settings for the Setup and SignatureTest Commands" summary="Add Summary attribute value here." >
+<thead>
+<tr class="cellalignment25">
+<th class="cellalignment37" id="r1c1-t5">Variable or Option</th>
+<th class="cellalignment37" id="r1c2-t5">In Reflection Mode</th>
+<th class="cellalignment37" id="r1c3-t5">In Static Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r2c1-t5" headers="r1c1-t5">
+<p><code>CLASSPATH</code> environment variable</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t5 r1c2-t5">
+<p>Required. Must contain the following:</p>
+<ul>
+<li>
+<p><code>sigtestdev.jar</code> or <code>sigtest.jar</code></p>
+</li>
+<li>
+<p>Classes under test</p>
+</li>
+<li>
+<p>Other required classes, except for bootstrap and extension classes described in <a href="#Z4000c461058460">"Bootstrap and Extension Classes"</a></p>
+</li>
+</ul>
+</td>
+<td class="cellalignment31" headers="r2c1-t5 r1c3-t5">
+<p>Required. Must contain either <code>sigtestdev.jar</code> or <code>sigtest.jar</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r3c1-t5" headers="r1c1-t5">
+<p><code>-classpath</code> <span class="italic">argument</span></p>
+</td>
+<td class="cellalignment31" headers="r3c1-t5 r1c2-t5">
+<p>N/A</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t5 r1c3-t5">
+<p>Required. Must contain the following:</p>
+<ul>
+<li>
+<p>Classes under test</p>
+</li>
+<li>
+<p>All required classes</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" -->
+<a id="Z4000c461058460"></a>
+<div class="sect3">
+<h4 class="sect3"><span class="secnum">4.1.4.1</span> Bootstrap and Extension Classes</h4>
+<p>Bootstrap and extension classes are those located in <code>rt.jar</code> and several other JAR files under the <span class="italic">Java-Home</span><code>/jre/lib/</code> directory, where <span class="italic">Java-Home</span> is the base directory of the Java platform runtime installation. For example, classes from the <code>java</code> package such as <code>java.lang.Object</code> are bootstrap classes. Their location is already available to the Java Virtual Machine environment. Because of this, they do not need to be specified in the <code>CLASSPATH</code> environment variable when reflection mode is used. Furthermore, bootstrap and extension classes are always loaded from JAR files located in the <span class="italic">Java-Home</span><code>/jre/lib/</code> directory, regardless of whether they were specified in the class path or not. This is an important feature of the reflection mode.</p>
+</div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="Z4000c461059042"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">4.2</span> Signature File <code>Merge</code> Rules</h2>
+<p>The <code>-Files</code> option of the <code>SignatureTest</code> command accepts values to specify one or more signature files that are combined to represent an API configuration that is used as input for testing. This resulting API-set can also be combined into a single signature file for testing purposes.</p>
+<p>By default the API combination is assumed to be constructed according to the JSR 68 rules. This can be overridden during a Signature Test tool test run by specifying the <code>-NoMerge</code> option to run the signature test. The <code>-NoMerge</code> option forces the Signature Test tool to use the first class description it encounters if more than one class with the same name is found in the set of signature files specified by the <code>-Files</code> option. In this case it uses the class from the left-most signature file that is specified with <code>-Files</code>.</p>
+<div class="infobox-note">
+<p class="notep1">Note:</p>
+<p>The operative merging principles used by the Signature Test tool are described in <a href="a_merge.htm#CGFIJBBF">Appendix D</a>.</p>
+</div>
+<a id="Z4000c461058645"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">4.2.1</span> Java ME Platform-based Merge</h3>
+<p>The Java ME platform architecture specified by JSR 68<a id="Z4000c461052339" href="#Z4000c461052339" onclick='footdisplay(2,"\u003ccode\u003e\u003ca target=\"sig_using\" href=\"http://jcp.org/en/jsr/detail?id=68\"\u003ehttp://jcp.org/en/jsr/detail?id=68\u003c/a\u003e\u003c/code\u003e")'><sup class="tablefootnote">Foot&nbsp;2&nbsp;</sup></a> allows for the inclusion of several Java platform APIs in one conforming Java platform runtime environment. The condition for combining these APIs is that any application written for the resulting runtime environment must execute successfully on the combination. See the JSR 68 specification for details.</p>
+<p>If such a combination exists, it is defined on the basis of the combined sets of APIs with semantics, and the semantics must be compatible with those of all the included components.</p>
+<p>The only means of verifying the semantics of the combination is to run the applicable test suite for each API. However, it is possible to automate the creation of a combined set of API signatures, and it is also possible to detect when a combined set cannot be built.</p>
+<p>The <code>Merge</code> command functionality combines (merges) several input signature files into one resulting signature file, as follows: If A, B, and C are signature files, then A + B yields signature file C, and each of the three signature files represent the corresponding classes of their respective APIs. The <code>Merge</code> process constructs the resulting API C out of the two input APIs A and B.</p>
+</div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="Z4000c461059107"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">4.3</span> <code>Setup</code> Command</h2>
+<p>The <code>Setup</code> command has the following synopsis:</p>
+<p><code>java -jar sigtestdev.jar Setup</code> [<span class="italic">options</span>]</p>
+<p>or</p>
+<p><code>java com.sun.tdk.signaturetest.Setup</code> [<span class="italic">options</span>]</p>
+<p><a href="#Z4000c461052516">Table 4-2</a> describes the available command options and the values that they accept. Before running the command, also see these sections: <a href="#Z4000c461058755">"Case Sensitivity of Option Arguments"</a> and <a href="#Z4000c461058612">"<code>CLASSPATH</code> and <code>-classpath</code> Settings"</a>.</p>
+<a id="Z4000c461058703"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">4.3.1</span> Command Description</h3>
+<p>The <code>Setup</code> command accepts a reference implementation of an API as input. The command processes the API input to generate a signature file that represents the API to be used as a reference of comparison for the purpose of signature testing.</p>
+<p><code>Setup</code> processes the API input in the static mode by parsing the set of classes specified with the <code>-classpath</code> options.</p>
+<p>Also see <a href="a_sig_examples.htm#Z40001031034631">Appendix A</a> for an example of the command that you can run.</p>
+<div class="infobox-note">
+<p class="notep1">Note:</p>
+<p>Arguments to options marked with an asterisk (*) in <a href="#Z4000c461052516">Table 4-2</a> can be specified multiple times. For example, if you want to specify filtering for the <code>java.awt</code>, <code>java.lang</code>, and <code>java.math</code> packages, you can specify the three arguments separated by a file separator character as shown in the following example:. <code>-Package java.awt:java.lang:java.math</code> On Unix operating systems the separator character is &rdquo;:&rdquo; and on Microsoft Windows it is &rdquo;;&rdquo;.</p>
+</div>
+<div class="tblhruleformal">
+<p class="titleintable"><a id="sthref10"></a><a id="Z4000c461052516"></a>Table 4-2 <code>Setup</code> Command Options</p>
+<table class="cellalignment36" title="Setup Command Options" summary="Add Summary attribute value here." dir="ltr">
+<thead>
+<tr class="cellalignment25">
+<th class="cellalignment37" id="r1c1-t8">Option</th>
+<th class="cellalignment37" id="r1c2-t8">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r2c1-t8" headers="r1c1-t8">
+<p><code>-help</code></p>
+</td>
+<td class="cellalignment31" headers="r2c1-t8 r1c2-t8">
+<p>Optional. Displays usage information for available command options and exits.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r3c1-t8" headers="r1c1-t8">
+<p><code>-debug</code></p>
+</td>
+<td class="cellalignment31" headers="r3c1-t8 r1c2-t8">
+<p>Optional. Enables printing of the stack trace for debugging purposes if <code>Setup</code> fails.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r4c1-t8" headers="r1c1-t8">
+<p><code>-classpath</code> <span class="italic">path</span></p>
+</td>
+<td class="cellalignment31" headers="r4c1-t8 r1c2-t8">
+<p>Required. Specifies the path to one or more APIs that generate the signature file. Can contain multiple directories or ZIP or JAR files. The <code>-package, -exclude, -ApiInclude</code> and <code>-ApiExclude</code> options further refines the set of classes specified in <code>-classpath</code> (see <a href="#Z4000c461058612">"<code>CLASSPATH</code> and <code>-classpath</code> Settings"</a>). There is no default <code>-classpath</code>. Use the path separator appropriate for the platform (identified by <code>java.io.File.pathSeparator</code>).</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r5c1-t8" headers="r1c1-t8">
+<p><code>-TestURL</code> <span class="italic">path</span></p>
+</td>
+<td class="cellalignment31" headers="r5c1-t8 r1c2-t8">
+<p>Optional. Specifies the directory location in which to create the signature file as a <code>file</code> protocol URL:</p>
+<p><code>file://</code><span class="italic">path</span></p>
+<p>Must end in a trailing slash on a UNIX system or a backslash on a Microsoft Windows or DOS system. <code>Setup</code> does not support the HTTP protocol.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r6c1-t8" headers="r1c1-t8">
+<p><code>-FileName</code> <span class="italic">file_name</span></p>
+</td>
+<td class="cellalignment31" headers="r6c1-t8 r1c2-t8">
+<p>Required. Specifies the name of the signature file to be created.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r7c1-t8" headers="r1c1-t8">
+<p><code>-ClosedFile</code></p>
+</td>
+<td class="cellalignment31" headers="r7c1-t8 r1c2-t8">
+<p>Optional. The default if not specified. Specifies to include in the signature file all direct and indirect superclasses for all required classes (tested classes), even if these superclasses are non-public or from untested packages.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r8c1-t8" headers="r1c1-t8">
+<p><code>-NonClosedFile</code></p>
+</td>
+<td class="cellalignment31" headers="r8c1-t8 r1c2-t8">
+<p>Optional. Declines the default <code>-ClosedFile</code> mode previously described. Does not include all direct and indirect superclasses and superinterfaces of tested classes in the signature file</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r9c1-t8" headers="r1c1-t8">
+<p><code>-package</code> <span class="italic">package_or_class_name*</span></p>
+</td>
+<td class="cellalignment31" headers="r9c1-t8 r1c2-t8">
+<p>Optional. Specifies a class or package to be included in the signature file, including its subpackages if a package is specified. The <code>-package</code> value acts as a filter on the set of classes specified in <code>-classpath</code>. The default is all classes. Repeat the option to specify multiple entries.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r10c1-t8" headers="r1c1-t8">
+<p><code>-PackageWithoutSubpackages</code> <span class="italic">package</span>*</p>
+</td>
+<td class="cellalignment31" headers="r10c1-t8 r1c2-t8">
+<p>Optional. Similar to the <code>-package</code> option, this specifies a package to be included but without its subpackages. Repeat the option to specify multiple entries.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r11c1-t8" headers="r1c1-t8">
+<p><code>-exclude</code> <span class="italic">package_or_class_name*</span></p>
+</td>
+<td class="cellalignment31" headers="r11c1-t8 r1c2-t8">
+<p>Optional. Specifies a package or class to be excluded from the signature file, including its subpackages. Repeat the option for multiple entries. Excludes duplicate entries specified by the <code>-package</code> or the <code>-PackageWithoutSubpackages</code> option.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r12c1-t8" headers="r1c1-t8">
+<p><code>-ApiInclude</code> <span class="italic">package*</span></p>
+</td>
+<td class="cellalignment31" headers="r12c1-t8 r1c2-t8">
+<p>Optional. Specifies a class or package (including its subpackages) belongs to an API. The default is all classes. Repeat the option to specify multiple entries.</p>
+<p>Practically similar to <code>-Package</code> option.</p>
+<p>Since v3.1</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r13c1-t8" headers="r1c1-t8">
+<p><code>-ApiExclude</code> <span class="italic">package*</span></p>
+</td>
+<td class="cellalignment31" headers="r13c1-t8 r1c2-t8">
+<p>Optional. Specifies a class or package (including its subpackages) which does not belong to an API. Repeat the option to specify multiple entries.</p>
+<p>Practically similar to <code>-Exclude</code> option.</p>
+<p>Since v3.1</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r14c1-t8" headers="r1c1-t8">
+<p><code>-verbose [nowarn | noerr]</code></p>
+</td>
+<td class="cellalignment31" headers="r14c1-t8 r1c2-t8">
+<p>Optional. Enables error diagnostics for inherited class members. By default, such error messages are suppressed.</p>
+<p><code>nowarn</code>: Suppress warnings.</p>
+<p><code>noerr</code>: Suppress errors.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r15c1-t8" headers="r1c1-t8">
+<p><code>-version</code></p>
+</td>
+<td class="cellalignment31" headers="r15c1-t8 r1c2-t8">
+<p>Optional. Displays version information.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r16c1-t8" headers="r1c1-t8">
+<p><code>-apiVersion</code> <span class="italic">version_string</span></p>
+</td>
+<td class="cellalignment31" headers="r16c1-t8 r1c2-t8">
+<p>Optional. Specifies the API version string to be recorded in the second line of the signature file, as described in <a href="#Z4000c461058786">"Signature File Contents"</a>.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r17c1-t8" headers="r1c1-t8">
+<p><code>-CopyRight</code> <span class="italic">copyright_string</span></p>
+</td>
+<td class="cellalignment31" headers="r17c1-t8 r1c2-t8">
+<p>Optional. Writes the specified copyright string to the signature file.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r18c1-t8" headers="r1c1-t8">
+<p><code>-static</code></p>
+</td>
+<td class="cellalignment31" headers="r18c1-t8 r1c2-t8">
+<p>Deprecated. The <code>Setup</code> command now runs only in static mode.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r19c1-t8" headers="r1c1-t8">
+<p><code>-keepfile</code></p>
+</td>
+<td class="cellalignment31" headers="r19c1-t8 r1c2-t8">
+<p>Optional. By default, if the <code>Setup</code> command encounters an error, it does not keep the generated signature file. This option directs the <code>Setup</code> command to keep the generated signature file if an error is encountered. Use this option with caution because the signature file might be inconsistent.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" --></div>
+<!-- class="sect2" -->
+<a id="Z4000c461058755"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">4.3.2</span> Case Sensitivity of Option Arguments</h3>
+<p>The specification of each argument option at the command line is not case sensitive, but the input value entered immediately after the option is case sensitive.</p>
+<p>The following two command lines produce identical results for the <code>-FileName</code> flag:</p>
+<pre>
+% java -jar sigtestdev.jar Setup -FileName name.sig
+% java -jar sigtestdev.jar Setup -filename name.sig
+</pre>
+<p>However, these two might not produce identical results if the host operating system is case sensitive to the file name values entered:</p>
+<pre>
+% java -jar sigtestdev.jar Setup -FileName name.sig
+% java -jar sigtestdev.jar Setup -FileName NAME.sig
+</pre></div>
+<!-- class="sect2" -->
+<a id="Z4000c461058761"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">4.3.3</span> Signature File Formats</h3>
+<p>The Signature Test tool has changed signature file formats through progressive versions. <a href="#Z4000c461052565">Table 4-3</a> lists the existing signature file formats and describes how each relates to a specific Signature Test tool version. In Signature Test tool 2.2, the <code>SignatureTest</code> and <code>Merge</code> commands read v2.1 and later signature files, and output only v4.1.</p>
+<div class="tblhruleformal">
+<p class="titleintable"><a id="sthref11"></a><a id="Z4000c461052565"></a>Table 4-3 Signature File Format Compatibility</p>
+<table class="cellalignment36" title=" Signature File Format Compatibility " summary="Add Summary attribute value here." dir="ltr">
+<thead>
+<tr class="cellalignment25">
+<th class="cellalignment37" id="r1c1-t9">Format</th>
+<th class="cellalignment37" id="r1c2-t9">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r2c1-t9" headers="r1c1-t9">
+<p>v0</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t9 r1c2-t9">
+<p>Generates a signature file with simple class member names. This was the default format in Signature Test tool 1.0, but is not supported by <code>SignatureTest</code> command in Signature Test tool 1.3 and later.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r3c1-t9" headers="r1c1-t9">
+<p>v1</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t9 r1c2-t9">
+<p>Generates a signature file with fully qualified class member names. This was the default format in Signature Test tool 1.1. This format includes <span class="italic">non-normalized</span> exception throw lists for constructors and methods. Normalizing the throw list involves removing all superfluous exception classes. A class is superfluous if it is a subclass of either the <code>java.lang.RuntimeException</code> class, or the <code>java.lang.Error</code> class, or another class from the same list. This format is not supported by <code>SignatureTest</code> command in Signature Test tool 1.3 and later.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r4c1-t9" headers="r1c1-t9">
+<p>v2</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t9 r1c2-t9">
+<p>This is the default format for Signature Test tool 1.2. Generates a signature file with fully qualified class member names and modified <code>supr</code> statements. This format includes <span class="italic">normalized</span> exception throw lists for constructors and methods. This format is not supported by <code>SignatureTest</code> command in Signature Test tool 1.3 and later.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r5c1-t9" headers="r1c1-t9">
+<p>v2.1</p>
+</td>
+<td class="cellalignment31" headers="r5c1-t9 r1c2-t9">
+<p>This version extends the v2 format to indicate whether an interface is inherited directly or indirectly. It is read by <code>SignatureTest</code> command in Signature Test tool 1.3 and later.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r6c1-t9" headers="r1c1-t9">
+<p>v3.1</p>
+</td>
+<td class="cellalignment31" headers="r6c1-t9 r1c2-t9">
+<p>Generates data for JDK<sup>&trade;</sup> software version 5.0 such as generics, annotations, and enums.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r7c1-t9" headers="r1c1-t9">
+<p>v4.0</p>
+</td>
+<td class="cellalignment31" headers="r7c1-t9 r1c2-t9">
+<p>Inherited members are not written to the signature file. Private and default visibility fields and nested classes that can potentially hide visible API elements are tracked. In Signature Test tool 2.2, all output files are of this version.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r8c1-t9" headers="r1c1-t9">
+<p>v4.1</p>
+</td>
+<td class="cellalignment31" headers="r8c1-t9 r1c2-t9">
+<p>Non-static constants are written to the signature file. References to outer classes are stored for the inner classes. Constructor names are changed to <code>&lt;init&gt;</code>. This has been the case since SigTest 2.2.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r9c1-t9" headers="r1c1-t9">
+<p>v4.2</p>
+</td>
+<td class="cellalignment31" headers="r9c1-t9 r1c2-t9">
+<p>Support for Java 8 features, such as default and static methods in interfaces, and type and repeating annotations. The <code>Setup</code> command writes files in this format since Signature Test tool 3.0.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" -->
+<p>Also see <a href="sig_intro.htm#Z4000c4424658">"Source and Binary Compatibility Modes"</a>.</p>
+</div>
+<!-- class="sect2" -->
+<a id="Z4000c461058786"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">4.3.4</span> Signature File Contents</h3>
+<p><code>Setup</code> generates each signature file with a mandatory header in the first two lines, followed by the body of the signature file.</p>
+<div class="infobox-note">
+<p class="notep1">Note:</p>
+<p>Comment lines start with the pound (#) character and can be inserted anywhere after the first two mandatory header lines.</p>
+</div>
+<a id="Z4000c461058511"></a>
+<div class="sect3">
+<h4 class="sect3"><span class="secnum">4.3.4.1</span> Signature File Header</h4>
+<p><code>Setup</code> generates the first two mandatory header lines of each signature file as follows:</p>
+<pre>
+#Signature file <span class="italic">format</span>
+#Version <span class="italic">version-string</span>
+</pre>
+<p>With the following variable replacement values:</p>
+<ul>
+<li>
+<p><span class="italic">format</span> is either one of the values described in <a href="#Z4000c461052565">Table 4-3</a>, or empty, that indicates v0.</p>
+</li>
+<li>
+<p><span class="italic">version-string</span> is a value taken directly from the argument given at the startup command line to the <code>-apiVersion</code> option (see <a href="#Z4000c461052516">Table 4-2</a>).</p>
+</li>
+</ul>
+<p>Note that the header can also contain an optional copyright string.</p>
+</div>
+<!-- class="sect3" -->
+<a id="Z4000c461058523"></a>
+<div class="sect3">
+<h4 class="sect3"><span class="secnum">4.3.4.2</span> Signature File Body</h4>
+<p>The remaining body of a signature file immediately follows the header. It contains the following information, which is further clarified in <a href="#Z4000c461052609">Table 4-4</a>:</p>
+<ul>
+<li>
+<p>For each <code>public</code> or <code>protected</code> class:</p>
+<ul>
+<li>
+<p>All modifiers except <code>strictfp</code></p>
+</li>
+<li>
+<p>The fully qualified name of any superclass or interfaces implemented</p>
+</li>
+<li>
+<p>Generic type parameters, and annotations.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>For each <code>public</code> or <code>protected</code> interface:</p>
+<ul>
+<li>
+<p>All modifiers except <code>strictfp</code></p>
+</li>
+<li>
+<p>The fully qualified name of any superinterfaces implemented,</p>
+</li>
+<li>
+<p>Generic type parameters</p>
+</li>
+<li>
+<p>Annotations</p>
+</li>
+</ul>
+</li>
+<li>
+<p>For each <code>public</code> or <code>protected</code> field:</p>
+<ul>
+<li>
+<p>All modifiers except <code>transient</code></p>
+</li>
+<li>
+<p>The fully qualified name of the field's type and its fully qualified name</p>
+</li>
+<li>
+<p>If the field is a primitive or string constant, the value of the field is included</p>
+</li>
+<li>
+<p>Documented annotations and type parameters</p>
+</li>
+</ul>
+</li>
+<li>
+<p>For each <code>public</code> or <code>protected</code> method:</p>
+<ul>
+<li>
+<p>All modifiers (except <code>native</code>, <code>synchronized</code>, and <code>strictfp</code>)</p>
+</li>
+<li>
+<p>The fully qualified name of the type of returned value, the method's fully qualified name</p>
+</li>
+<li>
+<p>Types of all parameters</p>
+</li>
+<li>
+<p>The names of exceptions declared in a <code>throws</code> clause</p>
+</li>
+</ul>
+</li>
+<li>
+<p>For each <code>public</code> or <code>protected</code> constructor:</p>
+<ul>
+<li>
+<p>All modifiers</p>
+</li>
+<li>
+<p>The fully qualified name of the constructor</p>
+</li>
+<li>
+<p>Types of all parametera</p>
+</li>
+<li>
+<p>Any exceptions declared in a <code>throws</code> clause</p>
+</li>
+</ul>
+<div class="infobox-note">
+<p class="notep1">Note:</p>
+<p>All <code>private</code> <code>types</code> that are used in the definition of a <code>public</code> or <code>protected</code> item are substituted by their <code>public</code> or <code>protected</code> equivalent if possible, otherwise an error is generated. All types included in a signature file are either <code>public</code> or <code>protected</code> and not <code>private</code> or <code>package</code> <code>local</code>.</p>
+</div>
+</li>
+</ul>
+<p><a href="#Z4000c461052609">Table 4-4</a> further summarizes the contents of a generated signature file. A plus (+) indicates a class modifier is included in a generated signature file and a minus (-) indicates it is ignored for that particular element. A blank cell indicates that the condition does not apply to a cell, for example, a class does not have a transient modifier so it is blank.</p>
+<div class="tblhruleformal">
+<p class="titleintable"><a id="sthref12"></a><a id="Z4000c461052609"></a>Table 4-4 Signature File Content Summary</p>
+<table class="cellalignment36" title="Signature File Content Summary " summary="Add Summary attribute value here." dir="ltr">
+<thead>
+<tr class="cellalignment25">
+<th class="cellalignment37" id="r1c1-t12">Modifier</th>
+<th class="cellalignment37" id="r1c2-t12">Class or Interface (Including Nested)</th>
+<th class="cellalignment37" id="r1c3-t12">Field</th>
+<th class="cellalignment37" id="r1c4-t12">Method</th>
+<th class="cellalignment37" id="r1c5-t12">Constructor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r2c1-t12" headers="r1c1-t12">
+<p><code>public</code></p>
+</td>
+<td class="cellalignment31" headers="r2c1-t12 r1c2-t12">
+<p>+</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t12 r1c3-t12">
+<p>+</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t12 r1c4-t12">
+<p>+</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t12 r1c5-t12">
+<p>+</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r3c1-t12" headers="r1c1-t12">
+<p><code>protected</code></p>
+</td>
+<td class="cellalignment31" headers="r3c1-t12 r1c2-t12">
+<p>+</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t12 r1c3-t12">
+<p>+</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t12 r1c4-t12">
+<p>+</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t12 r1c5-t12">
+<p>+</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r4c1-t12" headers="r1c1-t12">
+<p><code>abstract</code></p>
+</td>
+<td class="cellalignment31" headers="r4c1-t12 r1c2-t12">
+<p>+</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t12 r1c3-t12">&nbsp;</td>
+<td class="cellalignment31" headers="r4c1-t12 r1c4-t12">
+<p>+</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t12 r1c5-t12">&nbsp;</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r5c1-t12" headers="r1c1-t12">
+<p><code>static</code></p>
+</td>
+<td class="cellalignment31" headers="r5c1-t12 r1c2-t12">
+<p>+</p>
+</td>
+<td class="cellalignment31" headers="r5c1-t12 r1c3-t12">
+<p>+</p>
+</td>
+<td class="cellalignment31" headers="r5c1-t12 r1c4-t12">
+<p>+</p>
+</td>
+<td class="cellalignment31" headers="r5c1-t12 r1c5-t12">&nbsp;</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r6c1-t12" headers="r1c1-t12">
+<p><code>final</code></p>
+</td>
+<td class="cellalignment31" headers="r6c1-t12 r1c2-t12">
+<p>+</p>
+</td>
+<td class="cellalignment31" headers="r6c1-t12 r1c3-t12">
+<p>+</p>
+</td>
+<td class="cellalignment31" headers="r6c1-t12 r1c4-t12">
+<p>+</p>
+</td>
+<td class="cellalignment31" headers="r6c1-t12 r1c5-t12">&nbsp;</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r7c1-t12" headers="r1c1-t12">
+<p><code>strictfp</code></p>
+</td>
+<td class="cellalignment31" headers="r7c1-t12 r1c2-t12">
+<p>&ndash;</p>
+</td>
+<td class="cellalignment31" headers="r7c1-t12 r1c3-t12">&nbsp;</td>
+<td class="cellalignment31" headers="r7c1-t12 r1c4-t12">
+<p>&ndash;</p>
+</td>
+<td class="cellalignment31" headers="r7c1-t12 r1c5-t12">
+<p><span class="bold">&ndash;</span></p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r8c1-t12" headers="r1c1-t12">
+<p><code>transient</code></p>
+</td>
+<td class="cellalignment31" headers="r8c1-t12 r1c2-t12">&nbsp;</td>
+<td class="cellalignment31" headers="r8c1-t12 r1c3-t12">
+<p><span class="bold">&ndash;</span></p>
+</td>
+<td class="cellalignment31" headers="r8c1-t12 r1c4-t12">&nbsp;</td>
+<td class="cellalignment31" headers="r8c1-t12 r1c5-t12">&nbsp;</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r9c1-t12" headers="r1c1-t12">
+<p><code>volatile</code></p>
+</td>
+<td class="cellalignment31" headers="r9c1-t12 r1c2-t12">&nbsp;</td>
+<td class="cellalignment31" headers="r9c1-t12 r1c3-t12">
+<p><span class="bold">+</span></p>
+</td>
+<td class="cellalignment31" headers="r9c1-t12 r1c4-t12">&nbsp;</td>
+<td class="cellalignment31" headers="r9c1-t12 r1c5-t12">&nbsp;</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r10c1-t12" headers="r1c1-t12">
+<p><code>synchronized</code></p>
+</td>
+<td class="cellalignment31" headers="r10c1-t12 r1c2-t12">&nbsp;</td>
+<td class="cellalignment31" headers="r10c1-t12 r1c3-t12">&nbsp;</td>
+<td class="cellalignment31" headers="r10c1-t12 r1c4-t12">
+<p><span class="bold">&ndash;</span></p>
+</td>
+<td class="cellalignment31" headers="r10c1-t12 r1c5-t12">&nbsp;</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r11c1-t12" headers="r1c1-t12">
+<p><code>native</code></p>
+</td>
+<td class="cellalignment31" headers="r11c1-t12 r1c2-t12">&nbsp;</td>
+<td class="cellalignment31" headers="r11c1-t12 r1c3-t12">&nbsp;</td>
+<td class="cellalignment31" headers="r11c1-t12 r1c4-t12">
+<p><span class="bold">&ndash;</span></p>
+</td>
+<td class="cellalignment31" headers="r11c1-t12 r1c5-t12">&nbsp;</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r12c1-t12" headers="r1c1-t12">
+<p><code>varargs</code></p>
+</td>
+<td class="cellalignment31" headers="r12c1-t12 r1c2-t12">&nbsp;</td>
+<td class="cellalignment31" headers="r12c1-t12 r1c3-t12">&nbsp;</td>
+<td class="cellalignment31" headers="r12c1-t12 r1c4-t12">
+<p>+</p>
+</td>
+<td class="cellalignment31" headers="r12c1-t12 r1c5-t12">
+<p>+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" -->
+<div class="infobox-note">
+<p class="notep1">Note:</p>
+<p>The volatile fields modifier is checked with the <code>-mode src-ext</code> option.</p>
+</div>
+</div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="Z4000c461059240"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">4.4</span> <code>SignatureTest</code> Command</h2>
+<p>The <code>SignatureTest</code> command has the following synopsis:</p>
+<p><code>java -jar sigtest.jar Test</code> [<span class="italic">options</span>]</p>
+<p>or</p>
+<p><code>java com.sun.tdk.signaturetest.SignatureTest</code> [<span class="italic">options</span>]</p>
+<p>The second alternative assumes that <code>sigtest.jar</code> is on the class path. The rules described in <a href="#Z4000c461058755">"Case Sensitivity of Option Arguments"</a> apply. <a href="#Z4000c461052380">Table 4-5</a> lists the available options.</p>
+<div class="infobox-note">
+<p class="notep1">Note:</p>
+<p><code>SignatureTest</code> command settings for the <code>CLASSPATH</code> environment variable and the <code>-classpath</code> option are the same as those listed for the Setup command in <a href="#Z4000c461052593">Table 4-1</a>.</p>
+</div>
+<a id="Z4000c461058838"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">4.4.1</span> Command Description</h3>
+<p>The <code>SignatureTest</code> command compares the reference API represented in a signature file to the API under test and produces a report. Depending on the command-line options specified, it uses either the reflection or static mode. If the <code>-classpath</code> option is specified, the <code>SignatureTest</code> command checks if any extra classes are contained in the APIs it specifies.</p>
+<p>See <a href="#Z4000c461058761">"Signature File Formats"</a> for details about supported versions of signature file formats.</p>
+<div class="infobox-note">
+<p class="notep1">Note:</p>
+<p>Arguments to options marked with an asterisk (*) in <a href="#Z4000c461052380">Table 4-5</a> can be specified multiple times. For example, if you want to specify filtering for the <code>java.awt</code>, <code>java.lang</code>, and <code>java.math</code> packages, you can specify the three arguments separated by a file separator character as shown in the following example:. <code>--Package java.awt:java.lang:java.math</code> On Unix operating systems the separator character is &rdquo;:&rdquo; and on Microsoft Windows it is &rdquo;;&rdquo;.</p>
+</div>
+<div class="tblhruleformal">
+<p class="titleintable"><a id="sthref13"></a><a id="Z4000c461052380"></a>Table 4-5 <code>SignatureTest</code> Command Options</p>
+<table class="cellalignment36" title="SignatureTest Command Options " summary="Add Summary attribute value here." dir="ltr">
+<thead>
+<tr class="cellalignment25">
+<th class="cellalignment37" id="r1c1-t16">Option</th>
+<th class="cellalignment37" id="r1c2-t16">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r2c1-t16" headers="r1c1-t16">
+<p><code>-help</code></p>
+</td>
+<td class="cellalignment31" headers="r2c1-t16 r1c2-t16">
+<p>Optional. Displays usage information for available command options and exits.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r3c1-t16" headers="r1c1-t16">
+<p><code>-debug</code></p>
+</td>
+<td class="cellalignment31" headers="r3c1-t16 r1c2-t16">
+<p>Optional. Enables printing of the stack trace for debugging purposes if <code>SignatureTest</code> fails.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r4c1-t16" headers="r1c1-t16">
+<p><code>-static</code></p>
+</td>
+<td class="cellalignment31" headers="r4c1-t16 r1c2-t16">
+<p>Optional. Specifies to run in static mode without using reflection and reports on only the class files specified in the <code>-classpath</code> option.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r5c1-t16" headers="r1c1-t16">
+<p><code>-mode [bin | src]</code></p>
+</td>
+<td class="cellalignment31" headers="r5c1-t16 r1c2-t16">
+<p>Optional. Specifies the compatibility mode to use during the signature test, either binary or source, respectively. Defaults to <code>src</code>. <a href="sig_intro.htm#Z4000c4424658">"Source and Binary Compatibility Modes"</a> describes each mode.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r6c1-t16" headers="r1c1-t16">
+<p><code>-CheckValue</code></p>
+</td>
+<td class="cellalignment31" headers="r6c1-t16 r1c2-t16">
+<p>Specifies to check the values of primitive and string constants. This option generates an error if a signature file does not contain the data necessary for constant checking.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r7c1-t16" headers="r1c1-t16">
+<p><code>-NoCheckValue</code></p>
+</td>
+<td class="cellalignment31" headers="r7c1-t16 r1c2-t16">
+<p>Specifies not to check the values of primitive and string constants.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r8c1-t16" headers="r1c1-t16">
+<p><code>-ClassCacheSize</code> <span class="italic">size_of_cache</span></p>
+</td>
+<td class="cellalignment31" headers="r8c1-t16 r1c2-t16">
+<p>Optional. Used in static mode only. Default is 1024. Specifies the size of the class cache as a number of classes to be held in memory to reduce execution time. Increasing this value dedicates more memory to this function.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r9c1-t16" headers="r1c1-t16">
+<p><code>-classpath</code> <span class="italic">path</span></p>
+</td>
+<td class="cellalignment31" headers="r9c1-t16 r1c2-t16">
+<p>Optional. Specifies the path to one or more APIs to be tested. Defaults to the classes contained in the signature file under test. Can contain multiple directories or ZIP or JAR files. The <code>-package, -exclude, -ApiInclude</code> and <code>-ApiExclude</code> options further refines the set of classes specified in <code>-classpath</code> (see <a href="#Z4000c461058612">"<code>CLASSPATH</code> and <code>-classpath</code> Settings"</a>). Uses the path separator appropriate for the platform (identified by <code>java.io.File.pathSeparator</code>).</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r10c1-t16" headers="r1c1-t16">
+<p><code>-TestURL</code> <span class="italic">URL</span></p>
+</td>
+<td class="cellalignment31" headers="r10c1-t16 r1c2-t16">
+<p>Optional. Specifies the directory location of the signature file as a <code>file</code> protocol URL:</p>
+<p><code>file://</code><span class="italic">path</span></p>
+<p>Must end in a trailing forward slash on a UNIX system or a backslash on a Microsoft Windows or DOS system.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r11c1-t16" headers="r1c1-t16">
+<p><code>-FileName</code> <span class="italic">file_name</span></p>
+</td>
+<td class="cellalignment31" headers="r11c1-t16 r1c2-t16">
+<p>Required if <code>-Files</code> is not specified. Specifies the name of a signature file to be used.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r12c1-t16" headers="r1c1-t16">
+<p><code>-Files</code> <span class="italic">file_names</span></p>
+</td>
+<td class="cellalignment31" headers="r12c1-t16 r1c2-t16">
+<p>Required if -FileName is not specified. Use this option for testing a combination of APIs represented by corresponding signature files. Specifies the names of the signature files to be used delimited by a file separator. The file separator on UNIX systems is a colon (:) character, and on Microsoft Windows systems it is a semicolon (;). See <a href="#Z4000c461059042">"Signature File <code>Merge</code> Rules"</a> for details about the rules used for merging.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r13c1-t16" headers="r1c1-t16">
+<p><code>-NoMerge</code></p>
+</td>
+<td class="cellalignment31" headers="r13c1-t16 r1c2-t16">
+<p>Optional. Forces using the first encountered class description if more than one class with the same name is found in the input set of signature files specified by <code>-Files</code> option. In this case it uses the class from the left-most signature file that is specified with <code>-Files</code>. This option prevents the test from using the default merging behavior according to the JSR 68 rules. See <a href="#Z4000c461059042">"Signature File <code>Merge</code> Rules"</a> for details about the rules used for merging.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r14c1-t16" headers="r1c1-t16">
+<p><code>-Package</code> <span class="italic">package_or_class_name*</span></p>
+</td>
+<td class="cellalignment31" headers="r14c1-t16 r1c2-t16">
+<p>Optional. Specifies a class or package to be reported on, including its subpackages if a package is specified. The default is all classes and packages in the signature file. This option acts as a filter on the set of classes or packages optionally specified in <code>-classpath</code>. Repeat the option to specify multiple entries.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r15c1-t16" headers="r1c1-t16">
+<p><code>-PackageWithoutSubpackages</code> <span class="italic">package</span>*</p>
+</td>
+<td class="cellalignment31" headers="r15c1-t16 r1c2-t16">
+<p>Optional. Similar to the <code>-package</code> option, specifies a package to be reported on without its subpackages. Repeat the option to specify multiple entries.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r16c1-t16" headers="r1c1-t16">
+<p><code>-Exclude</code> <span class="italic">package_or_class_name</span>*</p>
+</td>
+<td class="cellalignment31" headers="r16c1-t16 r1c2-t16">
+<p>Optional. A package or class to be excluded from the report, including its subpackages. Repeat the option for multiple entries. Excludes duplicate entries specified by the <code>-package</code> or the <code>-PackageWithoutSubpackages</code> option.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r17c1-t16" headers="r1c1-t16">
+<p><code>-ApiInclude</code> <span class="italic">package*</span></p>
+</td>
+<td class="cellalignment31" headers="r17c1-t16 r1c2-t16">
+<p>Optional. Specifies a class or package (including its subpackages) belongs to an API. The default is all classes. Repeat the option to specify multiple entries.</p>
+<p>Practically similar to <code>-Package</code> option.</p>
+<p>Since v3.1</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r18c1-t16" headers="r1c1-t16">
+<p><code>-ApiExclude</code> <span class="italic">package*</span></p>
+</td>
+<td class="cellalignment31" headers="r18c1-t16 r1c2-t16">
+<p>Optional. Specifies a class or package (including its subpackages) which does not belong to an API. Repeat the option to specify multiple entries.</p>
+<p>Practically similar to <code>-Exclude</code> option.</p>
+<p>Since v3.1</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r19c1-t16" headers="r1c1-t16">
+<p><code>-out</code> <span class="italic">file_name</span></p>
+</td>
+<td class="cellalignment31" headers="r19c1-t16 r1c2-t16">
+<p>Optional. Prints report messages to a specified file instead of standard output.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r20c1-t16" headers="r1c1-t16">
+<p><code>-FormatPlain</code></p>
+</td>
+<td class="cellalignment31" headers="r20c1-t16 r1c2-t16">
+<p>Optional. Specifies not to sort report messages, but output them immediately. Allows a decrease in memory consumption compared to the default sorted format of message reporting.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r21c1-t16" headers="r1c1-t16">
+<p>-FormatHuman</p>
+<p>-H</p>
+</td>
+<td class="cellalignment31" headers="r21c1-t16 r1c2-t16">
+<p>Optional. Specifies the human-readable report output format. Simple API changes are presented not as pair of errors (&rdquo;missing element&rdquo; and &rdquo;added element&rdquo;), but as a single API change.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r22c1-t16" headers="r1c1-t16">
+<p>-Backward</p>
+<p>-B</p>
+</td>
+<td class="cellalignment31" headers="r22c1-t16 r1c2-t16">
+<p>Optional. Specifies migration compatibility check mode.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r23c1-t16" headers="r1c1-t16">
+<p><code>-apiVersion</code> <span class="italic">version_string</span></p>
+</td>
+<td class="cellalignment31" headers="r23c1-t16 r1c2-t16">
+<p>Optional. Specifies the API version number of the implementation under test to be recorded in the report.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r24c1-t16" headers="r1c1-t16">
+<p><code>-verbose [nowarn | noerr]</code></p>
+</td>
+<td class="cellalignment31" headers="r24c1-t16 r1c2-t16">
+<p>Optional. Enables error diagnostics for inherited class members. By default, such error messages are suppressed.</p>
+<p><code>nowarn</code>: Suppress warnings.</p>
+<p><code>noerr</code>: Suppress errors.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r25c1-t16" headers="r1c1-t16">
+<p><code>-version</code></p>
+</td>
+<td class="cellalignment31" headers="r25c1-t16 r1c2-t16">
+<p>Optional. Displays version information.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r26c1-t16" headers="r1c1-t16">
+<p><code>-ErrorAll</code></p>
+</td>
+<td class="cellalignment31" headers="r26c1-t16 r1c2-t16">
+<p>Optional. Specifies to make the signature test more strict by upgrading certain warnings to errors.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r27c1-t16" headers="r1c1-t16">
+<p>-Update <span class="italic">file_name</span></p>
+</td>
+<td class="cellalignment31" headers="r27c1-t16 r1c2-t16">
+<p>Optional. Specifies the name of an update file. See <a href="#Z4000c461058901">"Using Update Files"</a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" --></div>
+<!-- class="sect2" -->
+<a id="Z4000c461058901"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">4.4.2</span> Using Update Files</h3>
+<p>An update file is an XML file that contains API changes that can be applied to a signature file before tests are performed. An update can have an ID and corresponding comments. <a href="#Z40000101060587">Example 4-1</a> shows an example of an update file that removes and adds a class before test execution.</p>
+<div class="example">
+<p class="titleinexample"><a id="Z40000101060587"></a>Example 4-1 Update File Example</p>
+<pre>
+&lt;updateset&gt;
+    &lt;update type=&rdquo;removeclass&rdquo; id=&rdquo;Change #12&rdquo; comments=&rdquo;Fixing bug #1234&rdquo;
+            classname=&rdquo;com.acme.Elefant&rdquo; /&gt;
+    &lt;update type=&rdquo;addclass&rdquo; id=&rdquo;Change #13&rdquo; comments=&rdquo;Approved by the committee&rdquo;
+            classname=&rdquo;com.acme.Tiger&rdquo; /&gt;
+    CLSS public com.acme.Tier&rdquo;&gt;    
+    cons public &lt;init&gt;()
+    cons public &lt;init&gt;(java.land.String)
+    supr java.lang.Object
+    &lt;/update&gt;
+&lt;/updateset&gt;
+</pre></div>
+<!-- class="example" -->
+<p>The XML file is enclosed within the <code>&lt;updateset&gt;</code> element and each change is specified in an <code>&lt;update&gt;</code> element. Each <code>&lt;change&gt;</code> element consists of a type and a set of attributes. The types and their attributes are described in <a href="#Z4000c461052737">Table 4-6</a>.</p>
+<div class="tblhruleformal">
+<p class="titleintable"><a id="sthref14"></a><a id="Z4000c461052737"></a>Table 4-6 Update Types and Attributes</p>
+<table class="cellalignment36" title="Update Types and Attributes " summary="Add Summary attribute value here." dir="ltr">
+<thead>
+<tr class="cellalignment25">
+<th class="cellalignment37" id="r1c1-t17">Update Types</th>
+<th class="cellalignment37" id="r1c2-t17">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r2c1-t17" headers="r1c1-t17">
+<p>removeclass</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t17 r1c2-t17">
+<p>Removes a class.</p>
+<p>Required attributes:</p>
+<ul>
+<li>
+<p>classname - the name of the class to remove</p>
+</li>
+</ul>
+<p>Optional attributes:</p>
+<ul>
+<li>
+<p>id - change ID</p>
+</li>
+<li>
+<p>comments - a comment that describes the change</p>
+</li>
+</ul>
+<p>Example:</p>
+<pre>
+&lt;update type="removeclass" classname="com.acme.Zoo"
+ id="Issue #1717" comments="Bug fixing" /&gt;
+</pre></td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r3c1-t17" headers="r1c1-t17">
+<p>removepackage</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t17 r1c2-t17">
+<p>Removes all classes belonging to a specified package.</p>
+<p>Required attributes:</p>
+<ul>
+<li>
+<p>packagename - the name of the package to remove</p>
+</li>
+</ul>
+<p>Optional attributes:</p>
+<ul>
+<li>
+<p>id - change ID</p>
+</li>
+<li>
+<p>comments - a comment that describes the change</p>
+</li>
+</ul>
+<p>Example:</p>
+<pre>
+&lt;update type="removepackage" packagename="com.acme.animals" id="CR 4657" comments="Removing incorrectly introduced package, approved" /&gt;
+</pre></td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r4c1-t17" headers="r1c1-t17">
+<p>addclass</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t17 r1c2-t17">
+<p>Adds a class.</p>
+<p>Required attributes:</p>
+<ul>
+<li>
+<p>classname - the name of the class to remove</p>
+</li>
+<li>
+<p>Definition of the new class in the element body</p>
+</li>
+</ul>
+<p>Optional attributes:</p>
+<ul>
+<li>
+<p>id - change ID</p>
+</li>
+<li>
+<p>comments - a comment that describes the change</p>
+</li>
+</ul>
+<p>Example:</p>
+<pre>
+&lt;update type="addclass" classname="com.acme.zoo.Rabbit"&gt;
+CLSS public com.acme.zoo.Rabbit
+cons public &lt;init&gt;()
+cons public &lt;init&gt;(java.lang.String)
+supr com.acme.zoo.Animal
+&lt;/update&gt;
+</pre></td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r5c1-t17" headers="r1c1-t17">
+<p>removemember</p>
+</td>
+<td class="cellalignment31" headers="r5c1-t17 r1c2-t17">
+<p>Removes a class member.</p>
+<p>Required attributes:</p>
+<ul>
+<li>
+<p>classname - the name of the class to change</p>
+</li>
+<li>
+<p>member - the name of the member signature to remove</p>
+</li>
+</ul>
+<p>Optional attributes:</p>
+<ul>
+<li>
+<p>id - change ID</p>
+</li>
+<li>
+<p>comments - a comment that describes the change</p>
+</li>
+</ul>
+<p>Example:</p>
+<pre>
+&lt;update type="removemember" classname="com.acme.zoo.donkey" member="meth public final com.acme.Tail getTail()"/&gt;
+</pre></td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r6c1-t17" headers="r1c1-t17">
+<p>addmember</p>
+</td>
+<td class="cellalignment31" headers="r6c1-t17 r1c2-t17">
+<p>Adds a class member.</p>
+<p>Required attributes:</p>
+<ul>
+<li>
+<p>classname - the name of the class to change</p>
+</li>
+<li>
+<p>member - the member signature add</p>
+</li>
+</ul>
+<p>Optional attributes:</p>
+<ul>
+<li>
+<p>id - change ID</p>
+</li>
+<li>
+<p>comments - a comment that describes the change</p>
+</li>
+</ul>
+<p>Example:</p>
+<pre>
+&lt;update type="addmember" classname="com.acme.zoo.donkey" comments="See wiki for details" member="meth public com.acme.Ear[] getEars()"/&gt;
+</pre></td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r7c1-t17" headers="r1c1-t17">
+<p>changemember</p>
+</td>
+<td class="cellalignment31" headers="r7c1-t17 r1c2-t17">
+<p>Changes a class member</p>
+<p>Required attributes:</p>
+<ul>
+<li>
+<p>classname - the name of the class to change</p>
+</li>
+<li>
+<p>member - the member signature to change</p>
+</li>
+<li>
+<p>newmember -the new member signature</p>
+</li>
+</ul>
+<p>Optional attributes:</p>
+<ul>
+<li>
+<p>id - change ID</p>
+</li>
+<li>
+<p>comments - a comment that describes the change</p>
+</li>
+</ul>
+<p>Example:</p>
+<pre>
+&lt;update type="changemember" classname="com.acme.zoo.donkey"  member="meth public Ear[] getEars()" newmember="meth public java.util.List&lt;com.acme.Ear&gt; getEars()"/&gt;
+</pre></td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" --></div>
+<!-- class="sect2" -->
+<a id="Z4000c461058912"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">4.4.3</span> Report Formats</h3>
+<p>You can cause <code>SignatureTest</code> command report messages to be sorted (default), or unsorted by specifying the <code>-FormatPlain</code> flag at the command line. See Step <a href="a_sig_examples.htm#Z4000c501037200">8</a> of the procedure <a href="a_sig_examples.htm#Z4000c501037398">"Using the <code>SetupAndTest</code> Command"</a> to see a sorted report that was generated into a plain text file with the <code>-out</code> option. Report messages contain the following types of information:</p>
+<ul>
+<li>
+<p>The versions of both the reference API and the API under test</p>
+</li>
+<li>
+<p>The total number of errors found</p>
+</li>
+<li>
+<p>The differences such as added or missing classes, superclasses, fields, or methods</p>
+</li>
+<li>
+<p>The fully qualified name of the enclosing class related to any missing or added description</p>
+</li>
+<li>
+<p>Two errors for any modified item, one for a missing item and another for an added item</p>
+</li>
+<li>
+<p>A description of any incompatibility in the API implementation under test</p>
+</li>
+</ul>
+<a id="Z4000c461058565"></a>
+<div class="sect3">
+<h4 class="sect3"><span class="secnum">4.4.3.1</span> Sorted Report</h4>
+<p>Report messages are sorted by default. Unlike the unsorted format, duplicate messages are removed. To accurately compare the error totals between formats, the sorted report prints two error counts: the total number of errors and the total number of duplicates.</p>
+<p>The sorted report groups error messages by category of difference with classes within each category ordered alphabetically by name, and empty categories are ignored. This is the category ordering sequence:</p>
+<ul>
+<li>
+<p>Missing Classes</p>
+</li>
+<li>
+<p>Missing Class Descriptions (Modified classes and nested classes)</p>
+</li>
+<li>
+<p>Missing Superclasses or Superinterfaces</p>
+</li>
+<li>
+<p>Missing Fields</p>
+</li>
+<li>
+<p>Missing Constructors</p>
+</li>
+<li>
+<p>Missing Methods</p>
+</li>
+<li>
+<p>Added Classes</p>
+</li>
+<li>
+<p>Added Class Descriptions (Modified classes and nested classes)</p>
+</li>
+<li>
+<p>Added Superclasses or Superinterfaces</p>
+</li>
+<li>
+<p>Added Fields</p>
+</li>
+<li>
+<p>Added Constructors</p>
+</li>
+<li>
+<p>Added Methods</p>
+</li>
+<li>
+<p>Linkage Errors</p>
+</li>
+</ul>
+<p>Linkage errors occur during testing if the API implementation under test is corrupted, for example, if a superclass or superinterface of a class under test cannot be loaded.</p>
+<p>See the sorted report in <a href="a_sig_examples.htm#Z40000131044953">Example A-4</a>.</p>
+</div>
+<!-- class="sect3" -->
+<a id="Z4000c461058572"></a>
+<div class="sect3">
+<h4 class="sect3"><span class="secnum">4.4.3.2</span> Unsorted Report</h4>
+<p>The <code>-FormatPlain</code> option specifies an unsorted report. The unsorted format reports messages immediately during execution and duplicate messages are included.</p>
+<p><a href="#Z40000101060709">Example 4-2</a> shows an unsorted report that corresponds to the sorted report in <a href="a_sig_examples.htm#Z40000131044953">Example A-4</a>.</p>
+<div class="example">
+<p class="titleinexample"><a id="Z40000101060709"></a>Example 4-2 Unsorted Report Example</p>
+<pre>
+Definition required but not found in example.test
+    method public int get(int)
+Definition found but not permitted in example.test
+    method public java.lang.String get(int)
+Definition found but not permitted in example.test
+    method public void put()
+SignatureTest report
+Tested version: 2.0
+STATUS: Failed. 3 errors
+</pre></div>
+<!-- class="example" --></div>
+<!-- class="sect3" -->
+<a id="Z4000c461058581"></a>
+<div class="sect3">
+<h4 class="sect3"><span class="secnum">4.4.3.3</span> Human-Readable Report</h4>
+<p>The human-readable report format is similar to the sorted report format. Unlike the sorted report format where some changes in the API are presented as pairs of messages (&rdquo;added element&rdquo; and &rdquo;missed element&rdquo;), the human-readable report format presents these changes as a single message that describes the difference between the APIs. This report recognizes the following cases:</p>
+<ul>
+<li>
+<p>Modifiers were changed</p>
+</li>
+<li>
+<p>Return type was changed</p>
+</li>
+<li>
+<p>Parameter types were changed</p>
+</li>
+<li>
+<p>Normalized throw list was changed</p>
+</li>
+<li>
+<p>Constant value was changed</p>
+</li>
+<li>
+<p>Annotation was changed</p>
+</li>
+</ul>
+<p>Unlike the sorted report format, all messages are grouped by class first, rather than message type. The code example below shows the output for an class:</p>
+<pre>
+Class tests.human.many.E1
+  Changed
+    method public abstract void tests.human.many.E1.foo() throws java.io.IOException
+    - Throws: [java.io.IOException]
+    method public abstract void tests.human.many.E1.foo() throws java.io.IOException
+    - [public, abstract]
+    + [protected]
+    field public final static int tests.human.many.E1.i = 0
+    - type: int
+    + type: char
+    field public final static int tests.human.many.E1.i = 0
+    - value: 0
+</pre></div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="Z4000c461059340"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">4.5</span> <code>SetupAndTest</code> Command</h2>
+<p>The <code>SetupAndTest</code> command has the following synopsis:</p>
+<p><code>java -jar sigtestdev.jar SetupAndTest [</code><span class="italic">options</span><code>]</code></p>
+<p>or</p>
+<p><code>java com.sun.tdk.signaturetest.SetupAndTest [</code><span class="italic">options</span><code>]</code></p>
+<p>The second alternative assumes that <code>sigtestdev.jar</code> is on the class path. The rules described in <a href="#Z4000c461058755">"Case Sensitivity of Option Arguments"</a> apply. <a href="#Z4000c461052459">Table 4-7</a> lists the available options.</p>
+<a id="Z4000c461058931"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">4.5.1</span> Command Description</h3>
+<p><code>SetupAndTest</code> is a wrapper command that runs only in static mode to execute the <code>Setup</code> and <code>SignatureTest</code> commands in one operation. It performs these functions:</p>
+<ol>
+<li>
+<p>Calls the <code>Setup</code> command to create a signature file from the reference API specified as input. It creates a temporary signature file if no name is specified for it with the <code>-FileName</code> option.</p>
+</li>
+<li>
+<p>Calls the <code>SignatureTest</code> command to make the comparison and produce a report.</p>
+</li>
+</ol>
+<div class="infobox-note">
+<p class="notep1">Note:</p>
+<p>Arguments to options marked with an asterisk in <a href="#Z4000c461052459">Table 4-7</a> can be specified multiple times. For example, if you want to specify filtering for the <code>java.awt</code>, <code>java.lang</code>, and <code>java.math</code> packages, you can specify the three arguments separated by a file separator character as shown in the following example:<code>-Package</code> <code>java.awt:java.lang:java.math</code> On Unix operating systems the separator character is &rdquo;:&rdquo; and on Microsoft Windows it is &rdquo;;&rdquo;.</p>
+</div>
+<div class="tblhruleformal">
+<p class="titleintable"><a id="sthref15"></a><a id="Z4000c461052459"></a>Table 4-7 <code>SetupAndTest</code> Command Options</p>
+<table class="cellalignment36" title="SetupAndTest Command Options" summary="Add Summary attribute value here." dir="ltr">
+<thead>
+<tr class="cellalignment25">
+<th class="cellalignment37" id="r1c1-t19">Option</th>
+<th class="cellalignment37" id="r1c2-t19">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r2c1-t19" headers="r1c1-t19">
+<p><code>-help</code></p>
+</td>
+<td class="cellalignment31" headers="r2c1-t19 r1c2-t19">
+<p>Optional. Displays usage information for available command options and exits.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r3c1-t19" headers="r1c1-t19">
+<p><code>-reference</code> <span class="italic">path</span></p>
+</td>
+<td class="cellalignment31" headers="r3c1-t19 r1c2-t19">
+<p>Required. Specifies the path to the classes to be used for creating the signature file.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r4c1-t19" headers="r1c1-t19">
+<p><code>-test</code> <span class="italic">path</span></p>
+</td>
+<td class="cellalignment31" headers="r4c1-t19 r1c2-t19">
+<p>Required. Path to the packages being tested.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r5c1-t19" headers="r1c1-t19">
+<p><code>-FileName</code> <span class="italic">file</span></p>
+</td>
+<td class="cellalignment31" headers="r5c1-t19 r1c2-t19">
+<p>Optional. Specifies the signature file name. The command execution uses a temporary file if not specified.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r6c1-t19" headers="r1c1-t19">
+<p><code>-mode [bin | src]</code></p>
+</td>
+<td class="cellalignment31" headers="r6c1-t19 r1c2-t19">
+<p>Optional. Specifies the compatibility mode to use during the signature test, either binary or source, respectively. Defaults to <code>src</code>. <a href="sig_intro.htm#Z4000c4424658">"Source and Binary Compatibility Modes"</a> describes each mode.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r7c1-t19" headers="r1c1-t19">
+<p><code>-package</code> <span class="italic">package_or_class_name</span>*</p>
+</td>
+<td class="cellalignment31" headers="r7c1-t19 r1c2-t19">
+<p>Optional. Specifies a class or package to be reported on, including its subpackages if a package is specified. This option acts as a filter on the set of classes or packages that are tested and reported on. The default is all classes and packages. Repeat the option to specify multiple entries.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r8c1-t19" headers="r1c1-t19">
+<p><code>-PackageWithoutSubpackages</code> <span class="italic">name</span>*</p>
+</td>
+<td class="cellalignment31" headers="r8c1-t19 r1c2-t19">
+<p>Optional. Specifies package to be tested excluding subpackages.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r9c1-t19" headers="r1c1-t19">
+<p><code>-ApiInclude</code> <span class="italic">package*</span></p>
+</td>
+<td class="cellalignment31" headers="r9c1-t19 r1c2-t19">
+<p>Optional. Specifies a class or package (including its subpackages) belongs to an API. The default is all classes. Repeat the option to specify multiple entries.</p>
+<p>Practically similar to <code>-Package</code> option.</p>
+<p>Since v3.1</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r10c1-t19" headers="r1c1-t19">
+<p><code>-ApiExclude</code> <span class="italic">package*</span></p>
+</td>
+<td class="cellalignment31" headers="r10c1-t19 r1c2-t19">
+<p>Optional. Specifies a class or package (including its subpackages) which does not belong to an API. Repeat the option to specify multiple entries.</p>
+<p>Practically similar to <code>-Exclude</code> option.</p>
+<p>Since v3.1</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r11c1-t19" headers="r1c1-t19">
+<p><code>-exclude</code> <span class="italic">name</span>*</p>
+</td>
+<td class="cellalignment31" headers="r11c1-t19 r1c2-t19">
+<p>Optional. A package or class to be excluded from testing, including its subpackages. Repeat the option for multiple entries. Excludes duplicate entries specified by the <code>-package</code> or the <code>-PackageWithoutSubpackages</code> option.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r12c1-t19" headers="r1c1-t19">
+<p><code>-ClassCacheSize</code> <span class="italic">size_of_cache</span></p>
+</td>
+<td class="cellalignment31" headers="r12c1-t19 r1c2-t19">
+<p>Optional. Specifies the size of the class cache as a number of classes to be held in memory to reduce execution time. Increasing this value dedicates more memory to this function. Defaults to 100.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r13c1-t19" headers="r1c1-t19">
+<p><code>-CheckValue</code></p>
+</td>
+<td class="cellalignment31" headers="r13c1-t19 r1c2-t19">
+<p>Optional. Specifies to check the values of primitive and string constants. This option generates an error if a signature file does not contain the data necessary for constant checking.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r14c1-t19" headers="r1c1-t19">
+<p><code>-NoCheckValue</code></p>
+</td>
+<td class="cellalignment31" headers="r14c1-t19 r1c2-t19">
+<p>Optional. Specifies not to check the values of primitive and string constants.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r15c1-t19" headers="r1c1-t19">
+<p>-<code>verbose [nowarn | noerr]</code></p>
+</td>
+<td class="cellalignment31" headers="r15c1-t19 r1c2-t19">
+<p>Optional. Enables error diagnostics for inherited class members. By default, such error messages are suppressed.</p>
+<p><code>nowarn</code>: Suppress warnings.</p>
+<p><code>noerr</code>: Suppress errors.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r16c1-t19" headers="r1c1-t19">
+<p><code>-version</code></p>
+</td>
+<td class="cellalignment31" headers="r16c1-t19 r1c2-t19">
+<p>Optional. Displays version information.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r17c1-t19" headers="r1c1-t19">
+<p><code>-apiVersion</code> <span class="italic">version_string</span></p>
+</td>
+<td class="cellalignment31" headers="r17c1-t19 r1c2-t19">
+<p>Optional. Specifies the API version number of the implementation under test to be recorded in the generated report.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r18c1-t19" headers="r1c1-t19">
+<p><code>-out</code> <span class="italic">file_name</span></p>
+</td>
+<td class="cellalignment31" headers="r18c1-t19 r1c2-t19">
+<p>Optional. Prints report messages to a specified file instead of standard output.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r19c1-t19" headers="r1c1-t19">
+<p><code>-FormatPlain</code></p>
+</td>
+<td class="cellalignment31" headers="r19c1-t19 r1c2-t19">
+<p>Optional. Specifies not to sort report messages, but output them immediately. Allows a decrease in memory consumption compared to the default sorted format of message reporting.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r20c1-t19" headers="r1c1-t19">
+<p>-FormatHuman</p>
+<p>-H</p>
+</td>
+<td class="cellalignment31" headers="r20c1-t19 r1c2-t19">
+<p>Optional. Specifies the human-readable report output format. Simple API changes are presented not as pair of errors (&rdquo;missing element&rdquo; and &rdquo;added element&rdquo;), but as a single API change.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r21c1-t19" headers="r1c1-t19">
+<p>-Backward</p>
+<p>-B</p>
+</td>
+<td class="cellalignment31" headers="r21c1-t19 r1c2-t19">
+<p>Optional. Specifies migration compatibility check mode.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" --></div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="Z4000c461059373"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">4.6</span> <code>Merge</code> Command</h2>
+<p>The <code>Merge</code> command has the following synopsis:</p>
+<p><code>java -jar sigtest.jar Merge [</code><span class="italic">options</span><code>]</code></p>
+<p>or</p>
+<p><code>java com.sun.tdk.signaturetest.Merge [</code><span class="italic">options</span><code>]</code></p>
+<p>The second alternative assumes that <code>sigtest.jar</code> is on the class path. The rules described in <a href="#Z4000c461058755">"Case Sensitivity of Option Arguments"</a> apply. <a href="#Z4000c461052340">Table 4-8</a> lists the available options.</p>
+<a id="Z4000c461058957"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">4.6.1</span> Command Description</h3>
+<p>The <code>Merge</code> command combines (merges) a number of input signature files into one resulting signature file. See <a href="#Z4000c461059042">"Signature File <code>Merge</code> Rules"</a> for details about the rules used for merging, and <a href="#Z4000c461058761">"Signature File Formats"</a> for details about supported versions of signature file formats. <a href="#Z4000c461052340">Table 4-8</a> lists the <code>Merge</code> command options.</p>
+<div class="tblhruleformal">
+<p class="titleintable"><a id="sthref16"></a><a id="Z4000c461052340"></a>Table 4-8 <code>Merge</code> Command Options</p>
+<table class="cellalignment36" title="Merge Command Options" summary="Add Summary attribute value here." dir="ltr">
+<thead>
+<tr class="cellalignment25">
+<th class="cellalignment37" id="r1c1-t20">Option</th>
+<th class="cellalignment37" id="r1c2-t20">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r2c1-t20" headers="r1c1-t20">
+<p><code>-help</code></p>
+</td>
+<td class="cellalignment31" headers="r2c1-t20 r1c2-t20">
+<p>Optional. Displays usage information for available command options and exits.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r3c1-t20" headers="r1c1-t20">
+<p><code>-Files</code></p>
+</td>
+<td class="cellalignment31" headers="r3c1-t20 r1c2-t20">
+<p>Required. Specifies the names of the signature files to be merged delimited by a file separator. The file separator on UNIX systems is a colon (:) character, and on Microsoft Windows systems it is a semicolon (;). See <a href="#Z4000c461059042">"Signature File <code>Merge</code> Rules"</a> for details about the rules used for merging.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r4c1-t20" headers="r1c1-t20">
+<p><code>-Write</code></p>
+</td>
+<td class="cellalignment31" headers="r4c1-t20 r1c2-t20">
+<p>Required. Specifies the resulting output signature file.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r5c1-t20" headers="r1c1-t20">
+<p><code>-Binary</code></p>
+</td>
+<td class="cellalignment31" headers="r5c1-t20 r1c2-t20">
+<p>Optional. Specifies to use the binary merge mode. See <a href="sig_intro.htm#Z4000c4424658">"Source and Binary Compatibility Modes"</a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" --></div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<hr />
+<br />
+<p style="text-decoration:underline">Footnote Legend</p>
+Footnote&nbsp;1:&nbsp;The terms &rdquo;Java Virtual Machine&rdquo; and &rdquo;JVM&rdquo; mean a Virtual Machine for the Java platform.<br />
+Footnote&nbsp;2:&nbsp;<code><a href="http://jcp.org/en/jsr/detail?id=68">http://jcp.org/en/jsr/detail?id=68</a></code><br /></div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment24">
+<tr>
+<td class="cellalignment31">
+<table class="cellalignment29">
+<tr>
+<td class="cellalignment28"><a href="sig_intro.htm"><img width="24" height="24" src="../../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment28"><a href="part2.htm"><img width="24" height="24" src="../../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2006, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment33">
+<table class="cellalignment27">
+<tr>
+<td class="cellalignment28"><a href="../../index.html"><img width="24" height="24" src="../../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment28"><a href="toc.htm"><img width="24" height="24" src="../../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment28"><a href="../../dcommon/html/feedback.htm"><img width="24" height="24" src="../../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+</body>
+</html>

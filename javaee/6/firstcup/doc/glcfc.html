@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 25226-->
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>Creating Your Second Web Application - Your First Cup: An Introduction to the Java EE Platform</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2012-04-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gcqyw.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gcqyb.html">1.&nbsp;&nbsp;Introduction</a></p>
+<p class="toc level1 tocsp"><a href="gcrlo.html">2.&nbsp;&nbsp;Understanding Java Platform, Enterprise Edition</a></p>
+<p class="toc level1 tocsp"><a href="gcrkp.html">3.&nbsp;&nbsp;Creating Your First Java EE Application</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level1 tocsp"><a href="">4.&nbsp;&nbsp;Creating Your Second Web Application</a></p>
+</div>
+<p class="toc level2"><a href="gjbca.html">Creating the <tt>firstcup</tt> Project</a></p>
+<p class="toc level3"><a href="gjbca.html#gimnt">Create the Web Application Project</a></p>
+<p class="toc level2 tocsp"><a href="gjbcs.html">Creating the Java Persistence API Entity</a></p>
+<p class="toc level3"><a href="gjbcs.html#gjbam">Create the <tt>FirstcupUser</tt> Entity Class</a></p>
+<p class="toc level3"><a href="gjbcs.html#gjbao">Add Properties to the <tt>FirstcupUser</tt> Entity</a></p>
+<p class="toc level3"><a href="gjbcs.html#gkknn">Add Constructors to the <tt>FirstcupUser</tt> Entity</a></p>
+<p class="toc level3"><a href="gjbcs.html#gjbcm">Add a Named Query to the <tt>FirstcupUser</tt> Entity</a></p>
+<p class="toc level2 tocsp"><a href="gcrlx.html">Creating the Enterprise Bean</a></p>
+<p class="toc level3"><a href="gcrlx.html#gcrpv">Create the <tt>DukesBirthdayBean</tt> Enterprise Bean Class</a></p>
+<p class="toc level3"><a href="gcrlx.html#gcrpg">Add a Logger Instance to <tt>DukesBirthdayBean.java</tt></a></p>
+<p class="toc level3"><a href="gcrlx.html#gjbcu">Add a Business Method to <tt>DukesBirthdayBean</tt> that Gets the Average Age Difference of <tt>firstcup</tt> Users</a></p>
+<p class="toc level3"><a href="gcrlx.html#gkgot">Add a Business Method for Calculating the Age Difference Between Duke and the User</a></p>
+<p class="toc level2 tocsp"><a href="gcrlt.html">Creating the Web Client</a></p>
+<p class="toc level3"><a href="gcrlt.html#gcrpf">Creating a Resource Bundle</a></p>
+<p class="toc level4"><a href="gcrlt.html#gcrrz">Create a Resource Bundle</a></p>
+<p class="toc level3 tocsp"><a href="gcrlt.html#gcrri">Configuring the Resource Bundle in the Configuration File</a></p>
+<p class="toc level4"><a href="gcrlt.html#gjbco">Create a Configuration File</a></p>
+<p class="toc level4"><a href="gcrlt.html#gcrqy">Configure the Resource Bundle</a></p>
+<p class="toc level3 tocsp"><a href="gcrlt.html#gcrqx">Creating the <tt>DukesBDay</tt> Managed Bean Class</a></p>
+<p class="toc level4"><a href="gcrlt.html#gcrrq">Create the Managed Bean Class</a></p>
+<p class="toc level4"><a href="gcrlt.html#gcrre">Add an Enterprise Bean Reference</a></p>
+<p class="toc level4"><a href="gcrlt.html#gcuzv">Add Properties to the Bean</a></p>
+<p class="toc level4"><a href="gcrlt.html#gcrsa">Get the Age Difference from the <tt>DukesBirthdayBean</tt> Enterprise Bean</a></p>
+<p class="toc level3 tocsp"><a href="gcrlt.html#gimvd">Creating the Facelets Client</a></p>
+<p class="toc level4"><a href="gcrlt.html#gimug">Resource Libraries in <tt>firstcup</tt></a></p>
+<p class="toc level4"><a href="gcrlt.html#gimtw">The <tt>inputDate</tt> Composite Component</a></p>
+<p class="toc level4"><a href="gcrlt.html#gimwv">Create the <tt>inputDate</tt> Composite Component</a></p>
+<p class="toc level4"><a href="gcrlt.html#gimum">The Facelets Web Interface</a></p>
+<p class="toc level4"><a href="gcrlt.html#gimxf">Create the XHTML Files</a></p>
+<p class="toc level4"><a href="gcrlt.html#giplb">Set the Welcome File in the <tt>web.xml</tt> Deployment Descriptor</a></p>
+<p class="toc level4"><a href="gcrlt.html#gimua">Modify the XHTML Files</a></p>
+<p class="toc level4"><a href="gcrlt.html#gimta">Add the Form to <tt>greeting.xhtml</tt></a></p>
+<p class="toc level4"><a href="gcrlt.html#gimvw">Add the Form to <tt>response.html</tt></a></p>
+<p class="toc level2 tocsp"><a href="gctnx.html">Building, Packaging, Deploying, and Running the <tt>firstcup</tt> Web Application</a></p>
+<p class="toc level3"><a href="gctnx.html#gctoj">Build, Package, and Deploy the <tt>firstcup</tt> Web Application</a></p>
+<p class="toc level3"><a href="gctnx.html#gctqc">Run the <tt>firstcup</tt> Application</a></p>
+<p class="toc level1 tocsp"><a href="gcrll.html">5.&nbsp;&nbsp;Next Steps</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><p class="Banner">Your First Cup
+</p></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="./gcqzl.html#gcrnx">Download</a> | 
+<a href="./firstcup.pdf">PDF</a> | 
+<a href="http://docs.oracle.com/javaee/support/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="gcrkm.html"><img src="graphics/leftButton.gif" border="0" alt="Previous" title="Previous"></a>
+                 <a href="p1.html"><img src="graphics/upButton.gif" border="0" alt="Contents" title="Contents"></a>
+                 <a href="gjbca.html"><img src="graphics/rightButton.gif" border="0" alt="Next" title="Next"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             <a name="glcfc"></a><h3>Chapter&nbsp;4<br>Creating Your Second Web Application</h3><p>This chapter gives step-by-step instructions on coding and running the <tt>firstcup</tt> web
+application, which uses the <tt>dukes-age</tt> web service described in <a href="gcrkp.html">Chapter&nbsp;3, Creating Your First Java EE Application</a>. The <tt>firstcup</tt> web
+application is a more complicated application, and uses several different Java EE APIs.</p>
+
+<p>The <tt>firstcup</tt> example application retrieves, or &ldquo;consumes,&rdquo; the data from the <tt>dukes-age</tt> web
+service. A JavaServer Faces web front-end asks users to enter their birthdays
+to find out who is older, the user or Duke. This data is
+stored in a Java DB database table using the Java Persistence API. The business
+logic, which provides the core functionality of the application, is handled by an
+enterprise bean.</p>
+
+<p>All the tiers described in <a href="gcrky.html#gcrkr">Tiered Applications</a> are present in the <tt>firstcup</tt> web application.
+The web or client tier is the JavaServer Faces front-end. The enterprise information systems,
+or EIS, tier is the Java DB database. The business tier is the
+enterprise bean.</p>
+
+
+         </div>
+         <div class="navigation">
+             <a href="gcrkm.html"><img src="graphics/leftButton.gif" border="0" alt="Previous" title="Previous"></a>
+             <a href="p1.html"><img src="graphics/upButton.gif" border="0" alt="Contents" title="Contents"></a>
+             <a href="gjbca.html"><img src="graphics/rightButton.gif" border="0" alt="Next" title="Next"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+<!-- Start SiteCatalyst code   -->
+<script language="JavaScript" src="http://www.oracle.com/ocom/groups/systemobject/@mktg_admin/documents/systemobject/s_code_download.js"></script>
+<script language="JavaScript" src="http://www.oracle.com/ocom/groups/systemobject/@mktg_admin/documents/systemobject/s_code.js"></script>
+ 
+<!-- ********** DO NOT ALTER ANYTHING BELOW THIS LINE ! *********** -->
+<!--  Below code will send the info to Omniture server -->
+<script language="javascript">var s_code=s.t();if(s_code)document.write(s_code)</script>
+<noscript><p>Scripting on this page tracks web page traffic,
+but does not change the content in any way.</p></noscript>
+<!-- End SiteCatalyst code -->
+</body>
+</html>
+

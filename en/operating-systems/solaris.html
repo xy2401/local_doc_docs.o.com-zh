@@ -1,0 +1,1046 @@
+<!DOCTYPE html><html lang="en"><head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        
+        <link rel="stylesheet" href="/sp_common/site-template/ohc-site-template/css/site.css">
+        <script data-main="/sp_common/site-template/ohc-site-template/js/site-config" src="/sp_common/site-template/requirejs/require.js"></script>
+        <script>
+        if(window.require === undefined) {
+          document.write('<script data-main="sp_common/site-template/ohc-site-template/js/site-config" src="sp_common/site-template/requirejs/require.js"><\/script>');
+          document.write('<link href="sp_common/site-template/ohc-site-template/css/site.css" rel="stylesheet">');
+        }
+        </script>
+        <link rel="shortcut icon" href="/sp_common/site-template/ohc-common/img/favicon.ico">
+        
+                <title>Operating Systems Documentation - Oracle Solaris Documentation</title>
+                <meta name="description" content>
+                <meta property="og:description" content>
+                <meta property="og:site_name" content="Oracle Help Center">
+                <meta name="generator" content="Oracle Interface Page Generator 1.7.07.20">
+                <meta property="og:title" content="Operating Systems Documentation - Oracle Solaris Documentation">
+                
+                
+                <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+                <meta name="dcterms.created" content="2018-08-29T19:45:36.920Z">
+                
+                <meta name="dcterms.dateCopyrighted" content="2018">
+                <meta name="dcterms.category" content="operating-systems">
+                
+                
+        
+
+    
+    <meta name="dcterms.title" content="Operating Systems Documentation">
+    <meta name="dcterms.product" content="en/operating-systems">
+    <meta name="dcterms.identifier" content="en/operating-systems">
+  <script id="ssot-metadata" type="application/json"> {"primary":{"category":{"short_name":"operating-systems","element_name":"Operating Systems","display_in_url":true}}} </script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+    <body>
+        <noscript>
+            <div>JavaScript must be enabled to correctly display this content</div>
+        </noscript>
+    
+                <div class="ohc-grid">
+                    <div role="banner">
+                        <div>
+                            <a href="#" class="offscreen skipto-top skipto">Go to main content</a>
+                            <nav class="navbar navbar-default">
+                                <div class="container">
+                                    <div class="navbar-header">
+                                        <a class="navbar-brand" href="/">
+                                            <img alt="Oracle Help Center" src="https://docs.oracle.com/sp_common/site-template/ohc-common/img/ohc-logo.png" onerror="this.onerror=&apos;&apos;;this.src=&apos;sp_common/site-template/ohc-common/img/ohc-logo.png&apos;;">
+                                        </a>
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                    </div>
+        
+                                    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+        
+                                        <p class="navbar-text navbar-right logged-in-content hidden"><span class="append-firstname-greeting"></span> <a class="logout-link" href="#">Sign Out</a></p>
+                                        <p class="navbar-text navbar-right logged-out-content hidden"><a class="login-link" href="#"><i class="fa fa-user"></i> Sign In</a></p>
+        
+                                        <form class="navbar-form ohc-search-form visible-xs-block" action="https://docs.oracle.com/apps/search/search.jsp" method="get">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" name="q" aria-label="Search Query Field" placeholder="Search for...">
+                                                    <span class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default" aria-label="Submit Search Query">
+                                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                                            <span class="sr-only">Search</span>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="category" value="operating-systems">
+                                        </form>
+                                        
+                                        <ul class="nav navbar-nav visible-xs-block">
+                                                <li><a href="linux.html">Oracle Linux</a></li>
+                                                
+                                                <li><a href="solaris.html">Oracle Solaris</a></li>
+                                                
+                                                <li><a href="cluster.html">Oracle Solaris Cluster</a></li>
+                                                
+                                                <li><a href="studio.html">Oracle Developer Studio</a></li>
+                                                
+                                                <li><a href="related.html">Related Systems Software</a></li>
+                                                
+                                        </ul>
+        
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+        
+                    <main>
+                        <div>
+                            <div class="ohc-grid">
+                                <div>
+                                    <div class="ohc-sidebar hidden-xs">
+                                        <form class="ohc-search-form" action="https://docs.oracle.com/apps/search/search.jsp" method="get">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" name="q" aria-label="Search Query Field" placeholder="Search for...">
+                                                    <span class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default" aria-label="Submit Search Query">
+                                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                                            <span class="sr-only">Search</span>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="category" value="operating-systems">
+                                        </form>
+                                        
+                                        <ul class="up">
+                                            <li><a href="/"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"> </span>Help Center Home</a></li>
+                                        </ul>
+                                        
+                                        
+                                            
+                                            <ul class="links">
+                                                <li>  <a href="linux.html">Oracle Linux </a>
+        
+                                                </li>
+                                                <li>  <a href="solaris.html">Oracle Solaris </a>
+        
+                                                </li>
+                                                <li>  <a href="cluster.html">Oracle Solaris Cluster </a>
+        
+                                                </li>
+                                                <li>  <a href="studio.html">Oracle Developer Studio </a>
+        
+                                                </li>
+                                            </ul>
+                                            <hr>
+                                            <ul class="links">
+                                                <li>  <a href="related.html">Related Systems Software </a>
+        
+                                                </li>
+                                            </ul>
+                                            
+                                    </div>
+        
+                                    <article class="container-fluid learning-path" role="main">
+                                    
+                                            <img class="pull-right hidden-xs hidden-sm" src="sp_common/shared-images/9-operatingsystems.png" alt>
+                                            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+                                                <li property="itemListElement" typeof="ListItem"><a href="../../../index.html" property="item" typeof="WebPage"><span property="name">Home</span></a><meta property="position" content="0"></li>
+                                                <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">Operating Systems</span></a><meta property="position" content="1"></li>
+                                            </ol>
+                                            <h1>Operating Systems Documentation</h1>
+                                            
+                                            <div class="description">Oracle operating systems provide the foundation for your enterprise.</div>
+                                        
+                                        
+        
+        
+                                        
+                                            
+                                                <h2 id="OracleSolarisDocumentation">Oracle Solaris Documentation</h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Oracle Solaris integrates software-defined networking and built-in virtualization with a proven enterprise-class operating system to provide an efficient, secure and compliant, simple, open, and affordable solution for deploying your enterprise-grade clouds.</div>
+                                            
+                                            <div class="section row">
+                                            </div>
+                                            
+                                        
+                                        
+                                        <form style="margin-top:12px;" autocomplete="off">
+                                            <select style="width:auto" class="form-control section-selector">
+                                              <option data-target="#tab-0" aria-controls="tab-0">Oracle Solaris 11.4</option>
+                                              <option data-target="#tab-1" aria-controls="tab-1">Oracle Solaris 11.3</option>
+                                              <option data-target="#tab-2" aria-controls="tab-2">Oracle Solaris 11.2</option>
+                                              <option data-target="#tab-3" aria-controls="tab-3">Oracle Solaris 11.1</option>
+                                              <option data-target="#tab-4" aria-controls="tab-4">Earlier Solaris Releases</option>
+                                            </select>
+                                        </form>
+        
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade in active" id="tab-0">
+                                                    
+                                                        
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <ul class="topics">
+                                                        <li>  <a href="/cd/E37838_01/index.html">Oracle Solaris 11.4 Information Library </a>
+                                                    </li>
+                                                    </ul>
+                                                    
+                                                    <div class="section row">
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="GettingStarted">Getting Started</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <div class="section row">
+                                                        
+                                                        <div class="subsection col-md-6">
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <!-- text block -->
+                                                            
+                                                    		<ul class="topics">
+                                                    			<li>  <a href="/cd/E37838_01/html/E60974/index.html">What&apos;s New in Oracle Solaris 11.4? </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E37838_01/html/E60973/index.html">Release Notes </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E37838_01/index.html#group-3">Installing </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E37838_01/html/E89347/index.html">Transitioning from Previous Oracle Solaris Releases </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E37838_01/html/E60977/index.html">Updating to Oracle Solaris 11.4 </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E37838_01/html/E61065/index.html">Licensing Information </a>
+                                                    </li>
+                                                    		</ul>
+                                                            
+                                                            
+                                                            
+                                                        </div>
+                                                        
+                                                        
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="ConfigurationandAdministration">Configuration and Administration</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <div class="section row">
+                                                        
+                                                        <div class="subsection col-md-6">
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <!-- text block -->
+                                                            
+                                                    		<ul class="topics">
+                                                    			<li>  <a href="/cd/E37838_01/index.html#group-5">Configuring Your Network </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E37838_01/index.html#group-6">Configuring Users and System Services </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E37838_01/index.html#group-7">Configuring Network Services </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E37838_01/index.html#group-8">Managing Data Storage Devices and File Systems </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E37838_01/index.html#group-10">Monitoring and Tuning </a>
+                                                    </li>
+                                                    		</ul>
+                                                            
+                                                            
+                                                            
+                                                        </div>
+                                                        
+                                                        
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="Security">Security</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <div class="section row">
+                                                        
+                                                        <div class="subsection col-md-6">
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <!-- text block -->
+                                                            
+                                                    		<ul class="topics">
+                                                    			<li>  <a href="/cd/E53394_01/html/E89596/index.html">Security Features (in the OS 11.3 Information Library) </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E37838_01/html/E61019/index.html">Security and Hardening Guidelines </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E37838_01/html/E61020/index.html">Security Compliance Guide </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E37838_01/html/E61023/index.html">Securing Users and Processes </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E37838_01/html/E67470/index.html">Managing Authentication </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E37838_01/html/E61024/index.html">Managing Encryption and Certificates </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E37838_01/html/E60993/index.html">Securing the Network </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E37838_01/index.html#group-9">Additional Security Information </a>
+                                                    </li>
+                                                    		</ul>
+                                                            
+                                                            
+                                                            
+                                                        </div>
+                                                        
+                                                        
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="Virtualization">Virtualization</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <div class="section row">
+                                                        
+                                                        <div class="subsection col-md-6">
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <!-- text block -->
+                                                            
+                                                    		<ul class="topics">
+                                                    			<li>  <a href="/cd/E37838_01/html/E61037/index.html">Introduction to Virtualization </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E37838_01/html/E61038/index.html">Introduction to Zones </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E37838_01/html/E61039/index.html">Creating and Using Zones </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E37838_01/html/E61041/index.html">Creating and Using Kernel Zones </a>
+                                                    </li>
+                                                    			<li>  <a href="https://www.oracle.com/technetwork/documentation/vm-sparc-194287.html">OVM for SPARC </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E37838_01/index.html#group-11">Additional Virtualization Information </a>
+                                                    </li>
+                                                    		</ul>
+                                                            
+                                                            
+                                                            
+                                                        </div>
+                                                        
+                                                        
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="ReferenceandDeveloperInformation">Reference and Developer Information</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <div class="section row">
+                                                        
+                                                        <div class="subsection col-md-6">
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <!-- text block -->
+                                                            
+                                                    		<ul class="topics">
+                                                    			<li>  <a href="/cd/E88353_01/">Command Reference </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E37838_01/index.html#group-13">Developing Applications </a>
+                                                    </li>
+                                                    		</ul>
+                                                            
+                                                            
+                                                            
+                                                        </div>
+                                                        
+                                                        
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="AdditionalResources">Additional Resources</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <div class="section row">
+                                                        
+                                                        <div class="subsection col-md-6">
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <!-- text block -->
+                                                            
+                                                    		<ul class="topics">
+                                                    			<li>  <a href="http://www.oracle.com/technetwork/systems/sys-admin-docs/animations/index.html">Oracle Solaris 11 Animations and Videos </a>
+                                                    </li>
+                                                    			<li>  <a href="http://www.oracle.com/technetwork/server-storage/solaris11/training/index.html">Oracle Solaris 11 Training </a>
+                                                    </li>
+                                                    			<li>  <a href="http://www.oracle.com/webfolder/technetwork/hcl/index.html">Oracle Solaris Hardware Compatibility List </a>
+                                                    </li>
+                                                    			<li>  <a href="http://www.oracle.com/technetwork/server-storage/solaris11/overview/index.html">Oracle Solaris 11 Product Center </a>
+                                                    </li>
+                                                    			<li>  <a href="http://www.oracle.com/technetwork/server-storage/solaris11/documentation/how-to-517481.html">Oracle Solaris 11 How-To Articles </a>
+                                                    </li>
+                                                    			<li>  <a href="https://blogs.oracle.com/solaris">Oracle Solaris Blogs </a>
+                                                    </li>
+                                                    			<li>  <a href="https://www.oracle.com/technetwork/systems/hands-on-labs/solaris-labs-1904205.html">Hands-On Labs for Oracle Solaris </a>
+                                                    </li>
+                                                    		</ul>
+                                                            
+                                                            
+                                                            
+                                                        </div>
+                                                        
+                                                        
+                                                    </div>
+                                                    
+                                            </div>
+                                            <div class="tab-pane fade" id="tab-1">
+                                                    
+                                                        
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <ul class="topics">
+                                                        <li>  <a href="/cd/E53394_01/index.html">Oracle Solaris 11.3 Information Library </a>
+                                                    </li>
+                                                    </ul>
+                                                    
+                                                    <div class="section row">
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="GettingStarted">Getting Started</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <div class="section row">
+                                                        
+                                                        <div class="subsection col-md-6">
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <!-- text block -->
+                                                            
+                                                    		<ul class="topics">
+                                                    			<li>  <a href="/cd/E53394_01/html/E54847/index.html">What&apos;s New in Oracle Solaris 11.3? </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E53394_01/html/E54816/index.html">Release Notes </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E53394_01/html/E54838/index.html">Transitioning from Previous Oracle Solaris Releases </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E37838_01/html/E89347/index.html">Copy of Transitioning from Previous Oracle Solaris Releases </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E53394_01/index.html#group-2">Installing and Updating </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E65465_01/index.html">Using Oracle Solaris With OpenStack for Cloud Management </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E53394_01/html/E54836/index.html">Licensing Information </a>
+                                                    </li>
+                                                    		</ul>
+                                                            
+                                                            
+                                                            
+                                                        </div>
+                                                        
+                                                        
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="ConfigurationandAdministration">Configuration and Administration</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <div class="section row">
+                                                        
+                                                        <div class="subsection col-md-6">
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <!-- text block -->
+                                                            
+                                                    		<ul class="topics">
+                                                    			<li>  <a href="/cd/E53394_01/index.html#group-4">Configuring Your Network </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E53394_01/index.html#group-5">Configuring Users and System Services </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E53394_01/index.html#group-6">Configuring Network Services </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E53394_01/index.html#group-7">Managing Data Storage Devices and File Systems </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E53394_01/index.html#group-9">Monitoring and Tuning </a>
+                                                    </li>
+                                                    		</ul>
+                                                            
+                                                            
+                                                            
+                                                        </div>
+                                                        
+                                                        
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="Security">Security</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <div class="section row">
+                                                        
+                                                        <div class="subsection col-md-6">
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <!-- text block -->
+                                                            
+                                                    		<ul class="topics">
+                                                    			<li>  <a href="/cd/E53394_01/html/E54807/index.html">Security and Hardening Guidelines </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E53394_01/html/E54817/index.html">Security Compliance Guide </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E53394_01/html/E54830/index.html">Securing Users and Processes </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E53394_01/html/E54783/index.html">Managing Encryption and Certificates </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E53394_01/html/E54829/index.html">Securing the Network </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E53394_01/index.html#group-8">Additional Security Information </a>
+                                                    </li>
+                                                    		</ul>
+                                                            
+                                                            
+                                                            
+                                                        </div>
+                                                        
+                                                        
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="Virtualization">Virtualization</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <div class="section row">
+                                                        
+                                                        <div class="subsection col-md-6">
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <!-- text block -->
+                                                            
+                                                    		<ul class="topics">
+                                                    			<li>  <a href="/cd/E53394_01/html/E54760/index.html">Introduction to Virtualization </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E53394_01/html/E54762/index.html">Introduction to Zones </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E53394_01/html/E54752/index.html">Creating and Using Zones </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E53394_01/html/E54751/index.html">Creating and Using Kernel Zones </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E62357_01/index.html">OVM for SPARC </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E53394_01/index.html#group-10">Additional Virtualization Information </a>
+                                                    </li>
+                                                    		</ul>
+                                                            
+                                                            
+                                                            
+                                                        </div>
+                                                        
+                                                        
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="ReferenceandDeveloperInformation">Reference and Developer Information</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <div class="section row">
+                                                        
+                                                        <div class="subsection col-md-6">
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <!-- text block -->
+                                                            
+                                                    		<ul class="topics">
+                                                    			<li>  <a href="/cd/E53394_01/index.html#group-12">Command Reference </a>
+                                                    </li>
+                                                    			<li>  <a href="/cd/E53394_01/index.html#group-11">Developing Applications </a>
+                                                    </li>
+                                                    		</ul>
+                                                            
+                                                            
+                                                            
+                                                        </div>
+                                                        
+                                                        
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="AdditionalResources">Additional Resources</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <div class="section row">
+                                                        
+                                                        <div class="subsection col-md-6">
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <!-- text block -->
+                                                            
+                                                    		<ul class="topics">
+                                                    			<li>  <a href="http://www.oracle.com/technetwork/systems/sys-admin-docs/animations/index.html">Oracle Solaris 11 Animations and Videos </a>
+                                                    </li>
+                                                    			<li>  <a href="http://www.oracle.com/technetwork/server-storage/solaris11/training/index.html">Oracle Solaris 11 Training </a>
+                                                    </li>
+                                                    			<li>  <a href="http://www.oracle.com/webfolder/technetwork/hcl/index.html">Oracle Solaris Hardware Compatibility List </a>
+                                                    </li>
+                                                    			<li>  <a href="http://www.oracle.com/webfolder/technetwork/hcl/hcts/index.html">Oracle Solaris Hardware Certification Test Suite </a>
+                                                    </li>
+                                                    			<li>  <a href="http://www.oracle.com/technetwork/server-storage/solaris11/overview/index.html">Oracle Solaris 11 Product Center </a>
+                                                    </li>
+                                                    			<li>  <a href="http://www.oracle.com/technetwork/server-storage/solaris11/documentation/how-to-517481.html">Oracle Solaris 11 How-To Articles </a>
+                                                    </li>
+                                                    		</ul>
+                                                            
+                                                            
+                                                            
+                                                        </div>
+                                                        
+                                                        
+                                                    </div>
+                                                    
+                                            </div>
+                                            <div class="tab-pane fade" id="tab-2">
+                                                    
+                                                        
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <ul class="topics">
+                                                        <li>  <a href="/cd/E36784_01/index.html">Oracle Solaris 11.2 Information Library </a>
+                                                    </li>
+                                                    </ul>
+                                                    
+                                                    <div class="section row">
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="GettingStarted">Getting Started</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <ul class="topics">
+                                                        <li>  <a href="/cd/E36784_01/html/E52463/index.html">What&apos;s New in Oracle Solaris 11.2? </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E36784_01/html/E36797/index.html">Release Notes </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E36784_01/html/E39134/index.html">Transitioning from Previous Oracle Solaris Releases </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E36784_01/index.html#group-2">Installing and Updating </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E36784_01/html/E48474/index.html">Licensing Information </a>
+                                                    </li>
+                                                    </ul>
+                                                    
+                                                    <div class="section row">
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="ConfigurationandAdministration">Configuration and Administration</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <ul class="topics">
+                                                        <li>  <a href="/cd/E36784_01/index.html#group-3">Configuring Your Network </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E36784_01/index.html#group-4">Configuring Users and System Services </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E36784_01/index.html#group-5">Configuring Network Services </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E36784_01/index.html#group-6">Managing Data Storage Devices and File Systems </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E36784_01/index.html#group-8">Monitoring and Tuning </a>
+                                                    </li>
+                                                    </ul>
+                                                    
+                                                    <div class="section row">
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="Security">Security</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <ul class="topics">
+                                                        <li>  <a href="/cd/E36784_01/html/E36837/index.html">Security Guidelines </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E36784_01/html/E39067/index.html">Security Compliance Guide </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E36784_01/html/E37123/index.html">Securing Users and Processes </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E36784_01/html/E37124/index.html">Managing Encryption and Certificates </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E36784_01/html/E37127/index.html">Auditing </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E36784_01/index.html#group-7">Additional Security Information </a>
+                                                    </li>
+                                                    </ul>
+                                                    
+                                                    <div class="section row">
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="Virtualization">Virtualization</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <ul class="topics">
+                                                        <li>  <a href="/cd/E36784_01/html/E36847/index.html">Introduction to Virtualization </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E36784_01/html/E36848/index.html">Introduction to Zones </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E36784_01/html/E37628/index.html">Creating and Using Zones </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E36784_01/html/E37629/index.html">Creating and Using Kernel Zones </a>
+                                                    </li>
+                                                        <li>  <a href="http://www.oracle.com/technetwork/documentation/vm-sparc-194287.html">OVM for SPARC </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E36784_01/index.html#group-9">Additional Virtualization Information </a>
+                                                    </li>
+                                                    </ul>
+                                                    
+                                                    <div class="section row">
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="ReferenceandDeveloperInformation">Reference and Developer Information</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <ul class="topics">
+                                                        <li>  <a href="/cd/E36784_01/index.html#group-12">Command Reference </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E36784_01/index.html#group-11">Developing Applications </a>
+                                                    </li>
+                                                    </ul>
+                                                    
+                                                    <div class="section row">
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="AdditionalResources">Additional Resources</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <ul class="topics">
+                                                        <li>  <a href="http://www.oracle.com/technetwork/systems/sys-admin-docs/animations/index.html">Oracle Solaris 11 Animations and Videos </a>
+                                                    </li>
+                                                        <li>  <a href="http://www.oracle.com/technetwork/server-storage/solaris11/training/index.html">Oracle Solaris 11 Training </a>
+                                                    </li>
+                                                        <li>  <a href="http://www.oracle.com/webfolder/technetwork/hcl/index.html">Oracle Solaris Hardware Compatibility List </a>
+                                                    </li>
+                                                        <li>  <a href="http://www.oracle.com/webfolder/technetwork/hcl/hcts/index.html">Oracle Solaris Hardware Certification Test Suite </a>
+                                                    </li>
+                                                        <li>  <a href="http://www.oracle.com/technetwork/server-storage/solaris11/overview/index.html">Oracle Solaris 11 Product Center </a>
+                                                    </li>
+                                                        <li>  <a href="http://www.oracle.com/technetwork/server-storage/solaris11/documentation/how-to-517481.html">Oracle Solaris 11 How-To Articles </a>
+                                                    </li>
+                                                    </ul>
+                                                    
+                                                    <div class="section row">
+                                                    </div>
+                                                    
+                                            </div>
+                                            <div class="tab-pane fade" id="tab-3">
+                                                    
+                                                        
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <ul class="topics">
+                                                        <li>  <a href="/cd/E26502_01/index.html">Oracle Solaris 11.1 Information Library </a>
+                                                    </li>
+                                                    </ul>
+                                                    
+                                                    <div class="section row">
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="GettingStarted">Getting Started</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <ul class="topics">
+                                                        <li>  <a href="http://www.oracle.com/technetwork/server-storage/solaris11/documentation/solaris11-1-whatsnew-1732377.pdf">What&apos;s New in Oracle Solaris 11.1? </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E26502_01/html/E28978/index.html">Release Notes </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E26502_01/html/E36219/index.html">Transitioning from Previous Oracle Solaris Releases </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E26502_01/index.html#group-2">Installing and Updating </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E26502_01/html/E37708/index.html">Licensing Information </a>
+                                                    </li>
+                                                    </ul>
+                                                    
+                                                    <div class="section row">
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="ConfigurationandAdministration">Configuration and Administration</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <ul class="topics">
+                                                        <li>  <a href="/cd/E26502_01/index.html#group-3">Configuring Your Network </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E26502_01/index.html#group-4">Configuring Users and System Services </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E26502_01/index.html#group-5">Configuring Network Services </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E26502_01/index.html#group-6">Managing Data Storage Devices and File Systems </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E26502_01/index.html#group-8">Monitoring and Tuning </a>
+                                                    </li>
+                                                    </ul>
+                                                    
+                                                    <div class="section row">
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="Security">Security</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <ul class="topics">
+                                                        <li>  <a href="/cd/E26502_01/html/E29014/index.html">Security Guidelines </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E26502_01/html/E29015/index.html">Securing Users and Processes </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E26502_01/index.html#group-7">Additional Security Information </a>
+                                                    </li>
+                                                    </ul>
+                                                    
+                                                    <div class="section row">
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="Virtualization">Virtualization</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <ul class="topics">
+                                                        <li>  <a href="/cd/E26502_01/html/E29023/index.html">Introduction to Virtualization </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E26502_01/html/E29024/index.html">Creating and Using Zones </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E35434_01/index.html">OVM for SPARC </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E26502_01/index.html#group-9">Additional Virtualization Information </a>
+                                                    </li>
+                                                    </ul>
+                                                    
+                                                    <div class="section row">
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="ReferenceandDeveloperInformation">Reference and Developer Information</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <ul class="topics">
+                                                        <li>  <a href="/cd/E26502_01/index.html#group-12">Command Reference </a>
+                                                    </li>
+                                                        <li>  <a href="/cd/E26502_01/index.html#group-11">Developing Applications </a>
+                                                    </li>
+                                                    </ul>
+                                                    
+                                                    <div class="section row">
+                                                    </div>
+                                                    
+                                                    
+                                                        <h2 id="AdditionalResources">Additional Resources</h2>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <ul class="topics">
+                                                        <li>  <a href="http://www.oracle.com/technetwork/systems/sys-admin-docs/animations/index.html">Oracle Solaris 11 Animations and Videos </a>
+                                                    </li>
+                                                        <li>  <a href="http://www.oracle.com/technetwork/server-storage/solaris11/training/index.html">Oracle Solaris 11 Training </a>
+                                                    </li>
+                                                        <li>  <a href="http://www.oracle.com/webfolder/technetwork/hcl/index.html">Oracle Solaris Hardware Compatibility List </a>
+                                                    </li>
+                                                        <li>  <a href="http://www.oracle.com/webfolder/technetwork/hcl/hcts/index.html">Oracle Solaris Hardware Certification Test Suite </a>
+                                                    </li>
+                                                        <li>  <a href="http://www.oracle.com/technetwork/server-storage/solaris11/overview/index.html">Oracle Solaris 11 Product Center </a>
+                                                    </li>
+                                                        <li>  <a href="http://www.oracle.com/technetwork/server-storage/solaris11/documentation/how-to-517481.html">Oracle Solaris 11 How-To Articles </a>
+                                                    </li>
+                                                    </ul>
+                                                    
+                                                    <div class="section row">
+                                                    </div>
+                                                    
+                                            </div>
+                                            <div class="tab-pane fade" id="tab-4">
+                                                    
+                                                        
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <ul class="topics">
+                                                        <li>  <a href="/cd/E23824_01/index.html">Oracle Solaris 11 11/11 </a>
+                                                    </li>
+                                                        <li>  <a href="http://www.oracle.com/technetwork/documentation/solaris-10-192992.html">Oracle Solaris 10 Releases </a>
+                                                    </li>
+                                                        <li>  <a href="http://download.oracle.com/docs/cd/E19683-01/index.html">Solaris 9 Releases </a>
+                                                    </li>
+                                                        <li>  <a href="http://download.oracle.com/docs/cd/E19455-01/index.html">Solaris 8 Releases </a>
+                                                    </li>
+                                                        <li>  <a href="http://download.oracle.com/docs/cd/E19620-01/index.html">Solaris 7 Releases </a>
+                                                    </li>
+                                                        <li>  <a href="http://download.oracle.com/docs/cd/E19504-01/index.html">Solaris 2.6 Releases </a>
+                                                    </li>
+                                                        <li>  <a href="http://download.oracle.com/docs/cd/E19695-01/index.html">Solaris 2.5.1 Releases </a>
+                                                    </li>
+                                                        <li>  <a href="http://download.oracle.com/docs/cd/E19641-01/index.html">Solaris 2.5 Releases </a>
+                                                    </li>
+                                                        <li>  <a href="http://download.oracle.com/docs/cd/E19457-01/index.html">Solaris 2.4 Releases </a>
+                                                    </li>
+                                                    </ul>
+                                                    
+                                                    <div class="section row">
+                                                    </div>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    
+                                    </article>
+        
+                                    <div><div><!-- resizable column --></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                    <a href="#" class="offscreen skipto-bottom skipto">Back to main content</a>
+        
+                    <footer>
+                        <div>
+                            <div class="container">
+                                <div class="pull-left footer-left">
+                                    <ul class="footer-nav list-inline">
+                                        <li class="separator" style="height: 17px;"><a href="http://www.oracle.com/corporate/index.html">About Oracle</a></li>
+                                        <li style="height: 17px;"><a href="http://www.oracle.com/us/corporate/contact/index.html">Contact Us</a></li>
+                                        <li style="height: 17px;"><a href="http://www.oracle.com/us/legal/index.html">Legal Notices</a></li>
+                                        <li style="height: 17px;"><a href="http://www.oracle.com/us/legal/terms/index.html">Terms of Use</a></li>
+                                        <li style="height: 17px;"><a href="http://www.oracle.com/us/legal/privacy/index.html">Your Privacy Rights</a></li>
+                                        <li class="same-height-right" style="height: 17px;"><div id="teconsent" style="display: inline-block;"></div></li>
+                                    </ul>
+                                    <span class="copyright"><a href="https://www.oracle.com/pls/topic/lookup?ctx=cpyr&amp;id=en">Copyright &#xA9; 2018, Oracle and/or its affiliates. All rights reserved.</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+
+    
+
+</body></html>

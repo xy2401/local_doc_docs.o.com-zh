@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Sending and Receiving APDUs</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-04-13T10:24:54Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Development Kit User Guide, Classic Edition" />
+<meta name="dcterms.identifier" content="E59602-03" />
+<meta name="dcterms.isVersionOf" content="JCUGC" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="running-scriptgen.htm" title="Previous" type="text/html" />
+<link rel="Next" href="downloading-cap-files-and-creating-applets.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCUGC.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-AF3BBBC3-DD3E-4DA3-B699-12AF0786A853"></a> <span id="PAGE" style="display:none;">111/161</span> <!-- End Header -->
+<a id="JCUGC260"></a>
+<h1 id="JCUGC-GUID-AF3BBBC3-DD3E-4DA3-B699-12AF0786A853" class="sect1">Sending and Receiving APDUs</h1>
+<div>
+<p>The <code class="codeph">apdutool</code> reads a script file containing APDUs and sends them to the RI or another Java Card RE. Each APDU is processed and returned to <code class="codeph">apdutool</code>, which displays both the command and response APDUs on the console. Optionally, <code class="codeph">apdutool</code> can write this information to a log file. If you have a source release, you can localize messages from <code class="codeph">apdutool</code>. For more information, see <a href="localizing-development-kit.htm" title="This chapter describes the support for localization that the development kit provides. This chapter is useful only if you have a source release of the development kit.">Localizing With The Development Kit</a>.</p>
+<p>This section includes the following topics:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="sending-and-receiving-apdus.htm#GUID-7E36B3BD-918C-4A16-ABE2-A49835DABE6F">Running apdutool</a></p>
+</li>
+<li>
+<p><a href="sending-and-receiving-apdus.htm#GUID-6526EB08-9562-422B-8F03-F4E484D90C98">apdutool Examples</a></p>
+</li>
+<li>
+<p><a href="sending-and-receiving-apdus.htm#GUID-718790D2-B860-4121-92CE-F1B5DBACD339">Using APDU Script Files</a></p>
+</li>
+<li>
+<p><a href="sending-and-receiving-apdus.htm#GUID-36DE41C3-4486-45B1-96A7-BF88B48C36CB">Setting Default Applets</a></p>
+</li>
+<li>
+<p><a href="sending-and-receiving-apdus.htm#GUID-D5DCA603-D786-464F-8521-8C09B29C64BB">On-Card Installer Applet AID</a></p>
+</li>
+</ul>
+</div>
+<a id="JCUGC262"></a><a id="JCUGC261"></a>
+<div class="props_rev_3"><a id="GUID-7E36B3BD-918C-4A16-ABE2-A49835DABE6F"></a>
+<h2 id="JCUGC-GUID-7E36B3BD-918C-4A16-ABE2-A49835DABE6F" class="sect2">Running apdutool</h2>
+<div>
+<div class="section">
+<p>The file to invoke <code class="codeph">apdutool</code> is a batch file (<code class="codeph">apdutool.bat</code>) that must be run from a working directory of <span class="italic">JC_CLASSIC_HOME</span><code class="codeph">\bin</code> in order for the code to execute properly.</p>
+<p>To run the <code class="codeph">apdutool</code>:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li><span>Enter the following command (see <a href="sending-and-receiving-apdus.htm#GUID-7E36B3BD-918C-4A16-ABE2-A49835DABE6F__CCHCHEFG" title="Lists and decribes the apdutool command line options">Table 9-2</a> for a description of the options):</span></li>
+</ol>
+<div class="section">
+<pre dir="ltr">
+apdutool.bat [-t0] [-verbose] [-nobanner] [-noatr] \
+ [-d | --descriptiveoutput] [-k] [-o <span class="italic">output-file</span>] [-h <span class="italic">host-name</span>] [-p <span class="italic">port-number</span>] \
+ [-version] [-mi] [<span class="italic">input-file-name</span>]
+</pre>
+<p>The <code class="codeph">apdutool</code> starts listening to APDUs in T=1 as the default format, unless otherwise specified, on the TCP/IP port specified by the <code class="codeph">&ndash;p</code> <span class="italic">portNumber</span> parameter for contacted and <span class="italic">portNumber</span><code class="codeph">+1</code> for contactless. The default port is 9025.</p>
+<div class="tblformal" id="GUID-7E36B3BD-918C-4A16-ABE2-A49835DABE6F__CCHCHEFG">
+<p class="titleintable">Table 9-2 apdutool Command Line Options</p>
+<table class="cellalignment12" title="apdutool Command Line Options " summary="Lists and decribes the apdutool command line options">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment61" id="d26326e191">Option</th>
+<th class="cellalignment67" id="d26326e194">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment62" id="d26326e199" headers="d26326e191">
+<p><code class="codeph">-help</code></p>
+</td>
+<td class="cellalignment68" headers="d26326e199 d26326e194">
+<p>Displays online help for the command.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment62" id="d26326e207" headers="d26326e191">
+<p><code class="codeph">-h</code> <span class="italic">host-name</span></p>
+</td>
+<td class="cellalignment68" headers="d26326e207 d26326e194">
+<p>Specifies the host name on which the TCP/IP socket port is found. (See the flag <code class="codeph">-p</code>.)</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment62" id="d26326e221" headers="d26326e191">
+<p><code class="codeph">-d</code></p>
+<p>or</p>
+<p><code class="codeph">-descriptiveoutput</code></p>
+</td>
+<td class="cellalignment68" headers="d26326e221 d26326e194">
+<p>Formats the output in more user-readable form.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment62" id="d26326e234" headers="d26326e191">
+<p><code class="codeph">-k</code></p>
+</td>
+<td class="cellalignment68" headers="d26326e234 d26326e194">
+<p>When using preprocessor directives in an APDU script, this option generates a related preprocessed APDU script file in the same directory as the APDU script.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment62" id="d26326e242" headers="d26326e191">
+<p><code class="codeph">-noatr</code></p>
+</td>
+<td class="cellalignment68" headers="d26326e242 d26326e194">
+<p>Suppresses outputting an ATR (answer to reset).</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment62" id="d26326e250" headers="d26326e191">
+<p><code class="codeph">-nobanner</code></p>
+</td>
+<td class="cellalignment68" headers="d26326e250 d26326e194">
+<p>Suppresses all banner messages.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment62" id="d26326e258" headers="d26326e191">
+<p><code class="codeph">-o</code> <span class="italic">output-file</span></p>
+</td>
+<td class="cellalignment68" headers="d26326e258 d26326e194">
+<p>Specifies an output file. If an output file is not specified with the <code class="codeph">-o</code> flag, output defaults to standard output.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment62" id="d26326e272" headers="d26326e191">
+<p><code class="codeph">-p</code> <span class="italic">port-number</span></p>
+</td>
+<td class="cellalignment68" headers="d26326e272 d26326e194">
+<p>Specifies a TCP/IP socket port other than the default port (which is 9025).</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment62" id="d26326e283" headers="d26326e191">
+<p><code class="codeph">-t0</code></p>
+</td>
+<td class="cellalignment68" headers="d26326e283 d26326e194">
+<p>Runs T=0 single interface.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment62" id="d26326e291" headers="d26326e191">
+<p><code class="codeph">-verbose</code></p>
+</td>
+<td class="cellalignment68" headers="d26326e291 d26326e194">
+<p>If enabled, enables verbose apdutool output.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment62" id="d26326e299" headers="d26326e191">
+<p><code class="codeph">-version</code></p>
+</td>
+<td class="cellalignment68" headers="d26326e299 d26326e194">
+<p>Outputs the version information.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment62" id="d26326e308" headers="d26326e191">
+<p><code class="codeph">-mi</code></p>
+</td>
+<td class="cellalignment68" headers="d26326e308 d26326e194">
+<p>Required if the APDU script is using contacted and contactless commands multiple times in the same script file and the script switches between contacted and contactless interfaces many times.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment62" id="d26326e316" headers="d26326e191">
+<p><span class="italic">input-file-name</span></p>
+</td>
+<td class="cellalignment68" headers="d26326e316 d26326e194">
+<p>Specifies an input script file.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<a id="JCUGC263"></a>
+<div class="props_rev_3"><a id="GUID-6526EB08-9562-422B-8F03-F4E484D90C98"></a>
+<h2 id="JCUGC-GUID-6526EB08-9562-422B-8F03-F4E484D90C98" class="sect2">apdutool Examples</h2>
+<div>
+<p>The following examples show how to use <code class="codeph">apdutool</code> in:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="sending-and-receiving-apdus.htm#GUID-3165DF2E-59AE-4A74-8324-0E4904211B45">Directing Output to the Console</a></p>
+</li>
+<li>
+<p><a href="sending-and-receiving-apdus.htm#GUID-9DD72DE3-7293-4D3B-BDE8-F1CB80D1B277">Directing Output to a File</a></p>
+</li>
+</ul>
+</div>
+<a id="JCUGC264"></a>
+<div class="props_rev_3"><a id="GUID-3165DF2E-59AE-4A74-8324-0E4904211B45"></a>
+<h3 id="JCUGC-GUID-3165DF2E-59AE-4A74-8324-0E4904211B45" class="sect3">Directing Output to the Console</h3>
+<div>
+<div class="section">
+<p>This command example runs the <code class="codeph">apdutool</code> with the file <code class="codeph">example.scr</code> as input. Output in this example is sent to the console. The default TCP port (9025) is used.</p>
+<p>To direct output to the console:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Enter the following command:</span>
+<div>
+<pre dir="ltr">
+apdutool example.scr
+</pre></div>
+</li>
+</ol>
+</div>
+</div>
+<a id="JCUGC265"></a>
+<div class="props_rev_3"><a id="GUID-9DD72DE3-7293-4D3B-BDE8-F1CB80D1B277"></a>
+<h3 id="JCUGC-GUID-9DD72DE3-7293-4D3B-BDE8-F1CB80D1B277" class="sect3">Directing Output to a File</h3>
+<div>
+<div class="section">
+<p>This command example runs the <code class="codeph">apdutool</code> with the file <code class="codeph">example.scr</code> as input. Output in this examples is written to the file <code class="codeph">example.scr.out</code>.</p>
+<p>To direct output to a file:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Enter the following command:</span>
+<div>
+<pre dir="ltr">
+apdutool &ndash;o example.scr.out example.scr
+</pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<a id="JCUGC267"></a><a id="JCUGC266"></a>
+<div class="props_rev_3"><a id="GUID-718790D2-B860-4121-92CE-F1B5DBACD339"></a>
+<h2 id="JCUGC-GUID-718790D2-B860-4121-92CE-F1B5DBACD339" class="sect2">Using APDU Script Files</h2>
+<div>
+<p>An APDU script file is a protocol-independent APDU format containing comments, script file commands, and C-APDUs. Script file commands and C-APDUs are terminated with a semicolon (;). Comments can be of any of the three Java programming language style comment formats (//, /*, or /**).</p>
+<p>APDUs are represented by decimal, hex or octal digits, UTF-8 quoted literals or UTF-8 quoted strings. C-APDUs may extend across multiple lines.</p>
+<p>C-APDU syntax for <code class="codeph">apdutool</code> is as follows:</p>
+<pre dir="ltr">
+&lt;CLA&gt; &lt;INS&gt; &lt;P1&gt; &lt;P2&gt; &lt;LC&gt; [&lt;byte 0&gt; &lt;byte 1&gt; ... &lt;byte LC-1&gt;] &lt;LE&gt; ;
+</pre>
+<p>where:</p>
+<p><code class="codeph">&lt;CLA&gt; ::</code> ISO 7816-4 class byte. <code class="codeph">&lt;INS&gt; ::</code> ISO 7816-4 instruction byte.<code class="codeph">&lt;P1&gt; ::</code> ISO 7816-4 P1 parameter byte.<code class="codeph">&lt;P2&gt; ::</code> ISO 7816-4 P2 parameter byte.<code class="codeph">&lt;LC&gt; ::</code> ISO 7816-4 input byte count. 1 byte in non-extended mode, 2 bytes in extended mode.<code class="codeph">&lt;byte 0&gt; ... &lt;byte LC-1&gt; ::</code> input data bytes.<code class="codeph">&lt;LE&gt; ::</code> ISO 7816- 4 expected output length. 1 byte in non-extended mode, 2 bytes in extended mode.</p>
+<p><a href="sending-and-receiving-apdus.htm#GUID-718790D2-B860-4121-92CE-F1B5DBACD339__CCHFIJAG" title="list and description of the supported apdu script file commands">Table 9-3</a> describes each supported script file command in detail noting that they are not case sensitive.</p>
+<div class="infobox-note" id="GUID-718790D2-B860-4121-92CE-F1B5DBACD339__GUID-38FE39F0-2BCD-4E6E-AB4A-CDFD56F04915">
+<p class="notep1">Note:</p>
+<p>All APDU script file commands are not case-sensitive.</p>
+</div>
+<div class="tblformal" id="GUID-718790D2-B860-4121-92CE-F1B5DBACD339__CCHFIJAG">
+<p class="titleintable">Table 9-3 Supported APDU Script File Commands</p>
+<table class="cellalignment12" title="Supported APDU Script File Commands " summary="list and description of the supported apdu script file commands">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment31" id="d26326e500">Command</th>
+<th class="cellalignment69" id="d26326e503">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment34" id="d26326e508" headers="d26326e500">
+<p><code class="codeph">contacted;</code></p>
+</td>
+<td class="cellalignment70" headers="d26326e508 d26326e503">
+<p>Redirects APDU activity to the contacted or primary interface.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment34" id="d26326e516" headers="d26326e500">
+<p><code class="codeph">contactless;</code></p>
+</td>
+<td class="cellalignment70" headers="d26326e516 d26326e503">
+<p>Redirects output to the contactless or secondary interface.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment34" id="d26326e524" headers="d26326e500">
+<p><code class="codeph">delay</code> <span class="italic">integer</span>;</p>
+</td>
+<td class="cellalignment70" headers="d26326e524 d26326e503">
+<p>Pauses execution of the script for the number of milliseconds specified by <code class="codeph">&lt;</code><span class="italic">Integer</span><code class="codeph">&gt;</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment34" id="d26326e543" headers="d26326e500">
+<p><code class="codeph">echo</code> <span class="italic">"</span><span class="italic">string</span><span class="italic">"</span><code class="codeph">;</code></p>
+</td>
+<td class="cellalignment70" headers="d26326e543 d26326e503">
+<p>Echoes the quoted string to the output file. The leading and trailing quote characters are removed.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment34" id="d26326e559" headers="d26326e500">
+<p><code class="codeph">extended on;</code></p>
+</td>
+<td class="cellalignment70" headers="d26326e559 d26326e503">
+<p>Turns extended APDU input mode on.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment34" id="d26326e567" headers="d26326e500">
+<p><code class="codeph">extended off;</code></p>
+</td>
+<td class="cellalignment70" headers="d26326e567 d26326e503">
+<p>Turns extended APDU input mode off.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment34" id="d26326e575" headers="d26326e500">
+<p><code class="codeph">output off;</code></p>
+</td>
+<td class="cellalignment70" headers="d26326e575 d26326e503">
+<p>Suppresses printing of the output.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment34" id="d26326e583" headers="d26326e500">
+<p><code class="codeph">output on;</code></p>
+</td>
+<td class="cellalignment70" headers="d26326e583 d26326e503">
+<p>Restores printing of the output.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment34" id="d26326e591" headers="d26326e500">
+<p><code class="codeph">powerdown;</code></p>
+</td>
+<td class="cellalignment70" headers="d26326e591 d26326e503">
+<p>Sends a <code class="codeph">powerdown</code> command to the reader in the active interface.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment34" id="d26326e602" headers="d26326e500">
+<p><code class="codeph">powerup;</code></p>
+</td>
+<td class="cellalignment70" headers="d26326e602 d26326e503">
+<p>Sends a <code class="codeph">powerup</code> command to the reader in the active interface. A <code class="codeph">powerup</code> command must be sent to the reader prior to executing any APDU on the selected interface.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment34" id="d26326e616" headers="d26326e500">
+<p><code class="codeph">select</code> <span class="italic">AID</span>;</p>
+</td>
+<td class="cellalignment70" headers="d26326e616 d26326e503">
+<p>Selects the applet with the specified AID, where <span class="italic">AID</span> identifies the applet to be selected in the form of <code class="codeph">//aid/A005453412/151146712</code>. For example: <code class="codeph">select //aid/A000000062/03010C0101</code>;</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment34" id="d26326e638" headers="d26326e500">
+<p><code class="codeph">open channel</code> [<span class="italic">channel-no</span>] [<code class="codeph">on</code> <span class="italic">origin-channel</span>];</p>
+</td>
+<td class="cellalignment70" headers="d26326e638 d26326e503">
+<p>Opens the channel with the channel number specified by <span class="italic">channel-no</span> on the origin channel specified by <span class="italic">origin-channel</span>, where <span class="italic">channel-no</span> is an integer. The default value for the origin channel is basic channel number 0. <span class="italic">channel-no</span> and <span class="italic">origin-channel</span> are both optional. <span class="italic">origin-channel</span> must be an integer from 0-19.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment34" id="d26326e675" headers="d26326e500">
+<p><code class="codeph">close channel</code> <span class="italic">channel-no</span> [<code class="codeph">on</code> <span class="italic">origin-channel</span>];</p>
+</td>
+<td class="cellalignment70" headers="d26326e675 d26326e503">
+<p>Closes the channel having the channel number specified by <span class="italic">channel-no</span> on origin channel <span class="italic">origin-channel</span>, where <span class="italic">channel-no</span> is an integer. <code class="codeph">on</code> <span class="italic">origin-channel</span> is optional and the default value for <span class="italic">origin-channel</span> is basic channel number <code class="codeph">0</code>. <span class="italic">origin-channel</span> must be an integer from 0-19.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment34" id="d26326e718" headers="d26326e500">
+<p><code class="codeph">send</code> <span class="italic">APDU</span> [<code class="codeph">to</code> <span class="italic">AID</span>] [<code class="codeph">on</code> <span class="italic">origin-channel</span>];</p>
+</td>
+<td class="cellalignment70" headers="d26326e718 d26326e503">
+<p>Sends the APDU specified by <span class="italic">APDU</span> after selecting the applet specified by <span class="italic">AID</span> on the specified origin channel, where the <span class="italic">APDU</span> format uses the C-APDU syntax of the <code class="codeph">apdutool</code>. <code class="codeph">on</code> <span class="italic">origin-channel</span> is optional and specifies the origin channel to select an applet and send the specified APDU on. The default origin channel is 0 and possible values are 0 - 19. <code class="codeph">to</code> <span class="italic">AID</span> is also optional, and when specified it builds and sends the <code class="codeph">select</code> command before sending the APDU.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<a id="JCUGC268"></a>
+<div class="props_rev_3"><a id="GUID-6BAEC901-06A1-4DD3-8FEF-7803AC5017D0"></a>
+<h3 id="JCUGC-GUID-6BAEC901-06A1-4DD3-8FEF-7803AC5017D0" class="sect3">APDUScript Preprocessor Commands</h3>
+<div>
+<p>APDUScript supports preprocessor directives as depicted in the following script file example, <code class="codeph">test.scr</code>.</p>
+<pre dir="ltr">
+#define walletApplet //aid/A000000062/03010C0101
+#define purseApplet //aid/A000000062/03010C0102
+#define walletCommand 0x80 0xCA 0x00 0x00 0x02 0xAB 0x080 0x7F
+powerup;
+SELECT purseApplet;
+Send walletCommand to walletApplet on 19;
+powerdown;
+</pre>
+<p>To check what the preprocessor has done, run the APDUTool with the <code class="codeph">-k</code> flag to create a file named <code class="codeph">test.scr.preprocessed</code> in the same directory as <code class="codeph">test.scr</code>. The <code class="codeph">test.scr.preprocessed</code> content then looks like this:</p>
+<pre dir="ltr">
+powerup;
+SELECT //aid/A000000062/03010C0102;
+Send 0x80 0xCA 0x00 0x00 0x02 0xAB 0x08 0x7F to //aid/A000000062/03010C0101 on 19;
+powerdown;
+</pre></div>
+</div>
+</div>
+<a id="JCUGC270"></a><a id="JCUGC269"></a>
+<div class="props_rev_3"><a id="GUID-36DE41C3-4486-45B1-96A7-BF88B48C36CB"></a>
+<h2 id="JCUGC-GUID-36DE41C3-4486-45B1-96A7-BF88B48C36CB" class="sect2">Setting Default Applets</h2>
+<div>
+<p>The RI supports setting distinct default applets on distinct logical channels and distinct interfaces. You can use this request to set the default applet for a particular logical channel in the specified interface. The applet being set as default must be properly registered with the RI prior to issuing this command.</p>
+<div class="tblformal" id="GUID-36DE41C3-4486-45B1-96A7-BF88B48C36CB__GUID-F8BC6D97-BE2F-4E59-9BC8-846EE031D084">
+<p class="titleintable">Table 9-4 Set Default Applets on Different Logical Channels</p>
+<table class="cellalignment12" title="Set Default Applets on Different Logical Channels" summary="Example and description of default applet AID.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment31" id="d26326e860">Applet AID</th>
+<th class="cellalignment71" id="d26326e863">Lc Field</th>
+<th class="cellalignment22" id="d26326e866">Data</th>
+<th class="cellalignment37" id="d26326e869">Le Field</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment34" id="d26326e874" headers="d26326e860">
+<p><code class="codeph">0x8x 0xc6 0xXX 0xYY</code></p>
+</td>
+<td class="cellalignment72" headers="d26326e874 d26326e863">
+<p>Lc: AID length</p>
+</td>
+<td class="cellalignment26" headers="d26326e874 d26326e866">
+<p>Data: Default applet AID</p>
+</td>
+<td class="cellalignment40" headers="d26326e874 d26326e869">
+<p>Le: ignored</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<p>NOTATION:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>XX is the channel number where the specified applet is configured as default.</p>
+</li>
+<li>
+<p>YY is the interface ID where the applet is configured as the default. <code class="codeph">0</code> is primary contacted or only interface. <code class="codeph">1</code> is secondary contactless on dual interface.</p>
+</li>
+<li>
+<p>AID is the AID of the applet being set as the default.</p>
+</li>
+</ul>
+</div>
+</div>
+<a id="JCUGC271"></a>
+<div class="props_rev_3"><a id="GUID-D5DCA603-D786-464F-8521-8C09B29C64BB"></a>
+<h2 id="JCUGC-GUID-D5DCA603-D786-464F-8521-8C09B29C64BB" class="sect2">On-Card Installer Applet AID</h2>
+<div>
+<div class="section">
+<p>The on-card installer applet AID is: <code class="codeph">0xa0,0x00,0x00,0x00,0x62,0x03,0x01,0x08,0x01</code>.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="running-scriptgen.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="downloading-cap-files-and-creating-applets.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

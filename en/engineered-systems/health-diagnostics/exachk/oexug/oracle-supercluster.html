@@ -1,0 +1,447 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="This section explains the features and tasks specific to Oracle EXAchk on Oracle SuperCluster.">
+      <meta name="description" content="This section explains the features and tasks specific to Oracle EXAchk on Oracle SuperCluster.">
+      <title>Oracle SuperCluster</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide">
+      <meta property="og:description" content="This section explains the features and tasks specific to Oracle EXAchk on Oracle SuperCluster.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-orachk-and-exachk-users-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:43:23-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2016, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E83827-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/exachk">
+      
+      <link rel="prev" href="oracle-exalogic.html" title="Previous" type="text/html">
+      <link rel="next" href="oracle-exalytics.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"exachk","element_name":"EXAchk","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® ORAchk and EXAchk User's Guide">
+    <meta name="dcterms.isVersionOf" content="OEXUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="oracle-exalogic.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="oracle-exalytics.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="oracle-exachk-specific-features-and-tasks.html" property="item" typeof="WebPage"><span property="name">Oracle EXAchk Specific Features and Tasks</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Oracle SuperCluster</li>
+            </ol>
+            <a id="GUID-0789AB58-9C67-4F22-98A3-874FAF2EA3E7" name="GUID-0789AB58-9C67-4F22-98A3-874FAF2EA3E7"></a>
+            
+            <h2 id="OEXUG-GUID-0789AB58-9C67-4F22-98A3-874FAF2EA3E7" class="sect2"><span class="enumeration_section">3.4 </span>Oracle SuperCluster
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>This section explains the features and tasks specific to Oracle EXAchk on Oracle SuperCluster.</p>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="oracle-supercluster.html#GUID-A2825C31-A122-481C-93D8-0B72D512FDD3">Scope and Supported Platforms for Running Oracle EXAchk on Oracle SuperCluster</a><br>Oracle EXAchk is an invaluable aid in keeping your system up-to-date and recording changes, as well as providing baselines for support analysis in the event such data is required to resolve a Service Request.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-supercluster.html#GUID-A3E34D65-C9F4-49DF-B7AC-9AB668DABA6E">Installing and Deploying Oracle EXAchk on Oracle SuperCluster</a><br>Follow these procedures to install and deploy Oracle EXAchk on Oracle SuperCluster.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-supercluster.html#GUID-E65FA998-1D60-423B-8D90-D70332BF3AC1">Oracle EXAchk on Oracle SuperCluster Usage</a><br>Perform health checks from GZ / primary LDOM, or NGZ.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-supercluster.html#GUID-09A88EDD-09FA-4110-8691-C3684B361DA4">Troubleshooting Oracle EXAchk on SuperCluster</a><br>Troubleshoot and fix issues related to Oracle EXAchk on Oracle SuperCluster.
+                  </li>
+               </ul>
+               <div class="relinfo">
+                  <p><strong>Related Topics</strong></p>
+                  <ul>
+                     <li><a href="oracle-orachk-and-exachk-common-features-tasks.html#GUID-50F7EA11-11FD-431C-B99A-EC9E2176BBDB" title="Oracle ORAchk and Oracle EXAchk share a common health check framework and a large portion of their features and tasks are common.">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</a></li>
+                  </ul>
+               </div>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="oracle-exachk-specific-features-and-tasks.html#GUID-FFA47C35-4BC4-4B58-9C6D-3115D069A5F1" title="Review this information on the features of Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance, Oracle Exalogic, Oracle SuperCluster, Oracle Exalytics, and Oracle Big Data Appliance.">Oracle EXAchk Specific Features and Tasks</a></p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="sect2"><a id="GUID-A2825C31-A122-481C-93D8-0B72D512FDD3" name="GUID-A2825C31-A122-481C-93D8-0B72D512FDD3"></a><h3 id="OEXUG-GUID-A2825C31-A122-481C-93D8-0B72D512FDD3" class="sect3"><span class="enumeration_section">3.4.1 </span>Scope and Supported Platforms for Running Oracle EXAchk on Oracle SuperCluster
+               </h3>
+               <div>
+                  <p>Oracle EXAchk is an invaluable aid in keeping your system up-to-date and recording changes, as well as providing baselines for support analysis in the event such data is required to resolve a Service Request.</p>
+                  <p>Refer to My Oracle Support Note 2053185.1 for the latest scope and supported platforms specific to Oracle EXAchk on Oracle SuperCluster:</p>
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="https://support.oracle.com/rs?type=doc&amp;amp;id=2053185.1" target="_blank">https://support.oracle.com/rs?type=doc&amp;id=2053185.1</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-supercluster.html#GUID-0789AB58-9C67-4F22-98A3-874FAF2EA3E7" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle SuperCluster.">Oracle SuperCluster</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-A3E34D65-C9F4-49DF-B7AC-9AB668DABA6E" name="GUID-A3E34D65-C9F4-49DF-B7AC-9AB668DABA6E"></a><h3 id="OEXUG-GUID-A3E34D65-C9F4-49DF-B7AC-9AB668DABA6E" class="sect3"><span class="enumeration_section">3.4.2 </span>Installing and Deploying Oracle EXAchk on Oracle SuperCluster
+               </h3>
+               <div>
+                  <p>Follow these procedures to install and deploy Oracle EXAchk on Oracle SuperCluster.</p>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="oracle-supercluster.html#GUID-2BB5324C-6DD3-463B-879D-669D48EFD9EA">Installing Oracle EXAchk on Oracle SuperCluster</a><br></li>
+                     <li class="ulchildlink"><a href="oracle-supercluster.html#GUID-9644DE5A-D8EA-46D7-B3D1-56245E167AAA">Deploying Oracle EXAchk on Oracle SuperCluster</a><br></li>
+                  </ul>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="understanding-and-managing-reports-and-output.html#GUID-B9A0B0B7-B4DC-4102-B537-CE241D8E364C" title="Merging reports is useful in role-separated environments where different users are run different subsets of checks and then you want to view everything as a whole.">Merging Reports</a></li>
+                        <li><a href="quick-start-guide.html#GUID-9FCE03FA-58B0-4BC6-8DF5-AAFABF58B55D" title="Follow these procedures to install Oracle ORAchk and Oracle EXAchk.">Installing Oracle ORAchk and Oracle EXAchk</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-supercluster.html#GUID-0789AB58-9C67-4F22-98A3-874FAF2EA3E7" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle SuperCluster.">Oracle SuperCluster</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="sect3"><a id="GUID-2BB5324C-6DD3-463B-879D-669D48EFD9EA" name="GUID-2BB5324C-6DD3-463B-879D-669D48EFD9EA"></a><h4 id="OEXUG-GUID-2BB5324C-6DD3-463B-879D-669D48EFD9EA" class="sect4"><span class="enumeration_section">3.4.2.1 </span>Installing Oracle EXAchk on Oracle SuperCluster
+                  </h4>
+                  <div>
+                     <p></p>
+                     <div class="section">
+                        <p class="subhead3" id="GUID-2BB5324C-6DD3-463B-879D-669D48EFD9EA__GUID-8C7D1A90-1894-4994-BE44-C1F7B2F0DC32">Installation</p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>Run Oracle EXAchk from the primary <code class="codeph">ldom</code> as <code class="codeph">root</code> &nbsp;user or <code class="codeph">root</code> privileged user. Oracle EXAchk discovers all Oracle RAC and database instances, compute nodes, storage servers, and InfiniBand switches in the fabric.
+                              </p>
+                           </li>
+                           <li>
+                              <p>Run Oracle EXAchk in a database zone or virtualized environment. Oracle EXAchk collects data from one or all database instances and Oracle RAC nodes.</p>
+                           </li>
+                        </ul>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="section" id="GUID-2BB5324C-6DD3-463B-879D-669D48EFD9EA__NOTESANDCONSIDERATIONS-425C41DF">
+                        <p class="subhead3" id="GUID-2BB5324C-6DD3-463B-879D-669D48EFD9EA__GUID-37CA9E87-E5EF-4967-891B-3F7FD4B71AE5">Notes and considerations</p>
+                        <p>If you install and run Oracle EXAchk as <code class="codeph">root</code>, it collects connectivity data from the GZ to the storage cells and other nodes. Oracle EXAchk collects only collect  database and Oracle RAC data if run as <code class="codeph">root</code> &nbsp;user or <code class="codeph">root</code> privileged user from within the nodes or zones on which the database and Oracle RAC software is installed.
+                        </p>
+                        <p>By default, there should be no need to set environment variables or run as any other user than <code class="codeph">root</code>&nbsp; or <code class="codeph">root</code> privileged user. However, there may be exceptions when one is asked to run it in some debug or extraordinary fashion by an Oracle Support Analyst.
+                        </p>
+                        <div class="p">By default, the output destination is <code>/opt/oracle.SupportTools/exachk</code> . Set the environment variable <code class="codeph">RAT_OUTPUT</code> to change this, for example, <pre class="pre codeblock"><code>export RAT_OUTPUT=/opt/oracle.SupportTools/exachk/output</code></pre></div>
+                        <p>Merge multiple collections into one file for ease of uploading to My Oracle Support for analysis.</p>
+                        <div class="p">
+                           <div class="infoboxnote" id="GUID-2BB5324C-6DD3-463B-879D-669D48EFD9EA__GUID-F35BC1A1-82E0-4EAD-ACF8-C0B9D54D7212">
+                              <p class="notep1">Note:</p>
+                              <p>In zones, there is an issue with discovery and you must explicitly set the <code class="codeph">RAT_ORACLE_HOME</code> and <code class="codeph">RAT_GRID_HOME</code> environment variables in some remote cases.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- class="section" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-supercluster.html#GUID-A3E34D65-C9F4-49DF-B7AC-9AB668DABA6E" title="Follow these procedures to install and deploy Oracle EXAchk on Oracle SuperCluster.">Installing and Deploying Oracle EXAchk on Oracle SuperCluster</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-9644DE5A-D8EA-46D7-B3D1-56245E167AAA" name="GUID-9644DE5A-D8EA-46D7-B3D1-56245E167AAA"></a><h4 id="OEXUG-GUID-9644DE5A-D8EA-46D7-B3D1-56245E167AAA" class="sect4"><span class="enumeration_section">3.4.2.2 </span>Deploying Oracle EXAchk on Oracle SuperCluster
+                  </h4>
+                  <div>
+                     <p></p>
+                     <ol>
+                        <li class="stepexpand"><span>Download the latest version of Oracle EXAchk into <code>/opt/oracle.SupportTools</code> directory on the primary <code class="codeph">node/LDOM</code> of the Oracle SuperCluster.</span><ol type="a">
+                              <li><span>Backup or remove if you have already installed Oracle EXAchk.</span></li>
+                              <li><span>Download the latest version of the Oracle EXAchk on Oracle SuperCluster deployment script <code>deploy_exachk.sh</code>.</span></li>
+                              <li><span>Move the downloaded file into the <code>/opt/oracle.SupportTools</code> directory.</span></li>
+                           </ol>
+                        </li>
+                        <li class="stepexpand"><span>Use the <code>deploy_exachk.sh</code> script to deploy and install Oracle EXAchk into the <code>/opt/oracle.SupportTools/exachk</code> directory in the primary <code class="codeph">ldom</code> and in each zone. </span><div>
+                              <div class="infoboxnote" id="GUID-9644DE5A-D8EA-46D7-B3D1-56245E167AAA__GUID-2CB699D4-B9F5-4466-84CE-6DBDE5DBBF17">
+                                 <p class="notep1">Note:</p>
+                                 <p>Repeat this action for each of the other LDOMs.</p>
+                              </div>
+                           </div>
+                           <div>
+                              <p>Example of what a zone's <code>/opt/oracle.SupportTools</code> looks like when this is finished: 
+                              </p><pre class="pre codeblock"><code>total 68
+drwxr-xr-x   7 root     root          10 Oct 14 19:27 .
+drwxr-xr-x   8 root     sys            8 Oct  7 22:06 ..
+drwxr-xr-x   3 root     root          21 Oct 14 19:27 Exachk.old
+drwxr-xr-x   3 root     root          23 Oct 14 19:06 Exachk
+drwxr-xr-x   2 root     root           7 Oct  5 20:52 em
+lrwxrwxrwx   1 root     root          14 Oct 14 19:27 exachk -&gt; Exachk
+drwxr-xr-x   2 root     root           6 Oct  7 20:43 onecommand
+-rw-r--r--   1 root     root       40830 Oct  7 20:30 resourcecontrol
+</code></pre></div>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-supercluster.html#GUID-A3E34D65-C9F4-49DF-B7AC-9AB668DABA6E" title="Follow these procedures to install and deploy Oracle EXAchk on Oracle SuperCluster.">Installing and Deploying Oracle EXAchk on Oracle SuperCluster</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div class="sect4"><a id="TASK-15-F8425CE4" name="TASK-15-F8425CE4"></a><h5 id="OEXUG-TASK-15-F8425CE4" class="sect5"><span class="enumeration_section">3.4.2.2.1 </span>Manual or Standalone Installation
+                     </h5>
+                     <div>
+                        <ol>
+                           <li class="stepexpand"><span>Manually install Oracle EXAchk on each host or LDOM or zone as follows:</span><div><pre class="pre codeblock"><code>root@abc5db01:/opt/oracle.SupportTools# mv exachk Exachk.old
+root@abc5db01:/opt/oracle.SupportTools# mkdir exachk
+root@abc5db01:/opt/oracle.SupportTools# unzip exachk_121024_bundle.zip -d exachk
+root@abc5db01:/opt/oracle.SupportTools# unzip exachk/exachk.zip -d exachk
+</code></pre></div>
+                           </li>
+                           <li class="stepexpand"><span>Check the version.</span><div><pre class="pre codeblock"><code># /opt/oracle.SupportTools/exachk/exachk -v
+
+Note if root RSA keys are set up for ssh, then this is an example of an easy way to check all zones in a given LDOM:
+
+root@abc5db01:/opt/oracle.SupportTools# zoneadm list | grep -v global &gt; zone_list
+root@abc5db01:/opt/oracle.SupportTools# hostname &gt;&gt; zone_list
+root@abc5db01:/opt/oracle.SupportTools# /opt/oracle.supercluster/bin/dcli -g zone_list -l root /opt/*Tools/exachk/exachk -v
+abc5db01z1: 
+abc5db01z1: EXACHK  VERSION: 12.1.0.2.6_20160208
+abc5db01z2: 
+abc5db01z2: EXACHK  VERSION: 12.1.0.2.6_20160208
+abc5db01z3: 
+abc5db01z3: EXACHK  VERSION: 12.1.0.2.6_20160208
+abc5db01z4: 
+abc5db01z4: EXACHK  VERSION: 12.1.0.2.6_20160208
+abc5db01: 
+abc5db01: EXACHK  VERSION: 12.1.0.2.6_20160208
+</code></pre></div>
+                           </li>
+                        </ol>
+                     </div>
+                     <div>
+                        <div class="relinfo">
+                           <p><strong>Related Topics</strong></p>
+                           <ul>
+                              <li><a href="https://support.oracle.com/rs?type=doc&amp;amp;id=2053185.1" target="_blank">https://support.oracle.com/rs?type=doc&amp;id=2053185.1</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-E65FA998-1D60-423B-8D90-D70332BF3AC1" name="GUID-E65FA998-1D60-423B-8D90-D70332BF3AC1"></a><h3 id="OEXUG-GUID-E65FA998-1D60-423B-8D90-D70332BF3AC1" class="sect3"><span class="enumeration_section">3.4.3 </span>Oracle EXAchk on Oracle SuperCluster Usage
+               </h3>
+               <div>
+                  <p>Perform health checks from GZ / primary LDOM, or NGZ.</p>
+                  <div class="section">
+                     <p class="subhead2" id="GUID-E65FA998-1D60-423B-8D90-D70332BF3AC1__GUID-90F3AB3C-9EFB-4B94-97D0-CF12676ECEFE">Performing Health Checks from GZ / Primary LDOM</p><pre class="pre codeblock"><code>root@abc5db01:/opt/oracle.SupportTools/exachk# ./exachk
+exachk did not find the inventory location on abc5db01 from environment.Does abc5db01 have Oracle software installed [y/n][n]?n
+
+Checking ssh user equivalency settings on all nodes in cluster
+
+Node abc5db02 is configured for ssh user equivalency for root user
+ 
+Node abc5db03 is configured for ssh user equivalency for root user
+ 
+Node abc5db04 is configured for ssh user equivalency for root user
+&lt;snip&gt;
+</code></pre></div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-E65FA998-1D60-423B-8D90-D70332BF3AC1__GUID-E3A13231-6823-416C-A7FB-E75757D67642">Performing Health Checks from non-GZ local zone, aka NGZ</p><pre class="pre codeblock"><code>root@abc4db01:/opt/oracle.SupportTools/exachk# zlogin abc4db01z2
+[Connected to zone 'abc4db01z2' pts/10]
+Oracle Corporation      SunOS 5.11      11.1    April 2014
+root@abc4db01z2:~# cd /opt/*Tools
+root@abc4db01z2:/opt/oracle.SupportTools# cd exachk
+root@abc4db01z2:/opt/oracle.SupportTools/exachk# ./exachk
+
+
+Checking ssh user equivalency settings on all nodes in cluster
+&lt;snip&gt;</code></pre></div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="oracle-supercluster.html#GUID-12B66454-ED93-4B03-97CF-92993B741FEA">Merging Collections</a><br>Merge multiple collections into one file and upload it to an SR through <code class="codeph">curl</code>.
+                     </li>
+                     <li class="ulchildlink"><a href="oracle-supercluster.html#GUID-2F1D08A2-0E0A-4137-9685-ECA21547A3A5">Automated Daemon Mode Operation</a><br>Follow these specific advanced setup instructions when using Oracle EXAchk on Oracle SuperCluster.
+                     </li>
+                  </ul>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-supercluster.html#GUID-0789AB58-9C67-4F22-98A3-874FAF2EA3E7" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle SuperCluster.">Oracle SuperCluster</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="sect3"><a id="GUID-12B66454-ED93-4B03-97CF-92993B741FEA" name="GUID-12B66454-ED93-4B03-97CF-92993B741FEA"></a><h4 id="OEXUG-GUID-12B66454-ED93-4B03-97CF-92993B741FEA" class="sect4"><span class="enumeration_section">3.4.3.1 </span>Merging Collections
+                  </h4>
+                  <div>
+                     <p>Merge multiple collections into one file and upload it to an SR through <code class="codeph">curl</code>.
+                     </p>
+                     <div class="p">
+                        <div class="infoboxnote" id="GUID-12B66454-ED93-4B03-97CF-92993B741FEA__GUID-85D9DAFC-DACB-465B-8E6D-75359CFB3BC9">
+                           <p class="notep1">Note:</p>
+                           <p>Specify the&nbsp;<code class="codeph">-force</code> option after the comma-delimited file list.
+                           </p>
+                        </div>
+                     </div><pre class="pre codeblock"><code>root@abc4db01:/opt/oracle.SupportTools/exachk# ./exachk -merge <span class="variable" translate="no">exachk_abc4db01_090715_214648.zip</span>,
+<span class="variable" translate="no">/zoneHome/abc4db01z1/root/opt/oracle.SupportTools/exachk/exachk_abc4db01z1_abc4z1_090415_183027.zip</span>,<span class="variable" translate="no">/zoneHome/abc4db01z2/root/opt/oracle.SupportTools/exachk/exachk_abc4db01z2_abc4z2_090715_211212.zip</span>,
+<span class="variable" translate="no">/zoneHome/abc4db01z3/root/opt/oracle.SupportTools/exachk/exachk_abc4db01z3_dbm01_031015_212416.zip</span> 
+-force
+Merging following collections:
+
+  exachk_abc4db01_090715_214648.zip
+  /zoneHome/abc4db01z1/root/opt/oracle.SupportTools/exachk/exachk_abc4db01z1_abc4z1_090415_183027.zip
+  /zoneHome/abc4db01z2/root/opt/oracle.SupportTools/exachk/exachk_abc4db01z2_abc4z2_090715_211212.zip
+  /zoneHome/abc4db01z3/root/opt/oracle.SupportTools/exachk/exachk_abc4db01z3_dbm01_031015_212416.zip
+
+
+Started merging exachk_orlt4db01_090715_214648.zip
+  ........................................................................................
+
+Started merging /zoneHome/abc4db01z1/root/opt/oracle.SupportTools/exachk/exachk_abc4db01z1_abc4z1_090415_183027.zip
+  ............................................................................................................................................................................................
+
+Started merging /zoneHome/abc4db01z2/root/opt/oracle.SupportTools/exachk/exachk_abc4db01z2_abc4z2_090715_211212.zip
+  ............................................................................................................................................................................................
+
+Started merging /zoneHome/abc4db01z3/root/opt/oracle.SupportTools/exachk/exachk_abc4db01z3_dbm01_031015_212416.zip
+  ............................................................................................................................................................................................
+&lt;snip&gt;
+Detailed report (html) - /opt/oracle.SupportTools/exachk/exachk_abc4db01_090715_214648_merge/exachk_abc4db01_090715_214648_merge.html
+
+UPLOAD(if required) - /opt/oracle.SupportTools/exachk/exachk_abc4db01_090715_214648_merge.zip
+
+
+root@abc4db01:/opt/oracle.SupportTools/exachk#
+</code></pre></div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="understanding-and-managing-reports-and-output.html#GUID-B9A0B0B7-B4DC-4102-B537-CE241D8E364C" title="Merging reports is useful in role-separated environments where different users are run different subsets of checks and then you want to view everything as a whole.">Merging Reports</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-supercluster.html#GUID-E65FA998-1D60-423B-8D90-D70332BF3AC1" title="Perform health checks from GZ / primary LDOM, or NGZ.">Oracle EXAchk on Oracle SuperCluster Usage</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-2F1D08A2-0E0A-4137-9685-ECA21547A3A5" name="GUID-2F1D08A2-0E0A-4137-9685-ECA21547A3A5"></a><h4 id="OEXUG-GUID-2F1D08A2-0E0A-4137-9685-ECA21547A3A5" class="sect4"><span class="enumeration_section">3.4.3.2 </span>Automated Daemon Mode Operation
+                  </h4>
+                  <div>
+                     <p>Follow these specific advanced setup instructions when using Oracle EXAchk on Oracle SuperCluster.</p>
+                     <p>Before you schedule automated health check runs, set the following environment variables as follows:</p><pre class="pre codeblock"><code>export RAT_TIMEOUT=120
+export RAT_ROOT_TIMEOUT=600
+export RAT_PASSWORDCHECK_TIMEOUT=30
+export RAT_OUTPUT=/opt/oracle.SupportTools/exachk/output
+export RAT_COPY_EM_XML_FILES=1
+</code></pre><div class="p">
+                        <div class="infoboxnote" id="GUID-2F1D08A2-0E0A-4137-9685-ECA21547A3A5__GUID-D39AF2EF-19F2-4E87-A2EA-79AA82643D70">
+                           <p class="notep1">Note:</p>
+                           <p>Create a file with these commands because they are required to be set anytime you restart the daemon.</p>
+                        </div>
+                     </div>
+                     <ol>
+                        <li>
+                           <div class="p">Set the <code class="codeph">AUTORUN_SCHEDULE</code> environment variable as follows:<pre class="pre codeblock"><code>AUTORUN_SCHEDULE * * * * :- Automatic run at specific time
+                 - - - -
+                 ¦ ¦ ¦ ¦
+                 ¦ ¦ ¦ +----- day of week (0 - 6) (0 to 6 are
+                 ¦ ¦ ¦       Sunday to Saturday)
+                 ¦ ¦ +---------- month (1 - 12)
+                 ¦ +--------------- day of month (1 - 31)
+                 +-------------------- hour (0 - 23)
+</code></pre></div>
+                           <div class="p">For example, to run on 5th of every month at 2 AM: <pre class="pre codeblock"><code>./exachk -set "AUTORUN_SCHEDULE=2 5 * *"</code></pre></div>
+                        </li>
+                        <li>
+                           <div class="p">Check the results.<pre class="pre codeblock"><code>./exachk -get all</code></pre></div>
+                        </li>
+                        <li>
+                           <div class="p">Set the daemon and <code class="codeph">inittab</code>.<pre class="pre codeblock"><code>./exachk -initsetup</code></pre><div class="infoboxnote" id="GUID-2F1D08A2-0E0A-4137-9685-ECA21547A3A5__GUID-01CAB085-BF64-4542-B79F-805A1A9F26DC">
+                                 <p class="notep1">Note:</p>
+                                 <p>If the preceding action produces an error, then wait for one or two minutes before running the next command to give <code class="codeph">init</code> time to respawn the process.
+                                 </p>
+                              </div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="p">Check if the daemon is running.<pre class="pre codeblock"><code>./exachk -d nextautorun</code></pre></div>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-supercluster.html#GUID-E65FA998-1D60-423B-8D90-D70332BF3AC1" title="Perform health checks from GZ / primary LDOM, or NGZ.">Oracle EXAchk on Oracle SuperCluster Usage</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-09A88EDD-09FA-4110-8691-C3684B361DA4" name="GUID-09A88EDD-09FA-4110-8691-C3684B361DA4"></a><h3 id="OEXUG-GUID-09A88EDD-09FA-4110-8691-C3684B361DA4" class="sect3"><span class="enumeration_section">3.4.4 </span>Troubleshooting Oracle EXAchk on SuperCluster
+               </h3>
+               <div>
+                  <p>Troubleshoot and fix issues related to Oracle EXAchk on Oracle SuperCluster.</p>
+                  <p>Refer to My Oracle Support Note 2053185.1 for the latest known issues specific to Oracle EXAchk on Oracle SuperCluster.</p>
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="troubleshoot-orachk-and-exachk.html#GUID-7179D6FF-995F-420C-96D0-239C8D2CA4E6" title="Follow the steps explained in this section to troubleshoot and fix Oracle ORAchk and Oracle EXAchk related issues.">Troubleshooting Oracle ORAchk and Oracle EXAchk</a></li>
+                        <li><a href="https://support.oracle.com/rs?type=doc&amp;amp;id=2053185.1" target="_blank">https://support.oracle.com/rs?type=doc&amp;id=2053185.1</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-supercluster.html#GUID-0789AB58-9C67-4F22-98A3-874FAF2EA3E7" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle SuperCluster.">Oracle SuperCluster</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

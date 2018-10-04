@@ -1,0 +1,1309 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Introduction to Oracle Big Data Appliance</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="Owner's Guide">
+      <meta property="og:description" content>
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="Owner's Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-big-data-appliance-owners-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-07T12:03:03-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2011, 2018">
+      <meta name="dcterms.category" content="bigdata">
+      <meta name="dcterms.identifier" content="E98477-01">
+      
+      <meta name="dcterms.product" content="en/bigdata/big-data-appliance/4.13">
+      
+      <link rel="prev" href="part-preinstallation.html" title="Previous" type="text/html">
+      <link rel="next" href="prep.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"bigdata","element_name":"Big Data","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"not-applicable","element_name":"Not applicable","display_in_url":false},"product":{"short_name":"big-data-appliance","element_name":"Big Data Appliance","display_in_url":true},"release":{"short_name":"4.13","element_name":"Release 4.13","display_in_url":true}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® Big Data Appliance Owner's Guide">
+    <meta name="dcterms.isVersionOf" content="BIGOG">
+    <meta name="dcterms.release" content="Release 4.13">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="part-preinstallation.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="prep.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">Owner's Guide</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="part-preinstallation.html" property="item" typeof="WebPage"><span property="name">Preinstallation </span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Introduction to Oracle Big Data Appliance</li>
+            </ol>
+            <a id="GUID-072D09FA-D014-45F7-85A9-B540AF4E1393" name="GUID-072D09FA-D014-45F7-85A9-B540AF4E1393"></a><a id="BIGOG107"></a>
+            
+            <h2 id="BIGOG-GUID-072D09FA-D014-45F7-85A9-B540AF4E1393" class="sect2"><span class="enumeration_chapter">1 </span>Introduction to Oracle Big Data Appliance
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>This chapter describes the features and hardware components of Oracle Big Data Appliance. It also includes usage information.</p>
+               <p>This chapter contains these sections:</p>
+               <ul style="list-style-type: disc;">
+                  <li>
+                     <p><a href="intro.html#GUID-43E7F436-137D-4AE6-BEDF-C8FC195E97AA">About Oracle Big Data Appliance</a></p>
+                  </li>
+                  <li>
+                     <p><a href="intro.html#GUID-CCBF3E39-7F8A-47B6-9AF8-25E450E3E903">Oracle Big Data Appliance Rack Components</a></p>
+                  </li>
+                  <li>
+                     <p><a href="intro.html#GUID-72BFB072-58F0-4172-9D91-71798F2DF9AB">Server Components</a></p>
+                  </li>
+                  <li>
+                     <p><a href="intro.html#GUID-3D9ADBE3-5BC5-4577-96F9-F52CCF59F03D">Spare Parts Kit Components</a></p>
+                  </li>
+                  <li>
+                     <p><a href="intro.html#GUID-ABEAC9ED-A052-4C8D-AB3B-BE69445F3CED">Oracle Big Data Appliance Management Software</a></p>
+                  </li>
+               </ul>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="intro.html#GUID-43E7F436-137D-4AE6-BEDF-C8FC195E97AA">About Oracle Big Data Appliance</a><br></li>
+                  <li class="ulchildlink"><a href="intro.html#GUID-CCBF3E39-7F8A-47B6-9AF8-25E450E3E903">Oracle Big Data Appliance Rack Components</a><br></li>
+                  <li class="ulchildlink"><a href="intro.html#GUID-72BFB072-58F0-4172-9D91-71798F2DF9AB">Server Components</a><br></li>
+                  <li class="ulchildlink"><a href="intro.html#GUID-3D9ADBE3-5BC5-4577-96F9-F52CCF59F03D">Spare Parts Kit Components</a><br></li>
+                  <li class="ulchildlink"><a href="intro.html#GUID-ABEAC9ED-A052-4C8D-AB3B-BE69445F3CED">Oracle Big Data Appliance Management Software</a><br></li>
+                  <li class="ulchildlink"><a href="intro.html#GUID-E293FDD6-E1A3-4EA0-B683-EB123D34D045">Supportability Guidelines</a><br>Oracle sets guidelines for supportable customer modifications to the Oracle Big Data Appliance hardware and software. Oracle support is contingent upon customer compliance with these guidelines.
+                  </li>
+               </ul>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="part-preinstallation.html#GUID-4925A4CB-E090-4D65-A7DC-411984CF0C65">Preinstallation</a></p>
+                  </div>
+               </div>
+            </div>
+            <a id="BIGOG108"></a><div class="props_rev_3"><a id="GUID-43E7F436-137D-4AE6-BEDF-C8FC195E97AA" name="GUID-43E7F436-137D-4AE6-BEDF-C8FC195E97AA"></a><h3 id="BIGOG-GUID-43E7F436-137D-4AE6-BEDF-C8FC195E97AA" class="sect3"><span class="enumeration_section">1.1 </span>About Oracle Big Data Appliance
+               </h3>
+               <div>
+                  <p><a id="d5150e108" class="indexterm-anchor"></a><a id="d5150e112" class="indexterm-anchor"></a>Oracle Big Data Appliance is an engineered system of hardware and software optimized to capture and analyze the massive volumes of data generated by social media feeds, email, web logs, photographs, smart meters, sensors, and similar devices. 
+                  </p>
+                  <p>Oracle Big Data Appliance is engineered to work with Oracle Exadata Database Machine and Oracle Exalytics In-Memory Machine to provide the most advanced analysis of all data types, with enterprise-class performance, availability, supportability, and security.</p>
+                  <p>The <a id="d5150e121" class="indexterm-anchor"></a>Oracle Linux operating system and <a id="d5150e124" class="indexterm-anchor"></a>Cloudera's Distribution including Apache Hadoop (CDH) underlie all other software components installed on Oracle Big Data Appliance.
+                  </p>
+               </div>
+               <div>
+                  <div class="infoboxnotealso" id="GUID-43E7F436-137D-4AE6-BEDF-C8FC195E97AA__GUID-AC535D19-326F-42AF-B824-1D10D46A4396">
+                     <p class="notep1">See Also:</p>
+                     <p><a href="https://www.oracle.com/pls/topic/lookup?ctx=en/bigdata/big-data-appliance/4.13/bigog&amp;id=BIGUG-GUID-1870FB3D-84BF-4FBB-B10D-4CA49B3ACCC5" target="_blank"><span class="italic">Oracle Big Data Appliance Software User's Guide</span></a></p>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="intro.html#GUID-072D09FA-D014-45F7-85A9-B540AF4E1393">Introduction to Oracle Big Data Appliance</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div><a id="BIGOG110"></a><a id="BIGOG109"></a><div class="props_rev_3"><a id="GUID-CCBF3E39-7F8A-47B6-9AF8-25E450E3E903" name="GUID-CCBF3E39-7F8A-47B6-9AF8-25E450E3E903"></a><h3 id="BIGOG-GUID-CCBF3E39-7F8A-47B6-9AF8-25E450E3E903" class="sect3"><span class="enumeration_section">1.2 </span>Oracle Big Data Appliance Rack Components
+               </h3>
+               <div>
+                  <div class="section">
+                     <p><a id="d5150e168" class="indexterm-anchor"></a><a id="d5150e172" class="indexterm-anchor"></a>Oracle Big Data Appliance consists of a rack and the components to connect to your network. <a href="intro.html#GUID-CCBF3E39-7F8A-47B6-9AF8-25E450E3E903__BHCHEJJF" title="Column 1 quantifies components in a full rack. Column 2 does the same for a starter rack. Column 3 lists the components being quantified.">Table 1-1</a> lists the components in an Oracle Big Data Appliance rack. 
+                     </p>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="tblformal" id="GUID-CCBF3E39-7F8A-47B6-9AF8-25E450E3E903__BHCHEJJF">
+                     <p class="titleintable">Table 1-1 Oracle Big Data Appliance Rack Components</p>
+                     <table cellpadding="4" cellspacing="0" class="Formal" title="Oracle Big Data Appliance Rack Components" summary="Column 1 quantifies components in a full rack. Column 2 does the same for a starter rack. Column 3 lists the components being quantified. " width="100%" frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" width="13%" id="d5150e191">Full Rack</th>
+                              <th align="left" valign="bottom" width="17%" id="d5150e194">Starter Rack</th>
+                              <th align="left" valign="bottom" width="70%" id="d5150e197">Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e202" headers="d5150e191 ">
+                                 <p>18</p>
+                              </td>
+                              <td align="left" valign="top" width="17%" headers="d5150e202 d5150e194 ">
+                                 <p>6</p>
+                              </td>
+                              <td align="left" valign="top" width="70%" headers="d5150e202 d5150e197 ">
+                                 <p>Oracle Server X7&#x2013;2L on new racks. </p>
+                                 <p>X6-2L, X5-2L, Sun Server X4-2L, Sun Server X3-2L, and Sun Fire X4270 M2 are supported on existing racks</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e214" headers="d5150e191 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="17%" headers="d5150e214 d5150e194 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="70%" headers="d5150e214 d5150e197 ">
+                                 <p>Sun Rack II 1242 base</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e224" headers="d5150e191 ">
+                                 <p>2</p>
+                              </td>
+                              <td align="left" valign="top" width="17%" headers="d5150e224 d5150e194 ">
+                                 <p>2</p>
+                              </td>
+                              <td align="left" valign="top" width="70%" headers="d5150e224 d5150e197 ">
+                                 <p>Sun Network QDR InfiniBand Gateway NM2-GW switches</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e234" headers="d5150e191 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="17%" headers="d5150e234 d5150e194 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="70%" headers="d5150e234 d5150e197 ">
+                                 <p>Sun Datacenter InfiniBand Switch 36 NM2-36P switches</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e244" headers="d5150e191 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="17%" headers="d5150e244 d5150e194 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="70%" headers="d5150e244 d5150e197 ">
+                                 <p>Cisco Nexus 93108-1G Ethernet switch.</p>
+                                 <p> The Catalyst 4948-E-F Ethernet switch is supported in existing racks (4948 in a Sun Fire X4270 M2-based rack).</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e256" headers="d5150e191 ">
+                                 <p>2</p>
+                              </td>
+                              <td align="left" valign="top" width="17%" headers="d5150e256 d5150e194 ">
+                                 <p>2</p>
+                              </td>
+                              <td align="left" valign="top" width="70%" headers="d5150e256 d5150e197 ">
+                                 <p>Power distribution units</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e266" headers="d5150e191 ">
+                                 <p>0 or 1</p>
+                              </td>
+                              <td align="left" valign="top" width="17%" headers="d5150e266 d5150e194 ">
+                                 <p>0</p>
+                              </td>
+                              <td align="left" valign="top" width="70%" headers="d5150e266 d5150e197 ">
+                                 <p>KVM (only in Sun Fire X4270 M2-based racks)</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="intro.html#GUID-072D09FA-D014-45F7-85A9-B540AF4E1393">Introduction to Oracle Big Data Appliance</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div><a id="BIGOG77014"></a><a id="BIGOG76904"></a><a id="BIGOG76749"></a><a id="BIGOG76750"></a><a id="BIGOG111"></a><div class="props_rev_3"><a id="GUID-72BFB072-58F0-4172-9D91-71798F2DF9AB" name="GUID-72BFB072-58F0-4172-9D91-71798F2DF9AB"></a><h3 id="BIGOG-GUID-72BFB072-58F0-4172-9D91-71798F2DF9AB" class="sect3"><span class="enumeration_section">1.3 </span>Server Components
+               </h3>
+               <div>
+                  <div class="section">
+                     <p>The table below lists the factory-shipped components of an Oracle Server X7-2L.</p>
+                     <div class="tblformal" id="GUID-72BFB072-58F0-4172-9D91-71798F2DF9AB__GUID-85194616-B2C6-4838-BEE1-0AE1F33CD0AE">
+                        <p class="titleintable">Table 1-2  Oracle Server X7&#x2013;2L Components</p>
+                        <table cellpadding="4" cellspacing="0" class="Formal" title=" Oracle Server X7&#x2013;2L Components" summary="Oracle Server X7-2L  components. Column 1 lists the quantity. Column 2 describes each component." frame="hsides" border="1" rules="rows">
+                           <thead>
+                              <tr align="left" valign="top">
+                                 <th align="left" valign="bottom" id="d5150e333">Quantity</th>
+                                 <th align="left" valign="bottom" id="d5150e335">Description</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" id="d5150e339" headers="d5150e333 ">
+                                    <p>1</p>
+                                 </td>
+                                 <td align="left" valign="top" headers="d5150e339 d5150e335 ">
+                                    <p>Oracle Server X7-2L server base.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" id="d5150e346" headers="d5150e333 ">
+                                    <p>2</p>
+                                 </td>
+                                 <td align="left" valign="top" headers="d5150e346 d5150e335 ">
+                                    <p>24-core Intel &reg; Xeon &reg; 8160 processors.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" id="d5150e353" headers="d5150e333 ">
+                                    <p>12</p>
+                                 </td>
+                                 <td align="left" valign="top" headers="d5150e353 d5150e335 ">
+                                    <p>10TB 7,200 RPM SAS drives.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" id="d5150e360" headers="d5150e333 ">
+                                    <p>2</p>
+                                 </td>
+                                 <td align="left" valign="top" headers="d5150e360 d5150e335 ">
+                                    <p>Mirrored M.2 150GB SATA SSD drives (in place of the USB flash drive included in X6&#x2013;2L).</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" id="d5150e367" headers="d5150e333 ">
+                                    <p>8</p>
+                                 </td>
+                                 <td align="left" valign="top" headers="d5150e367 d5150e335 ">
+                                    <p>32 GB DDR4 - 2666 MHz Memory , expandable to 1.5TB.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" id="d5150e374" headers="d5150e333 ">
+                                    <p>2</p>
+                                 </td>
+                                 <td align="left" valign="top" headers="d5150e374 d5150e335 ">
+                                    <p>QDR 40Gb/sec InfiniBand Ports.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" id="d5150e381" headers="d5150e333 ">
+                                    <p>1</p>
+                                 </td>
+                                 <td align="left" valign="top" headers="d5150e381 d5150e335 ">
+                                    <p>Dual-port InfiniBand QDR CX3 (40 Gb/sec) PCIe HCA.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" id="d5150e388" headers="d5150e333 ">
+                                    <p>1</p>
+                                 </td>
+                                 <td align="left" valign="top" headers="d5150e388 d5150e335 ">
+                                    <p>Built-in RJ45 1 Gigabit Ethernet port.</p>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- class="inftblhruleinformal" -->
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p>The table below lists the factory-shipped components of an Oracle Server X6-2L. Note that new factory-shipped racks are X7-2L based.</p>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="tblformal" id="GUID-72BFB072-58F0-4172-9D91-71798F2DF9AB__SERVERCOMPONENTS-FDC21AFC">
+                     <p class="titleintable">Table 1-3 Oracle Server X6-2L Server Components</p>
+                     <table cellpadding="4" cellspacing="0" class="Formal" title="Oracle Server X6-2L Server Components" summary="Oracle Server X6&#x2013;2 components. Column 1 lists the quantity. Column 2 describes each component." width="100%" frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" width="7%" id="d5150e407">Quantity</th>
+                              <th align="left" valign="bottom" width="93%" id="d5150e410">Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="7%" id="d5150e415" headers="d5150e407 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="93%" headers="d5150e415 d5150e410 ">
+                                 <p>Oracle Server X6-2L server base</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="7%" id="d5150e422" headers="d5150e407 ">
+                                 <p>2</p>
+                              </td>
+                              <td align="left" valign="top" width="93%" headers="d5150e422 d5150e410 ">
+                                 <p>22-core Intel&reg; Xeon&reg; E5-2699 v4 processors  (2.2GHz)</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="7%" id="d5150e429" headers="d5150e407 ">
+                                 <p>8</p>
+                              </td>
+                              <td align="left" valign="top" width="93%" headers="d5150e429 d5150e410 ">
+                                 <p>32 GB DDR4-2400 memory (expandable to maximum of 768 GB )</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="7%" id="d5150e436" headers="d5150e407 ">
+                                 <p>12</p>
+                              </td>
+                              <td align="left" valign="top" width="93%" headers="d5150e436 d5150e410 ">
+                                 <p>8 TB 3.5-inch 7200 RPM drives high capacity SAS (hot swappable)</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="7%" id="d5150e443" headers="d5150e407 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="93%" headers="d5150e443 d5150e410 ">
+                                 <p>Oracle Integrated Lights Out Manager v3.1 with an Ethernet port for remote management</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="7%" id="d5150e450" headers="d5150e407 ">
+                                 <p>2</p>
+                              </td>
+                              <td align="left" valign="top" width="93%" headers="d5150e450 d5150e410 ">
+                                 <p>InfiniBand 4 x QDR (40 Gbps) ports (One dual-port PCIe 3.0 Host Channel Adapter network interface card)</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="7%" id="d5150e457" headers="d5150e407 ">
+                                 <p>4</p>
+                              </td>
+                              <td align="left" valign="top" width="93%" headers="d5150e457 d5150e410 ">
+                                 <p>Embedded 10 gigabit Ethernet port</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="7%" id="d5150e464" headers="d5150e407 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="93%" headers="d5150e464 d5150e410 ">
+                                 <p>Host bus adapter (disk controller) with 8 internal ports and 512 MB battery-backed write cache. 12 Gbps SAS III PCIe 8P RAID-INT</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="7%" id="d5150e471" headers="d5150e407 ">
+                                 <p>2</p>
+                              </td>
+                              <td align="left" valign="top" width="93%" headers="d5150e471 d5150e410 ">
+                                 <p>Redundant hot-swappable power supplies and fans</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="7%" id="d5150e478" headers="d5150e407 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="93%" headers="d5150e478 d5150e410 ">
+                                 <p>USB-2 4 GB flash drive</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+                  <div class="section">
+                     <p>The table below lists the factory-shipped components of an Oracle Server X5-2.</p>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="tblformal" id="GUID-72BFB072-58F0-4172-9D91-71798F2DF9AB__BHCGGCIG">
+                     <p class="titleintable">Table 1-4 Oracle Server X5-2 Server Components</p>
+                     <table cellpadding="4" cellspacing="0" class="Formal" title="Oracle Server X5-2 Server Components" summary="Oracle Server X5&#x2013;2 components" width="100%" frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" width="13%" id="d5150e497">Quantity</th>
+                              <th align="left" valign="bottom" width="87%" id="d5150e500">Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e505" headers="d5150e497 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e505 d5150e500 ">
+                                 <p>Oracle Server X5-2L server base</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e512" headers="d5150e497 ">
+                                 <p>2</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e512 d5150e500 ">
+                                 <p>18-core Intel Xeon E5-2699 v3 processors (2.3 GHz)</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e519" headers="d5150e497 ">
+                                 <p>8</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e519 d5150e500 ">
+                                 <p>16 GB DDR4 Memory</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e526" headers="d5150e497 ">
+                                 <p>12</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e526 d5150e500 ">
+                                 <p>8 TB 3.5-inch 7200 RPM drives high capacity SAS (hot swappable)</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e533" headers="d5150e497 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e533 d5150e500 ">
+                                 <p>Oracle Integrated Lights Out Manager v3.1 with an Ethernet port for remote management</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e540" headers="d5150e497 ">
+                                 <p>2</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e540 d5150e500 ">
+                                 <p>InfiniBand 4 x QDR (40 Gbps) ports (One dual-port PCIe 3.0 Host Channel Adapter network interface card)</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e547" headers="d5150e497 ">
+                                 <p>4</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e547 d5150e500 ">
+                                 <p>Embedded 10 gigabit Ethernet port</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e554" headers="d5150e497 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e554 d5150e500 ">
+                                 <p>Host bus adapter (disk controller) with 8 internal ports and 512 MB battery-backed write cache. 12 Gbps SAS III PCIe 8P RAID-INT</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e561" headers="d5150e497 ">
+                                 <p>2</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e561 d5150e500 ">
+                                 <p>Redundant hot-swappable power supplies and fans</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e568" headers="d5150e497 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e568 d5150e500 ">
+                                 <p>USB-2 4 GB flash drive</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+                  <div class="section">
+                     <p>The table below lists the components of a Sun Server X4-2L.</p>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="tblformal" id="GUID-72BFB072-58F0-4172-9D91-71798F2DF9AB__BHCHCFDH">
+                     <p class="titleintable">Table 1-5 Sun Server X4-2L Server Components</p>
+                     <table cellpadding="4" cellspacing="0" class="Formal" title="Sun Server X4-2L Server Components" summary="server components" width="100%" frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" width="13%" id="d5150e587">Quantity</th>
+                              <th align="left" valign="bottom" width="87%" id="d5150e590">Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e595" headers="d5150e587 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e595 d5150e590 ">
+                                 <p>Sun Server X4-2L server base</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e602" headers="d5150e587 ">
+                                 <p>2</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e602 d5150e590 ">
+                                 <p>Eight-core Intel Xeon E5-2650 v2 processors (2.6 GHz)</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e609" headers="d5150e587 ">
+                                 <p>8</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e609 d5150e590 ">
+                                 <p>8 GB DDR3 2RX4 1600 MHz DIMMs (64 GB RAM expandable up to 512 GB)</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e616" headers="d5150e587 ">
+                                 <p>12</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e616 d5150e590 ">
+                                 <p>8 TB 3.5-inch 7200 RPM drives high capacity SAS (hot swappable)</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e623" headers="d5150e587 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e623 d5150e590 ">
+                                 <p>Oracle Integrated Lights Out Manager v3.1 with an Ethernet port for remote management</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e630" headers="d5150e587 ">
+                                 <p>2</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e630 d5150e590 ">
+                                 <p>InfiniBand 4 x QDR (40 Gbps) ports (One dual-port PCIe 3.0 Host Channel Adapter network interface card)</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e637" headers="d5150e587 ">
+                                 <p>4</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e637 d5150e590 ">
+                                 <p>Embedded 10 gigabit Ethernet port</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e644" headers="d5150e587 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e644 d5150e590 ">
+                                 <p>Host bus adapter (disk controller) with 8 internal ports and 512 MB battery-backed write cache. SAS III 6 Gbps</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e651" headers="d5150e587 ">
+                                 <p>2</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e651 d5150e590 ">
+                                 <p>Redundant hot-swappable power supplies and fans</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e658" headers="d5150e587 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e658 d5150e590 ">
+                                 <p>USB-2 4 GB flash drive</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+                  <div class="section">
+                     <p>The table below lists the components of a Sun Server X3-2L.</p>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="tblformal" id="GUID-72BFB072-58F0-4172-9D91-71798F2DF9AB__BHCFBADA">
+                     <p class="titleintable">Table 1-6 Sun Server X3-2L Server Components</p>
+                     <table cellpadding="4" cellspacing="0" class="Formal" title="Sun Server X3-2L Server Components" summary="server components" width="100%" frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" width="13%" id="d5150e677">Quantity</th>
+                              <th align="left" valign="bottom" width="87%" id="d5150e680">Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e685" headers="d5150e677 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e685 d5150e680 ">
+                                 <p>Sun Server X3-2L server base</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e692" headers="d5150e677 ">
+                                 <p>2</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e692 d5150e680 ">
+                                 <p>Eight-core Intel Xeon E5-2660 processors (2.2 GHz)</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e699" headers="d5150e677 ">
+                                 <p>8</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e699 d5150e680 ">
+                                 <p>8 GB DDR3 2RX4 1600 MHz DIMMs (64 GB RAM expandable up to 512 GB)</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e706" headers="d5150e677 ">
+                                 <p>12</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e706 d5150e680 ">
+                                 <p>3 TB 3.5-inch 7200 RPM drives high capacity SAS (hot swap)</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e713" headers="d5150e677 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e713 d5150e680 ">
+                                 <p>Oracle Integrated Lights Out Manager v3.1 with an Ethernet port for remote management</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e720" headers="d5150e677 ">
+                                 <p>2</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e720 d5150e680 ">
+                                 <p>InfiniBand 4 x QDR (4 Gbps) ports (One dual-port PCIe 2.0 Host Channel Adapter network interface card)</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e727" headers="d5150e677 ">
+                                 <p>4</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e727 d5150e680 ">
+                                 <p>Embedded 10 gigabit Ethernet port</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e734" headers="d5150e677 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e734 d5150e680 ">
+                                 <p>Host bus adapter (disk controller) with 8 internal ports and 512 MB battery-backed write cache. SAS III 6 GBPS</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e741" headers="d5150e677 ">
+                                 <p>2</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e741 d5150e680 ">
+                                 <p>Redundant hot-swappable power supplies and fans</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e748" headers="d5150e677 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e748 d5150e680 ">
+                                 <p>USB-2 4 GB flash drive</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+                  <div class="section">
+                     <p>The table below lists the components of a Sun Fire X4270 M2.</p>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="tblformal" id="GUID-72BFB072-58F0-4172-9D91-71798F2DF9AB__BHCHHHJB">
+                     <p class="titleintable">Table 1-7 Sun Fire X4270 M2 Server Components</p>
+                     <table cellpadding="4" cellspacing="0" class="Formal" title="Sun Fire X4270 M2 Server Components" summary="server components" width="100%" frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" width="13%" id="d5150e767">Quantity</th>
+                              <th align="left" valign="bottom" width="87%" id="d5150e770">Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e775" headers="d5150e767 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e775 d5150e770 ">
+                                 <p>Sun Fire X4270 M2 server base</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e782" headers="d5150e767 ">
+                                 <p>2</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e782 d5150e770 ">
+                                 <p>Six-core Intel Xeon X5675 processors (3.06 GHz)</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e789" headers="d5150e767 ">
+                                 <p>6</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e789 d5150e770 ">
+                                 <p>8 GB DDR3 2RX4 1333 MHz DIMMs (48 GB RAM)</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e796" headers="d5150e767 ">
+                                 <p>12</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e796 d5150e770 ">
+                                 <p>3 TB 3.5-inch 7200 RPM drives</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e803" headers="d5150e767 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e803 d5150e770 ">
+                                 <p>Ethernet port for Oracle Integrated Lights Out Manager v3.0 for remote management</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e810" headers="d5150e767 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e810 d5150e770 ">
+                                 <p>Dual-port 4X QDR (40 Gbps) InfiniBand Host Channel Adapter Network Interface Card</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e817" headers="d5150e767 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e817 d5150e770 ">
+                                 <p>Host bus adapter (disk controller) with 8 internal ports and 512 MB battery-backed write cache</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e824" headers="d5150e767 ">
+                                 <p>2</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e824 d5150e770 ">
+                                 <p>Redundant power supplies and fans</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e831" headers="d5150e767 ">
+                                 <p>4</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e831 d5150e770 ">
+                                 <p>Embedded 1 gigabit Ethernet port</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="13%" id="d5150e838" headers="d5150e767 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="87%" headers="d5150e838 d5150e770 ">
+                                 <p>USB-2 4 GB flash drive</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="intro.html#GUID-072D09FA-D014-45F7-85A9-B540AF4E1393">Introduction to Oracle Big Data Appliance</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div><a id="BIGOG114"></a><a id="BIGOG115"></a><a id="BIGOG116"></a><a id="BIGOG113"></a><div class="props_rev_3"><a id="GUID-3D9ADBE3-5BC5-4577-96F9-F52CCF59F03D" name="GUID-3D9ADBE3-5BC5-4577-96F9-F52CCF59F03D"></a><h3 id="BIGOG-GUID-3D9ADBE3-5BC5-4577-96F9-F52CCF59F03D" class="sect3"><span class="enumeration_section">1.4 </span>Spare Parts Kit Components
+               </h3>
+               <div>
+                  <div class="section">
+                     <p>The Oracle Big Data Appliance spare parts kit includes disk drives, accessory kits, cables, and documentation. <a href="intro.html#GUID-3D9ADBE3-5BC5-4577-96F9-F52CCF59F03D__BHCCEHHA" title="spare parts and accessory kits">Table 1-8</a> and <a href="intro.html#GUID-3D9ADBE3-5BC5-4577-96F9-F52CCF59F03D__BHCDECIB" title="spare parts">Table 1-9</a> identify the bundled spares.
+                     </p>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="tblformal" id="GUID-3D9ADBE3-5BC5-4577-96F9-F52CCF59F03D__BHCCEHHA">
+                     <p class="titleintable">Table 1-8 Bundled Components and Accessories</p>
+                     <table cellpadding="4" cellspacing="0" class="Formal" title="Bundled Components and Accessories" summary="spare parts and accessory kits" width="100%" frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" width="18%" id="d5150e922">Part Number</th>
+                              <th align="left" valign="bottom" width="15%" id="d5150e925">Quantity</th>
+                              <th align="left" valign="bottom" width="67%" id="d5150e928">Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="18%" id="d5150e933" headers="d5150e922 ">
+                                 <p>7066826</p>
+                              </td>
+                              <td align="left" valign="top" width="15%" headers="d5150e933 d5150e925 ">
+                                 <p>2</p>
+                              </td>
+                              <td align="left" valign="top" width="67%" headers="d5150e933 d5150e928 ">
+                                 <p><a id="d5150e941" class="indexterm-anchor"></a>8 TB 3.5-inch 7200 RPM drives
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="18%" id="d5150e947" headers="d5150e922 ">
+                                 <p>590-896-501B</p>
+                              </td>
+                              <td align="left" valign="top" width="15%" headers="d5150e947 d5150e925 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="67%" headers="d5150e947 d5150e928 ">
+                                 <p>LCD Accessory Kit (Sun Fire X4270 M2-based racks only)</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="18%" id="d5150e957" headers="d5150e922 ">
+                                 <p>-</p>
+                              </td>
+                              <td align="left" valign="top" width="15%" headers="d5150e957 d5150e925 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="67%" headers="d5150e957 d5150e928 ">
+                                 <p>Oracle Storage Server Documentation Kit</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="18%" id="d5150e967" headers="d5150e922 ">
+                                 <p>-</p>
+                              </td>
+                              <td align="left" valign="top" width="15%" headers="d5150e967 d5150e925 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="67%" headers="d5150e967 d5150e928 ">
+                                 <p>Sun Rack II Accessory Kit</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="18%" id="d5150e977" headers="d5150e922 ">
+                                 <p>53-2332-<span class="italic">xx</span></p>
+                              </td>
+                              <td align="left" valign="top" width="15%" headers="d5150e977 d5150e925 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="67%" headers="d5150e977 d5150e928 ">
+                                 <p><a id="d5150e987" class="indexterm-anchor"></a><a id="d5150e991" class="indexterm-anchor"></a>Cisco Switch Documents and Accessory Kit
+                                 </p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+                  <div class="tblformal" id="GUID-3D9ADBE3-5BC5-4577-96F9-F52CCF59F03D__BHCDECIB">
+                     <p class="titleintable">Table 1-9 Bundled Cables</p>
+                     <table cellpadding="4" cellspacing="0" class="Formal" title="Bundled Cables" summary="spare parts" width="100%" frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" width="18%" id="d5150e1008">Part Number</th>
+                              <th align="left" valign="bottom" width="15%" id="d5150e1011">Length</th>
+                              <th align="left" valign="bottom" width="17%" id="d5150e1014">Quantity</th>
+                              <th align="left" valign="bottom" width="49%" id="d5150e1017">Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="18%" id="d5150e1022" headers="d5150e1008 ">
+                                 <p>530-4446-01</p>
+                              </td>
+                              <td align="left" valign="top" width="15%" headers="d5150e1022 d5150e1011 ">
+                                 <p>5 meters</p>
+                              </td>
+                              <td align="left" valign="top" width="17%" headers="d5150e1022 d5150e1014 ">
+                                 <p>10</p>
+                              </td>
+                              <td align="left" valign="top" width="49%" headers="d5150e1022 d5150e1017 ">
+                                 <p>QSFP passive copper cable for multiracking</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="18%" id="d5150e1035" headers="d5150e1008 ">
+                                 <p>530-4445-01</p>
+                              </td>
+                              <td align="left" valign="top" width="15%" headers="d5150e1035 d5150e1011 ">
+                                 <p>3 meters</p>
+                              </td>
+                              <td align="left" valign="top" width="17%" headers="d5150e1035 d5150e1014 ">
+                                 <p>8</p>
+                              </td>
+                              <td align="left" valign="top" width="49%" headers="d5150e1035 d5150e1017 ">
+                                 <p>QSFP passive copper cable for multiracking</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="18%" id="d5150e1048" headers="d5150e1008 ">
+                                 <p>350-1519-01</p>
+                              </td>
+                              <td align="left" valign="top" width="15%" headers="d5150e1048 d5150e1011 ">
+                                 <p>-</p>
+                              </td>
+                              <td align="left" valign="top" width="17%" headers="d5150e1048 d5150e1014 ">
+                                 <p>3</p>
+                              </td>
+                              <td align="left" valign="top" width="49%" headers="d5150e1048 d5150e1017 ">
+                                 <p>ASSY, NM2 serial cable sets for the InfiniBand switches</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+                  <div class="section">
+                     <p><a href="intro.html#GUID-3D9ADBE3-5BC5-4577-96F9-F52CCF59F03D__BHCHHDJH" title="in-rack spares">Table 1-10</a> lists the spare cables that are secured to the center section of an Oracle Big Data Appliance rack.
+                     </p>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="tblformal" id="GUID-3D9ADBE3-5BC5-4577-96F9-F52CCF59F03D__BHCHHDJH">
+                     <p class="titleintable">Table 1-10 In-Rack Spare Cables</p>
+                     <table cellpadding="4" cellspacing="0" class="Formal" title="In-Rack Spare Cables" summary="in-rack spares" width="100%" frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" width="17%" id="d5150e1079">Part Number</th>
+                              <th align="left" valign="bottom" width="16%" id="d5150e1082">Length</th>
+                              <th align="left" valign="bottom" width="16%" id="d5150e1085">Quantity</th>
+                              <th align="left" valign="bottom" width="51%" id="d5150e1088">Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="17%" id="d5150e1093" headers="d5150e1079 ">
+                                 <p>530-4445-01</p>
+                              </td>
+                              <td align="left" valign="top" width="16%" headers="d5150e1093 d5150e1082 ">
+                                 <p>3 meters</p>
+                              </td>
+                              <td align="left" valign="top" width="16%" headers="d5150e1093 d5150e1085 ">
+                                 <p>2</p>
+                              </td>
+                              <td align="left" valign="top" width="51%" headers="d5150e1093 d5150e1088 ">
+                                 <p><a id="d5150e1104" class="indexterm-anchor"></a><a id="d5150e1106" class="indexterm-anchor"></a>QSFP passive copper replacement cables
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="17%" id="d5150e1110" headers="d5150e1079 ">
+                                 <p>530-4437-01</p>
+                              </td>
+                              <td align="left" valign="top" width="16%" headers="d5150e1110 d5150e1082 ">
+                                 <p>10 feet</p>
+                              </td>
+                              <td align="left" valign="top" width="16%" headers="d5150e1110 d5150e1085 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="51%" headers="d5150e1110 d5150e1088 ">
+                                 <p><a id="d5150e1121" class="indexterm-anchor"></a><a id="d5150e1123" class="indexterm-anchor"></a><a id="d5150e1125" class="indexterm-anchor"></a><a id="d5150e1127" class="indexterm-anchor"></a>Orange Cat 5
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="17%" id="d5150e1131" headers="d5150e1079 ">
+                                 <p>530-4435-01</p>
+                              </td>
+                              <td align="left" valign="top" width="16%" headers="d5150e1131 d5150e1082 ">
+                                 <p>10 feet</p>
+                              </td>
+                              <td align="left" valign="top" width="16%" headers="d5150e1131 d5150e1085 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="51%" headers="d5150e1131 d5150e1088 ">
+                                 <p>Black Cat 5</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="17%" id="d5150e1144" headers="d5150e1079 ">
+                                 <p>530-4433-01</p>
+                              </td>
+                              <td align="left" valign="top" width="16%" headers="d5150e1144 d5150e1082 ">
+                                 <p>10 feet</p>
+                              </td>
+                              <td align="left" valign="top" width="16%" headers="d5150e1144 d5150e1085 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="51%" headers="d5150e1144 d5150e1088 ">
+                                 <p>Red Cat 5</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="17%" id="d5150e1157" headers="d5150e1079 ">
+                                 <p>530-4432-01</p>
+                              </td>
+                              <td align="left" valign="top" width="16%" headers="d5150e1157 d5150e1082 ">
+                                 <p>7 feet</p>
+                              </td>
+                              <td align="left" valign="top" width="16%" headers="d5150e1157 d5150e1085 ">
+                                 <p>1</p>
+                              </td>
+                              <td align="left" valign="top" width="51%" headers="d5150e1157 d5150e1088 ">
+                                 <p>Blue Cat 5</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+                  <div class="tblformal" id="GUID-3D9ADBE3-5BC5-4577-96F9-F52CCF59F03D__COLUMN1IDENTIFIESEACHCABLEBYLENGTH.-A0E8FEAB">
+                     <p class="titleintable">Table 1-11 InfiniBand Inter-Switch Cables and Spares Provided</p>
+                     <table cellpadding="4" cellspacing="0" class="Formal" title="InfiniBand Inter-Switch Cables and Spares Provided" summary="Column 1 identifies each cable by length. Column 2 indicates how many spares are provided. Column three specifies how many are required to connect switches. Column four is the total." width="100%" frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" id="d5150e1181">Cable</th>
+                              <th align="left" valign="bottom" id="d5150e1184">Inter-switch</th>
+                              <th align="left" valign="bottom" id="d5150e1187">Spares</th>
+                              <th align="left" valign="bottom" id="d5150e1190">Total</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" id="d5150e1195" headers="d5150e1181 ">
+                                 <p>InfiniBand 2 meter cable</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1195 d5150e1184 ">
+                                 <p>7</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1195 d5150e1187 ">
+                                 <p>0</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1195 d5150e1190 ">
+                                 <p>7</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" id="d5150e1208" headers="d5150e1181 ">
+                                 <p>InfiniBand 3 meter cable</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1208 d5150e1184 ">
+                                 <p>2</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1208 d5150e1187 ">
+                                 <p>6</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1208 d5150e1190 ">
+                                 <p>8</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" id="d5150e1221" headers="d5150e1181 ">
+                                 <p>InfiniBand 5 meter cable</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1221 d5150e1184 ">
+                                 <p>0</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1221 d5150e1187 ">
+                                 <p>10</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1221 d5150e1190 ">
+                                 <p>10</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+                  <div class="tblformal" id="GUID-3D9ADBE3-5BC5-4577-96F9-F52CCF59F03D__ADDITIONALCABLESNEEDEDTOBEPURCHASED-A0E92AB6">
+                     <p class="titleintable">Table 1-12 Additional Cables to Purchase (Based on Number of Racks)</p>
+                     <table cellpadding="4" cellspacing="0" class="Formal" title="Additional Cables to Purchase (Based on Number of Racks)" summary="Column 1 indicates the number of racks. Column 2 identifies how many three meter cables are required. Column 3 identifies five meter cables required. Column four identifies ten meter cables." width="100%" frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" id="d5150e1245">Number of Racks</th>
+                              <th align="left" valign="bottom" id="d5150e1248">3 Meter Cables Needed</th>
+                              <th align="left" valign="bottom" id="d5150e1251">5 Meter Cables Needed</th>
+                              <th align="left" valign="bottom" id="d5150e1254">10 Meter Cables Needed</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" id="d5150e1259" headers="d5150e1245 ">
+                                 <p>2</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1259 d5150e1248 ">
+                                 <p>16</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1259 d5150e1251 ">
+                                 <p>16</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1259 d5150e1254 ">
+                                 <p>0</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" id="d5150e1272" headers="d5150e1245 ">
+                                 <p>3</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1272 d5150e1248 ">
+                                 <p>18</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1272 d5150e1251 ">
+                                 <p>30</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1272 d5150e1254 ">
+                                 <p>0</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" id="d5150e1285" headers="d5150e1245 ">
+                                 <p>4</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1285 d5150e1248 ">
+                                 <p>16</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1285 d5150e1251 ">
+                                 <p>40</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1285 d5150e1254 ">
+                                 <p>8</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" id="d5150e1298" headers="d5150e1245 ">
+                                 <p>5</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1298 d5150e1248 ">
+                                 <p>20</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1298 d5150e1251 ">
+                                 <p>42</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1298 d5150e1254 ">
+                                 <p>18</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" id="d5150e1311" headers="d5150e1245 ">
+                                 <p>6</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1311 d5150e1248 ">
+                                 <p>24</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1311 d5150e1251 ">
+                                 <p>46</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1311 d5150e1254 ">
+                                 <p>26</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" id="d5150e1324" headers="d5150e1245 ">
+                                 <p>7</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1324 d5150e1248 ">
+                                 <p>28</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1324 d5150e1251 ">
+                                 <p>44</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1324 d5150e1254 ">
+                                 <p>40</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" id="d5150e1337" headers="d5150e1245 ">
+                                 <p>8</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1337 d5150e1248 ">
+                                 <p>16</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1337 d5150e1251 ">
+                                 <p>52</p>
+                              </td>
+                              <td align="left" valign="top" headers="d5150e1337 d5150e1254 ">
+                                 <p>60</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="intro.html#GUID-072D09FA-D014-45F7-85A9-B540AF4E1393">Introduction to Oracle Big Data Appliance</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div><a id="BIGOG76638"></a><div class="props_rev_3"><a id="GUID-ABEAC9ED-A052-4C8D-AB3B-BE69445F3CED" name="GUID-ABEAC9ED-A052-4C8D-AB3B-BE69445F3CED"></a><h3 id="BIGOG-GUID-ABEAC9ED-A052-4C8D-AB3B-BE69445F3CED" class="sect3"><span class="enumeration_section">1.5 </span>Oracle Big Data Appliance Management Software
+               </h3>
+               <div>
+                  <div class="section">
+                     <p><a id="d5150e1379" class="indexterm-anchor"></a><a id="d5150e1381" class="indexterm-anchor"></a><a id="d5150e1383" class="indexterm-anchor"></a><a id="d5150e1385" class="indexterm-anchor"></a><a id="d5150e1387" class="indexterm-anchor"></a><a id="d5150e1389" class="indexterm-anchor"></a><a id="d5150e1391" class="indexterm-anchor"></a><a id="d5150e1393" class="indexterm-anchor"></a>The software components are installed on all servers in an Oracle Big Data Appliance rack. Oracle Linux, required drivers, firmware, and hardware verification utilities are factory installed. Among them are the following tools:
+                     </p>
+                     <div class="infoboxnote" id="GUID-ABEAC9ED-A052-4C8D-AB3B-BE69445F3CED__GUID-56103324-C1E5-408E-95D2-901197FE34DF">
+                        <p class="notep1">Note:</p>
+                        <p>See <a href="utilities.html#GUID-A04A712A-1380-4305-92C9-6A8EF70C3E33" title="Securely erases all data partitions on the node where it is executed.">Oracle Big Data Appliance Utilities</a> except where directed otherwise.
+                        </p>
+                     </div>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Oracle Integrated Lights Out Manager (Oracle ILOM) consists of preinstalled, dedicated hardware and software that you can use to manage and monitor the servers and switches in an Oracle Big Data Appliance rack. .</p>
+                        </li>
+                        <li>
+                           <p>The <code class="codeph">setup-root-ssh</code> utility sets up passwordless SSH for the <code class="codeph">root</code> user among all the servers in an Oracle Big Data Appliance rack. See <span class="q">"<a href="dcli.html#GUID-3E1D048B-3EDF-4E14-81E8-93741428708B">Setting Up Passwordless SSH</a>"</span>.
+                           </p>
+                        </li>
+                        <li>
+                           <p>The <a id="d5150e1425" class="indexterm-anchor"></a><a id="d5150e1429" class="indexterm-anchor"></a><code class="codeph">dcli</code> utility executes commands across a group of servers on Oracle Big Data Appliance and returns the output. See <a href="dcli.html#GUID-ED09B97C-BAAE-41E1-A7D0-A65BF1E8AF8F">Executing Commands Across a Cluster Using the dcli Utility</a>.
+                           </p>
+                        </li>
+                        <li>
+                           <p>Various utilities check the health of the cluster and the networks.</p>
+                        </li>
+                     </ul>
+                     <p>All end-user software is installed on site using the Mammoth utility. .</p>
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="infoboxnotealso" id="GUID-ABEAC9ED-A052-4C8D-AB3B-BE69445F3CED__GUID-7E6F47BC-EE7F-4B31-BF9B-2017E5C7688E">
+                     <p class="notep1">See Also:</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p><a href="ilom.html#GUID-AB39F905-92FA-4571-9585-8F95FC04E99A">Using Oracle Integrated Lights Out Manager</a></p>
+                        </li>
+                        <li>
+                           <p><a href="utilities.html#GUID-A04A712A-1380-4305-92C9-6A8EF70C3E33" title="Securely erases all data partitions on the node where it is executed.">Oracle Big Data Appliance Utilities</a></p>
+                        </li>
+                        <li>
+                           <p><a href="mammoth.html#GUID-2D0DC456-2DD1-4894-A5FA-3CC612CD9C5A" title="Oracle one-off patches for Oracle Big Data Appliance software are by definition supported.&nbsp;Parcel upgrades that are not part of a one-off patch are unsupported unless affirmed by Oracle Support.Oracle Big Data SQL can be installed via the Mammoth or bdacli utilities. Earlier releases are automatically upgraded on the Oracle Big Data Appliance side.When you install Oracle Big Data SQL on Oracle Big Data Appliance, this process also generates a database-side installation bundle. Install this bundle on the database system where you intend to run Oracle Big Data SQL queries against the Hadoop data on Oracle Big Data Appliance.HBase is included in the Oracle Big Data Appliance installation, but additional steps are required before you can use it. In addition to the optional software included with the Oracle Big Data Appliance deployment bundle, there are other applications that are tested and approved for installation on the appliance. This release of Oracle Big Data Appliance supports Oracle Big Data Discovery 1.6 only..Cloudera Data Science Workbench (CDSW) can be installed on Oracle Big Data Appliance.">Installing the Oracle Big Data Appliance Software</a></p>
+                        </li>
+                        <li>
+                           <p><a href="https://www.oracle.com/pls/topic/lookup?ctx=en/bigdata/big-data-appliance/4.13/bigog&amp;id=BIGUG" target="_blank"><span class="italic">Oracle Big Data Appliance Software User's Guide</span></a> for information about using Oracle Enterprise Manager Cloud Control and Cloudera Manager to monitor Oracle Big Data Appliance.
+                           </p>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="intro.html#GUID-072D09FA-D014-45F7-85A9-B540AF4E1393">Introduction to Oracle Big Data Appliance</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-E293FDD6-E1A3-4EA0-B683-EB123D34D045" name="GUID-E293FDD6-E1A3-4EA0-B683-EB123D34D045"></a><h3 id="BIGOG-GUID-E293FDD6-E1A3-4EA0-B683-EB123D34D045" class="sect3"><span class="enumeration_section">1.6 </span>Supportability Guidelines
+               </h3>
+               <div>
+                  <p>Oracle sets guidelines for supportable customer modifications to the Oracle Big Data Appliance hardware and software. Oracle support is contingent upon customer compliance with these guidelines.</p>
+                  <p>See <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/bigdata/big-data-appliance/4.13/bigog&amp;id=BIGLI-GUID-49060B87-C004-4782-ACCB-B82A23BC2606" target="_blank">Restrictions on Use as Condition of Receiving Support</a> in the <span><cite>Oracle Big Data Appliance License Information</cite></span> <span class="italic">User Manual</span></p>
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="intro.html#GUID-072D09FA-D014-45F7-85A9-B540AF4E1393">Introduction to Oracle Big Data Appliance</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Writing Applets for Concurrent Logical Channels</title>
+<meta name="generator" content="DITA Open Toolkit version 1.7.5" />
+<meta name="dcterms.created" content="2015-05-27T21:10:48Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Programming Notes" />
+<meta name="dcterms.identifier" content="E59598-01" />
+<meta name="dcterms.isVersionOf" content="JCPCL" />
+<meta name="dcterms.rights" content="Copyright &nbsp;&copy;&nbsp;1998, 2015, Oracle and/or its affiliates. All rights reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="deselection_for_multiselectable_applets.htm" title="Previous" type="text/html" />
+<link rel="Next" href="multiselectable_applet_example.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCPCL.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-564D789D-450F-4316-B28F-24EFC5072BB1"></a> <span id="PAGE" style="display:none;">25/72</span> <!-- End Header --><a id="JCPCL124"></a>
+<h1 id="JCPCL-GUID-564D789D-450F-4316-B28F-24EFC5072BB1" class="sect1">Writing Applets for Concurrent Logical Channels</h1>
+<div>
+<p>This section describes how to write a multiselectable applet that will perform various tasks based on whether it is selected. The code samples in this section show how to extend the applet to implement the <span class="apiname">MultiSelectable</span> interface and how to implement the <code>MultiSelectable.select(boolean)</code> and <code>deselect(boolean)</code> methods. The code samples also show how to use the <code>Applet.select()</code> and <code>deselect()</code> methods to work with multiselectable applets.</p>
+<p>To take advantage of multiple channel operation, an applet must implement the <span class="apiname">javacard.framework.MultiSelectable</span> interface. For example:</p>
+<pre>
+public class SampleApplet extends Applet 
+    implements MultiSelectable {
+    ...
+    }
+
+</pre>
+<p>The new applet needs to provide implementation for the <code>MultiSelectable.select(boolean)</code> and <code>MultiSelectable.deselect(boolean)</code> methods. These methods are responsible for encoding the behavior that the applet needs during a selection event if either of the following situations occurs:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The applet is already selected on a different channel.</p>
+</li>
+<li>
+<p>One or more applets from the same package are also selected on different channels.</p>
+</li>
+</ul>
+<p>The behavior to be encoded might include initializing applet state, accepting or rejecting the selection request, or clearing data structures in case of deselection:</p>
+<pre>
+public boolean select(boolean appInstAlreadySelected) {
+    // Implement the logic to control applet selection
+    // during a multiselection situation
+    ...
+}
+public void deselect(boolean appInstStillSelected) {
+    // Implement the logic to control applet deselection
+    // during a multiselection situation
+    ...
+}
+
+</pre>
+<div class="infobox-note" id="GUID-564D789D-450F-4316-B28F-24EFC5072BB1__GUID-C0F90F7B-1961-4C64-B687-D94526856569">
+<p class="notep1"><a id="GUID-C0F90F7B-1961-4C64-B687-D94526856569"></a>Note:</p>
+<p>The applet is still required to implement the <code>Applet.select()</code> and the <code>Applet.deselect()</code> methods in addition to the <span class="apiname">MultiSelectable</span> interface. These methods handle applet selection and deselection behavior when a multiselection situation does not happen.</p>
+</div>
+</div>
+<div>
+<div class="linklist">The following topics describe how to perform tasks associated with writing applets for concurrent logical channels:<br />
+<div><a href="multiselectable_applet_example.htm#GUID-A528D82E-B50E-460F-A277-D43E7EC93DA8">MultiSelectable Applet Example</a></div>
+<div><a href="handling_channel_information_on_apdu_commands_.htm#GUID-74D19D3F-6447-4FBC-902C-5210D3DF3897">Handling Channel Information on APDU Commands</a></div>
+<div><a href="writing_isoiec_7816-42013_compliant_applets.htm#GUID-C0F243F7-BEA1-4339-AF76-D59EBDA41FEE">Writing ISO 7816-4:2005 Compliant Applets</a></div>
+<div><a href="non-multiselectable_applets_and_shareable_objects.htm#GUID-CCB72B74-A5F1-41B2-A2C1-630F46CF6849">Non-MultiSelectable Applets and Shareable Objects</a></div>
+<div><a href="isoiec_7816-42013_specific_apdu_commands_for_logical_channel_management.htm#GUID-1EC9C6D7-CA10-4C95-84D6-F1B47B9DEA95">ISO 7816-4:2005 Specific APDU Commands for Logical Channel Management</a></div>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment106">
+<tr>
+<td class="cellalignment113">
+<table class="cellalignment111">
+<tr>
+<td class="cellalignment110"><a href="deselection_for_multiselectable_applets.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment110"><a href="multiselectable_applet_example.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright &nbsp;&copy;&nbsp;1998, 2015, Oracle and/or its affiliates. All rights reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment115">
+<table class="cellalignment109">
+<tr>
+<td class="cellalignment110"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment110"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment110"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

@@ -1,0 +1,903 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="Understand the features and tasks specific to Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance.">
+      <meta name="description" content="Understand the features and tasks specific to Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance.">
+      <title>Oracle Exadata and Zero Data Loss Recovery Appliance</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide">
+      <meta property="og:description" content="Understand the features and tasks specific to Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-orachk-and-exachk-users-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:43:23-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2016, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E83827-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/exachk">
+      
+      <link rel="prev" href="scope-and-supported-platforms-for-oracle-engineered-systems.html" title="Previous" type="text/html">
+      <link rel="next" href="oracle-exalogic.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"exachk","element_name":"EXAchk","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® ORAchk and EXAchk User's Guide">
+    <meta name="dcterms.isVersionOf" content="OEXUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="scope-and-supported-platforms-for-oracle-engineered-systems.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="oracle-exalogic.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="oracle-exachk-specific-features-and-tasks.html" property="item" typeof="WebPage"><span property="name">Oracle EXAchk Specific Features and Tasks</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Oracle Exadata and Zero Data Loss Recovery Appliance</li>
+            </ol>
+            <a id="GUID-85C61138-2243-4435-967D-C5A477080186" name="GUID-85C61138-2243-4435-967D-C5A477080186"></a>
+            
+            <h2 id="OEXUG-GUID-85C61138-2243-4435-967D-C5A477080186" class="sect2"><span class="enumeration_section">3.2 </span>Oracle Exadata and Zero Data Loss Recovery Appliance
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>Understand the features and tasks specific to Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance.</p>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-D519F57A-066F-40B7-A401-040C3E27A9E9">Prerequisites for Running Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance</a><br>Review the list of additional prerequisites for running Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-B0904748-1CA9-4FFF-9326-5CFD90CE7B50">Installation Requirements for Running Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance</a><br>Understand the requirements for installing Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance, either on your local database or on a remote device that is connected to a database.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-CDCA6A7B-1CCE-453E-9B08-784F2D497F89">Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance Usage</a><br>Usage of Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance depends on other considerations such as virtualization, parallel run, and so on.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-8FCB68CE-ADEC-44E0-BFF6-1BE0A03DC33A">Troubleshooting Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance</a><br>Follow these steps to troubleshoot and fix Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance issues.
+                  </li>
+               </ul>
+               <div class="relinfo">
+                  <p><strong>Related Topics</strong></p>
+                  <ul>
+                     <li><a href="oracle-orachk-and-exachk-common-features-tasks.html#GUID-50F7EA11-11FD-431C-B99A-EC9E2176BBDB" title="Oracle ORAchk and Oracle EXAchk share a common health check framework and a large portion of their features and tasks are common.">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</a></li>
+                  </ul>
+               </div>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="oracle-exachk-specific-features-and-tasks.html#GUID-FFA47C35-4BC4-4B58-9C6D-3115D069A5F1" title="Review this information on the features of Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance, Oracle Exalogic, Oracle SuperCluster, Oracle Exalytics, and Oracle Big Data Appliance.">Oracle EXAchk Specific Features and Tasks</a></p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="sect2"><a id="GUID-D519F57A-066F-40B7-A401-040C3E27A9E9" name="GUID-D519F57A-066F-40B7-A401-040C3E27A9E9"></a><h3 id="OEXUG-GUID-D519F57A-066F-40B7-A401-040C3E27A9E9" class="sect3"><span class="enumeration_section">3.2.1 </span>Prerequisites for Running Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance
+               </h3>
+               <div>
+                  <p>Review the list of additional prerequisites for running Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance.</p>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-23796855-7F78-4ED5-935A-C48AD5495028">Storage Servers</a><br></li>
+                     <li class="ulchildlink"><a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-6B92AEDB-751C-4B04-965D-21A320131458">InfiniBand Switches</a><br></li>
+                  </ul>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="quick-start-guide.html#GUID-50E6652C-8944-4B30-9972-29D546BBC726" title="Review the checklist for SSH connectivity and required user privileges to run health checks.">Common Oracle ORAchk and Oracle EXAchk Prerequisites</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-85C61138-2243-4435-967D-C5A477080186" title="Understand the features and tasks specific to Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance.">Oracle Exadata and Zero Data Loss Recovery Appliance</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="sect3"><a id="GUID-23796855-7F78-4ED5-935A-C48AD5495028" name="GUID-23796855-7F78-4ED5-935A-C48AD5495028"></a><h4 id="OEXUG-GUID-23796855-7F78-4ED5-935A-C48AD5495028" class="sect4"><span class="enumeration_section">3.2.1.1 </span>Storage Servers
+                  </h4>
+                  <div>
+                     <p></p>
+                     <p>On the database, if you configure passwordless SSH equivalency for the user that launched Oracle EXAchk to the <code class="codeph">root</code>&nbsp; user on each storage server, then Oracle EXAchk uses SSH equivalency credentials to complete the storage server checks.
+                     </p>
+                     <p>You can run Oracle EXAchk from the Oracle Exadata storage server, if there is no SSH connectivity from the database to the storage server.</p>
+                     <div class="p">To lock and unlock cells, use the <code class="codeph">&#x2013;unlockcells</code> and <code class="codeph">&#x2013;lockcells</code> options for Oracle Exadata, Oracle SuperCluster and Zero Data Loss Recovery Appliance.<pre class="pre codeblock"><code>./exachk -unlockcells all | -cells [comma-delimited list of cell names or cell IPs]</code></pre><pre class="pre codeblock"><code>./exachk -lockcells all | -cells [comma-delimited list of cell names or cell IPs]</code></pre></div>
+                     <p>Once the cells have been unlocked, if they are not locked again within the default timeout of 50 minutes, then they will be automatically locked again. You can adjust the timeout period using the <code class="codeph">RAT_CELLUNLOCK_TIMEOUT</code> environment variable.
+                     </p>
+                     <p>For example to change the timeout to 2 hours:</p><pre class="pre codeblock"><code>export RAT_CELLUNLOCK_TIMEOUT=120m</code></pre><pre class="pre codeblock"><code>./exachk -unlockcells all</code></pre></div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-D519F57A-066F-40B7-A401-040C3E27A9E9" title="Review the list of additional prerequisites for running Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance.">Prerequisites for Running Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-6B92AEDB-751C-4B04-965D-21A320131458" name="GUID-6B92AEDB-751C-4B04-965D-21A320131458"></a><h4 id="OEXUG-GUID-6B92AEDB-751C-4B04-965D-21A320131458" class="sect4"><span class="enumeration_section">3.2.1.2 </span>InfiniBand Switches
+                  </h4>
+                  <div>
+                     <p></p>
+                     <p>On the database, if you configure passwordless SSH equivalency for the user that launched Oracle EXAchk to the <code class="codeph">nm2user</code> user on each InfiniBand switch, then Oracle EXAchk uses SSH equivalency credentials to complete the InfiniBand switch checks.
+                     </p>
+                     <p>If you have not configured passwordless SSH equivalency, then Oracle EXAchk prompts you for the <code class="codeph">nm2user</code> user password on each of the InfiniBand switches.
+                     </p>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-D519F57A-066F-40B7-A401-040C3E27A9E9" title="Review the list of additional prerequisites for running Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance.">Prerequisites for Running Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-B0904748-1CA9-4FFF-9326-5CFD90CE7B50" name="GUID-B0904748-1CA9-4FFF-9326-5CFD90CE7B50"></a><h3 id="OEXUG-GUID-B0904748-1CA9-4FFF-9326-5CFD90CE7B50" class="sect3"><span class="enumeration_section">3.2.2 </span>Installation Requirements for Running Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance
+               </h3>
+               <div>
+                  <p>Understand the requirements for installing Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance, either on your local database or on a remote device that is connected to a database.</p>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-143ECA17-DD10-4F2E-8D54-0F3BDD06C742">Shared Remote Versus Local Installation</a><br></li>
+                     <li class="ulchildlink"><a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-B8A985C1-21F0-432C-B9C6-E8BE84B8F410">Recommended User and Local Installation Directory</a><br></li>
+                     <li class="ulchildlink"><a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-3A42CDCC-9F12-43F4-B492-21109C4EC0A3">Recommended Oracle EXAchk Run Location</a><br></li>
+                  </ul>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="quick-start-guide.html#GUID-9FCE03FA-58B0-4BC6-8DF5-AAFABF58B55D" title="Follow these procedures to install Oracle ORAchk and Oracle EXAchk.">Installing Oracle ORAchk and Oracle EXAchk</a></li>
+                        <li><a href="understanding-and-managing-reports-and-output.html#GUID-CF99AAA0-E25C-4614-8C38-43B2B18442D0" title="Oracle ORAchk and Oracle EXAchk generate a detailed HTML report with findings and recommendations.">Understanding and Managing Reports and Output</a></li>
+                        <li><a href="https://support.oracle.com/rs?type=doc&amp;amp;id=1070954.1" target="_blank">https://support.oracle.com/rs?type=doc&amp;id=1070954.1</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-85C61138-2243-4435-967D-C5A477080186" title="Understand the features and tasks specific to Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance.">Oracle Exadata and Zero Data Loss Recovery Appliance</a></p>
+                     </div>
+                  </div>
+               </div>
+               <div class="sect3"><a id="GUID-143ECA17-DD10-4F2E-8D54-0F3BDD06C742" name="GUID-143ECA17-DD10-4F2E-8D54-0F3BDD06C742"></a><h4 id="OEXUG-GUID-143ECA17-DD10-4F2E-8D54-0F3BDD06C742" class="sect4"><span class="enumeration_section">3.2.2.1 </span>Shared Remote Versus Local Installation
+                  </h4>
+                  <div>
+                     <p></p>
+                     <p>If the environment contains only one Oracle Exadata Database machine or one Oracle Real Application Clusters (Oracle RAC) database, then the entire Oracle EXAchk installation must be local to one of the databases. Do not install Oracle EXAchk on every database.</p>
+                     <p>When an environment consists of more than one Oracle Exadata Database machine or Oracle RAC database, consider installing Oracle EXAchk on a remote device that is connected to a database on each Oracle Exadata Database machine or Oracle RAC cluster.</p>
+                     <p>The advantage is that you can install Oracle EXAchk in one location, validate it, and then run it where required within your environment. This saves time and errors. Because Oracle EXAchk is frequently updated, Oracle recommends that you always use the latest version available.</p>
+                     <p>Use the remote location for running Oracle EXAchk only. All working directories and output files are written to the local databases using the <code class="codeph">RAT_OUTPUT</code> environment variable. The location you choose for <code class="codeph">RAT_OUTPUT</code> must have read, write, and delete privileges for the user running Oracle EXAchk. Typically, <code class="codeph">RAT_OUTPUT</code> is set to the local <code>/opt/oracle.SupportTools/exachk</code> directory.
+                     </p>
+                     <div class="p">For example, to install Oracle EXAchk in the <code>/remotely_mounted_dev/exachk/12.1.0.2.6</code> directory, and then run Oracle EXAchk on the local node as the Oracle Database home owner <code class="codeph">oracle</code>, use the command:<pre class="pre codeblock"><code>oracle $ export RAT_OUTPUT=/opt/oracle.SupportTools/exachk
+oracle $ /remotely_mounted_dev/exachk/12.1.0.2.6/exachk
+</code></pre></div>
+                     <div class="p">
+                        <div class="infoboxnote" id="GUID-143ECA17-DD10-4F2E-8D54-0F3BDD06C742__GUID-791643D2-9C68-44F1-908A-68B8CB1CBE25">
+                           <p class="notep1">Note:</p>
+                           <p>To use the remote device for Oracle EXAchk output, consider the following:</p>
+                           <ol>
+                              <li>
+                                 <p>Ensure that the remote device can handle the I/O load.</p>
+                                 <p>The performance of Oracle EXAchk is adversely affected when the remote device cannot manage the I/O load. The effect varies from excessively long run times to unpredictable check timeouts leading to hard-to-diagnose skipped checks.</p>
+                              </li>
+                              <li>
+                                 <p>Do not write I/O from multiple Oracle Exadata Database machines or Oracle RAC clusters into the same output directory.</p>
+                                 <p>Using the same output directory for multiple devices can cause remote locking or access issues on the remote device.</p>
+                                 <p>At a minimum, store the output for each unique Oracle Exadata Database Machine or Oracle RAC cluster to its own directory structure using the <code class="codeph">RAT_OUTPUT</code> environment variable.
+                                 </p>
+                              </li>
+                           </ol>
+                        </div>
+                     </div>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-B0904748-1CA9-4FFF-9326-5CFD90CE7B50" title="Understand the requirements for installing Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance, either on your local database or on a remote device that is connected to a database.">Installation Requirements for Running Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-B8A985C1-21F0-432C-B9C6-E8BE84B8F410" name="GUID-B8A985C1-21F0-432C-B9C6-E8BE84B8F410"></a><h4 id="OEXUG-GUID-B8A985C1-21F0-432C-B9C6-E8BE84B8F410" class="sect4"><span class="enumeration_section">3.2.2.2 </span>Recommended User and Local Installation Directory
+                  </h4>
+                  <div>
+                     <p></p>
+                     <p>If the installation is local, then install Oracle EXAchk in <code class="codeph">/opt/oracle.SupportTools/exachk</code> owned by the Oracle Grid Infrastructure home owner for the relevant cluster. The permissions on the directory must be <code class="codeph">775</code>.
+                     </p>
+                     <div class="p">For example, in a role-separated environment if the Oracle Grid Infrastructure home is owned by <span class="variable" translate="no">user1</span> belonging to the <code class="codeph">install1</code> group, then the installation directory is as follows:<pre class="pre codeblock"><code># ls -lt /opt/oracle.SupportTools | grep exachk 
+drwxrwxr-x 2 user1 install1 4096 Jan 23 08:31 exachk</code></pre></div>
+                     <div class="p">As <span class="variable" translate="no">user1</span>, copy and unzip the <code>exachk.zip</code> file as follows:<pre class="pre codeblock"><code># ls -la 
+total 55912 
+drwxrwxr-x 5 user1 install1 4096 Jan 23 10:27 . 
+drwxr-xr-x 8 root root 4096 Jan 23 08:31 .. 
+drwxrwxr-x 3 user1 install1 4096 Jan 22 16:00 .cgrep 
+-rw-r--r-- 1 user1 install1 8041431 Jan 22 16:34 exachk.zip 
+-rw-r--r-- 1 user1 install1 4580698 Jan 22 16:00 rules.dat 
+-rw-r--r-- 1 user1 install1 36866945 Jan 22 16:00 collections.dat 
+-rw-r--r-- 1 user1 install1 291 Jan 22 15:59 UserGuide.txt 
+-rw-r--r-- 1 user1 install1 2533 Jan 22 15:58 readme.txt 
+-rw-r--r-- 1 user1 install1 4114714 Jan 22 15:55 CollectionManager_App.sql 
+-rwxr-xr-x 1 user1 install1 1973350 Jan 22 15:55 exachk</code></pre></div>
+                     <p>This configuration permits the <code class="codeph">root</code> user and the users in the <code class="codeph">install1</code> group to run Oracle EXAchk from the installation directory.
+                     </p>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-B0904748-1CA9-4FFF-9326-5CFD90CE7B50" title="Understand the requirements for installing Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance, either on your local database or on a remote device that is connected to a database.">Installation Requirements for Running Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-3A42CDCC-9F12-43F4-B492-21109C4EC0A3" name="GUID-3A42CDCC-9F12-43F4-B492-21109C4EC0A3"></a><h4 id="OEXUG-GUID-3A42CDCC-9F12-43F4-B492-21109C4EC0A3" class="sect4"><span class="enumeration_section">3.2.2.3 </span>Recommended Oracle EXAchk Run Location
+                  </h4>
+                  <div>
+                     <p></p>
+                     <p>By default, Oracle EXAchk stores the output in the directory from where you run it. Oracle recommends any user that runs Oracle EXAchk must first change the working directory to the Oracle EXAchk installation directory.</p>
+                     <div class="p"> For example:<pre class="pre codeblock"><code>[user1]$ cd /opt/oracle.SupportTools/exachk
+[user1]$ ./exachk -nodaemon -profile clusterware
+</code></pre></div>
+                     <p>This method maintains the output files in one location, even though the file owner users are different.</p>
+                     <div class="p"> For example:<pre class="pre codeblock"><code>[user1]$ ls -lt | grep exachk_
+-rw-r--r-- 1 user2 install1  1462155 Jan 23 12:25 exachk_randomdb04_V1201_012315_121443.zip
+drwxr-xr-x 8 user2 install1    61440 Jan 23 12:25 exachk_randomdb04_V1201_012315_121443
+-rw-r--r-- 1 user1 install1   295994 Jan 23 12:12 exachk_randomdb04_V1201_012315_120457.zip
+drwxr-xr-x 8 user1 install1    28672 Jan 23 12:12 exachk_randomdb04_V1201_012315_120457
+drwxr-xr-x 8 root  root        69632 Jan 23 10:27 exachk_randomdb04_012315_101719
+-rw-r--r-- 1 root  root      1405449 Jan 23 10:27 exachk_randomdb04_012315_101719.zip
+</code></pre></div>
+                     <p>If you do not want the output files in this location, then use either the <code class="codeph">RAT_OUTPUT</code> environment variable or the <code class="codeph">-output</code> command line option to direct the output to another location. By default, Oracle EXAchk maintains temporary working files in the home directory of the user that runs Oracle EXAchk, and deletes the files at the end of the run.
+                     </p>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-B0904748-1CA9-4FFF-9326-5CFD90CE7B50" title="Understand the requirements for installing Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance, either on your local database or on a remote device that is connected to a database.">Installation Requirements for Running Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-CDCA6A7B-1CCE-453E-9B08-784F2D497F89" name="GUID-CDCA6A7B-1CCE-453E-9B08-784F2D497F89"></a><h3 id="OEXUG-GUID-CDCA6A7B-1CCE-453E-9B08-784F2D497F89" class="sect3"><span class="enumeration_section">3.2.3 </span>Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance Usage
+               </h3>
+               <p>Usage of Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance depends on other considerations such as virtualization, parallel run, and so on.</p>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-1C5C5064-20D0-4894-A29E-430B28CD97E3">Database Default Access on the Client Interface</a><br>If you use the client interface as the default access for your database, then use the <code class="codeph">-clusternodes</code> command-line option to instruct Oracle EXAchk to communicate over the management interface.
+                     </li>
+                     <li class="ulchildlink"><a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-B6A37691-82FD-4B9B-B41C-45A95303ABA1">Virtualization Considerations</a><br>Oracle EXAchk supports virtualization on Oracle Exadata and Zero Data Loss Recovery Appliance.
+                     </li>
+                     <li class="ulchildlink"><a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-9DED631B-E061-4390-8367-7E4F4B938E39">Running Serial Data Collection</a><br>By default, Oracle EXAchk runs parallel data collection for the storage servers, InfiniBand switches, and databases.
+                     </li>
+                     <li class="ulchildlink"><a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-2B4AE3A0-E059-4828-915F-3AB68AC3008C">Multiple Asymmetric Database Home Examples</a><br>If the Oracle Database homes are not symmetric, then install Oracle EXAchk onto multiple databases in the cluster so that there is one installation for each Oracle Database home on a subset of databases. 
+                     </li>
+                     <li class="ulchildlink"><a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-88EA09F2-0B4A-4073-99E3-D8CF99832C22">Using the root User ID in Asymmetric and Role Separated Environments</a><br>Run Oracle EXAchk as <code class="codeph">root</code> to simplify the work required in asymmetric or role separated environments.
+                     </li>
+                     <li class="ulchildlink"><a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-2EFEAABE-42C0-4585-BFA3-2B82A0BBA9B9">Environment Variables for Specifying a Different User Than root</a><br>Review the list of environment variables for specifying a different user than <code class="codeph">root</code>.
+                     </li>
+                     <li class="ulchildlink"><a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-5BFAD3BC-59B9-4B9F-86B2-33E9ED3F58BF">Oracle EXAchk InfiniBand Switch Processing</a><br>This topic explains how Oracle EXAchk InfiniBand switch processing is done when Oracle Exalogic and Oracle Exadata engineered systems reside on the same InfiniBand fabric.
+                     </li>
+                  </ul>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="oracle-orachk-and-exachk-common-features-tasks.html#GUID-50F7EA11-11FD-431C-B99A-EC9E2176BBDB">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-85C61138-2243-4435-967D-C5A477080186" title="Understand the features and tasks specific to Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance.">Oracle Exadata and Zero Data Loss Recovery Appliance</a></p>
+                     </div>
+                  </div>
+               </div>
+               <div class="sect3"><a id="GUID-1C5C5064-20D0-4894-A29E-430B28CD97E3" name="GUID-1C5C5064-20D0-4894-A29E-430B28CD97E3"></a><h4 id="OEXUG-GUID-1C5C5064-20D0-4894-A29E-430B28CD97E3" class="sect4"><span class="enumeration_section">3.2.3.1 </span>Database Default Access on the Client Interface
+                  </h4>
+                  <div>
+                     <p>If you use the client interface as the default access for your database, then use the <code class="codeph">-clusternodes</code> command-line option to instruct Oracle EXAchk to communicate over the management interface.
+                     </p>
+                     <div class="example" id="GUID-1C5C5064-20D0-4894-A29E-430B28CD97E3__GUID-2E7BA642-29AC-42A2-8913-37F54343EEA2">
+                        <div class="p">For example, if a cluster is configured as follows, then the command must include:<pre class="pre codeblock"><code>-clusternodes <span class="variable" translate="no">dbadm01</span>,<span class="variable" translate="no">dbadm02</span>,<span class="variable" translate="no">dbadm03</span>,<span class="variable" translate="no">dbadm04</span></code></pre><div class="infoboxnote" id="GUID-1C5C5064-20D0-4894-A29E-430B28CD97E3__GUID-E9087490-10B3-4F42-8C3D-54EC88E8D081">
+                              <p class="notep1">Note:</p>When using the <code class="codeph">-clusternodes</code> option, start Oracle EXAchk on the first database in the list.
+                           </div>
+                        </div>
+                        <div class="tblformal" id="GUID-1C5C5064-20D0-4894-A29E-430B28CD97E3__GUID-3DF311E2-A5E0-43D4-8021-44CE32C03132">
+                           <p class="titleintable">Table 3-1 Example Cluster Configuration</p>
+                           <table cellpadding="4" cellspacing="0" class="Formal" title="Example Cluster Configuration" summary="This table describes example cluster configuration." frame="hsides" border="1" rules="rows">
+                              <thead>
+                                 <tr align="left" valign="top">
+                                    <th align="left" valign="bottom" width="20%" id="d50959e622">Interface</th>
+                                    <th align="left" valign="bottom" width="20%" id="d50959e624">Database Host names</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="20%" id="d50959e628" headers="d50959e622 ">
+                                       <p>Management</p>
+                                    </td>
+                                    <td align="left" valign="top" width="20%" headers="d50959e628 d50959e624 ">
+                                       <p><code class="codeph">dbadm01</code>, <code class="codeph">dbadm02</code>, <code class="codeph">dbadm03</code>, <code class="codeph">dbadm04</code></p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="20%" id="d50959e645" headers="d50959e622 ">
+                                       <p>Client</p>
+                                    </td>
+                                    <td align="left" valign="top" width="20%" headers="d50959e645 d50959e624 ">
+                                       <p><code class="codeph">dbclnt01</code>, <code class="codeph">dbclnt02</code>, <code class="codeph">dbclnt03</code>, <code class="codeph">dbclnt04</code></p>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <!-- class="inftblhruleinformal" -->
+                     </div>
+                     <!-- class="example" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-CDCA6A7B-1CCE-453E-9B08-784F2D497F89" title="Usage of Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance depends on other considerations such as virtualization, parallel run, and so on.">Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance Usage</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-B6A37691-82FD-4B9B-B41C-45A95303ABA1" name="GUID-B6A37691-82FD-4B9B-B41C-45A95303ABA1"></a><h4 id="OEXUG-GUID-B6A37691-82FD-4B9B-B41C-45A95303ABA1" class="sect4"><span class="enumeration_section">3.2.3.2 </span>Virtualization Considerations
+                  </h4>
+                  <div>
+                     <p>Oracle EXAchk supports virtualization on Oracle Exadata and Zero Data Loss Recovery Appliance.</p>
+                     <p>To run hardware and operating system level checks for database, storage servers, InfiniBand fabric, and InfiniBand switches:</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Install Oracle EXAchk into the management domain also referred to as <code class="codeph">DOM0</code></p>
+                        </li>
+                        <li>
+                           <p>Run Oracle EXAchk as <code class="codeph">root</code> 
+                           </p>
+                        </li>
+                     </ul>
+                     <p>When you run Oracle EXAchk from <code class="codeph">DOM0</code>, Oracle EXAchk:
+                     </p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Discovers all compute nodes, storage servers, and InfiniBand switches in the entire InfiniBand fabric</p>
+                        </li>
+                        <li>
+                           <p>Runs on all those components</p>
+                        </li>
+                     </ul>
+                     <p> To run Oracle EXAchk on a subset of nodes when Oracle EXAchk is run in the management domain, use the command-line options:</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p><code class="codeph">-clusternodes</code> to designate databases
+                           </p>
+                        </li>
+                        <li>
+                           <p><code class="codeph">-cells</code> to designate storage servers
+                           </p>
+                        </li>
+                        <li>
+                           <p><code class="codeph">-ibswitches</code> to designate InfiniBand switches
+                           </p>
+                        </li>
+                     </ul>
+                     <div class="p">For example, for a full rack where only the first quarter rack is configured for virtualization, but all components are on the same InfiniBand fabric, run the following command as <code class="codeph">root</code> on the <code class="codeph">dom0</code> database node, <span class="variable" translate="no">randomadm01</span>:<pre class="pre codeblock"><code>./exachk -clusternodes randomadm01,randomadm02 \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-cells randomceladm01,randomceladm02,randomceladm03 \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-ibswitches randomsw-ibs0,randomsw-iba0,randomsw-ibb0</code></pre></div>
+                     <p>Run Oracle EXAchk separately for each cluster in a user domain also referred to as DOMUs in addition to running it in the management domain <code class="codeph">dom0</code>.  Within the DOMU, there is no need to use the above parameters because Oracle Exachk will  automatically discover the nodes in the cluster.
+                     </p>
+                     <p>For example, consider 2 clusters and 4 user domains in each cluster. Although there are a total of 8 user domains, Oracle EXAchk runs only twice. Once on the first node of the first cluster running in the first user domain and once on the first node of second cluster running in the second user domain. The user domain runs do not include hardware or operating system level checks on the database, storage servers, or InfiniBand switches.</p>
+                     <div class="p">
+                        <div class="infoboxnote" id="GUID-B6A37691-82FD-4B9B-B41C-45A95303ABA1__GUID-6894605C-B048-4BCB-A71A-C327BEE4BDB2">
+                           <p class="notep1">Note:</p>
+                           <p>Run Oracle EXAchk as <code class="codeph">root</code> in the management domain and the user domains.
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-CDCA6A7B-1CCE-453E-9B08-784F2D497F89" title="Usage of Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance depends on other considerations such as virtualization, parallel run, and so on.">Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance Usage</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-9DED631B-E061-4390-8367-7E4F4B938E39" name="GUID-9DED631B-E061-4390-8367-7E4F4B938E39"></a><h4 id="OEXUG-GUID-9DED631B-E061-4390-8367-7E4F4B938E39" class="sect4"><span class="enumeration_section">3.2.3.3 </span>Running Serial Data Collection
+                  </h4>
+                  <div>
+                     <p>By default, Oracle EXAchk runs parallel data collection for the storage servers, InfiniBand switches, and databases.</p>
+                     <div class="section">
+                        <p>You can also configure Oracle EXAchk to run serial data collection.</p>
+                        <p>To run serial data collection for the storage server, database, and InfiniBand switches, set the following environment variables:</p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p><code class="codeph">RAT_COMPUTE_RUNMODE</code></p>
+                           </li>
+                           <li>
+                              <p><code class="codeph">RAT_CELL_RUNMODE</code></p>
+                           </li>
+                           <li>
+                              <p><code class="codeph">RAT_IBSWITCH_RUNMODE</code></p>
+                           </li>
+                        </ul>
+                     </div>
+                     <!-- class="section" -->
+                     <ol>
+                        <li class="stepexpand"><span>To collect database server data in serial:</span><div><pre class="pre codeblock"><code>export RAT_COMPUTE_RUNMODE=serial</code></pre></div>
+                        </li>
+                        <li class="stepexpand"><span>To collect storage server data in serial:</span><div><pre class="pre codeblock"><code>export RAT_CELL_RUNMODE=serial</code></pre></div>
+                        </li>
+                        <li class="stepexpand"><span>To collect InfiniBand switch data in serial:</span><div><pre class="pre codeblock"><code>export RAT_IBSWITCH_RUNMODE=serial</code></pre></div>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="troubleshoot-orachk-and-exachk.html#GUID-F360399E-2971-4A2A-B51B-6231F673BBBA" title="Follow these procedures to address slow performance and other issues.">Slow Performance, Skipped Checks, and Timeouts</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-CDCA6A7B-1CCE-453E-9B08-784F2D497F89" title="Usage of Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance depends on other considerations such as virtualization, parallel run, and so on.">Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance Usage</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-2B4AE3A0-E059-4828-915F-3AB68AC3008C" name="GUID-2B4AE3A0-E059-4828-915F-3AB68AC3008C"></a><h4 id="OEXUG-GUID-2B4AE3A0-E059-4828-915F-3AB68AC3008C" class="sect4"><span class="enumeration_section">3.2.3.4 </span>Multiple Asymmetric Database Home Examples
+                  </h4>
+                  <div>
+                     <p>If the Oracle Database homes are not symmetric, then install Oracle EXAchk onto multiple databases in the cluster so that there is one installation for each Oracle Database home on a subset of databases. </p>
+                     <div class="section">
+                        <p class="subhead3" id="GUID-2B4AE3A0-E059-4828-915F-3AB68AC3008C__GUID-B492904C-2A7B-4534-8A7A-3DB1B6B4057E">Multiple Asymmetric Database Homes Owned by the Same or Different Users</p>
+                        <p>The following table is an example of a distribution in the same cluster, with role separation between <code class="codeph">user1</code> and <code class="codeph">user2</code> such that neither can access the other's database home or database:
+                        </p>
+                        <div class="tblformal" id="GUID-2B4AE3A0-E059-4828-915F-3AB68AC3008C__GUID-B361B281-DE2B-4628-B826-8C04A7E63F55">
+                           <p class="titleintable">Table 3-2 Multiple Asymmetric Database Homes Owned by the Same or Different Users</p>
+                           <table cellpadding="4" cellspacing="0" class="Formal" title="Multiple Asymmetric Database Homes Owned by the Same or Different Users" summary="This table describes multiple asymmetric database homes owned by same or different users." frame="hsides" border="1" rules="rows">
+                              <thead>
+                                 <tr align="left" valign="top">
+                                    <th align="left" valign="bottom" width="20%" id="d50959e887">Owner User</th>
+                                    <th align="left" valign="bottom" width="20%" id="d50959e889">Database Home</th>
+                                    <th align="left" valign="bottom" width="20%" id="d50959e891">Installed on</th>
+                                    <th align="left" valign="bottom" width="20%" id="d50959e893">Databases</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="20%" id="d50959e897" headers="d50959e887 ">
+                                       <p><code class="codeph">user1</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="20%" headers="d50959e897 d50959e889 ">
+                                       <p><code>/path1/dbhome_1</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="20%" headers="d50959e897 d50959e891 ">
+                                       <p><code class="codeph">db01</code>, <code class="codeph">db02</code>, <code class="codeph">db03</code>, <code class="codeph">db04</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="20%" headers="d50959e897 d50959e893 ">
+                                       <p><code class="codeph">dbm-a</code></p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="20%" id="d50959e923" headers="d50959e887 ">
+                                       <p><code class="codeph">user2</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="20%" headers="d50959e923 d50959e889 ">
+                                       <p><code>/path2/dbhome_2</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="20%" headers="d50959e923 d50959e891 ">
+                                       <p><code class="codeph">db05</code>, <code class="codeph">db06</code>, <code class="codeph">db07</code>, <code class="codeph">db08</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="20%" headers="d50959e923 d50959e893 ">
+                                       <p><code class="codeph">dbm-b</code>, <code class="codeph">dbm-c</code></p>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <!-- class="inftblhruleinformal" -->
+                        <p>Do the following:</p>
+                        <ol>
+                           <li>
+                              <p>As <code class="codeph">user1</code>, install Oracle EXAchk in <code>/home/exachk/user1</code> on <code class="codeph">db01</code>.
+                              </p>
+                           </li>
+                           <li>
+                              <p>As <code class="codeph">user2</code>, install Oracle EXAchk in <code>/home/exachk/user2</code> on <code class="codeph">db05</code>.
+                              </p>
+                           </li>
+                           <li>
+                              <div class="p">As <code class="codeph">user1</code>, on <code class="codeph">db01</code>, run the following command to collect the storage server, root level database checks, and InfiniBand switch checks:<pre class="pre codeblock"><code>cd /home/exachk/user1 
+./exachk -profile sysadmin
+</code></pre></div>
+                           </li>
+                           <li>
+                              <div class="p">As <code class="codeph">user1</code>, on <code class="codeph">db01</code> , collect the database checks for <code class="codeph">dbm-a</code>:<pre class="pre codeblock"><code>cd  /home/exachk/user1
+./exachk -profile dba -clusternodes db01,db02,db03,db04
+</code></pre></div>
+                           </li>
+                           <li>
+                              <div class="p">As <code class="codeph">user2</code>, on <code class="codeph">db05</code>:<pre class="pre codeblock"><code>cd /home/exachk/user2 
+./exachk -profile dba -clusternodes db05,db06,db07,db08.
+</code></pre></div>
+                              <p>Choose <code class="codeph">dbm-b</code> and <code class="codeph">dbm-c</code> from the database selection list to collect the database checks for <code class="codeph">dbm-b</code> and <code class="codeph">dbm-c</code>.
+                              </p>
+                           </li>
+                           <li>
+                              <p>Optionally, use the <code class="codeph">-merge</code> &nbsp;option to merge the reports.
+                              </p>
+                           </li>
+                        </ol>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-2B4AE3A0-E059-4828-915F-3AB68AC3008C__GUID-50AFEE84-DA00-47B1-908A-B8D6FE74CF76">Multiple Asymmetric Database Homes Owned by the Same or Different Users, Grid User, and SYSADMIN/DBA Role Isolation</p>
+                        <p>For this example, assume the following configuration in the same cluster:</p>
+                        <div class="tblformal" id="GUID-2B4AE3A0-E059-4828-915F-3AB68AC3008C__GUID-27E964FD-68C9-4133-9393-04C900135BC1">
+                           <p class="titleintable">Table 3-3 Multiple Asymmetric Database Homes Owned by the Same or Different Users, Grid User, and SYSADMIN/DBA Role Isolation</p>
+                           <table cellpadding="4" cellspacing="0" class="Formal" title="Multiple Asymmetric Database Homes Owned by the Same or Different Users, Grid User, and SYSADMIN/DBA Role Isolation" summary="This table describes multiple asymmetric database homes owned by same or different user, Grid user, SYSADMIN/DBA role isolation." frame="hsides" border="1" rules="rows">
+                              <thead>
+                                 <tr align="left" valign="top">
+                                    <th align="left" valign="bottom" width="20%" id="d50959e1051">Owner User ID</th>
+                                    <th align="left" valign="bottom" width="20%" id="d50959e1053">Database Home</th>
+                                    <th align="left" valign="bottom" width="20%" id="d50959e1055">Installed on</th>
+                                    <th align="left" valign="bottom" width="20%" id="d50959e1057">Database(s)</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="20%" id="d50959e1061" headers="d50959e1051 ">
+                                       <p><code class="codeph">user1</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="20%" headers="d50959e1061 d50959e1053 ">
+                                       <p><code>/path1/dbhome_1</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="20%" headers="d50959e1061 d50959e1055 ">
+                                       <p><code class="codeph">db01</code>, <code class="codeph">db02</code>, <code class="codeph">db03</code>, <code class="codeph">db04</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="20%" headers="d50959e1061 d50959e1057 ">
+                                       <p><code class="codeph">dbm-a</code></p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="20%" id="d50959e1087" headers="d50959e1051 ">
+                                       <p><code class="codeph">user2</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="20%" headers="d50959e1087 d50959e1053 ">
+                                       <p><code>/path2/dbhome_2</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="20%" headers="d50959e1087 d50959e1055 ">
+                                       <p><code class="codeph">db05</code>, <code class="codeph">db06</code>, <code class="codeph">db07</code>, <code class="codeph">db08</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="20%" headers="d50959e1087 d50959e1057 ">
+                                       <p><code class="codeph">dbm-b</code>, <code class="codeph">dbm-c</code></p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="20%" id="d50959e1116" headers="d50959e1051 ">
+                                       <p><code class="codeph">grid</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="20%" headers="d50959e1116 d50959e1053 ">
+                                       <p><code>/path3/grid</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="20%" headers="d50959e1116 d50959e1055 ">
+                                       <p><code class="codeph">db01</code>, <code class="codeph">db02</code>, <code class="codeph">db03</code>, <code class="codeph">db04</code>, <code class="codeph">db05</code>, <code class="codeph">db06</code>, <code class="codeph">db07</code>, <code class="codeph">db08</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="20%" headers="d50959e1116 d50959e1057 ">
+                                       <p><code class="codeph">+ASM</code></p>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <!-- class="inftblhruleinformal" -->
+                        <p>Further, there is role separation between <code class="codeph">user1</code> and <code class="codeph">user2</code> and <code class="codeph">grid</code> such that none can access the database structure of others and a company policy to isolate the system administrators from the database administrators.
+                        </p>
+                        <p>Do the following:</p>
+                        <ol>
+                           <li>
+                              <p>As <code class="codeph">user1</code>, install Oracle EXAchk in <code>/home/exachk/user1</code> on <code class="codeph">db01</code>.
+                              </p>
+                           </li>
+                           <li>
+                              <p>As <code class="codeph">user2</code>, install Oracle EXAchk in <code>/home/exachk/user2</code> on <code class="codeph">db05</code>.
+                              </p>
+                           </li>
+                           <li>
+                              <div class="p">As the <code class="codeph">grid</code> user, run Oracle Clusterware checks:<pre class="pre codeblock"><code>mkdir /home/grid/exachk_reports
+cd /home/grid/exachk_reports
+/home/exachk/userid1/exachk -profile clusterware 
+</code></pre></div>
+                              <p>The working directory and <code>zip</code> file are stored in the <code>/home/grid/exachk_reports</code> directory.
+                              </p>
+                           </li>
+                           <li>
+                              <div class="p">As <code class="codeph">root</code>, run the <code class="codeph">sysadmin</code> checks to collect from the storage server, <code class="codeph">root</code> level database, and InfiniBand switch checks:<pre class="pre codeblock"><code>mkdir /root/exachk_reports
+cd /root/exachk_reports
+/home/exachk/userid1/exachk -profile sysadmin
+</code></pre></div>
+                              <p>The working directory and <code class="codeph">zip</code> file are stored in the <code>/root/exachk_reports</code> directory.
+                              </p>
+                           </li>
+                           <li>
+                              <div class="p">As <code class="codeph">user1</code> on <code class="codeph">db01</code>, run the command:<pre class="pre codeblock"><code>cd /home/exachk/user1
+./exachk -profile dba -clusternodes db01,db02,db03,db04
+</code></pre></div>
+                              <p>Choose <code class="codeph">dbm-a</code> from the Oracle database selection list to collect the database checks for <code class="codeph">dbm-a</code>.
+                              </p>
+                           </li>
+                           <li>
+                              <div class="p">As <code class="codeph">user2</code> on <code class="codeph">db05</code>, run the command:<pre class="pre codeblock"><code>cd /home/exachk/user2
+./exachk -profile dba -clusternodes db05,db06,db07,db08
+</code></pre></div>
+                              <p>Choose <code class="codeph">dbm-b</code> and <code class="codeph">dbm-c</code> from the database selection list to collect the database checks for <code class="codeph">dbm-b</code> and <code class="codeph">dbm-c</code>.
+                              </p>
+                           </li>
+                           <li>
+                              <p>Optionally, use the <code class="codeph">-merge</code> command-line option to merge the reports.
+                              </p>
+                           </li>
+                        </ol>
+                     </div>
+                     <!-- class="section" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-CDCA6A7B-1CCE-453E-9B08-784F2D497F89" title="Usage of Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance depends on other considerations such as virtualization, parallel run, and so on.">Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance Usage</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-88EA09F2-0B4A-4073-99E3-D8CF99832C22" name="GUID-88EA09F2-0B4A-4073-99E3-D8CF99832C22"></a><h4 id="OEXUG-GUID-88EA09F2-0B4A-4073-99E3-D8CF99832C22" class="sect4"><span class="enumeration_section">3.2.3.5 </span>Using the root User ID in Asymmetric and Role Separated Environments
+                  </h4>
+                  <div>
+                     <p>Run Oracle EXAchk as <code class="codeph">root</code> to simplify the work required in asymmetric or role separated environments.
+                     </p>
+                     <p>If database homes are not symmetric, then install Oracle EXAchk on multiple databases in the cluster, such that there is one installation for each Oracle Database home located on a subset of databases.</p>
+                     <p>For this example, assume the following configuration in the same cluster:</p>
+                     <div class="tblformal" id="GUID-88EA09F2-0B4A-4073-99E3-D8CF99832C22__GUID-0F550777-1241-4F9F-94B6-3A9284840F0A">
+                        <p class="titleintable">Table 3-4 Using root User ID in Asymmetric and Role Separated Environments</p>
+                        <table cellpadding="4" cellspacing="0" class="Formal" title="Using root User ID in Asymmetric and Role Separated Environments" summary="This table describes example configuration in the same cluster." frame="hsides" border="1" rules="rows">
+                           <thead>
+                              <tr align="left" valign="top">
+                                 <th align="left" valign="bottom" width="20%" id="d50959e1329">Owner User ID</th>
+                                 <th align="left" valign="bottom" width="20%" id="d50959e1331">Database Home</th>
+                                 <th align="left" valign="bottom" width="20%" id="d50959e1333">Installed on</th>
+                                 <th align="left" valign="bottom" width="20%" id="d50959e1335">Database(s)</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d50959e1339" headers="d50959e1329 ">
+                                    <p><code class="codeph">user1</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d50959e1339 d50959e1331 ">
+                                    <p><code>/path1/dbhome_1</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d50959e1339 d50959e1333 ">
+                                    <p><code class="codeph">db01</code>, <code class="codeph">db02</code>, <code class="codeph">db03</code>, <code class="codeph">db04</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d50959e1339 d50959e1335 ">
+                                    <p><code class="codeph">dbm-a</code></p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d50959e1365" headers="d50959e1329 ">
+                                    <p><code class="codeph">user2</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d50959e1365 d50959e1331 ">
+                                    <p><code>/path2/dbhome_2</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d50959e1365 d50959e1333 ">
+                                    <p><code class="codeph">db05</code>, <code class="codeph">db06</code>, <code class="codeph">db07</code>, <code class="codeph">db08</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d50959e1365 d50959e1335 ">
+                                    <p><code class="codeph">dbm-b,dbm-c</code></p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d50959e1391" headers="d50959e1329 ">
+                                    <p><code class="codeph">grid</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d50959e1391 d50959e1331 ">
+                                    <p><code>/path3/grid</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d50959e1391 d50959e1333 ">
+                                    <p><code class="codeph">db01</code>, <code class="codeph">db02</code>, <code class="codeph">db03</code>, <code class="codeph">db04</code>, <code class="codeph">db05</code>, <code class="codeph">db06</code>, <code class="codeph">db07</code>, <code class="codeph">db08</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d50959e1391 d50959e1335 ">
+                                    <p><code class="codeph">+ASM</code></p>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- class="inftblhruleinformal" -->
+                     <p>Further, there is role separation between <code class="codeph">user1</code> and <code class="codeph">user2</code> and GRID, such that none can access the database structure of the others. You can also enforce company policy to isolate the system administrators from the database administrators.
+                     </p>
+                     <p>Do the following:</p>
+                     <ol>
+                        <li>
+                           <p>As <code class="codeph">root</code>, install Oracle EXAchk in the <code>/tmp/exachk/121026</code> directory on <code class="codeph">db01</code> .
+                           </p>
+                        </li>
+                        <li>
+                           <p>As <code class="codeph">root</code>, install Oracle EXAchk the <code>/tmp/exachk/121026</code> directory on <code class="codeph">db05</code>.
+                           </p>
+                        </li>
+                        <li>
+                           <div class="p">As <code class="codeph">root</code> , on <code class="codeph">db01</code>:<pre class="pre codeblock"><code>cd /tmp/exachk/121026
+./exachk -clusternodes db01,db02,db03,db04</code></pre></div>
+                           <p>Choose <code class="codeph">dbm-a</code> from the database selection list to collect the database checks for <code class="codeph">dbm-a</code>.
+                           </p>
+                        </li>
+                        <li>
+                           <div class="p">As <code class="codeph">root</code> on <code class="codeph">db05</code>:<pre class="pre codeblock"><code>cd /tmp/exachk/121026
+./exachk -excludeprofiles storage,switch -clusternodes db05,db06,db07,db08
+</code></pre></div>
+                           <p>Choose <code class="codeph">dbm-b</code> and <code class="codeph">dbm-c</code> from the database selection list to collect the database checks for <code class="codeph">dbm-b</code> and <code class="codeph">dbm-c</code>.
+                           </p>
+                        </li>
+                        <li>
+                           <p>If desired, use the <code class="codeph">-merge</code> command-line option to merge the reports.
+                           </p>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-CDCA6A7B-1CCE-453E-9B08-784F2D497F89" title="Usage of Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance depends on other considerations such as virtualization, parallel run, and so on.">Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance Usage</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-2EFEAABE-42C0-4585-BFA3-2B82A0BBA9B9" name="GUID-2EFEAABE-42C0-4585-BFA3-2B82A0BBA9B9"></a><h4 id="OEXUG-GUID-2EFEAABE-42C0-4585-BFA3-2B82A0BBA9B9" class="sect4"><span class="enumeration_section">3.2.3.6 </span>Environment Variables for Specifying a Different User Than root
+                  </h4>
+                  <div>
+                     <p>Review the list of environment variables for specifying a different user than <code class="codeph">root</code>.
+                     </p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p><code class="codeph">RAT_CELL_SSH_USER</code></p>
+                           <p>By default, Oracle EXAchk runs as <code class="codeph">root</code> &nbsp;to run checks on an Oracle Exadata Storage Server.
+                           </p>
+                           <div class="p">If security policies do not permit connection to a storage server as <code class="codeph">root</code> over SSH, then you can specify a different user by setting this environment variable:<pre class="pre codeblock"><code>export RAT_CELL_SSH_USER=celladmin</code></pre><div class="infoboxnote" id="GUID-2EFEAABE-42C0-4585-BFA3-2B82A0BBA9B9__GUID-7177342F-9EBF-45BA-8AE9-B36CB1D6FE9A">
+                                 <p class="notep1">Note:</p>
+                                 <p>If you specify <code class="codeph">RAT_CELL_SSH_USER</code>, then a subset of checks is run, based upon the privileges of the alternate user you specify.
+                                 </p>
+                              </div>
+                           </div>
+                        </li>
+                        <li>
+                           <p><code class="codeph">RAT_IBSWITCH_USER</code></p>
+                           <p>By default, Oracle EXAchk runs as <code class="codeph">root</code> to run checks on the InfiniBand switches, when you run Oracle EXAchk on a database as <code class="codeph">root</code>. By default, when Oracle EXAchk is run as a user other than <code class="codeph">root</code> on a database, the <code class="codeph">nm2user</code>  is used to run checks on the InfiniBand switches.
+                           </p>
+                           <div class="p">If security policies do not permit connection to an InfiniBand switch as either the <code class="codeph">root</code> or <code class="codeph">nm2user</code> user over SSH, then specify a different user by setting this environment variable:<pre class="pre codeblock"><code>export RAT_IBSWITCH_USER=ilom-admin</code></pre><div class="infoboxnote" id="GUID-2EFEAABE-42C0-4585-BFA3-2B82A0BBA9B9__GUID-DD628CD5-E99C-490B-9A7E-223AB16BC73B">
+                                 <p class="notep1">Note:</p>
+                                 <p>If you specify <code class="codeph">RAT_IBSWITCH_USER</code> , then a subset of checks is run, based upon the privileges of the alternate user you specify.
+                                 </p>
+                              </div>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-CDCA6A7B-1CCE-453E-9B08-784F2D497F89" title="Usage of Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance depends on other considerations such as virtualization, parallel run, and so on.">Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance Usage</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-5BFAD3BC-59B9-4B9F-86B2-33E9ED3F58BF" name="GUID-5BFAD3BC-59B9-4B9F-86B2-33E9ED3F58BF"></a><h4 id="OEXUG-GUID-5BFAD3BC-59B9-4B9F-86B2-33E9ED3F58BF" class="sect4"><span class="enumeration_section">3.2.3.7 </span>Oracle EXAchk InfiniBand Switch Processing
+                  </h4>
+                  <div>
+                     <p>This topic explains how Oracle EXAchk InfiniBand switch processing is done when Oracle Exalogic and Oracle Exadata engineered systems reside on the same InfiniBand fabric.</p>
+                     <div class="p">When an Exalogic and Exadata engineered system reside on the same InfiniBand fabric:
+                        <ol>
+                           <li>
+                              <p>Running Oracle EXAchk on an Exadata database server excludes the Exalogic gateway switches.</p>
+                           </li>
+                           <li>
+                              <p>Running Oracle EXAchk on an Exalogic compute node excludes the Exadata switches.</p>
+                           </li>
+                        </ol>
+                     </div>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-CDCA6A7B-1CCE-453E-9B08-784F2D497F89" title="Usage of Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance depends on other considerations such as virtualization, parallel run, and so on.">Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance Usage</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-8FCB68CE-ADEC-44E0-BFF6-1BE0A03DC33A" name="GUID-8FCB68CE-ADEC-44E0-BFF6-1BE0A03DC33A"></a><h3 id="OEXUG-GUID-8FCB68CE-ADEC-44E0-BFF6-1BE0A03DC33A" class="sect3"><span class="enumeration_section">3.2.4 </span>Troubleshooting Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance
+               </h3>
+               <div>
+                  <p>Follow these steps to troubleshoot and fix Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance issues.</p>
+                  <div class="section">
+                     <p class="subhead2" id="GUID-8FCB68CE-ADEC-44E0-BFF6-1BE0A03DC33A__GUID-434F2F05-47B8-4627-B7A0-6B910550AF79">Error RC-003 - No Audit Checks Were Found</p>
+                     <p><span class="bold">Description</span>: While identifying the environment characteristics, Oracle EXAchk
+                     </p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Constructs environment variables</p>
+                        </li>
+                        <li>
+                           <p>Compares with the Oracle EXAchk rules database to determine what checks to run</p>
+                        </li>
+                     </ul>
+                     <p>If one of the environment variables does not match a known profile in the rules database, then Oracle EXAchk displays an error <samp class="msgph">error RC-003 - no audit checks were found…</samp> and exits.
+                     </p>
+                     <p><span class="bold">Cause</span>: The most common case occurs when an older version of Oracle EXAchk is used in an Oracle Exadata Database machine environment with recently released components. This may occur because of a delay between the release of a new component or version and when Oracle EXAchk incorporates support for it.
+                     </p>
+                     <div class="p">For example, when Oracle EXAchk earlier than 2.1.3_20111212 were run on an Oracle Exadata Database machine where Oracle Database release 11.2.0.3.0 was deployed, EXAchk exited with the following message:<pre class="oac_no_warn" dir="ltr">Error RC-003 - No audit checks were found for LINUXX8664OELRHEL5_112030-. 
+Please refer to the section for this error code in 
+"Appendix A - Troubleshooting Scenarios" of the "Exachk User Guide".</pre></div>
+                     <p>In this example, <samp class="msgph">_112030</samp> indicates that Oracle Database release 11.2.0.3.0 was installed on the system. Since the version of Oracle EXAchk used did not support 11.2.0.3.0, Oracle EXAchk could not find a known match in the Oracle EXAchk rules database.
+                     </p>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-8FCB68CE-ADEC-44E0-BFF6-1BE0A03DC33A__GUID-F57B6575-FD38-4808-B013-BE5361796A88">How Long Should It Take to Run Oracle EXAchk?</p>
+                     <p>The time it takes to run the tool varies based on the number of nodes in a cluster, CPU load, network latency, and so on. Normally the entire process takes only a few minutes per node, that is, less than 5 minutes per node. If it takes substantially more time than 5 minutes, then investigate the problem.</p>
+                     <p>With the introduction of parallelized database collection in 2.2.5, the elapsed time for systems with many databases is reduced. Experience in the field is that, it normally takes about 10 minutes for a quarter rack X2-2 system with one database. On an internal X3-2 half rack with 20 storage servers, 9 InfiniBand switches, and 44 databases, the elapsed time was 44 minutes.</p>
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="orachk-exachk-command-line-options.html#GUID-775DBBA4-8A14-4EC0-9EB1-C3174929DAED" title="Most command-line options apply to both Oracle ORAchk and Oracle EXAchk.">Oracle ORAchk and Oracle EXAchk Command-Line Options</a></li>
+                        <li><a href="https://support.oracle.com/rs?type=doc&amp;amp;id=1070954.1" target="_blank">https://support.oracle.com/rs?type=doc&amp;id=1070954.1</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-85C61138-2243-4435-967D-C5A477080186" title="Understand the features and tasks specific to Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance.">Oracle Exadata and Zero Data Loss Recovery Appliance</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

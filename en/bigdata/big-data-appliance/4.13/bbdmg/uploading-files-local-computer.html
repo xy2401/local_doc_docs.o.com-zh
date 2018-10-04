@@ -1,0 +1,98 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="In the Oracle Big Data Manager console, you can upload files from a local computer to a registered data provider.">
+      <meta name="description" content="In the Oracle Big Data Manager console, you can upload files from a local computer to a registered data provider.">
+      <title>Uploading Files from a Local Computer</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="Oracle Big Data Manager User’s Guide ">
+      <meta property="og:description" content="In the Oracle Big Data Manager console, you can upload files from a local computer to a registered data provider.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="Oracle Big Data Manager User’s Guide For Oracle Big Data Appliance">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-big-data-manager-users-guide-oracle-big-data-appliance.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-13T16:17:47-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2018">
+      <meta name="dcterms.category" content="bigdata">
+      <meta name="dcterms.identifier" content="E98480-01">
+      
+      <meta name="dcterms.product" content="en/bigdata/big-data-appliance/4.13">
+      
+      <link rel="prev" href="copying-data-including-multiple-sources.html" title="Previous" type="text/html">
+      <link rel="next" href="moving-data-hdfs.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"bigdata","element_name":"Big Data","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"not-applicable","element_name":"Not applicable","display_in_url":false},"product":{"short_name":"big-data-appliance","element_name":"Big Data Appliance","display_in_url":true},"release":{"short_name":"4.13","element_name":"Release 4.13","display_in_url":true}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle Big Data Manager User's Guide (for Oracle Big Data Appliance)">
+    <meta name="dcterms.isVersionOf" content="BBDMG">
+    <meta name="dcterms.release" content="Release 4.13">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="copying-data-including-multiple-sources.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="moving-data-hdfs.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">Oracle Big Data Manager User’s Guide </span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="transferring-and-comparing-data.html" property="item" typeof="WebPage"><span property="name">Transferring and Comparing Data</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Uploading Files from a Local Computer</li>
+            </ol>
+            <a id="GUID-66464A79-EBFF-42B7-B824-7D99AC8CA8AF" name="GUID-66464A79-EBFF-42B7-B824-7D99AC8CA8AF"></a>
+            
+            <h2 id="BBDMG-GUID-66464A79-EBFF-42B7-B824-7D99AC8CA8AF" class="sect2"><span class="enumeration_section">4.3 </span>Uploading Files from a Local Computer
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>In the <span>Oracle Big Data Manager</span> console, you can upload files from a local computer to a registered data provider.
+               </p>
+               <div class="section">To upload files from a local computer:</div>
+               <!-- class="section" -->
+               <ol>
+                  <li class="stepexpand"><span>Click <span class="bold">Data</span> on the menu bar to go to the <span>Data explorer</span>.</span></li>
+                  <li class="stepexpand"><span>If it isn’t already selected, click the <span class="bold">Explorer</span> tab (on the left side of the page).</span></li>
+                  <li class="stepexpand"><span>In either of the <span>Data explorer</span> panels, select a destination for the files.</span><div>Do this by first selecting the data provider from the <span class="bold">Select</span> list at the top of the panel and then by navigating (drilling down) to the location where you want to upload the files. The folder or container that you select will be used as the destination.
+                     </div>
+                  </li>
+                  <li class="stepexpand"><span>On the toolbar of the panel you chose above, click <span class="bold">Upload Files</span> <img src="img/icon_upload.png" alt="Upload icon" title="Upload icon">.</span></li>
+                  <li class="stepexpand"><span>In the <span class="bold">Files Upload</span> dialog box, click <span class="bold">Choose files to upload</span> to select the files from your computer’s file system. Alternatively, you can drag files from your computer’s file system to the <span class="bold">Or drop files here</span> box.</span><div>You can upload multiple files at one time by using either or both of the above methods.</div>
+                  </li>
+                  <li class="stepexpand"><span>Click <span class="bold">Upload</span> to upload the selected files, and then click <span class="bold">Close</span> to close the dialog box.</span></li>
+               </ol>
+            </div>
+            <div>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="transferring-and-comparing-data.html" title="In the Oracle Big Data Manager console, you can create jobs to copy, move, and compare data. You can run the jobs once or repeatedly, on a set schedule. You can also upload files from your local machine and upload data into Hive.">Transferring and Comparing Data</a></p>
+                  </div>
+               </div>
+            </div>
+            
+         </div>
+      </article>
+   </body>
+</html>

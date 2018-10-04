@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Java Card RMI Client-Side API</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-04-13T10:24:54Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Development Kit User Guide, Classic Edition" />
+<meta name="dcterms.identifier" content="E59602-03" />
+<meta name="dcterms.isVersionOf" content="JCUGC" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="remote-stub-object.htm" title="Previous" type="text/html" />
+<link rel="Next" href="working-apdu-i-o.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCUGC.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-DDE1378E-E8DB-4031-B9FF-8547D9CB67D2"></a> <span id="PAGE" style="display:none;">144/161</span> <!-- End Header -->
+<a id="JCUGC366"></a>
+<h1 id="JCUGC-GUID-DDE1378E-E8DB-4031-B9FF-8547D9CB67D2" class="sect1">Java Card RMI Client-Side API</h1>
+<div>
+<p>The two packages in the Java Card RMI client-side reference implementation demonstrate remote stub customization using the RMIC compiler generated stubs and card access for Java Card applets.</p>
+<p>The package <code class="codeph">com.sun.javacard.rmiclientlib</code> implements Java Card RMI-specific functionality.</p>
+<p>The package <code class="codeph">com.sun.javacard.clientlib</code> implements basic functionality to exchange APDUs with a smart card or a smart card simulator. This implementation of <code class="codeph">clientlib</code> requires that the ApduIO library is included in the CLASSPATH.</p>
+</div>
+<a id="JCUGC367"></a>
+<div class="props_rev_3"><a id="GUID-E66BC835-39F5-43B8-BA33-DDCD44EBFC37"></a>
+<h2 id="JCUGC-GUID-E66BC835-39F5-43B8-BA33-DDCD44EBFC37" class="sect2">Package rmiclientlib</h2>
+<div>
+<p>This package includes several classes.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">class JCRMIConnect</span><code class="codeph">&mdash;</code>The main class of the RMI framework that provides methods to select a card applet and to get an initial reference.</p>
+</li>
+<li>
+<p><span class="bold">class JCCardObjectFactory</span><code class="codeph">&mdash;</code>An implementation of the <code class="codeph">CardObjectFactory</code> that processes the data returned from the card in the format defined in the <span class="italic">Runtime Environment Specification, Java Card Platform, Version 3.0.5, Classic Edition</span>. Any object references must contain class names.</p>
+</li>
+<li>
+<p><span class="bold">class JCCardProxyFactory</span><code class="codeph">&mdash;</code>The <code class="codeph">JCCardProxyFactory</code> class is similar to <code class="codeph">JCCardObjectFactory</code>, but processes references containing lists of names. <code class="codeph">JCCardProxyFactory</code> uses the JDK 1.4.+ proxy mechanism to generate proxies dynamically.</p>
+</li>
+<li>
+<p><span class="bold">class JCRemoteRefImpl</span><code class="codeph">&mdash;</code>An implementation of interface <code class="codeph">java.rmi.server.RemoteRef</code>. These remote references can work with stubs generated by the RMIC compiler with the <code class="codeph">-v1.2</code> option.</p>
+<p>The main method is: <code class="codeph">public Object</code> <code class="codeph">invoke(Remote remote, Method method,</code> <code class="codeph">Object[] params, long unused) throws IOException, RemoteException, Exception</code></p>
+<p>This method prepares the outgoing APDU, passes it to <code class="codeph">CardAccessor</code>, and then uses <code class="codeph">CardObjectFactory</code> to parse the returned APDU and instantiate the returned object or throw an exception.</p>
+</li>
+</ul>
+</div>
+</div>
+<a id="JCUGC368"></a>
+<div class="props_rev_3"><a id="GUID-DA16D357-F19B-4DEF-AE53-70E2EBF21BD5"></a>
+<h2 id="JCUGC-GUID-DA16D357-F19B-4DEF-AE53-70E2EBF21BD5" class="sect2">Package clientlib</h2>
+<div>
+<p>This package includes an interface and a class.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">interface CardAccessor</span><code class="codeph">&mdash;</code>An interface defining methods to exchange APDUs with a card and to close connection to a card.</p>
+</li>
+<li>
+<p><span class="bold">class ApduIOCardAccessor</span><code class="codeph">&mdash;</code>A simple implementation of the CardAccessor interface that passes the APDUs to a card or a card simulator using the ApduIO library. This class takes parameters to start the ApduIO from the file <code class="codeph">jcclient.properties</code>, which must be included in CLASSPATH.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="remote-stub-object.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="working-apdu-i-o.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

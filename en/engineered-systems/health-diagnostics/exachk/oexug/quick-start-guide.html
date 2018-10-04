@@ -1,0 +1,2008 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="This section explains how to install and configure Oracle ORAchk and Oracle EXAchk. Review other topics in this section for additional information.">
+      <meta name="description" content="This section explains how to install and configure Oracle ORAchk and Oracle EXAchk. Review other topics in this section for additional information.">
+      <title>Quick Start Guide</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide">
+      <meta property="og:description" content="This section explains how to install and configure Oracle ORAchk and Oracle EXAchk. Review other topics in this section for additional information.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-orachk-and-exachk-users-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:43:23-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2016, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E83827-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/exachk">
+      
+      <link rel="prev" href="oracle-orachk-and-exachk-common-features-tasks.html" title="Previous" type="text/html">
+      <link rel="next" href="automated-daemon-mode-operation.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"exachk","element_name":"EXAchk","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® ORAchk and EXAchk User's Guide">
+    <meta name="dcterms.isVersionOf" content="OEXUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="oracle-orachk-and-exachk-common-features-tasks.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="automated-daemon-mode-operation.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="oracle-orachk-and-exachk-common-features-tasks.html" property="item" typeof="WebPage"><span property="name">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Quick Start Guide</li>
+            </ol>
+            <a id="GUID-0724119D-BBAE-437A-810C-528395E4BADC" name="GUID-0724119D-BBAE-437A-810C-528395E4BADC"></a>
+            
+            <h2 id="OEXUG-GUID-0724119D-BBAE-437A-810C-528395E4BADC" class="sect2"><span class="enumeration_section">1.1 </span>Quick Start Guide
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>This section explains how to install and configure Oracle ORAchk and Oracle EXAchk. Review other topics in this section for additional information.</p>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="quick-start-guide.html#GUID-CB4224DA-F389-4E9C-AB6A-C57F46A80C61">Overview of Oracle ORAchk and Oracle EXAchk</a><br>Oracle ORAchk and Oracle EXAchk provide a lightweight and non-intrusive health check framework for the Oracle stack of software and hardware components.
+                  </li>
+                  <li class="ulchildlink"><a href="quick-start-guide.html#GUID-9FCE03FA-58B0-4BC6-8DF5-AAFABF58B55D">Installing Oracle ORAchk and Oracle EXAchk</a><br>Follow these procedures to install Oracle ORAchk and Oracle EXAchk.
+                  </li>
+                  <li class="ulchildlink"><a href="quick-start-guide.html#GUID-50E6652C-8944-4B30-9972-29D546BBC726">Common Oracle ORAchk and Oracle EXAchk Prerequisites</a><br>Review the checklist for SSH connectivity and required user privileges to run health checks.
+                  </li>
+                  <li class="ulchildlink"><a href="quick-start-guide.html#GUID-D683D0D7-0078-4F80-B56F-052E57FBE5C7">Configuring the Daemon Mode</a><br>Use the daemon to configure automatic health check runs at scheduled intervals.
+                  </li>
+                  <li class="ulchildlink"><a href="quick-start-guide.html#GUID-AA308714-87CC-42AA-9C13-D38EBE978A7E">Email Notification and Report Overview</a><br>The following sections provide a brief overview about email notifications and sections of the HTML report output.
+                  </li>
+                  <li class="ulchildlink"><a href="quick-start-guide.html#GUID-B7CE0916-8542-462B-920A-6D86EDBD2CB7">Recommended On-Demand Usage</a><br>This section summarizes the scenarios that Oracle recommends running health checks on-demand.
+                  </li>
+                  <li class="ulchildlink"><a href="quick-start-guide.html#GUID-C9F735E5-07C3-4D98-AEB7-EC790BFF26ED">Updating to the Latest Version of Oracle ORAchk and Oracle EXAchk</a><br>There are several methods for maintaining Oracle ORAchk and Oracle EXAchk.
+                  </li>
+                  <li class="ulchildlink"><a href="quick-start-guide.html#GUID-7C8BEBDC-5125-4493-A8FC-799023FAFC06">Configuring Oracle REST Data Services (ORDS)</a><br></li>
+                  <li class="ulchildlink"><a href="quick-start-guide.html#GUID-45CA5280-B10A-42C5-8C90-7782589E4570">Using Oracle ORAchk or Oracle EXAchk over REST</a><br>Oracle ORAchk and Oracle EXAchk include full REST support allowing invocation and query over HTTPS.
+                  </li>
+               </ul>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="oracle-orachk-and-exachk-common-features-tasks.html#GUID-50F7EA11-11FD-431C-B99A-EC9E2176BBDB" title="Oracle ORAchk and Oracle EXAchk share a common health check framework and a large portion of their features and tasks are common.">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</a></p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="sect2"><a id="GUID-CB4224DA-F389-4E9C-AB6A-C57F46A80C61" name="GUID-CB4224DA-F389-4E9C-AB6A-C57F46A80C61"></a><h3 id="OEXUG-GUID-CB4224DA-F389-4E9C-AB6A-C57F46A80C61" class="sect3"><span class="enumeration_section">1.1.1 </span>Overview of Oracle ORAchk and Oracle EXAchk
+               </h3>
+               <div>
+                  <p>Oracle ORAchk and Oracle EXAchk provide a lightweight and non-intrusive health check framework for the Oracle stack of software and hardware components.</p>
+                  <p>Use Oracle EXAchk for all Oracle engineered systems except Oracle Database Appliance. For Oracle Database Appliance, use Oracle ORAchk.</p>
+                  <p>You have access to Oracle ORAchk and Oracle EXAchk as a value add-on to your existing support contract. There is no additional fee or license required to run Oracle ORAchk and Oracle EXAchk.</p>
+                  <div class="section">
+                     <p class="subhead2" id="GUID-CB4224DA-F389-4E9C-AB6A-C57F46A80C61__GUID-5B6CA87C-1CBA-4229-87E8-2C2C33A4AB32">Features of Oracle ORAchk and Oracle EXAchk</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Automates risk identification and proactive notification before business is impacted</p>
+                        </li>
+                        <li>
+                           <p>Runs health checks based on critical and reoccurring problems</p>
+                        </li>
+                        <li>
+                           <p>Runs in your environment with no need to send anything to Oracle</p>
+                        </li>
+                        <li>
+                           <p>Enables you to schedule email health check reports</p>
+                        </li>
+                        <li>
+                           <p>Integrates the findings into other tools of your choice</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-0724119D-BBAE-437A-810C-528395E4BADC" title="This section explains how to install and configure Oracle ORAchk and Oracle EXAchk. Review other topics in this section for additional information.">Quick Start Guide</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-9FCE03FA-58B0-4BC6-8DF5-AAFABF58B55D" name="GUID-9FCE03FA-58B0-4BC6-8DF5-AAFABF58B55D"></a><h3 id="OEXUG-GUID-9FCE03FA-58B0-4BC6-8DF5-AAFABF58B55D" class="sect3"><span class="enumeration_section">1.1.2 </span>Installing Oracle ORAchk and Oracle EXAchk
+               </h3>
+               <div>
+                  <p>Follow these procedures to install Oracle ORAchk and Oracle EXAchk.</p>
+                  <div class="section">
+                     <div class="p">
+                        <div class="infoboxnote" id="GUID-9FCE03FA-58B0-4BC6-8DF5-AAFABF58B55D__GUID-B5F92C51-AC37-402C-91D7-9F1CE85273DC">
+                           <p class="notep1">Note:</p>
+                           <p>If your Oracle Exadata Database machine is enrolled in the Oracle Platinum Services: Exadata Exachk Automation Project, then there is a separate installation method described in My Oracle Support Note 2043991.1.</p>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- class="section" -->
+                  <ol>
+                     <li class="stepexpand"><span>Download the latest version of the health check tool zip file.</span><div>
+                           <div class="infoboxnote" id="GUID-9FCE03FA-58B0-4BC6-8DF5-AAFABF58B55D__GUID-CBC41EA1-8BB5-40DD-8CFD-75DE72412802">
+                              <p class="notep1">Note:</p>
+                              <p>Oracle ORAchk is pre-installed with the database in the <code class="codeph">$ORACLE_HOME/suptools/orachk</code> directory.
+                              </p>
+                              <p>To update to the latest version, see “Updating to the Latest Version of Oracle ORAchk and Oracle EXAchk”.</p>
+                           </div>
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>For Oracle ORAchk, download <code>orachk.zip</code> or <code>orachk_idm.zip</code> for Oracle ORAchk with IAM support.
+                                 </p>
+                              </li>
+                              <li>
+                                 <p>For Oracle EXAchk, download <code>exachk.zip</code>.
+                                 </p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li class="stepexpand"><span>Copy the <code>zip</code> file to the installation directory on the systems that you want to check.</span><div>
+                           <div class="infoboxnote" id="GUID-9FCE03FA-58B0-4BC6-8DF5-AAFABF58B55D__GUID-816DC814-79B7-4497-BBC4-C508FECB3E58">
+                              <p class="notep1">Note:</p>Oracle ORAchk and Oracle EXAchk are Oracle RAC database cluster aware. Install Oracle ORAchk and Oracle EXAchk on one node of the cluster to check all nodes in the cluster.
+                           </div>
+                        </div>
+                     </li>
+                     <li class="stepexpand"><span>If Oracle Clusterware is installed, then:</span><div>
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>Install Oracle EXAchk in <code>/opt/oracle.SupportTools/exachk</code> as the Oracle Grid Infrastructure home owner
+                                 </p>
+                              </li>
+                              <li>
+                                 <p>Install Oracle ORAchk in <code>CRS_HOME/suptools/orachk</code> as the Oracle Grid Infrastructure home owner
+                                 </p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li class="stepexpand"><span>If Oracle Clusterware is not installed, then:</span><div>
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>Install Oracle EXAchk in <code>/opt/oracle.SupportTools/exachk</code> as <code class="codeph">root</code></p>
+                              </li>
+                              <li>
+                                 <p>Install Oracle ORAchk in a convenient location as <code class="codeph">root</code> (if possible)
+                                 </p>
+                                 <p>Or</p>
+                                 <p>Install Oracle ORAchk in a convenient location as Oracle software install user or Oracle Database home owner</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                  </ol>
+                  <div class="section">
+                     <div class="p">
+                        <div class="infoboxnote" id="GUID-9FCE03FA-58B0-4BC6-8DF5-AAFABF58B55D__GUID-F6053033-6876-4B96-B6B4-21C62D66CB1C">
+                           <p class="notep1">Note:</p>If the performance is acceptable, then stage Oracle ORAchk and Oracle EXAchk on a shared network drive.
+                           <p>To run Oracle ORAchk and Oracle EXAchk on a read-only NFS server, modify the permissions of the <code class="codeph">.cgrep</code> directory and the scripts within it at least to&nbsp;<code class="codeph">555</code>.
+                           </p><pre class="pre codeblock"><code>chmod &#x2013;R 555 .cgrep</code></pre></div>
+                     </div>
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-CEC4A277-E08B-443D-827F-627A930F1057">Installing or Upgrading Oracle ORAchk and Oracle EXAchk RPMs</a><br>Follow these steps to install or upgrade Oracle ORAchk and Oracle EXAchk RPMs on Linux.
+                     </li>
+                  </ul>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="quick-start-guide.html#GUID-C9F735E5-07C3-4D98-AEB7-EC790BFF26ED" title="There are several methods for maintaining Oracle ORAchk and Oracle EXAchk.">Updating to the Latest Version of Oracle ORAchk and Oracle EXAchk</a></li>
+                        <li><a href="https://support.oracle.com/rs?type=doc&amp;amp;id=2043991.1" target="_blank">https://support.oracle.com/rs?type=doc&amp;id=2043991.1</a></li>
+                        <li><a href="https://support.oracle.com/rs?type=doc&amp;amp;id=1268927.2" target="_blank">https://support.oracle.com/rs?type=doc&amp;id=1268927.2</a></li>
+                        <li><a href="https://support.oracle.com/rs?type=doc&amp;amp;id=1070954.1" target="_blank">https://support.oracle.com/rs?type=doc&amp;id=1070954.1</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-0724119D-BBAE-437A-810C-528395E4BADC" title="This section explains how to install and configure Oracle ORAchk and Oracle EXAchk. Review other topics in this section for additional information.">Quick Start Guide</a></p>
+                     </div>
+                  </div>
+               </div>
+               <div class="sect3"><a id="GUID-CEC4A277-E08B-443D-827F-627A930F1057" name="GUID-CEC4A277-E08B-443D-827F-627A930F1057"></a><h4 id="OEXUG-GUID-CEC4A277-E08B-443D-827F-627A930F1057" class="sect4"><span class="enumeration_section">1.1.2.1 </span>Installing or Upgrading Oracle ORAchk and Oracle EXAchk RPMs
+                  </h4>
+                  <div>
+                     <p>Follow these steps to install or upgrade Oracle ORAchk and Oracle EXAchk RPMs on Linux.</p>
+                     <ol>
+                        <li class="stepexpand"><span>Go to <a href="https://linux-update.oracle.com/" target="_blank">https://linux-update.oracle.com</a>.</span></li>
+                        <li class="stepexpand"><span>Login to the server.</span><div>
+                              <p>And if needed, register your email address with a valid CSI if no user present yet.</p>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Register each machine that you are interested in.</span><ol type="a">
+                              <li><span>Login to the machine as <code class="codeph">root</code>.</span></li>
+                              <li><span>Type <code class="codeph">uln_register</code>, and follow the prompts.</span></li>
+                           </ol>
+                        </li>
+                        <li class="stepexpand"><span>Now go back to the <span class="bold">ULN</span> user interface.</span><ol type="a">
+                              <li class="substepexpand"><span>Login to <a href="https://linux-update.oracle.com/" target="_blank">https://linux-update.oracle.com</a>.</span></li>
+                              <li class="substepexpand"><span>For each machine that requires (or could potentially use) Oracle ORAchk or Oracle EXAchk:</span><div>
+                                    <ol type="i">
+                                       <li>
+                                          <p>Click on the system.</p>
+                                       </li>
+                                       <li>
+                                          <p>On the systems page, click <span class="bold">Manage Subscriptions</span>.
+                                          </p>
+                                       </li>
+                                       <li>
+                                          <p>Add the <span class="bold">Packages for Oracle Stack Health Checks</span>.
+                                          </p>
+                                       </li>
+                                       <li>
+                                          <p>Click <span class="bold">Save Subscriptions</span>.
+                                          </p>
+                                       </li>
+                                       <li>
+                                          <p>Accept the license.</p>
+                                       </li>
+                                    </ol>
+                                 </div>
+                              </li>
+                           </ol>
+                        </li>
+                        <li class="stepexpand"><span>Now on the machine, run the following commands:</span><div><pre class="pre codeblock"><code># yum install orachk</code></pre><pre class="pre codeblock"><code># yum install exachk</code></pre></div>
+                           <div>
+                              <p>For example:</p><pre class="pre codeblock"><code># yum install exachk
+Loaded plugins: refresh-packagekit, rhnplugin, security, ulninfo
+This system is receiving updates from ULN.
+Setting up Install Process
+Resolving Dependencies
+--&gt; Running transaction check
+---&gt; Package exachk.x86_64 0:18.2.0_20180521-2 will be installed
+--&gt; Finished Dependency Resolution
+...etc...
+
+Upgrading the exachk package:
+
+# yum update exachk
+Loaded plugins: refresh-packagekit, rhnplugin, security, ulninfo
+This system is receiving updates from ULN.
+Setting up Update Process
+Resolving Dependencies
+--&gt; Running transaction check
+---&gt; Package exachk.x86_64 0:18.2.0_20180521-2 will be updated
+---&gt; Package exachk.x86_64 0:18.3.0_20180808-2 will be an update
+--&gt; Finished Dependency Resolution
+
+Dependencies Resolved
+
+===========================================================================================================
+ Package             Arch       Version                Repository                                      Size
+===========================================================================================================
+Updating:
+ exachk              x86_64     18.3.0_20180808-2      ol6_x86_64_healthcheck_diag                     76 M
+
+Transaction Summary
+===========================================================================================================
+Upgrade       1 Package(s)</code></pre></div>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-9FCE03FA-58B0-4BC6-8DF5-AAFABF58B55D" title="Follow these procedures to install Oracle ORAchk and Oracle EXAchk.">Installing Oracle ORAchk and Oracle EXAchk</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-50E6652C-8944-4B30-9972-29D546BBC726" name="GUID-50E6652C-8944-4B30-9972-29D546BBC726"></a><h3 id="OEXUG-GUID-50E6652C-8944-4B30-9972-29D546BBC726" class="sect3"><span class="enumeration_section">1.1.3 </span>Common Oracle ORAchk and Oracle EXAchk Prerequisites
+               </h3>
+               <div>
+                  <p>Review the checklist for SSH connectivity and required user privileges to run health checks.</p>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-7D49D8BE-0C75-4D5E-BA2F-A6EC8B453F1D">SSH Connectivity and Access</a><br>In a clustered database environment, Oracle ORAchk and Oracle EXAchk run health checks on a single node and remotely run on all other cluster nodes.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-79386C04-A479-43F9-BCEC-B5D706297793">Handling of root Passwords</a><br>Handling of <code class="codeph">root</code> passwords depends on whether you have installed the Expect utility.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-D2A3E7D7-CE4D-4DA9-B810-35A3ACAA968C">Restricted Access to Oracle ORAchk and Oracle EXAchk Output Files</a><br>Starting in release 12.2.0.1.4, access to the output files from a given execution is restricted to the user who executed Oracle ORAchk and Oracle EXAchk.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-20CD79D7-E1B2-4236-8484-3064DDF86BC9">Deciding Which User Should Run Oracle ORAchk or Oracle EXAchk</a><br>Run health checks as <code class="codeph">root</code>. Also, run health checks as the Oracle Database home owner or the Oracle Grid Infrastructure home owner.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-3F46BC3D-B779-4618-AC7B-522FAE0DBC06">Data Entry Terminal Considerations</a><br>Use any supported UNIX and Linux terminal type (character mode terminal, ILOM, VNC server) to run Oracle ORAchk and Oracle EXAchk.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-86E1B639-9CC6-4F31-859D-30F3B7F954A0">Running Oracle ORAchk and Oracle EXAchk in Non-English Environments</a><br>Set globalization environment variables to run Oracle ORAchk and Oracle EXAchk in non-English environments.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-C8953C8B-FAD2-47D2-89F8-E2629C56D2E2">Specific Prerequisites for Running Oracle ORAchk and Oracle EXAchk</a><br>Review Oracle ORAchk and Oracle EXAchk specific prerequisites.
+                     </li>
+                  </ul>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-0724119D-BBAE-437A-810C-528395E4BADC" title="This section explains how to install and configure Oracle ORAchk and Oracle EXAchk. Review other topics in this section for additional information.">Quick Start Guide</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="sect3"><a id="GUID-7D49D8BE-0C75-4D5E-BA2F-A6EC8B453F1D" name="GUID-7D49D8BE-0C75-4D5E-BA2F-A6EC8B453F1D"></a><h4 id="OEXUG-GUID-7D49D8BE-0C75-4D5E-BA2F-A6EC8B453F1D" class="sect4"><span class="enumeration_section">1.1.3.1 </span>SSH Connectivity and Access
+                  </h4>
+                  <div>
+                     <p>In a clustered database environment, Oracle ORAchk and Oracle EXAchk run health checks on a single node and remotely run on all other cluster nodes.</p>
+                     <p>Remotely running health checks on cluster nodes involves remotely copying files to and from the targets and running commands without providing the passwords.</p>
+                     <p>If security restrictions block, then some commands fail to run. To run those commands successfully, develop alternate plans.</p>
+                     <p>To run health checks remotely on all other cluster nodes from the database server:</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Configure passwordless SSH equivalency for the same user on each cluster node that runs Oracle ORAchk and Oracle EXAchk on the database server</p>
+                        </li>
+                     </ul>
+                     <div class="infoboxnote" id="GUID-7D49D8BE-0C75-4D5E-BA2F-A6EC8B453F1D__GUID-3C884C50-69E6-49A5-8F6E-D41A95C32BF0">
+                        <p class="notep1">Note:</p>
+                        <p>  If passwordless SSH is not configured in the environment, then Oracle ORAchk or Oracle EXAchk prompts you if it should configure permanent or temporary passwordless SSH in the environment.</p>
+                     </div>
+                     <p>Or</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Provide the private key file for the remote nodes, or allow Oracle ORAchk or Oracle EXAchk to auto-generate the private key file for the remote nodes.</p>
+                        </li>
+                     </ul>
+                     <p>The process used by Oracle ORAchk and Oracle EXAchk to generate the private key is as follows:</p>
+                     <ol>
+                        <li>
+                           <p> SSH as the desired user to remote node and enter the password password to add the system to the SSH <code>known_hosts</code> file.
+                           </p>
+                           <div class="p">You should see something like:<pre class="oac_no_warn" dir="ltr">The authenticity of host '&lt;hostname&gt; (&lt;ip&gt;)' can't be established.
+RSA key fingerprint is fb:78:d1:6a:5c:62:ea:c4:85:20:76:f6:a9:01:1e:b4.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'hostname&gt;,&lt;ip&gt;' (RSA) to the list of known hosts.</pre></div>
+                        </li>
+                        <li>
+                           <p>Log in to the remote node, and generate private and public key pair on the remote node exactly as follows.</p>
+                           <p>Replace <span class="variable" translate="no">hostname</span> and <span class="variable" translate="no">username</span> with your actual hostname and desired username.
+                           </p><pre class="pre codeblock"><code># ssh-keygen -f $HOME/.ssh/id_dsa.host.user -N ''</code></pre><p>For example, if your remote node is <span class="variable" translate="no">cehaovmsp1080</span> and your desired run user is <code class="codeph">root</code>, then log in to that host and run:
+                           </p><pre class="pre codeblock"><code># ssh-keygen -f $HOME/.ssh/id_dsa.cehaovmsp1080.root -N ''</code></pre><p>Running the command creates two files in the <code>$HOME/.ssh</code> directory.
+                           </p><pre class="pre codeblock"><code>[root@cehaovmsp1080 .ssh]# ls -ltr
+total 8
+-rw-------. 1 root root 1675 May 9 12:27 id_dsa.cehaovmsp1080.root
+-rw-r--r--. 1 root root 400 May 9 12:27 id_dsa.cehaovmsp1080.root.pub</code></pre></li>
+                        <li>
+                           <p>Copy the contents of public key into the <code>.ssh/authorized_keys</code> file of remote node and then delete the public key from the remote node.
+                           </p><pre class="pre codeblock"><code># cat $HOME/.ssh/id_dsa.<span class="variable" translate="no">hostname</span>.<span class="variable" translate="no">username</span>.pub &gt;&gt; $HOME/.ssh/authorized_keys</code></pre><pre class="pre codeblock"><code># rm -rf $HOME/.ssh/id_<span class="variable" translate="no">hostname</span>.<span class="variable" translate="no">username</span>.pub</code></pre><p>For example:</p><pre class="pre codeblock"><code># cat $HOME/.ssh/id_dsa.cehaovmsp1080.root.pub &gt;&gt; $HOME/.ssh/authorized_keys
+# rm -rf $HOME/.ssh/id_dsa.cehaovmsp1080.root.pub</code></pre></li>
+                        <li>
+                           <p>Copy the private key <code>$HOME/.ssh/id_dsa.<span class="variable" translate="no">hostname</span>.<span class="variable" translate="no">username</span></code> of remote node into the local node, where you will run Oracle ORAchk from, into the <code>$HOME/.ssh</code> directory.
+                           </p>
+                        </li>
+                        <li>
+                           <p>Test through SSH.</p><pre class="pre codeblock"><code>ssh -i $HOME/.ssh/id_dsa.<span class="variable" translate="no">hostname</span>.<span class="variable" translate="no">username</span> <span class="variable" translate="no">hostname</span> <span class="variable" translate="no">date</span></code></pre></li>
+                        <li>
+                           <p>If the test is successful, then run the Oracle ORAchk daemon.</p><pre class="pre codeblock"><code># export RAT_SSH_IDENTITY=$HOME/.ssh
+# ./orachk -d start</code></pre></li>
+                     </ol>
+                     <div class="p">If you wish to generate your own private key files, then on remote machine use the following commands:<pre class="pre codeblock"><code>ssh-keygen -f $HOME/.ssh/id_dsa.host.user -N ''</code></pre></div>
+                     <div class="p">For example:<pre class="pre codeblock"><code>ssh-keygen -f $HOME/.ssh/id_dsa.myhost67.root -N ''</code></pre></div>
+                     <div class="p">Running this command generates the following key pair in the <code>$HOME/.ssh/</code> directory:<pre class="pre codeblock"><code>id_dsa.myhost67.root (private key / Identity file)
+id_dsa.myhost67.root.pub (Public key)</code></pre></div>
+                     <div class="p">If you are unable to configure passwordless SSH or use the private key file, then
+                        <ol>
+                           <li>
+                              <p>Run health checks on each database server in the cluster using the <code class="codeph">-localonly</code> command-line option.
+                              </p>
+                           </li>
+                           <li>
+                              <p>Merge the results using the <code class="codeph">-merge</code> command-line option.
+                              </p>
+                           </li>
+                        </ol>
+                     </div>
+                  </div>
+                  <div>
+                     <ul class="ullinks">
+                        <li class="ulchildlink"><a href="quick-start-guide.html#GUID-5BC7D1DE-BB3E-428A-B268-4AD6FE4024A8">Storage Servers that are Configured to Deny SSH Access</a><br>The following discussion applies to any Oracle engineered system that uses Oracle Exadata storage servers.
+                        </li>
+                     </ul>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="understanding-and-managing-reports-and-output.html#GUID-CF99AAA0-E25C-4614-8C38-43B2B18442D0" title="Oracle ORAchk and Oracle EXAchk generate a detailed HTML report with findings and recommendations.">Understanding and Managing Reports and Output</a></li>
+                           <li><a href="https://support.oracle.com/rs?type=doc&amp;amp;id=372795.1" target="_blank">https://support.oracle.com/rs?type=doc&amp;id=372795.1</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-50E6652C-8944-4B30-9972-29D546BBC726" title="Review the checklist for SSH connectivity and required user privileges to run health checks.">Common Oracle ORAchk and Oracle EXAchk Prerequisites</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="sect4"><a id="GUID-5BC7D1DE-BB3E-428A-B268-4AD6FE4024A8" name="GUID-5BC7D1DE-BB3E-428A-B268-4AD6FE4024A8"></a><h5 id="OEXUG-GUID-5BC7D1DE-BB3E-428A-B268-4AD6FE4024A8" class="sect5"><span class="enumeration_section">1.1.3.1.1 </span>Storage Servers that are Configured to Deny SSH Access
+                     </h5>
+                     <div>
+                        <p>The following discussion applies to any Oracle engineered system that uses Oracle Exadata storage servers.</p>
+                        <p>Optionally, you can prevent SSH access, also known as "locking" or "locked". All Oracle EXAchk functions involving locked storage servers are run with standard <code class="codeph">exacli</code> commands from the database server upon which Oracle EXAchk is launched. To temporarily unlock the storage servers that Oracle EXAchk finds locked, provide the user name and credentials that you specified when configuring <code class="codeph">exacli</code> to lock/unlock storage servers.
+                        </p>
+                        <p>See Configuring Security for Oracle Exadata System Software in the Exadata System Software User's Guide.</p>
+                        <p>Oracle EXAchk does not operate upon the storage server attribute <code class="codeph">accessLevelPerm</code>. If you have set that attribute to <code class="codeph">remoteLoginDisabled</code> before an Oracle EXAchk run, then it will remain unchanged during and after the Oracle EXAchk run.
+                        </p>
+                        <div class="p">Oracle EXAchk operates only upon the storage server attribute <code class="codeph">accessLevelTemp</code>. For example, starting with the storage servers locked with <code class="codeph">remoteLoginDisabled</code>:<pre class="pre codeblock"><code>-bash-4.1# ssh randomceladm01
+ssh: connect to host randomceladm01 port 22: Connection refused
+-bash-4.1# ssh randomceladm02
+ssh: connect to host randomceladm02 port 22: Connection refused
+-bash-4.1# ssh randomceladm03
+ssh: connect to host randomceladm03 port 22: Connection refused
+
+-bash-4.1# ./exachk -unlockcells all
+Enter exacli user name: celluser
+Is EXACLI password same on all Storage Servers?[y/n][y] y
+Enter password for EXACLI user celluser to unlock Storage Server 192.168.178.225:
+.  .  .  .  .  .  .  .  .  .  . 
+Storage cell 192.168.178.225 successfully unlocked
+Storage cell 192.168.178.226 successfully unlocked
+Storage cell 192.168.178.227 successfully unlocked
+-bash-4.1# ssh randomceladm03
+Last login: Tue Mar  6 12:32:36 2018 from randomadm01.us.oracle.com
+-bash-4.1# ssh randomceladm02
+Last login: Tue Mar  6 12:32:09 2018 from randomadm01.us.oracle.com
+-bash-4.1# ssh randomceladm01
+Last login: Tue Mar  6 12:18:57 2018 from randomadm01.us.oracle.com
+
+-bash-4.1# exacli -c celluser@randomceladm01
+Password: ************
+exacli celluser@randomceladm01&gt; list cell attributes accessLevelPerm,accessLevelTemp
+remoteLoginDisabled ((accesslevel=remoteLoginEnabled,starttime=2018-03-06T13:49:15-08:00,
+endtime=2018-03-06T14:39:15-08:00,duration=50m,reason=Running Exachk))
+
+As can be seen from the example, Oracle EXAchk implements a temporary window 
+with a default expiration time of 50 minutes, to cover the period that Oracle EXAchk 
+may be executing on the storage server.  
+In normal operation, this temporary window is closed with "-lockcells" during the exachk cleanup routine.  
+If exachk is blocked from the cleanup routine, say because of "kill -9", 
+the temporary window will expire in it's own good time.
+
+The following example shows the typical Oracle EXAchk execution sequence starting with the storage servers locked.  
+You can see by the commands at the end that "remoteLoginDisabled" is still set and there is no temporary window:
+
+./exachk -c X4-2 -profile storage
+...
+...
+Copying plug-ins
+. .
+Enter exacli user name: celluser
+Is EXACLI password same on all Storage Servers?[y/n][y]
+Enter password for EXACLI user celluser to unlock Storage Server 192.168.178.225:
+.  .  .  .  .  .  .  .  .  .  .  .  . 
+Node randomcel01 is configured for ssh user equivalency for root user
+Node randomcel02 is configured for ssh user equivalency for root user
+Node randomcel03 is configured for ssh user equivalency for root user
+.  .  .  .  .  .  .  .  .  .  .  .  .
+...
+...
+Starting to run root privileged commands in background on STORAGE SERVER randomcel01 (192.168.178.225)
+Starting to run root privileged commands in background on STORAGE SERVER randomcel02 (192.168.178.226)
+Starting to run root privileged commands in background on STORAGE SERVER randomcel03 (192.168.178.227)
+Collections from STORAGE SERVER:
+------------------------------------------------------------
+Collecting - Exadata Critical Issue EX10
+...
+...
+Detailed report (html) -  /root/vern_wagman/exachk_122014/production/lock_doc/exachk_randomclient01_030618_140319/exachk_randomclient01_030618_140319.html
+UPLOAD [if required] - /root/vern_wagman/exachk_122014/production/lock_doc/exachk_randomclient01_030618_140319.zip
+
+-bash-4.1# ssh randomceladm01
+ssh: connect to host randomceladm01 port 22: Connection refused
+-bash-4.1# exacli -c celluser@randomceladm01
+Password: ************
+exacli celluser@randomceladm01&gt; list cell attributes accessLevelPerm,accessLevelTemp
+         remoteLoginDisabled</code></pre></div>
+                     </div>
+                     <div>
+                        <div class="familylinks">
+                           <div class="parentlink">
+                              <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-7D49D8BE-0C75-4D5E-BA2F-A6EC8B453F1D" title="In a clustered database environment, Oracle ORAchk and Oracle EXAchk run health checks on a single node and remotely run on all other cluster nodes.">SSH Connectivity and Access</a></p>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+               </div>
+               <div class="sect3"><a id="GUID-79386C04-A479-43F9-BCEC-B5D706297793" name="GUID-79386C04-A479-43F9-BCEC-B5D706297793"></a><h4 id="OEXUG-GUID-79386C04-A479-43F9-BCEC-B5D706297793" class="sect4"><span class="enumeration_section">1.1.3.2 </span>Handling of root Passwords
+                  </h4>
+                  <div>
+                     <p>Handling of <code class="codeph">root</code> passwords depends on whether you have installed the Expect utility.
+                     </p>
+                     <p>Expect automates interactive applications such as Telnet, FTP, passwd, fsck, rlogin, tip, and so on.</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>If you have installed the Expect utility, then specify the <code class="codeph">root</code> password when you run the health checks for the first time.
+                           </p>
+                           <p>The Expect utility stores the password and uses the stored password for subsequent sessions.</p>
+                           <p>The Expect utility prompts you to check if the <code class="codeph">root</code> password is same for all the remote components such as databases, switches, and so on.
+                           </p>
+                        </li>
+                        <li>
+                           <p>Specify the password only once if you have configured the same <code class="codeph">root</code> password for all the components.
+                           </p>
+                           <p>If <code class="codeph">root</code> password is not the same for all the components, then the Expect utility prompts you to validate the <code class="codeph">root</code> password every time you run the health checks.
+                           </p>
+                        </li>
+                        <li>
+                           <div class="p">If you enter the password incorrectly or the password is changed between the time it is entered and used, then Oracle ORAchk and Oracle EXAchk,
+                              <ul style="list-style-type: disc;">
+                                 <li>
+                                    <p>Notify you</p>
+                                 </li>
+                                 <li>
+                                    <p>Skip relevant checks</p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                        <li>
+                           <p>Run the health checks after resolving the issues.</p>
+                           <p>If Oracle ORAchk and Oracle EXAchk skip any of the health checks, then the tools log details about the skipped checks in the report output.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/exachk/oexug&amp;id=expect_utility_download" target="_blank">Expect - Expect - Home Page</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-50E6652C-8944-4B30-9972-29D546BBC726" title="Review the checklist for SSH connectivity and required user privileges to run health checks.">Common Oracle ORAchk and Oracle EXAchk Prerequisites</a></p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="sect3"><a id="GUID-D2A3E7D7-CE4D-4DA9-B810-35A3ACAA968C" name="GUID-D2A3E7D7-CE4D-4DA9-B810-35A3ACAA968C"></a><h4 id="OEXUG-GUID-D2A3E7D7-CE4D-4DA9-B810-35A3ACAA968C" class="sect4"><span class="enumeration_section">1.1.3.3 </span>Restricted Access to Oracle ORAchk and Oracle EXAchk Output Files
+                  </h4>
+                  <div>
+                     <p>Starting in release 12.2.0.1.4, access to the output files from a given execution is restricted to the user who executed Oracle ORAchk and Oracle EXAchk.</p>
+                     <p>The output files generated from an Oracle ORAchk and Oracle EXAchk run executed by <code class="codeph">root</code> cannot be read by other users. The output files generated from an Oracle ORAchk and Oracle EXAchk run executed by <code class="codeph">oracle</code> cannot be read by other standard users. If you wish to make files generated by one user available to other users, then manually grant access.
+                     </p>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-50E6652C-8944-4B30-9972-29D546BBC726" title="Review the checklist for SSH connectivity and required user privileges to run health checks.">Common Oracle ORAchk and Oracle EXAchk Prerequisites</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-20CD79D7-E1B2-4236-8484-3064DDF86BC9" name="GUID-20CD79D7-E1B2-4236-8484-3064DDF86BC9"></a><h4 id="OEXUG-GUID-20CD79D7-E1B2-4236-8484-3064DDF86BC9" class="sect4"><span class="enumeration_section">1.1.3.4 </span>Deciding Which User Should Run Oracle ORAchk or Oracle EXAchk
+                  </h4>
+                  <div>
+                     <p>Run health checks as <code class="codeph">root</code>. Also, run health checks as the Oracle Database home owner or the Oracle Grid Infrastructure home owner.
+                     </p>
+                     <p>Many of the health checks do not require <code class="codeph">root</code> access. However, you need <code class="codeph">root</code> privileges to run a subset of health checks.
+                     </p>
+                     <p>To run <code>root</code> privilege checks, Oracle ORAchk uses the script <code class="codeph">root_orachk.sh</code> and Oracle EXAchk uses the script <code class="codeph">root_exachk.sh</code>.
+                     </p>
+                     <p>By default, the <code>root_orachk.sh</code> and <code>root_exachk.sh</code> scripts are created in the <code class="codeph">$HOME</code> directory used by Oracle ORAchk and Oracle EXAchk. Change the directory by setting the environment variable <code class="codeph">RAT_ROOT_SH_DIR</code>.
+                     </p>
+                     <div class="p">Specify a location for <code class="codeph">sudo</code> remote access as follows:<pre class="pre codeblock"><code>export RAT_ROOT_SH_DIR=/mylocation</code></pre></div>
+                     <div class="p">Add an entry in the <code>/etc/sudoers</code> as follows:<pre class="pre codeblock"><code>oracle ALL=(root) NOPASSWD:/mylocation/root_orachk.sh</code></pre></div>
+                     <div class="p">For security reasons, create the <code class="codeph">root</code> scripts outside of the standard temporary directory in a custom directory. Specify the custom directory using the environment variable <code class="codeph">RAT_ROOT_SH_DIR</code>:<pre class="pre codeblock"><code>export RAT_ROOT_SH_DIR=/orahome/oradb/</code></pre></div>
+                     <div class="p">Specify a location for <code class="codeph">sudo</code> remote access as follows:<pre class="pre codeblock"><code>export RAT_ROOT_SH_DIR=/mylocation</code></pre></div>
+                     <div class="p">Add an entry in the <code>/etc/sudoers</code> as follows:<pre class="pre codeblock"><code>oracle ALL=(root) NOPASSWD:/mylocation/root_orachk.sh</code></pre></div>
+                     <div class="p">
+                        <div class="infoboxnote" id="GUID-20CD79D7-E1B2-4236-8484-3064DDF86BC9__GUID-44513761-7C3A-4DBA-8A0B-C817E4BC5556">
+                           <p class="notep1">Note:</p>
+                           <p>Specify full paths for the entries in the <code>/etc/sudoers</code> &nbsp;file. Do not use environment variables.
+                           </p>
+                        </div>
+                     </div>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p><span class="bold">(recommended) Run as root:</span> Use <code class="codeph">root</code> user credentials to run Oracle ORAchk and Oracle EXAchk.
+                           </p>
+                           <p>The Oracle ORAchk and Oracle EXAchk processes that run as <code class="codeph">root</code>, perform user lookups for the users who own the Oracle Database home and Oracle Grid Infrastructure home. If <code class="codeph">root</code> access is not required, then the Oracle ORAchk and Oracle EXAchk processes use the&nbsp;<code class="codeph">su</code> command to run health checks as the applicable Oracle Database home user or Oracle Grid Infrastructure home user. Accounts with lower privileges cannot have elevated access to run health checks that require <code class="codeph">root</code> access.
+                           </p>
+                           <p>Running health checks as <code class="codeph">root</code> has advantages in role-separated environments or environments with more restrictive security.
+                           </p>
+                        </li>
+                        <li>
+                           <p><span class="bold">Run as Oracle Database home owner or Oracle Grid Infrastructure home owner:</span> Use Oracle Database home owner or Oracle Grid Infrastructure home owner credentials to run Oracle ORAchk and Oracle EXAchk.
+                           </p>
+                           <p>The user who runs Oracle ORAchk and Oracle EXAchk must have elevated access as <code class="codeph">root</code> to run health checks that need <code class="codeph">root</code> access.
+                           </p>
+                           <p>Running health checks as Oracle Database home owner or Oracle Grid Infrastructure home owner requires multiple runs in role-separated environments. More restrictive security requirements do not permit elevated access.</p>
+                           <p>There are several other options:</p>
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>Skip the checks that require <code class="codeph">root</code> access.
+                                 </p>
+                              </li>
+                              <li>
+                                 <p>Specify the <code class="codeph">root</code> user ID and password when prompted.
+                                 </p>
+                              </li>
+                              <li>
+                                 <p>Configure <code class="codeph">sudo</code>.
+                                 </p>
+                                 <p>If you are using <code class="codeph">sudo</code>, then add an entry for the root script, located in <code class="codeph">$HOME</code> in the <code>/etc/sudoers</code> file that corresponds to the user who is running the health checks.
+                                 </p>
+                                 <div class="p">For example:<pre class="pre codeblock"><code>user ALL=(root) NOPASSWD:/root/root_orachk.sh</code></pre><pre class="pre codeblock"><code>user ALL=(root) NOPASSWD:/root/root_exachk.sh</code></pre></div>
+                                 <p>To determine what <code class="codeph">$HOME</code> is set to, run the <code class="codeph">echo $HOME</code> command.
+                                 </p>
+                                 <p>For example:</p>
+                                 <div class="p"><pre class="pre codeblock"><code>user ALL=(root) NOPASSWD:/root/.orachk/root_orachk.sh</code></pre></div>
+                                 <p>Or</p>
+                                 <div class="p"><pre class="pre codeblock"><code>user ALL=(root) NOPASSWD:/root/.exachk/root_exachk.sh</code></pre></div>
+                              </li>
+                              <li>
+                                 <p>Pre-configure passwordless SSH connectivity.</p>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-50E6652C-8944-4B30-9972-29D546BBC726" title="Review the checklist for SSH connectivity and required user privileges to run health checks.">Common Oracle ORAchk and Oracle EXAchk Prerequisites</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-3F46BC3D-B779-4618-AC7B-522FAE0DBC06" name="GUID-3F46BC3D-B779-4618-AC7B-522FAE0DBC06"></a><h4 id="OEXUG-GUID-3F46BC3D-B779-4618-AC7B-522FAE0DBC06" class="sect4"><span class="enumeration_section">1.1.3.5 </span>Data Entry Terminal Considerations
+                  </h4>
+                  <div>
+                     <p>Use any supported UNIX and Linux terminal type (character mode terminal, ILOM, VNC server) to run Oracle ORAchk and Oracle EXAchk.</p>
+                     <p>Respond to the prompts during the interactive run, or while configuring the daemon.</p>
+                     <p>Each terminal type has advantages and disadvantages. The effect of a dropped network connection varies based on the terminal type used.</p>
+                     <p>For example, in an interactive run using a character mode terminal, if all the prompts are answered prior to the network drop, then the running process completes successfully even if the network connection drops. If the network connection drops before all the input prompts are answered, then all the running processes hang. Clean up the hung processes manually when the network connection is restored.</p>
+                     <p>Using a remote connection to a VNC server running on the database where Oracle ORAchk and Oracle EXAchk are running minimizes the network drop interruptions.</p>
+                     <p>If you use accessibility software or devices that prevent the use of a VNC server, and cause network failures, then you must work with your network team and system administrator to determine the root cause and adjust the environment as required.</p>
+                     <p>For example, an accessibility aid might insert a suspension and restart the interactive process that runs Oracle ORAchk or Oracle EXAchk. If this causes an operating system timeout due to terminal inactivity, then increase the inactivity timeouts of the environment before running the commands.</p>
+                     <p>The timeout caused by an assistive tool at the operating system level due to terminal inactivity is not specific to Oracle ORAchk and Oracle EXAchk. The timeout could happen to any process that assistive technology manages.</p>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-50E6652C-8944-4B30-9972-29D546BBC726" title="Review the checklist for SSH connectivity and required user privileges to run health checks.">Common Oracle ORAchk and Oracle EXAchk Prerequisites</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-86E1B639-9CC6-4F31-859D-30F3B7F954A0" name="GUID-86E1B639-9CC6-4F31-859D-30F3B7F954A0"></a><h4 id="OEXUG-GUID-86E1B639-9CC6-4F31-859D-30F3B7F954A0" class="sect4"><span class="enumeration_section">1.1.3.6 </span>Running Oracle ORAchk and Oracle EXAchk in Non-English Environments
+                  </h4>
+                  <div>
+                     <p>Set globalization environment variables to run Oracle ORAchk and Oracle EXAchk in non-English environments.</p>
+                     <div class="section">Oracle ORAchk and Oracle EXAchk support only English language. However, you can run Oracle ORAchk and Oracle EXAchk by setting the globalization environment variables.</div>
+                     <!-- class="section" -->
+                     <ol>
+                        <li class="stepexpand"><span>To run Oracle ORAchk or Oracle EXAchk in a non-English environment, set the environment variable <code class="codeph">NLS_LANG</code> to <code class="codeph">AMERICAN_AMERICA.[NLS_CHARACTERSET]</code>.</span><div>
+                              <p>For example:</p><pre class="pre codeblock"><code>export NLS_LANG=AMERICAN_AMERICA.JA16SJISTILDE</code></pre></div>
+                           <div>
+                              <p>For more information on setting globalization environment variables, see <cite>Setting Up a Globalization Support Environment</cite> in the <cite>Oracle Database Globalization Support Guide</cite>.
+                              </p>
+                           </div>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/exachk/oexug&amp;id=NLSPG-GUID-D5C74C82-8622-46F4-8760-0F8ABA28A816" target="_blank">Oracle Database Globalization Support Guide</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-50E6652C-8944-4B30-9972-29D546BBC726" title="Review the checklist for SSH connectivity and required user privileges to run health checks.">Common Oracle ORAchk and Oracle EXAchk Prerequisites</a></p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="sect3"><a id="GUID-C8953C8B-FAD2-47D2-89F8-E2629C56D2E2" name="GUID-C8953C8B-FAD2-47D2-89F8-E2629C56D2E2"></a><h4 id="OEXUG-GUID-C8953C8B-FAD2-47D2-89F8-E2629C56D2E2" class="sect4"><span class="enumeration_section">1.1.3.7 </span>Specific Prerequisites for Running Oracle ORAchk and Oracle EXAchk
+                  </h4>
+                  <div>
+                     <p>Review Oracle ORAchk and Oracle EXAchk specific prerequisites.</p>
+                     <p>For Oracle ORAchk specific prerequisites, see: </p>
+                     <p><a href="orachk-scope-and-supported-environments.html#GUID-77CD1268-FE8A-4D25-9B38-46852661A842" title="Review the scope and supported environments for Oracle ORAchk.">Oracle ORAchk Scope and Supported Environments</a></p>
+                     <p>For Oracle EXAchk specific prerequisites, see:</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p><a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-85C61138-2243-4435-967D-C5A477080186" title="Understand the features and tasks specific to Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance.">Oracle Exadata and Zero Data Loss Recovery Appliance</a></p>
+                        </li>
+                        <li>
+                           <p><a href="oracle-exalogic.html#GUID-61B15081-6424-4F1E-A84C-0E0D8EEF0FF0" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalogic.">Oracle Exalogic</a></p>
+                        </li>
+                        <li>
+                           <p><a href="oracle-supercluster.html#GUID-0789AB58-9C67-4F22-98A3-874FAF2EA3E7" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle SuperCluster.">Oracle SuperCluster</a></p>
+                        </li>
+                        <li>
+                           <p><a href="oracle-exalytics.html#GUID-D2F1F610-48EA-4EA6-BF6F-B6A6E252A0E0" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalytics.">Oracle Exalytics</a></p>
+                        </li>
+                        <li>
+                           <p><a href="oracle-big-data.html#GUID-7534A5C5-E51E-4341-9D7D-3E2A3215415E" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Big Data Appliance.">Oracle Big Data Appliance</a></p>
+                        </li>
+                     </ul>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-50E6652C-8944-4B30-9972-29D546BBC726" title="Review the checklist for SSH connectivity and required user privileges to run health checks.">Common Oracle ORAchk and Oracle EXAchk Prerequisites</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-D683D0D7-0078-4F80-B56F-052E57FBE5C7" name="GUID-D683D0D7-0078-4F80-B56F-052E57FBE5C7"></a><h3 id="OEXUG-GUID-D683D0D7-0078-4F80-B56F-052E57FBE5C7" class="sect3"><span class="enumeration_section">1.1.4 </span>Configuring the Daemon Mode
+               </h3>
+               <div>
+                  <p>Use the daemon to configure automatic health check runs at scheduled intervals.</p>
+                  <div class="section">
+                     <div class="infoboxnote" id="GUID-D683D0D7-0078-4F80-B56F-052E57FBE5C7__GUID-9C57F200-5D12-411C-9637-65F0CF38C42D">
+                        <p class="notep1">Note:</p>
+                        <p>Daemon mode is supported only on the Linux and Solaris operating systems.</p>
+                     </div>
+                     <div class="p">
+                        <div class="infoboxnote" id="GUID-D683D0D7-0078-4F80-B56F-052E57FBE5C7__GUID-2F241EFB-3056-4AC7-8688-74117D80C384">
+                           <p class="notep1">Note:</p>
+                           <p>If you have an Oracle Engineered System, then in addition to the following usage steps, follow the system-specific instructions.</p>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- class="section" -->
+                  <ol>
+                     <li class="stepexpand"><span>Set the daemon properties.</span><div>At a minimum, set <code class="codeph">AUTORUN_SCHEDULE</code> and <code class="codeph">NOTIFICATION_EMAIL</code>.
+                           <p>For example, to set the tool to run at 3 AM every Sunday and email the results to <code class="codeph">some.body@example.com</code>, run the following command:
+                           </p><pre class="pre codeblock"><code>$ ./orachk &#x2013;set “AUTORUN_SCHEDULE=3 * * 0 ;NOTIFICATION_EMAIL=some.body@example.com”</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;set “AUTORUN_SCHEDULE=3 * * 0 ;NOTIFICATION_EMAIL=some.body@example.com”</code></pre></div>
+                     </li>
+                     <li class="stepexpand"><span>Configure the health check daemon as described in <span class="q">"Automated Daemon Mode Operation"</span>.</span></li>
+                     <li class="stepexpand"><span>Start the daemon as <code class="codeph">root</code> (recommended) or as the Oracle Database or Oracle Grid Infrastructure home owner.</span><div><pre class="pre codeblock"><code># ./orachk &#x2013;d start</code></pre><pre class="pre codeblock"><code># ./exachk &#x2013;d start</code></pre></div>
+                     </li>
+                     <li class="stepexpand"><span>Answer the questions prompted during startup.</span></li>
+                  </ol>
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="quick-start-guide.html#GUID-20CD79D7-E1B2-4236-8484-3064DDF86BC9" title="Run health checks as root. Also, run health checks as the Oracle Database home owner or the Oracle Grid Infrastructure home owner.">Deciding Which User Should Run Oracle ORAchk or Oracle EXAchk</a></li>
+                        <li><a href="automated-daemon-mode-operation.html#GUID-2C32CB18-C837-40E8-AB6E-1FC6672A83E8" title="Oracle recommends that you use the daemon process to schedule recurring health checks at regular intervals.">Using Oracle ORAchk and Oracle EXAchk to Automatically Check for Risks and System Health</a></li>
+                        <li><a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-CDCA6A7B-1CCE-453E-9B08-784F2D497F89" title="Usage of Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance depends on other considerations such as virtualization, parallel run, and so on.">Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance Usage</a></li>
+                        <li><a href="oracle-exalogic.html#GUID-C86295B2-272A-4F18-89E1-7A68523B071B" title="For optimum performance of the Oracle EXAchk tool, Oracle recommends that you complete the following steps.">Oracle EXAchk on Oracle Exalogic Usage</a></li>
+                        <li><a href="oracle-supercluster.html#GUID-E65FA998-1D60-423B-8D90-D70332BF3AC1" title="Perform health checks from GZ / primary LDOM, or NGZ.">Oracle EXAchk on Oracle SuperCluster Usage</a></li>
+                        <li><a href="oracle-exalytics.html#GUID-C0265691-9101-4BB5-B4F1-9ADB9BEF377C" title="Oracle EXAchk runs the appropriate collections and audit checks based on the status of the components.">Oracle EXAchk on Oracle Exalytics Usage</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-0724119D-BBAE-437A-810C-528395E4BADC" title="This section explains how to install and configure Oracle ORAchk and Oracle EXAchk. Review other topics in this section for additional information.">Quick Start Guide</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-AA308714-87CC-42AA-9C13-D38EBE978A7E" name="GUID-AA308714-87CC-42AA-9C13-D38EBE978A7E"></a><h3 id="OEXUG-GUID-AA308714-87CC-42AA-9C13-D38EBE978A7E" class="sect3"><span class="enumeration_section">1.1.5 </span>Email Notification and Report Overview
+               </h3>
+               <div>
+                  <p>The following sections provide a brief overview about email notifications and sections of the HTML report output.</p>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-EF68CD5A-5023-43C9-9BEF-68B269461620">First Email Notification</a><br>After completing health check runs, the daemon emails the assessment report as an HTML attachment to all users that you have specified in the <code class="codeph">NOTIFICATION_EMAIL</code> list.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-81816090-4B71-4874-9C38-8DCD5F4E379A">What does the Health Check Report Contain?</a><br>Health check reports contain the health status of each system grouped under different sections of the report.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-460FC4C2-E90C-408D-A0C6-BA527104AB79">Subsequent Email Notifications</a><br>For the subsequent health check runs after the first email notification, the daemon emails the summary of differences between the most recent runs.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-83C21920-B821-4B2B-BC92-AB87D90F3BC2">Diff Report</a><br>The diff report attached to the previous email notification shows a summary of differences between the most recent runs.
+                     </li>
+                  </ul>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-0724119D-BBAE-437A-810C-528395E4BADC" title="This section explains how to install and configure Oracle ORAchk and Oracle EXAchk. Review other topics in this section for additional information.">Quick Start Guide</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="sect3"><a id="GUID-EF68CD5A-5023-43C9-9BEF-68B269461620" name="GUID-EF68CD5A-5023-43C9-9BEF-68B269461620"></a><h4 id="OEXUG-GUID-EF68CD5A-5023-43C9-9BEF-68B269461620" class="sect4"><span class="enumeration_section">1.1.5.1 </span>First Email Notification
+                  </h4>
+                  <div>
+                     <p>After completing health check runs, the daemon emails the assessment report as an HTML attachment to all users that you have specified in the <code class="codeph">NOTIFICATION_EMAIL</code> list.
+                     </p>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-AA308714-87CC-42AA-9C13-D38EBE978A7E" title="The following sections provide a brief overview about email notifications and sections of the HTML report output.">Email Notification and Report Overview</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-81816090-4B71-4874-9C38-8DCD5F4E379A" name="GUID-81816090-4B71-4874-9C38-8DCD5F4E379A"></a><h4 id="OEXUG-GUID-81816090-4B71-4874-9C38-8DCD5F4E379A" class="sect4"><span class="enumeration_section">1.1.5.2 </span>What does the Health Check Report Contain?
+                  </h4>
+                  <div>
+                     <p>Health check reports contain the health status of each system grouped under different sections of the report.</p>
+                     <p>The HTML report output contains the following:</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Health score</p>
+                        </li>
+                        <li>
+                           <p>Summary of health check runs</p>
+                        </li>
+                        <li>
+                           <p>Table of contents</p>
+                        </li>
+                        <li>
+                           <p>Controls for report features</p>
+                        </li>
+                        <li>
+                           <p>Findings</p>
+                        </li>
+                        <li>
+                           <p>Recommendations</p>
+                        </li>
+                     </ul>
+                     <p>Details of the report output are different on each system. The report is dynamic, and therefore the tools display certain sections only if applicable.</p>
+                     <div class="section">
+                        <p class="subhead3" id="GUID-81816090-4B71-4874-9C38-8DCD5F4E379A__GUID-E8ED477A-9A8F-4FF9-A389-D713E6D07CE5">System Health Score and Summary</p>
+                        <p>System Health Score and Summary report provide:</p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>A high-level health score based on the number of passed or failed checks</p>
+                           </li>
+                           <li>
+                              <div class="p">A summary of health check run includes:
+                                 <ul style="list-style-type: disc;">
+                                    <li>
+                                       <p>Name, for example, Cluster Name</p>
+                                    </li>
+                                    <li>
+                                       <p>Version of the operating system kernel</p>
+                                    </li>
+                                    <li>
+                                       <p>Path, version, name of homes, for example, CRS, DB, and EM Agent</p>
+                                    </li>
+                                    <li>
+                                       <p>Version of the component checked, for example, Exadata</p>
+                                    </li>
+                                    <li>
+                                       <p>Number of nodes checked, for example, database server, storage servers, InfiniBand switches</p>
+                                    </li>
+                                    <li>
+                                       <p>Version of Oracle ORAchk and Oracle EXAchk</p>
+                                    </li>
+                                    <li>
+                                       <p>Name of the collection output</p>
+                                    </li>
+                                    <li>
+                                       <p>Date and time of collection</p>
+                                    </li>
+                                    <li>
+                                       <p>Duration of the check</p>
+                                    </li>
+                                    <li>
+                                       <p>Name of the user who ran the check, for example, <code class="codeph">root</code></p>
+                                    </li>
+                                    <li>
+                                       <p>How long the check is valid</p>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-81816090-4B71-4874-9C38-8DCD5F4E379A__GUID-20D2328B-D101-4410-A7CE-AC10E9B3A9DF">Table of Contents and Report Feature</p>
+                        <p>The <span class="bold">Table of Contents</span> section provides links to major sections in the report:
+                        </p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>Database Server</p>
+                           </li>
+                           <li>
+                              <p>Storage Server</p>
+                           </li>
+                           <li>
+                              <p>InfiniBand Switch</p>
+                           </li>
+                           <li>
+                              <p>Cluster Wide</p>
+                           </li>
+                           <li>
+                              <p>Maximum Availability Architecture (MAA) Scorecard</p>
+                           </li>
+                           <li>
+                              <p>Infrastructure Software and Configuration Summary</p>
+                           </li>
+                           <li>
+                              <p>Findings needing further review</p>
+                           </li>
+                           <li>
+                              <p>Platinum Certification</p>
+                           </li>
+                           <li>
+                              <p>System-wide Automatic Service Request (ASR) health check</p>
+                           </li>
+                           <li>
+                              <p>Skipped Checks</p>
+                           </li>
+                           <li>
+                              <p>Top 10 Time Consuming Checks</p>
+                           </li>
+                        </ul>
+                        <p>The <span class="bold">Report Feature</span> section enables you to:
+                        </p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>Filter checks based on their statuses</p>
+                           </li>
+                           <li>
+                              <p>Select the regions</p>
+                           </li>
+                           <li>
+                              <p>Expand or collapse all checks</p>
+                           </li>
+                           <li>
+                              <p>View check IDs</p>
+                           </li>
+                           <li>
+                              <p>Remove findings from the report</p>
+                           </li>
+                           <li>
+                              <p>Get a printable view</p>
+                           </li>
+                        </ul>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-81816090-4B71-4874-9C38-8DCD5F4E379A__GUID-08FE8A77-1FBB-47EE-A607-8333AA3782B9">Report Findings</p>
+                        <p>The <span class="bold">Report Findings</span> section displays the result of each health check grouped by technology components, such as Database Server, Storage Server, InfiniBand Switch, and Cluster Wide.
+                        </p>
+                        <p>Each section shows:</p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>Check status (<code class="codeph">FAIL</code>, <code class="codeph">WARNING</code>, <code class="codeph">INFO</code>, or <code class="codeph">PASS</code>)
+                              </p>
+                           </li>
+                           <li>
+                              <p>Type of check</p>
+                           </li>
+                           <li>
+                              <p>Check message</p>
+                           </li>
+                           <li>
+                              <p>Where the check was run</p>
+                           </li>
+                           <li>
+                              <p>Link to expand details for further findings and recommendation</p>
+                           </li>
+                        </ul>
+                        <p>Click <span class="bold">View</span> for more information about the health check results and the recommendations.
+                        </p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>What to do to solve the problem</p>
+                           </li>
+                           <li>
+                              <p>Where the recommendation applies</p>
+                           </li>
+                           <li>
+                              <p>Where the problem does not apply</p>
+                           </li>
+                           <li>
+                              <p>Links to relevant documentation or My Oracle Support notes</p>
+                           </li>
+                           <li>
+                              <p>Example of data on which the recommendation is based</p>
+                           </li>
+                        </ul>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-81816090-4B71-4874-9C38-8DCD5F4E379A__GUID-25D47564-6BB1-4DB5-B72F-6ABF3790A934">Maximum Availability Architecture (MAA) Score Card</p>
+                        <p>Maximum Availability Architecture (MAA) Score Card displays the recommendations for the software installed on your system.</p>
+                        <p>The details include:</p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>Outage Type</p>
+                           </li>
+                           <li>
+                              <p>Status of the check</p>
+                           </li>
+                           <li>
+                              <p>Description of the problem</p>
+                           </li>
+                           <li>
+                              <p>Components found</p>
+                           </li>
+                           <li>
+                              <p>Host location</p>
+                           </li>
+                           <li>
+                              <p>Version of the components compared to the recommended version</p>
+                           </li>
+                           <li>
+                              <p>Status based on comparing the version found to the recommended version</p>
+                           </li>
+                        </ul>
+                     </div>
+                     <!-- class="section" -->
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="understanding-and-managing-reports-and-output.html#GUID-CF99AAA0-E25C-4614-8C38-43B2B18442D0" title="Oracle ORAchk and Oracle EXAchk generate a detailed HTML report with findings and recommendations.">Understanding and Managing Reports and Output</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-AA308714-87CC-42AA-9C13-D38EBE978A7E" title="The following sections provide a brief overview about email notifications and sections of the HTML report output.">Email Notification and Report Overview</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-460FC4C2-E90C-408D-A0C6-BA527104AB79" name="GUID-460FC4C2-E90C-408D-A0C6-BA527104AB79"></a><h4 id="OEXUG-GUID-460FC4C2-E90C-408D-A0C6-BA527104AB79" class="sect4"><span class="enumeration_section">1.1.5.3 </span>Subsequent Email Notifications
+                  </h4>
+                  <div>
+                     <p>For the subsequent health check runs after the first email notification, the daemon emails the summary of differences between the most recent runs.</p>
+                     <p>Specify a list of comma-delimited email addresses in the <code class="codeph">NOTIFICATION_EMAIL</code> option.
+                     </p>
+                     <p>The email notification contains:</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>System Health Score of this run compared to the previous run</p>
+                        </li>
+                        <li>
+                           <p>Summary of number of checks that were run and the differences between runs</p>
+                        </li>
+                        <li>
+                           <p>Most recent report result as attachment</p>
+                        </li>
+                        <li>
+                           <p>Previous report result as attachment</p>
+                        </li>
+                        <li>
+                           <p>Diff report as attachment</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-AA308714-87CC-42AA-9C13-D38EBE978A7E" title="The following sections provide a brief overview about email notifications and sections of the HTML report output.">Email Notification and Report Overview</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-83C21920-B821-4B2B-BC92-AB87D90F3BC2" name="GUID-83C21920-B821-4B2B-BC92-AB87D90F3BC2"></a><h4 id="OEXUG-GUID-83C21920-B821-4B2B-BC92-AB87D90F3BC2" class="sect4"><span class="enumeration_section">1.1.5.4 </span>Diff Report
+                  </h4>
+                  <div>
+                     <p>The diff report attached to the previous email notification shows a summary of differences between the most recent runs.</p>
+                     <p><span class="bold">To identify the changes since the last run:</span></p>
+                     <div class="p">Run the following command to generate a diff report: <pre class="pre codeblock"><code>$ ./orachk &#x2013;diff <span class="variable" translate="no">report_1</span> <span class="variable" translate="no">report_2</span></code></pre></div>
+                     <p>When you review the diff report, you see a baseline comparison of the two reports and then a list of differences.</p>
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="understanding-and-managing-reports-and-output.html#GUID-D39A97FB-8185-43EC-9F56-D0663201EF68" title="Oracle ORAchk and Oracle EXAchk automatically compare the two most recent HTML reports and generate a third diff report, when run in automated daemon mode.">Comparing Two Reports</a></li>
+                           <li><a href="orachk-exachk-command-line-options.html#GUID-E136A666-1F99-4618-B758-9B245043B997" title="Use the list of commands in this section to manage the report output.">Managing the Report Output</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-AA308714-87CC-42AA-9C13-D38EBE978A7E" title="The following sections provide a brief overview about email notifications and sections of the HTML report output.">Email Notification and Report Overview</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-B7CE0916-8542-462B-920A-6D86EDBD2CB7" name="GUID-B7CE0916-8542-462B-920A-6D86EDBD2CB7"></a><h3 id="OEXUG-GUID-B7CE0916-8542-462B-920A-6D86EDBD2CB7" class="sect3"><span class="enumeration_section">1.1.6 </span>Recommended On-Demand Usage
+               </h3>
+               <div>
+                  <p>This section summarizes the scenarios that Oracle recommends running health checks on-demand.</p>
+                  <div class="p">Apart from scheduled health check runs, run health checks on-demand by running the following commands:<pre class="pre codeblock"><code>$ ./orachk</code></pre><pre class="pre codeblock"><code>$ ./exachk</code></pre></div>
+                  <p>Oracle recommends that you run health checks in the following on-demand scenarios:</p>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p>Pre- or post-upgrades</p>
+                     </li>
+                     <li>
+                        <p>Machine relocations from one subnet to another</p>
+                     </li>
+                     <li>
+                        <p>Hardware failure or repair</p>
+                     </li>
+                     <li>
+                        <p>Problem troubleshooting</p>
+                     </li>
+                     <li>
+                        <p>In addition to go-live testing</p>
+                     </li>
+                  </ul>
+                  <p>While running pre- or post-upgrade checks, Oracle ORAchk and Oracle EXAchk automatically detect databases that are registered with Oracle Clusterware and presents the list of databases to check.</p>
+                  <div class="p">Run the pre-upgrade checks during the upgrade planning phase. Oracle ORAchk and Oracle EXAchk prompt you for the version to which you are planning to upgrade:<pre class="pre codeblock"><code>$ ./orachk &#x2013;u &#x2013;o pre</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;u &#x2013;o pre</code></pre></div>
+                  <div class="p">After upgrading, run the post-upgrade checks:<pre class="pre codeblock"><code>$ ./orachk &#x2013;u &#x2013;o post</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;u &#x2013;o post</code></pre></div>
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="on-demand-mode-operation.html#GUID-7CB110A3-023B-400C-837E-5F4DE5A2BBDB" title="Usually, health checks run at scheduled intervals. However, Oracle recommends that you run health checks on-demand when needed.">Running Health Checks On-Demand</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-0724119D-BBAE-437A-810C-528395E4BADC" title="This section explains how to install and configure Oracle ORAchk and Oracle EXAchk. Review other topics in this section for additional information.">Quick Start Guide</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-C9F735E5-07C3-4D98-AEB7-EC790BFF26ED" name="GUID-C9F735E5-07C3-4D98-AEB7-EC790BFF26ED"></a><h3 id="OEXUG-GUID-C9F735E5-07C3-4D98-AEB7-EC790BFF26ED" class="sect3"><span class="enumeration_section">1.1.7 </span>Updating to the Latest Version of Oracle ORAchk and Oracle EXAchk
+               </h3>
+               <div>
+                  <p>There are several methods for maintaining Oracle ORAchk and Oracle EXAchk.</p>
+                  <div class="p">
+                     <div class="infoboxnote" id="GUID-C9F735E5-07C3-4D98-AEB7-EC790BFF26ED__GUID-E6B2C53C-06AE-4AF7-BE1D-F9D6F99F6623">
+                        <p class="notep1">Note:</p>
+                        <p>Each database PSU contains the latest Oracle ORAchk version available at time of creation. When a database PSU is applied, the ORAchk zip version contained is staged in <code>$ORACLE_HOME/suptools</code>.
+                        </p>
+                        <p>Upon the next run, Oracle ORAchk prompts you to upgrade if the version copied by the PSU is newer than installed.</p>
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-0759B905-91B4-41DD-BCC9-1991ED497C8E">Updating Oracle ORAchk and Oracle EXAchk in an Environment with an Internet Connection</a><br>If your Oracle ORAchk or Oracle EXAchk version is older than 120 days, then the tool prompts you on startup to automatically download a newer version from My Oracle Support.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-479C13B5-B271-4098-AEA7-EE3C6009F707">Updating Oracle ORAchk and Oracle EXAchk in an Environment without an Internet Connection</a><br>If you do not have a direct connection to My Oracle Support, then download the latest versions of Oracle ORAchk and Oracle EXAchk from a machine that has an internet connection.
+                     </li>
+                  </ul>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-0724119D-BBAE-437A-810C-528395E4BADC" title="This section explains how to install and configure Oracle ORAchk and Oracle EXAchk. Review other topics in this section for additional information.">Quick Start Guide</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="sect3"><a id="GUID-0759B905-91B4-41DD-BCC9-1991ED497C8E" name="GUID-0759B905-91B4-41DD-BCC9-1991ED497C8E"></a><h4 id="OEXUG-GUID-0759B905-91B4-41DD-BCC9-1991ED497C8E" class="sect4"><span class="enumeration_section">1.1.7.1 </span>Updating Oracle ORAchk and Oracle EXAchk in an Environment with an Internet Connection
+                  </h4>
+                  <div>
+                     <p>If your Oracle ORAchk or Oracle EXAchk version is older than 120 days, then the tool prompts you on startup to automatically download a newer version from My Oracle Support.</p>
+                     <p>The script prompts for your My Oracle Support login details, and then checks if a later version is available for download and upgrade.</p>
+                     <p>You can also download manually by running the <code class="codeph">&#x2013;download</code> option:
+                     </p><pre class="pre codeblock"><code>$ ./orachk &#x2013;download</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;download</code></pre><div class="p"><pre class="pre codeblock"><code>$ ./exachk &#x2013;download
+Enter your my oracle support username:- some.person@acompany.com
+Enter your my oracle support password:-
+Started downloading…..
+
+exachk.zip successfully downloaded to /opt/oracle.suptools/exachk/exachk_mybox_040116_043027
+</code></pre></div>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-C9F735E5-07C3-4D98-AEB7-EC790BFF26ED" title="There are several methods for maintaining Oracle ORAchk and Oracle EXAchk.">Updating to the Latest Version of Oracle ORAchk and Oracle EXAchk</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-479C13B5-B271-4098-AEA7-EE3C6009F707" name="GUID-479C13B5-B271-4098-AEA7-EE3C6009F707"></a><h4 id="OEXUG-GUID-479C13B5-B271-4098-AEA7-EE3C6009F707" class="sect4"><span class="enumeration_section">1.1.7.2 </span>Updating Oracle ORAchk and Oracle EXAchk in an Environment without an Internet Connection
+                  </h4>
+                  <div>
+                     <p>If you do not have a direct connection to My Oracle Support, then download the latest versions of Oracle ORAchk and Oracle EXAchk from a machine that has an internet connection.</p>
+                     <div class="section">
+                        <p>Transfer the downloaded files to a shared network staging location, and then set the environment variable <code class="codeph">RAT_UPGRADE_LOC</code> to point to that staging location.
+                        </p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="section">The next time the Oracle ORAchk or Oracle EXAchk is started, the tool detects the latest version and prompts you to upgrade.</div>
+                     <!-- class="section" -->
+                     <ol>
+                        <li class="stepexpand"><span>Download the appropriate health check tool zip file:</span><div>
+                              <ul style="list-style-type: disc;">
+                                 <li>
+                                    <p>For Oracle ORAchk, download <code>orachk.zip</code>.
+                                    </p>
+                                 </li>
+                                 <li>
+                                    <p>For Oracle EXAchk, download <code>exachk.zip</code>.
+                                    </p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Transfer the zip file to a shared network staging directory.</span></li>
+                        <li class="stepexpand"><span>On each machine with a version of the tool that you want to upgrade, set the environment variable <code class="codeph">RAT_UPGRADE_LOC</code> to point to the network staging directory.</span><div><pre class="pre codeblock"><code>$ export RAT_UPGRADE_LOC=PATH_TO_STAGING_DIRECTORY</code></pre></div>
+                        </li>
+                     </ol>
+                     <div class="section">
+                        <p>The next time Oracle ORAchk or Oracle EXAchk is started, the tool searches the directory specified in the <code class="codeph">RAT_UPGRADE_LOC</code> environment variable. If this directory contains the latest version of the&nbsp;<code>orachk.zip</code> or <code>exachk.zip</code> file, then Oracle ORAchk or Oracle EXAchk prompts you to allow it to upgrade.
+                        </p>
+                        <div class="p"><pre class="pre codeblock"><code>$ ls /opt/oracle.SupportTools/exachk/latest
+exachk.zip
+$ export RAT_UPGRADE_LOC=/opt/oracle.SupportTools/exachk/latest
+$ ./exachk
+Latest version of exachk (EXACHK VERSION: 12.1.0.2.7_20160401) is available at /opt/oracle.SupportTools/exachk/latest/
+
+Do you want to upgrade to the latest version of exachk? [y/n][y]
+
+exachk has been upgraded to EXACHKVERSION:12.1.0.2.7(DEV)_20160401
+
+Running the latest version…</code></pre></div>
+                        <div class="p">If you have set <code class="codeph">RAT_UPGRADE_LOC</code>  but do not want to upgrade, then you can still run Oracle ORAchk or Oracle EXAchk using the <code class="codeph">&#x2013;noupgrade</code> option:<pre class="pre codeblock"><code>$ ./orachk &#x2013;noupgrade</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;noupgrade</code></pre></div>
+                        <div class="p">
+                           <div class="infoboxnote" id="GUID-479C13B5-B271-4098-AEA7-EE3C6009F707__GUID-0DB82E1E-0229-4927-A794-4B2B7D2813DB">
+                              <p class="notep1">Note:</p>
+                              <p>Use the <code class="codeph">-noupgrade</code> option when you have the latest version in <code class="codeph">RAT_UPGRADE_LOC</code> and do not yet want to upgrade.
+                              </p>
+                              <p>Using <code class="codeph">-noupgrade</code> without having the latest version in <code class="codeph">RAT_UPGRADE_LOC</code> still prompts you to download the latest version.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- class="section" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-C9F735E5-07C3-4D98-AEB7-EC790BFF26ED" title="There are several methods for maintaining Oracle ORAchk and Oracle EXAchk.">Updating to the Latest Version of Oracle ORAchk and Oracle EXAchk</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-7C8BEBDC-5125-4493-A8FC-799023FAFC06" name="GUID-7C8BEBDC-5125-4493-A8FC-799023FAFC06"></a><h3 id="OEXUG-GUID-7C8BEBDC-5125-4493-A8FC-799023FAFC06" class="sect3"><span class="enumeration_section">1.1.8 </span>Configuring Oracle REST Data Services (ORDS)
+               </h3>
+               <div>
+                  <p></p>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-072A64A8-59F4-408E-B1BA-2A3277F7D3B7">Configuring REST Using the Included ORDS</a><br>Override default ORDS configuration by setting the shell environment variables.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-C1C86F66-17F4-47F1-A805-D12BAA19486E">Configuring REST Using an Existing ORDS Installation</a><br></li>
+                  </ul>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-0724119D-BBAE-437A-810C-528395E4BADC" title="This section explains how to install and configure Oracle ORAchk and Oracle EXAchk. Review other topics in this section for additional information.">Quick Start Guide</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="sect3"><a id="GUID-072A64A8-59F4-408E-B1BA-2A3277F7D3B7" name="GUID-072A64A8-59F4-408E-B1BA-2A3277F7D3B7"></a><h4 id="OEXUG-GUID-072A64A8-59F4-408E-B1BA-2A3277F7D3B7" class="sect4"><span class="enumeration_section">1.1.8.1 </span>Configuring REST Using the Included ORDS
+                  </h4>
+                  <div>
+                     <p>Override default ORDS configuration by setting the shell environment variables.</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>By default, Oracle REST Data Services (ORDS) uses whichever port is available in the range <code class="codeph">7080</code>-<code class="codeph">7085</code>. If no port in this range is available, then ORDS exits and prompts you to set the <code class="codeph">RAT_ORDS_PORT</code> environment variable. If <code class="codeph">RAT_ORDS_PORT</code> is already set, then ORDS uses the port specified in the <code class="codeph">RAT_ORDS_PORT</code> environment variable.
+                           </p>
+                        </li>
+                        <li>
+                           <p>By default, ORDS is setup with the administrator user <code class="codeph">ordsadmin</code>. You can override this by specifying a different user in the <code class="codeph">RAT_ORDSADMIN_USER</code> environment variable.
+                           </p>
+                        </li>
+                        <li>
+                           <p>Depending on Oracle ORAchk and Oracle EXAchk, ORDS is started as a <code class="codeph">nologin</code> user named either <code class="codeph">ordsorachk</code> or <code class="codeph">ordsexachk</code>. If you use the ORDS, which is already running, then the user is as same as who is running ORDS.
+                           </p>
+                        </li>
+                        <li>
+                           <p>If Oracle Trace File Analyzer is installed, then ORDS picks <code class="codeph">JAVA_HOME</code> from <code class="codeph">TFA_HOME</code>. If Oracle Trace File Analyzer is not installed, then ORDS picks the default <code class="codeph">JAVA_HOME</code>. It is a requirement that you use JDK8. However, you can override by setting the <code class="codeph">RAT_JAVAEXE</code> environment variable.
+                           </p>
+                        </li>
+                     </ul>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-7C8BEBDC-5125-4493-A8FC-799023FAFC06">Configuring Oracle REST Data Services (ORDS)</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-C1C86F66-17F4-47F1-A805-D12BAA19486E" name="GUID-C1C86F66-17F4-47F1-A805-D12BAA19486E"></a><h4 id="OEXUG-GUID-C1C86F66-17F4-47F1-A805-D12BAA19486E" class="sect4"><span class="enumeration_section">1.1.8.2 </span>Configuring REST Using an Existing ORDS Installation
+                  </h4>
+                  <div>
+                     <p></p>
+                     <ol>
+                        <li class="stepexpand"><span>To add the <code>orachk.jar</code> file to the existing <code>ords.war</code> file:</span><div><pre class="pre codeblock"><code>./orachk -ordssetup <span class="variable" translate="no">ords_war_dir</span> -configdir <span class="variable" translate="no">config_dir</span>
+./exachk -ordssetup <span class="variable" translate="no">ords_war_dir</span> -configdir <span class="variable" translate="no">config_dir</span></code></pre><p>where,</p>
+                              <p><code>ords_war_dir</code> is the directory that contains the <code>ords.war</code> file
+                              </p>
+                              <p><code><span class="variable" translate="no">config_dir</span></code> is an optional directory that you can specify to store the ORDS configuration files. If you do not specify the optional directory, then the configuration files are stored in the <code><span class="variable" translate="no">orda_war_dir</span></code> directory.
+                              </p>
+                              <div class="p">Stopping and restarting ORDS after running the <code class="codeph">-ordssetup</code> command:
+                                 <ul style="list-style-type: disc;">
+                                    <li>
+                                       <p>Adds the <code>orachk.jar</code> file to the existing <code>ords.war</code> file
+                                       </p>
+                                    </li>
+                                    <li>
+                                       <p>Adds the user <code class="codeph">ordsadmin</code> to the <code>ords.war</code> file, and grants <code class="codeph">ORAchk admin</code> privileges to <code class="codeph">ordsadmin</code></p>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>To start the Oracle ORAchk or Oracle EXAchk daemon:</span><div><pre class="pre codeblock"><code>./orachk -d start -ords <span class="variable" translate="no">ords_war_dir</span>
+./exachk -d start -ords <span class="variable" translate="no">ords_war_dir</span></code></pre></div>
+                        </li>
+                     </ol>
+                     <div class="section">After completion, open the <code><span class="variable" translate="no">ords_war_dir</span>/log/ords_setup.log</code> file to view the REST URL details.
+                     </div>
+                     <!-- class="section" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-7C8BEBDC-5125-4493-A8FC-799023FAFC06">Configuring Oracle REST Data Services (ORDS)</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-45CA5280-B10A-42C5-8C90-7782589E4570" name="GUID-45CA5280-B10A-42C5-8C90-7782589E4570"></a><h3 id="OEXUG-GUID-45CA5280-B10A-42C5-8C90-7782589E4570" class="sect3"><span class="enumeration_section">1.1.9 </span>Using Oracle ORAchk or Oracle EXAchk over REST
+               </h3>
+               <div>
+                  <p>Oracle ORAchk and Oracle EXAchk include full REST support allowing invocation and query over HTTPS.</p>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-D17B0233-DE18-4070-B45E-2F163AE6095D">Enabling REST</a><br>To facilitate REST support, Oracle REST Data Services (ORDS) is included within the install.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-B915EABF-D30B-4B29-A381-2CC82C62BD04">start_client</a><br>Use GET requests to run a normal health check run.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-55293C8A-2668-41F2-B8F4-D5DCD371A0B9">start_client</a><br>Use POST requests to run a normal health check run using specific arguments.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-BE160CA9-43F0-462C-9F8B-226AD49F5763">profile</a><br>Use GET requests to run a health check run for the specified profiles.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-9ADAC2AB-302B-40E5-828D-DEB3385CF077">check</a><br>Use GET requests to run a health check run for the specified check IDs.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-9F04D35A-0416-4B93-95B3-B49B42CD56C1">status</a><br>Use GET requests to report the status on the specified job ID.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-80043E43-6D64-4497-AFB5-B465F81C815E">download</a><br>Use GET requests to download the collection result for the specified job ID.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-82228785-3F7C-442F-9E3C-5B7192C37B4D">checktfaupload</a><br>Use GET requests to report if a connection can be made to upload to Oracle Trace File Analyzer service.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-E28D569D-2E7D-42F6-A646-DDE81A04DB0C">checktfafaileduploads</a><br>Use GET requests to report if any Oracle Trace File Analyzer service uploads failed.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-ED349675-1FA9-4C2E-A1E2-77A609A011D4">gettfaupload</a><br>Use GET requests to report the Oracle Trace File Analyzer service upload settings.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-50F43DEB-551C-418C-9B0E-51927BC2F52E">unsettfaupload</a><br>Use GET requests to unset all of the Oracle Trace File Analyzer service upload settings, or a particular setting.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-E3391A99-D6A4-4A35-9AA5-F01FE0014494">uploadtfafailed</a><br>Use GET requests to reattempt to upload all previously failed uploads to Oracle Trace File Analyzer service.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-1DD29D38-FC66-4646-99D4-EB84061ED4D8">showrepair</a><br>Use GET requests to report the repair command for the specified check.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-70E69684-AF17-4E45-A90A-04877E3E29FD">getinfo</a><br>Use GET requests to report the status of the specified job ID.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-A97BDBC0-3F4F-4A75-AC4C-7AEB7BD6991C">start_client</a><br>Use POST requests to run a diff of the specified collection results.
+                     </li>
+                     <li class="ulchildlink"><a href="quick-start-guide.html#GUID-E000A2FB-B093-4081-8CFA-87B088AA4A5E">Removing ORDS Setup</a><br></li>
+                  </ul>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-0724119D-BBAE-437A-810C-528395E4BADC" title="This section explains how to install and configure Oracle ORAchk and Oracle EXAchk. Review other topics in this section for additional information.">Quick Start Guide</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="sect3"><a id="GUID-D17B0233-DE18-4070-B45E-2F163AE6095D" name="GUID-D17B0233-DE18-4070-B45E-2F163AE6095D"></a><h4 id="OEXUG-GUID-D17B0233-DE18-4070-B45E-2F163AE6095D" class="sect4"><span class="enumeration_section">1.1.9.1 </span>Enabling REST
+                  </h4>
+                  <div>
+                     <p>To facilitate REST support, Oracle REST Data Services (ORDS) is included within the install.</p>
+                     <ol>
+                        <li class="stepexpand"><span>To enable REST, setup ORDS and then provide a user password when prompted.</span><div><pre class="pre codeblock"><code>./orachk -ordssetup
+./exachk -ordssetup</code></pre></div>
+                        </li>
+                        <li class="stepexpand"><span>Start the daemon using the <code class="codeph">-ords</code> option:</span><div><pre class="pre codeblock"><code>./orachk -d start -ords 
+./exachk -d start -ords</code></pre></div>
+                           <div>
+                              <div class="infoboxnote" id="GUID-D17B0233-DE18-4070-B45E-2F163AE6095D__GUID-E55C71E4-5B0D-427E-8855-AE5C93389033">
+                                 <p class="notep1">Note:</p>
+                                 <p>Only the <code class="codeph">root</code> user can start the daemon with ORDS support.
+                                 </p>
+                                 <p>As ORDS support requires the daemon, ORDS is available only on platform (Linux) with daemon support.</p>
+                              </div>
+                           </div>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-45CA5280-B10A-42C5-8C90-7782589E4570" title="Oracle ORAchk and Oracle EXAchk include full REST support allowing invocation and query over HTTPS.">Using Oracle ORAchk or Oracle EXAchk over REST</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-B915EABF-D30B-4B29-A381-2CC82C62BD04" name="GUID-B915EABF-D30B-4B29-A381-2CC82C62BD04"></a><h4 id="OEXUG-GUID-B915EABF-D30B-4B29-A381-2CC82C62BD04" class="sect4"><span class="enumeration_section">1.1.9.2 </span>start_client
+                  </h4>
+                  <div>
+                     <p>Use GET requests to run a normal health check run.</p>
+                     <div class="section">
+                        <p class="subhead3" id="GUID-B915EABF-D30B-4B29-A381-2CC82C62BD04__GUID-F4284D4C-EB3C-4351-B862-7BD40EB1E57F">Syntax</p><pre class="pre codeblock"><code>/start_client</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-B915EABF-D30B-4B29-A381-2CC82C62BD04__GUID-9F363E9D-9A73-4DC5-A7E8-6CF1A484348A">Returns</p>
+                        <p>Returns JSON showing the job ID similar to:</p><pre class="pre codeblock"><code>[{
+"ID":"UCTW5MLN7O1V1HPG8U",
+"Status":"SUBMITTED"
+}]</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-B915EABF-D30B-4B29-A381-2CC82C62BD04__GUID-07A20515-E228-43F2-B1E2-9F689E3201D4">Usage Notes</p>
+                        <p>You need not provide input to use this API.</p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="example" id="GUID-B915EABF-D30B-4B29-A381-2CC82C62BD04__GUID-147FBAEE-237E-45BB-94C9-7A622DBF7429">
+                        <p class="titleinexample">Example 1-1 start_client</p><pre class="pre codeblock"><code>-bash-4.2$ curl -i -X GET -k -u ordsadmin:adminpass 
+https://node1.example.com:7080/ords/tfaml/orachk/start_client
+
+HTTP/1.1 200 OK Date: Thu, 05 Apr 2018 11:53:14 GMT Content-Type: text/html X-Frame-Options: 
+SAMEORIGIN Transfer-Encoding: chunked Server: Jetty(9.2.z-SNAPSHOT) 
+[{"ID":"UCTW5MLN7O1V1HPG8U","Status":"SUBMITTED"}]</code></pre></div>
+                     <!-- class="example" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-45CA5280-B10A-42C5-8C90-7782589E4570" title="Oracle ORAchk and Oracle EXAchk include full REST support allowing invocation and query over HTTPS.">Using Oracle ORAchk or Oracle EXAchk over REST</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-55293C8A-2668-41F2-B8F4-D5DCD371A0B9" name="GUID-55293C8A-2668-41F2-B8F4-D5DCD371A0B9"></a><h4 id="OEXUG-GUID-55293C8A-2668-41F2-B8F4-D5DCD371A0B9" class="sect4"><span class="enumeration_section">1.1.9.3 </span>start_client
+                  </h4>
+                  <div>
+                     <p>Use POST requests to run a normal health check run using specific arguments.</p>
+                     <div class="section">
+                        <p class="subhead3" id="GUID-55293C8A-2668-41F2-B8F4-D5DCD371A0B9__GUID-47B131F7-D9BC-41DA-A6F4-BF96599EC398">Syntax</p><pre class="pre codeblock"><code>/start_client</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-55293C8A-2668-41F2-B8F4-D5DCD371A0B9__GUID-A5D84080-AE56-4571-B097-4C28664D3192">Returns</p>
+                        <p>Returns JSON showing the job ID similar to:</p><pre class="pre codeblock"><code>[{ "ID":"UCTW5MLN7O1V1HPG8U", "Status":"SUBMITTED" }]</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-55293C8A-2668-41F2-B8F4-D5DCD371A0B9__GUID-007A8448-B8E0-413B-B5AE-6D474BA2F7F1">Usage Notes</p>
+                        <p>Specify any Oracle ORAchk or Oracle EXAchk arguments and their corresponding values.</p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="example" id="GUID-55293C8A-2668-41F2-B8F4-D5DCD371A0B9__GUID-F883DDC5-332D-4551-AB79-D743BCC430A2">
+                        <p class="titleinexample">Example 1-2 JSON input</p><pre class="pre codeblock"><code>[{
+"-clusternodes":"<span class="variable" translate="no">busm1c1</span>,<span class="variable" translate="no">busm1c2</span>",
+"-ibswitches":"<span class="variable" translate="no">busm1sw-ibs0</span>,<span class="variable" translate="no">busm1sw-iba0</span>,<span class="variable" translate="no">busm1sw-ibb0</span>"
+}]</code></pre></div>
+                     <!-- class="example" -->
+                     <div class="example" id="GUID-55293C8A-2668-41F2-B8F4-D5DCD371A0B9__GUID-B360A2F1-B98A-4AFD-9D51-74E41CE8F0FA">
+                        <p class="titleinexample">Example 1-3 start_client</p><pre class="pre codeblock"><code>-bash-4.2$ curl -i -X POST -H "Content-Type: application/json" -k -u ordsadmin:adminpass 
+https://host:7080/ords/tfaml/orachk/start_client -d '[{"-clusternodes":"<span class="variable" translate="no">busm1c1</span>,<span class="variable" translate="no">busm1c2</span>","-ibswitches":"<span class="variable" translate="no">busm1sw-ibs0</span>,<span class="variable" translate="no">busm1sw-iba0</span>,<span class="variable" translate="no">busm1sw-ibb0</span>"}]</code></pre></div>
+                     <!-- class="example" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-45CA5280-B10A-42C5-8C90-7782589E4570" title="Oracle ORAchk and Oracle EXAchk include full REST support allowing invocation and query over HTTPS.">Using Oracle ORAchk or Oracle EXAchk over REST</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-BE160CA9-43F0-462C-9F8B-226AD49F5763" name="GUID-BE160CA9-43F0-462C-9F8B-226AD49F5763"></a><h4 id="OEXUG-GUID-BE160CA9-43F0-462C-9F8B-226AD49F5763" class="sect4"><span class="enumeration_section">1.1.9.4 </span>profile
+                  </h4>
+                  <div>
+                     <p>Use GET requests to run a health check run for the specified profiles.</p>
+                     <div class="section">
+                        <p class="subhead3" id="GUID-BE160CA9-43F0-462C-9F8B-226AD49F5763__GUID-716EAB26-FF2D-46FC-ABE2-11229F480AA8">Syntax</p><pre class="pre codeblock"><code>/profile/{<span class="variable" translate="no">profile1</span>}/{<span class="variable" translate="no">profile2</span>}</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-BE160CA9-43F0-462C-9F8B-226AD49F5763__GUID-283525B7-4CF1-4369-8A50-F04EF45DA320">Returns</p>
+                        <p>Returns JSON showing the job ID similar to:</p><pre class="pre codeblock"><code>[{ "ID":"DMBLMBTB2M2H1QCQIS", "Status":"SUBMITTED" }]</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-BE160CA9-43F0-462C-9F8B-226AD49F5763__GUID-468CB8E4-6E9F-4C07-9377-DB88ABBCC7C3">Usage Notes</p>
+                        <p>Specify a profile, or a list of profiles delimited by forward slash (/).</p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="example" id="GUID-BE160CA9-43F0-462C-9F8B-226AD49F5763__GUID-00AE9B56-3C1D-4493-B8ED-B3ACCF53487D">
+                        <p class="titleinexample">Example 1-4 profile</p><pre class="pre codeblock"><code>-bash-4.2$ curl -i -X GET -k -u ordsadmin:adminpass 
+https://node1.example.com:7080/ords/tfaml/orachk/profile/asm
+
+HTTP/1.1 200 OK Date: Thu, 05 Apr 2018 10:50:00 GMT Content-Type: text/html X-Frame-Options: 
+SAMEORIGIN Transfer-Encoding: chunked Server: Jetty(9.2.z-SNAPSHOT) 
+[{"ID":"DMBLMBTB2M2H1QCQIS","Status":"SUBMITTED"}]</code></pre></div>
+                     <!-- class="example" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-45CA5280-B10A-42C5-8C90-7782589E4570" title="Oracle ORAchk and Oracle EXAchk include full REST support allowing invocation and query over HTTPS.">Using Oracle ORAchk or Oracle EXAchk over REST</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-9ADAC2AB-302B-40E5-828D-DEB3385CF077" name="GUID-9ADAC2AB-302B-40E5-828D-DEB3385CF077"></a><h4 id="OEXUG-GUID-9ADAC2AB-302B-40E5-828D-DEB3385CF077" class="sect4"><span class="enumeration_section">1.1.9.5 </span>check
+                  </h4>
+                  <div>
+                     <p>Use GET requests to run a health check run for the specified check IDs.</p>
+                     <div class="section">
+                        <p class="subhead3" id="GUID-9ADAC2AB-302B-40E5-828D-DEB3385CF077__GUID-B668B2F5-D67F-4B57-B71E-A29C9A63BD56">Syntax</p><pre class="pre codeblock"><code>/check/{<span class="variable" translate="no">check_id1</span>,<span class="variable" translate="no">check_id2</span>}</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-9ADAC2AB-302B-40E5-828D-DEB3385CF077__GUID-CE24CF38-05F7-4D7D-B8F7-12F5B30A3831">Returns</p>
+                        <p>Returns JSON showing the job ID similar to:</p><pre class="pre codeblock"><code>[{ "ID":"B2PKK9RR9M7MYJPRN8", "Status":"SUBMITTED" }]</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-9ADAC2AB-302B-40E5-828D-DEB3385CF077__GUID-A4D277D9-B561-42E8-8676-18448C429A9A">Usage Notes</p>
+                        <p>Specify a profile, or a comma-delimited list of check IDs.</p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="example" id="GUID-9ADAC2AB-302B-40E5-828D-DEB3385CF077__GUID-F073D3CF-A0A8-4D33-B663-6D9656F7AC20">
+                        <p class="titleinexample">Example 1-5 check</p><pre class="pre codeblock"><code>-bash-4.2$ curl -i -X GET -k -u ordsadmin:adminpass 
+https://node1.example.com:7080/ords/tfaml/orachk/check/E94589BC1AC24CFBE04312C0E50A3849
+
+HTTP/1.1 200 OK Date: Thu, 05 Apr 2018 10:53:48 GMT Content-Type: text/html X-Frame-Options: 
+SAMEORIGIN Transfer-Encoding: chunked Server: Jetty(9.2.z-SNAPSHOT) 
+[{"ID":"B2PKK9RR9M7MYJPRN8","Status":"SUBMITTED"}]</code></pre></div>
+                     <!-- class="example" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-45CA5280-B10A-42C5-8C90-7782589E4570" title="Oracle ORAchk and Oracle EXAchk include full REST support allowing invocation and query over HTTPS.">Using Oracle ORAchk or Oracle EXAchk over REST</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-9F04D35A-0416-4B93-95B3-B49B42CD56C1" name="GUID-9F04D35A-0416-4B93-95B3-B49B42CD56C1"></a><h4 id="OEXUG-GUID-9F04D35A-0416-4B93-95B3-B49B42CD56C1" class="sect4"><span class="enumeration_section">1.1.9.6 </span>status
+                  </h4>
+                  <div>
+                     <p>Use GET requests to report the status on the specified job ID.</p>
+                     <div class="section">
+                        <p class="subhead3" id="GUID-9F04D35A-0416-4B93-95B3-B49B42CD56C1__GUID-E30A927E-63E6-4B36-88FE-1167EF0D1B6D">Syntax</p><pre class="pre codeblock"><code>/status/{<span class="variable" translate="no">job_id</span>}</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-9F04D35A-0416-4B93-95B3-B49B42CD56C1__GUID-989907A6-C3E9-4FC4-85D1-00D4D5065CF9">Returns</p>
+                        <p>Returns JSON showing the job ID similar to:</p><pre class="pre codeblock"><code>[{ "Status of DMBLMBTB2M2H1QCQIS is SUBMITTED" }]</code></pre><p>The status moves from <code class="codeph">SUBMITTED</code> to <code class="codeph">RUNNING</code> to <code class="codeph">COMPLETED</code>.
+                        </p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-9F04D35A-0416-4B93-95B3-B49B42CD56C1__GUID-2E8FA835-3164-41F4-87E7-80DD525DDD5A">Usage Notes</p>
+                        <p>Specify the job ID for which you want to find the status.</p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="example" id="GUID-9F04D35A-0416-4B93-95B3-B49B42CD56C1__GUID-B4E16655-66FB-42D5-8DD3-07FF7F0254EA">
+                        <p class="titleinexample">Example 1-6 status</p><pre class="pre codeblock"><code>-bash-4.2$ curl -i -X GET -k -u ordsadmin:adminpass 
+https://node1.example.com:7080/ords/tfaml/orachk/status/DMBLMBTB2M2H1QCQIS
+
+HTTP/1.1 200 OK Date: Thu, 05 Apr 2018 10:51:16 GMT Content-Type: text/html X-Frame-Options: 
+SAMEORIGIN Transfer-Encoding: chunked Server: Jetty(9.2.z-SNAPSHOT) 
+[{"Status of DMBLMBTB2M2H1QCQIS is SUBMITTED"}]</code></pre></div>
+                     <!-- class="example" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-45CA5280-B10A-42C5-8C90-7782589E4570" title="Oracle ORAchk and Oracle EXAchk include full REST support allowing invocation and query over HTTPS.">Using Oracle ORAchk or Oracle EXAchk over REST</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-80043E43-6D64-4497-AFB5-B465F81C815E" name="GUID-80043E43-6D64-4497-AFB5-B465F81C815E"></a><h4 id="OEXUG-GUID-80043E43-6D64-4497-AFB5-B465F81C815E" class="sect4"><span class="enumeration_section">1.1.9.7 </span>download
+                  </h4>
+                  <div>
+                     <p>Use GET requests to download the collection result for the specified job ID.</p>
+                     <div class="section">
+                        <p class="subhead3" id="GUID-80043E43-6D64-4497-AFB5-B465F81C815E__GUID-709A5212-82B8-4834-9896-00FD18BD216A">Syntax</p><pre class="pre codeblock"><code>/download/{<span class="variable" translate="no">job_id</span>}</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-80043E43-6D64-4497-AFB5-B465F81C815E__GUID-58E6D3AE-3125-40F4-A6F2-660B834C6779">Returns</p>
+                        <p>Returns the zip binary for the collection result.</p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-80043E43-6D64-4497-AFB5-B465F81C815E__GUID-F61B55BB-8F80-4580-83F9-F52E8A38E2FA">Usage Notes</p>
+                        <p>Specify the job ID for which you want to download the collection result.</p>
+                        <p>If you specify a purged ID or an invalid ID, then the error message will be in the downloaded file.</p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="example" id="GUID-80043E43-6D64-4497-AFB5-B465F81C815E__GUID-492FEA5C-841E-4244-9B31-B2D3C55DE372">
+                        <p class="titleinexample">Example 1-7 download</p><pre class="pre codeblock"><code>-bash-4.2$ curl -X GET -k -u ordsadmin:adminpass 
+https://node1.example.com:7080/ords/tfaml/orachk/download/DMBLMBTB2M2H1QCQIS -J -O
+
+% Total % Received % Xferd Average Speed Time Time Time Current Dload Upload Total Spent Left Speed 100 1385k 0 1385k 0 0 901k 
+0 --:--:-- 0:00:01 --:--:-- 901k curl: Saved to filename 'exachk_busm01client01_PDB1_040518_035118_DMBLMBTB2M2H1QCQIS.zip'</code></pre></div>
+                     <!-- class="example" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-45CA5280-B10A-42C5-8C90-7782589E4570" title="Oracle ORAchk and Oracle EXAchk include full REST support allowing invocation and query over HTTPS.">Using Oracle ORAchk or Oracle EXAchk over REST</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-82228785-3F7C-442F-9E3C-5B7192C37B4D" name="GUID-82228785-3F7C-442F-9E3C-5B7192C37B4D"></a><h4 id="OEXUG-GUID-82228785-3F7C-442F-9E3C-5B7192C37B4D" class="sect4"><span class="enumeration_section">1.1.9.8 </span>checktfaupload
+                  </h4>
+                  <div>
+                     <p>Use GET requests to report if a connection can be made to upload to Oracle Trace File Analyzer service.</p>
+                     <div class="section">
+                        <p class="subhead3" id="GUID-82228785-3F7C-442F-9E3C-5B7192C37B4D__GUID-9484A40D-193A-4054-AD96-370046D0AE22">Syntax</p><pre class="pre codeblock"><code>/checktfaupload</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-82228785-3F7C-442F-9E3C-5B7192C37B4D__GUID-1E9FC65B-CEDA-4C77-98C7-ED4DF1B218E4">Returns</p>
+                        <p>Returns JSON similar to:</p><pre class="pre codeblock"><code>[{ "ID":"ZFZLH06WOLE3L92PQI", "Status":"SUBMITTED" }]</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-82228785-3F7C-442F-9E3C-5B7192C37B4D__GUID-964373B0-190F-490F-BFA2-D260321B5AE6">Usage Notes</p>
+                        <p>Use the <code class="codeph">status</code> API to query the status of the submitted job.
+                        </p>
+                        <p>Use the <code class="codeph">getinfo</code> API to view the Oracle Trace File Analyzer upload status once the status of submitted API is <code class="codeph">COMPLETED</code>.
+                        </p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="example" id="GUID-82228785-3F7C-442F-9E3C-5B7192C37B4D__GUID-48E71F94-599F-45A8-8CC8-5AE5BDBFEEC8">
+                        <p class="titleinexample">Example 1-8 getinfo</p>
+                        <p>With <code class="codeph">getinfo</code>, returns:
+                        </p><pre class="pre codeblock"><code>[{"Msg":"Environment is not set for uploading results to TFA."}]</code></pre></div>
+                     <!-- class="example" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-45CA5280-B10A-42C5-8C90-7782589E4570" title="Oracle ORAchk and Oracle EXAchk include full REST support allowing invocation and query over HTTPS.">Using Oracle ORAchk or Oracle EXAchk over REST</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-E28D569D-2E7D-42F6-A646-DDE81A04DB0C" name="GUID-E28D569D-2E7D-42F6-A646-DDE81A04DB0C"></a><h4 id="OEXUG-GUID-E28D569D-2E7D-42F6-A646-DDE81A04DB0C" class="sect4"><span class="enumeration_section">1.1.9.9 </span>checktfafaileduploads
+                  </h4>
+                  <div>
+                     <p>Use GET requests to report if any Oracle Trace File Analyzer service uploads failed.</p>
+                     <div class="section">
+                        <p class="subhead3" id="GUID-E28D569D-2E7D-42F6-A646-DDE81A04DB0C__GUID-50E22490-47BD-4004-B574-D500D6EB7FB0">Syntax</p><pre class="pre codeblock"><code>/checktfafaileduploads</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-E28D569D-2E7D-42F6-A646-DDE81A04DB0C__GUID-CC882D63-74B4-480C-99AE-002963CB2163">Returns</p>
+                        <p>If no collection failed to upload, then returns:</p><pre class="pre codeblock"><code>[{ "Msg":"There are no Failed collections under ORDS directory." }]</code></pre><p>Or, prints the list of collections that failed to upload.</p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-E28D569D-2E7D-42F6-A646-DDE81A04DB0C__GUID-C8B71BF6-4F4D-4BF2-94FA-503936E88714">Usage Notes</p>
+                        <p>You need not provide input to use this API.</p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="example" id="GUID-E28D569D-2E7D-42F6-A646-DDE81A04DB0C__GUID-915FF695-9B4C-4F6B-BEF0-8AE860016690">
+                        <p class="titleinexample">Example 1-9 checktfafaileduploads</p><pre class="pre codeblock"><code>bash-4.1# curl -i -X GET -k -u ordsadmin:adminpass 
+https://node1.example.com:7080/ords/tfaml/orachk/checktfafaileduploads
+HTTP/1.1 200 OK
+Date: Thu, 19 Jul 2018 10:04:58 GMT
+Content-Type: text/html
+X-Frame-Options: SAMEORIGIN
+Transfer-Encoding: chunked
+
+[{"Msg":"There are no Failed collections under ORDS directory."}]</code></pre></div>
+                     <!-- class="example" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-45CA5280-B10A-42C5-8C90-7782589E4570" title="Oracle ORAchk and Oracle EXAchk include full REST support allowing invocation and query over HTTPS.">Using Oracle ORAchk or Oracle EXAchk over REST</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-ED349675-1FA9-4C2E-A1E2-77A609A011D4" name="GUID-ED349675-1FA9-4C2E-A1E2-77A609A011D4"></a><h4 id="OEXUG-GUID-ED349675-1FA9-4C2E-A1E2-77A609A011D4" class="sect4"><span class="enumeration_section">1.1.9.10 </span>gettfaupload
+                  </h4>
+                  <div>
+                     <p>Use GET requests to report the Oracle Trace File Analyzer service upload settings.</p>
+                     <div class="section">
+                        <p class="subhead3" id="GUID-ED349675-1FA9-4C2E-A1E2-77A609A011D4__GUID-6131C83C-E2F4-4E32-B5E5-D82254C0EF76">Syntax</p><pre class="pre codeblock"><code>/gettfaupload</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-ED349675-1FA9-4C2E-A1E2-77A609A011D4__GUID-884CAE48-361E-4B81-9D40-3BB992FF39D6">Returns</p>
+                        <p>Lists the values of three environment variables: <code class="codeph">RAT_TFA_URL</code>, <code class="codeph">RAT_TFA_USER</code>, and <code class="codeph">RAT_TFA_PASSWORD</code>.
+                        </p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-ED349675-1FA9-4C2E-A1E2-77A609A011D4__GUID-CB69DC04-7CE3-4047-924A-93702462BAB6">Usage Notes</p>
+                        <p>You need not provide input to use this API.</p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="example" id="GUID-ED349675-1FA9-4C2E-A1E2-77A609A011D4__GUID-4FF06174-FB35-45C6-A8F0-FA17E8AB3679">
+                        <p class="titleinexample">Example 1-10 gettfaupload</p><pre class="pre codeblock"><code>bash-4.1# curl -i -X GET -k -u ordsadmin:adminpass 
+https://node1.example.com:7080/ords/tfaml/orachk/gettfaupload
+HTTP/1.1 200 OK
+Date: Thu, 19 Jul 2018 10:07:24 GMT
+Content-Type: text/html
+X-Frame-Options: SAMEORIGIN
+Transfer-Encoding: chunked
+
+RAT_TFA_URL =  https://tfa.us.oracle.com/tfa/ws/orachk/
+RAT_TFA_USER =  orachkadmin
+RAT_TFA_PASSWORD = ********</code></pre><p>After <code class="codeph">unsettfaupload</code> API, use the <code class="codeph">gettfaupload</code> API to recheck the values:
+                        </p><pre class="pre codeblock"><code>-bash-4.1# curl -i -X GET -k -u ordsadmin:adminpass 
+https://node1.example.com:7080/ords/tfaml/orachk/gettfaupload
+HTTP/1.1 200 OK
+Date: Thu, 19 Jul 2018 10:10:10 GMT
+Content-Type: text/html
+X-Frame-Options: SAMEORIGIN
+Transfer-Encoding: chunked
+
+RAT_TFA_URL is not set in the wallet 
+RAT_TFA_USER is not set in the wallet 
+RAT_TFA_PASSWORD is not set in the wallet</code></pre></div>
+                     <!-- class="example" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-45CA5280-B10A-42C5-8C90-7782589E4570" title="Oracle ORAchk and Oracle EXAchk include full REST support allowing invocation and query over HTTPS.">Using Oracle ORAchk or Oracle EXAchk over REST</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-50F43DEB-551C-418C-9B0E-51927BC2F52E" name="GUID-50F43DEB-551C-418C-9B0E-51927BC2F52E"></a><h4 id="OEXUG-GUID-50F43DEB-551C-418C-9B0E-51927BC2F52E" class="sect4"><span class="enumeration_section">1.1.9.11 </span>unsettfaupload
+                  </h4>
+                  <div>
+                     <p>Use GET requests to unset all of the Oracle Trace File Analyzer service upload settings, or a particular setting.</p>
+                     <div class="section">
+                        <p class="subhead3" id="GUID-50F43DEB-551C-418C-9B0E-51927BC2F52E__GUID-DBAF1A1B-A1D7-4F58-AB0E-7B15E8773275">Syntax</p><pre class="pre codeblock"><code>/unsettfaupload/all
+/unsettfaupload/RAT_TFA_USER</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-50F43DEB-551C-418C-9B0E-51927BC2F52E__GUID-FEC45E3C-E4EB-4A7B-B7AF-AD88AC7E5BFA">Returns</p>
+                        <p>Returns JSON showing the job ID similar to:</p><pre class="pre codeblock"><code>[{ "ID":"ZFZLH06WOLE3L92PQI", "Status":"SUBMITTED" }]</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-50F43DEB-551C-418C-9B0E-51927BC2F52E__GUID-6BFAF424-BF06-4C1E-93A2-7C1E523FC77B">Usage Notes</p>
+                        <p>Specify <code class="codeph">all</code> to unset all of the three environment variables, <code class="codeph">RAT_TFA_URL</code>, <code class="codeph">RAT_TFA_USER</code>, and <code class="codeph">RAT_TFA_PASSWORD</code> or, just specify an environment variable to unset it.
+                        </p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="example" id="GUID-50F43DEB-551C-418C-9B0E-51927BC2F52E__GUID-3DB63BAC-F6A4-4817-B102-279BB8C8F1C3">
+                        <p class="titleinexample">Example 1-11 unsettfaupload</p><pre class="pre codeblock"><code>-bash-4.1# curl -i -X GET -k -u ordsadmin:adminpass 
+https://node1.example.com:7080/ords/tfaml/orachk/unsettfaupload/all
+HTTP/1.1 200 OK
+Date: Thu, 19 Jul 2018 10:08:30 GMT
+Content-Type: text/html
+X-Frame-Options: SAMEORIGIN
+Transfer-Encoding: chunked
+
+[{"ID":"Z8P9DHA8VV3PUOVQTV","Status":"SUBMITTED"}]</code></pre></div>
+                     <!-- class="example" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-45CA5280-B10A-42C5-8C90-7782589E4570" title="Oracle ORAchk and Oracle EXAchk include full REST support allowing invocation and query over HTTPS.">Using Oracle ORAchk or Oracle EXAchk over REST</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-E3391A99-D6A4-4A35-9AA5-F01FE0014494" name="GUID-E3391A99-D6A4-4A35-9AA5-F01FE0014494"></a><h4 id="OEXUG-GUID-E3391A99-D6A4-4A35-9AA5-F01FE0014494" class="sect4"><span class="enumeration_section">1.1.9.12 </span>uploadtfafailed
+                  </h4>
+                  <div>
+                     <p>Use GET requests to reattempt to upload all previously failed uploads to Oracle Trace File Analyzer service.</p>
+                     <div class="section">
+                        <p class="subhead3" id="GUID-E3391A99-D6A4-4A35-9AA5-F01FE0014494__GUID-64521CC9-0949-4D4C-9CF0-E92A314B969F">Syntax</p><pre class="pre codeblock"><code>/uploadtfafailed/all</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-E3391A99-D6A4-4A35-9AA5-F01FE0014494__GUID-09870E87-9585-48F2-A73D-320FE744866E">Returns</p>
+                        <p>Returns JSON showing the job ID similar to:</p><pre class="pre codeblock"><code>[{ "ID":"ZFZLH06WOLE3L92PQI", "Status":"SUBMITTED" }]</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-E3391A99-D6A4-4A35-9AA5-F01FE0014494__GUID-BE0C58B7-65FE-41E8-8665-6A91250F1068">Usage Notes</p>
+                        <p>You need not provide input to use this API.</p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="example" id="GUID-E3391A99-D6A4-4A35-9AA5-F01FE0014494__GUID-164E8BE6-FB16-4048-AEFE-E5CD812E0E6D">
+                        <p class="titleinexample">Example 1-12 uploadtfafailed</p><pre class="pre codeblock"><code>-bash-4.1# curl -i -X GET -k -u ordsadmin:adminpass 
+https://node1.example.com:7080/ords/tfaml/orachk/uploadtfafailed/all
+HTTP/1.1 200 OK
+Date: Thu, 19 Jul 2018 10:09:18 GMT
+Content-Type: text/html
+X-Frame-Options: SAMEORIGIN
+Transfer-Encoding: chunked
+
+[{"ID":"0B9O04CKSYZNUZCYZD","Status":"SUBMITTED"}]</code></pre></div>
+                     <!-- class="example" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-45CA5280-B10A-42C5-8C90-7782589E4570" title="Oracle ORAchk and Oracle EXAchk include full REST support allowing invocation and query over HTTPS.">Using Oracle ORAchk or Oracle EXAchk over REST</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-1DD29D38-FC66-4646-99D4-EB84061ED4D8" name="GUID-1DD29D38-FC66-4646-99D4-EB84061ED4D8"></a><h4 id="OEXUG-GUID-1DD29D38-FC66-4646-99D4-EB84061ED4D8" class="sect4"><span class="enumeration_section">1.1.9.13 </span>showrepair
+                  </h4>
+                  <div>
+                     <p>Use GET requests to report the repair command for the specified check.</p>
+                     <div class="section">
+                        <p class="subhead3" id="GUID-1DD29D38-FC66-4646-99D4-EB84061ED4D8__GUID-0F6B34F3-B77B-470C-9D2D-4F9A25F0A4F3">Syntax</p><pre class="pre codeblock"><code>/showrepair/{<span class="variable" translate="no">check_id</span>}</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-1DD29D38-FC66-4646-99D4-EB84061ED4D8__GUID-06CD0DF3-5713-49F5-8419-8E041BCAC286">Returns</p>
+                        <p>Returns JSON showing the job ID similar to:</p><pre class="pre codeblock"><code>[{ "ID":"ZFZLH06WOLE3L92PQI", "Status":"SUBMITTED" }]</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-1DD29D38-FC66-4646-99D4-EB84061ED4D8__GUID-DE404B07-8B10-40D3-9FBC-C576B5BA9EF9">Usage Notes</p>
+                        <p>Specify the check ID for which you want to report the repair command.</p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="example" id="GUID-1DD29D38-FC66-4646-99D4-EB84061ED4D8__GUID-CA83D1AC-A7B4-4537-935E-124019AE2626">
+                        <p class="titleinexample">Example 1-13 showrepair</p><pre class="pre codeblock"><code>-bash-4.1# curl -i -X GET -k -u ordsadmin:adminpass 
+https://node1.example.com:7080/ords/tfaml/orachk/showrepair/9ECBA2152E92F6B1E040E50A1EC00DFB
+HTTP/1.1 200 OK
+Date: Thu, 19 Jul 2018 10:13:54 GMT
+Content-Type: text/html
+X-Frame-Options: SAMEORIGIN
+Transfer-Encoding: chunked
+
+[{"ID":"FJELUT7XYM3AKOE1R4","Status":"SUBMITTED"}]</code></pre><pre class="pre codeblock"><code>-bash-4.1# curl -i -X GET -k -u ordsadmin:adminpass 
+https://node1.example.com:7080/ords/tfaml/orachk/status/FJELUT7XYM3AKOE1R4
+HTTP/1.1 200 OK
+Date: Thu, 19 Jul 2018 10:15:00 GMT
+Content-Type: text/html
+X-Frame-Options: SAMEORIGIN
+Transfer-Encoding: chunked
+
+[{"Msg":"Status of FJELUT7XYM3AKOE1R4 is  COMPLETED"}]</code></pre></div>
+                     <!-- class="example" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-45CA5280-B10A-42C5-8C90-7782589E4570" title="Oracle ORAchk and Oracle EXAchk include full REST support allowing invocation and query over HTTPS.">Using Oracle ORAchk or Oracle EXAchk over REST</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-70E69684-AF17-4E45-A90A-04877E3E29FD" name="GUID-70E69684-AF17-4E45-A90A-04877E3E29FD"></a><h4 id="OEXUG-GUID-70E69684-AF17-4E45-A90A-04877E3E29FD" class="sect4"><span class="enumeration_section">1.1.9.14 </span>getinfo
+                  </h4>
+                  <div>
+                     <p>Use GET requests to report the status of the specified job ID.</p>
+                     <div class="section">
+                        <p class="subhead3" id="GUID-70E69684-AF17-4E45-A90A-04877E3E29FD__GUID-28E0687F-5198-4812-9D29-1A6AB0B510DF">Syntax</p><pre class="pre codeblock"><code>/getinfo/{<span class="variable" translate="no">job_id</span>}</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-70E69684-AF17-4E45-A90A-04877E3E29FD__GUID-56D2440E-9B2B-4DEA-868A-D8098E199B88">Returns</p>
+                        <p>Returns JSON similar to if the ID does not exist:</p><pre class="pre codeblock"><code>[{ "Status":"Either the ID entered is invalid or the wallet has been purged." }]</code></pre><p>Or, returns the repair command if the ID exists.</p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-70E69684-AF17-4E45-A90A-04877E3E29FD__GUID-D5A9EEE8-7D64-4D6B-9CAE-9AD88E024D28">Usage Notes</p>
+                        <p>Specify the job ID for which you want to check the status.</p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="example" id="GUID-70E69684-AF17-4E45-A90A-04877E3E29FD__GUID-0039A1AC-081F-49EA-9592-F6A255477E0D">
+                        <p class="titleinexample">Example 1-14 getinfo</p><pre class="pre codeblock"><code>-bash-4.1# curl -i -X GET -k -u ordsadmin:adminpass 
+https://node1.example.com:7080/ords/tfaml/orachk/getinfo/FJELUT7XYM3AKOE1R4 HTTP/1.1 200 OK Date: Thu, 19 Jul 2018 10:15:34 GMT 
+Content-Type: text/html X-Frame-Options: SAMEORIGIN Transfer-Encoding: chunked</code></pre><p>Repair Command:</p><pre class="pre codeblock"><code>alter database datafile '+DATAC1/RAC12C/DATAFILE/sysaux.314.936528199' autoextend on maxsize unlimited;</code></pre></div>
+                     <!-- class="example" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-45CA5280-B10A-42C5-8C90-7782589E4570" title="Oracle ORAchk and Oracle EXAchk include full REST support allowing invocation and query over HTTPS.">Using Oracle ORAchk or Oracle EXAchk over REST</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-A97BDBC0-3F4F-4A75-AC4C-7AEB7BD6991C" name="GUID-A97BDBC0-3F4F-4A75-AC4C-7AEB7BD6991C"></a><h4 id="OEXUG-GUID-A97BDBC0-3F4F-4A75-AC4C-7AEB7BD6991C" class="sect4"><span class="enumeration_section">1.1.9.15 </span>start_client
+                  </h4>
+                  <div>
+                     <p>Use POST requests to run a diff of the specified collection results.</p>
+                     <div class="section">
+                        <p class="subhead3" id="GUID-A97BDBC0-3F4F-4A75-AC4C-7AEB7BD6991C__GUID-143D91B2-890E-4CFD-A644-3349ED44BE01">Syntax</p><pre class="pre codeblock"><code>/start_client</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-A97BDBC0-3F4F-4A75-AC4C-7AEB7BD6991C__GUID-47084445-845B-4AC2-8E08-13ABE4841E3F">Returns</p>
+                        <p>Returns JSON similar to:</p><pre class="pre codeblock"><code>[{ "ID":"ZFZLH06WOLE3L92PQI", "Status":"SUBMITTED" }]</code></pre><p>The status API can be used to query the status of the submitted job ID. Then you can use the download API to download diff report using the same job ID.</p>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-A97BDBC0-3F4F-4A75-AC4C-7AEB7BD6991C__GUID-A2BBC306-3F58-4F5D-8B60-63F2629D1413">Usage Notes</p>
+                        <p>JSON input:</p><pre class="pre codeblock"><code>[{ "-diff":"collection_zip_1 collection_zip_2" }]</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="example" id="GUID-A97BDBC0-3F4F-4A75-AC4C-7AEB7BD6991C__GUID-E694C213-90B3-41D5-B4F4-237364F77773">
+                        <p class="titleinexample">Example 1-15 start_client</p><pre class="pre codeblock"><code>-bash-4.2$ curl -i -X POST -H "Content-Type: application/json" -k -u ordsadmin:adminpass 
+https://host:7080/ords/tfaml/orachk/start_client -d '[{"-diff":"orachk_myhost69_apxcmupg_062118_025029_N1O498NX877LYO5FE3.zip 
+orachk_myhost69_apxcmupg_062118_030527_ICMOWECU1UKF0R0VTO.zip"}]'</code></pre></div>
+                     <!-- class="example" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-45CA5280-B10A-42C5-8C90-7782589E4570" title="Oracle ORAchk and Oracle EXAchk include full REST support allowing invocation and query over HTTPS.">Using Oracle ORAchk or Oracle EXAchk over REST</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-E000A2FB-B093-4081-8CFA-87B088AA4A5E" name="GUID-E000A2FB-B093-4081-8CFA-87B088AA4A5E"></a><h4 id="OEXUG-GUID-E000A2FB-B093-4081-8CFA-87B088AA4A5E" class="sect4"><span class="enumeration_section">1.1.9.16 </span>Removing ORDS Setup
+                  </h4>
+                  <div>
+                     <p></p>
+                     <ol>
+                        <li class="stepexpand"><span>To completely remove ORDS setup:</span><div><pre class="pre codeblock"><code>./orachk -ordsrmsetup ./exachk -ordsrmsetup</code></pre></div>
+                           <div>
+                              <p>The command option <code class="codeph">-ordsrmsetup</code> stops the daemon if it is running and then stops the ORDS service.
+                              </p>
+                           </div>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="quick-start-guide.html#GUID-45CA5280-B10A-42C5-8C90-7782589E4570" title="Oracle ORAchk and Oracle EXAchk include full REST support allowing invocation and query over HTTPS.">Using Oracle ORAchk or Oracle EXAchk over REST</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

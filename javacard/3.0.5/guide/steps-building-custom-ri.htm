@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Steps for Building a Custom RI</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-04-13T10:24:54Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Development Kit User Guide, Classic Edition" />
+<meta name="dcterms.identifier" content="E59602-03" />
+<meta name="dcterms.isVersionOf" content="JCUGC" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="overview-building-custom-ri-sources.htm" title="Previous" type="text/html" />
+<link rel="Next" href="verifying-cap-and-export-files.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCUGC.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-B44265F7-CE9D-4818-97EB-0875F3C406EA"></a> <span id="PAGE" style="display:none;">125/161</span> <!-- End Header -->
+<a id="JCUGC335"></a>
+<h1 id="JCUGC-GUID-B44265F7-CE9D-4818-97EB-0875F3C406EA" class="sect1">Steps for Building a Custom RI</h1>
+<div>
+<p>Before building a custom RI, the software listed in <a href="install-and-setup-development-kit.htm#GUID-CD4EAB94-67F4-4BA2-B082-4A057E02DA61">Prerequisites to Installing the Development Kit</a> must be installed on the system. This section describes the basic step you must follow when creating a custom RI.</p>
+<p>To build a custom RI:</p>
+<ol>
+<li>
+<p>Convert your packages using the Converter tool and generate Java Card Assembly files.</p>
+<div class="infobox-note" id="GUID-B44265F7-CE9D-4818-97EB-0875F3C406EA__GUID-3E844BCC-2080-4C5C-8BF5-4BB36978A547">
+<p class="notep1">Note:</p>
+<p><a href="converting-and-exporting-java-class-files.htm" title="This chapter describes how to use the Converter tool, including the input files it can process and the output it produces. How to work with export files is also described.">Converting and Exporting Java Class Files</a> provides a detailed description of using the Converter tool.</p>
+</div>
+<p>For example, the output Java Card Assembly (<code class="codeph">.jca</code>) files could be located at:</p>
+<p><code class="codeph">.\api_export_files\com\sun\javacard\installer\javacard\installer.jca</code></p>
+<p>or</p>
+<p><span class="italic">JC_CLASSIC_HOME</span><code class="codeph">\samples\classic_applets\HelloWorld\applet\build\classes\com\sun\jcclassic\samples\helloworld\javacard\helloworld.jca</code></p>
+</li>
+<li>
+<p>Add the location for the Java Card Assembly files for your new packages in these files:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">src\vm_16.in</code></p>
+</li>
+<li>
+<p><code class="codeph">src\vm_32.in</code></p>
+</li>
+</ul>
+<p>This step is required for new packages. If you are modifying existing packages, this step is not required.</p>
+</li>
+<li>
+<p>Build the <code class="codeph">cref</code> executable.</p>
+<div class="infobox-note" id="GUID-B44265F7-CE9D-4818-97EB-0875F3C406EA__GUID-03A2FE93-EDD2-4F2C-9368-4C2F75A45300">
+<p class="notep1">Note:</p>
+<p><a href="steps-building-custom-ri.htm#GUID-F68E74F0-DF7D-43CC-AA03-71106B440980">Building the 32-Bit Custom RI</a>, and <a href="steps-building-custom-ri.htm#GUID-0CFA4E09-482C-4CD3-B243-601C90260EB4">Building the 16-Bit Custom RI</a> provide detailed procedures for building the <code class="codeph">cref</code> executable.</p>
+</div>
+<p>The new <code class="codeph">cref</code> is built with the new packages masked in. Masked applications can be instantiated without requiring download after the runtime environment starts up.</p>
+</li>
+<li>
+<p>Test the custom RI.</p>
+<div class="infobox-note" id="GUID-B44265F7-CE9D-4818-97EB-0875F3C406EA__GUID-85ED3D7F-8302-44C8-BDBB-6EFDCDFDAEBD">
+<p class="notep1">Note:</p>
+<p><a href="steps-building-custom-ri.htm#GUID-E1687093-49C2-4B34-A516-F836185B971B">Testing the 32-Bit Custom RI</a> and <a href="steps-building-custom-ri.htm#GUID-0CFA4E09-482C-4CD3-B243-601C90260EB4">Building the 16-Bit Custom RI</a> provide detailed procedures for testing different custom RIs.</p>
+</div>
+</li>
+</ol>
+</div>
+<a id="JCUGC336"></a>
+<div class="props_rev_3"><a id="GUID-F68E74F0-DF7D-43CC-AA03-71106B440980"></a>
+<h2 id="JCUGC-GUID-F68E74F0-DF7D-43CC-AA03-71106B440980" class="sect2">Building the 32-Bit Custom RI</h2>
+<div>
+<div class="section">
+<p>The following procedure builds the 32-bit version of the RI. To build the 16-bit version see <a href="steps-building-custom-ri.htm#GUID-0CFA4E09-482C-4CD3-B243-601C90260EB4">Building the 16-Bit Custom RI</a>.</p>
+<p>To build the 32-bit custom RI:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Edit the files or add more files.</span></li>
+<li class="stepexpand"><span>Update the tools source code, if required.</span></li>
+<li class="stepexpand"><span>From the command line, navigate to the <code class="codeph">src</code> folder and run the <code class="codeph">ant all</code> command.</span>
+<div>
+<p>The <code class="codeph">ant all</code> command creates the <code class="codeph">JC_CLASSIC_HOME\custom_build</code> folder with a <code class="codeph">bin</code> and <code class="codeph">lib</code> folder under it.</p>
+<p>The <code class="codeph">custom_build\bin</code> directory contains the new <code class="codeph">cref</code> and all of the other <code class="codeph">.bat</code> files for the tools.</p>
+<p>The <code class="codeph">custom_build\lib</code> folder contains the .<code class="codeph">jar</code> files and configuration files.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<a id="JCUGC338"></a><a id="JCUGC337"></a>
+<div class="props_rev_3"><a id="GUID-E1687093-49C2-4B34-A516-F836185B971B"></a>
+<h2 id="JCUGC-GUID-E1687093-49C2-4B34-A516-F836185B971B" class="sect2">Testing the 32-Bit Custom RI</h2>
+<div>
+<div class="section">
+<p>To test the 32-bit custom RI:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Run the new <code class="codeph">cref</code> file stored in <span class="italic">JC_CLASSIC_HOME</span>\<code class="codeph">custom_build\bin</code> noting the expected console output in <a href="steps-building-custom-ri.htm#GUID-E1687093-49C2-4B34-A516-F836185B971B__CEHJDBBH">Example 12-1</a> and its specific reference in the content to the <code class="codeph">32-bit Address Space</code>.</span>
+<div>
+<pre dir="ltr">
+<span class="italic">JC_CLASSIC_HOME</span>\custom_build\bin\cref_tdual.exe [<span class="italic">options</span>]
+</pre>
+<p>See <a href="using-reference-implementation.htm" title="This chapter describes how to run the Reference Implementation (RI). The RI provides a Java Card runtime environment (RE) executable for the Microsoft Windows platform, Java Card RE packages, and an installer applet.">Using the Reference Implementation</a> for a description of the available options for <code class="codeph">cref</code>.</p>
+<p>Files created as a result of running or building the custom RI are stored in the <span class="italic">JC_CLASSIC_HOME</span>\<code class="codeph">custom_build\bin</code> and <span class="italic">JC_CLASSIC_HOME</span>\<code class="codeph">custom_build\lib</code> directories. These directories are created the first time the custom RI is built and are over-written every time the custom RI is built.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Run <code class="codeph">apdutool</code> in a separate window to send in your apdu scripts to <code class="codeph">cref</code>.</span>
+<div>
+<pre dir="ltr">
+apdutool -nobanner -noatr <span class="italic">filename</span>.scr &gt; <span class="italic">filename</span>.scr.cref.out
+</pre>
+<p>For information on <code class="codeph">apdutool</code>, see <a href="sending-and-receiving-apdus.htm#GUID-7E36B3BD-918C-4A16-ABE2-A49835DABE6F">Running apdutool</a>. If the run is successful, the <code class="codeph">apdutool.log</code>, <span class="italic">filename</span><code class="codeph">.scr.cref.out</code>, is identical to the file <span class="italic">filename</span><code class="codeph">.scr.expected.out</code>.</p>
+</div>
+</li>
+</ol>
+<div class="example" id="GUID-E1687093-49C2-4B34-A516-F836185B971B__CEHJDBBH">
+<p class="titleinexample">Example 12-1 Expected Console Output When Building 32-Bit Custom RI</p>
+<pre dir="ltr">
+Java Card 3.0.5 C Reference Implementation Simulator
+32-bit Address Space implementation - with cryptography support
+T=1 / T=CL Dual interface APDU protocol (ISO 7816-4)
+Copyright (c) 1998, 2015, Oracle and/or its affiliates. All rights reserved.
+ 
+Memory configuration -
+        Type    Base    Size    Max Addr
+        RAM     0x0     0xc78   0xc77
+        ROM     0x2000  0xc800  0xe7ff
+        E2P     0x10020 0xffe0  0x1ffff
+ 
+        ROM Mask size =                 0x8b3e =        35646 bytes
+        Highest ROM address in mask =   0xab3d =        43837 bytes
+        Space available in ROM =        0x3cc2 =        15554 bytes
+Mask has now been initialized for use
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<a id="JCUGC340"></a><a id="JCUGC339"></a>
+<div class="props_rev_3"><a id="GUID-0CFA4E09-482C-4CD3-B243-601C90260EB4"></a>
+<h2 id="JCUGC-GUID-0CFA4E09-482C-4CD3-B243-601C90260EB4" class="sect2">Building the 16-Bit Custom RI</h2>
+<div>
+<div class="section">
+<p>By default the procedure described in <a href="steps-building-custom-ri.htm#GUID-F68E74F0-DF7D-43CC-AA03-71106B440980">Building the 32-Bit Custom RI</a> builds the 32-bit <code class="codeph">cref</code>. To build <code class="codeph">cref</code> with 16-bit support you must modify those steps.</p>
+<div class="infobox-note" id="GUID-0CFA4E09-482C-4CD3-B243-601C90260EB4__GUID-5396D093-A617-425B-9D4E-8C5B1B6BDC0E">
+<p class="notep1">Note:</p>
+<p>Building the 16-bit version creates only one <code class="codeph">cref_t0.exe</code> file with no <code class="codeph">t1</code> or <code class="codeph">tdual</code> version, so the resulting <code class="codeph">cref.bat</code> file executes only <code class="codeph">cref_t0.exe</code>.</p>
+</div>
+<p>To build the 16-bit custom RI:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Before starting, clean any previous builds by running <code class="codeph">ant clean</code>.</span></li>
+<li class="stepexpand"><span>When executing <code class="codeph">ant all</code>, set this property: <code class="codeph">for.bit=16</code>, with the following modified command:</span>
+<div>
+<pre dir="ltr">
+ant -Dfor.bit=16 all
+</pre></div>
+</li>
+<li class="stepexpand"><span>When testing the 16-bit build, execute <code class="codeph">cref.bat</code> from the <code class="codeph">custom_build/bin</code> directory and watch for the expected output depicted in <a href="steps-building-custom-ri.htm#GUID-0CFA4E09-482C-4CD3-B243-601C90260EB4__CEHHICEE">Example 12-2</a> noting its specific reference in the content to the <code class="codeph">16-bit Address Space</code>.</span></li>
+</ol>
+<div class="example" id="GUID-0CFA4E09-482C-4CD3-B243-601C90260EB4__CEHHICEE">
+<p class="titleinexample">Example 12-2 Expected Console Output When Building 16-Bit Custom RI</p>
+<pre dir="ltr">
+Java Card 3.0.3 C Reference Implementation Simulator
+16-bit Address Space implementation - with cryptography support
+T=0 Extended APDU protocol (ISO 7816-3)
+Copyright (c) 2010 Oracle Corporation All rights reserved.
+Use is subject to license terms.
+ 
+Memory configuration
+        Type    Base    Size    Max Addr
+        RAM     0x0     0x600   0x5ff
+        ROM     0x600   0xbc00  0xc1ff
+        E2P     0xc200  0x3be0  0xfddf
+ 
+        ROM Mask size =                 0x9fb0 =        40880 bytes
+        Highest ROM address in mask =   0xa5af =        42415 bytes
+        Space available in ROM =        0x1c50 =        7248 bytes
+Mask has now been initialized for use 
+</pre></div>
+<!-- class="example" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="overview-building-custom-ri-sources.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="verifying-cap-and-export-files.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

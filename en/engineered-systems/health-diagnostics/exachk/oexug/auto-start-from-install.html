@@ -1,0 +1,90 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="Installing Oracle Trace File Analyzer as root on Linux or Solaris on non-engineered systems automatically sets up and runs the Oracle ORAchk daemon.">
+      <meta name="description" content="Installing Oracle Trace File Analyzer as root on Linux or Solaris on non-engineered systems automatically sets up and runs the Oracle ORAchk daemon.">
+      <title>Automatic Start from Oracle Trace File Analyzer Install</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide">
+      <meta property="og:description" content="Installing Oracle Trace File Analyzer as root on Linux or Solaris on non-engineered systems automatically sets up and runs the Oracle ORAchk daemon.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-orachk-and-exachk-users-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:43:23-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2016, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E83827-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/exachk">
+      
+      <link rel="prev" href="orachk-scope-and-supported-environments.html" title="Previous" type="text/html">
+      <link rel="next" href="deploying-application-continuity.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"exachk","element_name":"EXAchk","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® ORAchk and EXAchk User's Guide">
+    <meta name="dcterms.isVersionOf" content="OEXUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="orachk-scope-and-supported-environments.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="deploying-application-continuity.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="oracle-orachk-specific-features-and-tasks.html" property="item" typeof="WebPage"><span property="name">Oracle ORAchk Specific Features and Tasks</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Automatic Start from Oracle Trace File Analyzer Install</li>
+            </ol>
+            <a id="GUID-D18A4E2D-F9BC-42B2-86B2-61EE68273DE7" name="GUID-D18A4E2D-F9BC-42B2-86B2-61EE68273DE7"></a>
+            
+            <h2 id="OEXUG-GUID-D18A4E2D-F9BC-42B2-86B2-61EE68273DE7" class="sect2"><span class="enumeration_section">2.2 </span>Automatic Start from Oracle Trace File Analyzer Install
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>Installing Oracle Trace File Analyzer as <code class="codeph">root</code> on Linux or Solaris on non-engineered systems automatically sets up and runs the Oracle ORAchk daemon.
+               </p>
+               <p>The daemon restarts at 1 am every day to discover any environment changes. The daemon runs a full local Oracle ORAchk check at 2 am every day, and a partial run of the most impactful checks every 6 hours through the <code class="codeph">oratier1</code> profile.
+               </p>
+               <p>The daemon automatically purges any collections older than 2 weeks.</p>
+               <p>You can change the daemon settings after enabling auto start. To remove auto start any time, run <code class="codeph">tfactl run orachk -autostop</code>.
+               </p>
+            </div>
+            <div>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="oracle-orachk-specific-features-and-tasks.html#GUID-778B432D-9B59-431B-9796-E947E4FC0969" title="This chapter describes the features specific to Oracle ORAchk and the tasks that you can perform using Oracle ORAchk.">Oracle ORAchk Specific Features and Tasks</a></p>
+                  </div>
+               </div>
+            </div>
+            
+         </div>
+      </article>
+   </body>
+</html>

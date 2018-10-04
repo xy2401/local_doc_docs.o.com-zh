@@ -1,0 +1,223 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 25226-->
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>Creating the Enterprise Bean - Your First Cup: An Introduction to the Java EE Platform</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2012-04-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gcqyw.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gcqyb.html">1.&nbsp;&nbsp;Introduction</a></p>
+<p class="toc level1 tocsp"><a href="gcrlo.html">2.&nbsp;&nbsp;Understanding Java Platform, Enterprise Edition</a></p>
+<p class="toc level1 tocsp"><a href="gcrkp.html">3.&nbsp;&nbsp;Creating Your First Java EE Application</a></p>
+<p class="toc level1 tocsp"><a href="glcfc.html">4.&nbsp;&nbsp;Creating Your Second Web Application</a></p>
+<p class="toc level2"><a href="gjbca.html">Creating the <tt>firstcup</tt> Project</a></p>
+<p class="toc level3"><a href="gjbca.html#gimnt">Create the Web Application Project</a></p>
+<p class="toc level2 tocsp"><a href="gjbcs.html">Creating the Java Persistence API Entity</a></p>
+<p class="toc level3"><a href="gjbcs.html#gjbam">Create the <tt>FirstcupUser</tt> Entity Class</a></p>
+<p class="toc level3"><a href="gjbcs.html#gjbao">Add Properties to the <tt>FirstcupUser</tt> Entity</a></p>
+<p class="toc level3"><a href="gjbcs.html#gkknn">Add Constructors to the <tt>FirstcupUser</tt> Entity</a></p>
+<p class="toc level3"><a href="gjbcs.html#gjbcm">Add a Named Query to the <tt>FirstcupUser</tt> Entity</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level2 tocsp"><a href="">Creating the Enterprise Bean</a></p>
+<p class="toc level3"><a href="#gcrpv">Create the <tt>DukesBirthdayBean</tt> Enterprise Bean Class</a></p>
+<p class="toc level3"><a href="#gcrpg">Add a Logger Instance to <tt>DukesBirthdayBean.java</tt></a></p>
+<p class="toc level3"><a href="#gjbcu">Add a Business Method to <tt>DukesBirthdayBean</tt> that Gets the Average Age Difference of <tt>firstcup</tt> Users</a></p>
+<p class="toc level3"><a href="#gkgot">Add a Business Method for Calculating the Age Difference Between Duke and the User</a></p>
+</div>
+<p class="toc level2 tocsp"><a href="gcrlt.html">Creating the Web Client</a></p>
+<p class="toc level3"><a href="gcrlt.html#gcrpf">Creating a Resource Bundle</a></p>
+<p class="toc level4"><a href="gcrlt.html#gcrrz">Create a Resource Bundle</a></p>
+<p class="toc level3 tocsp"><a href="gcrlt.html#gcrri">Configuring the Resource Bundle in the Configuration File</a></p>
+<p class="toc level4"><a href="gcrlt.html#gjbco">Create a Configuration File</a></p>
+<p class="toc level4"><a href="gcrlt.html#gcrqy">Configure the Resource Bundle</a></p>
+<p class="toc level3 tocsp"><a href="gcrlt.html#gcrqx">Creating the <tt>DukesBDay</tt> Managed Bean Class</a></p>
+<p class="toc level4"><a href="gcrlt.html#gcrrq">Create the Managed Bean Class</a></p>
+<p class="toc level4"><a href="gcrlt.html#gcrre">Add an Enterprise Bean Reference</a></p>
+<p class="toc level4"><a href="gcrlt.html#gcuzv">Add Properties to the Bean</a></p>
+<p class="toc level4"><a href="gcrlt.html#gcrsa">Get the Age Difference from the <tt>DukesBirthdayBean</tt> Enterprise Bean</a></p>
+<p class="toc level3 tocsp"><a href="gcrlt.html#gimvd">Creating the Facelets Client</a></p>
+<p class="toc level4"><a href="gcrlt.html#gimug">Resource Libraries in <tt>firstcup</tt></a></p>
+<p class="toc level4"><a href="gcrlt.html#gimtw">The <tt>inputDate</tt> Composite Component</a></p>
+<p class="toc level4"><a href="gcrlt.html#gimwv">Create the <tt>inputDate</tt> Composite Component</a></p>
+<p class="toc level4"><a href="gcrlt.html#gimum">The Facelets Web Interface</a></p>
+<p class="toc level4"><a href="gcrlt.html#gimxf">Create the XHTML Files</a></p>
+<p class="toc level4"><a href="gcrlt.html#giplb">Set the Welcome File in the <tt>web.xml</tt> Deployment Descriptor</a></p>
+<p class="toc level4"><a href="gcrlt.html#gimua">Modify the XHTML Files</a></p>
+<p class="toc level4"><a href="gcrlt.html#gimta">Add the Form to <tt>greeting.xhtml</tt></a></p>
+<p class="toc level4"><a href="gcrlt.html#gimvw">Add the Form to <tt>response.html</tt></a></p>
+<p class="toc level2 tocsp"><a href="gctnx.html">Building, Packaging, Deploying, and Running the <tt>firstcup</tt> Web Application</a></p>
+<p class="toc level3"><a href="gctnx.html#gctoj">Build, Package, and Deploy the <tt>firstcup</tt> Web Application</a></p>
+<p class="toc level3"><a href="gctnx.html#gctqc">Run the <tt>firstcup</tt> Application</a></p>
+<p class="toc level1 tocsp"><a href="gcrll.html">5.&nbsp;&nbsp;Next Steps</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><p class="Banner">Your First Cup
+</p></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="./gcqzl.html#gcrnx">Download</a> | 
+<a href="./firstcup.pdf">PDF</a> | 
+<a href="http://docs.oracle.com/javaee/support/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="gjbcs.html"><img src="graphics/leftButton.gif" border="0" alt="Previous" title="Previous"></a>
+                 <a href="p1.html"><img src="graphics/upButton.gif" border="0" alt="Contents" title="Contents"></a>
+                 <a href="gcrlt.html"><img src="graphics/rightButton.gif" border="0" alt="Next" title="Next"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="gcrlx"></a><h2>Creating the Enterprise Bean</h2>
+<p><tt>DukesBirthdayBean</tt> is a <b>stateless session bean</b>. Stateless session beans are enterprise beans that do
+not maintain a conversational state with a client. With stateless session beans, the client
+makes isolated requests that do not depend on any previous state or requests.
+If an application requires conversational state, use <b>stateful session beans</b>.</p>
+
+<p>To create <tt>DukesBirthdayBean</tt>, create one Java class: <tt>DukesBirthdayBean</tt>, the enterprise bean class. <tt>DukesBirthdayBean</tt>
+is a <b>local enterprise bean</b> that uses a <b>no-interface</b> view, meaning two things. First, a
+local enterprise bean is only visible within the application in which it is
+deployed. Second, enterprise beans with a no-interface view do not need a separate
+business interface that the enterprise bean class implements. The enterprise bean class is
+the only coding artifact needed to create a local, no-interface enterprise bean.</p>
+
+<p><tt>DukesBirthdayBean</tt> will be packaged within the same WAR file as the Facelets web
+front-end.</p>
+
+
+
+<a name="gcrpv"></a><h3>Create the <tt>DukesBirthdayBean</tt> Enterprise Bean Class</h3><p>Follow these steps to create the enterprise bean class in NetBeans IDE.</p>
+
+<ol>
+<li><b>Select the <tt>firstcup</tt> project in the Projects tab.</b></li>
+<li><b>From the File menu, choose New File.</b></li>
+<li><b>In the Categories pane, select Enterprise JavaBeans.</b></li>
+<li><b>In the File Types pane, select Session Bean.</b></li>
+<li><b>Click Next.</b></li>
+<li><b>In the EJB Name field, type <tt>DukesBirthdayBean</tt>.</b></li>
+<li><b>In the Package field, type <tt>firstcup.ejb</tt>.</b></li>
+<li><b>Make sure Stateless is selected under Session Type.</b></li>
+<li><b>Click Finish.</b><p>You should now see the <tt>DukesBirthdayBean.java</tt> file inside the <tt>firstcup.ejb</tt> package in
+the Projects tab. The <tt>DukesBirthdayBean.java</tt> file should also be open in the editor pane.</p></li></ol>
+
+<a name="gcrpg"></a><h3>Add a Logger Instance to <tt>DukesBirthdayBean.java</tt></h3><p>Add a <tt>java.util.logging.Logger</tt> instance to the session bean for logging events.</p>
+
+<ol>
+<li><b>Directly after the class declaration, paste in the following field definition:</b><pre>private static final Logger logger = 
+        Logger.getLogger("firstcup.ejb.DukesBirthdayBean");</pre><p>This code creates a logger for the session bean.</p></li>
+<li><b>Right-click in the editor window and select Format.</b></li>
+<li><b>Right-click in the editor window and select Fix Imports, then click OK.</b></li></ol>
+
+<a name="gjbcu"></a><h3>Add a Business Method to <tt>DukesBirthdayBean</tt> that Gets the Average Age Difference of <tt>firstcup</tt> Users</h3><p>Add a business method to the <tt>DukesBirthdayBean</tt> session bean to call the <tt>findAverageAgeDifferenceOfAllFirstcupUsers</tt>
+named query in <tt>FirstcupUser</tt> that returns the average age difference of all users.</p>
+
+<ol>
+<li><b>Below the class definition, add a <tt>@PersistenceContext</tt> annotation and field of type <tt>EntityManager</tt>:</b><pre>@PersistenceContext
+private EntityManager em;</pre></li>
+<li><b>Right-click in the editor window and select Fix Imports.</b></li>
+<li><b>Add a business method called <tt>getAverageAgeDifference</tt> by copying and pasting the following code:</b><pre>    public Double getAverageAgeDifference() {
+        Double avgAgeDiff =
+                (Double) em.createNamedQuery("findAverageAgeDifferenceOfAllFirstcupUsers")
+                                .getSingleResult();
+        logger.info("Average age difference is: " + avgAgeDiff);
+        return avgAgeDiff;
+    }</pre><p>The named query in <tt>FirstcupUser</tt> is called by using the <tt>EntityManager</tt>'s <tt>createNamedQuery</tt> method. Because
+this query returns a single number, the <tt>getSingleResult</tt> method is called on the
+returned <tt>Query</tt> object. The query returns a <tt>Double</tt>.</p></li>
+<li><b>Right-click in the editor window and select Format.</b></li></ol>
+
+<a name="gkgot"></a><h3>Add a Business Method for Calculating the Age Difference Between Duke and the User</h3><p>Add a business method that calculates the difference in age in years between
+Duke and the user and creates a new <tt>FirstcupUser</tt> entity.</p>
+
+<ol>
+<li><b>Add a business method called <tt>getAgeDifference</tt> by copying and pasting the following code:</b><pre>    public int getAgeDifference(Date date) {
+        int ageDifference;
+
+        Calendar theirBirthday = new GregorianCalendar();
+        Calendar dukesBirthday = new GregorianCalendar(1995, Calendar.MAY, 23);
+
+        // Set the Calendar object to the passed in Date
+        theirBirthday.setTime(date);
+
+        // Subtract the user's age from Duke's age
+        ageDifference = dukesBirthday.get(Calendar.YEAR)
+                - theirBirthday.get(Calendar.YEAR);
+        logger.info("Raw ageDifference is: " + ageDifference);
+        // Check to see if Duke's birthday occurs before the user's. If so,
+        // subtract one from the age difference
+        if (dukesBirthday.before(theirBirthday) &amp;&amp; (ageDifference > 0)) {
+            ageDifference--;
+        }
+
+        // create and store the user's birthday in the database
+        FirstcupUser user = new FirstcupUser(date, ageDifference);
+        em.persist(user);
+
+        logger.info("Final ageDifference is: " + ageDifference);
+
+        return ageDifference;
+    }</pre><p>This method creates the <tt>Calendar</tt> objects used to calculate the difference in age
+between the user and Duke and performs the actual calculation of the difference
+in age.</p><p>Similar to the <tt>DukesAgeResource.getText</tt> code, <tt>getAgeDifference</tt> subtracts Duke's birthday year from the
+user's birthday year to get a raw age difference. If Duke's birthday falls
+before the user's, and the raw difference is more than 0, it subtracts
+one year from the age difference.</p><p>A new <tt>FirstcupUser</tt> entity is created with the user's birthday and age difference,
+then stored in the Java DB database by calling the <tt>EntityManager</tt>'s <tt>persist</tt> method.</p><p>The final age difference is returned as an <tt>int</tt>.</p></li>
+<li><b>Right-click in the editor window and select Format.</b></li>
+<li><b>Right-click in the editor window and select Fix Imports, then OK.</b></li>
+<li><b>From the File menu, choose Save.</b></li></ol>
+         </div>
+         <div class="navigation">
+             <a href="gjbcs.html"><img src="graphics/leftButton.gif" border="0" alt="Previous" title="Previous"></a>
+             <a href="p1.html"><img src="graphics/upButton.gif" border="0" alt="Contents" title="Contents"></a>
+             <a href="gcrlt.html"><img src="graphics/rightButton.gif" border="0" alt="Next" title="Next"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+<!-- Start SiteCatalyst code   -->
+<script language="JavaScript" src="http://www.oracle.com/ocom/groups/systemobject/@mktg_admin/documents/systemobject/s_code_download.js"></script>
+<script language="JavaScript" src="http://www.oracle.com/ocom/groups/systemobject/@mktg_admin/documents/systemobject/s_code.js"></script>
+ 
+<!-- ********** DO NOT ALTER ANYTHING BELOW THIS LINE ! *********** -->
+<!--  Below code will send the info to Omniture server -->
+<script language="javascript">var s_code=s.t();if(s_code)document.write(s_code)</script>
+<noscript><p>Scripting on this page tracks web page traffic,
+but does not change the content in any way.</p></noscript>
+<!-- End SiteCatalyst code -->
+</body>
+</html>
+

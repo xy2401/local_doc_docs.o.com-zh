@@ -1,0 +1,2112 @@
+<!DOCTYPE html>
+<html lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Table of Contents
+         
+      </title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="Collecting and Analyzing Oracle Database Diagnostic Data ">
+      <meta property="og:description" content>
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="Collecting and Analyzing Oracle Database Diagnostic Data">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-trace-file-analyzer-collecting-and-analyzing-oracle-database-diagnostic-data.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:26:17-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2017, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E90669-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/trace-file-analyzer">
+      
+      <link rel="next" href="loe.html" title="Next" type="text/html"><script>
+         document.write('<style type="text/css">');
+         document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+         document.write('</style>');
+         
+      
+</script><script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script><script>
+         if (window.require === undefined) {
+         document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+         document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+         }
+         
+      
+</script><script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"trace-file-analyzer","element_name":"Trace File Analyzer","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+    <meta name="dcterms.title" content="Oracle Trace File Analyzer Collecting and Analyzing Oracle Database Diagnostic Data">
+    <meta name="dcterms.isVersionOf" content="TFAUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      
+      
+      <div class="noscript alert alert-danger text-center" role="alert">
+         
+         
+         <a href="#" class="pull-left">
+            
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous
+         
+            </a>
+         
+         
+         <a href="loe.html" class="pull-right">Next
+            
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            
+            </a>
+         
+         
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+         
+      
+         
+      </div>
+      
+      
+      <article>
+         
+         
+         <header>
+            
+            
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li class="active" property="itemListElement" typeof="ListItem">Table of Contents
+                  
+               </li>
+            </ol>
+            
+            
+            
+            <h2 class="toc">Table of Contents
+               
+            </h2>
+            
+            
+         </header>
+         
+         
+         <ul>
+            <li>
+               
+               <a href="loe.html">List of Examples
+                  </a>
+               
+               
+            </li>
+            <li>
+               
+               <a href="lof.html">List of Figures
+                  </a>
+               
+               
+            </li>
+            <li>
+               
+               <a href="lot.html">List of Tables
+                  </a>
+               
+               
+            </li>
+            <li>
+               
+               <a href="index.html">Title and Copyright Information
+                  </a>
+               
+               
+            </li>
+            <li>
+               
+               <a href="preface.html#GUID-FD8B3446-41C3-48E7-84F1-CF894F053EF0">Preface
+                  </a>
+               
+               
+               <ul>
+                  <li>
+                     
+                     <a href="preface.html#GUID-021028D2-4476-4C18-A497-E1DE3E2DC4FC">Audience
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="preface.html#GUID-E409CC44-9A8F-4043-82C8-6B95CD939296">Documentation Accessibility
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="preface.html#GUID-9D2D1156-926A-48FD-A494-241B9E13C59E">Related Documentation
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="preface.html#GUID-189F6748-62D3-410E-B2C6-8840F6E08400">Conventions
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="preface.html#GUID-8B09F4DC-9580-4AD6-A469-2F88AEEB815C">Third-Party License Information
+                        </a>
+                     
+                     
+                  </li>
+               </ul>
+               
+               
+            </li>
+            <li>
+               
+               <a href="changes-in-18.3.0.html#GUID-8E8CC7F9-C1C0-42EB-B27B-C2D90C24562C">Changes in this Release for Oracle Trace File Analyzer User’s Guide 18.3.0
+                  </a>
+               
+               
+               <ul>
+                  <li>
+                     
+                     <a href="changes-in-18.3.0.html#GUID-4A6A3200-67DB-459C-A198-286B9D59D31D">Automatic SRDCs
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="changes-in-18.3.0.html#GUID-A13153F9-826A-4CD9-AF1C-B66E22F8E154">REST Service Extensions
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="changes-in-18.3.0.html#GUID-27372E0C-1C2E-4077-BFC5-70CC9394C5E6">Configuring REST Service Using Apache Tomcat
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="changes-in-18.3.0.html#GUID-049B2E63-2341-4FE3-A88F-D1335752D15B">New SRDCs
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="changes-in-18.3.0.html#GUID-D18A4E2D-F9BC-42B2-86B2-61EE68273DE7">Automatic Start from Oracle Trace File Analyzer Install
+                        </a>
+                     
+                     
+                  </li>
+               </ul>
+               
+               
+            </li>
+            <li>
+               
+               <a href="quick-start-guide.html#GUID-A1DBE3D4-6501-47D3-854E-E9978F19F7BA">
+                  
+                  <span class="secnum">1
+                     </span> Getting Started with Oracle Trace File Analyzer
+               
+                  </a>
+               
+               
+               <ul>
+                  <li>
+                     
+                     <a href="quick-start-guide.html#GUID-BAB39863-892E-450D-86EE-CEC1BECAF64B">
+                        
+                        <span class="secnum">1.1
+                           </span> Oracle Trace File Analyzer
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="quick-start-guide.html#GUID-EBFD7EEF-6B79-4030-A74C-5ADABEA3A883">
+                        
+                        <span class="secnum">1.2
+                           </span> Supported Environments
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="quick-start-guide.html#GUID-41689DF9-F81D-4C8C-992F-78CF48F9B6DF">
+                        
+                        <span class="secnum">1.3
+                           </span> Installing Oracle Trace File Analyzer on Linux or UNIX as root User in Daemon Mode
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="quick-start-guide.html#GUID-5E278850-32A1-4AE1-BF8E-A1F1D4278A70">
+                        
+                        <span class="secnum">1.4
+                           </span> Installing Oracle Trace File Analyzer on Linux or UNIX as Non-root User in Non-Daemon Mode
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="quick-start-guide.html#GUID-905DB23F-5082-4D9A-9604-BAD0307589C5">
+                        
+                        <span class="secnum">1.5
+                           </span> Installing Oracle Trace File Analyzer on Microsoft Windows
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="quick-start-guide.html#GUID-8385B703-AF11-4DA0-AF19-8472FA53CD0A">
+                        
+                        <span class="secnum">1.6
+                           </span> Installing Oracle Trace File Analyzer on Microsoft Windows in Non-Daemon Mode
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="quick-start-guide.html#GUID-CF8100E8-C6F9-4BB6-8089-B2F003035E32">
+                        
+                        <span class="secnum">1.7
+                           </span> Oracle Trace File Analyzer Key Directories
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="quick-start-guide.html#GUID-0C12F9ED-A5EF-4FED-8B71-05F4225362AB">
+                        
+                        <span class="secnum">1.8
+                           </span> Oracle Trace File Analyzer Command Interfaces
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="quick-start-guide.html#GUID-773A6978-424D-48D8-A214-E47E3D120454">
+                        
+                        <span class="secnum">1.9
+                           </span> Masking Sensitive Data
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="quick-start-guide.html#GUID-5EB34BD2-E1A1-418C-95D1-30323523331B">
+                        
+                        <span class="secnum">1.10
+                           </span> Securing Access to Oracle Trace File Analyzer
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="quick-start-guide.html#GUID-45CD3866-E315-42D2-B527-472526928A8C">
+                        
+                        <span class="secnum">1.11
+                           </span> Uninstalling Oracle Trace File Analyzer
+                     
+                        </a>
+                     
+                     
+                  </li>
+               </ul>
+               
+               
+            </li>
+            <li>
+               
+               <a href="automatic-diagnostic-collection.html#GUID-45A5F39E-B1A6-4F89-947D-EA9E8FBA7ED5">
+                  
+                  <span class="secnum">2
+                     </span> Automatic Diagnostic Collections
+               
+                  </a>
+               
+               
+               <ul>
+                  <li>
+                     
+                     <a href="automatic-diagnostic-collection.html#GUID-7F20FDA6-C06D-460D-991A-7F4F0EB1BDE7">
+                        
+                        <span class="secnum">2.1
+                           </span> Collecting Diagnostics Automatically
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="automatic-diagnostic-collection.html#GUID-43E119D1-5111-4721-83C6-4ED118E4308C">
+                        
+                        <span class="secnum">2.2
+                           </span> Configuring Email Notification Details
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="automatic-diagnostic-collection.html#GUID-8178FFC7-6AAF-49A1-82BF-F69AA78DB826">
+                        
+                        <span class="secnum">2.3
+                           </span> Collecting Problems Detected by Oracle Cluster Health Advisor
+                     
+                        </a>
+                     
+                     
+                  </li>
+               </ul>
+               
+               
+            </li>
+            <li>
+               
+               <a href="ondemand-diagnostic-collection.html#GUID-89D19AFB-0230-49AD-8C90-7B4E77A36174">
+                  
+                  <span class="secnum">3
+                     </span> On-demand Analysis and Diagnostic Collection
+               
+                  </a>
+               
+               
+               <ul>
+                  <li>
+                     
+                     <a href="ondemand-diagnostic-collection.html#GUID-53891145-A0B1-4AA3-A560-2CD3C9EE1065">
+                        
+                        <span class="secnum">3.1
+                           </span> Collecting Diagnostics and Analyzing Logs On-Demand
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="ondemand-diagnostic-collection.html#GUID-CA919197-728E-486B-B8B4-5865A18125C6">
+                        
+                        <span class="secnum">3.2
+                           </span> Viewing System and Cluster Summary
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="ondemand-diagnostic-collection.html#GUID-B35603EE-90AD-4E9C-AA18-DA565EA4DC4B">
+                        
+                        <span class="secnum">3.3
+                           </span> Investigating Logs for Errors
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="ondemand-diagnostic-collection.html#GUID-ECAB7936-8E48-4141-91F8-634DB19BE390">
+                        
+                        <span class="secnum">3.4
+                           </span> Analyzing Logs Using the Included Tools
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="ondemand-diagnostic-collection.html#GUID-34C415D3-D4E1-4AED-AF7A-E31CB92CD9D1">
+                        
+                        <span class="secnum">3.5
+                           </span> Searching Oracle Trace File Analyzer Metadata
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="ondemand-diagnostic-collection.html#GUID-F8381A7A-E2F7-442C-AED0-3FEEF4129125">
+                        
+                        <span class="secnum">3.6
+                           </span> Collecting Diagnostic Data and Using One Command Service Request Data Collections
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="ondemand-diagnostic-collection.html#GUID-FFAA01BE-6891-4C67-85B2-65D664F8B1CB">
+                        
+                        <span class="secnum">3.7
+                           </span> Uploading Collections to Oracle Support
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="changing-clusterware-trace-levels.html#GUID-940A4DD7-80E8-4DAA-9BAD-571D13428DFC">
+                        
+                        <span class="secnum">3.8
+                           </span> Changing Oracle Grid Infrastructure Trace Levels
+                     
+                        </a>
+                     
+                     
+                     <ul>
+                        <li>
+                           
+                           <a href="changing-clusterware-trace-levels.html#GUID-62A5DD88-ACAC-4F7F-B673-F1EAB5356313">
+                              
+                              <span class="secnum">3.8.1
+                                 </span> tfactl dbglevel
+                           
+                              </a>
+                           
+                           
+                        </li>
+                     </ul>
+                     
+                     
+                  </li>
+               </ul>
+               
+               
+            </li>
+            <li>
+               
+               <a href="rest-service.html#GUID-F4968CF4-AAD9-4D39-9D6E-C20EEC1AC80E">
+                  
+                  <span class="secnum">4
+                     </span> REST Service
+               
+                  </a>
+               
+               
+               <ul>
+                  <li>
+                     
+                     <a href="rest-service.html#GUID-4419C2E9-C8EE-4257-9FC2-49616256D45F">
+                        
+                        <span class="secnum">4.1
+                           </span> Configuring REST Service Using ORDS
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="rest-service.html#GUID-27372E0C-1C2E-4077-BFC5-70CC9394C5E6">
+                        
+                        <span class="secnum">4.2
+                           </span> Configuring REST Service Using Apache Tomcat
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="rest-service.html#GUID-DF0CF433-2410-4C1E-88FF-354D31114100">
+                        
+                        <span class="secnum">4.3
+                           </span> REST Service print API
+                     
+                        </a>
+                     
+                     
+                     <ul>
+                        <li>
+                           
+                           <a href="rest-service.html#GUID-473C2D3C-FE82-46CD-BFCE-ABA890D391B9">
+                              
+                              <span class="secnum">4.3.1
+                                 </span> print
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="rest-service.html#GUID-3EE9C59A-0D2D-416D-AEFD-5BD58F748C44">
+                              
+                              <span class="secnum">4.3.2
+                                 </span> hosts
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="rest-service.html#GUID-BA4490E3-47D5-46B1-A843-F7F4889F8B07">
+                              
+                              <span class="secnum">4.3.3
+                                 </span> actions
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="rest-service.html#GUID-C3AA311B-B123-4A27-88FD-8F58A56F8FB4">
+                              
+                              <span class="secnum">4.3.4
+                                 </span> repository
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="rest-service.html#GUID-8C2320A9-DBBC-4A3A-9964-B0A45B8AB6C5">
+                              
+                              <span class="secnum">4.3.5
+                                 </span> collections
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="rest-service.html#GUID-5AEB45E7-6EF0-43BF-8332-B51B46D2403A">
+                              
+                              <span class="secnum">4.3.6
+                                 </span> config
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="rest-service.html#GUID-8B5B0274-8CCC-4493-85B2-9085FA038904">
+                              
+                              <span class="secnum">4.3.7
+                                 </span> protocols
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="rest-service.html#GUID-FB64EE92-54AB-4C01-863B-C0160D5E9B04">
+                              
+                              <span class="secnum">4.3.8
+                                 </span> directories
+                           
+                              </a>
+                           
+                           
+                        </li>
+                     </ul>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="rest-service.html#GUID-8A737472-DAA9-44CD-881D-08D348ED191F">
+                        
+                        <span class="secnum">4.4
+                           </span> REST Service diagcollect API
+                     
+                        </a>
+                     
+                     
+                     <ul>
+                        <li>
+                           
+                           <a href="rest-service.html#GUID-DC9A4C14-CEB9-42DD-B74C-70C018D40DEC">
+                              
+                              <span class="secnum">4.4.1
+                                 </span> diagcollect
+                           
+                              </a>
+                           
+                           
+                        </li>
+                     </ul>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="rest-service.html#GUID-6C43785A-5858-467E-B79B-D37B25062AA1">
+                        
+                        <span class="secnum">4.5
+                           </span> REST Service download API
+                     
+                        </a>
+                     
+                     
+                     <ul>
+                        <li>
+                           
+                           <a href="rest-service.html#GUID-CE036B94-4BA0-4891-B88D-76A7AB90C5CD">
+                              
+                              <span class="secnum">4.5.1
+                                 </span> download
+                           
+                              </a>
+                           
+                           
+                        </li>
+                     </ul>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="rest-service.html#GUID-D4E97524-5FA6-4147-8FFC-F61FEE6E13F6">
+                        
+                        <span class="secnum">4.6
+                           </span> REST Service run API
+                     
+                        </a>
+                     
+                     
+                     <ul>
+                        <li>
+                           
+                           <a href="rest-service.html#GUID-D3596AE6-9311-45BF-AB94-5AB23A950EA4">
+                              
+                              <span class="secnum">4.6.1
+                                 </span> alertsummary
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="rest-service.html#GUID-9459EB19-A674-4212-A58B-97A20DBC9C4A">
+                              
+                              <span class="secnum">4.6.2
+                                 </span> calog
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="rest-service.html#GUID-50E79261-EE4D-4503-AE51-DEBD68828499">
+                              
+                              <span class="secnum">4.6.3
+                                 </span> changes
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="rest-service.html#GUID-B2F40379-E17C-4B67-87EE-6132AF01D11A">
+                              
+                              <span class="secnum">4.6.4
+                                 </span> events
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="rest-service.html#GUID-2598C37B-13F3-48C3-88F8-91AF50397217">
+                              
+                              <span class="secnum">4.6.5
+                                 </span> history
+                           
+                              </a>
+                           
+                           
+                        </li>
+                     </ul>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="rest-service.html#GUID-71E7EE8C-805E-4908-990C-90E9F73216BC">
+                        
+                        <span class="secnum">4.7
+                           </span> REST Service user API
+                     
+                        </a>
+                     
+                     
+                     <ul>
+                        <li>
+                           
+                           <a href="rest-service.html#GUID-F274985F-34A8-405A-83F1-6277D15E49B9">
+                              
+                              <span class="secnum">4.7.1
+                                 </span> add
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="rest-service.html#GUID-3BD43C80-EB4D-4155-A905-BD6BD18C02BA">
+                              
+                              <span class="secnum">4.7.2
+                                 </span> delete
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="rest-service.html#GUID-2549DB82-5D6A-4BD6-BE4D-47C3F69B9FDC">
+                              
+                              <span class="secnum">4.7.3
+                                 </span> update
+                           
+                              </a>
+                           
+                           
+                        </li>
+                     </ul>
+                     
+                     
+                  </li>
+               </ul>
+               
+               
+            </li>
+            <li>
+               
+               <a href="maintaining-tfa-latest-version.html#GUID-5F95AADF-4A65-428C-A9D9-B3015CDD6EE7">
+                  
+                  <span class="secnum">5
+                     </span> Maintaining Oracle Trace File Analyzer to the Latest Version
+               
+                  </a>
+               
+               
+            </li>
+            <li>
+               
+               <a href="performing-custom-collections.html#GUID-E4A2492E-A123-480A-B954-57898DBCE8BE">
+                  
+                  <span class="secnum">6
+                     </span> Performing Custom Collections
+               
+                  </a>
+               
+               
+               <ul>
+                  <li>
+                     
+                     <a href="performing-custom-collections.html#GUID-F7669F99-4930-4B81-9A3F-D9A47E17CDDB">
+                        
+                        <span class="secnum">6.1
+                           </span> Adjusting the Diagnostic Data Collection Period
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="performing-custom-collections.html#GUID-0EEA807B-5785-484E-ACF9-2C14291A0AB3">
+                        
+                        <span class="secnum">6.2
+                           </span> Collecting from Specific Nodes
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="performing-custom-collections.html#GUID-0FA3F135-C73E-444B-94FF-A2185D65E681">
+                        
+                        <span class="secnum">6.3
+                           </span> Collecting from Specific Components
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="performing-custom-collections.html#GUID-37F704DD-6A3E-4337-B089-4A21D30B978E">
+                        
+                        <span class="secnum">6.4
+                           </span> Collecting from Specific Directories
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="performing-custom-collections.html#GUID-8AF18492-233A-4DB6-B116-6889798B4594">
+                        
+                        <span class="secnum">6.5
+                           </span> Changing the Collection Name
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="performing-custom-collections.html#GUID-7ACBBD2D-3F93-439D-A71A-5A5D69AD7D02">
+                        
+                        <span class="secnum">6.6
+                           </span> Preventing Copying Zip Files and Trimming Files
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="performing-custom-collections.html#GUID-7CA0360B-9996-43D3-B334-81DD5C470ACE">
+                        
+                        <span class="secnum">6.7
+                           </span> Performing Silent Collection
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="performing-custom-collections.html#GUID-E97E09E7-E069-4162-BA2B-65738BE85E55">
+                        
+                        <span class="secnum">6.8
+                           </span> Preventing Collecting Core Files
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="performing-custom-collections.html#GUID-465A4E00-3A13-4FBA-8255-0AF98AF7B66E">
+                        
+                        <span class="secnum">6.9
+                           </span> Collecting Incident Packaging Service (IPS) Packages
+                     
+                        </a>
+                     
+                     
+                  </li>
+               </ul>
+               
+               
+            </li>
+            <li>
+               
+               <a href="managing-and-configuring-tfa.html#GUID-CBF85753-9DCC-48BC-AA83-5CA2982ED0EB">
+                  
+                  <span class="secnum">7
+                     </span> Managing and Configuring Oracle Trace File Analyzer
+               
+                  </a>
+               
+               
+               <ul>
+                  <li>
+                     
+                     <a href="managing-and-configuring-tfa.html#GUID-3ECCECA0-95B6-4AC4-AAAC-94D12A2EF60D">
+                        
+                        <span class="secnum">7.1
+                           </span> Querying Oracle Trace File Analyzer Status and Configuration
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="managing-and-configuring-tfa.html#GUID-C85C78B7-1270-4724-AA4E-ED3B7F98F419">
+                        
+                        <span class="secnum">7.2
+                           </span> Managing the Oracle Trace File Analyzer Daemon
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="managing-and-configuring-tfa.html#GUID-DC76E3C3-44B4-4806-960F-CE021A36EB26">
+                        
+                        <span class="secnum">7.3
+                           </span> Managing the Repository
+                     
+                        </a>
+                     
+                     
+                     <ul>
+                        <li>
+                           
+                           <a href="managing-and-configuring-tfa.html#GUID-204AF3AF-06F7-45D7-9238-98A47DAA064F">
+                              
+                              <span class="secnum">7.3.1
+                                 </span> Purging the Repository Automatically
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="managing-and-configuring-tfa.html#GUID-DA5147D6-CDEC-4ECB-9AFB-0A8C719A9DA4">
+                              
+                              <span class="secnum">7.3.2
+                                 </span> Purging the Repository Manually
+                           
+                              </a>
+                           
+                           
+                        </li>
+                     </ul>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="managing-and-configuring-tfa.html#GUID-FDAB1329-EE67-4374-8F42-776AA3A66439">
+                        
+                        <span class="secnum">7.4
+                           </span> Managing Collections
+                     
+                        </a>
+                     
+                     
+                     <ul>
+                        <li>
+                           
+                           <a href="managing-and-configuring-tfa.html#GUID-71C6289A-6448-4EBF-A745-D6D776DDFD2E">
+                              
+                              <span class="secnum">7.4.1
+                                 </span> Including Directories
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="managing-and-configuring-tfa.html#GUID-3DBE9FFE-E320-47B5-BB2D-1BCED88CEC78">
+                              
+                              <span class="secnum">7.4.2
+                                 </span> Managing the Size of Collections
+                           
+                              </a>
+                           
+                           
+                        </li>
+                     </ul>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="managing-and-configuring-tfa.html#GUID-F156BE7A-E282-41FA-9EAC-212F306CF0B6">
+                        
+                        <span class="secnum">7.5
+                           </span> Configuring the Host
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="managing-and-configuring-tfa.html#GUID-97DA0A64-A184-4DB2-9CB1-F3AA23F6EF78">
+                        
+                        <span class="secnum">7.6
+                           </span> Configuring the Ports
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="managing-and-configuring-tfa.html#GUID-653D5280-FD81-42D9-B8A3-23ADE71F9208">
+                        
+                        <span class="secnum">7.7
+                           </span> Configuring SSL and SSL Certificates
+                     
+                        </a>
+                     
+                     
+                     <ul>
+                        <li>
+                           
+                           <a href="managing-and-configuring-tfa.html#GUID-71883B8F-E270-4FCC-B2AD-60FB05BC3E2C">
+                              
+                              <span class="secnum">7.7.1
+                                 </span> Configuring SSL/TLS Protocols
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="managing-and-configuring-tfa.html#GUID-E7961A2C-523E-4875-B093-F5432D479276">
+                              
+                              <span class="secnum">7.7.2
+                                 </span> Configuring Self-Signed Certificates
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="managing-and-configuring-tfa.html#GUID-F2DFEB13-0E7F-4C2A-A261-EC8CEDB0CC5B">
+                              
+                              <span class="secnum">7.7.3
+                                 </span> Configuring CA-Signed Certificates
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="managing-and-configuring-tfa.html#GUID-79506100-B1B8-4FAA-AEA3-26CA9AFE02CB">
+                              
+                              <span class="secnum">7.7.4
+                                 </span> Configuring SSL Cipher Suite
+                           
+                              </a>
+                           
+                           
+                        </li>
+                     </ul>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="managing-and-configuring-tfa.html#GUID-CAFF8407-DA0C-4D69-A4A1-F61933BCA64E">
+                        
+                        <span class="secnum">7.8
+                           </span> Configuring Email Notification Details
+                     
+                        </a>
+                     
+                     
+                  </li>
+               </ul>
+               
+               
+            </li>
+            <li>
+               
+               <a href="managing-db-and-gi-diagnostic-data.html#GUID-996745FA-5ADE-4CCF-B703-88B1C88B1A8B">
+                  
+                  <span class="secnum">8
+                     </span> Managing Oracle Database and Oracle Grid Infrastructure Diagnostic Data
+               
+                  </a>
+               
+               
+               <ul>
+                  <li>
+                     
+                     <a href="managing-db-and-gi-diagnostic-data.html#GUID-60273FDF-F318-4BB7-BD8F-C74D64163FA0">
+                        
+                        <span class="secnum">8.1
+                           </span> Managing Automatic Diagnostic Repository Log and Trace Files
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="managing-db-and-gi-diagnostic-data.html#GUID-99EB0F3B-574F-48E7-975C-C3F948697441">
+                        
+                        <span class="secnum">8.2
+                           </span> Managing Disk Usage Snapshots
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="managing-db-and-gi-diagnostic-data.html#GUID-65D9412B-3BFB-46E7-81D5-F33115233869">
+                        
+                        <span class="secnum">8.3
+                           </span> Purging Oracle Database and Oracle Grid Infrastructure Logs
+                     
+                        </a>
+                     
+                     
+                  </li>
+               </ul>
+               
+               
+            </li>
+            <li>
+               
+               <a href="troubleshoot-tfa.html#GUID-169D2468-008B-4CE1-AB8E-1BA2A6233360">
+                  
+                  <span class="secnum">9
+                     </span> Troubleshooting Oracle Trace File Analyzer
+               
+                  </a>
+               
+               
+               <ul>
+                  <li>
+                     
+                     <a href="troubleshoot-tfa.html#GUID-AEEC5C9E-00F1-44B7-B39F-76E836AFC10F">
+                        
+                        <span class="secnum">9.1
+                           </span> Cluster Nodes are Not Showing As One Cluster When Viewed by Running the tfactl status Command
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="troubleshoot-tfa.html#GUID-1CEA6749-950F-4699-8B05-E08CED8E5104">
+                        
+                        <span class="secnum">9.2
+                           </span> Oracle Trace File Analyzer is Not Starting and the init.tfa script is Missing After Reboot
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="troubleshoot-tfa.html#GUID-575CF468-9849-401A-93E1-B61609557821">
+                        
+                        <span class="secnum">9.3
+                           </span> Error Message Similar to "Can't locate **** in @inc (@inc contains:....)"
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="troubleshoot-tfa.html#GUID-4621EDF3-C29B-4F70-AAFF-569228D1D069">
+                        
+                        <span class="secnum">9.4
+                           </span> Non-Release Update Revisions (RURs) Oracle Trace File Analyzer Patching Fails on Remote Nodes
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="troubleshoot-tfa.html#GUID-6CA1C30A-99F9-4117-A715-10CFDAB58FE0">
+                        
+                        <span class="secnum">9.5
+                           </span> Non-Root Access is Not Enabled After Installation
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="troubleshoot-tfa.html#GUID-B418133C-B6E0-42E7-84A7-9ACE927C5397">
+                        
+                        <span class="secnum">9.6
+                           </span> TFA_HOME and Repository Locations are Moved After Patching or Upgrade
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="troubleshoot-tfa.html#GUID-FA9BDA67-7B72-4B55-9546-B1416B8E2118">
+                        
+                        <span class="secnum">9.7
+                           </span> Oracle Trace File Analyzer Fails with TFA-00103 After Applying the July 2015 Release Update Revision (RUR) or Later
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="troubleshoot-tfa.html#GUID-11964D53-74C9-4754-9E80-9DB22557FF4E">
+                        
+                        <span class="secnum">9.8
+                           </span> OSWatcher Parameters are Different After a Reboot or Otherwise Unexpectedly Different
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="troubleshoot-tfa.html#GUID-096DC900-876A-4296-98A4-C0D529B8F509">
+                        
+                        <span class="secnum">9.9
+                           </span> Oracle Trace File Analyzer Installation or Oracle Trace File Analyzer Discovery (tfactl rediscover) Fails on Linux 7
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="troubleshoot-tfa.html#GUID-6DC02AEF-9E5A-4A38-800F-B8A0DBF63C5F">
+                        
+                        <span class="secnum">9.10
+                           </span> OSWatcher Analyzer Fails When OSWatcher is Not Running from the TFA_HOME
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="troubleshoot-tfa.html#GUID-BCB1B1BE-9CA4-4386-9575-E2889BFC6E1E">
+                        
+                        <span class="secnum">9.11
+                           </span> Oracle Trace File Analyzer Fails to Start with com.sleepycat.je.EnvironmentLockedException Java Exception
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="troubleshoot-tfa.html#GUID-F4D7E8C9-ABA6-4714-995D-441273E86F92">
+                        
+                        <span class="secnum">9.12
+                           </span> Oracle Trace File Analyzer Startup Fails When Solution-Soft Time Machine Software is Installed, but Not Running on the System
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="troubleshoot-tfa.html#GUID-231641DA-CD76-4D44-BD67-926B04EC0BD7">
+                        
+                        <span class="secnum">9.13
+                           </span> Non-privileged User is Not Able to Run tfactl Commands?
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="troubleshoot-tfa.html#GUID-A2841FB7-78D0-4EFD-9D56-F2551878E577">
+                        
+                        <span class="secnum">9.14
+                           </span> Oracle Trace File Analyzer Daemon is Not Starting or Not Running?
+                     
+                        </a>
+                     
+                     
+                  </li>
+               </ul>
+               
+               
+            </li>
+            <li>
+               
+               <a href="tfa-command-reference.html#GUID-C8230C20-6A23-4F41-9966-19CB6035AB6F">
+                  
+                  <span class="secnum">A
+                     </span> Oracle Trace File Analyzer Installer, Command-Line and Shell Options
+               
+                  </a>
+               
+               
+               <ul>
+                  <li>
+                     
+                     <a href="install-tfa-linux.html#GUID-F57C15E1-B82A-42A1-B064-B6C86639799F">
+                        
+                        <span class="secnum">A.1
+                           </span> Installing Oracle Trace File Analyzer
+                     
+                        </a>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="running-administration-commands.html#GUID-2178AB8E-FEAE-43EA-9878-FD646DD67484">
+                        
+                        <span class="secnum">A.2
+                           </span> Running Administration Commands
+                     
+                        </a>
+                     
+                     
+                     <ul>
+                        <li>
+                           
+                           <a href="running-administration-commands.html#GUID-AA2A2AAA-04B4-441F-B27A-9312E7A07993">
+                              
+                              <span class="secnum">A.2.1
+                                 </span> tfactl access
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-administration-commands.html#GUID-7579FC0C-1B2C-4076-8EA5-345CE6AC854F">
+                              
+                              <span class="secnum">A.2.2
+                                 </span> tfactl availability
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-administration-commands.html#GUID-6A26DC69-861E-474F-B6C6-6306C2B64716">
+                              
+                              <span class="secnum">A.2.3
+                                 </span> tfactl diagnosetfa
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-administration-commands.html#GUID-C2CED5A0-2BEB-4EE4-AA21-6EEF59487A8D">
+                              
+                              <span class="secnum">A.2.4
+                                 </span> tfactl disable
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-administration-commands.html#GUID-84A69622-517D-479C-8BA3-6FD00D91FE59">
+                              
+                              <span class="secnum">A.2.5
+                                 </span> tfactl enable
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-administration-commands.html#GUID-54F0796B-ACEB-4398-85F8-E7E794C3E4B8">
+                              
+                              <span class="secnum">A.2.6
+                                 </span> tfactl host
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-administration-commands.html#GUID-D590CA18-27A9-4FE7-A921-A10587DD5C20">
+                              
+                              <span class="secnum">A.2.7
+                                 </span> tfactl print
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-administration-commands.html#GUID-8755EF2B-A037-4FB4-9376-F91BAF480101">
+                              
+                              <span class="secnum">A.2.8
+                                 </span> tfactl rest
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-administration-commands.html#GUID-73028EA0-D2CA-4DAD-B2D0-41FC57329CF6">
+                              
+                              <span class="secnum">A.2.9
+                                 </span> tfactl restrictprotocol
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-administration-commands.html#GUID-B35F5CFD-F9F0-4678-B2AD-91C5898540A2">
+                              
+                              <span class="secnum">A.2.10
+                                 </span> tfactl sendmail
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-administration-commands.html#GUID-59B56691-8FD5-4130-A838-8E1AE2E8BB9C">
+                              
+                              <span class="secnum">A.2.11
+                                 </span> tfactl set
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-administration-commands.html#GUID-3F77B9DB-07DA-419B-93E3-15C125645282">
+                              
+                              <span class="secnum">A.2.12
+                                 </span> tfactl setupmos
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-administration-commands.html#GUID-BC6327D2-1E4F-4BA4-BD67-9D84060BC8A6">
+                              
+                              <span class="secnum">A.2.13
+                                 </span> tfactl start
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-administration-commands.html#GUID-0D19CE50-689E-4F5F-B469-D58C104EDF7F">
+                              
+                              <span class="secnum">A.2.14
+                                 </span> tfactl status
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-administration-commands.html#GUID-11DEC0D0-78FB-4009-936E-59DBB4E0212A">
+                              
+                              <span class="secnum">A.2.15
+                                 </span> tfactl stop
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-administration-commands.html#GUID-DFB900A9-0088-419F-AB8D-6889F78F6879">
+                              
+                              <span class="secnum">A.2.16
+                                 </span> tfactl syncnodes
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-administration-commands.html#GUID-0186603E-9CC3-4016-A191-76FAED99F859">
+                              
+                              <span class="secnum">A.2.17
+                                 </span> tfactl uninstall
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-administration-commands.html#GUID-6620DDE7-9C39-473C-B5BF-63E9E3BE2EAF">
+                              
+                              <span class="secnum">A.2.18
+                                 </span> tfactl upload
+                           
+                              </a>
+                           
+                           
+                        </li>
+                     </ul>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="running-summary-and-analysis-commands.html#GUID-D5E07BEB-14BF-45A1-B8FC-C03F187520F9">
+                        
+                        <span class="secnum">A.3
+                           </span> Running Summary and Analysis Commands
+                     
+                        </a>
+                     
+                     
+                     <ul>
+                        <li>
+                           
+                           <a href="running-summary-and-analysis-commands.html#GUID-F8D3E8E6-7C50-41E4-A9D8-F15C8E6839F8">
+                              
+                              <span class="secnum">A.3.1
+                                 </span> tfactl analyze
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-summary-and-analysis-commands.html#GUID-9518D0E2-6680-44E6-A713-52208C803F37">
+                              
+                              <span class="secnum">A.3.2
+                                 </span> tfactl changes
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-summary-and-analysis-commands.html#GUID-F090A904-B782-415A-8F2B-353507923868">
+                              
+                              <span class="secnum">A.3.3
+                                 </span> tfactl events
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-summary-and-analysis-commands.html#GUID-59B93A5F-81C1-4D86-9362-16692EC04BC3">
+                              
+                              <span class="secnum">A.3.4
+                                 </span> tfactl isa
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-summary-and-analysis-commands.html#GUID-656E8A6F-C191-4E8B-802C-07DD653640ED">
+                              
+                              <span class="secnum">A.3.5
+                                 </span> tfactl run
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-summary-and-analysis-commands.html#GUID-B148E96F-E284-497E-98A2-FF8C191525AB">
+                              
+                              <span class="secnum">A.3.6
+                                 </span> tfactl search
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-summary-and-analysis-commands.html#GUID-6017A94F-E65E-4121-B5B8-6D71EE48DCDD">
+                              
+                              <span class="secnum">A.3.7
+                                 </span> tfactl summary
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-summary-and-analysis-commands.html#GUID-8D580A82-BD24-4BD1-8A97-889FA95BDA1C">
+                              
+                              <span class="secnum">A.3.8
+                                 </span> tfactl toolstatus
+                           
+                              </a>
+                           
+                           
+                        </li>
+                     </ul>
+                     
+                     
+                  </li>
+                  <li>
+                     
+                     <a href="running-diagnostic-collection-commands.html#GUID-61835B71-6E93-412C-8943-94E65B92A2D2">
+                        
+                        <span class="secnum">A.4
+                           </span> Running Diagnostic Collection Commands
+                     
+                        </a>
+                     
+                     
+                     <ul>
+                        <li>
+                           
+                           <a href="running-diagnostic-collection-commands.html#GUID-DA976B58-6E86-4326-9937-2A463D657F2B">
+                              
+                              <span class="secnum">A.4.1
+                                 </span> tfactl collection
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-diagnostic-collection-commands.html#GUID-62A5DD88-ACAC-4F7F-B673-F1EAB5356313">
+                              
+                              <span class="secnum">A.4.2
+                                 </span> tfactl dbglevel
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-diagnostic-collection-commands.html#GUID-4A06751C-9081-4158-88CB-EFBC77A797A0">
+                              
+                              <span class="secnum">A.4.3
+                                 </span> tfactl diagcollect
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-diagnostic-collection-commands.html#GUID-0463FC76-ACF9-4BAD-B540-D33B8E663A29">
+                              
+                              <span class="secnum">A.4.4
+                                 </span> tfactl diagcollect -srdc
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-diagnostic-collection-commands.html#GUID-87FDED7C-80C8-4111-AB1C-4BEEFFDBA326">
+                              
+                              <span class="secnum">A.4.5
+                                 </span> tfactl directory
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-diagnostic-collection-commands.html#GUID-62B3A421-21D3-4AE5-B57E-E1B15420C5D7">
+                              
+                              <span class="secnum">A.4.6
+                                 </span> tfactl ips
+                           
+                              </a>
+                           
+                           
+                           <ul>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-3F7C3E4D-F118-4F8C-AAF7-6A2190D8FD3A">
+                                    
+                                    <span class="secnum">A.4.6.1
+                                       </span> tfactl ips ADD
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-2A60942A-B108-4BEF-8581-7DFB3266F2D4">
+                                    
+                                    <span class="secnum">A.4.6.2
+                                       </span> tfactl ips ADD FILE
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-D5A495FB-2BA1-4B9E-BE55-6C699908AAA1">
+                                    
+                                    <span class="secnum">A.4.6.3
+                                       </span> tfactl ips ADD NEW INCIDENTS
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-9D136B3C-6E6F-4AB9-AEB0-02707EC8CDAA">
+                                    
+                                    <span class="secnum">A.4.6.4
+                                       </span> tfactl ips CHECK REMOTE KEYS
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-042BFD44-7D45-4B28-8600-A9CF31090492">
+                                    
+                                    <span class="secnum">A.4.6.5
+                                       </span> tfactl ips COPY IN FILE
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-DB1BB16B-7B83-4084-84CE-A4F05F6BFB60">
+                                    
+                                    <span class="secnum">A.4.6.6
+                                       </span> tfactl ips COPY OUT FILE
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-4ED781D0-ADC1-49A9-A36D-B9B95EDBB860">
+                                    
+                                    <span class="secnum">A.4.6.7
+                                       </span> tfactl ips CREATE PACKAGE
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-90C4C356-A753-4868-A37C-ED58D4A548F5">
+                                    
+                                    <span class="secnum">A.4.6.8
+                                       </span> tfactl ips DELETE PACKAGE
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-C79D0D95-44C7-4D10-8363-BA22F928D02D">
+                                    
+                                    <span class="secnum">A.4.6.9
+                                       </span> tfactl ips FINALIZE PACKAGE
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-5E0928AE-71F5-4853-A90E-3B8AB4094B32">
+                                    
+                                    <span class="secnum">A.4.6.10
+                                       </span> tfactl ips GENERATE PACKAGE
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-5D2CF8B2-B79B-4788-85A3-D7E2D786890B">
+                                    
+                                    <span class="secnum">A.4.6.11
+                                       </span> tfactl ips GET MANIFEST
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-73A4A857-7D80-4126-AB54-00E5E753AFB7">
+                                    
+                                    <span class="secnum">A.4.6.12
+                                       </span> tfactl ips GET METADATA
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-D5333660-B539-40D7-8301-EBB8066EA82D">
+                                    
+                                    <span class="secnum">A.4.6.13
+                                       </span> tfactl ips GET REMOTE KEYS
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-F97098AB-D9E5-44EC-8B30-7968CC167FBA">
+                                    
+                                    <span class="secnum">A.4.6.14
+                                       </span> tfactl ips PACK
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-704AC2F8-36C3-4E4E-A542-1F2271C13D8B">
+                                    
+                                    <span class="secnum">A.4.6.15
+                                       </span> tfactl ips REMOVE
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-851B5D77-9BF2-4431-BAB8-DE57F64E14A5">
+                                    
+                                    <span class="secnum">A.4.6.16
+                                       </span> tfactl ips REMOVE FILE
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-D8CC97BD-E684-4617-A33D-F667F1FDEA9F">
+                                    
+                                    <span class="secnum">A.4.6.17
+                                       </span> tfactl ips SET CONFIGURATION
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-B78FC8E9-8FA8-419B-9C21-A6DA26414CC4">
+                                    
+                                    <span class="secnum">A.4.6.18
+                                       </span> tfactl ips SHOW CONFIGURATION
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-88077501-930F-4DF9-86B1-A3998BDFD9F1">
+                                    
+                                    <span class="secnum">A.4.6.19
+                                       </span> tfactl ips SHOW FILES 
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-62D71911-1BAE-4571-8E62-13F669FC0BC5">
+                                    
+                                    <span class="secnum">A.4.6.20
+                                       </span> tfactl ips SHOW INCIDENTS
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-44B3541D-2968-4631-AFAC-96E4CBD96DDA">
+                                    
+                                    <span class="secnum">A.4.6.21
+                                       </span> tfactl ips SHOW PROBLEMS
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-99EB6A33-19A7-4839-884D-12E77C4C216A">
+                                    
+                                    <span class="secnum">A.4.6.22
+                                       </span> tfactl ips SHOW PACKAGE
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-DF2CC163-6B62-4EC5-AA8F-8476753F70F2">
+                                    
+                                    <span class="secnum">A.4.6.23
+                                       </span> tfactl ips UNPACK FILE
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-AA8644D8-3DAB-4662-BFEF-FB77F24A00AD">
+                                    
+                                    <span class="secnum">A.4.6.24
+                                       </span> tfactl ips UNPACK PACKAGE
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <a href="running-diagnostic-collection-commands.html#GUID-8B8A0F94-7748-49E1-847A-0E92C1075F22">
+                                    
+                                    <span class="secnum">A.4.6.25
+                                       </span> tfactl ips USE REMOTE KEYS
+                                 
+                                    </a>
+                                 
+                                 
+                              </li>
+                           </ul>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-diagnostic-collection-commands.html#GUID-07EFE012-6954-4C77-9B8E-E83CA8A7E80A">
+                              
+                              <span class="secnum">A.4.7
+                                 </span> tfactl managelogs
+                           
+                              </a>
+                           
+                           
+                        </li>
+                        <li>
+                           
+                           <a href="running-diagnostic-collection-commands.html#GUID-47188A6D-FC60-4E05-A62C-A60F741ABBA0">
+                              
+                              <span class="secnum">A.4.8
+                                 </span> tfactl purge
+                           
+                              </a>
+                           
+                           
+                        </li>
+                     </ul>
+                     
+                     
+                  </li>
+               </ul>
+               
+               
+            </li>
+            <li>
+               
+               <a href="book-index.html">Index
+                  </a>
+               
+               
+            </li>
+         </ul>
+         
+         
+      </article>
+      
+      
+   </body>
+</html>

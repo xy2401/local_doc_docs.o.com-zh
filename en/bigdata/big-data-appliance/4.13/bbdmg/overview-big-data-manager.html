@@ -1,0 +1,169 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="Oracle Big Data Manager makes it easy to copy data between data sources.">
+      <meta name="description" content="Oracle Big Data Manager makes it easy to copy data between data sources.">
+      <title>Overview of Oracle Big Data Manager</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="Oracle Big Data Manager User’s Guide ">
+      <meta property="og:description" content="Oracle Big Data Manager makes it easy to copy data between data sources.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="Oracle Big Data Manager User’s Guide For Oracle Big Data Appliance">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-big-data-manager-users-guide-oracle-big-data-appliance.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-13T16:17:47-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2018">
+      <meta name="dcterms.category" content="bigdata">
+      <meta name="dcterms.identifier" content="E98480-01">
+      
+      <meta name="dcterms.product" content="en/bigdata/big-data-appliance/4.13">
+      
+      <link rel="prev" href="index.html" title="Previous" type="text/html">
+      <link rel="next" href="getting-started-oracle-big-data-manager.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"bigdata","element_name":"Big Data","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"not-applicable","element_name":"Not applicable","display_in_url":false},"product":{"short_name":"big-data-appliance","element_name":"Big Data Appliance","display_in_url":true},"release":{"short_name":"4.13","element_name":"Release 4.13","display_in_url":true}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle Big Data Manager User's Guide (for Oracle Big Data Appliance)">
+    <meta name="dcterms.isVersionOf" content="BBDMG">
+    <meta name="dcterms.release" content="Release 4.13">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="index.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="getting-started-oracle-big-data-manager.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">Oracle Big Data Manager User’s Guide </span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Overview of Oracle Big Data Manager</li>
+            </ol>
+            <a id="GUID-7B35F6C0-1EB9-4156-B8F9-304D8EAC4C41" name="GUID-7B35F6C0-1EB9-4156-B8F9-304D8EAC4C41"></a>
+            
+            <h2 id="BBDMG-GUID-7B35F6C0-1EB9-4156-B8F9-304D8EAC4C41" class="sect2"><span class="enumeration_chapter">1 </span>Overview of Oracle Big Data Manager
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>Oracle Big Data Manager makes it easy to copy data between data sources.</p>
+               <div class="section">
+                  <p class="subhead1" id="GUID-7B35F6C0-1EB9-4156-B8F9-304D8EAC4C41__GUID-408DC864-4505-4C7D-A665-E7BA9CE93F69">What is Oracle Big Data Manager?</p>
+                  <p>Oracle Big Data Manager is a browser-based tool that gives you broad capabilities to manage data across your enterprise. You can use it to connect to and interconnect a range of supported Oracle and non-Oracle data storage providers, including Oracle Database, Oracle Object Store, MySQL, as well as Hadoop, S3, and GitHub. After you register storage providers with Big Data Manager, you can preview data and (depending upon the accessibility of each storage provider) compare, copy, and move data between them. With a Hadoop storage provider, you can also move data internally within HDFS, do data import/export and analytics with Apache Zeppelin, and import data into Hive tables. You can also upload data from your local computer to a selected storage provider. </p>
+                  <p>Oracle Big Data Manager provides several methods for data transfer. You can use the console, which includes drag and drop data selection. Python and Java SDKs are available for building data management scripts and applications.  There is also CLI for creating and administering data management jobs and tools for monitoring job status.</p>
+                  <p>The Oracle Big Data Manager administrator can create other user accounts and assign roles to those accounts. </p>
+               </div>
+               <!-- class="section" -->
+               <div class="section">
+                  <p class="subhead1" id="GUID-7B35F6C0-1EB9-4156-B8F9-304D8EAC4C41__GUID-7DD4321F-1325-49C8-9385-06B08F3DFFCF">Feature Summary</p>
+                  <p>The full list of Oracle Big Data Manager features is as follows:</p>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p>The Oracle Big Data Manager console, accessible through a browser-based GUI.</p>
+                     </li>
+                     <li>
+                        <p>Graphical tools for:</p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>Comparing, copying, and moving data between storage providers.</p>
+                           </li>
+                           <li>
+                              <p>Uploading files, extracting data from ZIP archives, and browsing data in Oracle Database and MySQL database.</p>
+                           </li>
+                           <li>
+                              <p>Scheduling, managing, and monitoring copy, move, and compare jobs.</p>
+                           </li>
+                           <li>
+                              <p>Importing data into Apache Hive.</p>
+                           </li>
+                           <li>
+                              <p>Importing and exporting Apache Zeppelin notes; and creating and running notes.</p>
+                           </li>
+                           <li>
+                              <p>Managing storage providers, users, and roles.</p>
+                           </li>
+                           <li>
+                              <p>Monitoring the health of the cluster and the services running on it.</p>
+                           </li>
+                           <li>
+                              <p>Processing and analyzing data via Apache Zeppelin notes.</p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p>The <code class="codeph">bdm-cli</code> utility, for copying data and managing copy jobs from the command line.
+                        </p>
+                     </li>
+                     <li>
+                        <p>Python and Java SDKs, for integrating Oracle Big Data Manager operations into applications</p>
+                     </li>
+                  </ul>
+               </div>
+               <!-- class="section" -->
+               <div class="section">
+                  <p class="subhead1" id="GUID-7B35F6C0-1EB9-4156-B8F9-304D8EAC4C41__GUID-11BFAA24-BAFC-435B-8568-C5DCD8A8988E">Supported Storage Providers</p>
+                  <p> Oracle Big Data Manager supports the following storage providers, although not all tasks are supported in every provider:</p>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p>Hadoop Distributed File System (HDFS)</p>
+                     </li>
+                     <li>
+                        <p>Oracle Cloud Infrastructure Object Storage Classic</p>
+                     </li>
+                     <li>
+                        <p>Amazon Simple Storage Service (S3)</p>
+                     </li>
+                     <li>
+                        <p>Github</p>
+                     </li>
+                     <li>
+                        <p>Oracle Database</p>
+                     </li>
+                     <li>
+                        <p>Apache Hive</p>
+                     </li>
+                     <li>
+                        <p>MySQL database</p>
+                     </li>
+                  </ul>
+               </div>
+               <!-- class="section" -->
+               <div class="section">
+                  <p class="subhead1" id="GUID-7B35F6C0-1EB9-4156-B8F9-304D8EAC4C41__GUID-AADD284D-03C1-46E3-A701-3D100068D7A9">How is Oracle Big Data Manager Installed and Configured?</p>
+                  <p>Oracle Big Data Manager is installed automatically by the Mammoth installation of the Oracle Big Data Appliance software release. By default, it is installed on the same node where Cloudera Configuration Manager runs (usually node 3). No manual configuration is needed except to register storage providers. </p>
+                  <p>The default port is 8890. The default password for the administrative account is the same as the Configuration Manager password. These are specified by the <code class="codeph">BDP_PWD</code> and <code class="codeph">BDM_PORT</code> parameters in the <code class="codeph">&lt;<span class="codeinlineitalic">cluster name</span>&gt;-config.json</code> file. This file is one of the outputs generated when you use the Oracle Big Data Appliance Configuration Generation Utility to define your cluster and rack configuration. 
+                  </p>
+                  <div class="infoboxnotealso" id="GUID-7B35F6C0-1EB9-4156-B8F9-304D8EAC4C41__GUID-2A037B05-6542-42E3-9722-FA3BB60A8DA9">
+                     <p class="notep1">See Also:</p>The chapter <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/bigdata/big-data-appliance/4.13/bbdmg&amp;id=BIGOG-GUID-21E52539-3A77-4BB5-9CC9-429B5140609A" target="_blank">Using the Oracle Big Data Appliance Configuration Utility </a> in the Oracle Big Data Appliance Owner’s Guide describes <code class="codeph">&lt;<span class="codeinlineitalic">cluster name</span>&gt;-config.json</code> , which contains the Mammoth installation parameters.
+                  </div>
+                  <div class="infoboxnote" id="GUID-7B35F6C0-1EB9-4156-B8F9-304D8EAC4C41__GUID-9339CC9B-4EE3-473A-B4F8-D764D322DEBF">
+                     <p class="notep1">Note:</p>Oracle Big Data Manager now supports AD Kerberos. It also supports MIT Kerberos with KDCs that are internal or external to the cluster. 
+                  </div>
+               </div>
+               <!-- class="section" -->
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

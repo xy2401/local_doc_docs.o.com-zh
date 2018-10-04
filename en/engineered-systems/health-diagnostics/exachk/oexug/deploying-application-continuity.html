@@ -1,0 +1,386 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="Application Continuity Checking for Application Continuity allows you to deploy Application Continuity easily and transparently.">
+      <meta name="description" content="Application Continuity Checking for Application Continuity allows you to deploy Application Continuity easily and transparently.">
+      <title>Using Oracle ORAchk to Confirm System Readiness for Implementing Application Continuity</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide">
+      <meta property="og:description" content="Application Continuity Checking for Application Continuity allows you to deploy Application Continuity easily and transparently.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-orachk-and-exachk-users-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:43:23-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2016, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E83827-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/exachk">
+      
+      <link rel="prev" href="auto-start-from-install.html" title="Previous" type="text/html">
+      <link rel="next" href="oracle-iam-health-checks.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"exachk","element_name":"EXAchk","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® ORAchk and EXAchk User's Guide">
+    <meta name="dcterms.isVersionOf" content="OEXUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="auto-start-from-install.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="oracle-iam-health-checks.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="oracle-orachk-specific-features-and-tasks.html" property="item" typeof="WebPage"><span property="name">Oracle ORAchk Specific Features and Tasks</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Using Oracle ORAchk to Confirm System Readiness for Implementing Application Continuity</li>
+            </ol>
+            <a id="GUID-0FCE492F-4B50-4A98-822E-5FA121AB26CA" name="GUID-0FCE492F-4B50-4A98-822E-5FA121AB26CA"></a>
+            
+            <h2 id="OEXUG-GUID-0FCE492F-4B50-4A98-822E-5FA121AB26CA" class="sect2"><span class="enumeration_section">2.3 </span>Using Oracle ORAchk to Confirm System Readiness for Implementing Application Continuity
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>Application Continuity Checking for Application Continuity allows you to deploy Application Continuity easily and transparently.</p>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="deploying-application-continuity.html#GUID-D9EA7E2A-A1D8-4D26-B2AC-AB9B9DACB75E">Overview of Application Continuity</a><br></li>
+                  <li class="ulchildlink"><a href="deploying-application-continuity.html#GUID-B4F7ED0A-2119-4D7E-AF59-C69DDEC2B0C6">Checks for Application Continuity</a><br></li>
+               </ul>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="oracle-orachk-specific-features-and-tasks.html#GUID-778B432D-9B59-431B-9796-E947E4FC0969" title="This chapter describes the features specific to Oracle ORAchk and the tasks that you can perform using Oracle ORAchk.">Oracle ORAchk Specific Features and Tasks</a></p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="sect2"><a id="GUID-D9EA7E2A-A1D8-4D26-B2AC-AB9B9DACB75E" name="GUID-D9EA7E2A-A1D8-4D26-B2AC-AB9B9DACB75E"></a><h3 id="OEXUG-GUID-D9EA7E2A-A1D8-4D26-B2AC-AB9B9DACB75E" class="sect3"><span class="enumeration_section">2.3.1 </span>Overview of Application Continuity
+               </h3>
+               <div>
+                  <p></p>
+                  <p>Oracle ORAchk identifies any references to deprecated JDNVC concrete classes that need to be changed.</p>
+                  <p>Oracle ORAchk analyzes the database operations in the application and reports the level of protection. It also reports where and why the applications are not protected.</p>
+                  <p>Together, these checks can help you ensure that your application workload is covered by Oracle Application Continuity.</p>
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/exachk/oexug&amp;id=RACAD-GUID-C1EF6BDA-5F90-448F-A1E2-DC15AD5CFE75" target="_blank">Ensuring Application Continuity</a></li>
+                        <li><a href="http://docs.oracle.com/middleware/1213/wls/JDBCP/thirdparty.htm#JDBCP1028" target="_blank">http://docs.oracle.com/middleware/1213/wls/JDBCP/thirdparty.htm#JDBCP1028</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="deploying-application-continuity.html#GUID-0FCE492F-4B50-4A98-822E-5FA121AB26CA" title="Application Continuity Checking for Application Continuity allows you to deploy Application Continuity easily and transparently.">Using Oracle ORAchk to Confirm System Readiness for Implementing Application Continuity</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-B4F7ED0A-2119-4D7E-AF59-C69DDEC2B0C6" name="GUID-B4F7ED0A-2119-4D7E-AF59-C69DDEC2B0C6"></a><h3 id="OEXUG-GUID-B4F7ED0A-2119-4D7E-AF59-C69DDEC2B0C6" class="sect3"><span class="enumeration_section">2.3.2 </span>Checks for Application Continuity
+               </h3>
+               <div>
+                  <p></p>
+                  <div class="section">
+                     <p class="subhead2" id="GUID-B4F7ED0A-2119-4D7E-AF59-C69DDEC2B0C6__GUID-75DD342A-5A47-443F-A5BA-53BF329F6D5A">Application Continuity Checking for Concrete Classes</p>
+                     <p>Determine whether Java applications use deprecated Oracle JDBC concrete classes.</p>
+                     <p>To use Application Continuity with Java, replace the deprecated Oracle JDBC concrete classes. For information about the deprecation of concrete classes including actions to take if an application uses them, see My Oracle Support Note 1364193.1.</p>
+                     <p>To know if the application is using concrete classes, use Application Continuity checking (called <code class="codeph">acchk</code> in Oracle ORAchk). There is no need to use 12<span class="italic">c</span> driver or database, or to have source code for concrete class checks. Verify the application in advance while planning for high availability for your application.
+                     </p>
+                     <p>Application Continuity is unable to replay transactions that use <code>oracle.sql</code> deprecated concrete classes of the&nbsp;form <code class="codeph">ARRAY</code>, <code class="codeph">BFILE</code>, <code class="codeph">BLOB</code>, <code class="codeph">CLOB</code>, <code class="codeph">NCLOB</code>, <code class="codeph">OPAQUE</code>, <code class="codeph">REF</code>, or <code class="codeph">STRUCT</code>&nbsp;as a variable type, a cast, the return type of a method, or calling a constructor.
+                     </p>
+                     <p>Modify them for Application Continuity to work with the application.</p>
+                     <div class="p">There are three values that control the Application Continuity checking for Oracle concrete classes. Set these values either on the command line, or through shell environment variables, or mixed. The values are as follows:
+                        <div class="tblformal" id="GUID-B4F7ED0A-2119-4D7E-AF59-C69DDEC2B0C6__GUID-9F16715A-C20F-4F2B-A3E0-57E655393C71">
+                           <p class="titleintable">Table 2-1 Application Continuity Checking for Concrete Classes</p>
+                           <table cellpadding="4" cellspacing="0" class="Formal" title="Application Continuity Checking for Concrete Classes" summary="This table lists and describes the command-line arguments and shell environment variables that control Application Continuity Checking." frame="hsides" border="1" rules="rows">
+                              <thead>
+                                 <tr align="left" valign="top">
+                                    <th align="left" valign="bottom" width="20%" id="d45351e153">Command-Line Argument</th>
+                                    <th align="left" valign="bottom" width="20%" id="d45351e155">Shell Environment Variable</th>
+                                    <th align="left" valign="bottom" width="20%" id="d45351e157">Usage</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="20%" id="d45351e161" headers="d45351e153 ">
+                                       <p><code class="codeph">&#x2013;asmhome jarfilename</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="20%" headers="d45351e161 d45351e155 ">
+                                       <p><code class="codeph">RAT_AC_ASMJAR</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="20%" headers="d45351e161 d45351e157 ">
+                                       <p>This must point to a version of <code>asm-all-5.0.3.jar</code> that you download from ASM Home Page.
+                                       </p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="20%" id="d45351e176" headers="d45351e153 ">
+                                       <p><code class="codeph">-javahome JDK8dirname</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="20%" headers="d45351e176 d45351e155 ">
+                                       <p><code class="codeph">RAT_JAVA_HOME</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="20%" headers="d45351e176 d45351e157 ">
+                                       <p>This must point to the <code>JAVA_HOME</code> directory for a JDK8 installation.
+                                       </p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td align="left" valign="top" width="20%" id="d45351e191" headers="d45351e153 ">
+                                       <p><code class="codeph">-appjar dirname</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="20%" headers="d45351e191 d45351e155 ">
+                                       <p><code class="codeph">RAT_AC_JARDIR</code></p>
+                                    </td>
+                                    <td align="left" valign="top" width="20%" headers="d45351e191 d45351e157 ">
+                                       <p>To analyze the application code for references to Oracle concrete classes, this must point to the parent directory name for the code. The program analyzes <code>.class</code> files, and recursively <code>.jar</code> files and directories. 
+                                       </p>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <!-- class="inftblhruleinformal" -->
+                     </div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-B4F7ED0A-2119-4D7E-AF59-C69DDEC2B0C6__GUID-68B8EE29-8A37-42F8-8E62-8F5251F4FC19">Example Application Continuity Concrete Class Checks Summary</p>
+                     <p>The following command checks the Application Continuity checking for Oracle concrete classes.</p><pre class="pre codeblock"><code>export RAT_AC_TRCDIR=<code>/u01/app/oracle/diag/rdbms/dbname/instance1/trace</code></code></pre><pre class="pre codeblock"><code>$ ./orachk -acchk -asmhome <code>/path/orachk/asm-5.0.3/lib/all/asm-all-5.0.3.jar</code> -javahome <code>/usr/lib/jvm/jre-1.8.0-openjdk.x86_64</code></code></pre><div class="p"><pre class="pre codeblock"><code>Outage Type              Status  Message
+
+Concrete class checks    Total : 19845 Passed : 19610 Warning : 0 
+                         Failed : 235 
+                         (Failed check count is one per file)
+
+                         FAILED	[oracle/jdbc/driver/ArrayDataResultSet]
+                                 [[CAST]desc= oracle/sql/STRUCT method 
+                                 name=getObject, lineno=1477]
+                                    
+                         FAILED	[oracle/jdbc/driver/ArrayDataResultSet]
+                                 [[CAST]desc= oracle/sql/NCLOB method 
+                                 name=getNClob, lineno=1776]
+                                    
+                         FAILED	[oracle/jdbc/driver/BfileAccessor]
+                                 [[Method]name=getBFILE,
+                                 desc=(I)Loracle/sql/BFILE;,
+                                 lineno=99]
+                                    
+                         FAILED	[oracle/jdbc/driver/BlobAccessor]
+                                 [[Method]name=getBLOB,
+                                 desc=(I)Loracle/sql/BLOB;,
+                                 lineno=129]
+                                    
+                         FAILED	[oracle/jdbc/driver/ClobAccessor]
+                                 [[Method]name=getCLOB_,
+                                 desc=(I[B)Loracle/sql/CLOB;,
+                                 lineno=230]
+                                    
+                         FAILED	[oracle/jdbc/driver/ClobAccessor]
+                                 [[Method] name=getCLOB,
+                                 desc=(I)Loracle/sql/CLOB;, 
+                                 lineno=226]</code></pre></div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-B4F7ED0A-2119-4D7E-AF59-C69DDEC2B0C6__GUID-2AAF3BC9-F364-49C4-8F18-E5184FED2921">Application Continuity Checking for the Protection Level Application Continuity is Providing Your Application</p>
+                     <p><span class="bold">Measure Coverage</span></p>
+                     <p>Destructive testing is a good thing to do. However, introducing failures is non-deterministic. The application can fail over in all the tests, and then in production a failure occurs elsewhere and unexpectedly some requests do not fail over.</p>
+                     <p>Using AC Check Coverage Analysis averts this situation by reporting in advance the percentage of requests that are fully protected by Application Continuity, and for the requests that are not fully protected, which they are and where. Use the coverage check before deployment, and the after application changes. Developers and management know how protected an application release is from failures of the underlying infrastructure. If there is a problem, then it can be fixed before the application is released or waived knowing the level of coverage.</p>
+                     <p>Executing the coverage check is rather like using <code class="codeph">SQL_TRACE</code>. First run the application in a representative test environment with Application Continuity trace turned on at the server side. The trace is collected in the standard database user trace directory in user trace files. Then, pass this directory as input to Oracle ORAchk to report the coverage for the application functions that were run. As this check uses Application Continuity, the database and client must be using 12<span class="italic">c</span>. The application need not necessarily released with Application Continuity. The check is to help you release.
+                     </p>
+                     <p>The following is a summary of the coverage analysis.</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>If a round trip is made to the database server and returns while Application Continuity’ capture is enabled during capture phase, then it is counted as a protected call.</p>
+                        </li>
+                        <li>
+                           <p>If a round trip is made to the database server while Application Continuity’ capture is disabled (not in a request, or following a restricted call or a disable replay API was called), then it is counted as an unprotected call.</p>
+                        </li>
+                        <li>
+                           <p>Round trips ignored by capture and replay are ignored in the protection-level statistics.</p>
+                           <p>At the end of processing each trace file, a level of protection for the calls sent to the database is computed.</p>
+                           <p>For each trace: <code class="codeph">PASS (&gt;= 75)</code>, <code class="codeph">WARNING (25 &lt;= value &lt;75)</code>, and <code class="codeph">FAIL (&lt; 25)</code></p>
+                        </li>
+                     </ul>
+                     <p><span class="bold">Running the Coverage Report</span></p>
+                     <ol>
+                        <li>
+                           <p>Turn on tracing at either a session level or database level.</p>
+                           <div class="p">To enable for a single application function, run as follows (put this statement in the callback or before <code class="codeph">beginRequest</code> so replay is not disabled by setting events):<pre class="pre codeblock"><code>alter session set events 'trace [progint_appcont_rdbms]';</code></pre></div>
+                           <div class="p">To enable for all sessions, run as follows:<pre class="pre codeblock"><code>alter system set event='trace[progint_appcont_rdbms]' scope = spfile;</code></pre></div>
+                        </li>
+                        <li>
+                           <p>Run through the application functions. To report on an application function, the application function must be run. The more application functions run, the better the information that the coverage analysis provides.</p>
+                        </li>
+                        <li>
+                           <p>Use Oracle ORAchk to analyze the collected database traces and report the level of protection, and where not protected, reports why a request is not protected.</p>
+                           <p>To control the Application Continuity checking for coverage, set the following four values through command line or shell environment variables (or mixed):</p>
+                           <div class="tblformal" id="GUID-B4F7ED0A-2119-4D7E-AF59-C69DDEC2B0C6__GUID-7E4BD005-6ED2-400C-9808-799B1506703A">
+                              <p class="titleintable">Table 2-2 Using Application Continuity Checking for Protection Level</p>
+                              <table cellpadding="4" cellspacing="0" class="Formal" title="Using Application Continuity Checking for Protection Level" summary="This table lists and describes the command-line arguments and shell environment variables that control Application Continuity Checking for protection level." frame="hsides" border="1" rules="rows">
+                                 <thead>
+                                    <tr align="left" valign="top">
+                                       <th align="left" valign="bottom" width="20%" id="d45351e306">Command-Line Argument</th>
+                                       <th align="left" valign="bottom" width="20%" id="d45351e308">Shell Environment Variable</th>
+                                       <th align="left" valign="bottom" width="20%" id="d45351e310">Usage</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr align="left" valign="top">
+                                       <td align="left" valign="top" width="20%" id="d45351e314" headers="d45351e306 ">
+                                          <p><code class="codeph">&#x2013;asmhome jarfilename</code></p>
+                                       </td>
+                                       <td align="left" valign="top" width="20%" headers="d45351e314 d45351e308 ">
+                                          <p><code class="codeph">RAT_AC_ASMJAR</code></p>
+                                       </td>
+                                       <td align="left" valign="top" width="20%" headers="d45351e314 d45351e310 ">
+                                          <p>This must point to a version of <code>asm-all-5.0.3.jar</code> that you download from ASM Home Page.
+                                          </p>
+                                       </td>
+                                    </tr>
+                                    <tr align="left" valign="top">
+                                       <td align="left" valign="top" width="20%" id="d45351e329" headers="d45351e306 ">
+                                          <p><code class="codeph">-javahome JDK8dirname</code></p>
+                                       </td>
+                                       <td align="left" valign="top" width="20%" headers="d45351e329 d45351e308 ">
+                                          <p><code class="codeph">RAT_JAVA_HOME</code></p>
+                                       </td>
+                                       <td align="left" valign="top" width="20%" headers="d45351e329 d45351e310 ">
+                                          <p>This must point to the <code>JAVA_HOME</code> directory for a JDK8 installation.
+                                          </p>
+                                       </td>
+                                    </tr>
+                                    <tr align="left" valign="top">
+                                       <td align="left" valign="top" width="20%" id="d45351e344" headers="d45351e306 ">
+                                          <p><code class="codeph">-apptrc dirname</code></p>
+                                       </td>
+                                       <td align="left" valign="top" width="20%" headers="d45351e344 d45351e308 ">
+                                          <p><code class="codeph">RAT_AC_TRCDIR</code></p>
+                                       </td>
+                                       <td align="left" valign="top" width="20%" headers="d45351e344 d45351e310 ">
+                                          <div class="p">To analyze the coverage, specify a directory name that contains one or more database server trace files. The trace directory is generally,<pre class="pre codeblock"><code>$ORACLE_BASE/diag/rdbms/{DB_UNIQUE_NAME}/$ORACLE_SID/trace</code></pre></div>
+                                       </td>
+                                    </tr>
+                                    <tr align="left" valign="top">
+                                       <td align="left" valign="top" width="20%" id="d45351e358" headers="d45351e306 ">
+                                          <p>NONE</p>
+                                       </td>
+                                       <td align="left" valign="top" width="20%" headers="d45351e358 d45351e308 ">
+                                          <p><code class="codeph">RAT_ACTRACEFILE_WINDOW</code></p>
+                                       </td>
+                                       <td align="left" valign="top" width="20%" headers="d45351e358 d45351e310 ">
+                                          <p>When scanning the trace directory, this optional value limits the analysis to scanning to files created in the most recent specified number of days</p>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </div>
+                           <!-- class="inftblhruleinformal" -->
+                        </li>
+                     </ol>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-B4F7ED0A-2119-4D7E-AF59-C69DDEC2B0C6__GUID-B761DE7E-6CAF-4B93-8658-2F87FED1F2D9">Example Coverage Report</p><pre class="pre codeblock"><code>$ ./orachk -asmhome /tmp/asm-all-5.0.3.jar -javahome /tmp/jdk1.8.0_40 -apptrc $ORACLE_BASE/diag/rdbms/$ORACLE_SID/trace 3</code></pre><p><span class="bold">Reading the Coverage Report</span></p>
+                     <p>The coverage check produces a directory named <code>orachk_<span class="variable" translate="no">uname</span>_<span class="variable" translate="no">date</span>_<span class="variable" translate="no">time</span></code>. This report summaries coverage and lists trace files that have WARNINGS or FAIL status. To ensure all requests PASS (Coverage(%) = 100), check the PASS report,  <code>acchk_scorecard_pass.html</code> in the reports directory. To see all the details, look for <code>reports/acchk_scorecard_pass.html</code>  under the <code>outfile</code> subdirectory.
+                     </p>
+                     <p>The output includes the database service name, the module name (from <code class="codeph">v$session.program</code>, which can be set on the client side using the connection property on Java, for example, <code class="codeph">oracle.jdbc.v$session.program</code>), the <code class="codeph">ACTION</code> and <code class="codeph">CLIENT_ID</code>, which can be set using <code class="codeph">setClientInfo</code> with <code class="codeph">OCSID.ACTION</code> and <code class="codeph">OCSID.CLIENTID</code> respectively.
+                     </p>
+                     <div class="p"><span class="bold">Example output:  found in  <code>orachk_.....html#acchk_scorecard</code></span><pre class="pre codeblock"><code>Outage Type Status/Message
+
+Coverage
+checks      Total : 19845 Passed : 19610 Warning : 0
+            Failed : 235
+            (Failed check count is one per file)
+
+            [FAIL] Trace file name = SAMPLE_ora_1234.trc 
+            Row number = 2222
+            SERVICE NAME = (SAMPLE_WEB_SERVICE.OCS.QA)
+            MODULE NAME = (DEBIT)
+            ACTION NAME = null
+            CLIENT ID = null 
+            Coverage(%) = 50 
+            ProtectedCalls = 4 
+            UnProtectedCalls = 4
+					
+            [FAIL] Trace file name = SAMPLE_ora_5678.trc 
+            Row number = 7653
+            SERVICE NAME = (SAMPLE_WEB_SERVICE.OCS.QA)
+            MODULE NAME = (PAYMENTS)
+            ACTION NAME = null 
+            CLIENT ID = null 
+            Coverage(%) = 20 
+            ProtectedCalls = 1 
+            UnProtectedCalls = 4
+							
+            [FAIL] Trace file name = SAMPLE_ora_90123.trc
+            Row number = 15099
+            SERVICE NAME = (SAMPLE_WEB_SERVICE.OCS.QA)
+            MODULE NAME = (PAYMENTS)
+            ACTION NAME = null 
+            CLIENT ID = null 
+            Coverage(%) = 60 
+            ProtectedCalls = 3 
+            UnProtectedCalls = 2
+							
+            [FAIL] Trace file name = SAMPLE_ora_4747.trc
+            Row number = 789
+            SERVICE NAME = (SAMPLE_WEB_SERVICE.OCS.QA)
+            MODULE NAME = (ACCOUNT)
+            ACTION NAME = null 
+            CLIENT ID = null 
+            Coverage(%) = 50  
+            ProtectedCalls = 2 
+            UnProtectedCalls = 2</code></pre></div>
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="oracle-orachk-specific-command-line-options.html#GUID-8A4A3931-C3EC-4D13-AE93-1E190A94C081" title="List of Application Continuity command-line options.">Application Continuity Command-Line Options</a></li>
+                        <li><a href="https://support.oracle.com/rs?type=doc&amp;amp;id=1364193.1" target="_blank">https://support.oracle.com/rs?type=doc&amp;id=1364193.1</a></li>
+                        <li><a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/exachk/oexug&amp;id=asm_framework" target="_blank">ASM - Home Page</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="deploying-application-continuity.html#GUID-0FCE492F-4B50-4A98-822E-5FA121AB26CA" title="Application Continuity Checking for Application Continuity allows you to deploy Application Continuity easily and transparently.">Using Oracle ORAchk to Confirm System Readiness for Implementing Application Continuity</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Running scriptgen</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-04-13T10:24:54Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Development Kit User Guide, Classic Edition" />
+<meta name="dcterms.identifier" content="E59602-03" />
+<meta name="dcterms.isVersionOf" content="JCUGC" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="installer-components-and-data-flow.htm" title="Previous" type="text/html" />
+<link rel="Next" href="sending-and-receiving-apdus.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCUGC.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-DE1A3EE9-317E-4FED-8370-86A58B73DC7C"></a> <span id="PAGE" style="display:none;">110/161</span> <!-- End Header -->
+<a id="JCUGC259"></a><a id="JCUGC258"></a>
+<h1 id="JCUGC-GUID-DE1A3EE9-317E-4FED-8370-86A58B73DC7C" class="sect1">Running scriptgen</h1>
+<div>
+<div class="section">
+<p>The <code class="codeph">scriptgen</code> tool converts a package contained in a CAP file into a script file. The script file contains a sequence of APDUs in ASCII format suitable for another tool, such as <code class="codeph">apdutool</code>, to send to the CAD. The CAP file component order in the APDU script is identical to the order recommended by the <span class="italic">Virtual Machine Specification, Java Card Platform, Version 3.0.5, Classic Edition</span>. If you have a source release, you can localize data associated with the <code class="codeph">scriptgen</code> tool.</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Enter the following command to run the <code class="codeph">scriptgen</code> tool :</span>
+<div>
+<p><code class="codeph">scriptgen.bat [<span class="codeinlineitalic">options</span>] -hashfile <span class="codeinlineitalic">hash-file-path</span> <span class="codeinlineitalic">cap-file-path</span></code></p>
+<p>The <code class="codeph">scriptgen.bat</code> file is used to invoke <code class="codeph">scriptgen</code> and must be run from a working directory of <span class="italic">JC_CLASSIC_HOME</span><code class="codeph">\bin</code> in order for the code to execute properly. <a href="running-scriptgen.htm#GUID-DE1A3EE9-317E-4FED-8370-86A58B73DC7C__CCHIDDHI" title="Lists and describes the scriptgen command line options">Table 9-1</a> describes the options that can be used to invoke <code class="codeph">scriptgen</code>.</p>
+</div>
+</li>
+</ol>
+<div class="section">
+<div class="tblformal" id="GUID-DE1A3EE9-317E-4FED-8370-86A58B73DC7C__CCHIDDHI">
+<p class="titleintable">Table 9-1 scriptgen Command Line Options &nbsp;</p>
+<table class="cellalignment12" title="scriptgen Command Line Options &nbsp;" summary="Lists and describes the scriptgen command line options">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment29" id="d25774e81">Option</th>
+<th class="cellalignment14" id="d25774e84">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment32" id="d25774e89" headers="d25774e81">
+<p><code class="codeph">-help</code></p>
+</td>
+<td class="cellalignment17" headers="d25774e89 d25774e84">
+<p>Prints a help message and exits.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment32" id="d25774e97" headers="d25774e81">
+<p><span class="italic">cap-file-path</span></p>
+</td>
+<td class="cellalignment17" headers="d25774e97 d25774e84">
+<p>CAP file name including the full absolute path.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment32" id="d25774e105" headers="d25774e81">
+<p><code class="codeph">-hashfile</code> <span class="italic">hash-file-path</span></p>
+</td>
+<td class="cellalignment17" headers="d25774e105 d25774e84">
+<p>Fully qualified path and name of the verifier-generated file that contains the hashes for all of the components in the input CAP file.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment32" id="d25774e116" headers="d25774e81">
+<p><code class="codeph">-nobanner</code></p>
+</td>
+<td class="cellalignment17" headers="d25774e116 d25774e84">
+<p>Suppresses printing of the banner.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment32" id="d25774e124" headers="d25774e81">
+<p><code class="codeph">-nobeginend</code></p>
+</td>
+<td class="cellalignment17" headers="d25774e124 d25774e84">
+<p>Suppresses the output of the <a href="downloading-cap-files-and-creating-applets.htm#GUID-72B469DB-6DF3-4705-A716-D1DE0AFF53BB">CAP Begin</a> and <a href="downloading-cap-files-and-creating-applets.htm#GUID-CE2A5321-8B3A-4702-9AA5-6F30C240BB42">CAP End</a> APDU commands.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment32" id="d25774e140" headers="d25774e81">
+<p><code class="codeph">-o</code> <span class="italic">filename</span></p>
+</td>
+<td class="cellalignment17" headers="d25774e140 d25774e84">
+<p>Output filename (default is <code class="codeph">stdout</code>).</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment32" id="d25774e154" headers="d25774e81">
+<p><code class="codeph">-package</code> <span class="italic">package-name</span></p>
+</td>
+<td class="cellalignment17" headers="d25774e154 d25774e84">
+<p>The name of the package contained in the CAP file. If the CAP file contains components of multiple packages, you must use this option to specify which package to process.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment32" id="d25774e165" headers="d25774e81">
+<p><code class="codeph">-version</code></p>
+</td>
+<td class="cellalignment17" headers="d25774e165 d25774e84">
+<p>Prints the version number and exits.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" -->
+<div class="infobox-note" id="GUID-DE1A3EE9-317E-4FED-8370-86A58B73DC7C__GUID-534DA701-9C89-4AFA-BC86-C6B21D0BA469">
+<p class="notep1">Note:</p>
+<p>The <code class="codeph">apdutool</code> commands of <code class="codeph">powerup;</code> and <code class="codeph">powerdown;</code> are not included in the output from <code class="codeph">scriptgen</code>.</p>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="installer-components-and-data-flow.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="sending-and-receiving-apdus.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

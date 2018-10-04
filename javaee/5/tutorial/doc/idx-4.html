@@ -1,0 +1,464 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 17044-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title> - The Java EE 5 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2007-09-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnafd.html">4.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level2"><a href="bnagx.html">5.&nbsp;&nbsp;JavaServer Pages Technology</a></p>
+<p class="toc level2"><a href="bnajo.html">6.&nbsp;&nbsp;JavaServer Pages Documents</a></p>
+<p class="toc level2"><a href="bnakc.html">7.&nbsp;&nbsp;JavaServer Pages Standard Tag Library</a></p>
+<p class="toc level2"><a href="bnalj.html">8.&nbsp;&nbsp;Custom Tags in JSP Pages</a></p>
+<p class="toc level2"><a href="bnaon.html">9.&nbsp;&nbsp;Scripting in JSP Pages</a></p>
+<p class="toc level2"><a href="bnaph.html">10.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnaqz.html">11.&nbsp;&nbsp;Using JavaServer Faces Technology in JSP Pages</a></p>
+<p class="toc level2"><a href="bnatx.html">12.&nbsp;&nbsp;Developing with JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnavg.html">13.&nbsp;&nbsp;Creating Custom UI Components</a></p>
+<p class="toc level2"><a href="bnawo.html">14.&nbsp;&nbsp;Configuring JavaServer Faces Applications</a></p>
+<p class="toc level2"><a href="bnaxu.html">15.&nbsp;&nbsp;Internationalizing and Localizing Web Applications</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">16.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="bnazf.html">17.&nbsp;&nbsp;Binding between XML Schema and Java Classes</a></p>
+<p class="toc level2"><a href="bnbdv.html">18.&nbsp;&nbsp;Streaming API for XML</a></p>
+<p class="toc level2"><a href="bnbhf.html">19.&nbsp;&nbsp;SOAP with Attachments API for Java</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="bnbls.html">20.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="bnbnb.html">21.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="bnboc.html">22.&nbsp;&nbsp;Session Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">23.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;V&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">24.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="bnbrl.html">25.&nbsp;&nbsp;Persistence in the Web Tier</a></p>
+<p class="toc level2"><a href="bnbrs.html">26.&nbsp;&nbsp;Persistence in the EJB Tier</a></p>
+<p class="toc level2"><a href="bnbtg.html">27.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level1 tocsp"><a href="bnbwi.html">Part&nbsp;VI&nbsp;Services</a></p>
+<p class="toc level2"><a href="bnbwj.html">28.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bnbyk.html">29.&nbsp;&nbsp;Securing Java EE Applications</a></p>
+<p class="toc level2"><a href="bncas.html">30.&nbsp;&nbsp;Securing Web Applications</a></p>
+<p class="toc level2"><a href="bncdq.html">31.&nbsp;&nbsp;The Java Message Service API</a></p>
+<p class="toc level2"><a href="bncgv.html">32.&nbsp;&nbsp;Java EE Examples Using the JMS API</a></p>
+<p class="toc level2"><a href="bncih.html">33.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">34.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncjx.html">35.&nbsp;&nbsp;Connector Architecture</a></p>
+<p class="toc level1 tocsp"><a href="bnckn.html">Part&nbsp;VII&nbsp;Case Studies</a></p>
+<p class="toc level2"><a href="bncko.html">36.&nbsp;&nbsp;The Coffee Break Application</a></p>
+<p class="toc level2"><a href="bnclz.html">37.&nbsp;&nbsp;The Duke's Bank Application</a></p>
+<p class="toc level1 tocsp"><a href="gexbq.html">Part&nbsp;VIII&nbsp;Appendixes</a></p>
+<p class="toc level2"><a href="bncno.html">A.&nbsp;&nbsp;Java Encoding Schemes</a></p>
+<p class="toc level2"><a href="bncnt.html">B.&nbsp;&nbsp;About the Authors</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 5 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="../information/download.html">Download</a> | 
+<a href="./javaeetutorial5.pdf">PDF</a> | 
+<a href="../information/faq.html">FAQ</a> | 
+<a href="http://docs.oracle.com/javaee/support/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="idx-3.html"><img src="graphics/leftButton.gif" border="0" alt="Previous" title="Previous"></a>
+                 <a href="p1.html"><img src="graphics/upButton.gif" border="0" alt="Contents" title="Contents"></a>
+                 <a href="idx-5.html"><img src="graphics/rightButton.gif" border="0" alt="Next" title="Next"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             <h4>E</h4>
+<div class="indexdiv">
+<dl>
+<dd>EAR files, <a href="bnaby.html#indexterm-47">Packaging Applications</a></dd>
+</dl>
+<dl>
+<dd>ebXML<dl>
+<dd><a href="bnabs.html#indexterm-46">UDDI and ebXML Standard Formats</a></dd>
+<dd><a href="bnacj.html#indexterm-95">Java API for XML Registries</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>EIS<dl>
+<dd><a href="bncjx.html#indexterm-3095">Connector Architecture</a></dd>
+<dd><a href="bnckj.html#indexterm-3122">Common Client Interface</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>EIS tier, <a href="bnaay.html#indexterm-24">Enterprise Information System Tier</a><dl>
+<dd>security, <a href="bncal.html#indexterm-2689">Securing EIS Applications</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>EJB, security, <a href="bnbyl.html#indexterm-2580">Securing Enterprise Beans</a></dd>
+</dl>
+<dl>
+<dd>EJB containers, <a href="bnabo.html#indexterm-37">Container Types</a><dl>
+<dd>container-managed transactions, <a href="bncij.html#indexterm-3017">Container-Managed Transactions</a></dd>
+<dd>message-driven beans, <a href="bncgl.html#indexterm-2951">Using Message-Driven Beans to Receive Messages Asynchronously</a></dd>
+<dd><tt>onMessage</tt> method, invoking, <a href="bnbpo.html#indexterm-2148">The onMessage Method</a></dd>
+<dd>services<dl>
+<dd><a href="bnbls.html#indexterm-2003">Enterprise Beans</a></dd>
+<dd><a href="bnblt.html#indexterm-2006">Benefits of Enterprise Beans</a></dd>
+<dd><a href="bnbyl.html#indexterm-2582">Securing Enterprise Beans</a></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>EJB JAR files, <a href="bnbmp.html#indexterm-2054">The Contents of an Enterprise Bean</a><dl>
+<dd>portability, <a href="bnbmp.html#indexterm-2053">The Contents of an Enterprise Bean</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd><tt>EJBContext</tt> interface<dl>
+<dd><a href="bncij.html#indexterm-3034">Rolling Back a Container-Managed Transaction</a></dd>
+<dd><a href="bncij.html#indexterm-3044">Methods Not Allowed in Container-Managed Transactions</a></dd>
+<dd><a href="bnciy.html#indexterm-3064">Methods Not Allowed in Bean-Managed Transactions</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>end-to-end security, <a href="bnbwy.html#indexterm-2439">Message-Layer Security</a></dd>
+</dl>
+<dl>
+<dd>enterprise beans<dl>
+<dd><a href="bnaay.html#indexterm-23">Business Components</a></dd>
+<dd><a href="bnacj.html#indexterm-69">Enterprise JavaBeans Technology</a></dd>
+</dl>
+<dl>
+<dd><i>See also </i>Java EE components<dd>accessing, <a href="bnbmg.html#indexterm-2034">Defining Client Access with Interfaces</a></dd>
+<dd>business interfaces<dl>
+<dd><i>See </i>business interfaces</dd>
+</dl>
+business methods<dl>
+<dd><i>See </i>business methods</dd>
+</dl>
+classes, <a href="bnbmp.html#indexterm-2047">The Contents of an Enterprise Bean</a></dd>
+<dd>compiling, <a href="bnbnc.html#indexterm-2069">Compiling and Packaging the converter Example</a></dd>
+<dd>contents, <a href="bnbmp.html#indexterm-2046">The Contents of an Enterprise Bean</a></dd>
+<dd>defined, <a href="bnblt.html#indexterm-2005">What Is an Enterprise Bean?</a></dd>
+<dd>deployment, <a href="bnbmp.html#indexterm-2051">The Contents of an Enterprise Bean</a></dd>
+<dd>deployment descriptor security, <a href="bnbyl.html#indexterm-2656">Using Enterprise Bean Security Deployment Descriptor Elements</a></dd>
+<dd>distribution, <a href="bnbmg.html#indexterm-2040">Deciding on Remote or Local Access</a></dd>
+<dd>Duke&rsquo;s Bank<dl>
+<dd><a href="bncmb.html#indexterm-3150">Enterprise Beans</a></dd>
+<dd><a href="bncmb.html#indexterm-3168">Protecting the Enterprise Beans</a></dd>
+</dl>
+<dl>
+<dd>protecting, <a href="bncmb.html#indexterm-3161">Protecting the Enterprise Beans</a></dd>
+</dl>
+exceptions, <a href="bnbpj.html#indexterm-2134">Handling Exceptions</a></dd>
+<dd>implementor of business logic, <a href="bnaay.html#indexterm-22">Business Components</a></dd>
+<dd>interfaces<dl>
+<dd><a href="bnbmg.html#indexterm-2033">Defining Client Access with Interfaces</a></dd>
+<dd><a href="bnbmp.html#indexterm-2048">The Contents of an Enterprise Bean</a></dd>
+</dl>
+</dd>
+<dd>life cycles, <a href="bnbmt.html#indexterm-2055">The Life Cycles of Enterprise Beans</a></dd>
+<dd>local access, <a href="bnbmg.html#indexterm-2038">Local Clients</a></dd>
+<dd>message-driven beans.<dl>
+<dd><i>See </i>message-driven beans</dd>
+</dl>
+method permissions<dl>
+<dd>Duke&rsquo;s Bank, <a href="bncmb.html#indexterm-3165">Protecting the Enterprise Beans</a></dd>
+</dl>
+packaging, <a href="bnbnc.html#indexterm-2070">Compiling and Packaging the converter Example</a></dd>
+<dd>performance, <a href="bnbmg.html#indexterm-2041">Deciding on Remote or Local Access</a></dd>
+<dd>persistence, <a href="bnbrs.html#indexterm-2214">Persistence in the EJB Tier</a><dl>
+<dd><i>See </i>persistence</dd>
+</dl>
+protecting, <a href="bnbyl.html#indexterm-2581">Securing Enterprise Beans</a></dd>
+<dd>remote access, <a href="bnbmg.html#indexterm-2035">Remote Clients</a></dd>
+<dd>securing, <a href="bnbyl.html#indexterm-2578">Securing Enterprise Beans</a></dd>
+<dd>session beans<dl>
+<dd><i>See </i>session beans</dd>
+</dl>
+timer service, <a href="bnboy.html#indexterm-2116">Using the Timer Service</a></dd>
+<dd>types, <a href="bnblt.html#indexterm-2009">Types of Enterprise Beans</a></dd>
+<dd>web services<dl>
+<dd><a href="bnblt.html#indexterm-2011">Types of Enterprise Beans</a></dd>
+<dd><a href="bnbmg.html#indexterm-2044">Web Service Clients</a></dd>
+<dd><a href="bnbor.html#indexterm-2111">A Web Service Example: helloservice</a></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>Enterprise Information Systems, <i>See </i>EIS tier</dd>
+</dl>
+<dl>
+<dd>entities<dl>
+<dd>abstract schema names, <a href="bnbti.html#indexterm-2255">Select Statements</a></dd>
+<dd>collections, <a href="bnbuf.html#indexterm-2307">Identification Variables</a></dd>
+<dd>creating, <a href="bnbrm.html#indexterm-2208">Creating an Entity Class</a></dd>
+<dd>Duke&rsquo;s Bank, <a href="bncmb.html#indexterm-3155">Java Persistence Entities</a></dd>
+<dd>entity manager, <a href="bnbqw.html#indexterm-2190">The EntityManager Interface</a></dd>
+<dd>entity managers, <a href="bnbrm.html#indexterm-2209">Obtaining Access to an Entity Manager</a></dd>
+<dd>finding<dl>
+<dd><a href="bnbqw.html#indexterm-2193">Finding Entities Using the EntityManager</a></dd>
+<dd><a href="bnbrt.html#indexterm-2230">Finding Entities</a></dd>
+</dl>
+</dd>
+<dd>inheritance<dl>
+<dd><a href="bnbqa.html#indexterm-2187">Entity Inheritance</a></dd>
+<dd><a href="bnbsw.html#indexterm-2236">Entity Inheritance in the roster Application</a></dd>
+</dl>
+</dd>
+<dd>life cycle, <a href="bnbqw.html#indexterm-2194">Managing an Entity Instance&rsquo;s Life Cycle</a></dd>
+<dd>managing, <a href="bnbqw.html#indexterm-2188">Managing Entities</a></dd>
+<dd>persistent fields, <a href="bnbqa.html#indexterm-2155">Persistent Fields and Properties in Entity Classes</a></dd>
+<dd>persistent properties, <a href="bnbqa.html#indexterm-2156">Persistent Fields and Properties in Entity Classes</a></dd>
+<dd>persisting, <a href="bnbqw.html#indexterm-2195">Managing an Entity Instance&rsquo;s Life Cycle</a></dd>
+<dd>primary keys, <a href="bnbqa.html#indexterm-2158">Primary Keys in Entities</a></dd>
+<dd>relationships, <a href="bnbrt.html#indexterm-2231">Setting Entity Relationships</a></dd>
+<dd>removing<dl>
+<dd><a href="bnbqw.html#indexterm-2196">Managing an Entity Instance&rsquo;s Life Cycle</a></dd>
+<dd><a href="bnbrt.html#indexterm-2233">Removing Entities</a></dd>
+</dl>
+</dd>
+<dd>requirements, <a href="bnbqa.html#indexterm-2153">Requirements for Entity Classes</a></dd>
+<dd>synchronizing, <a href="bnbqw.html#indexterm-2197">Managing an Entity Instance&rsquo;s Life Cycle</a></dd>
+<dd>updating, <a href="bnbrm.html#indexterm-2210">Updating Data in the Database</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>entity relationships<dl>
+<dd>bidirectional, <a href="bnbqa.html#indexterm-2177">Bidirectional Relationships</a></dd>
+<dd>many-to-many, <a href="bnbqa.html#indexterm-2175">Multiplicity in Entity Relationships</a></dd>
+<dd>many-to-one, <a href="bnbqa.html#indexterm-2173">Multiplicity in Entity Relationships</a></dd>
+<dd>multiplicity, <a href="bnbqa.html#indexterm-2168">Multiplicity in Entity Relationships</a></dd>
+<dd>one-to-many, <a href="bnbqa.html#indexterm-2171">Multiplicity in Entity Relationships</a></dd>
+<dd>one-to-one, <a href="bnbqa.html#indexterm-2169">Multiplicity in Entity Relationships</a></dd>
+<dd>query language, <a href="bnbqa.html#indexterm-2183">Queries and Relationship Direction</a></dd>
+<dd>unidirectional, <a href="bnbqa.html#indexterm-2182">Unidirectional Relationships</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd><tt>equals</tt> method, <a href="bnbqa.html#indexterm-2165">Primary Key Classes</a></dd>
+</dl>
+<dl>
+<dd>Event, StAX example, <a href="bnbfl.html#indexterm-1878">Event Example</a></dd>
+</dl>
+<dl>
+<dd>event and listener model<dl>
+<dd><a href="bnaqd.html#indexterm-685">User Interface Component Model</a></dd>
+<dd><a href="bnaqd.html#indexterm-795">Event and Listener Model</a></dd>
+</dl>
+<dl>
+<dd>action events<dl>
+<dd><i>See </i>action events</dd>
+</dl>
+<tt>ActionEvent</tt> class<dl>
+<dd><a href="bnarf.html#indexterm-995">Using Text Components</a></dd>
+<dd><a href="bnarf.html#indexterm-1020">Rendering a Hyperlink with the outputLink Tag</a></dd>
+</dl>
+</dd>
+<dd>data model events, <a href="bnaqd.html#indexterm-806">Event and Listener Model</a></dd>
+<dd><tt>Event</tt> class, <a href="bnaqd.html#indexterm-799">Event and Listener Model</a></dd>
+<dd>event handlers<dl>
+<dd><a href="bnaqq.html#indexterm-857">Restore View Phase</a></dd>
+<dd><a href="bnaqq.html#indexterm-860">Restore View Phase</a></dd>
+<dd><a href="bnavt.html#indexterm-1488">Steps for Creating a Custom Component</a></dd>
+</dl>
+</dd>
+<dd>event listeners<dl>
+<dd>apply request values phase, <a href="bnaqq.html#indexterm-867">Apply Request Values Phase</a></dd>
+<dd>invoke application phase, <a href="bnaqq.html#indexterm-881">Invoke Application Phase</a></dd>
+<dd>JavaServer Faces UI, <a href="gentextid-10788.html#indexterm-654">JavaServer Faces Technology User Interface</a></dd>
+<dd>process validations phase, <a href="bnaqq.html#indexterm-872">Process Validations Phase</a></dd>
+<dd>update model values phase, <a href="bnaqq.html#indexterm-876">Update Model Values Phase</a></dd>
+</dl>
+handling events of custom UI components, <a href="bnawd.html#indexterm-1544">Handling Events for Custom Components</a></dd>
+<dd>implementing event listeners, <a href="bnaut.html#indexterm-1367">Implementing an Event Listener</a></dd>
+<dd><tt>Listener</tt> class<dl>
+<dd><a href="bnaqd.html#indexterm-800">Event and Listener Model</a></dd>
+<dd><a href="bnavb.html#indexterm-1421">Writing Backing Bean Methods</a></dd>
+</dl>
+</dd>
+<dd><tt>queueEvent</tt> method, <a href="bnavu.html#indexterm-1522">Performing Decoding</a></dd>
+<dd>value-change events<dl>
+<dd><i>See </i>value-change events</dd>
+</dl>
+<tt>ValueChangeEvent</tt> class, <a href="bnatn.html#indexterm-1260">Referencing a Method That Handles a Value-change Event</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>examples, <a href="gfiud.html#indexterm-132">Using the Tutorial Examples</a><dl>
+<dd><i>See </i>Coffee Break</dd>
+<dd><i>See </i>Duke&rsquo;s Bank</dd>
+<dd><i>See </i>Duke&rsquo;s Bookstore<dd>application clients, <a href="bnbnj.html#indexterm-2077">ConverterClient Source Code</a></dd>
+<dd>building, <a href="bnaan.html#indexterm-149">Building the Examples</a></dd>
+<dd>business interfaces, <a href="bnbnc.html#indexterm-2065">Coding the Business Interface</a></dd>
+<dd>classpath, <a href="bnbnc.html#indexterm-2072">Compiling and Packaging the converter Example Using Ant</a></dd>
+<dd>directory structure, <a href="gexap.html#indexterm-153">Tutorial Example Directory Structure</a></dd>
+<dd>Duke&rsquo;s Bookstore, JavaServer Faces technology version, <a href="bnara.html#indexterm-889">The Example JavaServer Faces Application</a></dd>
+<dd><tt>guessNumber</tt><dl>
+<dd><a href="bnapl.html#indexterm-662">Steps in the Development Process</a></dd>
+<dd><a href="bnaqq.html#indexterm-855">The Life Cycle of a JavaServer Faces Page</a></dd>
+</dl>
+</dd>
+<dd>JAXB, <a href="bnbah.html#indexterm-1768">JAXB Examples</a></dd>
+<dd>JMS<dl>
+<dd>asynchronous message consumption, <a href="bncfa.html#indexterm-2886">A Simple Example of Asynchronous Message Consumption</a></dd>
+<dd>browsing messages in a queue, <a href="bncfa.html#indexterm-2891">A Simple Example of Browsing Messages in a Queue</a></dd>
+<dd>durable subscriptions, <a href="bncfu.html#indexterm-2937">Creating Durable Subscriptions</a></dd>
+<dd>Java EE examples<dl>
+<dd><a href="bncgw.html#indexterm-2967">A Java EE Application That Uses the JMS API with a Session Bean</a></dd>
+<dd><a href="bnchf.html#indexterm-2978">A Java EE Application That Uses the JMS API with an Entity</a></dd>
+<dd><a href="bnchp.html#indexterm-2989">An Application Example That Consumes Messages from a Remote Server</a></dd>
+<dd><a href="bnchx.html#indexterm-2995">An Application Example That Deploys a Message-Driven Bean on Two Servers</a></dd>
+</dl>
+</dd>
+<dd>local transactions, <a href="bncfu.html#indexterm-2944">Using JMS API Local Transactions</a></dd>
+<dd>message acknowledgment, <a href="bncfu.html#indexterm-2908">Controlling Message Acknowledgment</a></dd>
+<dd>synchronous message consumption, <a href="bncfa.html#indexterm-2877">A Simple Example of Synchronous Message Receives</a></dd>
+</dl>
+JSP pages<dl>
+<dd><a href="bnagy.html#indexterm-310">A Simple JSP Page Example</a></dd>
+<dd><a href="bnbnp.html#indexterm-2081">Creating the converter Web Client</a></dd>
+</dl>
+</dd>
+<dd>JSP scripting elements, <a href="bnaoo.html#indexterm-613">The Example JSP Pages</a></dd>
+<dd>JSP simple tags<dl>
+<dd><a href="bnann.html#indexterm-606">An Iteration Tag</a></dd>
+<dd><a href="bnann.html#indexterm-608">A Template Tag Library</a></dd>
+</dl>
+</dd>
+<dd>location, <a href="gexaj.html#indexterm-134">To Obtain the Tutorial Bundle</a></dd>
+<dd>primary keys, <a href="bnbqa.html#indexterm-2167">Primary Key Classes</a></dd>
+<dd>query language, <a href="bnbtl.html#indexterm-2263">Example Queries</a></dd>
+<dd>required software, <a href="gexaj.html#indexterm-133">Required Software</a></dd>
+<dd>SAAJ<dl>
+<dd>attachments, <a href="bnbis.html#indexterm-1999">Attachments Example</a></dd>
+<dd>DOM, <a href="bnbis.html#indexterm-1997">DOM and DOMSource Examples</a></dd>
+<dd>headers, <a href="bnbis.html#indexterm-1996">Header Example</a></dd>
+<dd>SOAP faults, <a href="bnbis.html#indexterm-2001">SOAP Fault Example</a></dd>
+</dl>
+security, <a href="bnbwk.html#indexterm-2397">A Simple Security Example</a><dl>
+<dd>basic authentication, <a href="bncbx.html#indexterm-2769">Example: Basic Authentication with JAX-WS</a></dd>
+<dd>form-based authentication, <a href="bncbx.html#indexterm-2761">Example: Using Form-Based Authentication with a JSP Page</a></dd>
+</dl>
+session beans<dl>
+<dd><a href="bnbnc.html#indexterm-2068">Coding the Enterprise Bean Class</a></dd>
+<dd><a href="bnboc.html#indexterm-2089">Session Bean Examples</a></dd>
+</dl>
+</dd>
+<dd>setting build properties, <a href="bnaan.html#indexterm-152">Building the Examples on the Command-Line Using Ant</a></dd>
+<dd>simple JSP pages, <a href="bnadu.html#indexterm-169">Web Application Life Cycle</a></dd>
+<dd>simple servlets, <a href="bnadu.html#indexterm-171">Web Application Life Cycle</a></dd>
+<dd>StAX, <a href="bnbfl.html#indexterm-1872">Example Code</a></dd>
+<dd>timer service, <a href="bnboy.html#indexterm-2131">The timersession Example</a></dd>
+<dd>web clients, <a href="bnbnp.html#indexterm-2079">Creating the converter Web Client</a></dd>
+<dd>web services<dl>
+<dd><a href="bnayn.html#indexterm-1680">Creating a Simple Web Service and Client with JAX-WS</a></dd>
+<dd><a href="bnbor.html#indexterm-2112">A Web Service Example: helloservice</a></dd>
+<dd><a href="bncko.html#indexterm-3127">The Coffee Break Application</a></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>exceptions<dl>
+<dd>business methods, <a href="bnbod.html#indexterm-2108">Business Methods</a></dd>
+<dd>enterprise beans, <a href="bnbpj.html#indexterm-2133">Handling Exceptions</a></dd>
+<dd>JMS, <a href="bnceh.html#indexterm-2871">JMS Exception Handling</a></dd>
+<dd>mapping to error screens, <a href="bnaeo.html#indexterm-197">Mapping Errors to Error Screens</a></dd>
+<dd>rolling back transactions<dl>
+<dd><a href="bnbpj.html#indexterm-2136">Handling Exceptions</a></dd>
+<dd><a href="bncij.html#indexterm-3033">Rolling Back a Container-Managed Transaction</a></dd>
+</dl>
+</dd>
+<dd>transactions<dl>
+<dd><a href="bncij.html#indexterm-3026">Mandatory Attribute</a></dd>
+<dd><a href="bncij.html#indexterm-3027">Never Attribute</a></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd><tt>exclude-list</tt> element, <a href="bnbyl.html#indexterm-2634">Specifying Method Permissions</a></dd>
+</dl>
+<dl>
+<dd>expiration of JMS messages, <a href="bncfu.html#indexterm-2921">Allowing Messages to Expire</a><dl>
+<dd><tt>JMSExpiration</tt> message header field, <a href="bnceh.html#indexterm-2844">Message Headers</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>expressions, lvalue expressions, <a href="bnaqm.html#indexterm-841">Using the Unified EL to Reference Backing Beans</a></dd>
+</dl>
+</div>
+         </div>
+         <div class="navigation">
+             <a href="idx-3.html"><img src="graphics/leftButton.gif" border="0" alt="Previous" title="Previous"></a>
+             <a href="p1.html"><img src="graphics/upButton.gif" border="0" alt="Contents" title="Contents"></a>
+             <a href="idx-5.html"><img src="graphics/rightButton.gif" border="0" alt="Next" title="Next"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+<!-- Start SiteCatalyst code   -->
+<script language="JavaScript" src="http://www.oracle.com/ocom/groups/systemobject/@mktg_admin/documents/systemobject/s_code_download.js"></script>
+<script language="JavaScript" src="http://www.oracle.com/ocom/groups/systemobject/@mktg_admin/documents/systemobject/s_code.js"></script>
+ 
+<!-- ********** DO NOT ALTER ANYTHING BELOW THIS LINE ! *********** -->
+<!--  Below code will send the info to Omniture server -->
+<script language="javascript">var s_code=s.t();if(s_code)document.write(s_code)</script>
+<noscript>
+<p>Scripting on this page tracks web page traffic,
+but does not change the content in any way.</p>
+</noscript> 
+<!-- End SiteCatalyst code -->
+</body>
+</html>
+

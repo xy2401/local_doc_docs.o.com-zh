@@ -1,0 +1,4581 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+
+<title>Oracle Help Center - Search</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Oracle Help Center" />
+<meta name="keywords" content="Oracle, Documentation" />
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+<link rel="stylesheet" href="dcommon/css/forms.css">
+<!--<link rel="stylesheet" href="dcommon/css/home-search.css">-->
+<link rel="stylesheet" href="dcommon/css/fonts.css">
+
+<!--<link rel="stylesheet" href="dcommon/css/html5.css">-->
+
+<link rel="stylesheet" href="dcommon/css/normalize.min.css">
+
+<link rel="stylesheet" href="dcommon/css/main.css">
+<link rel="stylesheet" href="dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="dcommon/css/respond-1140-deskop.css">
+<link rel="stylesheet" href="dcommon/css/header.css">
+<link rel="stylesheet" href="dcommon/css/footer.css">
+<link rel="stylesheet" href="dcommon/css/leftnav.css">
+<link rel="stylesheet" href="dcommon/css/simpletree.css">
+<link rel="stylesheet" href="dcommon/css/home.css">
+
+<link rel="stylesheet" href="dcommon/css/fusiondoc.css">
+
+<!--<link rel="stylesheet" href="dcommon/css/print.css">-->
+
+<!--jquery-->
+<script src="dcommon/js/jquery-1.11.0.min.js"></script>
+<script src="dcommon/js/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+
+<script src="dcommon/js/tabs.js"></script>
+<script src="dcommon/js/booklist.js"></script>
+<script src="dcommon/js/header.js"></script>
+<script src="dcommon/js/leftnav.js"></script>
+
+<script src="dcommon/js/jquery.jcarousel.min.js"></script>
+
+<script src="dcommon/js/jquery.prettyPhoto.js"></script>
+<script src="dcommon/js/searchstyler.js"></script>
+
+<script src="dcommon/js/common.js"></script>
+
+<script src="dcommon/js/jquery-1.10.2.js"></script>
+
+<script src="dcommon/js/jquery-ui-1.10.4.custom.js"></script>
+<link href="dcommon/css/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+
+
+<!--bootstrap components-->
+<link rel="stylesheet" href="dcommon/css/bootstrap-panel.css">
+<link rel="stylesheet" href="dcommon/css/bootstrap-carousel.css">
+<script src="dcommon/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="dcommon/css/home-search.css">
+
+
+<!--Fancybox-->
+
+
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!--
+<script type="text/javascript" src="dcommon/fancybox/fbattributes.js"></script>
+-->
+
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet" href="dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+<script type="text/javascript" src="dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+<link rel="stylesheet" href="dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+<script type="text/javascript" src="dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+<!-- Used for INLINE OLL videos -->
+<script src="dcommon/js/OHC-Inline-Videos.js"></script>
+
+
+<script charset="utf-8" type="text/javascript">
+<!--
+
+var suggestions = null, tabInView, typeInView, searchval, federation_categories, federation_products,
+  federation_roles, federation_types, noOfProdToShow = 5, prefinedTypesJS, listOfCategories = new Array(),
+  previous_request, listOfsuppressedRoles = new Array();
+var resizeTimerId = null;
+var hostname = document.URL;
+hostname = hostname.replace(new RegExp("(.*)/(.*)", "g"), "$1");
+hostname = hostname + '/';
+
+var jsJspName = "search.jsp";
+var jsJspNameRoles = "searchRoles.jsp";
+var jsJspNameCategories = "searchCategories.jsp";
+var jsJspNameProducts = "searchProducts.jsp";
+var jsJspNameResults = "searchResults.jsp";
+var jsJspNameTitles = "searchTitles.jsp";
+
+jQuery.support.cors = true;
+//var j = jQuery.noConflict();
+var j = jQuery;
+function EncodeEntities(s){
+  return j("<div/>").text(s).html();
+}
+
+function DecodeEntities(s){
+  return j("<div/>").html(s).text();
+}
+
+function getBookMarkLink (actualURI, tabnum) {
+  var bmlu = hostname+actualURI;
+  bmlu = encodeURI(bmlu);
+  var onclickSpan = "onclick = "+"\"getBookmarkLinkIcon('block','"+bmlu+"','"+tabnum+"');return"+' '+ "false;\"";
+  var stringURLLink = '<span class="bookmark" id="bookmark'+tabnum+'" style="float: right;"><a class = "bookmarkurl" id="bookmarkurl'+tabnum+'" href="'+actualURI+'" '+onclickSpan+'>URL</a></span>';
+  return stringURLLink;
+}
+
+function getBookmarkLinkIcon (showHideUL, hrefValueUL, tabnum) {
+  var currPageUL, ULLink, centerSpanDiv, spanforcancelLinkUL, cancelLinkUL,
+	  centerFloatDiv, nodetype, thisULDIvId;
+
+  // create an element for the url
+
+	if (hrefValueUL === undefined) {
+	  hrefValueUL = '';
+	  return;
+	}
+
+	if (showHideUL === undefined) {
+	  showHideUL = 'none';
+	}
+	hrefValueUL = hrefValueUL.replace(/&tn=[\d]{0,1}/,'');
+	hrefValueUL = hrefValueUL.replace(/#tab(.*)/,'');
+	// check to see if there was a div already shown
+	thisULDIvId = document.getElementById("UNIVL"+tabnum);
+  if (typeof thisULDIvId !== 'undefined' && thisULDIvId !== null) {
+    //hidebookmarkLinkingDiv();
+    return;
+  }
+	// Create the div that will be displayed on the page
+  centerFloatDiv = document.createElement("div");
+  centerFloatDiv.id = "UNIVL"+tabnum;
+  centerFloatDiv.style.display = "none";
+  centerFloatDiv.style.position = "fixed";
+  centerFloatDiv.style.top = "20%";
+  centerFloatDiv.style.left = "60%";
+  centerFloatDiv.style.marginTop = "-50px";
+  centerFloatDiv.style.marginLeft = "-50px";
+  centerFloatDiv.style.border = "1px solid black";
+  centerFloatDiv.style.background = "#FFFF99";
+  //centerFloatDiv.style.textAlign = "center";
+  centerFloatDiv.style.paddingLeft = "5px";
+  centerFloatDiv.style.paddingRight = "5px";
+  centerFloatDiv.style.width = "500px";
+  centerFloatDiv.style.mozBorderRadius = "6px";
+  centerFloatDiv.style.webkitBorderRadius = "6px";
+  centerFloatDiv.style.borderRadius = "6px";
+  centerFloatDiv.style.wordWrap = "break-word";
+
+	// create a div with a close (X) link in a span
+  centerSpanDiv = document.createElement("div");
+	centerSpanDiv.id = "CANCELBT"+tabnum;
+
+  // span with X link
+	spanforcancelLinkUL = document.createElement("span");
+	spanforcancelLinkUL.id = "CANCELX"+tabnum;
+  spanforcancelLinkUL.style.marginRight = "2px";
+  spanforcancelLinkUL.style.cssFloat = "right";
+	spanforcancelLinkUL.style.styleFloat = "right";
+
+	// create a element for X
+  cancelLinkUL = document.createElement("a");
+  cancelLinkUL.style.cursor = "pointer";
+  cancelLinkUL.style.textDecoration = "none";
+  cancelLinkUL.appendChild(document.createTextNode("X"));
+
+  cancelLinkUL.onclick = function () {
+    //hidebookmarkLinkingDiv();
+  }
+
+  spanforcancelLinkUL.appendChild(cancelLinkUL);
+  centerSpanDiv.appendChild(spanforcancelLinkUL);
+  centerFloatDiv.appendChild(centerSpanDiv);
+
+  // Create the bookmark linking value
+  currPageUL = document.createElement("a");
+  currPageUL.href = hrefValueUL;
+  currPageUL.id = "ULLINKID";
+  currPageUL.name = "ULLINKNAME";
+  currPageUL.appendChild(document.createTextNode(hrefValueUL));
+
+  // get the qr image
+  var qrimg = document.getElementById ("qrimage"+tabnum);
+  if (typeof qrimg !== 'undefined' && qrimg !== null) {
+
+    var centerContainerTR = document.createElement("tr");
+	centerContainerTR.id = "helperlinks"+tabnum;
+
+    var centerContainerLeftTD = document.createElement("td");
+    centerContainerLeftTD.id = "helperlinksqrc"+tabnum;
+    centerContainerLeftTD.style.width = "25%";
+    j(qrimg).clone().appendTo(centerContainerLeftTD).show();
+
+    var centerContainerrightTD = document.createElement("td");
+    centerContainerrightTD.id = "helperlinksqrc"+tabnum;
+    centerContainerrightTD.style.width = "75%";
+    centerContainerrightTD.appendChild(currPageUL);
+
+	centerContainerTR.appendChild(centerContainerLeftTD);
+	centerContainerTR.appendChild(centerContainerrightTD);
+
+	var centerTableElem = document.createElement('table');
+    centerTableElem.id = "helperlinktable"+tabnum;
+    centerTableElem.style.width = "100%";
+    centerTableElem.style.tableLayout = "fixed";
+	centerTableElem.appendChild(centerContainerTR);
+
+	centerFloatDiv.appendChild (centerTableElem);
+    centerFloatDiv.appendChild(document.createElement("br"));
+ }
+  else {
+    centerFloatDiv.appendChild(document.createElement("br"));
+    centerFloatDiv.appendChild(currPageUL);
+    centerFloatDiv.appendChild(document.createElement("br"));
+    centerFloatDiv.appendChild(document.createElement("br"));
+  }
+
+  document.body.appendChild(centerFloatDiv);
+
+  // add the bookmark linking to the center div
+
+  j(centerFloatDiv).fadeIn('slow', function(){
+    j(this).show();
+  });
+  return;
+}
+
+document.onkeydown = function(evt) {
+  evt = evt || window.event;
+  if (evt.keyCode == 27) {
+	  //hidebookmarkLinkingDiv();
+	  hideProductDivs();
+	  j.fancybox.close();
+
+  }
+};
+/*
+j('html').click(function() {
+   //Hide the menus if visible
+	hidebookmarkLinkingDiv();
+	hideProductDivs();
+});
+
+
+j(".product-main-div").click(function(event){
+  event.stopPropagation();
+});
+j(".navbackwide").click(function(event){
+  event.stopPropagation();
+});
+
+*/
+function hidebookmarkLinkingDiv() {
+  var allDivs = document.getElementsByTagName("div");
+	for (iElem = 0; iElem < allDivs.length; iElem++) {
+	  if (typeof allDivs[iElem].id !== 'undefined' && allDivs[iElem].id !== null && allDivs[iElem].id.match(/UNIVL/)) {
+        j(allDivs[iElem]).fadeOut('slow', function(){
+          j(this).remove();
+        });
+	      //allDivs[iElem].style.display = "none";
+	  }
+	}
+	return;
+}
+
+
+function getBookMarkLinkElement (actualURI, tabnum) {
+  var elemA = document.createElement("a");
+  elemA.id = "bookmarkurl"+tabnum;
+  elemA.setAttribute("href", actualURI);
+  elemA.appendChild(document.createTextNode("URL"));
+  var contSpan = document.createElement("span");
+  contSpan.id = "bookmark"+tabnum;
+  contSpan.style.styleFloat = 'right';
+  contSpan.style.cssFloat   = 'right';
+  contSpan.appendChild(elemA);
+  return contSpan;
+}
+
+
+function formValues() {
+
+  var rolelist = '', catlist = '', prodlist = '', typelist = '', roleagg = '', catagg = '', prodagg = '', typeagg = '';
+
+  var fields = j( ":input" ).serializeArray();
+  var submitURL = '';
+  var wasTypeFound = false;
+  if (typeof typeInView === 'undefined' || typeInView === null) {
+    typeInView = '';
+  }
+  jQuery.each( fields, function( i, field ) {
+    if (typeof field.value !== 'undefined' && field.value !== null && field.value.length > 0) {
+      //console.log("FORM ITEM: "+field.name+": "+field.value);
+      if (field.name === 'path' || field.name === 'topictitle' || field.id === 'submitajax' || field.name === 'submitter') {
+	    // these are the input elements from help drawer that should not be considered
+	  }
+	  else if (field.name === 'pg') {
+        submitURL += "&"+"pg"+"="+"1";
+      }
+      else if (field.name.match(/category-aggregated/)) {catagg = field.value;}
+      else if (field.name.match(/product-aggregated/)) {prodagg = field.value;}
+      else if (field.name.match(/type-aggregated/)) {typeagg = field.value;}
+      else if (field.name.match(/role-aggregated/)) {roleagg = field.value;}
+      else if (field.name.match(/role/)) {rolelist += ","+field.value;}
+      else if (field.name.match(/type/)) {typelist += ","+field.value;}
+      else if (field.name.match(/product/)) {prodlist += ","+field.value;}
+      else if (field.name.match(/category/)) {catlist += ","+field.value;}
+      else if (field.name.match(/prod-search-field/)) {}
+      else {
+        submitURL += "&"+field.name+"="+field.value;
+      }
+    }
+    if (field.name === 'type' && field.value.length > 0) {
+       typeInView = field.value;
+       wasTypeFound = true;
+    }
+  });
+
+  if (catagg.length > 0) {submitURL += "&category="+catagg;}
+  else if (catlist.length > 0){ catlist = catlist.replace(/^,/,'');submitURL += "&category="+catlist;}
+
+  if (prodagg.length > 0) {submitURL += "&product="+prodagg;}
+  else if (prodlist.length > 0){ prodlist = prodlist.replace(/^,/,'');submitURL += "&product="+prodlist;}
+
+  if (roleagg.length > 0) {submitURL += "&role="+roleagg;}
+  else if (rolelist.length > 0){ rolelist = rolelist.replace(/^,/,'');submitURL += "&role="+rolelist;}
+
+  if (typeagg.length > 0) {submitURL += "&type="+typeagg;}
+  else if (typelist.length > 0){ typelist = typelist.replace(/^,/,'');submitURL += "&type="+typelist;}
+
+  submitURL = submitURL.replace (/^&/,'');
+  submitURL = submitURL.replace(new RegExp("&lt;", 'g'),"<");
+  submitURL = submitURL.replace(new RegExp("&gt;", 'g'),">");
+  submitURL = submitURL.replace(new RegExp("&bsol;&apos;", 'g'),"'");
+  submitURL = submitURL.replace(new RegExp("&apos;", 'g'),"'");
+  submitURL = submitURL.replace(new RegExp("&bsol;", 'g'),"");
+  submitURL = submitURL.replace(new RegExp("\\\\", 'g'),"");
+  submitURL = submitURL.replace(new RegExp("&#x0005C;", 'g'),"");
+  submitURL = submitURL.replace(new RegExp("&#92;", 'g'),"");
+  //submitURL = submitURL+'&languagevalue='+getLanguageValue();
+  submitURL = jsJspNameResults+"?"+submitURL;
+  return submitURL;
+}
+
+function updateTabLinks (submitURL) {
+  var allInputElems, iElem, tabsHref, thisTabNum, thisTabName;
+  allInputElems = document.getElementsByTagName('a');
+  if (allInputElems === null || typeof allInputElems === 'undefined') {
+    return;
+  }
+  for (iElem = 0; iElem < allInputElems.length; iElem++) {
+    if (allInputElems[iElem].id.match(/a-tab/)) {
+
+      thisTabNum = allInputElems[iElem].id;
+      thisTabNum = thisTabNum.replace(/a-tab/,'');
+      thisTabName = allInputElems[iElem].name;
+      thisTabName = thisTabName.replace(/a-/,'');
+
+      tabsHref = submitURL+'&type='+thisTabName+'#tab'+thisTabNum;
+      tabsHref = tabsHref.replace(new RegExp(jsJspNameResults, "g"), jsJspName);
+
+      allInputElems[iElem].setAttribute( "onClick", "" );
+      allInputElems[iElem].setAttribute( "onClick", "javascript: getResults('"+thisTabNum+"', '"+tabsHref+"', this, true, '"+thisTabName+"')" );
+      allInputElems[iElem].setAttribute("href", tabsHref);
+
+      //console.log ("replaced tab "+thisTabNum+" to "+tabsHref);
+    }
+  }
+  return;
+}
+/*
+function submitForm(elem) {
+   aggregateSearchCriteria(null);
+   //location.href="search.jsp?q="+searchval+"&category="+federation_categories+"&product="+federation_products+"&roles="+federation_roles+"&types="+federation_products;
+   //document.forms["searchpage"].submit();
+   if (elem !== null && typeof elem !== 'undefined') {
+	 j(elem).submit();
+   }
+}
+*/
+function submitForm(elem) {
+   aggregateSearchCriteria(null);
+   //caller ("2");
+   //location.href="search.jsp?q="+searchval+"&category="+federation_categories+"&product="+federation_products+"&roles="+federation_roles+"&types="+federation_products;
+   //document.forms["searchpage"].submit();
+   j('#searchFieldMain').autocomplete('close');
+	 j('#searchFieldMain').removeClass('searchstart');
+   if (elem !== null && typeof elem !== 'undefined') {
+	   if (typeof tabInView === 'undefined' || tabInView === null) {
+	     tabInView = '1'; //set to tab 1 if the user did not click any tab
+	   }
+	   // get the relevant a element to change the href for the tab
+	   var aElement = document.getElementById("a-tab"+tabInView);
+	   if (typeof aElement !== 'undefined' && aElement !== null) {
+	       var submitURL = formValues();
+    	   updateTabLinks (submitURL);
+	       getResults (tabInView, submitURL, aElement, true, typeInView);
+	   }
+	   else {
+	       j(elem).submit();
+	   }
+   }
+}
+
+function changeTab (tabNumber, uriToCall, elem, checkBoxCaller) {
+    if (tabNumber === null || typeof tabNumber === 'undefined') {return false;}
+    if (uriToCall === null || typeof uriToCall === 'undefined') {return false;}
+    if (elem === null || typeof elem === 'undefined') {return false;}
+    //console.log ("processing tab");
+    var previousHref = elem.href;
+    elem.href="#tab"+tabNumber;
+    elem.setAttribute("href", "#tab"+tabNumber);
+    //j(elem).parent('li').addClass('active');
+    //elem.className="active";
+    var tabDiv = document.getElementById('tab'+tabNumber);
+    var loadingContent = true;
+    if (tabDiv.innerHTML.match(/Results for/) && checkBoxCaller !== true) {
+       return false;
+    }
+    //console.log ("processing tab final");
+
+    if (loadingContent === true) {
+      // create a center div to add the loading icon
+      var loadIconDiv = document.createElement("div")
+      loadIconDiv.setAttribute("align", "center");
+      var loadIcon = document.createElement("img");
+      loadIcon.src = 'dcommon/images/loading.gif';
+      loadIconDiv.appendChild(document.createTextNode("Please wait. Loading data.."));
+      loadIconDiv.appendChild(document.createElement("br"));
+      loadIconDiv.appendChild(loadIcon);
+      var tabDiv = document.getElementById('tab'+tabNumber);
+      tabDiv.className = "tab active";
+      tabDiv.innerHTML = '';
+      tabDiv.appendChild(loadIconDiv);
+    }
+    return true;
+}
+
+function manageAddressBarURL(actualURI) {
+  var browserVal = navigator.userAgent.toLowerCase(), verticalScroll = document.body.scrollTop, horizontalScroll = document.body.scrollLeft, stateObj, doctitle;
+  actualURI = actualURI.replace(new RegExp(jsJspNameResults, "g"), jsJspName);
+  stateObj = { foo: "bar" };
+  doctitle = actualURI;
+  doctitle = doctitle.replace(/(.*).jsp\?/,'');
+  doctitle = doctitle.replace(new RegExp("&", "g"), ", ");
+  doctitle = doctitle.replace(new RegExp("#", "g"), "");
+  document.title = "Oracle Help Center - Search result for "+doctitle;
+	actualURI = actualURI.replace(/&tn=[\d]{0,1}/,'');
+	actualURI = actualURI.replace(/#tab(.*)/,'');
+
+  if (history.replaceState) {
+    history.replaceState({"page": "Oracle Document"}, document.title, actualURI);
+  } else {
+    if (browserVal.indexOf("chrome") > -1) {
+      window.location.hash = actualURI;
+      document.body.scrollTop = verticalScroll;
+      document.body.scrollLeft = horizontalScroll;
+    } else if (browserVal.indexOf("safari") > -1) {
+      window.location.hash = actualURI;
+      document.body.scrollTop = verticalScroll;
+      document.body.scrollLeft = horizontalScroll;
+    } else if (browserVal.indexOf("opera") > -1) {
+      window.location.hash = actualURI;
+      document.body.scrollTop = verticalScroll;
+      document.body.scrollLeft = horizontalScroll;
+    }
+  }
+  return true;
+}
+
+
+function getResults (tabNumber, uriToCall, elem, checkBoxCaller, typeToUse) {
+    //console.log ("called getResults");
+    if (tabNumber === null || typeof tabNumber === 'undefined') {return;}
+    if (uriToCall === null || typeof uriToCall === 'undefined') {return;}
+    if (elem === null || typeof elem === 'undefined') {return;}
+    //hidebookmarkLinkingDiv(); // hide any showing divs
+    j('#searchFieldMain').autocomplete('close');
+	j('#searchFieldMain').removeClass('searchstart');
+
+    var form1input = document.getElementById("searchFieldMain");
+    if (typeof form1input !== 'undefined' && form1input !== null) {
+	  if (typeof form1input.value !== 'undefined' && form1input.value !== null) {
+	     searchval =  form1input.value;
+	  }
+	  else {
+	     return;
+	  }
+    }
+
+    // manage the page number
+    var tabDiv = document.getElementById('tab'+tabNumber);
+    if (tabDiv.innerHTML.match(/Results for/)) {
+    }
+    else {
+	    // do not pass the page number if it was the first page.
+	    uriToCall = uriToCall.replace(/&pg=[\d]+/,'');
+    }
+
+    var searchValue =  form1input.value;
+    tabInView = tabNumber;
+    typeInView = typeToUse;
+    var actualURI = uriToCall;
+    actualURI = actualURI.replace(new RegExp(jsJspNameResults, "g"), jsJspName);
+    if (! actualURI.match (/#tab[\d]+/)) {
+      actualURI = actualURI+'#tab'+tabNumber;
+    }
+
+    var thisTab = document.getElementById("a-tab"+tabInView);
+    if (typeof thisTab !== 'undefined' && thisTab !== null) {
+       thisTab.setAttribute( "onClick", "javascript: getResults('"+tabNumber+"', '"+uriToCall+"', this, false, '"+typeInView+"')" );
+    }
+
+
+    manageAddressBarURL(actualURI);
+    if (typeInView.match (/all/)) {
+      typeInView = '';
+      typeToUse = '';
+    }
+
+    if (uriToCall.match(/&type=/) || uriToCall.match(/&type-aggregated=/)) {
+    }
+    else if (typeInView.length > 0) {
+      uriToCall = uriToCall.replace(/.jsp\?/, ".jsp?type="+typeInView+"&");
+    }
+
+    if (searchValue === null || typeof searchval === 'undefined' || searchValue.length < 1) { return;}
+    if (checkBoxCaller === null || typeof checkBoxCaller === 'undefined' || checkBoxCaller.length < 1) { checkBoxCaller = true;}
+
+    // create the tab element under search form to record what was clicked.
+
+    var previousLiLink = elem.href;
+    var tabDiv = document.getElementById('tab'+tabNumber);
+    var currentData = tabDiv.innterHTML;
+    var tabChanged = changeTab(tabNumber, uriToCall, elem, checkBoxCaller);
+
+    if (tabChanged !== true) {return;}
+
+    var $this = j(this);
+    var $elementThis = j(this.element);
+    var previous_request = $elementThis.data( "jqXHR" );
+	  if (! uriToCall.match (/#tab[\d]+/)) {
+      uriToCall = uriToCall+'#tab'+tabNumber;
+    }
+    uriToCall = uriToCall+"&tn="+tabNumber;
+    uriToCall = uriToCall.replace(new RegExp(jsJspName, "g"), jsJspNameResults);
+    uriToCall = uriToCall.replace(new RegExp("&bsol;&apos;", 'g'),"'");
+    uriToCall = uriToCall.replace(new RegExp("&apos;", 'g'),"'");
+    uriToCall = uriToCall.replace(new RegExp("&bsol;", 'g'),"");
+    uriToCall = uriToCall.replace(new RegExp("&#x0005C;", 'g'),"");
+    uriToCall = uriToCall.replace(new RegExp("&#92;", 'g'),"");
+    uriToCall = uriToCall.replace(new RegExp("\\\\", 'g'),"");
+    uriToCall = uriToCall.replace(new RegExp("&quot;", 'g'),"\"");
+    uriToCall = uriToCall.replace(new RegExp("&#92;", 'g'),"\\\\");
+
+    $elementThis.data( "jqXHR", j.ajax({
+       url: uriToCall,
+       dataType: "html",
+       async: true,
+       success: function( data) {
+        responseHtml = data;
+        // get the bookmark URL
+        var bookMarkURL = getBookMarkLink(actualURI,tabNumber);
+        // get the specific tab div
+        //alert (bookMarkURL);
+        tabDiv.innerHTML = '';
+        tabDiv.innerHTML = "<br />\n"
+                           //+ bookMarkURL
+                           + "\n" + data;
+        elem.setAttribute("href", "#tab"+tabNumber);
+        elem.setAttribute( "onClick", "" );
+        elem.setAttribute( "onClick", "javascript: getResults('"+tabNumber+"', '"+uriToCall+"', this, false, '"+typeInView+"')" );
+		// user might have submitted the form before autocomplete triggers.
+		// So once the data comes remove the autocomplete pop down
+		j('#searchFieldMain').autocomplete('close');
+		j('#searchFieldMain').removeClass('searchstart');
+		welcomePopup ();
+       },
+       error: function(jqXHR, textStatus, errorThrown){
+          tabDiv.innerHTML = '';
+          tabDiv.innerHTML = "There was a problem getting the data. Please try again later.";
+       }
+    }));
+}
+
+function getSelectedCategoryFromSelectBox() {
+  //console.log ("called getSelectedCategoryFromSelectBox");
+  var selectElement = document.getElementById('selectproduct');
+  if (selectElement === null || typeof selectElement === 'undefined') {
+    return "";
+  }
+	if (selectElement.selectedIndex == -1)
+  return "";
+	var catval = selectElement.options[selectElement.selectedIndex].value;
+	var allInputElems = document.getElementsByTagName('input');
+    for (iElem = 0; iElem < allInputElems.length; iElem++) {
+	  if (allInputElems[iElem].type === 'checkbox' && allInputElems[iElem].name.match(/category/) && allInputElems[iElem].value === catval) {
+	    allInputElems[iElem].checked = true;
+	  }
+	  else {
+	    //console.log ("disabled: "+allInputElems[iElem].value);
+		allInputElems[iElem].checked = false;
+		// a category was disabled
+	    //replaceProductSection("", allInputElems[iElem].checked); // federation_products is passed so that we can select what was selected before.
+		var ULToHide = document.getElementById("CATEGORY-"+allInputElems[iElem].value);
+		if (ULToHide !== null) {
+		  j(ULToHide).fadeOut('slow', function(){
+		    j(this).remove();
+		  });
+		}
+	  }
+	}
+	return catval;
+}
+
+function clearValueSelection (elem) {
+  if (typeof elem === 'undefined' || elem === null) {
+    return;
+  }
+  elem.value = '';
+  return
+}
+
+function aggregateSearchCriteria (checkbookElem) {
+  //console.log ("called aggregateSearchCriteria");
+  var allInputElems, checkboxName, iElem, allRole, allType, allCats, allProds, refToAllCheckbox, checkBoxData = new Array(), allULElems, selectedCategory = null;
+  federation_categories = '';
+  federation_products = '';
+  federation_roles = '';
+  federation_types = '';
+  allInputElems = document.getElementsByTagName('input');
+  allULElems = document.getElementsByTagName('ul');
+  var aggcats = document.getElementById("category-aggregated");
+  var aggprods = document.getElementById("product-aggregated");
+  var aggroles = document.getElementById("role-aggregated");
+  var aggtypes = document.getElementById("type-aggregated");
+
+  var searchtrm = document.getElementById("searchFieldMain");
+  //console.log ("searched term is: "+searchtrm.value);
+  var maincat = document.getElementById("category");
+  var mainprd = document.getElementById("product");
+  var folderval = document.getElementById("folder");
+  var bookval = document.getElementById("book");
+
+  clearValueSelection (aggcats);
+  clearValueSelection (aggprods);
+  clearValueSelection (aggroles);
+  clearValueSelection (aggtypes);
+  clearValueSelection (maincat);
+  clearValueSelection (mainprd);
+  clearValueSelection (folderval);
+  clearValueSelection (bookval);
+  //clear all the hidden fields
+
+  // traverse through the UL elements (allULElems) and for the CATEGORY-*, organize ot
+  // so that the navigation images appear.
+  // if the category or the product was changed then
+  // remove the book value from the hidden book field.
+  if (checkbookElem != null && (checkbookElem.name === 'category')) {
+    // reset the book value
+	document.getElementById("book").value = "";
+    document.getElementById("folder").value = "";
+    selectedCategory = getSelectedCategoryFromSelectBox();
+    if (selectedCategory.length > 0) {
+      federation_categories = selectedCategory;
+	    // enable the selected checkbox
+    }
+  }
+  else if (checkbookElem != null && (checkbookElem.name.match(/category/) || checkbookElem.name.match(/product/))) {
+    // reset the book value
+	document.getElementById("book").value = "";
+    document.getElementById("folder").value = "";
+	if (checkbookElem.name.match(/product/)) {
+      var containerli = checkbookElem.parentNode;
+	  var selectedProdUlID = checkbookElem.parentNode.parentNode;
+	  if (typeof selectedProdUlID !== 'undefined' && selectedProdUlID !== null && ! selectedProdUlID.id.match(/CATEGORY-all/)) {
+      // get the search seed
+      var searchfieldvalue = '';
+      if (typeof selectedProdUlID.id !== 'undefined' && selectedProdUlID.id !== null) {
+        var searchfilter = document.getElementById (selectedProdUlID.id+"-prod-search-field");
+        if (typeof searchfilter !== 'undefined' && searchfilter !== null) {
+          arrangeProductsHeader(searchfilter, selectedProdUlID);
+          //console.log ("caller 1");
+        }
+        else {
+          //console.log ("caller 2");
+          arrangeProductsHeader(null, selectedProdUlID);
+        }
+      }
+      buildProductsSummaryInCategory(selectedProdUlID);
+	  }
+      if (typeof containerli !== 'undefined' && containerli !== null) {
+        if (checkbookElem.checked) {
+          containerli.style.backgroundColor = "#EBF6FE";
+          containerli.style.borderColor = "#B1D0EE";
+		}
+		else {
+          containerli.style.backgroundColor = "#EAEAEA";
+          containerli.style.borderColor = "#CCC";
+		}
+
+	  }
+
+	  if (typeof selectedProdUlID !== 'undefined' && selectedProdUlID !== null && ! selectedProdUlID.id.match(/CATEGORY-all/)) {
+	    // increment or decrement the main-title counter
+	    var thisElemId = checkbookElem.id;
+        thisElemId = thisElemId.replace(/-(.*)/,"");
+        thisElemId = thisElemId.replace(/p/,"");
+	    var whichproduct = selectedProdUlID.id;
+		whichproduct = whichproduct.replace(/CATEGORY-/,"");
+		//console.log("4");
+	    // show this
+	    currElem = whichproduct+"-main-title-selected-counter-"+thisElemId;
+        var prevcount = document.getElementById(currElem);
+	    if (checkbookElem.checked && typeof prevcount !== 'undefined' && prevcount !== null) {
+          //console.log ("INCREMENT "+currElem+" by 1: "+prevcount.innerHTML);
+          var updatevalue = parseInt(prevcount.innerHTML) + 1;
+	      prevcount.innerHTML = updatevalue;
+	      if (updatevalue < 1) {
+		    prevcount.className = "selected-none";
+		  }
+		  else {
+		    prevcount.className = "selected";
+		  }
+	    }
+        else {
+          //console.log ("DECREMENT "+currElem+" by 1");
+          var updatevalue = parseInt(prevcount.innerHTML) - 1;
+	      if (updatevalue < 1) {
+		    prevcount.className = "selected-none";
+		  }
+		  else {
+		    prevcount.className = "selected";
+		  }
+		  prevcount.innerHTML = updatevalue;
+        }
+	  }
+	}
+  }
+
+  for (iElem = 0; iElem < allInputElems.length; iElem++) {
+    if (allInputElems[iElem].type === 'checkbox' || allInputElems[iElem].type === 'radio') {
+      checkboxName = allInputElems[iElem].getAttribute("name");
+
+      if (checkboxName.match(/role/) && allInputElems[iElem].checked) {
+        federation_roles = federation_roles+','+allInputElems[iElem].value;
+        if (allInputElems[iElem].value.match(/all/)) {
+            federation_roles = '';
+            allRole = allInputElems[iElem];
+            checkBoxData['role-all'] = 1;
+        } else {
+            checkBoxData['role-ot'] = 1;
+        }
+      }
+
+      if (checkboxName.match(/type/) && allInputElems[iElem].checked){
+        federation_types = federation_types+','+allInputElems[iElem].value;
+        if (allInputElems[iElem].value.match(/all/)) {
+            federation_types = '';
+            allType = allInputElems[iElem];
+            checkBoxData['type-all'] = 1;
+        } else {
+            checkBoxData['type-ot'] = 1;
+        }
+      }
+
+      if (checkboxName.match(/product/) && allInputElems[iElem].checked && (selectedCategory === null || typeof selectedCategory === 'undefined' || selectedCategory.length < 1)){
+        var selectedP = allInputElems[iElem].value;
+		    if (selectedP.match(/___/)) {
+		  var ProdParts = selectedP.split("___");
+		  if (ProdParts.length > 1) {
+		    // First is the product
+			// second is the folder
+			var addedfed = "";
+			federation_products = federation_products + ','+ProdParts[0];
+			var allfed = federation_products.split(',');
+			federation_products = '';
+			for (var st = 0; st < allfed.length; st++) {
+			  if (allfed[st].length > 0 && ! addedfed.match(new RegExp(allfed[st]+',', "g"))) {
+			    addedfed = addedfed+ allfed[st]+',';
+				federation_products = federation_products + ',' + allfed[st];
+			  }
+			}
+			if (federation_products.match(/^,/)) {
+			  federation_products = federation_products.replace(/^,/,'');
+			}
+		    // set the folder
+            var folderElem = document.getElementById("folder");
+			var newfolderVal = folderElem.value;
+			if (newfolderVal.length > 0) {
+			  newfolderVal = newfolderVal+','+ProdParts[1];
+			}
+			else {
+			  newfolderVal = ProdParts[1];
+			}
+			folderElem.value = newfolderVal;
+		  }
+		  else if (ProdParts.length > 0) {
+		    federation_products = federation_products + ','+ProdParts[0];
+		  }
+		}
+		else{
+		  federation_products = federation_products + ','+selectedP;
+		}
+		var allps = federation_products.split(",");
+        var addedps = "";
+		federation_products = '';
+		for (var tps = 0; tps < allps.length; tps++) {
+		  if (! addedps.match(new RegExp(allps[tps]+',', "g"))) {
+		    federation_products = federation_products+','+allps[tps];
+		    addedps = addedps+allps[tps]+',';
+		  }
+		}
+		if (federation_products.match(/^,/)) {
+		  federation_products = federation_products.replace(/^,/,'');
+		}
+
+    //console.log ("all prod");
+    if (allInputElems[iElem].value.match(/all/)) {
+            //console.log ("all prod found");
+            federation_products = '';
+            allProds = allInputElems[iElem];
+            checkBoxData['product-all'] = 1;
+        } else {
+            checkBoxData['product-ot'] = 1;
+        }
+    }
+
+	if (checkbookElem != null && checkbookElem.name.match(/category/) && checkbookElem.value.match(/all/) && checkbookElem.checked) {
+        var containerlih = allInputElems[iElem].parentNode
+		containerlih.style.backgroundColor = "";
+        containerlih.style.borderColor = "";
+	}
+
+    if (checkboxName.match(/category/) && allInputElems[iElem].checked && (selectedCategory === null || typeof selectedCategory === 'undefined' || selectedCategory.length < 1)){
+        federation_categories = federation_categories + ','+allInputElems[iElem].value;
+		if (allInputElems[iElem].value.match(/all/)) {
+            federation_categories = '';
+            allCats = allInputElems[iElem];
+            checkBoxData['category-all'] = 1;
+            checkBoxData['product-all'] = 1;
+            checkBoxData['product-ot'] = 1; // so that we can disable all the checked products
+        } else {
+            checkBoxData['category-ot'] = 1;
+        }
+      }
+	  else if (selectedCategory !== null && typeof selectedCategory !== 'undefined'  && selectedCategory.length > 1) {
+            checkBoxData['category-ot'] = 1;
+            checkBoxData['product-all'] = 1;
+            checkBoxData['product-ot'] = 1; // so that we can disable all the checked products
+	  }
+    }
+
+  }
+
+  // set the background of the li element in which this checkbox was present to white if the checkbox was disabled
+  if (typeof checkbookElem !== 'undefined' && checkbookElem !== null && ! checkbookElem.checked && checkbookElem.name.match (/category[0-9]+/)) {
+		var getid = checkbookElem.parentNode;
+	    //j(getid).css("background-color","white");
+        j(getid).removeAttr( "style" );
+  }
+
+
+  if (checkbookElem !== null && (typeof checkBoxData['type-all'] !== 'undefined' || typeof checkBoxData['type-ot'] !== 'undefined')) {
+    manageCheckboxSelection (checkBoxData, allType, allInputElems, checkbookElem, 'type');
+  }
+  if (checkbookElem !== null && (typeof checkBoxData['role-all'] !== 'undefined' || typeof checkBoxData['role-ot'] !== 'undefined')) {
+    manageCheckboxSelection (checkBoxData, allRole, allInputElems, checkbookElem, 'role');
+  }
+  if (checkbookElem !== null && (typeof checkBoxData['product-all'] !== 'undefined' || typeof checkBoxData['product-ot'] !== 'undefined')) {
+    //console.log ("call the prod manager");
+    manageCheckboxSelection (checkBoxData, allProds, allInputElems, checkbookElem, 'product');
+  }
+  if (checkbookElem !== null && (typeof checkBoxData['category-all'] !== 'undefined' || typeof checkBoxData['category-ot'] !== 'undefined')) {
+    //console.log ("call the prod manager for category");
+	manageCheckboxSelection (checkBoxData, allCats, allInputElems, checkbookElem, 'category');
+  }
+
+  if (typeof checkBoxData['category-all'] !== 'undefined' || federation_categories.length < 1) {
+     federation_products = '';
+  }
+
+  federation_categories = federation_categories.replace(/^,/,'');
+  federation_products = federation_products.replace(/^,/,'');
+  federation_types = federation_types.replace(/^,/,'');
+  federation_roles = federation_roles.replace(/^,/,'');
+
+  // check if there was a search word entered by the user and if yes trigger a page refresh
+  //update the hidden fields
+
+
+  // hide the roles section for certain products
+  var SRoles = federation_categories.split(",");
+  var wasSuppressed = false;
+  var jobsElem = document.getElementById("JOBS");
+  //console.log ("federation_categories:"+federation_categories);
+  for (var s=0;s < SRoles.length;s++) {
+    if (typeof listOfsuppressedRoles[SRoles[s]] !== 'undefined') {
+      wasSuppressed = true;
+      break;
+    }
+  }
+  if (wasSuppressed) {
+     if (jobsElem !== null && typeof jobsElem !== 'undefined') {
+       j(jobsElem).hide('slow');
+       //jobsElem.style.display = 'none';
+       //jobsElem.style.visibility = 'hidden';
+     }
+  }
+  else {
+     if (jobsElem !== null && typeof jobsElem !== 'undefined') {
+       j(jobsElem).show('slow');
+       //jobsElem.style.display = 'block';
+       //jobsElem.style.visibility = 'visible';
+     }
+  }
+
+  if (aggcats !== null && typeof aggcats !== 'undefined') {aggcats.value = federation_categories;}
+  if (aggprods !== null && typeof aggprods !== 'undefined') {aggprods.value = federation_products;}
+  if (aggroles !== null && typeof aggroles !== 'undefined') {aggroles.value = federation_roles;}
+  if (aggtypes !== null && typeof aggtypes !== 'undefined') {aggtypes.value = federation_types;}
+  // generate the product list
+  if (checkbookElem != null && checkbookElem.name.match(/category/)) {
+      // get the product list from categories using json
+      // match the selected ones and place them back again.
+      replaceProductSection(federation_categories, checkbookElem); // federation_products is passed so that we can select what was selected before.
+  }
+
+  // test for auto submit
+  var form1input = document.getElementById("searchFieldMain");
+  if (typeof form1input !== 'undefined' && form1input !== null) {
+    if (typeof form1input.value !== 'undefined' && form1input.value !== null) {
+       searchval =  form1input.value;
+	}
+	else {
+	   return;
+	}
+  }
+  var formToSubmit = document.getElementById("ui_element");   //
+  if (   checkbookElem != null
+      && checkbookElem.name.match(/category/)
+	  && checkbookElem.checked
+	  && (checkbookElem.value.match(/database/) || checkbookElem.value.match(/application/))
+	 ) {
+     j("."+"CATEGORY-"+checkbookElem.value + "-" + "popup").fancybox().trigger('click');
+  }
+
+  if (searchval === null || typeof searchval === 'undefined') { }
+  else if (searchval.length > 0 && checkbookElem !== null && ! searchval.match(/Enter Keyword/)) {
+    //console.log ("checkbookElem: "+checkbookElem.name+" <=> "+checkbookElem.value);
+	submitForm(formToSubmit);
+  }
+}
+
+function manageCheckboxSelection (checkBoxData, allType, allInputElems, checkbookElem, whichType) {
+  //console.log ("called manageCheckboxSelection");
+  var checkboxName, regexep;
+  // checkbookElem is the element that was just accessed
+  // allInputElems is the complete checkbox element list
+  // allType is if that particular all selection was enabled.
+  // whichType will be the type of checkboxes like type, role, products or categories
+
+  // checkBoxData will contain info on whether the all or specific type was enabled.
+  regexep = new RegExp(whichType);
+  if (typeof checkBoxData[whichType+'-all'] === 'undefined' && typeof checkBoxData[whichType+'-ot'] === 'undefined') {
+    if (whichType.match(/product/)) {
+       j(".p1").prop('checked', true);
+    }
+  }
+  else if (typeof checkBoxData[whichType+'-all'] !== 'undefined' || typeof checkBoxData[whichType+'-ot'] !== 'undefined') {
+     if (   typeof checkBoxData[whichType+'-all'] !== 'undefined'
+         && typeof checkBoxData[whichType+'-ot'] !== 'undefined'
+         && checkbookElem.name.match(regexep)
+         && ! checkbookElem.value.match(/all/)
+         ) {
+        // This means that all checkbox was already clicked and the user clicks the specific type checkbox
+        // In this case disable the all checkbox
+        if (typeof allType !== 'undefined' && allType !== null) {
+          allType.checked = false;
+        }
+        if (whichType === 'category') {
+          // set the div for suites to show
+		      var suitesDiv = document.getElementById('SUITES');
+          if (suitesDiv !== null) {
+            suitesDiv.style.display = 'block';
+          }
+        }
+     }
+     else if (typeof checkBoxData[whichType+'-all'] !== 'undefined'
+              && typeof checkBoxData[whichType+'-ot'] !== 'undefined'
+              && checkbookElem.name.match(regexep)
+              && checkbookElem.value.match(/all/)) {
+        // This means that the user checks the specific type checkbox and then selects all
+        // In this case disable specific type checkboxes
+        checkboxName = checkbookElem.name;
+		    if (checkboxName.match(/category/)){
+			  for (iElem = 0; iElem < allInputElems.length; iElem++) {
+				  checkboxName = allInputElems[iElem].getAttribute("name");
+				  // note that if all category was enabled, we need to disable the previously selected products as well.
+				  if (typeof checkboxName !== 'undefined' && checkboxName !== null && checkboxName.match(/category/) && allInputElems[iElem].checked && allInputElems[iElem].value !== 'all'){
+					  allInputElems[iElem].checked = false;
+				  }
+			  }
+			  removeAllProductDivs();
+			  federation_categories = '';
+			  federation_products = '';
+        var suitesDiv = document.getElementById('SUITES');
+        if (suitesDiv !== null) {
+              suitesDiv.style.display = 'none';
+        }
+		} else if (checkboxName.match(/product/)) {
+          // disable all the selected products
+			for (iElem = 0; iElem < allInputElems.length; iElem++) {
+				checkboxName = allInputElems[iElem].getAttribute("name");
+				if (typeof checkboxName !== 'undefined' && checkboxName !== null && checkboxName.match(/product/) && allInputElems[iElem].checked && allInputElems[iElem].value !== 'all'){
+					allInputElems[iElem].checked = false;
+					var selectedProdUlID = allInputElems[iElem].parentNode.parentNode;
+	                buildProductsSummaryInCategory(selectedProdUlID)
+                    //console.log ("reached in");
+				}
+			}
+		}
+    else if (checkboxName.match(/role/)) {
+      // disable all the selected roles
+			for (iElem = 0; iElem < allInputElems.length; iElem++) {
+				checkboxName = allInputElems[iElem].getAttribute("name");
+				if (typeof checkboxName !== 'undefined' && checkboxName !== null && checkboxName.match(/role/) && allInputElems[iElem].checked && allInputElems[iElem].value !== 'all'){
+					allInputElems[iElem].checked = false;
+					var selectedProdUlID = allInputElems[iElem].parentNode.parentNode;
+				}
+			}
+		}
+   }
+  }
+  return;
+}
+
+Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key))
+          size++;
+    }
+    return size;
+};
+
+function replaceProductSection (cats, selectedProduct) {
+    //console.log ("called replaceProductSection");
+    if (!document.createElement) { return false; }
+    if (!document.createTextNode) { return false; }
+    if (!document.getElementById) { return false; }
+    if (!document.getElementsByTagName) { return false; }
+    if (!document.documentElement.appendChild) { return false; }
+    if (!document.documentElement.childNodes) { return false; }
+    if (!document.documentElement.style) { return false; }
+    //console.clear();
+    //console.log("All: "+cats);
+    // ajax query
+    //if (cats.trim().length < 1) {return;}
+    var dataString, prodEntry, imgElem, responseJson, howManyEntries, keyProd, thisProdName,
+      prodText, thisProdValues, prVals, prodNameVal, prodNameDetails, formTitle, inputEntry,
+      psp, inputLabel, tofetch, selectedProds, noOfSelectedProds = 0, suppliedcats,
+      origCatsPassed;
+    //tofetch = document.getElementById('SUITES');
+    tofetch = document.getElementById('SUITES');
+    var categoriesSize = Object.size(listOfCategories);
+    //console.log("listOfCategories: "+categoriesSize);
+    if (categoriesSize < 1) {
+      getCategories();
+      //console.log("listOfCategories got: "+listOfCategories);
+    }
+
+    // check the associated action
+    if (selectedProduct === null) {
+      return;
+    }
+    origCatsPassed = cats;
+    suppliedcats = cats.split(",");
+    noOfSelectedProds = cats.length;
+    cats = '';
+    for (psp in suppliedcats) {
+       //console.log ("Checking: "+suppliedcats[psp]);
+       if (document.getElementById("CATEGORY-"+suppliedcats[psp]) !== null) {
+          //console.log ("Found "+suppliedcats[psp]);
+       }
+       else {
+         //console.log ("Not Found: "+suppliedcats[psp]);
+         cats += ','+suppliedcats[psp];
+       }
+    }
+
+    cats = cats.replace(/^,/,'');
+    //console.log("Will add: "+cats);
+    //console.log("Selected prod: "+selectedProduct.value);
+    var catToCheck = cats+',';
+    if (cats.length > 0 && (selectedProduct.checked)) {
+      // a category was enabled
+      //selectedProduct.disabled = true;
+      //console.log("ENETERED:"+selectedProduct.checked+":"+selectedProduct.selectedIndex);
+	    if (tofetch !== null){
+          // check if the categories for this is already added
+
+          //if (cats.trim().length < 1) {return;}
+
+          var $this = j(this);
+          var $elementThis = j(this.element);
+          var previous_request = $elementThis.data( "jqXHR" );
+          if( previous_request ) {
+           previous_request.abort();
+          }
+          $elementThis.data( "jqXHR", j.ajax({
+           url: jsJspNameProducts,
+           dataType: "json",
+           data: {categories: cats},
+           async: false,
+           success: function( data) {
+            responseJson = data;
+            howManyEntries = 0;
+
+
+            for(keyProd in responseJson){
+              thisProdName   = keyProd; // database, cloud etc
+              thisProdValues = responseJson[thisProdName];
+              if (catToCheck.indexOf(thisProdName) < 0) {
+                continue;
+              }
+              var totalProds = 0;
+              if (typeof  thisProdValues !== 'undefined') {
+                for(prVals in thisProdValues){
+                  totalProds++;
+                }
+              }
+
+
+              var allMainProds = [];
+
+              //console.log ("ok");
+              var relevantmatches = 0;
+              for (prVals in thisProdValues) {
+                  prodNameVal     = prVals; // part number
+                  //console.log("Start "+prodNameVal);
+                  prodNameDetails = thisProdValues[prVals]; // release, name etc
+                  //prodNameDetails[0] is PN (e11882-01)
+                  //prodNameDetails[1] is category (database)
+                  //prodNameDetails[2] is title
+                  //prodNameDetails[3] is release
+
+                  var showentry = "";
+                  if (prodNameDetails.length > 6) {
+                    showentry = prodNameDetails[6];
+                  }
+                  if (showentry === "no") {
+                    continue;
+                  }
+
+				  relevantmatches++;
+                  var allSubProds = [];
+                  if (typeof allMainProds[prodNameDetails[2]] === 'undefined') {
+                    allSubProds = [prodNameDetails];
+                    allMainProds[prodNameDetails[2]] = allSubProds;
+                  }
+                  else {
+                    allSubProds = allMainProds[prodNameDetails[2]];
+                    allSubProds.push(prodNameDetails);
+                    allMainProds[prodNameDetails[2]] = allSubProds;
+                  }
+              }
+
+              if (typeof  listOfCategories[thisProdName] !== 'undefined' && relevantmatches > 0) {
+                // check and delete if this exists
+                dataString = document.createElement("ul");
+                dataString.id = "CATEGORY-"+thisProdName;
+                prodEntry = document.createElement("li");
+
+                prodText = document.createElement("strong");
+                prodText.appendChild(document.createTextNode(listOfCategories[thisProdName]));
+                prodEntry.appendChild(prodText);
+                // check if the size of the product list of more than 4 and add next previous
+                dataString.appendChild(prodEntry);
+              }
+              else {
+                continue;
+              }
+
+              var allpkeys = [];
+              for (pkeys in allMainProds){
+                  if (allMainProds.hasOwnProperty(pkeys)){
+                      allpkeys.push(pkeys);
+                  }
+              }
+
+              //allpkeys.sort();
+              for(var prscounter = 0; prscounter < allpkeys.length; prscounter++){
+                prs = allpkeys[prscounter];
+                var broadProductName = prs;
+                var broadProducts    = allMainProds[prs];
+                //broadProducts will be an array
+                prodEntry = document.createElement("li");
+				prodEntry.className = "main-title";
+				var sectionStartNumber = noOfSelectedProds+1;
+                prodEntry.id = "main-title-"+sectionStartNumber;
+                //console.log (broadProductName);
+
+				var divmaintitle = document.createElement("div"); //main title div
+				divmaintitle.className = "main-title-text";
+				//divmaintitle.appendChild (document.createTextNode(broadProductName));
+				divmaintitle.innerHTML = broadProductName;
+				prodEntry.appendChild (divmaintitle);
+				//prodEntry.innerHTML = broadProductName;
+                var selectedcounterspan = document.createElement("span"); //main-title-selected-counter
+				selectedcounterspan.className = "selected-none";
+				selectedcounterspan.id = thisProdName+"-main-title-selected-counter-"+sectionStartNumber;
+				selectedcounterspan.appendChild (document.createTextNode("0"));
+				prodEntry.appendChild(selectedcounterspan);
+				dataString.appendChild (prodEntry);
+
+                var allrelkeys = [];
+                for (var rkeys in broadProducts){
+                    if (broadProducts.hasOwnProperty(rkeys)){
+                        var temprel = broadProducts[rkeys][3];
+                        if (temprel !== null && typeof temprel !== 'undefined' && temprel.match(/^Latest/)) {
+                          temprel = "ZZRELEASE "+temprel;
+                        }
+                        allrelkeys.push(temprel);
+                    }
+                }
+
+                allrelkeys.reverse();
+                //allrelkeys.sort();
+
+
+                for(var prscounter1 = allrelkeys.length - 1; prscounter1 >= 0; prscounter1--){
+                  // get the product name from the release value
+                  prodNameDetails = null;
+                  for (var starttrav in broadProducts) {
+                    allrelkeys[prscounter1] = allrelkeys[prscounter1].replace(/^ZZRELEASE /,'');
+                    if (broadProducts[starttrav][3] === allrelkeys[prscounter1]) {
+                       prodNameDetails = broadProducts[starttrav];
+                    }
+                  }
+                  if (prodNameDetails === null) {
+                    continue;
+                  }
+                  howManyEntries++;
+                  var folderH = prodNameDetails[5]; // release, name etc
+                  var selectorProd = prodNameDetails[0];
+				  if (folderH.length > 0) {
+					selectorProd = selectorProd+'___'+folderH;
+				  }
+				  formTitle = prodNameDetails[2].replace(/Online Documentation Library/,'');
+                  formTitle = formTitle.replace(/Documentation Media Library/,'').trim();
+                  formTitle = formTitle.replace(/Documentation Viewable CD/,'').trim();
+                  formTitle = formTitle.replace(/Media Library/,'').trim();
+                  formTitle = formTitle.replace(/Documentation Library/,'').trim();
+                  noOfSelectedProds++;
+                  if (typeof prodNameDetails[3] !== 'undefined' && prodNameDetails[3].length > 0) {
+				    var reltouse = prodNameDetails[3].replace(/<i>/,'').replace(/<\/i>/,'').trim();
+					if (reltouse.length > 32) {
+					  reltouse = reltouse.substr(0, 31) + "<span style=\"display: none;\">"+reltouse.substring(32, reltouse.length)+"</span>...";
+					}
+                    formTitle = '<span class="hiddenspan" id="span-p'+sectionStartNumber+'-'+ noOfSelectedProds +'" style="display:none">'+formTitle + ', </span>' +reltouse;
+                    //formTitle = formTitle + ', ' +prodNameDetails[3].replace(/<i>/,'').replace(/<\/i>/,'').trim();
+                  }
+                  else {
+					if (formTitle.length > 32) {
+					  formTitle = formTitle.substr(0, 31) + "<span style=\"display: none;\">"+formTitle.substring(32, formTitle.length)+"</span>...";
+					}
+                  }
+                  if (typeof prodNameDetails[9] !== 'undefined' && prodNameDetails[9].length > 0) {
+					  formTitle += '<span class="hiddenspan" id="span-abbv'+sectionStartNumber+'-'+ noOfSelectedProds +'" style="display:none">'+ prodNameDetails[9] + '</span>';
+				  }
+                  prodEntry = document.createElement("li");
+				  prodEntry.id = 'li'+sectionStartNumber+'-'+noOfSelectedProds;
+				  if (prodNameDetails.length > 8) {
+				     if (prodNameDetails[8] == 'yes') {
+					   //popular
+                       //console.log("PRD FOUND..."+prodNameDetails[2]+";"+prodNameDetails[3]+";"+prodNameDetails[4]+";"+prodNameDetails[5]+";"+prodNameDetails[6]+";"+prodNameDetails[7]+";"+prodNameDetails[8]);
+					   prodEntry.className = "popular listbox";
+					 }
+					 else {
+					   prodEntry.className = "listbox";
+					 }
+				  }
+				  else {
+				     prodEntry.className = "listbox";
+				  }
+                  //prodEntry.appendChild(document.createTextNode("\u00A0\u00A0\u00A0\u00A0"));
+
+                  inputEntry  = document.createElement("input");
+                  inputEntry.name = 'product'+sectionStartNumber+'-'+noOfSelectedProds;
+                  inputEntry.id   = 'p'+sectionStartNumber+'-'+noOfSelectedProds;
+                  inputEntry.type   = 'checkbox';
+                  inputEntry.value   = selectorProd;
+                  inputEntry.className   = "productinput";
+                  inputEntry.onclick = function (e) {e.stopPropagation(); aggregateSearchCriteria(this);};
+                  for (psp in selectedProds){
+                    if (selectedProds[psp] === prodNameDetails[0]) {
+                      inputEntry.checked = true;
+					  prodEntry.style.backgroundColor = "#EBF6FE";
+                    }
+                  }
+
+                  inputLabel = document.createElement("label");
+                  inputLabel.for = 'p'+sectionStartNumber+'-'+noOfSelectedProds;
+                  inputLabel.innerHTML = formTitle;
+                  prodEntry.appendChild (inputLabel);
+                  //prodEntry.appendChild (document.createTextNode("\u00A0\u00A0"));
+				  prodEntry.appendChild(inputEntry);
+                  dataString.appendChild (prodEntry);
+				  prodEntry.onclick = function () {
+					//console.log ("clicked");
+					var inpelem = (this).id;
+					inpelem = inpelem.replace (/li/, "p");
+					var ielem = document.getElementById (inpelem);
+					if (ielem.checked) {
+					  ielem.checked = false;
+					  //console.log ("marked clicked");
+					}
+					else {
+					  ielem.checked = true;
+					}
+					aggregateSearchCriteria(ielem);
+					return false;
+				  }
+                }
+              }
+            }
+            if (howManyEntries > 0) {
+                tofetch.style.display = "block";
+                tofetch.appendChild(dataString);
+                if (howManyEntries > 0) {
+                  callbackManageProductList(dataString);
+				}
+            }
+            else {
+                //tofetch.style.display = "none";
+            }
+          }
+       }));
+     }
+     //selectedProduct.disabled = false;
+    }
+    else {
+      // a category was disabled
+      //console.log("unchecked: "+selectedProduct.value);
+      var ULToHide = document.getElementById("CATEGORY-"+selectedProduct.value);
+      var MainPRDToHide = document.getElementById("CATEGORY-"+selectedProduct.value+"-product-main-div");
+      var SummaryToHide = document.getElementById("CATEGORY-"+selectedProduct.value+"-product-list-summary");
+      //console.log("unchecked 1: "+selectedProduct.value);
+
+	  if (typeof MainPRDToHide !== 'undefined' && MainPRDToHide !== null) {
+        // get all the lis under it and uncheck
+        //console.log ("Traverse children");
+        j(MainPRDToHide).each(function() {
+            j(this).find('*').each(function() {
+               //console.log (this.name+":"+this.value);
+               if (this.checked) {
+                 //console.log (this.name+":"+this.value+":unchecked");
+                 this.checked = false;
+               }
+            });
+        });
+
+        j(MainPRDToHide).fadeOut('slow', function(){
+          j(this).remove();
+        });
+        j(SummaryToHide).fadeOut('slow', function(){
+          j(this).remove();
+        });
+
+        //ULToHide.style.display = "none";
+        //ULToHide.remove();
+      }
+    }
+
+    suppliedcats = cats.split(",");
+    if (origCatsPassed.length < 1) {
+      //tofetch.style.display = "none";
+      var suitesDiv = document.getElementById('SUITES');
+      if (suitesDiv !== null) {
+        suitesDiv.style.display = 'none';
+      }
+    }
+	//callbackManageProductList(null);
+	return null;
+}
+
+function removeAllProductDivs () {
+  //console.log ("called removeAllProductDivs");
+  j(".product-main-div").each(function() {
+    var thisDivID = this.id;
+	var catName = thisDivID.replace(/-product-main-div/,"");
+    var MainPRDToHide = document.getElementById(catName+"-product-main-div");
+    var SummaryToHide = document.getElementById(catName+"-product-list-summary");
+	if (typeof MainPRDToHide !== 'undefined' && MainPRDToHide !== null && typeof SummaryToHide !== 'undefined' && SummaryToHide !== null) {
+
+		j(MainPRDToHide).fadeOut('slow', function(){
+          j(this).remove();
+        });
+        j(SummaryToHide).fadeOut('slow', function(){
+          j(this).remove();
+        });
+	}
+  });
+
+}
+function getCategories() {
+    j.ajax({
+      url: jsJspNameCategories,
+      dataType: "json",
+      async: false,
+      success: function( data) {
+        var responseJson = data;
+        for(var keyProd in responseJson){
+          var thisProdName   = keyProd; // db, cloud etc
+          var thisProdValues = responseJson[thisProdName];
+          listOfCategories[thisProdName] = thisProdValues;
+        }
+      }
+   });
+}
+
+function getRestrictedRoles() {
+    j.ajax({
+      url: jsJspNameRoles,
+      dataType: "json",
+      async: false,
+      success: function( data) {
+        var responseJson = data;
+        for(var keyProd in responseJson){
+          var thisProdName   = keyProd; // db, cloud etc
+          var thisProdValues = responseJson[thisProdName];
+          listOfsuppressedRoles[thisProdValues] = thisProdName;
+        }
+      }
+   });
+}
+
+function setProductAndContext (prd, ctx) {
+  //console.log ("called setProductAndContext");
+  var allInputElems, checkboxName, iElem, checkboxValue;
+  allInputElems = document.getElementsByTagName('input');
+  for (iElem = 0; iElem < allInputElems.length; iElem++) {
+    if (allInputElems[iElem].type === 'checkbox') {
+      checkboxName = allInputElems[iElem].getAttribute("name");
+      checkboxValue = allInputElems[iElem].getAttribute("value");
+      if (checkboxName.match(/category/) && checkboxValue === prd){
+          if (! allInputElems[iElem].checked) {
+            allInputElems[iElem].checked = true;
+          }
+		      aggregateSearchCriteria(allInputElems[iElem]);
+      }
+    }
+  }
+  var wasThereAProd = false;
+  allInputElems = document.getElementsByTagName('input');
+  for (iElem = 0; iElem < allInputElems.length; iElem++) {
+    if (allInputElems[iElem].type === 'checkbox') {
+      checkboxName = allInputElems[iElem].getAttribute("name");
+      checkboxValue = allInputElems[iElem].getAttribute("value");
+      if (checkboxName.match(/product/)){
+        var allcontexts = checkboxValue.split (";");
+        for (var proceed = 0; proceed < allcontexts.length; proceed++) {
+          if (allcontexts[proceed] === ctx && ! allInputElems[proceed].checked){
+              allInputElems[iElem].checked = true;
+ 	          var selectedProdUlID = allInputElems[iElem].parentNode.parentNode;
+              buildProductsSummaryInCategory(selectedProdUlID)
+		  }
+        }
+      }
+    }
+    else if (allInputElems[iElem].type === 'hidden' && allInputElems[iElem].getAttribute("name").match(/category/)) {
+        allInputElems[iElem].value = prd;
+    }
+    else if (allInputElems[iElem].type === 'hidden' && allInputElems[iElem].getAttribute("name").match(/product/)) {
+        allInputElems[iElem].value = ctx;
+    }
+  }
+
+  if (typeof ctx !== 'undefined' && ctx !== null && ctx.match(/___/)) {
+    var prts = ctx.split("___");
+    if (prts.length > 1) {
+	  ctx = prts[0];
+      var hidFolder = document.getElementById("folder");
+      hidFolder.value = prts[1];
+	}
+  }
+  var hidProd = document.getElementById("product");
+  hidProd.value = ctx;
+
+
+  var hidCat = document.getElementById("category");
+  hidCat.value = prd;
+
+}
+
+function callbackManageProductList (ULElement) {
+   //console.log ("called callbackManageProductList");
+   if (ULElement === null || typeof ULElement === 'undefined') {
+     $("ul").each(function(){
+      var processElem = this;
+	    if (typeof processElem !== 'undefined' && processElem !== null && typeof processElem.id !== 'undefined' && processElem.id !== null) {
+        if (processElem.id.match(/CATEGORY-/)) {
+          // pass this to manageProductList
+          manageProductList(processElem);
+        }
+	    }
+     });
+   }
+   else {
+      manageProductList(ULElement);
+      //console.log ("specific single: "+allULElems[iElem].id);
+   }
+   return;
+}
+
+function buildImageNav (ULElemenID, start, totalSize) {
+    var aElem;
+    if (start === null || typeof start === 'undefined' || ULElemenID === null || typeof ULElemenID === 'undefined') {
+      return;
+    }
+    //console.log ("Building image: start+:"+start+":"+noOfProdToShow+":"+totalSize);
+    if ((start + noOfProdToShow) >= totalSize) {
+      //console.log ("finally");
+      aElem = document.getElementById(ULElemenID+'-arrowprev');
+      if (aElem !== null || typeof aElem !== 'undefined') {j(aElem).show();}
+      aElem = document.getElementById(ULElemenID+'-arrownext');
+      if (aElem !== null || typeof aElem !== 'undefined') {j(aElem).hide();}
+    }
+    else if (start >= noOfProdToShow - 1) {
+      // both the images
+      aElem = document.getElementById(ULElemenID+'-arrowprev');
+      if (aElem !== null || typeof aElem !== 'undefined') {j(aElem).show();}
+      aElem = document.getElementById(ULElemenID+'-arrownext');
+      if (aElem !== null || typeof aElem !== 'undefined') {j(aElem).show();}
+    }
+    else {
+      //one image
+      aElem = document.getElementById(ULElemenID+'-arrowprev');
+      if (aElem !== null || typeof aElem !== 'undefined') { j(aElem).hide();}
+      aElem = document.getElementById(ULElemenID+'-arrownext');
+      if (aElem !== null || typeof aElem !== 'undefined') {j(aElem).show();}
+    }
+    return;
+}
+
+function manageProductList (ULElement) {
+     //console.log ("called manageProductList");
+    if (ULElement === null || typeof ULElement === 'undefined') {
+      return;
+    }
+
+    var ULElemenID = ULElement.id;
+    var $lis = j("#"+ULElemenID+" li").hide();
+	if ( $lis.length == 1 ){
+      // no need to do anything. Show all
+      $lis.slice(0, $lis.length).show();
+      return;
+    }
+
+    var ULElemenID = ULElement.id;
+    //ULElement.style.height = "80px";
+    //console.log("manageProductList:"+ULElement.id);
+	showProducts(ULElement, '');
+	var summaryForProductsInThisCategory = buildProductsSummaryInCategory(ULElement);
+	//ULElement.style.overflow = "auto";
+    return;
+
+}
+
+function setUpFilterText () {
+  //console.log ("called setUpFilterText");
+  // add effects to the search filter box
+  j('input[name="prod-search-field"]').each(function(){
+      var thisSearchInput = this;
+      thisSearchInput.value = j(thisSearchInput).attr('title');
+      j(thisSearchInput).addClass('text-label');
+
+      j(thisSearchInput).focus(function(){
+          if(thisSearchInput.value == j(thisSearchInput).attr('title')) {
+              thisSearchInput.value = '';
+              j(thisSearchInput).removeClass('text-label');
+          }
+      });
+
+      j(thisSearchInput).blur(function(){
+          if(thisSearchInput.value == '') {
+              thisSearchInput.value = j(thisSearchInput).attr('title');
+              j(thisSearchInput).addClass('text-label');
+          }
+      });
+  });
+}
+
+function managetabs (elem, ULElement, whichtab) {
+    //console.log ("ok clisked");
+	var t = j(elem).attr('id');
+    j('#prodtabs li a').addClass('inactive');
+    j(elem).removeClass('inactive');
+    //j('.container').hide();
+    //j('#'+ t + 'C').fadeIn('slow');
+    j('#'+ '1' + 'C').fadeIn('slow');
+	if (whichtab == 'all') {
+	  //console.log ("all clisked");
+	  arrangeProducts(null, ULElement);
+	}
+	else {
+
+	  var findid = t.replace(/-prodtab(.*)/,"");
+	  //console.log ("popular clicked: "+findid+"-prodtab2");
+	  var elempopular = document.getElementById(findid+"-prodtab2");
+	  elempopular.innerHTML = "\u00A0\u00A0All\u00A0\u00A0";
+	  showPopularProducts (ULElement);
+	}
+}
+
+function changetabs (thisid, whichtab, text) {
+	  var elem;
+	  j('#prodtabs li a').addClass('inactive');
+	  if (whichtab == 'all') {
+	    elem = document.getElementById(thisid+"-prodtab2");
+		//console.log ("setting prodtab2: "+elem.id);
+	  }
+	  else {
+	    elem = document.getElementById(thisid+"-prodtab1");
+		//console.log ("setting prodtab1"+elem.id);
+	  }
+	  if (typeof elem !== 'undefined' && elem !== null) {
+	    if (text.length > 0) {
+		  elem.innerHTML  = " "+text+" ";
+		  //console.log ("setting "+elem.id+" to "+text);
+		}
+	  }
+	  j(elem).removeClass('inactive');
+}
+
+
+j(document).ready(function() {
+
+j('#prodtabs li a:not(:first)').addClass('inactive');
+j('.container').hide();
+j('.container:first').show();
+
+
+  if (j('#prodtabs li').length == 0) {
+    //console.log ("Found Lis");
+	j(".container").css("height", 240+"px");
+    j(".container").css("border-top","1px solid #ccc");
+  } else{
+    j(".container").css("height", 200+"px");
+    j(".container").css("border-top","none");
+  }
+
+});
+
+j(document).ready(function() {
+  getRestrictedRoles();
+  aggregateSearchCriteria(null);
+  // we need to detect and call for all
+  getCategories();
+  callbackManageProductList(null);
+  setUpFilterText();
+
+  j("#searchFieldMain").autocomplete({
+        scroll: true,
+        highlight: true,
+        minLength: 3,
+        delay: 500,
+        open: function() { j('#searchFieldMain.ui-menu').width(250)},
+        source: function(request, response) {
+   		  var $this = j(this);
+   		    var countItems = 0, firstPartLength = 0;
+          var $element = j(this.element);
+          previous_request = $element.data( "jqXHR" );
+          if( previous_request ) {
+			      previous_request.abort();
+          }
+          $element.data( "jqXHR", j.ajax({
+            url: jsJspNameTitles,
+            dataType: "json",
+            data: {categories: federation_categories, product: federation_products, roles: federation_roles, types: federation_types, q: request.term, languagevalue: getLanguageValue()},
+            success: function( data, textStatus, jqXHR) {
+                 response( j.map( data.titles, function( item ) {
+                    var formattedLabel, formattedValue, productVal = '', contextVal = '', folderVal = '';
+                    countItems++;
+                    if (item.listtype && item.listtype !== null && item.listtype.match(/specific/)){
+                        formattedLabel = "<span class=\"label\">"+item.label.replace(new RegExp("<em>", 'g'),"<strong>").replace(new RegExp("</em>", 'g'),"</strong>")+"</span>" + "<br /><div class=\"summary\">" + item.value.replace(new RegExp("<em>", 'g'),"<strong>").replace(new RegExp("</em>", 'g'),"</strong>")+"<br /><span class=\"prodname\">["+item.prodname+"]</span>"+"</div>";
+                        formattedValue = item.label.replace(new RegExp("<em>", 'g'),"").replace(new RegExp("</em>", 'g'),"");
+                        productVal = item.product;
+                        contextVal = item.context;
+                        folderVal = item.folder;
+                    }
+                    else {
+
+                        if (item.fuzzy && item.fuzzy !== null && item.fuzzy.length > 0){
+                          if (countItems > 1){
+                            formattedLabel = "<span class=\"label\"></span>" +"<span class=\"prodname-generic\">"+item.label +"</span><br />";
+                          }
+                          request.term = item.fuzzy;
+                        }
+                        else {
+                          formattedLabel   = "<span class=\"label\"></span>" + "<span class=\"prodname-generic\">"+item.label +"</span><br />";
+                        }
+                        formattedValue = request.term;
+                        productVal = item.product;
+                        contextVal = item.context;
+                        folderVal = item.folder;
+                    }
+                    if (item.label && item.label !== null && item.label.match(/EMPTYLINESTART/) && item.value.length < 1){
+                      return {
+                          label: "<span class=\"label\">Related products for your query: "+request.term.replace(new RegExp("<", 'g'),"&lt;").replace(new RegExp(">", 'g'),"&gt;").replace(new RegExp("&bsol;", 'g'),"").replace(new RegExp("&#x0005C;", 'g'),"").replace(new RegExp("&#92;", 'g'),"").replace(new RegExp("\\\\", 'g'),"").replace(new RegExp("'", ''),"&apos;").replace(new RegExp("\"", 'g'),"&quot;") +"</span>",
+                          value: 'EMPTYLINESTART',
+                          product: '',
+                          folder: '',
+                          context: ''
+                      }
+                    }
+                    else if (item.label && item.label !== null && item.label.match(/EMPTYLINE/) && item.value.length < 1){
+                      return {
+                          label: "EMPTYLINE",
+                          value: '',
+                          product: '',
+                          folder: '',
+                          context: ''
+                      }
+                    }
+                    else{
+                      return {
+                          label: formattedLabel,
+                          value: formattedValue,
+                          product: productVal,
+                          context: contextVal,
+                          folder: folderVal,
+                          link: item.link
+                      }
+                    }
+                 }));
+            },
+            error: function(jqXHR, textStatus, errorThrown){
+            }
+          }));
+        },
+        focus: function() {return false;},
+        select: function( event, ui ) {
+          if (typeof ui.item.link !== 'undefined' && ui.item.link !== null && ui.item.link.length > 0 ) {
+  		     window.location = ui.item.link;
+		     return;
+		  }
+          j("#searchFieldMain").val(ui.item.value);
+
+		  if ( ui.item.folder.length > 0 ) {
+			  setProductAndContext(ui.item.product, ui.item.context+"___"+ui.item.folder);
+			  //setProductAndContext(ui.item.product, ui.item.context);
+			  // issue is that the product generation is async and by the time we set it might not be generated.
+			  // test the sync behavior
+		  }
+		  else {
+			  setProductAndContext(ui.item.product, ui.item.context);
+		  }
+		  submitForm(j("#searchFieldMain").parent());
+		  //submitForm();
+        },
+        search: function(event, ui) {
+	        j(this).addClass('searchstart');
+        },
+        complete: function() {
+            j(this).removeData('jqXHR');
+            j(this).removeClass('searchstart');
+            response({});
+        },
+        open: function(event, ui) {
+          j(this).removeClass('searchstart');
+          j(".ui-autocomplete:visible").css({top:"+=5",width: "800"});
+
+        }
+    })
+    .data("uiAutocomplete")._renderItem = function(ul, item) {
+        if (item.label === 'EMPTYLINE') {
+            return j('<li class="ui-state-disabled">'+"<hr />"+'</li>').appendTo(ul);
+        } else if (item.value === 'EMPTYLINESTART') {
+            return j('<li class="ui-state-disabled">'+item.label+'</li>').appendTo(ul);
+        }
+        else {
+            return j( "<li></li>" )
+               .data( "ui-autocomplete-item", item)
+               .append( "<a>" + item.label + "</a>" )
+               .appendTo( ul );
+        }
+    };
+
+    j("#autocompleteentry").focus(function() {
+       j(this).animate({width: '300px', height: '70px'});
+    });
+    j("#autocompleteentry").blur(function() {
+
+    });
+    welcomePopup();
+});
+
+j(document).mouseup(function (e) {
+
+  var allDivs = document.getElementsByTagName("div");
+	for (iElem = 0; iElem < allDivs.length; iElem++) {
+	  if (   typeof allDivs[iElem].id !== 'undefined'
+	      && allDivs[iElem].id !== null
+	      && allDivs[iElem].id.match(/UNIVL/)
+	      && ! j(allDivs[iElem]).is(e.target)
+	      && j(allDivs[iElem]).has(e.target).length === 0
+	     ) {
+	      j(allDivs[iElem]).remove();
+	  }
+	}
+});
+
+ j("#searchFieldMain").keypress(function(e){
+    if (!e) e = window.event;
+    if (e.keyCode == '13'){
+	  j('#searchFieldMain').autocomplete('close');
+      return false;
+    }
+  });
+
+j(document).on('click', "input.productinput", function(e) {
+    e.stopPropagation();
+});
+
+j(document).on('click', ".shadow li a", function(e) {
+    //console.log ("Clicked a in li");
+    var whichlang = this;
+    if (typeof whichlang === 'undefined' || whichlang === null) {
+	}
+	else {
+		// get the langs
+		var whatlangs = whichlang.id;
+		whatlangs = whatlangs.replace(/\./g,",");
+        createCookie("SEARCH-LANGUAGE", '"'+whatlangs+'"');
+		//console.log ("added "+whatlangs);
+		var currelem = window.location;
+		currelem = currelem + '';
+		currelem = currelem.replace(/&language=[a-zA-Z0-9-_,;/.]+/,"");
+		currelem = currelem.replace(/language=[a-zA-Z0-9-_,;/.]+&/,"");
+		currelem = currelem.replace(/&pg=[\d]+/,"");
+		currelem = currelem.replace(/pg=[\d]+&/,"");
+		currelem = currelem.replace(/&start=[\d]+/,"");
+		currelem = currelem.replace(/start=[\d]+&/,"");
+		currelem = currelem.replace(/#$/,"");
+        //console.log ("hostname formed: "+currelem);
+
+		window.location = currelem;
+		//currelem = currelem.replace(/(.*).jsp?/,"");
+		//currelem = jsJspName + '?' + currelem
+		//getResults('1', currelem, this, false, 'all');
+		//console.log ("hostname: "+window.location);
+
+	}
+});
+
+
+function getLanguageValue () {
+  var langv = readCookie("SEARCH-LANGUAGE");
+  if (typeof langv === 'undefined' || langv === null || langv.length < 1) {
+    langv = "en";
+  }
+  //console.log ("language found: "+langv);
+  return langv;
+}
+
+/*
+
+Welcome Pop UP management
+
+*/
+
+function addWelcomePopUpDiv () {
+   var backupinlinediv = document.getElementById("welcome-div-id");
+   if (typeof backupinlinediv === 'undefined' || backupinlinediv === null) {
+     // create the div completely
+	 var welcomediv = document.createElement("div");
+	 welcomediv.id = "welcome-div-id";
+	 welcomediv.className = "welcome-div-class";
+	 welcomediv.name = "welcome-div-id";
+	 var welcomedivh = document.createElement("h1");
+     welcomedivh.className = "productname-container";
+     welcomedivh.id = "productname-container";
+	 welcomedivh.appendChild (document.createTextNode("Too Many Results?"));
+     welcomediv.appendChild (welcomedivh);
+
+     var fbtxtdiv1 = document.createElement("div");
+	 fbtxtdiv1.className = "fbtxt";
+	 var imgfb1 = document.createElement("img");
+	 imgfb1.src = "dcommon/img/narrow-1.png";
+	 imgfb1.width = "230";
+	 imgfb1.width = "144";
+     imgfb1.altText = "Image to depict many results";
+	 var fbp1 = document.createElement ("p");
+	 fbp1.appendChild (document.createTextNode("Narrow your results by selecting one or more categories under "));
+
+	 var fbp1strong = document.createElement("span");
+	 fbp1strong.style.fontWeight = "bold";
+	 fbp1strong.appendChild(document.createTextNode("Refine Search."));
+	 fbp1.appendChild (fbp1strong);
+
+	 fbtxtdiv1.appendChild(imgfb1);
+     fbtxtdiv1.appendChild(fbp1);
+
+     var fbtxtdiv2 = document.createElement("div");
+	 fbtxtdiv2.className = "fbtxt";
+	 var imgfb2 = document.createElement("img");
+	 imgfb2.src = "dcommon/img/narrow-4.png";
+	 imgfb2.width = "230";
+	 imgfb2.width = "117";
+     imgfb2.altText = "Image to depict many results";
+	 var fbp2 = document.createElement ("p");
+	 fbp2.appendChild (document.createTextNode("Under selected categories, click "));
+
+	 var fbp2strong = document.createElement("span");
+	 fbp2strong.style.fontWeight = "bold";
+	 fbp2strong.appendChild(document.createTextNode("Select"));
+
+	 fbp2.appendChild (fbp2strong);
+	 fbp2.appendChild (document.createTextNode(" to choose your product and release filters, and then click OK."));
+
+     fbtxtdiv2.appendChild(imgfb2);
+     fbtxtdiv2.appendChild(fbp2);
+
+     var fbtxtdiv3 = document.createElement("div");
+	 fbtxtdiv3.style.display = "inline-block";
+	 fbtxtdiv3.style.cssFloat = "left";
+	 fbtxtdiv3.style.verticalAlign = "bottom";
+     var fbinput = document.createElement("input");
+	 fbinput.className = "productinput";
+	 fbinput.name = "DontShow";
+	 fbinput.id = "DontShow";
+	 fbinput.type = "checkbox";
+	 fbinput.value = "";
+	 fbinput.onclick = function() {setDND();};
+	 var fbinputlabel = document.createElement("label");
+	 fbinputlabel.for = "DontShow";
+	 fbinputlabel.appendChild(document.createTextNode(" Don't show again"));
+	 fbtxtdiv3.appendChild (fbinput);
+	 fbtxtdiv3.appendChild (fbinputlabel);
+
+     var fbtxtdiv4 = document.createElement("div");
+	 fbtxtdiv4.style.display = "inline-block";
+	 fbtxtdiv4.style.cssFloat = "right";
+     var fbokbutton = document.createElement("button");
+	 fbokbutton.type = "button";
+	 fbokbutton.style.width = "80px";
+	 fbokbutton.style.backgroundColor = "#6699FF";
+	 fbokbutton.style.color = "white";
+	 fbokbutton.style.fontWeight = "bold";
+	 fbokbutton.onclick = function() {parent.j.fancybox.close();};
+	 fbokbutton.appendChild(document.createTextNode("OK"));
+     fbtxtdiv4.appendChild (fbokbutton);
+
+	 var divBottomEnclosure = document.createElement("div");
+	 divBottomEnclosure.style.verticalAlign = "middle";
+	 divBottomEnclosure.id = "bottom-enclosure";
+
+	 welcomediv.appendChild (fbtxtdiv1);
+	 welcomediv.appendChild (fbtxtdiv2);
+
+	 divBottomEnclosure.appendChild (fbtxtdiv3);
+	 divBottomEnclosure.appendChild (fbtxtdiv4);
+	 welcomediv.appendChild (divBottomEnclosure);
+     document.body.appendChild (welcomediv);
+   }
+}
+
+function welcomePopup () {
+  if (readCookie("docsearch-popup-at-welcome") === "N") {
+    //alert ("DND setting found");
+	return;
+  }
+
+  var form1input = document.getElementById("searchFieldMain");
+  if (typeof form1input === 'undefined' || form1input === null || form1input.value === '') {
+     //console.log ("no popoup");
+	 return;
+  }
+
+  var aggcat = document.getElementById("category-aggregated");
+
+  var prodcat = document.getElementById("product-aggregated");
+  var showpopup = false;
+
+  if (   (typeof aggcat === 'undefined' || aggcat === null || aggcat.value.length < 1)
+      && (typeof prodcat === 'undefined' || prodcat === null || prodcat.value.length < 1)
+	 ) {
+    showpopup = true;
+  }
+
+  var howmanyres = j('div.tab.active').html();
+  if (howmanyres.match(/No results found/)) {
+    showpopup = false;
+  }
+
+  if (showpopup) {
+    addWelcomePopUpDiv();
+	setTimeout(function () {welcomePopupDesign(); }, 1000);
+  }
+}
+
+function welcomePopupDesign () {
+  j.fancybox({
+      width             : "90%",
+      maxWidth          : 500,
+      height            : 400,
+      autoSize	        : false,
+	  fitToView	        : false,
+      transitionIn      : 'fade',
+      //hideOnContentClick: true,
+      transitionOut     : 'fade',
+      type              : 'inline',
+      href              : '#welcome-div-id',
+      onCancel          : function () {setDND();},
+      showCloseButton   : false,
+	  closeBtn          : false,
+      enableEscapeButton: true,
+      helpers: {
+          overlay: {
+              locked    : false,
+			  closeClick: true
+          }
+	  }
+  });
+}
+
+function setDND () {
+  var elem = document.getElementById("DontShow");
+  if (elem.checked) {
+	  var getwelcomediv = document.getElementById ("welcome-div-id");
+	  //j(getwelcomediv).hide("slow");
+	  // manage the cookie
+	  createCookie("docsearch-popup-at-welcome", "N");
+	  //alert ("DND value set");
+  }
+  else {
+      createCookie("docsearch-popup-at-welcome", "Y");
+	  //alert ("DND value unset");
+  }
+}
+
+function removeWelcomeDiv () {
+  var getwelcomediv = document.getElementById ("welcome-div-id");
+  j(getwelcomediv).hide("slow");
+}
+
+function createCookie(name, value, days) {
+  "use strict";
+  var date, expires = "";
+  if (days) {
+    date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    expires = "; expires=" + date.toGMTString();
+  } else {
+    expires = "";
+  }
+  document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+function readCookie(name) {
+  "use strict";
+  var i = 0, c, nameEQ = name + "=", ca = document.cookie.split(";");
+  for (i = 0; i < ca.length; i += 1) {
+    c = ca[i];
+    while (c.charAt(0) === " ") {
+      c = c.substring(1, c.length);
+    }
+    if (c.indexOf(nameEQ) === 0) {
+      return c.substring(nameEQ.length, c.length);
+    }
+  }
+  return "";
+}
+
+/*
+
+  Welcome Pop UP section end
+
+*/
+
+
+
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+////                PRODUCT MANAGEMENT                   /////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+// selected products at top
+// match with filter
+
+j.expr[':'].Contains = function(a, i, m) {
+  return j(a).text().toUpperCase()
+      .indexOf(m[3].toUpperCase()) >= 0;
+};
+
+j.expr[":"].contains = j.expr.createPseudo(function(arg) {
+    return function( elem ) {
+        return j(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+    };
+});
+
+function HideProductSpan (ULElemenID) {
+  //var allSpanElements = j( "span:visible" );
+  //j('span[class="hiddenspan"]').hide('slow');
+  j("#"+ULElemenID+' li[class="main-title"]:visible').hide('slow');
+  return;
+}
+
+function arrangeProducts (elem, ULElement) {
+	var ULElemenID, matchText = '.*', initialMatchText = '', countMatch = 0, countSelected = 0, selectedPrd, currElem,
+	  innerElem, innserMost, showingSpan, showingSelectedSpan, showingAllSpan, selectedOnly;
+	if (ULElement === null || typeof ULElement === 'undefined') {
+      return;
+    }
+	//HideProductSpan ();
+    // change tab
+	//console.log ("called arr");
+	var tabtouse = "all";
+    var checkedElems = j("#"+ULElement.id+" .popular");
+    var countpopulars = checkedElems.length;
+	if (countpopulars > 0) {
+	  var whichtabid = ULElement.id;
+	  var prodtab1elem = document.getElementById(whichtabid+'-prodtab1');
+	  var prodtab2elem = document.getElementById(whichtabid+'-prodtab2');
+	  if (prodtab2elem !== null && typeof prodtab2elem !== 'undefined' && prodtab2elem.className.match(/inactive/)) {
+	    tabtouse = "popular";
+	  }
+	  else {
+	    tabtouse = "all";
+	  }
+	}
+	if (elem !== null && typeof elem !== 'undefined') {
+	  initialMatchText = elem.value
+      initialMatchText = initialMatchText.replace(/Type to filter/,'');
+	  //console.log ("assigning :"+matchText+":");
+	  if (initialMatchText.length < 1) {
+	    matchText = '.*';
+	    if (tabtouse.match(/all/)) {
+		  changetabs (ULElement.id, "all", "\u00A0\u00A0All\u00A0\u00A0");
+		}
+		else {
+		  changetabs(ULElement.id, "popular", "");
+		}
+		//console.log ("assigned all");
+	  }
+	  else {
+	    matchText = ".*"+elem.value+".*";
+		matchText = matchText.replace(/\./,'\.');
+	    matchText = matchText.replace(/\(/,'\(');
+	    matchText = matchText.replace(/\)/,'\)');
+	    matchText = matchText.replace(/\}/,'\}');
+	    matchText = matchText.replace(/\{/,'\{');
+	    matchText = matchText.replace(/\*/,'\*');
+	    changetabs (ULElement.id, "all", "Matches");
+		//console.log ("assigned matches :"+matchText+":");
+	  }
+	  matchText = initialMatchText;
+	}
+	else {
+	  matchText = '.*';
+	  var searchfilter = document.getElementById (ULElement.id+"-prod-search-field");
+	  if (typeof searchfilter !== 'undefined' && searchfilter !== null) {
+	    searchfilter.value = j(searchfilter).attr('title');
+	    j(searchfilter).addClass('text-label');
+	  }
+	  matchText = '';
+	  //console.log ("assigned all");
+      changetabs (ULElement.id, "all", "\u00A0\u00A0All\u00A0\u00A0");
+	}
+
+
+    countMatch    = 0;
+    ULElemenID = ULElement.id;
+    selectedPrd = 0;
+    var allprd = 0;
+    var howManyFound = 0;
+    var descriptorLi = null;
+
+    //1. count selected
+    //2. count all
+    //3. hide all li and the show that matches
+
+    var lis = j("#"+ULElement.id+" li");
+    if (matchText.length > 0) {
+      lis.slice(0, lis.length).hide();
+    }
+
+    countSelected = j("#"+ULElement.id+" input:checked").length;
+    allPrd = j("#"+ULElement.id+" input").length;
+    //console.log ("ARRANGER: "+countSelected+":"+allPrd+":"+countMatch+":");
+    if (matchText.length > 0) {
+       countMatch = j("#"+ULElement.id+" label:Contains('"+matchText+"')").length;
+	   j("#"+ULElement.id+" li:Contains('"+matchText+"')").each(function(){
+		  // this is the label. Get the parent
+		  currElem = this;
+          if (currElem.id && ! currElem.id.match(/main-title/)) {
+			  // this li should be shown
+			  var MainLIid = currElem.id;
+			  MainLIid = MainLIid.replace(/li/,"");
+			  MainLIid = MainLIid.replace(/-(.*)/,"");
+			  MainLIid = "main-title-"+MainLIid;
+			  j("#"+MainLIid).hide();
+			  j("#"+MainLIid).show('slow');
+			  j(currElem).show();
+		  }
+		});
+    }
+    else {
+        //console.log ("Showing all");
+	    if (tabtouse.match(/all/)) {
+	      countMatch = allPrd;
+          lis.slice(1, lis.length).show();
+          lis.slice(0, 1).hide();
+		}
+		else {
+		  showPopularProducts (ULElement);
+		}
+    }
+
+
+    //product-list-matches
+    showingSpan = document.getElementById(ULElemenID + "-" + "product-list-matches");
+    var innerHTMLshowingSpan = "";
+	var matchesstring = "matches";
+	if (countMatch == 1) {
+	  matchesstring = "match";
+	}
+    //console.log ("ARRANGER1: "+countSelected+":"+allPrd+":"+countMatch+":");
+
+    var allp;
+    allp = document.createElement ("a");
+    allp.id = ULElemenID + "-" + "selected-only";
+    allp.className = "prod-count";
+    allp.style.color = "#1C8B98";
+    allp.style.cursor = "pointer";
+    allp.title = "View All Products";
+    allp.appendChild (document.createTextNode(allPrd+" products"));
+    allp.onclick = function() {arrangeProducts(null, ULElement);return false; };
+
+	showingSpan.innerHTML = "";
+	if (typeof showingSpan !== 'undefined' && showingSpan !== null) {
+      if (((elem !== null && elem.value.length > 0) || countMatch < allPrd) && countMatch > 0) {
+		  innerHTMLshowingSpan = countMatch + " "+matchesstring;
+		  showingSpan.innerHTML = innerHTMLshowingSpan;
+		  showingSpan.appendChild(document.createTextNode(" in "));
+	      showingSpan.appendChild(allp);
+	  }
+	  else if (((elem !== null && elem.value.length > 0) || countMatch < allPrd) && countMatch < 1) {
+		  innerHTMLshowingSpan = "<p style=\"color:red;display:inline\">"+countMatch + " "+matchesstring+"</p>";
+		  showingSpan.innerHTML = innerHTMLshowingSpan;
+		  showingSpan.appendChild(document.createTextNode(" in "));
+		  showingSpan.appendChild(allp);
+	  }
+	  else {
+	      // add selected ones
+		  if (countSelected > 0) {
+			selectedOnly = document.createElement ("a");
+			selectedOnly.id = ULElemenID + "-" + "selected-only";
+			selectedOnly.className = "prod-count";
+			selectedOnly.style.color = "#1C8B98";
+			selectedOnly.style.cursor = "pointer";
+			selectedOnly.title = "View Selected Products";
+			selectedOnly.appendChild (document.createTextNode(countSelected+" selected"));
+			selectedOnly.onclick = function() {showSelectedProducts(ULElement);return false; };
+			showingSpan.appendChild(selectedOnly);
+			showingSpan.appendChild(document.createTextNode(" of "));
+			if (countMatch == allPrd) {
+			  showingSpan.appendChild(document.createTextNode(allPrd+" products"));
+			  showingSpan.appendChild(document.createTextNode("\u00A0"));
+			}
+			else {
+			  showingSpan.appendChild(allp);
+			  showingSpan.appendChild(document.createTextNode("\u00A0"));
+			}
+		  }
+		  else {
+			innerHTMLshowingSpan = countMatch+" products\u00A0";
+			showingSpan.innerHTML = innerHTMLshowingSpan;
+		  }
+	  }
+
+    }
+    return ULElement;
+}
+
+function arrangeProductsHeader (elem, ULElement) {
+    //console.log ("called arrangeProductsHeader");
+	var ULElemenID, matchText = '.*', initialMatchText = '', countMatch = 0, countSelected = 0, selectedPrd, currElem,
+	  innerElem, innserMost, showingSpan, showingSelectedSpan, showingAllSpan, selectedOnly;
+	if (ULElement === null || typeof ULElement === 'undefined') {
+      return;
+    }
+	//console.log ("called header");
+	//HideProductSpan ();
+	if (elem !== null && typeof elem !== 'undefined') {
+	  initialMatchText = elem.value
+    initialMatchText = initialMatchText.replace(/Type to filter/,'');
+	  matchText = ".*"+elem.value+".*";
+	  if (matchText.length < 1) {
+	    matchText = '.*';
+	  }
+	  else {
+	    matchText = matchText.replace(/\./,'\.');
+	    matchText = matchText.replace(/\(/,'\(');
+	    matchText = matchText.replace(/\)/,'\)');
+	    matchText = matchText.replace(/\}/,'\}');
+	    matchText = matchText.replace(/\{/,'\{');
+	    matchText = matchText.replace(/\*/,'\*');
+	  }
+    }
+	else {
+	  matchText = '.*';
+	  var searchfilter = document.getElementById (ULElement.id+"-prod-search-field");
+	  if (typeof searchfilter !== 'undefined' && searchfilter !== null) {
+	    searchfilter.value = j(searchfilter).attr('title');
+	    j(searchfilter).addClass('text-label');
+	  }
+	}
+	matchText = initialMatchText;
+
+
+    countMatch    = 0;
+    ULElemenID = ULElement.id;
+    //ULElement.hide();
+    selectedPrd = 0;
+    var allprd = 0;
+
+	// count selected
+	// count matched
+    var lis = j("#"+ULElement.id+" li");
+	allPrd  = j("#"+ULElement.id+" input").length;
+
+	countSelected = j("#"+ULElement.id+" input:checked").length;
+	if (matchText.length > 0) {
+	}
+	countMatch = j("#"+ULElement.id+" label:Contains('"+matchText+"')").length;
+	//allPrd = lis.length -1;
+	//console.log ("COUNTER: "+countSelected+":"+countMatch+":"+matchText);
+
+   //product-list-matches
+   //console.log ("allprd: "+allprd);
+   showingSpan = document.getElementById(ULElemenID + "-" + "product-list-matches");
+    var allp;
+    allp = document.createElement ("a");
+    allp.id = ULElemenID + "-" + "selected-only";
+    allp.className = "prod-count";
+    allp.style.color = "#1C8B98";
+    allp.style.cursor = "pointer";
+    allp.title = "View All Products";
+    allp.appendChild (document.createTextNode(allPrd+" products"));
+    allp.onclick = function() {arrangeProducts(null, ULElement);return false; };
+    if (countSelected < 1) {
+	  arrangeProducts(elem, ULElement);
+	}
+	showingSpan.innerHTML = "";
+	if (typeof showingSpan !== 'undefined' && showingSpan !== null) {
+	  if (countSelected > 0) {
+		selectedOnly = document.createElement ("a");
+		selectedOnly.id = ULElemenID + "-" + "selected-only";
+		selectedOnly.className = "prod-count";
+		selectedOnly.style.color = "#1C8B98";
+		selectedOnly.style.cursor = "pointer";
+		selectedOnly.title = "View Selected Products";
+		selectedOnly.appendChild (document.createTextNode(countSelected+" selected"));
+		selectedOnly.onclick = function() {showSelectedProducts(ULElement);return false; };
+		showingSpan.appendChild(selectedOnly);
+		showingSpan.appendChild(document.createTextNode(" of "));
+		//console.log ("added: "+allPrd+";"+countMatch+";"+countSelected);
+		if (countMatch == allPrd) {
+		  //showingSpan.appendChild(document.createTextNode(allPrd+" products"));
+		  //showingSpan.appendChild(document.createTextNode("\u00A0"));
+		  showingSpan.appendChild(allp);
+		  showingSpan.appendChild(document.createTextNode("\u00A0"));
+		}
+		else {
+		  showingSpan.appendChild(allp);
+		  showingSpan.appendChild(document.createTextNode("\u00A0"));
+		}
+	  }
+	  else {
+		innerHTMLshowingSpan = countMatch+" products\u00A0";
+		showingSpan.innerHTML = innerHTMLshowingSpan;
+	  }
+    }
+	return ULElement;
+}
+
+function showPopularProducts (ULElement) {
+    //console.log ("showPopularProducts");
+	var ULElemenID, countMatch, countSelected, selectedPrd, currElem, innerElem, innserMost, showingSpan,
+	  showAllProd, showingSelectedSpan, filterElem, allprd;
+	//console.log ("called ssp");
+	if (ULElement === null || typeof ULElement === 'undefined') {
+      return;
+    }
+    countMatch    = 0;
+    countSelected = 0;
+    ULElemenID = ULElement.id;
+    selectedPrd = 0;
+	allprd = 0;
+    var howManyFound = 0;
+    var descriptorLi = null;
+
+    var checkedElems = j("#"+ULElement.id+" .popular");
+    countSelected = checkedElems.length;
+    //console.log ("popular found: "+countSelected);
+	j("#"+ULElemenID+' li').hide();
+	checkedElems.each(function(){
+	  var inputElem = this;
+	  //console.log("[popular]: "+inputElem.id);
+	  //console.log("2");
+	  // show its parent
+	  j(inputElem).show();
+	  //console.log("3");
+	  var thisElemId = inputElem.id;
+      thisElemId = thisElemId.replace(/-(.*)/,"");
+      thisElemId = thisElemId.replace(/product/,"");
+      thisElemId = thisElemId.replace(/p/,"");
+      thisElemId = thisElemId.replace(/li/,"");
+	  //console.log("4");
+	  // show this
+	  currElem = "main-title-"+thisElemId;
+      j("#"+currElem).show();
+	  //console.log("pop id: "+currElem);
+    });
+    //arrangeProducts(null, ULElement);return false;
+    //product-list-matches
+    showingSpan = document.getElementById(ULElemenID + "-" + "product-list-matches");
+	if (typeof showingSpan !== 'undefined' && showingSpan !== null) {
+      //console.log ("HIDING THE MATCHES SECTION");
+	  showingSpan.innerHTML = "";
+	}
+
+	if (countSelected > 0) {
+      //console.log ("found populars and passing");
+	  return ULElement;
+	}
+	else {
+	  return null;
+	}
+}
+
+
+// selected products at top
+// match with filter
+function showSelectedProducts (ULElement) {
+    //console.log ("called showSelectedProducts");
+	var ULElemenID, countMatch, countSelected, selectedPrd, currElem, innerElem, innserMost, showingSpan,
+	  showAllProd, showingSelectedSpan, filterElem, allprd;
+	//console.log ("called ssp");
+	if (ULElement === null || typeof ULElement === 'undefined') {
+      return;
+    }
+    countMatch    = 0;
+    countSelected = 0;
+    ULElemenID = ULElement.id;
+    selectedPrd = 0;
+	allprd = 0;
+    var howManyFound = 0;
+    var descriptorLi = null;
+
+    j("#"+ULElemenID+' li').hide();
+    var checkedElems = j("#"+ULElement.id+" input:checked");
+    countSelected = checkedElems.length;
+    allPrd = j("#"+ULElement.id+" input").length;
+
+	// change tab
+	changetabs(ULElement.id, "all", "Selected");
+    checkedElems.each(function(){
+	  //console.log("1");
+	  var inputElem = this;
+	  //console.log("2");
+	  // show its parent
+
+	  j(inputElem).parent().show();
+	  if (j(inputElem).parent().is(':visible')) {
+	  }
+	  else {
+	    j(inputElem).parent().show();
+	  }
+	  //
+	  var thisElemId = inputElem.id;
+      thisElemId = thisElemId.replace(/-(.*)/,"");
+      thisElemId = thisElemId.replace(/product/,"");
+      thisElemId = thisElemId.replace(/p/,"");
+	  //console.log("4");
+	  // show this
+	  currElem = "main-title-"+thisElemId;
+      j("#"+currElem).show('slow');
+	  //console.log("5");
+    });
+	showingSpan = document.getElementById(ULElemenID + "-" + "product-list-matches");
+    if (typeof showingSpan !== 'undefined' && showingSpan !== null) {
+	  showingSpan.innerHTML = "";
+	}
+
+    var allp;
+    allp = document.createElement ("a");
+    allp.id = ULElemenID + "-" + "selected-only";
+    allp.className = "prod-count";
+    allp.style.color = "#1C8B98";
+    allp.style.cursor = "pointer";
+    allp.title = "View All Products";
+    allp.appendChild (document.createTextNode(allPrd+" products"));
+    allp.onclick = function() {arrangeProducts(null, ULElement);return false; };
+
+	if (countSelected > 0) {
+		showingSpan.appendChild(document.createTextNode(countSelected+" selected"));
+		showingSpan.appendChild(document.createTextNode(" of "));
+		if (countSelected == allPrd) {
+		  showingSpan.appendChild(document.createTextNode(allPrd+" products"));
+		  showingSpan.appendChild(document.createTextNode("\u00A0"));
+		}
+		else {
+		  showingSpan.appendChild(allp);
+		  showingSpan.appendChild(document.createTextNode("\u00A0"));
+		}
+	}
+	else {
+		innerHTMLshowingSpan = countSelected+" products\u00A0";
+		showingSpan.innerHTML = innerHTMLshowingSpan;
+	}
+
+	// remove the text in the filter
+	filterElem = document.getElementById(ULElemenID + "-" + 'prod-search-field');
+	if (typeof filterElem !== 'undefined' && filterElem !== null) {
+	  filterElem.value = j(filterElem).attr('title');
+	  j(filterElem).addClass('text-label');
+	}
+	return ULElement;
+}
+
+function countSelectedProductsInCategory (ULElement) {
+	//console.log ("called countSelectedProductsInCategory");
+	var ULElemenID, selectedPrd;
+	if (ULElement === null || typeof ULElement === 'undefined') {
+      return;
+    }
+
+	ULElemenID = ULElement.id;
+    //ULElement.hide();
+	selectedPrd = j("#"+ULElement.id+" input:checked").length;
+
+    return selectedPrd;
+}
+
+function buildProductsSummaryInCategory (ULElement) {
+	//console.log ("called buildProductsSummaryInCategory");
+	var ULElemenID, allPrd = 0, selectedPrd = 0, showAllProdSummary, showSelectedProdSummary, showFilterLink,
+	  summaryElement, prevElem;
+
+	  if (ULElement === null || typeof ULElement === 'undefined') {
+      //console.log ("NULL detected");
+	    return;
+    }
+
+    ULElemenID = ULElement.id;
+    //console.log ("Processinmg: "+ULElemenID);
+	  prevElem  = document.getElementById (ULElemenID + "-" + "product-list-summary");
+    //console.log ("Processinmg 1: "+ULElemenID);
+    var categoryName = '';
+    allPrd = 0;
+  	selectedPrd = 0;
+
+    var lis = j("#"+ULElement.id+" li");
+	if ( lis.length > 0 ){
+      categoryName = j(lis[0]).text();
+    }
+    var selectedCounter = 0;
+ 	var selectedPrdElems = j("#"+ULElement.id+" input:checked");
+	var selectedspan = document.createElement("span");
+	selectedspan.id = ULElement.id + "-selected-container";
+
+	selectedPrdElems.each(function(){
+	  selectedCounter++;
+	  var inputElem = this;
+	  var liel = inputElem.parentNode;
+	  var abbvid = liel.id;
+	  abbvid = abbvid.replace(/li/,"");
+	  var thisabbv = document.getElementById("span-abbv"+abbvid);
+	  var removetext = '';
+
+      var selectedText = j(inputElem.parentNode).text();
+	  //console.log ("Before: "+selectedText);
+	  ////////////////////////////////////////////
+	  var toremove = "\.\.\.";
+	  selectedText = selectedText.replace(/\.\.\./g,"");
+	  //console.log ("After: "+selectedText);
+	  ////////////////////////////////////////////
+	  selectedText = selectedText;
+	  if (typeof thisabbv !== 'undefined' && thisabbv !== null) {
+	    removetext = j(thisabbv).text();
+		if (removetext.length > 0) {
+		  removetext = removetext + "$";
+		  selectedText = selectedText.trim().replace (new RegExp(removetext,"g"),"");
+		}
+	  }
+	  selectedText = selectedText.replace(new RegExp("\r","g"),"");
+	  selectedText = selectedText.replace(new RegExp("\n","g"),"");
+	  selectedText = selectedText.replace(/^(\s)+/,"");
+	  selectedText = selectedText.replace(/(\s)+$/,"");
+	  var selecteddisplay = document.createElement("p");
+	  selecteddisplay.id = ULElement.id + "-selected-"+selectedCounter;
+	  selecteddisplay.className = "show-selected";
+	  selecteddisplay.appendChild(document.createTextNode(selectedText));
+	  selectedspan.appendChild (selecteddisplay);
+	});
+    if (selectedCounter < 1) {
+      var selecteddisplay = document.createElement("p");
+	  selecteddisplay.id = ULElement.id + "-selected-"+selectedCounter;
+	  selecteddisplay.className = "show-selected";
+	  selecteddisplay.appendChild(document.createTextNode("All products selected"));
+	  selectedspan.appendChild (selecteddisplay);
+	}
+	selectedPrd = selectedCounter;
+	allPrd = j("#"+ULElement.id+" input").length;
+
+    showAllProdSummary = document.createElement ("a");
+    showAllProdSummary.id = ULElemenID + "-" + "show-prod-summary-all-prods";
+    showAllProdSummary.style.color = "#1C8B98";
+    showAllProdSummary.style.cursor = "pointer";
+    //showAllProdSummary.title = "Filter by Product Suite";
+    showAllProdSummary.href  = "#"+ULElemenID + "-" + "product-main-div";
+    showAllProdSummary.className = ULElemenID + "-" +"popup";
+    showAllProdSummary.setAttribute("data-fancybox-type", "iframe");
+
+	//showAllProdSummary.appendChild (document.createTextNode(allPrd+" Products"));
+	showAllProdSummary.appendChild (document.createTextNode("( Select )"));
+	showAllProdSummary.appendChild (document.createElement("br"));
+
+    showAllProdSummary.onclick = function() {displayProducts(ULElemenID);return false; };
+
+	if (selectedPrd > 0) {
+		showSelectedProdSummary = document.createElement ("a");
+		showSelectedProdSummary.id = ULElemenID + "-" + "show-prod-summary-selected-prods";
+		showSelectedProdSummary.className = "prod-count";
+		showSelectedProdSummary.style.color = "#1C8B98";
+		showSelectedProdSummary.style.cursor = "pointer";
+		//showSelectedProdSummary.title = "Filter by Product Suite";
+        showSelectedProdSummary.href  = "#"+ULElemenID + "-" + "product-main-div";
+        showSelectedProdSummary.className = ULElemenID + "-" +"popup";
+        showSelectedProdSummary.setAttribute("data-fancybox-type", "iframe");
+		showSelectedProdSummary.appendChild (document.createTextNode(selectedPrd+" Selected"));
+		showSelectedProdSummary.onclick = function() {displayProducts(ULElemenID);showSelectedProducts(ULElement);return false; };
+	}
+	else {
+		showSelectedProdSummary = document.createElement ("span");
+		showSelectedProdSummary.className = "prod-count";
+		showSelectedProdSummary.id = ULElemenID + "-" + "show-prod-summary-selected-prods";
+		showSelectedProdSummary.appendChild (document.createTextNode(selectedPrd+" Selected"));
+        showSelectedProdSummary.href  = "#"+ULElemenID + "-" + "product-main-div";
+        showSelectedProdSummary.className = ULElemenID + "-" +"popup";
+        showSelectedProdSummary.setAttribute("data-fancybox-type", "iframe");
+	}
+
+    var titleListing = document.createElement ("span");
+    titleListing.id = ULElemenID + "-" + "product-list-summary-title";
+    titleListing.className = "product-list-matches-title";
+    titleListing.appendChild(document.createTextNode(categoryName));
+
+	summaryElement = document.createElement("span");
+    summaryElement.className = "product-list-matches-main";
+    summaryElement.id        = ULElemenID + "-" + "product-list-summary";
+    ////////////////////////////////////////////////
+	//summaryElement.appendChild (titleListing);
+    ////////////////////////////////////////////////
+
+    summaryElement.appendChild (document.createElement("br"));
+
+    summaryElement.appendChild (selectedspan);
+
+    summaryElement.appendChild (document.createElement("br"));
+
+    //summaryElement.appendChild (document.createTextNode("\u00A0\u00A0\u00A0\u00A0"));
+    summaryElement.appendChild (showAllProdSummary);
+    ////////////////////////////////////////////////////////////////////////////////////
+	//////// selected products section: commented out for now
+	////////////////////////////////////////////////////////////////////////////////////
+	//summaryElement.appendChild (document.createTextNode(" | "));
+    //if (typeof showSelectedProdSummary !== 'undefined' && showSelectedProdSummary !== null ) {
+   	//  summaryElement.appendChild (showSelectedProdSummary);
+    //}
+
+	summaryElement.appendChild (document.createElement("br"));
+
+	// remove the actual ul
+	// append this to product suite
+    //console.log ("attaching summary");
+  	summaryElement.style.display = "none";
+
+    if (typeof prevElem !== null && prevElem !== null) {
+	    j(prevElem).replaceWith(j(summaryElement));
+	}
+	else {
+        var getid = ULElemenID;
+		getid = getid.replace(/CATEGORY-/,"");
+		getid = getid.trim();
+		var prodsuite = document.getElementById(getid);
+	    j(prodsuite).css("background-color","#F0F0F0");
+	    /*
+		j(prodsuite).css("padding-top","5%");
+	    j(prodsuite).css("padding-bottom","5%");
+	    j(prodsuite).css("padding-right","5%");
+	    j(prodsuite).css("padding-left","5%");
+		*/
+		prodsuite.appendChild(summaryElement);
+	}
+
+    j(summaryElement).fadeIn('slow', function(){j(summaryElement).show();});
+
+    return summaryElement;
+}
+
+function displayProducts (DivID) {
+  //console.log ("called displayProducts");
+  hideProductDivs();
+  //HideProductSpan ();
+  //console.log ("called disp: "+DivID);
+  var isThisDivPresent = document.getElementById (DivID + "-" + "product-main-div");
+  if (typeof isThisDivPresent === 'undefined' || isThisDivPresent === null) {
+	return;
+  }
+  //isThisDivPresent.style.display = 'block';
+
+  var searchfieldid = document.getElementById (DivID + "-" + "prod-search-field");
+  if (typeof searchfieldid !== 'undefined' && searchfieldid !== null  && ! searchfieldid.value.match (/Type to filter/)) {
+    //console.log ("clearing search data: "+searchfieldid.value);
+	searchfieldid.value = "";
+  }
+
+  var ThisUL = document.getElementById (DivID);
+  //arrangeProducts(null, ThisUL);
+  ThisUL.style.display = 'block';
+  var popularElems = j("#"+ThisUL.id+" .popular");
+  if (popularElems.length < 1) {
+    var $lis = j("#"+DivID+" li").hide();
+    $lis.slice(1, $lis.length).show();
+  }
+  else {
+	var updateAllTab = document.getElementById(DivID+"-prodtab2");
+    updateAllTab.innerHTML = "\u00A0\u00A0All\u00A0\u00A0";
+	//console.log ("1");
+	changetabs(DivID, "popular", "");
+	//console.log ("2");
+	showPopularProducts (ThisUL);
+	//console.log ("3");
+  }
+
+  j("."+DivID+"-popup").fancybox({
+	  fitToView	: false,
+      width: 500,
+      height: 340,
+      autoSize	: false,
+      maxWidth: "90%",
+      fitToView:true,
+      transitionIn: 'elastic',
+      transitionOut: 'elastic',
+      //hideOnContentClick: true,
+      //hideOnOverlayClick: false,
+      //type: 'iframe',
+      type: 'inline',
+      onCancel: function () {hideProductDivs();},
+      href: '#'+isThisDivPresent.id,
+      showCloseButton: false,
+	  closeBtn       : false,
+      enableEscapeButton: true,
+      helpers: {
+          overlay: {
+              locked: false,
+              closeClick: true
+          }
+	  }
+  });
+  //console.log ("displayed");
+  //return;
+}
+
+function hideProductDivs () {
+  //console.log ("called hideProductDivs");
+  var myProdDivs = j('.product-main-div:visible');
+  myProdDivs.each(function() {
+    //console.log("HIDING: "+this.id);
+	j(this).hide('slow');
+    //HideProductSpan (this.id);
+    //console.log("HIDDEN SPAN");
+	// also remove the search filter provided
+	var filterElemID = this.id;
+	filterElemID = filterElemID.replace (/-product-main-div/,'');
+    j("#"+filterElemID + "-" + 'prod-search-field').val("");
+  });
+  return;
+}
+
+function showProducts (ULElementOriginal, filterText) {
+	//console.log ("called show");
+    //console.log ("called showProducts");
+	var ULElement, ULElemenID, categoryName, productMainDiv, prodDisplayHeader, productnameContainer, cancelXspan,
+	  cancelX, cancelXspanA, countTotal, countSelected, selectedPrd, currElem, innerElem, innserMost,
+	  showingSpan, showAllProd, showingSelectedSpan, filterElem, productListTools, productListMatches,
+	  productListSelected, getSelectedProds, selectedText, showSelectedProd, productListToolsSearch,
+	  filterLabel, prodSearchField, productListDiv, prevElem;
+  	if (filterText === null || typeof filterText === 'undefined') {
+      filterText = '';
+    }
+	if (typeof ULElementOriginal === 'undefined' || ULElementOriginal === null) {
+      return;
+    }
+	//console.log ("reached");
+	ULElement = ULElementOriginal;
+	//console.log ("starting to create the div");
+    countTotal    = 0;
+    countSelected = 0;
+    ULElemenID = ULElement.id;
+	// check if the div is already existing
+	var isThisDivPresent = document.getElementById (ULElemenID + "-" + "product-main-div");
+	if (typeof isThisDivPresent !== 'undefined' && isThisDivPresent !== null) {
+	  arrangeProducts(null, ULElementOriginal);
+   	  //console.log ("reached if");
+	  return;
+	}
+    selectedPrd = 0;
+
+    var lis = j("#"+ULElementOriginal.id+" li");
+	if ( lis.length > 0 ){
+      // no need to do anything. Show all
+      categoryName = j(lis[0]).text();
+	  j(lis[0]).hide();
+    }
+
+	countSelected = j("#"+ULElementOriginal.id+" input:checked").length;
+	countTotal = j("#"+ULElementOriginal.id+" input").length;
+    // reduce by once since we do not want to include the category name
+	///////////////////////////////////////////////
+	//countTotal--;
+	///////////////////////////////////////////////
+
+  // else start building the div
+  productMainDiv           = document.createElement("div");
+  productMainDiv.className = "product-main-div";
+  productMainDiv.id        = ULElemenID + "-" + "product-main-div";
+  productMainDiv.style.display        = "none";
+
+  var apTopDiv = document.createElement ("div");
+  apTopDiv.className = "ap-top";
+
+  var apTopDivInner = document.createElement ("div");
+  apTopDivInner.className = "inner";
+
+
+
+  prodDisplayHeader           = document.createElement("div");
+  prodDisplayHeader.className = "prod-display-header";
+  prodDisplayHeader.id        = ULElemenID + "-" + "prod-display-header";
+  //prodDisplayHeader.style.width = "45%";
+  prodDisplayHeader.style.clear = "both";
+
+  var dhTitle2 =        document.createElement("h1");
+  //dhTitle2.className = "productname-container";
+  dhTitle2.style.cssFloat = "left";
+  dhTitle2.appendChild(document.createTextNode(categoryName));
+
+  prodDisplayHeader.appendChild(dhTitle2);
+  //add header to main div
+
+  var rightP = document.createElement("p");
+  rightP.appendChild (document.createTextNode("Search by Product Suite"));
+  rightP.style.cssFloat = "right";
+  rightP.style.fontSize="14px";
+  rightP.style.paddingTop="1.75%";
+  rightP.style.fontWeight="bold";
+  prodDisplayHeader.appendChild (rightP);
+
+
+  var headerP = document.createElement("p");
+  headerP.style.cssFloat = "left";
+
+  //productMainDiv.appendChild(document.createElement("hr"));
+
+  //header built
+  var allp;
+  allp = document.createElement ("a");
+  allp.id = ULElemenID + "-" + "selected-only";
+  allp.className = "prod-count";
+  allp.style.color = "#1C8B98";
+  allp.style.cursor = "pointer";
+  allp.title = "View All Products";
+  allp.appendChild (document.createTextNode(countTotal+ " products"));
+  allp.onclick = function() {arrangeProducts(null, ULElement);return false; };
+
+  productListMatches       = document.createElement("span");
+  productListMatches.className = "product-list-matches";
+  productListMatches.id        = ULElemenID + "-" + "product-list-matches";
+  if (countSelected > 0) {
+	  showSelectedProd = document.createElement ("a");
+	  showSelectedProd.className = "prod-count";
+	  showSelectedProd.id = ULElemenID + "-" + "show-all-prod";
+	  showSelectedProd.style.color = "#1C8B98";
+	  showSelectedProd.style.cursor = "pointer";
+	  showSelectedProd.title = "View Selected Products";
+	  showSelectedProd.appendChild (document.createTextNode(countSelected+" selected"));
+	  showSelectedProd.onclick = function() {showSelectedProducts(ULElement);return false; };
+      productListMatches.appendChild (showSelectedProd);
+      productListMatches.appendChild (document.createTextNode(" of "));
+      productListMatches.appendChild (allp);
+      //productListMatches.appendChild (document.createTextNode("Showing "+countTotal+" products\u00A0"));
+  }
+  else {
+      productListMatches.appendChild (allp);
+  }
+
+
+
+  productListSelected           = document.createElement("span");
+  productListSelected.className = "product-list-matches";
+  productListSelected.id        = ULElemenID + "-" + "product-list-selected";
+
+  getSelectedProds = countSelectedProductsInCategory (ULElement);
+  if (typeof getSelectedProds === 'undefined' || getSelectedProds === null) {
+    getSelectedProds = 0;
+  }
+  selectedText = "";
+
+  productListToolsSearch       = document.createElement("span");
+  productListToolsSearch.className = "product-list-tools-search";
+  productListToolsSearch.id        = ULElemenID + "-" + "product-list-tools-search";
+
+  headerP.appendChild (productListMatches);
+  //headerP.appendChild (productListSelected);
+
+  apTopDivInner.appendChild(prodDisplayHeader);
+
+
+
+  // add the right aligned div
+  var prodDisplayHeaderRight           = document.createElement("div");
+  prodDisplayHeaderRight.className = "prod-display-header-right";
+  //prodDisplayHeaderRight.style.width = "45%";
+  prodDisplayHeaderRight.style.clear = "both";
+  prodDisplayHeaderRight.style.textAlign = "right";
+
+
+  var rightPin = document.createElement("p");
+  rightPin.style.cssFloat = "right";
+  rightPin.style.paddingTop = "2%";
+
+  prodSearchField = document.createElement("input");
+  prodSearchField.type      = 'text';
+  prodSearchField.id        = ULElemenID + "-" + "prod-search-field";
+  prodSearchField.className = ULElemenID + "-" + "prod-search-field";
+  prodSearchField.style.width     = "150px";
+  prodSearchField.title     = 'Type to filter';
+  prodSearchField.value     = '';
+  prodSearchField.name      = 'prod-search-field';
+  prodSearchField.onkeyup = function() {
+  var elemHere = this;
+  if (resizeTimerId) {clearTimeout(resizeTimerId);resizeTimerId = null;}
+  resizeTimerId =setTimeout( (function(param) {
+      return function() {
+        arrangeProducts(elemHere, ULElement);
+     };
+    })(elemHere, ULElement) , 1000);
+  };
+  rightPin.appendChild (prodSearchField);
+
+  //prodDisplayHeaderRight.appendChild(headerP);
+  prodDisplayHeaderRight.appendChild (rightPin);
+
+  apTopDivInner.appendChild(prodDisplayHeaderRight);
+
+  apTopDiv.appendChild (apTopDivInner);
+
+  productMainDiv.appendChild(apTopDiv);
+  // add a tab div here
+  //<div style="display: block; height: 200px; border-top: medium none;" class="container" id="prodtab1C">
+
+
+  var appMidDivInner = document.createElement("div");
+  appMidDivInner.className = "inner";
+
+  var ultabs = document.createElement("ul");
+  ultabs.id = "prodtabs";
+
+  var appMidDiv = document.createElement("div");
+
+
+  var popularElems = j("#"+ULElement.id+" .popular");
+  if (popularElems.length < 1) {
+    ultabs.style.display = "none";
+	appMidDiv.className = "ap-mid-top";
+  }
+  else {
+    appMidDiv.className = "ap-mid";
+  }
+
+
+  var litabs1 = document.createElement("li");
+  var liaelem1 = document.createElement("a");
+  liaelem1.className = "";
+  liaelem1.id = ULElemenID + "-"+"prodtab1";
+  liaelem1.appendChild(document.createTextNode("\u00A0Popular\u00A0"));
+  liaelem1.onclick = function() {managetabs(this, ULElement, 'popular');return false; };
+  litabs1.appendChild (liaelem1);
+
+  var litabs2 = document.createElement("li");
+  var liaelem2 = document.createElement("a");
+  liaelem2.className = "inactive";
+  liaelem2.id = ULElemenID + "-"+"prodtab2";
+  liaelem2.appendChild(document.createTextNode("\u00A0\u00A0All\u00A0\u00A0"));
+  liaelem2.onclick = function() {managetabs(this, ULElement, 'all');return false; };
+  litabs2.appendChild (liaelem2);
+
+  ultabs.appendChild(litabs1);
+  ultabs.appendChild(litabs2);
+
+
+  // tab1
+  var tabdiv1             = document.createElement ("div");
+  tabdiv1.style.display   = "block";
+  tabdiv1.className       = "container";
+  tabdiv1.id              = "prodtab1C";
+
+
+  if (popularElems.length > 0) {
+    var popularProds = showPopularProducts (ULElement);
+	tabdiv1.appendChild(popularProds);
+  }
+  else {
+    var $lis = j("#"+ULElemenID+" li").hide();
+	if ( $lis.length == 1 ){
+      // no need to do anything. Show all
+      $lis.slice(0, $lis.length).show();
+    }
+	else {
+      $lis.slice(1, $lis.length).show();
+	}
+    tabdiv1.appendChild(ULElement);
+  }
+
+
+  // tab2
+  /*
+  var tabdiv2             = document.createElement ("div");
+  tabdiv2.style.display   = "none";
+  //tabdiv2.style.height    = "200px";
+  //tabdiv2.style.borderTop = "medium none";
+  tabdiv2.className       = "container";
+  tabdiv2.id              = "prodtab2C";
+  tabdiv2.appendChild(ULElement);
+  */
+
+  // append the ul to this div here
+  appMidDivInner.appendChild (tabdiv1);
+  //appMidDivInner.appendChild (tabdiv2);
+  appMidDiv.appendChild (appMidDivInner);
+
+  // append this div to productMainDiv
+  productMainDiv.appendChild (ultabs);
+  productMainDiv.appendChild (appMidDiv);
+  document.body.appendChild(productMainDiv);
+
+  // add ap-bottom
+  var appBottomDiv = document.createElement("div");
+  appBottomDiv.className = "ap-bottom";
+
+  var matchdisplayer = document.createElement("div");
+  matchdisplayer.style.display = "inline-block";
+  matchdisplayer.style.cssFloat = "left";
+  matchdisplayer.style.paddingTop = "5px";
+  matchdisplayer.appendChild (headerP);
+
+  var appBottomDivInner = document.createElement("div");
+  appBottomDivInner.className = "inner";
+  var appBottomDivInnerContainer = document.createElement("div");
+  appBottomDivInnerContainer.style.display = "inline-block";
+  appBottomDivInnerContainer.style.cssFloat = "right";
+  appBottomDivInnerContainer.style.paddingTop = "5px";
+  var fancyButtonOK = document.createElement("button");
+  fancyButtonOK.type = "button";
+  fancyButtonOK.onclick = function () { parent.j.fancybox.close();};
+  fancyButtonOK.appendChild(document.createTextNode("OK"));
+  fancyButtonOK.style.width = "80px";
+  fancyButtonOK.style.backgroundColor = "#6699FF";
+  fancyButtonOK.style.color = "white";
+  fancyButtonOK.style.fontWeight = "bold";
+  appBottomDivInnerContainer.appendChild (fancyButtonOK);
+
+  appBottomDivInner.appendChild(matchdisplayer);
+  appBottomDivInner.appendChild(appBottomDivInnerContainer);
+  appBottomDiv.appendChild (appBottomDivInner);
+  productMainDiv.appendChild (appBottomDiv);
+
+
+  var thisSearchInput = document.getElementById(ULElemenID + "-" + "prod-search-field");
+  thisSearchInput.value = j(thisSearchInput).attr('title');
+  j(thisSearchInput).addClass('text-label');
+
+  j(thisSearchInput).focus(function(){
+      if(thisSearchInput.value == j(thisSearchInput).attr('title')) {
+          thisSearchInput.value = '';
+          j(thisSearchInput).removeClass('text-label');
+      }
+  });
+
+  j(thisSearchInput).blur(function(){
+      if(thisSearchInput.value == '') {
+          thisSearchInput.value = j(thisSearchInput).attr('title');
+          j(thisSearchInput).addClass('text-label');
+      }
+  });
+  return;
+}
+
+function searchProducts (elemHere, ULElement) {
+    //console.log ("called searchProducts");
+	if (resizeTimerId) {clearTimeout(resizeTimerId);resizeTimerId = null;}
+	resizeTimerId =setTimeout( (function(param) {
+		return function() {
+			arrangeProducts(elemHere, ULElement);
+		};
+	})(elemHere, ULElement) , 1000);
+}
+
+function hideThisProducts (ULElement) {
+  //console.log ("called hideThisProducts" );
+  var ULElemenID, mainCatDiv;
+  if (ULElement === null || typeof ULElement === 'undefined') {
+    return;
+  }
+  ULElemenID = ULElement.id;
+  mainCatDiv = document.getElementById(ULElemenID + "-" + "product-main-div");
+  if (mainCatDiv === null || typeof mainCatDiv === 'undefined') {
+    return;
+  }
+  j(mainCatDiv).hide('slow');
+  return;
+}
+
+function getSummaryForProducts (ULElemenID) {
+  //console.log ("called getSummaryForProducts" );
+  var ULElement;
+  if (ULElemenID === null || typeof ULElemenID === 'undefined') {
+    return null;
+  }
+  ULElement = document.getElementById (ULElemenID);
+  if (ULElement === null || typeof ULElement === 'undefined') {
+    return null;
+  }
+  HideProductSpan (ULElemenID);
+  // build summary like:
+  // 200 Products | 0 Selected [Filter]
+  // 200 Products | 1 Selected [Filter]
+  return;
+
+}
+
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+////                PRODUCT MANAGEMENT END               /////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
+
+
+//-->
+</script>
+
+<!--fonts-->
+
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="dcommon/css/ltIE9.css">
+<![endif]-->
+
+ <!--[if IE ]>
+ <link rel="stylesheet" href="dcommon/css/IE.css">
+ <![endif]-->
+
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+
+<style>
+
+.srch-title {
+  font-size: 13px !important;
+  font-weight: bold !important;
+  /*font-weight: 500 !important;*/
+  color: white !important;
+  /*color: #808080 !important;*/
+}
+
+.topictitle {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: #0572ce !important;
+}
+
+.snippet {
+  font-size: 14px;
+  font-weight: 300 !important;
+  color: #4c4c4c !important;
+}
+
+.snippet strong {
+  font-weight: 500 !important;
+  color: #000 !important;
+}
+
+.main-title {
+  color: #6699FF;
+  font-weight:bold;
+}
+
+.main-title-text {
+  width: 90%;
+  display: inline-block;
+}
+
+.filter li {
+  line-height: 0.4em !important;
+}
+
+.filter li label{
+  line-height: normal !important;
+}
+
+#SearchFilters > .filter ul li {
+  margin-right:0px !important;
+}
+
+#sidebar-inner {
+  width:auto !important;
+  padding-right: 0px !important;
+}
+
+.filter li a {
+  line-height: 0.5em !important;
+  /*line-height: 1.0em !important;*/
+}
+
+.tab-links {
+  margin: -8px !important;
+}
+
+li strong {
+  font-weight:bold;
+}
+
+.bookmark {
+     cursor:pointer;
+     border: 1px solid #ccc;
+}
+
+.bookmark:hover {
+     text-decoration:none;
+     background: #707070;
+     color: #FFFFFF;
+}
+
+.bookmark:hover a {
+     color: #FFFFFF;
+}
+
+.bookmarkurl {
+     text-decoration:none;
+     color:#606060;
+     padding-left: 4px;
+     padding-right: 4px;
+}
+
+.bookmarkurl:hover {
+     text-decoration:none;
+     color: #FFFFFF;
+}
+
+.bookmarkurl:visited {
+}
+
+ .arrow {
+    cursor:pointer;
+    text-decoration: none;
+}
+
+.prodList {
+   margin-bottom:40px;
+   /*height: 220px;*/
+   overflow: auto;
+}
+
+.sliderdisplay {
+    width: 12em;
+    height: 2em;
+    line-height: 2em;
+    border: 1px solid #ccc;
+    padding: 0;
+    margin: 0;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+/*
+#searchFieldMain {
+    width: 170px;
+}
+
+#searchFieldMain {
+	display: inline;
+    width: 85%;
+    min-width:150px;
+	height: 27px;
+	line-height:27px;
+/*	border-right: 0 none;*/
+	/*	box-shadow: none;*/
+	font-size: 12px;
+	/*padding: 3px;*/
+	padding-left: 5px;
+	margin: 0;
+}
+
+#search #searchFieldMain {
+    width: 170px;
+}
+*/
+
+.searchstart {
+  border-color: red;
+  -webkit-box-shadow: 0 8px 6px -6px #FF0000;
+  -moz-box-shadow: 0 8px 6px -6px #FF0000;
+	box-shadow: 0 8px 6px -6px #FF0000;
+}
+
+.searchstart:focus {
+   	border-color: red;
+   	-webkit-box-shadow: 0 8px 6px -6px #FF0000;
+    -moz-box-shadow: 0 8px 6px -6px #FF0000;
+	box-shadow: 0 8px 6px -6px #FF0000;
+}
+.focus {
+    border: 2px solid #AA88FF;
+    background-color: #FFEEAA;
+    /*background: url('../../../images/wait.gif') top right no-repeat;*/
+}
+.ui-autocomplete li.ui-menu-item {
+  /*
+  padding: 1px;  // needed to prevent the item sizes from changing on hover
+  */
+}
+
+.ui-autocomplete a.ui-menu-item-alternate {
+  background-color: White;  // alternate item bgcolor
+}
+
+
+.loading{
+  background:url('../../images/wait.gif') no-repeat right center;
+}
+
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus{
+  background: #F0F0F0;
+  border: 0px;
+}
+
+.ui-autocomplete {
+  max-height: 500px;
+  /*height: 500px; */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+ui-autocomplete {
+  width: 100px;
+}
+
+.ui-menu .ui-menu-item {
+  background: white;
+}
+
+.summary {
+	font-size: 13px;
+	color: #A8A8A8;
+}
+
+.summary strong {
+	font-size: 12px;
+    color: #FFFFF;
+}
+
+.prodname {
+	font-size: 13px;
+    color: #0099FF;
+}
+
+.prodname-generic {
+	font-size: 13px;
+    color: #0099FF;
+    margin-left: 5%;
+}
+
+.label {
+	/*font-size: 13px;*/
+}
+
+.labeltransparent {
+	font-size: 0.1px;
+	color: transparent;
+}
+
+/*
+strong {
+  font-style:italic;
+}
+*/
+
+/*    Style related to the product overlay div     */
+
+.inner h1 {
+	font-size: 16px;
+	line-height: 1.1em;
+	font-weight: bold;
+	color: #e75c58;
+	margin: 0 0 5px 0 !important;
+}
+.ap-top p {
+  margin:0
+}
+
+.ap-top{
+	font-size:12px;
+	/*height:82px;*/
+	width:100%;
+	margin:0 auto;
+	/*position:fixed;*/
+	display:block;
+	top:0;
+	/*background-color:#f7f7f7;*/
+	/*border-bottom:1px solid #ccc;*/
+}
+
+.ap-mid {
+	position:absolute;
+	width:99.65%;
+	top:74.6px;
+	bottom:44px;
+	overflow-y:scroll;
+	display:block;
+	background-color: white !important;
+    border-left: 1px solid #E3E4E3;
+    border-right: 1px solid #E3E4E3;
+    margin-bottom: 10px;
+}
+
+.ap-mid-top {
+	position:absolute;
+	width:99.65%;
+	top:74.6px;
+	bottom:44px;
+	overflow-y:scroll;
+	display:block;
+	background-color: white !important;
+    border-left: 1px solid #E3E4E3;
+    border-right: 1px solid #E3E4E3;
+    border-top: 1px solid #E3E4E3;
+    margin-bottom: 10px;
+}
+
+.ap-bottom {
+	position:absolute;
+	left:0;
+	bottom:0;
+	width:100%;
+	/*height:40px;*/
+	border-top:1px solid #ccc;
+	background-color:#f7f7f7;
+}
+
+.ap-top input {
+	width:100%;
+}
+
+.ap-mid ul {
+  padding-left:0;
+}
+
+.ap-mid-top ul {
+  padding-left:0;
+}
+
+
+.ap-mid .main-title {
+
+  font-weight: bold;
+  clear: both;
+  color: #6699FF;
+  padding-top: 5px;
+
+}
+
+.ap-mid-top .main-title {
+
+  font-weight: bold;
+  clear: both;
+  color: #6699FF;
+  padding-top: 5px;
+
+}
+
+.inner {
+    /*padding:5px 10px;*/
+}
+
+/*added from live*/
+
+#prodtabs {
+/*width: 100%;*/
+height: 40px;
+border-bottom: solid 1px #CCC;
+/*padding-right: 2px;*/
+margin-left: -6px;
+margin-top:0;
+padding-left: 0;
+margin-bottom: 0;
+/*overflow: hidden;*/
+
+}
+a {cursor:pointer;}
+
+#prodtabs li {
+    float:left;
+    list-style:none;
+    border-top:1px solid #ccc;
+    border-left:1px solid #ccc;
+    border-right:1px solid #ccc;
+    margin-right:5px;
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+    outline:none;
+	padding-left: 0;
+}
+
+#prodtabs li a {
+
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: small;
+    font-weight: bold;
+    color: #5685bc;;
+    padding-top: 5px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 8px;
+    display:block;
+    background: #FFF;
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+    text-decoration:none;
+    outline:none;
+}
+
+#prodtabs li a.inactive{
+padding-top:5px;
+padding-bottom:8px;
+padding-left: 8px;
+padding-right: 8px;
+color:#666666;
+background: #EEE;
+outline:none;
+border-bottom: solid 1px #CCC;
+}
+
+#prodtabs li a:hover, #prodtabs li a.inactive:hover {
+color: #5685bc;
+outline:none;
+}
+
+
+.show-selected {
+  /*line-height: 0.5em !important;*/
+  line-height: 1.1em !important;
+}
+
+.main-title {
+  color: #145c93;
+  font-weight: bold;
+}
+
+.listbox {
+    display: list-item;
+    width: 225px;
+    border: 1px solid #CCC;
+    overflow: hidden;
+    float: left;
+    background-color: #EAEAEA;
+    height: 20px;
+    padding-left: 0px;
+    position: relative;
+	margin-top: -2px;
+}
+
+.listbox label {
+    /*top: 2px;*/
+    /*left: 5px;*/
+    position: relative;
+    margin-left: 2px;
+    font-size: 12px;
+}
+
+.srch-result {
+  width: 100% !important;
+}
+
+.srch-result p {
+  font-size: 14px !important;
+  font-weight: 300 !important;
+  color: #4c4c4c !important;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-bottom: 4px;
+}
+
+.srch-result p span {
+  font-size: 16px !important;
+}
+
+.srch-result p strong {
+  font-weight: 500 !important;
+  color: #000 !important;
+}
+
+.srch-result > h3 {
+    margin-left: 8px;
+}
+
+.listbox input {
+    float: right;
+}
+
+.productinput {
+  margin: 4px 2px !important;
+}
+.container-search li {
+    margin-right: 15px;
+}
+
+.prod-display-header-right {
+  margin-top: 4.5%;
+}
+
+.product-list-div ul, li {
+  list-style-type: none;
+  margin: 8px 6px;
+  /*padding-left: 10px;*/
+}
+
+#CATEGORY * {
+  box-sizing: content-box !important;
+}
+
+.product-list-div label {
+  display: inline;
+}
+
+
+.product-list-matches-main {
+  /*margin-top: 5px;*/
+  margin-left: 14%;
+  font-size: 12px;
+  display:inline-block;
+  vertical-align: middle;
+}
+
+.product-list-matches {
+  margin-top: -25px;
+  font-size: 12px;
+  display:inline-block;
+  vertical-align: middle;
+}
+
+.product-list-matches-title {
+  font-size: 14px;
+  color: #3C4663;
+  font-weight:bold;
+  font-family: "Helvetica Neue", Helvetica, 'Open Sans', arial, sans-serif;
+}
+
+.product-list-tools-search {
+  color: #145c93;
+}
+
+.product-list-tools {
+  font-size: small;
+  line-height: 0.75em;
+}
+.product-list-tools-search label {
+  cursor: default !important;
+  color: #145c93;
+}
+
+.filter-class {
+  display:inline;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.prod-count {
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+.text-label {
+  color: #cdcdcd;
+}
+
+.ui-menu-item .label {
+    font-size: 13px;
+}
+
+@media only screen and (max-width: 480px) {
+
+.prod-display-header p {
+  display: none;
+}
+.prod-display-header-right p {
+  float: right !important;
+}
+
+.prod-display-header-right p input {
+  width: 60px !important;
+}
+
+.ap-mid {
+	position:absolute;
+	width:99%;
+	top:69.5px;
+	bottom:44px;
+	overflow-y:scroll;
+	display:block;
+	background-color: white !important;
+    border-left: 1px solid #E3E4E3;
+    border-right: 1px solid #E3E4E3;
+    margin-bottom: 10px;
+}
+
+.ap-mid-top {
+	position:absolute;
+	width:99%;
+	top:69.5px;
+	bottom:44px;
+	overflow-y:scroll;
+	display:block;
+	background-color: white !important;
+    border-left: 1px solid #E3E4E3;
+    border-right: 1px solid #E3E4E3;
+    border-top: 1px solid #E3E4E3;
+    margin-bottom: 10px;
+}
+
+.main-title {
+   font-size: small !important;
+}
+
+  .filter-class {
+    display:inline;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .product-list-tools-search input {
+    width: 80% !important;
+  }
+
+  .product-list-div label {
+   display: inline;
+  }
+  .product-list-div ul, li {
+    list-style-type: none;
+  }
+
+  .product-list-matches-main {
+    display:inline-block;
+    vertical-align: middle;
+  }
+
+  .product-list-matches {
+    display:inline-block;
+    vertical-align: middle;
+  }
+
+  .product-list-matches-title {
+    color: #3C4663;
+    font-weight:bold;
+    font-family: "Helvetica Neue", Helvetica, 'Open Sans', arial, sans-serif;
+  }
+
+}
+
+/*  Style related to the product overlay div  - END   */
+
+/*  Welcome Pop UP */
+
+.welcome-div-class {
+  display: none;
+}
+
+#welcome-div-id h1 {
+	font-size: 26px;
+	line-height: 1.1em;
+	font-weight: normal;
+	color: #e75c58;
+	margin: 15px 0 15px 0 !important;
+}
+#welcome-div-id h2 {
+	font-size: 20px;
+	line-height: 1.2em;
+	color: #727272;
+	margin: 15px 0 10px 0;
+	font-weight: normal;
+}
+#welcome-div-id h3 {
+	font-size: 18px;
+	line-height: 1.2em;
+	font-weight: normal;
+	color: #171717; /* orange #e95b46; */
+	margin: 15px 0 4px 0;
+}
+
+.selected {
+  float: right;
+  background: #145c93;
+  padding: 0px 7px 0px 5px;
+  font-size: 10px;
+  color: white;
+  border-radius: 12px;
+  margin-right: 2px;
+}
+
+.selected-none {
+  float: right;
+  background-color: #efefef;
+  padding: 0px 7px 0px 5px;
+  font-size: 10px;
+  border-radius: 12px;
+  color: #d7d7d7;
+  margin-right: 2px;
+}
+
+@media only screen and (min-width: 480px) {
+/*// larger than iphone*/
+
+.inner h1 {
+	font-size: 26px;
+	line-height: 1.1em;
+	font-weight: normal;
+	color: #e75c58;
+	/*margin: 0 0 15px 0 !important;*/
+}
+.ap-top p{margin:auto;}
+.ap-top {
+	font-size:13px;
+}
+
+.welcome-div-class {
+  display: none;
+}
+
+#prodtabs {
+/*width: 100%;*/
+height: 40px;
+border-bottom: solid 1px #CCC;
+/*padding-right: 2px;*/
+margin-left: -6px;
+margin-top:0.01% !important;
+padding-left: 0;
+margin-bottom: 0;
+/*overflow: hidden;*/
+
+}
+
+.main-title {
+   font-size: small !important;
+}
+
+prod-display-header-right p input {
+  width: 100px !important;
+}
+
+.fbtxt {
+    width:100%;
+    display:table;
+    padding:9px;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+#welcome-div-id p {
+	font-size:1.3em;
+    display:table-cell;
+    height:100%;
+    vertical-align: top;
+	padding-left:12px;
+}
+#welcome-div-id img {
+    display:table-cell;
+    width:230px;
+    height:auto;
+}
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+/* CSS Statements that only apply on webkit-based browsers (Chrome, Safari, etc.) */
+#prodtabs {
+/*width: 100%;*/
+height: 40px;
+border-bottom: solid 1px #CCC;
+/*padding-right: 2px;*/
+margin-left: -6px;
+margin-top:0.1% !important;
+padding-left: 0;
+margin-bottom: 0;
+/*overflow: hidden;*/
+
+}
+}
+
+@media only screen and (min-width: 768px) {
+
+#fancybox-wrap {
+
+  position: absolute;
+
+  top: 210px !important;
+
+}
+
+
+}
+
+
+@media only screen and (max-width: 479px) {
+
+.prod-display-header p {
+  display: block;
+  font-size: 8px !important;
+}
+
+
+.prod-display-header-right p {
+  float: right !important;
+}
+
+#prodtabs {
+/*width: 100%;*/
+height: 40px;
+border-bottom: solid 1px #CCC;
+/*padding-right: 2px;*/
+margin-left: -6px;
+margin-top:0.5% !important;
+padding-left: 0;
+margin-bottom: 0;
+/*overflow: hidden;*/
+
+}
+
+.prod-display-header-right p input {
+  width: 40px !important;
+  font-size: small !important;
+}
+
+.listbox {
+  width: 95%;
+}
+
+.main-title {
+   font-size: small !important;
+}
+
+.prod-display-header-right p input {
+  width: 40px !important;
+}
+
+.ap-mid {
+	position:absolute;
+	width:99%;
+	top:69.5px;
+	bottom:44px;
+	overflow-y:scroll;
+	display:block;
+	background-color: white !important;
+    border-left: 1px solid #E3E4E3;
+    border-right: 1px solid #E3E4E3;
+    margin-bottom: 10px;
+}
+
+.ap-mid-top {
+	position:absolute;
+	width:99%;
+	top:69.5px;
+	bottom:44px;
+	overflow-y:scroll;
+	display:block;
+	background-color: white !important;
+    border-left: 1px solid #E3E4E3;
+    border-right: 1px solid #E3E4E3;
+    border-top: 1px solid #E3E4E3;
+    margin-bottom: 10px;
+}
+
+.welcome-div-class {
+  display: none;
+}
+
+.fbtxt {
+    width:100%;
+    padding:10px;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+#welcome-div-id  p {
+
+}
+#welcome-div-id img {
+    width:230px;
+    margin:0px auto;
+    display:block;
+    height:auto;
+}
+}
+
+/*  Welcome Pop UP  -  END*/
+
+</style>
+
+<!--fonts-->
+
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="dcommon/css/ltIE9.css">
+<![endif]-->
+
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body id="searchbody">
+
+<div id="IE8">
+You are using an outdated browser. Please upgrade to the latest version for the best experience.
+</div>
+
+<header>
+
+
+<div class="w1024" style="min-height:55px; display:block;">
+<a href="http://docs.oracle.com/en/" class="oracle-logo"><img src="dcommon/img/oracle-doc-logo.png" alt="OracleÂ® Help Center" width="236" height="22" style="max-width: none;" ></a>
+
+<div id="headernav" class="glyph">
+<ul>
+    <li><a href="#">firstname.last@oracle.com <span class="JetFW-caret-s_16"></span></a>
+        <ul class="shadow">
+            <li><a href="#">Preferences</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Sign Out</a></li>
+        </ul>
+        </li>
+</ul>
+
+</div>
+</div>
+
+</header>
+
+
+
+<div id="content">
+
+<div  class="w1024">
+
+<div class="navbackwide border-right"></div>
+
+<div id="shownav" title="Show Navigation"></div>
+<div id="hidenav"></div>
+
+<div id="sidebar">
+<div id="sidebar-inner"><!--<div id="NAV">-->
+<div id="SearchFilters"><h3 style="display:none;">Refine Search</h3>
+
+<div class="filter" id="CATEGORY">
+
+<h4>Categories</h4>
+<ul>
+<li id="allcat"><input name="category1" id="c1" type="checkbox" value="all" onclick='aggregateSearchCriteria(this);'  />
+<label for="c1">All Products</label>
+</li>
+
+        <li id="cloud">
+		<input name="category2" id="c2" type="checkbox" value="cloud" onclick='aggregateSearchCriteria(this);'  />
+		<label for="c2">Cloud (217)</label>
+		</li>
+        
+        <li id="applications">
+		<input name="category3" id="c3" type="checkbox" value="applications" onclick='aggregateSearchCriteria(this);'  />
+		<label for="c3">Applications (495)</label>
+		</li>
+        
+        <li id="middleware">
+		<input name="category4" id="c4" type="checkbox" value="middleware" onclick='aggregateSearchCriteria(this);'  />
+		<label for="c4">Middleware (544)</label>
+		</li>
+        
+        <li id="database">
+		<input name="category5" id="c5" type="checkbox" value="database" onclick='aggregateSearchCriteria(this);'  />
+		<label for="c5">Database (123)</label>
+		</li>
+        
+        <li id="bigdata">
+		<input name="category6" id="c6" type="checkbox" value="bigdata" onclick='aggregateSearchCriteria(this);'  />
+		<label for="c6">Big Data (25)</label>
+		</li>
+        
+        <li id="enterprisemanager">
+		<input name="category7" id="c7" type="checkbox" value="enterprisemanager" onclick='aggregateSearchCriteria(this);'  />
+		<label for="c7">Enterprise Manager (16)</label>
+		</li>
+        
+        <li id="engineeredsystems">
+		<input name="category8" id="c8" type="checkbox" value="engineeredsystems" onclick='aggregateSearchCriteria(this);'  />
+		<label for="c8">Engineered Systems (33)</label>
+		</li>
+        
+        <li id="java">
+		<input name="category9" id="c9" type="checkbox" value="java" onclick='aggregateSearchCriteria(this);' checked="checked" />
+		<label for="c9">Java (29)</label>
+		</li>
+        
+        <li id="servers">
+		<input name="category10" id="c10" type="checkbox" value="servers" onclick='aggregateSearchCriteria(this);'  />
+		<label for="c10">Servers (168)</label>
+		</li>
+        
+        <li id="virtualization">
+		<input name="category11" id="c11" type="checkbox" value="virtualization" onclick='aggregateSearchCriteria(this);'  />
+		<label for="c11">Virtualization (34)</label>
+		</li>
+        
+        <li id="networking">
+		<input name="category12" id="c12" type="checkbox" value="networking" onclick='aggregateSearchCriteria(this);'  />
+		<label for="c12">Networking (19)</label>
+		</li>
+        
+        <li id="storage">
+		<input name="category13" id="c13" type="checkbox" value="storage" onclick='aggregateSearchCriteria(this);'  />
+		<label for="c13">Storage (289)</label>
+		</li>
+        
+        <li id="operatingsystems">
+		<input name="category14" id="c14" type="checkbox" value="operatingsystems" onclick='aggregateSearchCriteria(this);'  />
+		<label for="c14">Operating Systems (38)</label>
+		</li>
+        
+        <li id="industries">
+		<input name="category15" id="c15" type="checkbox" value="industries" onclick='aggregateSearchCriteria(this);'  />
+		<label for="c15">Industries (588)</label>
+		</li>
+        
+</ul>
+</div>
+<div class="filter" id="SUITES" >
+<!--
+<h4 id="PROD-SUITE">Product Suite</h4>
+<ul id="CATEGORY-all">
+<li style="white-space: nowrap;"><input name="product1" id="p1" type="checkbox" value="all" onclick='aggregateSearchCriteria(this);' checked="checked" /><label for="p1">All Products</label></li>
+</ul>
+-->
+
+                <ul id="CATEGORY-java">
+                <li><Strong>Java</strong></li>
+                
+                  <li class="main-title" id="main-title-2"><div class="main-title-text">Java Card Platform, Classic Edition 3.0.5</div><span class="selected-none" id="java-main-title-selected-counter-2">0</span></li>
+                  
+                      <li class="listbox " id="li2-2"><label for="p2-2"><span class="hiddenspan" id="span-p2-2" style="display:none">Java Card Platform, Classic Edition 3.0.5, </span>Release 3.0.5</label><input class="productinput" name="product2-2" id="p2-2" type="checkbox" value="e67732-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                  <li class="main-title" id="main-title-3"><div class="main-title-text">Java DB</div><span class="selected-none" id="java-main-title-selected-counter-3">0</span></li>
+                  
+                      <li class="listbox " id="li3-3"><label for="p3-3"><span class="hiddenspan" id="span-p3-3" style="display:none">Java DB, </span>Release 10.8.3.0</label><input class="productinput" name="product3-3" id="p3-3" type="checkbox" value="e41229-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                      <li class="listbox " id="li3-4"><label for="p3-4"><span class="hiddenspan" id="span-p3-4" style="display:none">Java DB, </span>Release 10.6.2.1</label><input class="productinput" name="product3-4" id="p3-4" type="checkbox" value="e28841-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                      <li class="listbox " id="li3-5"><label for="p3-5"><span class="hiddenspan" id="span-p3-5" style="display:none">Java DB, </span>Release 10.10.1.2</label><input class="productinput" name="product3-5" id="p3-5" type="checkbox" value="e50609-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                  <li class="main-title" id="main-title-6"><div class="main-title-text">Java Mission Control</div><span class="selected-none" id="java-main-title-selected-counter-6">0</span></li>
+                  
+                      <li class="listbox " id="li6-6"><label for="p6-6"><span class="hiddenspan" id="span-p6-6" style="display:none">Java Mission Control, </span>Release 5.5</label><input class="productinput" name="product6-6" id="p6-6" type="checkbox" value="e61560-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                  <li class="main-title" id="main-title-7"><div class="main-title-text">Java Platform, Enterprise Edition (Java EE)</div><span class="selected-none" id="java-main-title-selected-counter-7">0</span></li>
+                  
+                      <li class="listbox " id="li7-7"><label for="p7-7"><span class="hiddenspan" id="span-p7-7" style="display:none">Java Platform, Enterprise Edition (Java EE), </span>Release 7</label><input class="productinput" name="product7-7" id="p7-7" type="checkbox" value="e39056-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                      <li class="listbox " id="li7-8"><label for="p7-8"><span class="hiddenspan" id="span-p7-8" style="display:none">Java Platform, Enterprise Edition (Java EE), </span>Release 6</label><input class="productinput" name="product7-8" id="p7-8" type="checkbox" value="e28833-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                      <li class="listbox " id="li7-9"><label for="p7-9"><span class="hiddenspan" id="span-p7-9" style="display:none">Java Platform, Enterprise Edition (Java EE), </span>Release 5</label><input class="productinput" name="product7-9" id="p7-9" type="checkbox" value="e28832-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                  <li class="main-title" id="main-title-10"><div class="main-title-text">Java Platform, Micro Edition (Java ME)</div><span class="selected-none" id="java-main-title-selected-counter-10">0</span></li>
+                  
+                      <li class="listbox " id="li10-10"><label for="p10-10"><span class="hiddenspan" id="span-p10-10" style="display:none">Java Platform, Micro Edition (Java ME), </span>Release 8.3</label><input class="productinput" name="product10-10" id="p10-10" type="checkbox" value="e72976-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                      <li class="listbox " id="li10-11"><label for="p10-11"><span class="hiddenspan" id="span-p10-11" style="display:none">Java Platform, Micro Edition (Java ME), </span>Release 8.1</label><input class="productinput" name="product10-11" id="p10-11" type="checkbox" value="e55841-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                      <li class="listbox " id="li10-12"><label for="p10-12"><span class="hiddenspan" id="span-p10-12" style="display:none">Java Platform, Micro Edition (Java ME), </span>Release 8.0</label><input class="productinput" name="product10-12" id="p10-12" type="checkbox" value="e54279-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                      <li class="listbox " id="li10-13"><label for="p10-13"><span class="hiddenspan" id="span-p10-13" style="display:none">Java Platform, Micro Edition (Java ME), </span>Release 3</label><input class="productinput" name="product10-13" id="p10-13" type="checkbox" value="e54282-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                  <li class="main-title" id="main-title-14"><div class="main-title-text">Java Platform, Standard Edition (Java SE)</div><span class="selected-none" id="java-main-title-selected-counter-14">0</span></li>
+                  
+                      <li class="listbox " id="li14-14"><label for="p14-14"><span class="hiddenspan" id="span-p14-14" style="display:none">Java Platform, Standard Edition (Java SE), </span>Specifications</label><input class="productinput" name="product14-14" id="p14-14" type="checkbox" value="e25412-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                      <li class="listbox " id="li14-15"><label for="p14-15"><span class="hiddenspan" id="span-p14-15" style="display:none">Java Platform, Standard Edition (Java SE), </span>Scene Builder 1</label><input class="productinput" name="product14-15" id="p14-15" type="checkbox" value="e28726-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                      <li class="listbox " id="li14-16"><label for="p14-16"><span class="hiddenspan" id="span-p14-16" style="display:none">Java Platform, Standard Edition (Java SE), </span>JavaFX 8</label><input class="productinput" name="product14-16" id="p14-16" type="checkbox" value="e48220-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                      <li class="listbox " id="li14-17"><label for="p14-17"><span class="hiddenspan" id="span-p14-17" style="display:none">Java Platform, Standard Edition (Java SE), </span>Java Tutorials</label><input class="productinput" name="product14-17" id="p14-17" type="checkbox" value="e25407-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                      <li class="listbox " id="li14-18"><label for="p14-18"><span class="hiddenspan" id="span-p14-18" style="display:none">Java Platform, Standard Edition (Java SE), </span>Java SE 8</label><input class="productinput" name="product14-18" id="p14-18" type="checkbox" value="e49207-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                      <li class="listbox " id="li14-19"><label for="p14-19"><span class="hiddenspan" id="span-p14-19" style="display:none">Java Platform, Standard Edition (Java SE), </span>Java SE 7</label><input class="productinput" name="product14-19" id="p14-19" type="checkbox" value="e17409-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                      <li class="listbox " id="li14-20"><label for="p14-20"><span class="hiddenspan" id="span-p14-20" style="display:none">Java Platform, Standard Edition (Java SE), </span>Java SE 11</label><input class="productinput" name="product14-20" id="p14-20" type="checkbox" value="en/java/javase/11" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                      <li class="listbox " id="li14-21"><label for="p14-21"><span class="hiddenspan" id="span-p14-21" style="display:none">Java Platform, Standard Edition (Java SE), </span>Java SE 10</label><input class="productinput" name="product14-21" id="p14-21" type="checkbox" value="e92405-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                      <li class="listbox " id="li14-22"><label for="p14-22"><span class="hiddenspan" id="span-p14-22" style="display:none">Java Platform, Standard Edition (Java SE), </span>JDK 9</label><input class="productinput" name="product14-22" id="p14-22" type="checkbox" value="e74273-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                  <li class="main-title" id="main-title-23"><div class="main-title-text">Java SE Advanced Management Console</div><span class="selected-none" id="java-main-title-selected-counter-23">0</span></li>
+                  
+                      <li class="listbox " id="li23-23"><label for="p23-23"><span class="hiddenspan" id="span-p23-23" style="display:none">Java SE Advanced Management Console, </span>Release 2</label><input class="productinput" name="product23-23" id="p23-23" type="checkbox" value="e63716-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                      <li class="listbox " id="li23-24"><label for="p23-24"><span class="hiddenspan" id="span-p23-24" style="display:none">Java SE Advanced Management Console, </span>Release 2</label><input class="productinput" name="product23-24" id="p23-24" type="checkbox" value="customjavaseamc8" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                  <li class="main-title" id="main-title-25"><div class="main-title-text">Java SE Usage Tracker</div><span class="selected-none" id="java-main-title-selected-counter-25">0</span></li>
+                  
+                      <li class="listbox " id="li25-25"><label for="p25-25"><span class="hiddenspan" id="span-p25-25" style="display:none">Java SE Usage Tracker, </span>Release 1.0</label><input class="productinput" name="product25-25" id="p25-25" type="checkbox" value="customjavaut831" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                  <li class="main-title" id="main-title-26"><div class="main-title-text">Java System Communications Express</div><span class="selected-none" id="java-main-title-selected-counter-26">0</span></li>
+                  
+                      <li class="listbox " id="li26-26"><label for="p26-26"><span class="hiddenspan" id="span-p26-26" style="display:none">Java System Communications Express, </span>7</label><input class="productinput" name="product26-26" id="p26-26" type="checkbox" value="e19516-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                      <li class="listbox " id="li26-27"><label for="p26-27"><span class="hiddenspan" id="span-p26-27" style="display:none">Java System Communications Express, </span>6</label><input class="productinput" name="product26-27" id="p26-27" type="checkbox" value="e19799-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                      <li class="listbox " id="li26-28"><label for="p26-28"><span class="hiddenspan" id="span-p26-28" style="display:none">Java System Communications Express, </span>5</label><input class="productinput" name="product26-28" id="p26-28" type="checkbox" value="e19566-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                  <li class="main-title" id="main-title-29"><div class="main-title-text">JavaTest</div><span class="selected-none" id="java-main-title-selected-counter-29">0</span></li>
+                  
+                      <li class="listbox " id="li29-29"><label for="p29-29"><span class="hiddenspan" id="span-p29-29" style="display:none">JavaTest, </span>Release 4.6</label><input class="productinput" name="product29-29" id="p29-29" type="checkbox" value="e55716-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                  <li class="main-title" id="main-title-30"><div class="main-title-text">SigTest</div><span class="selected-none" id="java-main-title-selected-counter-30">0</span></li>
+                  
+                      <li class="listbox " id="li30-30"><label for="p30-30"><span class="hiddenspan" id="span-p30-30" style="display:none">SigTest, </span>Release 3.1</label><input class="productinput" name="product30-30" id="p30-30" type="checkbox" value="e55723-01" onclick='aggregateSearchCriteria(this);' /></li>
+                      
+                </ul>
+                
+</div>
+
+
+<div class="filter" id="JOBS">
+
+<!--
+<h4>Roles</h4>
+<ul>
+<li><input name="role1" id="r1" type="checkbox" value="all" onclick="aggregateSearchCriteria(this);" checked="checked"><label for="r1">All Job Roles</label></li>
+<li><input name="role2" id="r2 " type="checkbox" value="administrator" onclick="aggregateSearchCriteria(this);" ><label for="r2">Administrator</label></li>
+<li><input name="role3" id="r3" type="checkbox" value="developer" onclick="aggregateSearchCriteria(this);" ><label for="r3">Developer</label></li>
+<li><input name="role4" id="r4" type="checkbox" value="user" onclick="aggregateSearchCriteria(this);" ><label for="r3">User</label></li>
+</ul>
+-->
+
+</div>
+
+<!--
+<div class="filter" id="BOOKS">
+
+<h2>Top Matching Books</h2>
+
+<ul class="topBooks">
+<li class="hidden"><a href="testingsomevalue.html">All Books</a></li>
+<li class="selected"><a href="#">Book 1</a></li>
+<li><a href="#">Book 2</a></li>
+<li><a href="#">Book 3</a></li>
+<li><a href="#">Book 4</a></li>
+<li><a href="#">Book 5</a></li>
+</ul>
+
+</div>
+
+<div class="filter" id="EXCBOOKS">
+
+<h2>Excluded Books</h2>
+
+<ul class="topBooks">
+<li class="selected hidden"><a href="#">All Books</a></li>
+<li><a href="#">Book 1</a></li>
+<li><a href="#">Book 2</a></li>
+<li><a href="#">Book 3</a></li>
+<li><a href="#">Book 4</a></li>
+<li><a href="#">Book 5</a></li>
+</ul>
+
+</div>
+-->
+
+</div>
+</div>
+<br class="clearfloat" />
+</div>
+
+<div id="bookContainer" class="main-pad">
+
+<script src="dcommon/js/helpdrawer.js"></script>
+
+<!--start help drawer -->
+
+<div id="helpdrawer" class="border-left shadow"  >
+
+<div id="helptab" class="border "><img src="dcommon/img/btn-help.png" width="24" height="25" alt="" /></div>
+
+<div class="" style="padding: 15px 0 15px 15px; position: absolute;
+top: 0;
+bottom: 0;
+overflow-y: auto;">
+<div style="padding-right:15px;">
+<!--start help drawer contents -->
+<div class="panel-group" id="accordion">
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion"
+          href="#collapseOne">Feedback </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse  in">
+      <div class="panel-body" id="feedbackForm">
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion"
+          href="#collapseTwo">Search tips</a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+   <h5 id="HelpDrawerfordocs.oracle.com-HowdoInarrowmysearchresults?">How do I narrow my search results?</h5>
+<p>After you submit your search query:</p>
+<ol>
+  <li>On the <strong>Refine Search</strong> results page, select one or more categories of products or services from the left sidebar.</li>
+  <li>Then for a category with search results, click <strong>Select</strong> to choose your product and release filters, and then click <strong>OK</strong>.</li>
+</ol>
+<p>For search queries that contain multiple words, surround the query with quotes, and then resubmit your query. Example: &quot;database cloud service&quot;</p>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion"
+          href="#collapseThree">Navigation tips</a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+<h5 id="HelpDrawerfordocs.oracle.com-HowdoIfindthedocumentationformyproductorservice?">How do I find the documentation for my product or service?</h5>
+<p>From the home page, click the technology categories for your products or services. If you do not know which category to pick, try the following features:</p>
+<ul>
+  <li>Click the <strong>Find a product</strong> tab and search for your product or service.</li>
+  <li>Click <strong>Browse All Products &amp; Services</strong> at the bottom of the home page to view an alphabetical listing of products and services.</li>
+</ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion"
+          href="#collapseFour">Browser support </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse">
+      <div class="panel-body">
+   <ul>
+  <li>Apple Safari: Version 6</li>
+  <li>Google Chrome: Version 29 and later</li>
+  <li>Mozilla Firefox: Version 24 and later</li>
+  <li>Microsoft Internet Explorer: Version 9 and later</li>
+</ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end help drawer contents -->
+</div>
+</div>
+</div>
+<!--end help drawer -->
+
+<div style="position:relative;">
+        <form id="ui_element" class="sb_wrapper" onsubmit="submitForm(this);return false;">
+          <input type="text" id="searchFieldMain" name="q" value='' class="sb_input" />
+          <input class="sb_search " type="submit" value=""/>
+					<!--
+					<ul class="sb_dropdown shadow" style="display:none;">
+						<li class="sb_filter">Filter your search</li>
+						<li><input type="checkbox"/><label for="all"><strong>All</strong></label></li>
+						<li><input type="checkbox"/><label for="Java">Java</label></li>
+						<li><input type="checkbox"/><label for="Database">Database</label></li>
+						<li><input type="checkbox"/><label for="Middleware">Middleware</label></li>
+						<li><input type="checkbox"/><label for="Cloud">Cloud</label></li>
+						<li><input type="checkbox"/><label for="Applications">Applications</label></li>
+						<li><input type="checkbox"/><label for="Enterprise Manager">Enterprise Manager</label></li>
+						<li><input type="checkbox"/><label for="Engineered Systems">Engineered Systems</label></li>
+						<li><input type="checkbox"/><label for="Hardware">Hardware</label></li>
+						<li><input type="checkbox"/><label for="Operating Systems">Operating Systems</label></li>
+						<li><input type="checkbox"/><label for="Virtualization">Virtualization</label></li>
+						<li><input type="checkbox"/><label for="Storage">Storage</label></li>
+						<li><input type="checkbox"/><label for="Networking">Networking</label></li>
+
+					</ul>
+          -->
+          <input type="hidden" name="book" id="book" value="" />
+          <input type="hidden" name="folder" id="folder" value="" />
+          <input type="hidden" name="category" id="category" value="" />
+          <input type="hidden" name="size" id="SIZE" value="" />
+          <input type="hidden" name="product" id="product" value="" />
+          <input type="hidden" name="category-aggregated" id="category-aggregated" value="" />
+          <input type="hidden" name="product-aggregated" id="product-aggregated" value="" />
+          <input type="hidden" name="role-aggregated" id="role-aggregated" value="" />
+          <input type="hidden" name="type-aggregated" id="type-aggregated" value="" />
+          </form>
+  </div>
+
+
+<div class="tabs">
+    <ul class="tab-links" style="display:none">
+        
+                <li class="active"><a name="a-all" id="a-tab1" href="#tab1" onclick="getResults('1', 'search.jsp?q=&role=all&category=java&product=all&pg=1', this, false, 'all');return false;">All Types</a></li>
+                
+   </ul>
+    <div>
+
+        
+              <div id="tab1" class="tab active">
+              <!-- NN -->
+              <!--
+              <br />
+              -->
+              
+					    <div style="float:left;">
+                      
+                      No seed provided.
+                      
+                      </div>
+                      <!--
+                      <div style="float:right; ">Sort by: <a href="#" >Relevance</a> | <a href="#">Newest</a></div>
+                      -->
+                      <br class="clearfloat" />
+                      <hr />
+                      No data to display.
+                  </div>
+              
+
+  </div>
+
+<br class="clearfloat" />
+</div> <!--  tab -->
+
+</div><!--close main-->
+</div><!--end content-->
+</div>
+<!--
+<div id="welcome-div-id" class="welcome-div-class" name="welcome-div-id">
+  <h1 class="productname-container" id="productname-container">That's a lot of results...</h1>
+
+  <div class="fbtxt">
+  <img src="dcommon/img/narrow-1.png" width="230" height="144" alt="Image to depict many results">
+  <p>Try narrowing it by clicking one or more categories </p>
+  </div>
+
+  <div class="fbtxt">
+  <img src="dcommon/img/narrow-4.png" width="230" height="117" alt="Image to depict many results">
+  <p>Now select one or more products within this category</p>
+  </div>
+
+  <div style="display:inline-block; float:left;" style="vertical-align: bottom;">
+  <input class="productinput" name="DontShow" id="DontShow" type="checkbox" value="" onclick = 'setDND();'><label for="DontShow">&nbsp;Don't show again</label>
+  </div>
+  <div style="display:inline-block; float:right;">
+  <button type="button" style="width:80px;" onclick="parent.j.fancybox.close();"> OK </button>
+  </div>
+</div>
+-->
+<noscript>
+<div class="footer-container" >
+  <div style="max-width: 994px; padding:10px 0 0 17px;">
+
+<div style="float:right; margin:0 8px; display:inline;">
+ </div>
+    <footer class="footer-list">
+      <ul>
+        <li> <a href="http://www.oracle.com/corporate/index.html" target="_blank">About Oracle</a> </li>
+        <li> <a href="http://www.oracle.com/us/corporate/contact/index.html" target="_blank">Contact Us</a> </li>
+        <li> <a href="http://www.oracle.com/us/legal/index.html" target="_blank">Legal Notices</a> </li>
+        <li> <a href="http://www.oracle.com/us/legal/terms/index.html" target="_blank">Terms of Use</a> </li>
+        <li> <a href="http://www.oracle.com/us/legal/privacy/index.html" target="_blank">Your Privacy Rights</a> </li>
+      </ul>
+    </footer>
+    <span style="display:block;" class="small">Copyright &copy;  2014, Oracle and/or its affiliates. All rights reserved. </span> </div>
+</div>
+</noscript>
+<!--<div id="footer"><div id="footer-content">Footer</div></div>-->
+
+<script src="dcommon/js/bookpage.js"></script>
+<script src="dcommon/js/search-drop.js"></script>
+
+<script>
+function PrintPage()
+  {window.print();}
+</script>
+
+</body>
+</html>

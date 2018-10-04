@@ -1,0 +1,313 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Working with Notes</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="Oracle Big Data Manager User’s Guide ">
+      <meta property="og:description" content>
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="Oracle Big Data Manager User’s Guide For Oracle Big Data Appliance">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-big-data-manager-users-guide-oracle-big-data-appliance.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-13T16:17:47-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2018">
+      <meta name="dcterms.category" content="bigdata">
+      <meta name="dcterms.identifier" content="E98480-01">
+      
+      <meta name="dcterms.product" content="en/bigdata/big-data-appliance/4.13">
+      
+      <link rel="prev" href="analyzing-data-interactively-notes.html" title="Previous" type="text/html">
+      <link rel="next" href="importing-note.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"bigdata","element_name":"Big Data","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"not-applicable","element_name":"Not applicable","display_in_url":false},"product":{"short_name":"big-data-appliance","element_name":"Big Data Appliance","display_in_url":true},"release":{"short_name":"4.13","element_name":"Release 4.13","display_in_url":true}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle Big Data Manager User's Guide (for Oracle Big Data Appliance)">
+    <meta name="dcterms.isVersionOf" content="BBDMG">
+    <meta name="dcterms.release" content="Release 4.13">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="analyzing-data-interactively-notes.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="importing-note.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">Oracle Big Data Manager User’s Guide </span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="analyzing-data-interactively-notes.html" property="item" typeof="WebPage"><span property="name">Analyzing Data Interactively With Notes</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Working with Notes</li>
+            </ol>
+            <a id="GUID-FE4F6775-6ED2-4957-8221-44A026FBFB82" name="GUID-FE4F6775-6ED2-4957-8221-44A026FBFB82"></a>
+            
+            <h2 id="BBDMG-GUID-FE4F6775-6ED2-4957-8221-44A026FBFB82" class="sect2"><span class="enumeration_section">6.1 </span>Working with Notes
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <div>Import, create, and run notes in the Notebook section of the <span>Oracle Big Data Manager</span> console.
+               </div>
+               <p>The <span class="wintitle">Notebook Home</span> page lists your existing notes, along with controls for importing and creating new notes. When you open a note, it’s displayed in its own <span class="wintitle">Note</span> page as a collection of <span class="italic">paragraphs</span> that contain snippets of code for accessing services, running jobs, and displaying results. You can define and run the code quickly and iteratively, which provides flexibility for analyzing and visualizing your data.
+               </p>
+               <p>Commands for performing actions on the entire note are on the toolbar at the top of each <span class="wintitle">Note</span> page.
+               </p>
+               <p>Commands for performing actions on individual paragraphs are on the toolbar on the right side of each paragraph on the Note page. Paragraphs contains a <span class="italic">code</span> section, where you enter your source code, and an <span class="italic">output</span> section, which displays the output from executing that code. 
+               </p>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="working-notes.html#GUID-CEA67D25-EDF2-48FA-94FD-8E6C6B58BBFC">Using the Commands on the Note Toolbar</a><br>Use the toolbar at the top of the <span class="wintitle">Note</span> page to perform actions on the entire note.
+                  </li>
+                  <li class="ulchildlink"><a href="working-notes.html#GUID-689D3287-9E9A-4342-A765-5878224FEF59">Using the Commands on the Paragraph Toolbar</a><br>Use the toolbar on the right side of a paragraph panel to perform actions on that paragraph only.
+                  </li>
+               </ul>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="analyzing-data-interactively-notes.html" title="Use notes to explore and visualize data iteratively.&nbsp;">Analyzing Data Interactively With Notes</a></p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="sect2"><a id="GUID-CEA67D25-EDF2-48FA-94FD-8E6C6B58BBFC" name="GUID-CEA67D25-EDF2-48FA-94FD-8E6C6B58BBFC"></a><h3 id="BBDMG-GUID-CEA67D25-EDF2-48FA-94FD-8E6C6B58BBFC" class="sect3"><span class="enumeration_section">6.1.1 </span>Using the Commands on the Note Toolbar
+               </h3>
+               <div>
+                  <p>Use the toolbar at the top of the <span class="wintitle">Note</span> page to perform actions on the entire note.
+                  </p>
+                  <div class="tblformal" id="GUID-CEA67D25-EDF2-48FA-94FD-8E6C6B58BBFC__GUID-2055B5D2-A229-4123-941F-B8E597570034">
+                     <table cellpadding="4" cellspacing="0" class="Formal" title summary="The following table shows and describes the items on the toolbar for a note." frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" width="20%" id="d5153e108">Item</th>
+                              <th align="left" valign="bottom" width="20%" id="d5153e110">Action</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d5153e114" headers="d5153e108 "><span class="bold">Run all paragraphs</span> <img src="img/run-all-paragraphs.png" alt="Run all paragraphs" title="Run all paragraphs"></td>
+                              <td align="left" valign="top" width="20%" headers="d5153e114 d5153e110 ">Executes all the paragraphs in the note sequentially, in the order they’re displayed.</td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d5153e124" headers="d5153e108 "><span class="bold">Show/hide the code</span><img src="img/show-hide-code.png" alt="Show/hide the code" title="Show/hide the code"></td>
+                              <td align="left" valign="top" width="20%" headers="d5153e124 d5153e110 ">Shows or hides the code sections of all paragraphs in the note.</td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d5153e133" headers="d5153e108 "><span class="bold">Show/hide the output</span> <img src="img/show-hide-output.png" alt="Show/hide the output" title="Show/hide the output"></td>
+                              <td align="left" valign="top" width="20%" headers="d5153e133 d5153e110 ">Shows or hides the output sections of all paragraphs in the note.</td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d5153e143" headers="d5153e108 "><span class="bold">Clear output</span> <img src="img/clear-output.png" alt="Clear output" title="Clear output"></td>
+                              <td align="left" valign="top" width="20%" headers="d5153e143 d5153e110 ">Clears the output sections of all paragraphs in the note. </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d5153e153" headers="d5153e108 "><span class="bold">Clone note</span><img src="img/clone-note.png" alt="Clone note" title="Clone note"></td>
+                              <td align="left" valign="top" width="20%" headers="d5153e153 d5153e110 ">Makes a copy of the note. </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d5153e162" headers="d5153e108 "><span class="bold">Export this note</span> <img src="img/export-this-note.png" alt="Export this note" title="Export this note"></td>
+                              <td align="left" valign="top" width="20%" headers="d5153e162 d5153e110 ">Exports the code and output sections of all the paragraphs in the note to a JSON file in your web browser’s default download directory. If the output sections are very long, consider clearing the output before exporting the note, to save space.</td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d5153e172" headers="d5153e108 "><span class="bold">Version control</span><img src="img/version-control.png" alt="Version control" title="Version control"></td>
+                              <td align="left" valign="top" width="20%" headers="d5153e172 d5153e110 ">Commits the content of the note to the current repository. When you click this button, you’re prompted for a commit message. The message you enter here is displayed in the <span class="bold">Head</span> list, described below.
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d5153e184" headers="d5153e108 "><span class="bold">Head</span> (revision) drop-down list 
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d5153e184 d5153e110 ">
+                                 <p>Displays a list of previously committed revisions of the note, if any. By default, the head revision is selected. If you want to view a previous revision, select it from the list. </p>
+                                 <p>Click <span class="bold">Set revision</span><img src="img/set-revision.png" alt="Set revision" title="Set revision"> to set the head to the current revision.
+                                 </p> 
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d5153e201" headers="d5153e108 "><span class="bold">Move note to trash</span><img src="img/move-note-trash-2.png" alt="Move note to trash" title="Move note to trash"></td>
+                              <td align="left" valign="top" width="20%" headers="d5153e201 d5153e110 ">Deletes the note. </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d5153e210" headers="d5153e108 "><span class="bold">Run scheduler</span><img src="img/run-scheduler.png" alt="Run scheduler" title="Run scheduler"></td>
+                              <td align="left" valign="top" width="20%" headers="d5153e210 d5153e110 ">Schedule the execution of all paragraphs in the note with a <code class="codeph">cron</code> scheduler. When you select this option, a pop-up window displays the following options::
+                                 <ul style="list-style-type: disc;">
+                                    <li>
+                                       <p> <span class="bold">Preset</span> —A list of preset intervals. If one of the presets is adequate for your needs, click the link for the interval. It’s added as an expression to the <span class="bold">cron expression </span> field. Options are <span class="bold">None</span> <span class="bold">1m</span>, <span class="bold">5m</span>, <span class="bold">1h</span>, <span class="bold">3h</span>, <span class="bold">6h</span>, <span class="bold">12h</span>, <span class="bold">1d</span>. Select <span class="bold">None</span> to remove any expressions that were added.
+                                       </p>
+                                    </li>
+                                    <li>
+                                       <p><span class="bold">Cron expression</span>—Enter a custom <code class="codeph">cron</code> expression, if you need something other than the above presets. 
+                                       </p>
+                                    </li>
+                                    <li>
+                                       <p><span class="bold">Cron executing user</span>— Enter the name of the user for running the cron job, if other than <code class="codeph">root</code>. 
+                                       </p>
+                                    </li>
+                                    <li>
+                                       <p><span class="bold">Auto-restart interpreter on cron execution </span>—Terminates the interpreter after the <code class="codeph">cron</code> job completes running. The interpreter restarts automatically the next time a paragraph is run.
+                                       </p>
+                                    </li>
+                                 </ul>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="working-notes.html#GUID-FE4F6775-6ED2-4957-8221-44A026FBFB82">Working with Notes</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-689D3287-9E9A-4342-A765-5878224FEF59" name="GUID-689D3287-9E9A-4342-A765-5878224FEF59"></a><h3 id="BBDMG-GUID-689D3287-9E9A-4342-A765-5878224FEF59" class="sect3"><span class="enumeration_section">6.1.2 </span>Using the Commands on the Paragraph Toolbar
+               </h3>
+               <div>
+                  <p>Use the toolbar on the right side of a paragraph panel to perform actions on that paragraph only.</p>
+                  <div class="section">
+                     <div class="tblformal" id="GUID-689D3287-9E9A-4342-A765-5878224FEF59__GUID-2F1F8311-09A4-4257-A5EA-87DA19B02B0E">
+                        <table cellpadding="4" cellspacing="0" class="Formal" title summary="The following table describes the items on the drop-down menu on the toolbar for a paragraph." frame="hsides" border="1" rules="rows">
+                           <thead>
+                              <tr align="left" valign="top">
+                                 <th align="left" valign="bottom" width="20%" id="d5153e321">Item</th>
+                                 <th align="left" valign="bottom" width="20%" id="d5153e323">Action</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d5153e327" headers="d5153e321 ">Status</td>
+                                 <td align="left" valign="top" width="20%" headers="d5153e327 d5153e323 ">Shows the status of the paragraph. It can be one of the following:
+                                    <ul style="list-style-type: disc;">
+                                       <li>
+                                          <p>READY</p>
+                                       </li>
+                                       <li>
+                                          <p>FINISHED</p>
+                                       </li>
+                                       <li>
+                                          <p>ABORT</p>
+                                       </li>
+                                       <li>
+                                          <p>ERROR</p>
+                                       </li>
+                                       <li>
+                                          <p>PENDING</p>
+                                       </li>
+                                       <li>
+                                          <p>RUNNING</p>
+                                       </li>
+                                    </ul>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d5153e351" headers="d5153e321 "><span class="bold">Run this paragaph (Shift+Enter)</span><img src="img/run-all-paragraphs.png" alt="Run this paragraph" title="Run this paragraph"></td>
+                                 <td align="left" valign="top" width="20%" headers="d5153e351 d5153e323 ">
+                                    <p>Executes the code in the code section of the paragraph.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d5153e361" headers="d5153e321 "><span class="bold">Show/hide editor (Control+Option+E)</span> <img src="img/show-hide-code.png" alt="Show/hide editor" title="Show/hide editor"></td>
+                                 <td align="left" valign="top" width="20%" headers="d5153e361 d5153e323 ">
+                                    <p>Shows or hides the code section of the paragraph.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d5153e372" headers="d5153e321 "><span class="bold">Show/hide output (Control+Option+O)</span> <img src="img/show-hide-output.png" alt="Show/hide output" title="Show/hide output"></td>
+                                 <td align="left" valign="top" width="20%" headers="d5153e372 d5153e323 ">
+                                    <p>Shows or hides the output section of the paragraph.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d5153e383" headers="d5153e321 "><span class="bold">Menu</span> <img src="img/gear.png" alt="Gear" title="Gear"> 
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d5153e383 d5153e323 ">Opens a menu with the following options that apply to the current paragraph:
+                                    <ul style="list-style-type: disc;">
+                                       <li>
+                                          <p><span class="bold"><span class="variable" translate="no">nnnnnnnnn-nnnnnn_nnnnnnnnnn</span></span>—The paragraph ID. Click the ID to copy it to the clipboard.
+                                          </p>
+                                       </li>
+                                       <li>
+                                          <p><span class="bold">Width</span>—Select a number from the drop-down list to set a width for the paragraph on a grid of 12 units. This allows you to organize the paragraphs in the grid.
+                                          </p>
+                                       </li>
+                                       <li>
+                                          <p><span class="bold">Move down</span>—Move the paragraph one level down.
+                                          </p>
+                                       </li>
+                                       <li>
+                                          <p><span class="bold">Insert new</span>—Insert a new paragraph below the current one.
+                                          </p>
+                                       </li>
+                                       <li>
+                                          <p><span class="bold">Clone paragraph</span>—Create and show a copy of the current paragraph.
+                                          </p>
+                                       </li>
+                                       <li>
+                                          <p><span class="bold">Show/Hide title</span>—Show or hide the title of the paragraph. You can edit the title when it’s shown.
+                                          </p>
+                                       </li>
+                                       <li>
+                                          <p><span class="bold">Show/Hide line numbers</span>—Show or hide line numbers in the code section of the paragraph.
+                                          </p>
+                                       </li>
+                                       <li>
+                                          <p><span class="bold">Disable run</span>—Disable the <span class="bold">Run</span> button for this paragraph.
+                                          </p>
+                                       </li>
+                                       <li>
+                                          <p><span class="bold">Link this paragraph</span>—Export the paragraph as an <span class="bold">iframe</span> and open the <span class="bold">iframe</span> in a new window.
+                                          </p>
+                                       </li>
+                                       <li>
+                                          <p><span class="bold">Clear output</span>—Clear the output section for this paragraph.
+                                          </p>
+                                       </li>
+                                       <li>
+                                          <p><span class="bold">Remove</span>—Delete the paragraph.
+                                          </p>
+                                       </li>
+                                    </ul>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- class="inftblhruleinformal" -->
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="working-notes.html#GUID-FE4F6775-6ED2-4957-8221-44A026FBFB82">Working with Notes</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

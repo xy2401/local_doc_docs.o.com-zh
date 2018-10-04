@@ -1,0 +1,584 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Changes in This Release for Oracle Big Data Spatial and Graph</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide and Reference">
+      <meta property="og:description" content>
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide and Reference">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-big-data-spatial-and-graph-users-guide-and-reference.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-06-08T14:08:33-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2015, 2018">
+      <meta name="dcterms.category" content="bigdata">
+      <meta name="dcterms.identifier" content="E67958-15">
+      
+      <meta name="dcterms.product" content="en/bigdata/big-data-spatial-graph/2.5">
+      
+      <link rel="prev" href="big-data-spatial-preface.html" title="Previous" type="text/html">
+      <link rel="next" href="big-data-spatial-overview.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"bigdata","element_name":"Big Data","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"not-applicable","element_name":"Not applicable","display_in_url":false},"product":{"short_name":"big-data-spatial-graph","element_name":"Big Data Spatial and Graph","display_in_url":true},"release":{"short_name":"2.5","element_name":"Release 2.5","display_in_url":true}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle Big Data Spatial and Graph User's Guide and Reference">
+    <meta name="dcterms.isVersionOf" content="BDSPA">
+    <meta name="dcterms.release" content="Release 2.5">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="big-data-spatial-preface.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="big-data-spatial-overview.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide and Reference</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Changes in This Release for Oracle Big Data Spatial and Graph</li>
+            </ol>
+            <a id="GUID-CCDBA84C-D2B6-4267-B344-C1D44A48036E" name="GUID-CCDBA84C-D2B6-4267-B344-C1D44A48036E"></a>
+            
+            <h2 id="BDSPA-GUID-CCDBA84C-D2B6-4267-B344-C1D44A48036E" class="sect2">Changes in This Release for Oracle Big Data Spatial and Graph</h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>Big Data Spatial and Graph includes the following changes to the product in Release 2.4.</p>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="big-data-spatial-whats-new.html#GUID-080D0B10-EDD9-4999-A4C4-FD3663D1B454">Changes for Release 2.5</a><br></li>
+                  <li class="ulchildlink"><a href="big-data-spatial-whats-new.html#GUID-D0564339-891C-4E05-9228-4ED5BDAE34DC">Changes for Release 2.4</a><br></li>
+               </ul>
+            </div>
+            
+            <div class="props_rev_3"><a id="GUID-080D0B10-EDD9-4999-A4C4-FD3663D1B454" name="GUID-080D0B10-EDD9-4999-A4C4-FD3663D1B454"></a><h3 id="BDSPA-GUID-080D0B10-EDD9-4999-A4C4-FD3663D1B454" class="sect3">Changes for Release 2.5</h3>
+               <div>
+                  <p>The following changes apply to Release 2.5 of Big Data Spatial and Graph.</p>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="big-data-spatial-whats-new.html#GUID-6BA68469-FB57-4E95-80CB-B3884D9F0A04">Spark Vector API Changes for Release 2.5</a><br></li>
+                     <li class="ulchildlink"><a href="big-data-spatial-whats-new.html#GUID-7F080EA9-CBD8-40A9-899E-F09A16D8715F">Multimedia Analytics Feature Deprecated</a><br></li>
+                  </ul>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="big-data-spatial-whats-new.html#GUID-CCDBA84C-D2B6-4267-B344-C1D44A48036E">Changes in This Release for Oracle Big Data Spatial and Graph</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="props_rev_3"><a id="GUID-6BA68469-FB57-4E95-80CB-B3884D9F0A04" name="GUID-6BA68469-FB57-4E95-80CB-B3884D9F0A04"></a><h4 id="BDSPA-GUID-6BA68469-FB57-4E95-80CB-B3884D9F0A04" class="sect4">Spark Vector API Changes for Release 2.5</h4>
+                  <div>
+                     <p>The following features have been added to the Spark Vector API for Big Data Spatial and Graph 2.5:</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Count action added to the Spatial Index</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="big-data-spatial-whats-new.html#GUID-080D0B10-EDD9-4999-A4C4-FD3663D1B454">Changes for Release 2.5</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="props_rev_3"><a id="GUID-7F080EA9-CBD8-40A9-899E-F09A16D8715F" name="GUID-7F080EA9-CBD8-40A9-899E-F09A16D8715F"></a><h4 id="BDSPA-GUID-7F080EA9-CBD8-40A9-899E-F09A16D8715F" class="sect4">Multimedia Analytics Feature Deprecated</h4>
+                  <div>
+                     <p>The multimedia analytics feature of Big Data Spatial and Graph is deprecated in this release and may be desupported in a future release.&nbsp; There is no replacement for the multimedia analytics features.</p>
+                     <p>The multimedia analytics feature is currently documented in <a href="using-multimedia-analytics.html#GUID-4B15F058-BCE7-4A3C-A6B8-163DB2D4368B" title="You can use the multimedia analytics framework in a Big Data environment to perform facial recognition in videos and images.">Using Multimedia Analytics</a>.
+                     </p>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="big-data-spatial-whats-new.html#GUID-080D0B10-EDD9-4999-A4C4-FD3663D1B454">Changes for Release 2.5</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+            <div class="props_rev_3"><a id="GUID-D0564339-891C-4E05-9228-4ED5BDAE34DC" name="GUID-D0564339-891C-4E05-9228-4ED5BDAE34DC"></a><h3 id="BDSPA-GUID-D0564339-891C-4E05-9228-4ED5BDAE34DC" class="sect3">Changes for Release 2.4</h3>
+               <div>
+                  <p>The following changes apply to Release 2.4 of Big Data Spatial and Graph.</p>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="big-data-spatial-whats-new.html#GUID-C2BF5D68-0F7D-4FCE-A377-1F2F33E5C833">In-Memory Analyst (PGX) - Related Changes</a><br></li>
+                     <li class="ulchildlink"><a href="big-data-spatial-whats-new.html#GUID-02CC093C-8491-4BB7-9860-ED82CB0E0DCC">Spark Vector API Changes for Release 2.4</a><br></li>
+                     <li class="ulchildlink"><a href="big-data-spatial-whats-new.html#GUID-276A2DFD-ADA0-4700-8801-A2DB68C9D16B">Vector REST API Additions</a><br></li>
+                     <li class="ulchildlink"><a href="big-data-spatial-whats-new.html#GUID-4FEE14F4-4D7A-4DE3-9F74-F1694C365D2B">SpatialViewer Changes</a><br></li>
+                  </ul>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="big-data-spatial-whats-new.html#GUID-CCDBA84C-D2B6-4267-B344-C1D44A48036E">Changes in This Release for Oracle Big Data Spatial and Graph</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="props_rev_3"><a id="GUID-C2BF5D68-0F7D-4FCE-A377-1F2F33E5C833" name="GUID-C2BF5D68-0F7D-4FCE-A377-1F2F33E5C833"></a><h4 id="BDSPA-GUID-C2BF5D68-0F7D-4FCE-A377-1F2F33E5C833" class="sect4">In-Memory Analyst (PGX) - Related Changes</h4>
+                  <div>
+                     <p>The following changes relate to the in-memory analyst (PGX) capabilities in Big Data Spatial and Graph.</p>
+                  </div>
+                  <div>
+                     <ul class="ullinks">
+                        <li class="ulchildlink"><a href="big-data-spatial-whats-new.html#GUID-5C4E0A58-E95D-4EB9-A371-CD214D647102">New PGX Built-in Algorithms for Cycle Detection</a><br></li>
+                        <li class="ulchildlink"><a href="big-data-spatial-whats-new.html#GUID-7F428118-FA38-4004-B1D1-A88711AB4DCF">Temporal Data Types Support in PGX</a><br></li>
+                        <li class="ulchildlink"><a href="big-data-spatial-whats-new.html#GUID-9953D4F2-4996-4A29-9F1F-D079AB00E025">PGX Java API Improvements</a><br></li>
+                        <li class="ulchildlink"><a href="big-data-spatial-whats-new.html#GUID-BEE1554A-47F8-41D9-A0DB-FC2E3317E758">New Features in PGQL</a><br></li>
+                        <li class="ulchildlink"><a href="big-data-spatial-whats-new.html#GUID-4AE62551-E49A-4479-85A6-104E6C81B952">PGX Loader Improvements</a><br></li>
+                        <li class="ulchildlink"><a href="big-data-spatial-whats-new.html#GUID-0C210F47-7D95-4DE3-9FE9-6D2DC68FC2DF">PGX Distributed Engine Improvements</a><br></li>
+                        <li class="ulchildlink"><a href="big-data-spatial-whats-new.html#GUID-B1320AFB-E256-47B3-BCDB-DAC2F707E25E">PGX Deprecations</a><br></li>
+                     </ul>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="big-data-spatial-whats-new.html#GUID-D0564339-891C-4E05-9228-4ED5BDAE34DC">Changes for Release 2.4</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div class="props_rev_3"><a id="GUID-5C4E0A58-E95D-4EB9-A371-CD214D647102" name="GUID-5C4E0A58-E95D-4EB9-A371-CD214D647102"></a><h5 id="BDSPA-GUID-5C4E0A58-E95D-4EB9-A371-CD214D647102" class="sect5">New PGX Built-in Algorithms for Cycle Detection</h5>
+                     <div>
+                        <p>Release 2.4 of the in-memory analyst (PGX) introduces two in-memory algorithms for finding cycles: a robust version, which always scans the whole graph by performing several DFS traversals, and a lightweight version, which will perform just one single DFS traversal for the task. The lightweight version is faster, but may not explore the whole graph and could thus fail to detect some cycles.</p>
+                        <p>You can use the new algorithms through the <code class="codeph">analyst.findCycle()</code> API.
+                        </p>
+                     </div>
+                     <div>
+                        <div class="familylinks">
+                           <div class="parentlink">
+                              <p><strong>Parent topic:</strong> <a href="big-data-spatial-whats-new.html#GUID-C2BF5D68-0F7D-4FCE-A377-1F2F33E5C833">In-Memory Analyst (PGX) - Related Changes</a></p>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+                  <div class="props_rev_3"><a id="GUID-7F428118-FA38-4004-B1D1-A88711AB4DCF" name="GUID-7F428118-FA38-4004-B1D1-A88711AB4DCF"></a><h5 id="BDSPA-GUID-7F428118-FA38-4004-B1D1-A88711AB4DCF" class="sect5">Temporal Data Types Support in PGX</h5>
+                     <div>
+                        <p>The in-memory analyst (PGX) in Release 2.4 gives you more precise control on time-related properties, with support for five temporal data types that map directly to the five temporal types in SQL as well as to the new Java 8 date-time types. The&nbsp;date&nbsp;property type is now deprecated and replaced by&nbsp;local_date,&nbsp;time,&nbsp;timestamp,&nbsp;time_with_timezone,&nbsp;and&nbsp;timestamp_with_timezone. The new types are supported both in the PGX API and in PGQL, as the following table summarizes.</p>
+                        <div class="tblformal" id="GUID-7F428118-FA38-4004-B1D1-A88711AB4DCF__GUID-A25365C8-57A2-4C44-91BB-5498291C0EC6">
+                           <p class="titleintable">Table -1 Temporal Data Types Support in PGX</p>
+                           <table cellpadding="4" cellspacing="0" class="Formal" title="Temporal Data Types Support in PGX" summary="Table containing five columns: Type, PXG property type, Example plain text, Example PGQL literal, and PGQL ResultSet API." frame="hsides" border="1" rules="rows">
+                              <thead>
+                                 <tr align="left" valign="top">
+                                    <th rowspan="1" colspan="1" align="left" valign="bottom" id="d3465e550">Type</th>
+                                    <th rowspan="1" colspan="1" align="left" valign="bottom" id="d3465e553">PGX property type</th>
+                                    <th rowspan="1" colspan="1" align="left" valign="bottom" id="d3465e556">Example plain text</th>
+                                    <th rowspan="1" colspan="1" align="left" valign="bottom" id="d3465e559">Example PGQL literal</th>
+                                    <th rowspan="1" colspan="1" align="left" valign="bottom" id="d3465e562">PGQL ResultSet API</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr align="left" valign="top">
+                                    <td rowspan="1" colspan="1" align="left" valign="top" id="d3465e567" headers="d3465e550 ">
+                                       <p>TIMESTAMP WITH TIMEZONE</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" align="left" valign="top" headers="d3465e567 d3465e553 ">
+                                       <p>timestamp_with_timezone</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" align="left" valign="top" headers="d3465e567 d3465e556 ">
+                                       <p>"2017-08-18 20:15:00+08"</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" align="left" valign="top" headers="d3465e567 d3465e559 ">
+                                       <p>TIMESTAMP '2017-08-18 20:15:00+08'</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" align="left" valign="top" headers="d3465e567 d3465e562 ">
+                                       <p>java.time.OffsetDateTime getTimestampWithTimezone(..)</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td rowspan="1" colspan="1" align="left" valign="top" id="d3465e583" headers="d3465e550 ">
+                                       <p>TIMESTAMP</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" align="left" valign="top" headers="d3465e583 d3465e553 ">
+                                       <p>timestamp</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" align="left" valign="top" headers="d3465e583 d3465e556 ">
+                                       <p>"2017-08-18 20:15:00"</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" align="left" valign="top" headers="d3465e583 d3465e559 ">
+                                       <p>TIMESTAMP '2017-08-18 20:15:00'</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" align="left" valign="top" headers="d3465e583 d3465e562 ">
+                                       <p>java.time.LocalDateTime getTimestamp(..)</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td rowspan="1" colspan="1" align="left" valign="top" id="d3465e599" headers="d3465e550 ">
+                                       <p>TIME WITH TIMEZONE</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" align="left" valign="top" headers="d3465e599 d3465e553 ">
+                                       <p>time_with_timezone</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" align="left" valign="top" headers="d3465e599 d3465e556 ">
+                                       <p>"20:15:00+08"</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" align="left" valign="top" headers="d3465e599 d3465e559 ">
+                                       <p>TIME '20:15:00+08'</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" align="left" valign="top" headers="d3465e599 d3465e562 ">
+                                       <p>java.time.OffsetTime getTimeWithTimezone(..)</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td rowspan="1" colspan="1" align="left" valign="top" id="d3465e615" headers="d3465e550 ">
+                                       <p>TIME</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" align="left" valign="top" headers="d3465e615 d3465e553 ">
+                                       <p>time</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" align="left" valign="top" headers="d3465e615 d3465e556 ">
+                                       <p>"20:15:00"</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" align="left" valign="top" headers="d3465e615 d3465e559 ">
+                                       <p>TIME '20:15:00'</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" align="left" valign="top" headers="d3465e615 d3465e562 ">
+                                       <p>java.time.LocalTime getTime(..)</p>
+                                    </td>
+                                 </tr>
+                                 <tr align="left" valign="top">
+                                    <td rowspan="1" colspan="1" align="left" valign="top" id="d3465e631" headers="d3465e550 ">
+                                       <p>DATE</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" align="left" valign="top" headers="d3465e631 d3465e553 ">
+                                       <p>local_date</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" align="left" valign="top" headers="d3465e631 d3465e556 ">
+                                       <p>"2017-08-18"</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" align="left" valign="top" headers="d3465e631 d3465e559 ">
+                                       <p>DATE '2017-08-18'</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" align="left" valign="top" headers="d3465e631 d3465e562 ">
+                                       <p>java.time.LocalDate getDate(..)</p>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <!-- class="inftblhruleinformal" -->
+                     </div>
+                     <div>
+                        <div class="familylinks">
+                           <div class="parentlink">
+                              <p><strong>Parent topic:</strong> <a href="big-data-spatial-whats-new.html#GUID-C2BF5D68-0F7D-4FCE-A377-1F2F33E5C833">In-Memory Analyst (PGX) - Related Changes</a></p>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+                  <div class="props_rev_3"><a id="GUID-9953D4F2-4996-4A29-9F1F-D079AB00E025" name="GUID-9953D4F2-4996-4A29-9F1F-D079AB00E025"></a><h5 id="BDSPA-GUID-9953D4F2-4996-4A29-9F1F-D079AB00E025" class="sect5">PGX Java API Improvements</h5>
+                     <div>
+                        <p>Release 2.4 introduces several additions and improvements in the PGX Java API:</p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>Added Java API for getting all session private graphs and getting a graph by its name (<code class="codeph">PgxSession#getGraphs()</code>, <code class="codeph">PgxSession#getGraph(String)</code>).
+                              </p>
+                           </li>
+                           <li>
+                              <p>Added API for checking whether a graph has vertex/edge labels (<code class="codeph">PgxGraph#hasVertexLabels</code>, <code class="codeph">PgxGraph#hasEdgeLabel</code>.
+                              </p>
+                           </li>
+                           <li>
+                              <p>The <code class="codeph">GraphConfig</code> builders can now copy values from existing GraphConfigs and it is now possible to remove properties from a GraphConfig builder. (<code class="codeph">copyFrom(GraphConfig)</code>, <code class="codeph">copyBaseFrom(GraphConfig)</code>, <code class="codeph">removeVertexProperty(String)</code>, removeEdgeProperty(String)).
+                              </p>
+                           </li>
+                           <li>
+                              <p>Added API for retrieving a random edge (<code class="codeph">PgxGraph#getRandomEdge)</code>).
+                              </p>
+                           </li>
+                        </ul>
+                     </div>
+                     <div>
+                        <div class="familylinks">
+                           <div class="parentlink">
+                              <p><strong>Parent topic:</strong> <a href="big-data-spatial-whats-new.html#GUID-C2BF5D68-0F7D-4FCE-A377-1F2F33E5C833">In-Memory Analyst (PGX) - Related Changes</a></p>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+                  <div class="props_rev_3"><a id="GUID-BEE1554A-47F8-41D9-A0DB-FC2E3317E758" name="GUID-BEE1554A-47F8-41D9-A0DB-FC2E3317E758"></a><h5 id="BDSPA-GUID-BEE1554A-47F8-41D9-A0DB-FC2E3317E758" class="sect5">New Features in PGQL</h5>
+                     <div>
+                        <p>Release 2.4 introduces several new features in PGQL, including the following.</p>
+                        <div class="section">
+                           <p class="subhead3"><span class="bold">Prepared Statements</span></p>
+                           <p>Prepared statements provide a way to safeguard your application from query injection. The use of prepared statements can also speed up query execution as queries do not need to get recompiled every time their bind values change. PGQL uses the question mark symbol (?) to indicate a bind variable. Values for the bind variables are then assigned through the <code class="codeph">PreparedStatement</code> API
+                           </p>
+                        </div>
+                        <!-- class="section" -->
+                        <div class="section">
+                           <p class="subhead3">Undirected Edge Queries</p>
+                           <p>PGQL has now support for undirected edge queries, which can be used to query undirected graphs or ignoring edge direction in directed graphs. These two use cases are illustrated in the following two queries:</p><pre class="pre codeblock"><code>SELECT d1.name WHERE (d1:Device) -[:connects_to]- (d2:Device), d1.name = 'LoadTransformer 2533'
+SELECT m.name WHERE (n:Person) -[:follows]- (m:Person) , n.name = 'Bono'
+</code></pre><p>The first query matches undirected edges labeled <code class="codeph">connects_to</code>, the second query matches all people that follow or are followed by a person named 'Bono'.
+                           </p>
+                        </div>
+                        <!-- class="section" -->
+                        <div class="section">
+                           <p class="subhead3">Other Additions and Improvements in PGQL</p>
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>PGQL now has an&nbsp;<code class="codeph">all_different(a, b, c, ...)</code>&nbsp;function , which allows to specify that a set of values (typically vertices or edges) are all different from each other.
+                                 </p>
+                              </li>
+                              <li>
+                                 <p>Support for greater than, greater than equal, less than, and less than equal for comparing String values (also works for filter expressions in the Java API).</p>
+                              </li>
+                              <li>
+                                 <p>Added support for constraints on&nbsp;<span class="italic">vertices</span>&nbsp;in PATH patterns, as in the following example.&nbsp;Previously, only constraints on&nbsp;<span class="italic">edges</span>&nbsp;in PATH patterns were supported. For example:
+                                 </p><pre class="pre codeblock"><code>PATH connects_to_high_volt_dev := (:Device) -&gt; (:Device WITH voltage &gt; 35000) SELECT ...</code></pre></li>
+                           </ul>
+                        </div>
+                        <!-- class="section" -->
+                     </div>
+                     <div>
+                        <div class="familylinks">
+                           <div class="parentlink">
+                              <p><strong>Parent topic:</strong> <a href="big-data-spatial-whats-new.html#GUID-C2BF5D68-0F7D-4FCE-A377-1F2F33E5C833">In-Memory Analyst (PGX) - Related Changes</a></p>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+                  <div class="props_rev_3"><a id="GUID-4AE62551-E49A-4479-85A6-104E6C81B952" name="GUID-4AE62551-E49A-4479-85A6-104E6C81B952"></a><h5 id="BDSPA-GUID-4AE62551-E49A-4479-85A6-104E6C81B952" class="sect5">PGX Loader Improvements</h5>
+                     <div>
+                        <p>The PGX graph loader in Release 2.4 has extended capabilities:</p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>The Apache Spark loader now supports Spark 2.X through the <code class="codeph">oracle.pgx.api.spark2.PgxSparkContext</code>&nbsp;class. Loading from Spark 1.x is still possible using the&nbsp;class in&nbsp;<code class="codeph">oracle.pgx.api.spark1</code>.
+                              </p>
+                           </li>
+                           <li>
+                              <p>Columns names are now configurable when loading from the Oracle RDBMS in two- tables format.</p>
+                           </li>
+                           <li>
+                              <p>The two- tables format&nbsp;now supports&nbsp;string,&nbsp;integer,&nbsp;and&nbsp;long&nbsp;as vertex ID types.</p>
+                           </li>
+                           <li>
+                              <p>Added support for directly loading compressed (gzip) graph data without the need to unpack the archives first.</p>
+                           </li>
+                        </ul>
+                     </div>
+                     <div>
+                        <div class="familylinks">
+                           <div class="parentlink">
+                              <p><strong>Parent topic:</strong> <a href="big-data-spatial-whats-new.html#GUID-C2BF5D68-0F7D-4FCE-A377-1F2F33E5C833">In-Memory Analyst (PGX) - Related Changes</a></p>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+                  <div class="props_rev_3"><a id="GUID-0C210F47-7D95-4DE3-9FE9-6D2DC68FC2DF" name="GUID-0C210F47-7D95-4DE3-9FE9-6D2DC68FC2DF"></a><h5 id="BDSPA-GUID-0C210F47-7D95-4DE3-9FE9-6D2DC68FC2DF" class="sect5">PGX Distributed Engine Improvements</h5>
+                     <div>
+                        <p>The in-memory analyst (PGX) distributed graph processing execution engine included in Release 2.4 includes several improvements:</p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>PGX.D now supports <code class="codeph">top-k</code> and <code class="codeph">bottom-k</code> for&nbsp;string&nbsp;properties.
+                              </p>
+                           </li>
+                           <li>
+                              <p>Fixed a bug concering NULL values (Oracle bug 25491165).</p>
+                           </li>
+                           <li>
+                              <p>Added support for edge properties of vector type.</p>
+                           </li>
+                           <li>
+                              <p>Extended the supported endpoints in the client-server API: added support for&nbsp;<code class="codeph">rename()</code>,&nbsp;<code class="codeph">getNeighbours()</code>,&nbsp;<code class="codeph">getEdges()</code>,&nbsp;<code class="codeph">getRandomVertex()</code>,&nbsp;<code class="codeph">getRandomEdge()</code>,&nbsp;<code class="codeph">getSource()</code>,&nbsp;and <code class="codeph">getDestination()</code>.
+                              </p>
+                           </li>
+                        </ul>
+                     </div>
+                     <div>
+                        <div class="familylinks">
+                           <div class="parentlink">
+                              <p><strong>Parent topic:</strong> <a href="big-data-spatial-whats-new.html#GUID-C2BF5D68-0F7D-4FCE-A377-1F2F33E5C833">In-Memory Analyst (PGX) - Related Changes</a></p>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+                  <div class="props_rev_3"><a id="GUID-B1320AFB-E256-47B3-BCDB-DAC2F707E25E" name="GUID-B1320AFB-E256-47B3-BCDB-DAC2F707E25E"></a><h5 id="BDSPA-GUID-B1320AFB-E256-47B3-BCDB-DAC2F707E25E" class="sect5">PGX Deprecations</h5>
+                     <div>
+                        <p>The following are now deprecated.</p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p><code class="codeph">PgxSparkContext</code>&nbsp;for in the&nbsp;<code class="codeph">oracle.pgx.api</code>&nbsp;is now deprecated. Use the class in&nbsp;the <code class="codeph">oracle.pgx.api.spark1</code>&nbsp;package instead.
+                              </p>
+                           </li>
+                           <li>
+                              <p>The REST endpoint&nbsp;<code class="codeph">/core/graph/&lt;graphname&gt;/randomNode</code>&nbsp;is deprecated.&nbsp;Call <code class="codeph">/core/graph/&lt;graphname/randomEntity</code> instead
+                              </p>
+                           </li>
+                           <li>
+                              <p>The graph configuration fields for Spark&nbsp;<code class="codeph">skip_nodes</code>&nbsp;and&nbsp;<code class="codeph">skip_edges</code>&nbsp;are deprecated. Use graph loading configuration fields&nbsp;<code class="codeph">loading.skip_vertices</code>&nbsp;and&nbsp;<code class="codeph">loading.skip_edges</code>&nbsp;instead.
+                              </p>
+                           </li>
+                           <li>
+                              <p>The graph configuration methods&nbsp;<code class="codeph">isSkipNodes()</code>&nbsp;and&nbsp;<code class="codeph">isSkipEdges()</code>&nbsp;are deprecated. Use&nbsp;the <code class="codeph">skipVertexLoading()</code>&nbsp;and&nbsp;<code class="codeph">skipEdgeLoading()</code>&nbsp;methods instead.
+                              </p>
+                           </li>
+                           <li>
+                              <p>The SALSA algorithm <code class="codeph">algorithms/link_prediction/salsa_deprecated.gm</code>  is deprecated. Use <code class="codeph">algorithms/ranking_and_walking/salsa.gm</code> instead.
+                              </p>
+                           </li>
+                           <li>
+                              <p>The&nbsp;CALLER_THREAD&nbsp;PoolType is deprecated.</p>
+                           </li>
+                           <li>
+                              <p>The REST endpoint&nbsp;<code class="codeph">/core/analysis/&lt;analysisId&gt;</code>&nbsp;with a&nbsp;<code class="codeph">targetPool</code>&nbsp;is deprecated. Use the&nbsp;<code class="codeph">workloadCharacteristics</code>&nbsp;field instead
+                              </p>
+                           </li>
+                           <li>
+                              <p>The use of the path finding filter argument type is deprecated.</p>
+                           </li>
+                           <li>
+                              <p>The property type DATE is deprecated. Use LOCAL_DATE, TIME, TIMESTAMP, TIME_WITH_TIMEZONE or TIMESTAMP_WITH_TIMEZONE instead.</p>
+                           </li>
+                           <li>
+                              <p>The REST endpoint <code class="codeph">GET&nbsp;/core/graph/&lt;graphname&gt;/query</code>&nbsp;is deprecated. Use <code class="codeph">POST</code> to&nbsp;<code class="codeph">/core/graph/&lt;graphname&gt;/query</code>&nbsp;with query and semantic options in the JSON payload
+                              </p>
+                           </li>
+                           <li>
+                              <p>In PGQL, user-defined pattern matching semantic (i.e., ISOMORPHISM / HOMOMORPHSIM) is deprecated. Homomorphism remains the default semantic, but isomorphic constraints should now be specified using either the new built-in PGQL function <code class="codeph">all_different(v1, v2, ...)</code>&nbsp;or using non-equality constraints (for example,&nbsp;<code class="codeph">v1 != v2</code>). The deprecations are as follows:
+                              </p>
+                              <ul style="list-style-type: disc;">
+                                 <li>
+                                    <p>The method&nbsp;<code class="codeph">PgxGraph.queryPgql(String, PatternMatchingSemantic)</code>&nbsp;(use&nbsp;<code class="codeph">PgxGraph.queryPgql(String)</code>&nbsp;instead)
+                                    </p>
+                                 </li>
+                                 <li>
+                                    <p>The method&nbsp;<code class="codeph">PgxSession.setPatternMatchingSemantic(..)</code></p>
+                                 </li>
+                                 <li>
+                                    <p>The configuration field&nbsp;<code class="codeph">pattern_matching_semantic</code></p>
+                                 </li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </div>
+                     <div>
+                        <div class="familylinks">
+                           <div class="parentlink">
+                              <p><strong>Parent topic:</strong> <a href="big-data-spatial-whats-new.html#GUID-C2BF5D68-0F7D-4FCE-A377-1F2F33E5C833">In-Memory Analyst (PGX) - Related Changes</a></p>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+               </div>
+               <div class="props_rev_3"><a id="GUID-02CC093C-8491-4BB7-9860-ED82CB0E0DCC" name="GUID-02CC093C-8491-4BB7-9860-ED82CB0E0DCC"></a><h4 id="BDSPA-GUID-02CC093C-8491-4BB7-9860-ED82CB0E0DCC" class="sect4">Spark Vector API Changes for Release 2.4</h4>
+                  <div>
+                     <p>The following capabilities have been added to the Spark Vector API for Release 2.4:</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Spatial transformations for the Spark Streaming API:</p>
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>Filter, flatMap, nearestNeighbors </p>
+                              </li>
+                              <li>
+                                 <p>Java and Scala APIs</p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>Spatial join using two spatial indexes</p>
+                        </li>
+                        <li>
+                           <p>GeoEnrich transformation for the Streaming API</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="big-data-spatial-whats-new.html#GUID-D0564339-891C-4E05-9228-4ED5BDAE34DC">Changes for Release 2.4</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="props_rev_3"><a id="GUID-276A2DFD-ADA0-4700-8801-A2DB68C9D16B" name="GUID-276A2DFD-ADA0-4700-8801-A2DB68C9D16B"></a><h4 id="BDSPA-GUID-276A2DFD-ADA0-4700-8801-A2DB68C9D16B" class="sect4">Vector REST API Additions</h4>
+                  <div>
+                     <p>The following APIs are available:</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Vector Hadoop REST API with the following available operations:</p>
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>List/create/delete a spatial index</p>
+                              </li>
+                              <li>
+                                 <p>Filter spatially the records using a spatial index</p>
+                              </li>
+                              <li>
+                                 <p>Categorization, clustering, binning</p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>Vector Spark REST API with the following available operations:</p>
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>List/create/delete a spatial index</p>
+                              </li>
+                              <li>
+                                 <p>Filter spatially the records using a spatial index</p>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="big-data-spatial-whats-new.html#GUID-D0564339-891C-4E05-9228-4ED5BDAE34DC">Changes for Release 2.4</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="props_rev_3"><a id="GUID-4FEE14F4-4D7A-4DE3-9F74-F1694C365D2B" name="GUID-4FEE14F4-4D7A-4DE3-9F74-F1694C365D2B"></a><h4 id="BDSPA-GUID-4FEE14F4-4D7A-4DE3-9F74-F1694C365D2B" class="sect4">SpatialViewer Changes</h4>
+                  <div>
+                     <p>The Big Data Spatial Image Server has been integrated into the Oracle Big Data SpatialViewer web application. SpatialViewer uses Oracle JET, which provides a rich set of UI components.</p>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="big-data-spatial-whats-new.html#GUID-D0564339-891C-4E05-9228-4ED5BDAE34DC">Changes for Release 2.4</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

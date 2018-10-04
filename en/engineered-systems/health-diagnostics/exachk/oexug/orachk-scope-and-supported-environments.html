@@ -1,0 +1,285 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="Review the scope and supported environments for Oracle ORAchk.">
+      <meta name="description" content="Review the scope and supported environments for Oracle ORAchk.">
+      <title>Oracle ORAchk Scope and Supported Environments</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide">
+      <meta property="og:description" content="Review the scope and supported environments for Oracle ORAchk.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-orachk-and-exachk-users-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:43:23-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2016, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E83827-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/exachk">
+      
+      <link rel="prev" href="oracle-orachk-specific-features-and-tasks.html" title="Previous" type="text/html">
+      <link rel="next" href="auto-start-from-install.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"exachk","element_name":"EXAchk","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® ORAchk and EXAchk User's Guide">
+    <meta name="dcterms.isVersionOf" content="OEXUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="oracle-orachk-specific-features-and-tasks.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="auto-start-from-install.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="oracle-orachk-specific-features-and-tasks.html" property="item" typeof="WebPage"><span property="name">Oracle ORAchk Specific Features and Tasks</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Oracle ORAchk Scope and Supported Environments</li>
+            </ol>
+            <a id="GUID-77CD1268-FE8A-4D25-9B38-46852661A842" name="GUID-77CD1268-FE8A-4D25-9B38-46852661A842"></a>
+            
+            <h2 id="OEXUG-GUID-77CD1268-FE8A-4D25-9B38-46852661A842" class="sect2"><span class="enumeration_section">2.1 </span>Oracle ORAchk Scope and Supported Environments
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>Review the scope and supported environments for Oracle ORAchk.</p>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="orachk-scope-and-supported-environments.html#GUID-98A3BB9B-A1AD-4E9A-9070-F32AB1720FE6">Oracle ORAchk Scope of Oracle Stack Supported</a><br>Oracle ORAchk performs health checks for the entire range of Oracle products from hardware, to Oracle Database, middleware, and applications.
+                  </li>
+                  <li class="ulchildlink"><a href="orachk-scope-and-supported-environments.html#GUID-AFA024CA-B2FD-443F-AADA-CF8B547B913D">Oracle ORAchk Supported Platforms</a><br>Review the list of Oracle ORAchk supported platforms.
+                  </li>
+                  <li class="ulchildlink"><a href="orachk-scope-and-supported-environments.html#GUID-90C3B5E7-F6B6-4891-8405-99417F2B5D4C">Oracle ORAchk Supported Database Releases</a><br>Review the list of supported database releases for Oracle ORAchk.
+                  </li>
+               </ul>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="oracle-orachk-specific-features-and-tasks.html#GUID-778B432D-9B59-431B-9796-E947E4FC0969" title="This chapter describes the features specific to Oracle ORAchk and the tasks that you can perform using Oracle ORAchk.">Oracle ORAchk Specific Features and Tasks</a></p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="sect2"><a id="GUID-98A3BB9B-A1AD-4E9A-9070-F32AB1720FE6" name="GUID-98A3BB9B-A1AD-4E9A-9070-F32AB1720FE6"></a><h3 id="OEXUG-GUID-98A3BB9B-A1AD-4E9A-9070-F32AB1720FE6" class="sect3"><span class="enumeration_section">2.1.1 </span>Oracle ORAchk Scope of Oracle Stack Supported
+               </h3>
+               <div>
+                  <p>Oracle ORAchk performs health checks for the entire range of Oracle products from hardware, to Oracle Database, middleware, and applications.</p>
+                  <p>Oracle ORAchk proactively scans for top known problems (based on prioritization of reported issues) within an Oracle system.</p>
+                  <p>The scope of Oracle ORAchk increases with new releases. The following lists the current products on which you can use Oracle ORAchk.</p>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p><span class="bold">Oracle Database Appliance</span></p>
+                     </li>
+                     <li>
+                        <p><span class="bold">Oracle ASR</span></p>
+                     </li>
+                     <li>
+                        <p><span class="bold">Oracle Database</span></p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>Single-instance Oracle Database</p>
+                           </li>
+                           <li>
+                              <p>Oracle Grid Infrastructure and Oracle RAC</p>
+                           </li>
+                           <li>
+                              <p>Maximum Availability Architecture (MAA) validation</p>
+                           </li>
+                           <li>
+                              <p>Upgrade Readiness validation</p>
+                           </li>
+                           <li>
+                              <p>Oracle GoldenGate</p>
+                           </li>
+                           <li>
+                              <p>Application Continuity</p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p><span class="bold">Enterprise Manager Cloud Control (12<span class="italic">c</span> only)</span></p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>Management Repository</p>
+                           </li>
+                           <li>
+                              <p>Management Agents</p>
+                           </li>
+                           <li>
+                              <p>Oracle Management Service (OMS), version 12.1.0.1 and later on Linux only</p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p><span class="bold">Oracle Identity and Access Management</span></p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>Oracle Identity Manager (11.1.2.2.x and 11.1.2.3.x)</p>
+                           </li>
+                           <li>
+                              <p>Oracle Access Manager (11.1.2.2.x and 11.1.2.3.x)</p>
+                           </li>
+                           <li>
+                              <p>Oracle Unified Directory (11.1.2.2.x and 11.1.2.3.x)</p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p><span class="bold">Oracle Hardware Systems</span></p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>Oracle Solaris</p>
+                           </li>
+                           <li>
+                              <p>Oracle Solaris Cluster</p>
+                           </li>
+                           <li>
+                              <p>Oracle Systems configuration for Oracle Middleware and Oracle Applications</p>
+                           </li>
+                           <li>
+                              <p>Oracle ZFS Storage Appliance</p>
+                           </li>
+                           <li>
+                              <p>Oracle Virtual Networking</p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p><span class="bold">Oracle Siebel</span></p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>Oracle Siebel verification of the database configuration for stability, best practices, and performance optimization (Siebel 8.1.1.11 connecting to Oracle Database 11.2.0.4.)</p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p><span class="bold">Oracle PeopleSoft</span></p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>Oracle PeopleSoft verification of database best practices</p>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="orachk-scope-and-supported-environments.html#GUID-77CD1268-FE8A-4D25-9B38-46852661A842" title="Review the scope and supported environments for Oracle ORAchk.">Oracle ORAchk Scope and Supported Environments</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-AFA024CA-B2FD-443F-AADA-CF8B547B913D" name="GUID-AFA024CA-B2FD-443F-AADA-CF8B547B913D"></a><h3 id="OEXUG-GUID-AFA024CA-B2FD-443F-AADA-CF8B547B913D" class="sect3"><span class="enumeration_section">2.1.2 </span>Oracle ORAchk Supported Platforms
+               </h3>
+               <div>
+                  <p>Review the list of Oracle ORAchk supported platforms.</p>
+                  <p>Oracle ORAchk is supported on the following platforms:</p>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p>Intel Linux* (Oracle Linux/RedHat 4, 5, 6, 7 and SuSE 9, 10, 11, 12)</p>
+                     </li>
+                     <li>
+                        <p>Linux on System Z (RedHat 6, 7 and SuSE 12)</p>
+                     </li>
+                     <li>
+                        <p>Oracle Solaris SPARC (Solaris 9, 10, and 11)</p>
+                     </li>
+                     <li>
+                        <p>Oracle Solaris x86-64 (Solaris 9, 10, and 11)</p>
+                     </li>
+                     <li>
+                        <p>AIX </p>
+                     </li>
+                     <li>
+                        <p>HPUX </p>
+                     </li>
+                     <li>
+                        <p>Microsoft Windows (2008 and 2012)</p>
+                     </li>
+                  </ul>
+                  <div class="p">
+                     <div class="infoboxnote" id="GUID-AFA024CA-B2FD-443F-AADA-CF8B547B913D__GUID-2E643227-BC75-415E-8C18-458418B29C4E">
+                        <p class="notep1">Note:</p>
+                        <p>*No planned support for Linux Itanium.</p>
+                        <p>*Only 32-bit platforms are supported for 32-bit EBS environments using the command <code class="codeph">./orachk -ebs32bit</code></p>
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="orachk-scope-and-supported-environments.html#GUID-77CD1268-FE8A-4D25-9B38-46852661A842" title="Review the scope and supported environments for Oracle ORAchk.">Oracle ORAchk Scope and Supported Environments</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-90C3B5E7-F6B6-4891-8405-99417F2B5D4C" name="GUID-90C3B5E7-F6B6-4891-8405-99417F2B5D4C"></a><h3 id="OEXUG-GUID-90C3B5E7-F6B6-4891-8405-99417F2B5D4C" class="sect3"><span class="enumeration_section">2.1.3 </span>Oracle ORAchk Supported Database Releases
+               </h3>
+               <div>
+                  <p>Review the list of supported database releases for Oracle ORAchk.</p>
+                  <p>Oracle ORAchk is supported on the following database releases:</p>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p>Oracle Database 10<span class="italic">g</span> &nbsp;Release 2 (10.2.x)
+                        </p>
+                     </li>
+                     <li>
+                        <p>Oracle Database 11<span class="italic">g</span>&nbsp; Release 1 (11.1.x)
+                        </p>
+                     </li>
+                     <li>
+                        <p>Oracle Database 11<span class="italic">g</span> &nbsp;Release 2 (11.2.x)
+                        </p>
+                     </li>
+                     <li>
+                        <p>Oracle Database 12<span class="italic">c</span> &nbsp;Release 1 (12.1.x)
+                        </p>
+                     </li>
+                     <li>
+                        <p>Oracle Database 12<span class="italic">g</span>&nbsp; Release 2 (12.2)
+                        </p>
+                     </li>
+                  </ul>
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="orachk-scope-and-supported-environments.html#GUID-77CD1268-FE8A-4D25-9B38-46852661A842" title="Review the scope and supported environments for Oracle ORAchk.">Oracle ORAchk Scope and Supported Environments</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

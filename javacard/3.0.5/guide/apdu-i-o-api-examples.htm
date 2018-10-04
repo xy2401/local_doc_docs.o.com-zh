@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>APDU I/O API Examples</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-04-13T10:24:54Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Development Kit User Guide, Classic Edition" />
+<meta name="dcterms.identifier" content="E59602-03" />
+<meta name="dcterms.isVersionOf" content="JCUGC" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="two-interface-card-simulation.htm" title="Previous" type="text/html" />
+<link rel="Next" href="programming-large-address-space.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCUGC.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-717DE138-D675-41E8-8200-90D714732086"></a> <span id="PAGE" style="display:none;">148/161</span> <!-- End Header -->
+<a id="JCUGC374"></a>
+<h1 id="JCUGC-GUID-717DE138-D675-41E8-8200-90D714732086" class="sect1">APDU I/O API Examples</h1>
+<div>
+<p>The following are examples of how to use the APDU I/O API:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="apdu-i-o-api-examples.htm#GUID-5B85383C-444A-4572-B8D8-2E54F0C59582">To Connect To a Simulator</a></p>
+</li>
+<li>
+<p><a href="apdu-i-o-api-examples.htm#GUID-3AF24E7F-FE97-41B9-B18A-391EAE8F3E5D">To Power Up And Power Down the Card</a></p>
+</li>
+<li>
+<p><a href="apdu-i-o-api-examples.htm#GUID-95E9619F-67B7-4D8E-A669-7635D1222480">To Exchange APDUs</a></p>
+</li>
+<li>
+<p><a href="apdu-i-o-api-examples.htm#GUID-375C700A-6785-4BCA-9F8C-6CB2EF70C6A4">To Print the APDU</a></p>
+</li>
+</ul>
+</div>
+<a id="JCUGC375"></a>
+<div class="props_rev_3"><a id="GUID-5B85383C-444A-4572-B8D8-2E54F0C59582"></a>
+<h2 id="JCUGC-GUID-5B85383C-444A-4572-B8D8-2E54F0C59582" class="sect2">To Connect To a Simulator</h2>
+<div>
+<div class="section">
+<p>To establish a connection to a simulator such as <code class="codeph">cref</code>:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Use the following code snippet:</span>
+<div>
+<pre dir="ltr">
+CadClientInterface cad;
+Socket sock;
+sock = new Socket("localhost", 9025);
+InputStream is = sock.getInputStream();
+OutputStream os = sock.getOutputStream();
+cad=CadDevice.getCadClientInstance(CadDevice.PROTOCOL_T0, is, os);
+</pre></div>
+</li>
+<li class="stepexpand"><span>The code establishes a T=0 connection to a simulator listening to port <code class="codeph">9025</code> on <code class="codeph">localhost</code>.</span>
+<div>
+<p>To open a T=1 connection instead, replace <code class="codeph">PROTOCOL_T0</code> in the last line with <code class="codeph">PROTOCOL_T1</code>.</p>
+<p>For dual-interface simulation, open two T=1 connections on ports (<span class="italic">n</span>) and (<span class="italic">n</span>+1), as described in <a href="two-interface-card-simulation.htm#GUID-77AA5029-6392-49EB-84B2-3AFC5E3B5685">Two-interface Card Simulation</a>.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<a id="JCUGC377"></a>
+<div class="props_rev_3"><a id="GUID-3AF24E7F-FE97-41B9-B18A-391EAE8F3E5D"></a>
+<h2 id="JCUGC-GUID-3AF24E7F-FE97-41B9-B18A-391EAE8F3E5D" class="sect2">To Power Up And Power Down the Card</h2>
+<div>
+<div class="section">
+<p>The dual-interface RI is implemented in such a way that once the client establishes connection to a port, the next command must be <code class="codeph">powerUp</code> on that port. For example, the following sequence is valid:</p>
+<ol>
+<li>
+<p>Connect on "contacted" port.</p>
+</li>
+<li>
+<p>Send <code class="codeph">powerUp</code> to it.</p>
+</li>
+<li>
+<p>Exchange some APDUs.</p>
+</li>
+<li>
+<p>Connect on "contactless" port.</p>
+</li>
+<li>
+<p>Send <code class="codeph">powerUp</code> to it.</p>
+</li>
+<li>
+<p>Exchange more APDUs</p>
+</li>
+</ol>
+<p>However, the following sequence is not valid:</p>
+<ol>
+<li>
+<p>Connect on "contacted" port.</p>
+</li>
+<li>
+<p>Connect on "contactless" port.</p>
+</li>
+<li>
+<p>Send <code class="codeph">powerUp</code> to any port.</p>
+</li>
+</ol>
+<p>To power up and power down the card:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Use the following code:</span>
+<div>
+<p><code class="codeph">cad.powerUp();</code></p>
+</div>
+</li>
+<li class="stepexpand"><span>To power down the card and close the socket connection (for simulators only), use either of the following code lines:</span>
+<div>
+<pre dir="ltr">
+cad.powerDown(true);
+</pre>
+<p>or</p>
+<pre dir="ltr">
+cad.powerDown();
+</pre></div>
+</li>
+<li class="stepexpand"><span>To power down, but leave the socket open, use the following code.</span>
+<div>
+<pre dir="ltr">
+cad.powerDown(false);
+</pre>
+<p>If the simulator continues to run (which is true if this is contactless interface of the RI) you can issue <code class="codeph">powerUp()</code> on this card again and continue exchanging APDUs.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<a id="JCUGC378"></a>
+<div class="props_rev_3"><a id="GUID-95E9619F-67B7-4D8E-A669-7635D1222480"></a>
+<h2 id="JCUGC-GUID-95E9619F-67B7-4D8E-A669-7635D1222480" class="sect2">To Exchange APDUs</h2>
+<div>
+<div class="section">
+<p>To exchange APDUs:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Create a new APDU object using the following code:</span>
+<div>
+<pre dir="ltr">
+Apdu apdu = new Apdu();
+</pre></div>
+</li>
+<li class="stepexpand"><span>Copy the header <code class="codeph">(CLA, INS, P1, P2)</code> of the APDU to be sent into the <code class="codeph">apdu.command</code> field.</span></li>
+<li class="stepexpand"><span>Set the data to be sent and the <code class="codeph">Lc</code> using the following code:</span>
+<div>
+<p><code class="codeph">apdu.setDataIn(dataIn, Lc);</code></p>
+<p>where the array <code class="codeph">dataIn</code> contains the C-APDU data, and the <code class="codeph">Lc</code> contains the data length.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Set the number of bytes expected into the <code class="codeph">apdu.Le</code> field.</span></li>
+<li class="stepexpand"><span>Exchange the APDU with a card or simulator using the following code:</span>
+<div>
+<pre dir="ltr">
+cad.exchangeApdu(apdu);
+</pre>
+<p>After the exchange, <code class="codeph">apdu.Le</code> contains the number of bytes received from the card or simulator, <code class="codeph">apdu.dataOut</code> contains the data received, and <code class="codeph">apdu.sw1sw2</code> contains the SW1 and SW2 status bytes.</p>
+<p>These fields can be accessed through the corresponding <code class="codeph">get</code> methods.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<a id="JCUGC379"></a>
+<div class="props_rev_3"><a id="GUID-375C700A-6785-4BCA-9F8C-6CB2EF70C6A4"></a>
+<h2 id="JCUGC-GUID-375C700A-6785-4BCA-9F8C-6CB2EF70C6A4" class="sect2">To Print the APDU</h2>
+<div>
+<div class="section">
+<p>To print the APDU:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>The following code prints both C-APDU and R-APDU in the <code class="codeph">apdutool</code> output format.</span>
+<div>
+<p><code class="codeph">System.out.println(apdu)</code></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="two-interface-card-simulation.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="programming-large-address-space.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

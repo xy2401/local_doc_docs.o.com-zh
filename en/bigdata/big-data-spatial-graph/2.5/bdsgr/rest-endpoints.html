@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- saved from url=(0023)https://docs.oracle.com -->
+        <title>REST API for Big Data Spatial and Graph - All REST Endpoints</title>
+		
+        <link rel="stylesheet" href="/sp_common/rest-template/ohc-rest-template/css/rest.css">
+        <script>
+            document.write('<style type="text/css">');
+            document.write('body > .noscript, body > .noscript ~ * { opacity: 0; }');
+            document.write('</style>');
+        </script>
+        <script data-main="/sp_common/rest-template/ohc-rest-template/js/rest-config" src="/sp_common/rest-template/requirejs/require.js"></script>
+        <script>
+            if(window.require === undefined) {
+                document.write('<script data-main="sp_common/rest-template/ohc-rest-template/js/rest-config" src="sp_common/rest-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/rest-template/ohc-rest-template/css/rest.css" rel="stylesheet">');
+            }
+        </script>
+        <meta name="description" content="The RESTful Web Services Spatial API is composed of the Vector Hadoop API, which uses the java Spatial Hadoop Java API, and the Vector Spark API, which uses the Spatial Spark Java API.">
+        <meta property="og:site_name" content="Oracle Help Center">
+        <meta property="og:title" content="REST API for Big Data Spatial and Graph">
+        <meta property="og:description" content="The RESTful Web Services Spatial API is composed of the Vector Hadoop API, which uses the java Spatial Hadoop Java API, and the Vector Spark API, which uses the Spatial Spark Java API.">
+        <meta name="generator" content="Oracle REST API Publisher 1.2.1.1">
+		<meta name="date" content="2017-08-28 20:19:06 GMT">
+        <link rel="shortcut icon" href="/sp_common/rest-template/ohc-common/img/favicon.ico">
+        <meta name="application-name" content="REST API for Big Data Spatial and Graph">
+        <link type="application/swagger+json" title="Swagger 2.0" href="swagger.json" rel="alternate">
+        <link rel="prev" href="index.html" title="Previous" type="text/html">
+        <link rel="next" href="api-vector-hadoop-api.html" title="Next" type="text/html">
+    
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <meta name="dcterms.created" content="2018-06-08T23:39:34+00:00">
+    <meta name="dcterms.title" content="Big Data Spatial and Graph REST API Reference">
+    <meta name="dcterms.category" content="bigdata">
+    <meta name="dcterms.isVersionOf" content="BDSGR">
+    <meta name="dcterms.product" content="en/bigdata/big-data-spatial-graph/2.5">
+    <meta name="dcterms.identifier" content="E94786-01">
+    <meta name="dcterms.release" content="Release 2.5">
+  <script id="ssot-metadata" type="application/json"> {"primary":{"category":{"short_name":"bigdata","element_name":"Big Data","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"not-applicable","element_name":"Not applicable","display_in_url":false},"product":{"short_name":"big-data-spatial-graph","element_name":"Big Data Spatial and Graph","display_in_url":true},"release":{"short_name":"2.5","element_name":"Release 2.5","display_in_url":true}}} </script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+    <body>
+        <div class="noscript alert alert-danger text-center" role="alert">
+            <a class="pull-left" href="index.html"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+            <a class="pull-right" href="api-vector-hadoop-api.html">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+            <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        </div>               
+        <article>
+
+            <header>
+                <ol class="breadcrumb">
+                    <li><a href="index.html">REST API for Big Data Spatial and Graph</a></li>
+                    <li class="active">Endpoints</li>
+                </ol>
+		<p class="draftsubtitle"></p>
+                <h2>All REST Endpoints</h2>
+            </header>
+
+            <div class="clearfix">
+                <form class="form-inline endpoints pull-left">
+                    <label for="sortby" class="control-label">Sort by</label>
+
+                    <div id="sortby" class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-primary active">
+                            <input type="radio" name="sort-radio" value="summary" autocomplete="off" checked> Task
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" name="sort-radio" value="path" autocomplete="off"> Path
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" name="sort-radio" value="method" autocomplete="off"> Method
+                        </label>
+                    </div>
+
+                    <div class="checkbox">
+                        <label>
+                            <input id="grouped" type="checkbox" checked> Group by API
+                        </label>
+                    </div>
+                </form>
+            </div>
+
+            <section>
+
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="summary-sort-grouped">
+                        
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Vector Hadoop API</div>
+                            <div class="panel-body">
+                                <div>The operations from the Vector Hadoop API category.</div>
+                                <dl class="list-group schema-properties">
+                                    
+                                    <dt><a href="op-createIndex-post.html">Create a spatial index using the Hadoop API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/createIndex</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-indexes-indexName-delete.html">Delete a spatial index</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-delete text-uppercase">delete</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/indexes/{indexName}</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-filterByIndex-get.html">Filter spatially the records in a spatial index using the Hadoop API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/filterByIndex</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-indexes-get.html">List Hadoop spatial indexes</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/indexes</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-categorizationJob-post.html">Service to classify the data into hierarchical entities</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/categorizationJob</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-clusteringJob-post.html">This service is used to find spatial clusters in a data set</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/clusteringJob</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-binningJob-post.html">This service performs spatial binning over a spatial dataset.</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/binningJob</code></div>
+                                    </dd>
+                                    
+                                </dl>
+                            </div>
+                        </div>
+                        
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Vector Spark API</div>
+                            <div class="panel-body">
+                                <div>The operations from the Vector Spark API category.</div>
+                                <dl class="list-group schema-properties">
+                                    
+                                    <dt><a href="op-spark-createIndex-post.html">Create a spatial index using the Spark API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/createIndex</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-spark-indexes-indexName-delete.html">Delete a spatial index</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-delete text-uppercase">delete</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/indexes/{indexName}</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-spark-filterByIndex-get.html">Filter spatially the records in a spatial index using the Spark API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/filterByIndex</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-spark-indexes-get.html">List Spark spatial indexes</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/indexes</code></div>
+                                    </dd>
+                                    
+                                </dl>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="summary-sort-ungrouped">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">All Endpoints</div>
+                            <div class="panel-body">
+                                <dl class="list-group schema-properties">
+                                    
+                                    <dt><a href="op-createIndex-post.html">Create a spatial index using the Hadoop API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/createIndex</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-spark-createIndex-post.html">Create a spatial index using the Spark API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/createIndex</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-indexes-indexName-delete.html">Delete a spatial index</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-delete text-uppercase">delete</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/indexes/{indexName}</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-spark-indexes-indexName-delete.html">Delete a spatial index</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-delete text-uppercase">delete</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/indexes/{indexName}</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-filterByIndex-get.html">Filter spatially the records in a spatial index using the Hadoop API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/filterByIndex</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-spark-filterByIndex-get.html">Filter spatially the records in a spatial index using the Spark API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/filterByIndex</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-indexes-get.html">List Hadoop spatial indexes</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/indexes</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-spark-indexes-get.html">List Spark spatial indexes</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/indexes</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-categorizationJob-post.html">Service to classify the data into hierarchical entities</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/categorizationJob</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-clusteringJob-post.html">This service is used to find spatial clusters in a data set</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/clusteringJob</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-binningJob-post.html">This service performs spatial binning over a spatial dataset.</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/binningJob</code></div>
+                                    </dd>
+                                    
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="path-sort-grouped">
+                        
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Vector Hadoop API</div>
+                            <div class="panel-body">
+                                <div>The operations from the Vector Hadoop API category.</div>
+                                <dl class="list-group schema-properties">
+                                    
+                                    <dt><a href="op-binningJob-post.html">This service performs spatial binning over a spatial dataset.</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/binningJob</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-categorizationJob-post.html">Service to classify the data into hierarchical entities</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/categorizationJob</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-clusteringJob-post.html">This service is used to find spatial clusters in a data set</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/clusteringJob</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-createIndex-post.html">Create a spatial index using the Hadoop API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/createIndex</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-filterByIndex-get.html">Filter spatially the records in a spatial index using the Hadoop API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/filterByIndex</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-indexes-get.html">List Hadoop spatial indexes</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/indexes</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-indexes-indexName-delete.html">Delete a spatial index</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-delete text-uppercase">delete</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/indexes/{indexName}</code></div>
+                                    </dd>
+                                    
+                                </dl>
+                            </div>
+                        </div>
+                        
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Vector Spark API</div>
+                            <div class="panel-body">
+                                <div>The operations from the Vector Spark API category.</div>
+                                <dl class="list-group schema-properties">
+                                    
+                                    <dt><a href="op-spark-createIndex-post.html">Create a spatial index using the Spark API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/createIndex</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-spark-filterByIndex-get.html">Filter spatially the records in a spatial index using the Spark API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/filterByIndex</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-spark-indexes-get.html">List Spark spatial indexes</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/indexes</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-spark-indexes-indexName-delete.html">Delete a spatial index</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-delete text-uppercase">delete</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/indexes/{indexName}</code></div>
+                                    </dd>
+                                    
+                                </dl>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="path-sort-ungrouped">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">All Endpoints</div>
+                            <div class="panel-body">
+                                <dl class="list-group schema-properties">
+                                    
+                                    <dt><a href="op-binningJob-post.html">This service performs spatial binning over a spatial dataset.</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/binningJob</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-categorizationJob-post.html">Service to classify the data into hierarchical entities</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/categorizationJob</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-clusteringJob-post.html">This service is used to find spatial clusters in a data set</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/clusteringJob</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-createIndex-post.html">Create a spatial index using the Hadoop API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/createIndex</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-filterByIndex-get.html">Filter spatially the records in a spatial index using the Hadoop API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/filterByIndex</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-indexes-get.html">List Hadoop spatial indexes</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/indexes</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-indexes-indexName-delete.html">Delete a spatial index</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-delete text-uppercase">delete</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/indexes/{indexName}</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-spark-createIndex-post.html">Create a spatial index using the Spark API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/createIndex</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-spark-filterByIndex-get.html">Filter spatially the records in a spatial index using the Spark API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/filterByIndex</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-spark-indexes-get.html">List Spark spatial indexes</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/indexes</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-spark-indexes-indexName-delete.html">Delete a spatial index</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-delete text-uppercase">delete</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/indexes/{indexName}</code></div>
+                                    </dd>
+                                    
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="method-sort-grouped">
+                        
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Vector Hadoop API</div>
+                            <div class="panel-body">
+                                <div>The operations from the Vector Hadoop API category.</div>
+                                <dl class="list-group schema-properties">
+                                    
+                                    <dt><a href="op-indexes-indexName-delete.html">Delete a spatial index</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-delete text-uppercase">delete</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/indexes/{indexName}</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-filterByIndex-get.html">Filter spatially the records in a spatial index using the Hadoop API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/filterByIndex</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-indexes-get.html">List Hadoop spatial indexes</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/indexes</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-binningJob-post.html">This service performs spatial binning over a spatial dataset.</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/binningJob</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-categorizationJob-post.html">Service to classify the data into hierarchical entities</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/categorizationJob</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-clusteringJob-post.html">This service is used to find spatial clusters in a data set</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/clusteringJob</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-createIndex-post.html">Create a spatial index using the Hadoop API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/createIndex</code></div>
+                                    </dd>
+                                    
+                                </dl>
+                            </div>
+                        </div>
+                        
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Vector Spark API</div>
+                            <div class="panel-body">
+                                <div>The operations from the Vector Spark API category.</div>
+                                <dl class="list-group schema-properties">
+                                    
+                                    <dt><a href="op-spark-indexes-indexName-delete.html">Delete a spatial index</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-delete text-uppercase">delete</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/indexes/{indexName}</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-spark-filterByIndex-get.html">Filter spatially the records in a spatial index using the Spark API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/filterByIndex</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-spark-indexes-get.html">List Spark spatial indexes</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/indexes</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-spark-createIndex-post.html">Create a spatial index using the Spark API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/createIndex</code></div>
+                                    </dd>
+                                    
+                                </dl>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="method-sort-ungrouped">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">All Endpoints</div>
+                            <div class="panel-body">
+                                <dl class="list-group schema-properties">
+                                    
+                                    <dt><a href="op-indexes-indexName-delete.html">Delete a spatial index</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-delete text-uppercase">delete</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/indexes/{indexName}</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-spark-indexes-indexName-delete.html">Delete a spatial index</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-delete text-uppercase">delete</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/indexes/{indexName}</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-filterByIndex-get.html">Filter spatially the records in a spatial index using the Hadoop API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/filterByIndex</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-indexes-get.html">List Hadoop spatial indexes</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/indexes</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-spark-filterByIndex-get.html">Filter spatially the records in a spatial index using the Spark API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/filterByIndex</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-spark-indexes-get.html">List Spark spatial indexes</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-get text-uppercase">get</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/indexes</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-binningJob-post.html">This service performs spatial binning over a spatial dataset.</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/binningJob</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-categorizationJob-post.html">Service to classify the data into hierarchical entities</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/categorizationJob</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-clusteringJob-post.html">This service is used to find spatial clusters in a data set</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/clusteringJob</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-createIndex-post.html">Create a spatial index using the Hadoop API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/createIndex</code></div>
+                                    </dd>
+                                    
+                                    <dt><a href="op-spark-createIndex-post.html">Create a spatial index using the Spark API</a></dt>
+                                    <dd>
+                                        <div>Method: <span class="label label-post text-uppercase">post</span></div>
+                                        <div>Path: <code style="word-wrap: break-word;">/spark/createIndex</code></div>
+                                    </dd>
+                                    
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </article>
+    </body>
+</html>

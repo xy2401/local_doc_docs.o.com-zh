@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- saved from url=(0023)https://docs.oracle.com -->
+        <title>REST API for Big Data Spatial and Graph - This service is used to find spatial clusters in a data set</title>
+		
+        <link rel="stylesheet" href="/sp_common/rest-template/ohc-rest-template/css/rest.css">
+        <script>
+            document.write('<style type="text/css">');
+            document.write('body > .noscript, body > .noscript ~ * { opacity: 0; }');
+            document.write('</style>');
+        </script>
+        <script data-main="/sp_common/rest-template/ohc-rest-template/js/rest-config" src="/sp_common/rest-template/requirejs/require.js"></script>
+        <script>
+            if(window.require === undefined) {
+                document.write('<script data-main="sp_common/rest-template/ohc-rest-template/js/rest-config" src="sp_common/rest-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/rest-template/ohc-rest-template/css/rest.css" rel="stylesheet">');
+            }
+        </script>
+        <meta name="description" content="The RESTful Web Services Spatial API is composed of the Vector Hadoop API, which uses the java Spatial Hadoop Java API, and the Vector Spark API, which uses the Spatial Spark Java API.">
+        <meta property="og:site_name" content="Oracle Help Center">
+        <meta property="og:title" content="REST API for Big Data Spatial and Graph">
+        <meta property="og:description" content="The RESTful Web Services Spatial API is composed of the Vector Hadoop API, which uses the java Spatial Hadoop Java API, and the Vector Spark API, which uses the Spatial Spark Java API.">
+        <meta name="generator" content="Oracle REST API Publisher 1.2.1.1">
+		<meta name="date" content="2017-08-28 20:19:06 GMT">
+        <link rel="shortcut icon" href="/sp_common/rest-template/ohc-common/img/favicon.ico">
+        <meta name="application-name" content="REST API for Big Data Spatial and Graph">
+        <link type="application/swagger+json" title="Swagger 2.0" href="swagger.json" rel="alternate">
+        <link rel="prev" href="op-categorizationJob-post.html" title="Previous" type="text/html">
+        <link rel="next" href="op-binningJob-post.html" title="Next" type="text/html">
+    
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <meta name="dcterms.created" content="2018-06-08T23:39:34+00:00">
+    <meta name="dcterms.title" content="Big Data Spatial and Graph REST API Reference">
+    <meta name="dcterms.category" content="bigdata">
+    <meta name="dcterms.isVersionOf" content="BDSGR">
+    <meta name="dcterms.product" content="en/bigdata/big-data-spatial-graph/2.5">
+    <meta name="dcterms.identifier" content="E94786-01">
+    <meta name="dcterms.release" content="Release 2.5">
+  <script id="ssot-metadata" type="application/json"> {"primary":{"category":{"short_name":"bigdata","element_name":"Big Data","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"not-applicable","element_name":"Not applicable","display_in_url":false},"product":{"short_name":"big-data-spatial-graph","element_name":"Big Data Spatial and Graph","display_in_url":true},"release":{"short_name":"2.5","element_name":"Release 2.5","display_in_url":true}}} </script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+    <body>
+        <div class="noscript alert alert-danger text-center" role="alert">
+            <a class="pull-left" href="op-categorizationJob-post.html"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+            <a class="pull-right" href="op-binningJob-post.html">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+            <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        </div>
+        <article>
+
+            
+            <header>
+
+                <ol class="breadcrumb">
+                    <li><a href="index.html">REST API for Big Data Spatial and Graph</a></li>
+                    <li>Tasks</li>
+                    
+                    <li class="active">
+                        
+                        <a href="api-vector-hadoop-api.html">Vector Hadoop API</a>
+                        
+                    </li>
+                    
+                </ol>
+                
+                <p class="draftsubtitle"></p>
+                
+                <h2>This service is used to find spatial clusters in a data set</h2>
+                <div>
+                    <div class="label label-post text-uppercase">post</div>
+                    <p style="word-break: break-word;"><strong>/spatialviewer/api/v1/clusteringJob</strong></p>
+                </div>
+            </header>
+            <section>
+
+                <div class="description"> The service uses a distributed version of the K-means algorithm.</div>
+
+                <div role="tabpanel">
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs hidden-print" role="tablist">
+                        <li role="presentation" class="active"><a href="#request" aria-controls="request" role="tab" data-toggle="tab"><span class="hidden-xs glyphicon glyphicon-log-in" aria-hidden="true"></span> Request</a></li>
+                        <li role="presentation"><a href="#response" aria-controls="response" role="tab" data-toggle="tab"><span class="hidden-xs glyphicon glyphicon-log-out" aria-hidden="true"></span> Response</a></li>
+                        
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="request">
+                            <h3 class="visible-print-block">Request</h3>
+                            
+
+                            
+                            
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Supported Media Types</div>
+                                <div class="panel-body">
+                                    <ul class="list-group">
+                                        
+                                        <li class="list-group-item">application/json</li>
+                                                    
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            
+
+                            
+
+                            
+                            
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Query Parameters</div>
+                                <div style="padding-bottom: 0px; padding-top: 0px" class="panel-body">
+                                    <div class="schema-container">
+                                    <dl style="margin-bottom: 0px" class="schema-properties">
+                                        
+                                        <dt>asynchronous</dt>
+                                        <dd>
+                                            
+
+
+<div>Type: <code>boolean</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>if true the operation is runned asynchronously.</div>
+
+
+<div class="panel-group" role="tablist" aria-multiselectable="true">
+
+
+<div class="panel panel-default schema-panel">
+  <div class="panel-heading" role="tab" id="collapseListGroupHeading-request-queryparam-paths--clusteringJob-post-parameters-0-default">
+    <a role="button" data-toggle="alt-collapse" href="#collapseListGroup-request-queryparam-paths--clusteringJob-post-parameters-0-default" aria-expanded="false" aria-controls="collapseListGroup-request-queryparam-paths--clusteringJob-post-parameters-0-default">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Default Value
+    </a>
+  </div>
+  <div id="collapseListGroup-request-queryparam-paths--clusteringJob-post-parameters-0-default" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading-request-queryparam-paths--clusteringJob-post-parameters-0-default" aria-expanded="false">
+      <div class="panel-body">
+          <pre><code>false</code></pre>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        </div></dd>
+                                        
+                                    </dl>
+                                        
+                                   </div>
+                                </div>
+                            </div>
+                            
+                            
+
+                            
+                            
+
+                            
+
+
+                            
+                            <div class="panel panel-default">
+
+                                <div class="panel-heading">Body Parameter</div>
+                                <div style="padding-bottom: 0px" class="panel-body">
+                                    
+                                    <div style="margin-bottom: 8px">Job details</div>
+                                    
+
+                                    <div class="schema-container">
+                                    
+                                    <div id="request-definitions-ClusteringJobInfo" class="panel panel-default swagger-schema">
+<div class="panel-heading">Root Schema : ClusteringJobInfo</div>
+<div class="panel-body">
+
+    
+
+
+<div>Type: <code>object</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel-group" role="tablist" aria-multiselectable="true">
+
+
+
+
+
+
+
+
+<div class="panel panel-default schema-panel">
+  <div class="panel-heading" role="tab" id="collapseListGroupHeading-request-definitions-ClusteringJobInfo-properties">
+    <a role="button" data-toggle="alt-collapse" href="#collapseListGroup-request-definitions-ClusteringJobInfo-properties" aria-expanded="false" aria-controls="collapseListGroup-request-definitions-ClusteringJobInfo-properties">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Properties
+    </a>
+  </div>
+  <div id="collapseListGroup-request-definitions-ClusteringJobInfo-properties" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading-request-definitions-ClusteringJobInfo-properties" aria-expanded="false">
+    <dl class="list-group schema-properties">
+        
+        <dt>dataPath</dt>
+        <dd>
+            
+            
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>Path of the file or files in HDFS.</div>
+
+
+
+<div>Example: <code>/user/oracle/spatialviewer/tweetsJune.json</code></div>
+
+            
+        </dd>
+        
+        <dt>inputFormatClass</dt>
+        <dd>
+            
+            
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>The input format class.</div>
+
+
+
+<div>Example: <code>oracle.spatial.hadoop.vector.geojson.mapred.GeoJsonInputFormat</code></div>
+
+            
+        </dd>
+        
+        <dt>jarWithNeededClasses</dt>
+        <dd>
+            
+            
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>jar name with the user-defined classes like custom RecordInfoProvider or InputFormat. If the InputFormat class or the RecordInfoProvider class is not in the API, or in the hadoop API classes, then a jar with the user-defined classes must be provided. To be able to use this jar the user must add it in the /opt/oracle/oracle-spatial-graph/spatial/web-server/spatialviewer/WEB-INF/lib directory and restart the server. Optional property.</div>
+
+
+
+<div>Example: <code>myjar.jar</code></div>
+
+            
+        </dd>
+        
+        <dt>numberOfClusters</dt>
+        <dd>
+            
+            
+<div>Type: <code>integer</code> (<code>int32</code>)</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>Number of clusters to be found.</div>
+
+
+
+<div>Example: <code>4</code></div>
+
+            
+        </dd>
+        
+        <dt>outputPath</dt>
+        <dd>
+            
+            
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>The Hadoop job output path.</div>
+
+
+
+<div>Example: <code>/user/oracle/spatialviewer/clusteringResult</code></div>
+
+            
+        </dd>
+        
+        <dt>recordInfoProviderClass</dt>
+        <dd>
+            
+            
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>The class that provides the spatial information.</div>
+
+
+
+<div>Example: <code>oracle.spatial.hadoop.vector.geojson.GeoJsonRecordInfoProvider</code></div>
+
+            
+        </dd>
+        
+        <dt>resultName</dt>
+        <dd>
+            
+            
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>The result name.</div>
+
+
+
+<div>Example: <code>Clustering Tweets June</code></div>
+
+            
+        </dd>
+        
+        <dt>srid</dt>
+        <dd>
+            
+            
+<div>Type: <code>integer</code> (<code>int32</code>)</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>SRID of the geometries.</div>
+
+
+
+<div>Example: <code>8307</code></div>
+
+            
+        </dd>
+        
+        <dt>tolerance</dt>
+        <dd>
+            
+            
+<div>Type: <code>number</code> (<code>double</code>)</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>Double value that represents the tolerance used when performing spatial operations. </div>
+
+
+
+<div>Example: <code>0.05</code></div>
+
+            
+        </dd>
+        
+    </dl>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+                                    
+                                    </div>
+
+                                    
+                                    
+                                    
+                                    		
+                                </div>
+                            </div>
+                            
+
+
+
+                            
+
+
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="response">
+                            <h3 class="visible-print-block">Response</h3>
+
+                            
+                            
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Supported Media Types</div>
+                                <div class="panel-body">
+                                    <ul class="list-group">
+                                        
+                                        <li class="list-group-item">application/json</li>
+                                                    
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            
+
+
+
+                            
+                            <div class="panel panel-default">
+
+                                <div class="panel-heading">200 Response <span class="glyphicon glyphicon-ok-sign response-symbol" data-response-code="200" aria-hidden="true"></span></div>
+                                <div class="panel-body">
+                                    Successful request. <br><br>The response contains the location of the results in HDFS. <br><br>When the job finish the results will be saved in the folder clustering_results contained in the SpatialViewer local working directory (see SpatialViewer configuration). The result can be used as data source of the Map API VectorLayer (OM.layer.VectorLayer) for display.
+                                </div>
+
+                                
+                                
+
+                                
+                                <div class="panel panel-default">
+
+                                    <div class="panel-heading">Body</div>
+                                    <div class="panel-body">
+                                        
+
+                                        <div class="schema-container">
+                                        
+                                        <div id="200-definitions-ClusteringJobResponse" class="panel panel-default swagger-schema">
+<div class="panel-heading">Root Schema : ClusteringJobResponse</div>
+<div class="panel-body">
+
+    
+
+
+<div>Type: <code>object</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel-group" role="tablist" aria-multiselectable="true">
+
+
+
+
+
+
+
+
+<div class="panel panel-default schema-panel">
+  <div class="panel-heading" role="tab" id="collapseListGroupHeading-200-definitions-ClusteringJobResponse-properties">
+    <a role="button" data-toggle="alt-collapse" href="#collapseListGroup-200-definitions-ClusteringJobResponse-properties" aria-expanded="false" aria-controls="collapseListGroup-200-definitions-ClusteringJobResponse-properties">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Properties
+    </a>
+  </div>
+  <div id="collapseListGroup-200-definitions-ClusteringJobResponse-properties" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading-200-definitions-ClusteringJobResponse-properties" aria-expanded="false">
+    <dl class="list-group schema-properties">
+        
+        <dt>o:successCode</dt>
+        <dd>
+            
+            
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>The success code.</div>
+
+
+
+<div>Example: <code>SV-05005</code></div>
+
+            
+        </dd>
+        
+        <dt>response</dt>
+        <dd>
+            
+            
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>The response contains the location of the results in HDFS.</div>
+
+
+
+<div>Example: <code>hdfs://&lt;namenode&gt;:8020/user/oracle/spatialviewer/clusteringResult</code></div>
+
+            
+        </dd>
+        
+        <dt>status</dt>
+        <dd>
+            
+            
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>success or error</div>
+
+
+
+<div>Example: <code>success</code></div>
+
+            
+        </dd>
+        
+        <dt>title</dt>
+        <dd>
+            
+            
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>Service title.</div>
+
+
+
+<div>Example: <code>Create clustering job.</code></div>
+
+            
+        </dd>
+        
+    </dl>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+                                        
+                                        </div>
+
+                                        
+                                    </div>
+                                </div>
+                                
+
+                            </div>
+                            
+                            <div class="panel panel-default">
+
+                                <div class="panel-heading">202 Response <span class="glyphicon glyphicon-ok-sign response-symbol" data-response-code="202" aria-hidden="true"></span></div>
+                                <div class="panel-body">
+                                    accepted asynchronous request. <br><br>The response contains the resource manager web application URL to track the job. <br><br>Additionally When the job finishes the results will be saved in the folder clustering_results contained in the SpatialViewer local working directory (see SpatialViewer configuration). The result can be used as data source of the Map API VectorLayer (OM.layer.VectorLayer) for display.
+                                </div>
+
+                                
+                                
+
+                                
+                                <div class="panel panel-default">
+
+                                    <div class="panel-heading">Body</div>
+                                    <div class="panel-body">
+                                        
+
+                                        <div class="schema-container">
+                                        
+                                        <div id="202-definitions-AsyncClusteringJobResponse" class="panel panel-default swagger-schema">
+<div class="panel-heading">Root Schema : AsyncClusteringJobResponse</div>
+<div class="panel-body">
+
+    
+
+
+<div>Type: <code>object</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel-group" role="tablist" aria-multiselectable="true">
+
+
+
+
+
+
+
+
+<div class="panel panel-default schema-panel">
+  <div class="panel-heading" role="tab" id="collapseListGroupHeading-202-definitions-AsyncClusteringJobResponse-properties">
+    <a role="button" data-toggle="alt-collapse" href="#collapseListGroup-202-definitions-AsyncClusteringJobResponse-properties" aria-expanded="false" aria-controls="collapseListGroup-202-definitions-AsyncClusteringJobResponse-properties">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Properties
+    </a>
+  </div>
+  <div id="collapseListGroup-202-definitions-AsyncClusteringJobResponse-properties" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading-202-definitions-AsyncClusteringJobResponse-properties" aria-expanded="false">
+    <dl class="list-group schema-properties">
+        
+        <dt>o:successCode</dt>
+        <dd>
+            
+            
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>The success code.</div>
+
+
+
+<div>Example: <code>SV-05005</code></div>
+
+            
+        </dd>
+        
+        <dt>response</dt>
+        <dd>
+            
+            
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>The response contains the resource manager web application URL to track the job. See this value in the SpatialViewer Hadoop configuration (refer to user's guide chapter 1.8.4 Configuring the Oracle SpatialViewer on Oracle Big Data Appliance). The parameter is yarn.resourcemanager.webapp.address.</div>
+
+
+
+<div>Example: <code>http://resource.mananger.webapp:8088</code></div>
+
+            
+        </dd>
+        
+        <dt>status</dt>
+        <dd>
+            
+            
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>success or error</div>
+
+
+
+<div>Example: <code>success</code></div>
+
+            
+        </dd>
+        
+        <dt>title</dt>
+        <dd>
+            
+            
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>Service title.</div>
+
+
+
+<div>Example: <code>Create clustering job.</code></div>
+
+            
+        </dd>
+        
+    </dl>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+                                        
+                                        </div>
+
+                                        
+                                    </div>
+                                </div>
+                                
+
+                            </div>
+                            
+
+
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+            </section>
+
+            
+        </article>
+    </body>
+</html>

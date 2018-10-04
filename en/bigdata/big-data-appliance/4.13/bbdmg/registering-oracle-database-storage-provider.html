@@ -1,0 +1,126 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="For an Oracle Database storage provider, use the Storage Details wizard page to supply the information needed to build a JDBC Thin Driver connection string.">
+      <meta name="description" content="For an Oracle Database storage provider, use the Storage Details wizard page to supply the information needed to build a JDBC Thin Driver connection string.">
+      <title>Registering an Oracle Database Storage Provider</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="Oracle Big Data Manager User’s Guide ">
+      <meta property="og:description" content="For an Oracle Database storage provider, use the Storage Details wizard page to supply the information needed to build a JDBC Thin Driver connection string.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="Oracle Big Data Manager User’s Guide For Oracle Big Data Appliance">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-big-data-manager-users-guide-oracle-big-data-appliance.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-13T16:17:47-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2018">
+      <meta name="dcterms.category" content="bigdata">
+      <meta name="dcterms.identifier" content="E98480-01">
+      
+      <meta name="dcterms.product" content="en/bigdata/big-data-appliance/4.13">
+      
+      <link rel="prev" href="registering-storage-providers-oracle-big-data-manager.html" title="Previous" type="text/html">
+      <link rel="next" href="viewing-data-big-data-manager.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"bigdata","element_name":"Big Data","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"not-applicable","element_name":"Not applicable","display_in_url":false},"product":{"short_name":"big-data-appliance","element_name":"Big Data Appliance","display_in_url":true},"release":{"short_name":"4.13","element_name":"Release 4.13","display_in_url":true}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle Big Data Manager User's Guide (for Oracle Big Data Appliance)">
+    <meta name="dcterms.isVersionOf" content="BBDMG">
+    <meta name="dcterms.release" content="Release 4.13">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="registering-storage-providers-oracle-big-data-manager.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="viewing-data-big-data-manager.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">Oracle Big Data Manager User’s Guide </span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="getting-started-oracle-big-data-manager.html" property="item" typeof="WebPage"><span property="name">Getting Started with Big Data Manager</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="registering-storage-providers-oracle-big-data-manager.html" property="item" typeof="WebPage"><span property="name">Registering Storage Providers with Oracle Big Data Manager</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Registering an Oracle Database Storage Provider</li>
+            </ol>
+            <a id="GUID-4C80AEB0-9DFC-4D8E-9463-4D1913077014" name="GUID-4C80AEB0-9DFC-4D8E-9463-4D1913077014"></a>
+            
+            <h2 id="BBDMG-GUID-4C80AEB0-9DFC-4D8E-9463-4D1913077014" class="sect2"><span class="enumeration_section">2.4.1 </span>Registering an Oracle Database Storage Provider
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>For an Oracle Database storage provider, use the <span class="bold">Storage Details</span> wizard page to supply the information needed to build a JDBC Thin Driver connection string.
+               </p>
+               <div class="section">
+                  <p>Be sure that on the previous <span class="bold">General</span> page, you selected Oracle Database as the storage type.
+                  </p>
+               </div>
+               <!-- class="section" -->
+               <div class="section">
+                  <p class="subhead1" id="GUID-4C80AEB0-9DFC-4D8E-9463-4D1913077014__GUID-F606C76A-C3DB-468B-AF8F-9AD93F0DC243">Provide the Storage Details</p>
+                  <ol>
+                     <li>
+                        <p>Enter your Oracle database username and password in the <span class="bold">Username</span> and <span class="bold">Password</span> fields. 
+                        </p>
+                     </li>
+                     <li>
+                        <p>In the <span class="bold">JDBC URL</span> field, edit the Oracle Database connection string template: 
+                        </p><pre class="pre codeblock"><code>jdbc:oracle:thin:@//host:port/service_name</code></pre><p>Replace <code class="codeph">host</code>, <code class="codeph">port</code>, and <code class="codeph">service_name</code> with the appropriate values.
+                        </p>
+                     </li>
+                     <li>
+                        <p>Click <span class="bold">Test access to storage </span> to make sure that you can access the Oracle Database storage. If the storage details that you provided are correct, the <span class="bold">Successful, storage details are correct</span> message is displayed.
+                        </p> 
+                        <p>If the connection is successful, the <span class="bold">Preview of storage content</span> section displays the schemas accessible to the user. 
+                        </p>
+                        <p><img src="img/bdm_register_provider_test_access.png" height="402" width="620" alt="Description of bdm_register_provider_test_access.png follows" title="Description of bdm_register_provider_test_access.png follows" longdesc="img_text/bdm_register_provider_test_access.html"><br><a href="img_text/bdm_register_provider_test_access.html">Description of the illustration bdm_register_provider_test_access.png</a></p>
+                     </li>
+                     <li>
+                        <p>Click <span class="bold">Next</span> to go the <span class="bold">Access</span> page of the wizard.
+                        </p>
+                        <p> Build the list of Big Data Manager users that should have access. Each of these users will have access to the Oracle Database storage provider through the same JDBC connection.</p>
+                        <p><img src="img/bdm_register_add_users.png" height="456" width="620" alt="Description of bdm_register_add_users.png follows" title="Description of bdm_register_add_users.png follows" longdesc="img_text/bdm_register_add_users.html"><br><a href="img_text/bdm_register_add_users.html">Description of the illustration bdm_register_add_users.png</a></p>
+                     </li>
+                     <li>
+                        <p>Click <span class="bold">Next</span> to go to the last page of the wizard.
+                        </p>
+                     </li>
+                     <li>
+                        <p>Check that the information you entered is correct and then click <span class="bold">Register</span>. The registered storage provider will be immediately available for selection by authorized users.
+                        </p><img src="img/bdm_register_provider_confirm.png" height="326" width="614" alt="Description of bdm_register_provider_confirm.png follows" title="Description of bdm_register_provider_confirm.png follows" longdesc="img_text/bdm_register_provider_confirm.html"><br><a href="img_text/bdm_register_provider_confirm.html">Description of the illustration bdm_register_provider_confirm.png</a></li>
+                  </ol>
+               </div>
+               <!-- class="section" -->
+            </div>
+            <div>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="registering-storage-providers-oracle-big-data-manager.html" title="You must register storage providers with Oracle Big Data Manager to be able to see and use them in the console.">Registering Storage Providers with Oracle Big Data Manager</a></p>
+                  </div>
+               </div>
+            </div>
+            
+         </div>
+      </article>
+   </body>
+</html>

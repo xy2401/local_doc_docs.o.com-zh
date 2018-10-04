@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Java Platform, Standard Edition Java Usage Tracker Guide, Release 1</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-09-19T22:12:04Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Platform, Standard Edition Java Usage Tracker Guide" />
+<meta name="dcterms.identifier" content="E50948-05" />
+<meta name="dcterms.isVersionOf" content="JSUTO" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2014, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"   src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"   src="../../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="alternate" href="JSUTO.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../../nav/css/html5.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript"  src="../../dcommon/js/modernizr.js"></script>
+<script type="application/javascript"  src="../../dcommon/js/codemirror.js"></script>
+<script type="application/javascript"  src="../../dcommon/js/jquery.js"></script>
+<script type="application/javascript"  src="../../dcommon/js/foundation.min.js"></script>
+<script type="application/javascript"  src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript"  src="../../dcommon/js/jqfns.js"></script>
+<script type="application/javascript"  src="../../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="application/javascript"  src="../../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="application/javascript"  src="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="application/javascript"  src="../../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="application/javascript"  src="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<!-- End Header -->
+<div class="letterstyle">
+<h1 class="docinfo">Java Platform, Standard Edition</h1>
+<p class="booktitle">Java Usage Tracker Guide</p>
+<p><span class="revnumber">Release 1</span></p>
+<p class="invpartnumber">E50948-05</p>
+<p class="date">September 2018</p>
+<div>
+<div>
+<p>Java Usage Tracker tracks how Java Runtime Environments (JREs) are being used in your systems. The output of Java Usage Tracker is a plain text, comma-separated record that contains the JRE version, the application being run, and other details. This record is appended to a file or sent over the network in a User Datagram Protocol (UDP) packet.</p>
+</div>
+</div>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="GUID-6642AAD5-85A1-462F-9D77-09A52DF72404"></a>
+<h2 id="JSUTO-GUID-6642AAD5-85A1-462F-9D77-09A52DF72404" class="sect2">Java Usage Tracker System Requirements</h2>
+<div>
+<p>Java Usage Tracker is available in Oracle Java SE Subscriptions, Java for Business 6u25 and later, Oracle Java SE Advanced, and Oracle Java SE Suite.</p>
+<div class="section">
+<div class="infobox-note" id="GUID-6642AAD5-85A1-462F-9D77-09A52DF72404__GUID-85105594-A267-4038-9F5F-C655A34A07D7">
+<p class="notep1">Note:</p>
+Public versions of Java SE 1.4.2, 5.0, and 6 do not support Java Usage Tracker.</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="GUID-5BAFBF32-A0E0-43B6-98FB-36677E0F6F3C"></a>
+<h2 id="JSUTO-GUID-5BAFBF32-A0E0-43B6-98FB-36677E0F6F3C" class="sect2">Java Usage Tracker Output</h2>
+<div>
+<p>The following is an example of output from Java Usage Tracker; it is a record of one invocation of a Java application. Line breaks were added for clarity; each record appears as one line of text:</p>
+<div class="section">
+<pre dir="ltr">
+"javaws application",
+"Mon Feb 01 14:52:58 PST 2016",
+"MY-COMPUTER/192.0.2.0",
+"https://docs.oracle.com/javase/tutorialJWS/samples/deployment/
+  dynamictree_webstartJWSProject/:
+  sourceURL=https://docs.oracle.com/javase/tutorialJWS/samples/
+    deployment/dynamictree_webstartJWSProject/dynamictree_webstart.jnlp
+  app_model=eJytU9FqE0EUvWlSk9pQsSKCIgSpKCIzD4I++BQThZS1LU1FfSrTzbTZMDszztxt
+    E4WCP1HwwT/wP3z3G3z1DwS9s7tpF5Q8dR9md/aeueeec+98+wXL3sGd2KTMZ5qN
+    pFVmxpw8ZF1rX5uRVFA8tSW4GkErpl8HwkuEtWgijgXXEvmb3eh5BKsj6WOXWEyM
+    RlgvwkroIz5El+gjgqzLKUrtCbArvclcLD3CzQKZYaJ41zkxixKPBG5PhDuHfYBT
+    qBO/MrEIBGFfi2AlFYnuKeFzwBId8jLOXIKzUDvCo4iUcVLGC2WclPG5so1hBUuE
+    y5igkmWiBs4sJbi3MMEeYejglWOpR8blJ6eW/GwHRYysYWTN2f1nT2///unq0BxA
+    ayz8uEeHB9CwxiFJEBmOTShjznyYXFQxNh7L75Z1Bk1sVLmvUykl5Z/yQbg2MrFn
+    xolYSUalI7zioRgvOWZINEJtvh1yL1KrpC9FpVIjH820SJMYnZT7J/LAo3BI0B1n
+    JjJGHphWEJbHiNbbXOWNXGXoGzvv2/Tzj7tfvouvdaiRQp98lFMbxuekEdZp3qZ2
+    GKf8R42yPFgwexubFyNwMYdL/85B81g6X25DC8K7OXelLP395RjRL8J7FO7L1DCa
+    0pwgLKtkTKGxyc+efKqQ718O+f/CbKKVrZaA8Hge65nUGk2Juy4es0rp5LBKCgtP
+    HTxc1IPqLSmbAOvUSwdr+QCEK85e6iytBi1Cc9jd6r/YfodwvSTuBOZOcI04O4s4
+    w8WqpgvKbiGsdnd2okGvuzfY3kJon6eVIv0L97SYOQ==",
+"C:\Java\jre1.8.0_71",
+"1.8.0_71",
+"25.71-b15",
+"Oracle Corporation",
+"Oracle Corporation",
+"Windows 7",
+"x86",
+"6.1",
+"-Xbootclasspath/a:C:\Java\jre1.8.0_71\lib\deploy.jar;
+  C:\Java\jre1.8.0_71\lib\javaws.jar;C:\Java\jre1.8.0_71\lib\plugin.jar
+  -Xverify:remote
+  -Djava.security.manager
+  -Djava.security.policy=
+    file:C:\Java\jre1.8.0_71\lib\security\javaws.policy
+  -DtrustProxy=true
+  -Djnlpx.home=C:\Java\jre1.8.0_71\bin
+  -Djnlpx.origFilenameArg=
+    C:\Users\CURRENT-USER\AppData\Local\Temp\dynamictree_webstart.jnlp
+  -Djnlpx.remove=true
+  -Djnlpx.splashport=60247
+  -Djnlpx.jvm=C:\Java\jre1.8.0_71\bin\javaw.exe ",
+".",
+"user.home=C:\Users\CURRENT-USER foo.bar=null"
+</pre>
+<p>The following table describes each value of this comma-separated line:</p>
+<div class="tblformal" id="GUID-5BAFBF32-A0E0-43B6-98FB-36677E0F6F3C__GUID-A034319C-9EF5-420C-831D-062F06D0E4F8">
+<table class="cellalignment258" summary="Description of example output from Java Usage Tracker">
+<thead>
+<tr class="cellalignment253">
+<th class="cellalignment259" rowspan="1" colspan="1" id="d207e26">Example</th>
+<th class="cellalignment259" rowspan="1" colspan="1" id="d207e29">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment253">
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e34" headers="d207e26 d207e29">
+<p><code class="codeph">javaws application</code></p>
+</td>
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e38" headers="d207e26 d207e29">
+<p>Type of start; it has one of the following values:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">VM start</code>: JVM start-up (either Java application or JNI invocation)</p>
+</li>
+<li>
+<p><code class="codeph">plugin2</code>: Applet</p>
+</li>
+<li>
+<p><code class="codeph">javaws application</code> or <code class="codeph">javaws applet</code>: Java Web Start</p>
+</li>
+</ul>
+<p>The value about the type of start is followed by one of the following values if there is a Deployment Rule Set (DRS) that specifically allows the application to run or block the app.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">permitted</code></p>
+</li>
+<li>
+<p><code class="codeph">denied</code></p>
+</li>
+<li>
+<p><code class="codeph">denied [required version <span class="variable">ruleVersion</span> not available]</code>, where <code class="codeph"><span class="variable">ruleVersion</span></code> is the minimum required version of the Deployment Rule Set specification</p>
+</li>
+</ul>
+<p>The value about the type of start is followed by one of the following values if there is no DRS run or block rule:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">denied [by user]</code></p>
+</li>
+<li>
+<p><code class="codeph">denied [by security settings]</code></p>
+</li>
+<li>
+<p>No value (empty string): The application is allowed to run</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e98" headers="d207e26 d207e29">
+<p><code class="codeph">Mon Feb 01 14:52:58 PST 2016</code></p>
+</td>
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e102" headers="d207e26 d207e29">
+<p>Date and time</p>
+</td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e106" headers="d207e26 d207e29">
+<p><code class="codeph">MY-COMPUTER/192.0.2.0</code></p>
+</td>
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e110" headers="d207e26 d207e29">
+<p>Host name and IP address in the form <code class="codeph"><span class="variable">&lt;hostname&gt;</span>/<span class="variable">&lt;literalIPaddress&gt;</span></code></p>
+</td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e120" headers="d207e26 d207e29">
+<pre dir="ltr">
+https://docs.oracle.com/javase/tutorialJWS/
+  samples/deployment/
+  dynamictree_webstartJWSProject/:
+  sourceURL=https://docs.oracle.com/
+    javase/tutorialJWS/samples/deployment/
+    dynamictree_webstartJWSProject/
+    dynamictree_webstart.jnlp
+  app_model=<span class="variable">&lt;Base64 encoded data&gt;</span>
+</pre></td>
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e125" headers="d207e26 d207e29">
+<p>Java command (name of main class or jar file) and list of arguments, if any (space-separated list)</p>
+<p>Java Web Start applications have the following form:</p>
+<pre dir="ltr">
+<span class="variable">&lt;Document base&gt;</span>:
+  <span class="variable">&lt;main class&gt;</span> <span class="variable">&lt;arguments&gt;</span>
+  app_model=<span class="variable">&lt;serialized classes for use by AMC&gt;</span>
+  app_customer=<span class="variable">&lt;contents of the &lt;customer&gt; block in a rule&gt;</span>
+</pre>
+<p>Applet invocations have the following form:</p>
+<pre dir="ltr">
+<span class="variable">&lt;Document base&gt;</span>:
+  <span class="variable">&lt;parameters&gt;</span>
+  app_model=<span class="variable">&lt;serialized classes for use by AMC&gt;</span>
+  app_customer=<span class="variable">&lt;contents of the &lt;customer&gt; block&gt;</span>  
+</pre>
+<p>The values for <code class="codeph">app_model</code> and <code class="codeph">app_customer</code> are encoded in Base64.</p>
+<p>The value of <code class="codeph">app_model</code> contains basic information about the application, including location, codebase, and main class. Its value is the same regardless of whether the application is permitted or denied to run.</p>
+<p>The parameter <code class="codeph">app_customer</code> appears only if the application is governed by a specific DRS rule that DRS run rule contains a <code class="codeph">&lt;customer&gt;</code> block.</p>
+</td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e182" headers="d207e26 d207e29">
+<p><code class="codeph">C:\Java\jre1.8.0_71</code></p>
+</td>
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e186" headers="d207e26 d207e29">
+<p>Directory that contains the JRE (<code class="codeph">java.home</code> system property value)</p>
+</td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e193" headers="d207e26 d207e29">
+<p><code class="codeph">1.8.0_71</code></p>
+</td>
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e197" headers="d207e26 d207e29">
+<p>Java version (<code class="codeph">java.version</code> system property value)</p>
+</td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e204" headers="d207e26 d207e29">
+<p><code class="codeph">25.71-b15</code></p>
+</td>
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e208" headers="d207e26 d207e29">
+<p>JVM version (<code class="codeph">java.vm.version</code> system property value)</p>
+</td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e215" headers="d207e26 d207e29">
+<p><code class="codeph">Oracle Corporation</code></p>
+</td>
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e219" headers="d207e26 d207e29">
+<p>Java vendor (<code class="codeph">java.vendor</code> system property value)</p>
+</td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e226" headers="d207e26 d207e29">
+<p><code class="codeph">Oracle Corporation</code></p>
+</td>
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e230" headers="d207e26 d207e29">
+<p>JVM vendor (<code class="codeph">java.vm.vendor</code> system property value)</p>
+</td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e237" headers="d207e26 d207e29">
+<p><code class="codeph">Windows 7</code></p>
+</td>
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e241" headers="d207e26 d207e29">
+<p>Operating system name (<code class="codeph">os.name</code> system property value)</p>
+</td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e248" headers="d207e26 d207e29">
+<p><code class="codeph">x86</code></p>
+</td>
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e252" headers="d207e26 d207e29">
+<p>Operating system architecture (<code class="codeph">os.arch</code> system property value)</p>
+</td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e260" headers="d207e26 d207e29">
+<p><code class="codeph">6.1</code></p>
+</td>
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e264" headers="d207e26 d207e29">
+<p>Operating system version (<code class="codeph">os.version</code> system property value)</p>
+</td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e271" headers="d207e26 d207e29">
+<pre dir="ltr">
+-Xbootclasspath/a:C:\Java\jre1.8.0_71\lib\
+  deploy.jar;C:\Java\jre1.8.0_71\lib\javaws.jar;
+  C:\Java\jre1.8.0_71\lib\plugin.jar
+  -Xverify:remote
+  -Djava.security.manager
+  -Djava.security.policy=file:C:\Java\jre1.8.0_71\
+    lib\security\javaws.policy
+  -DtrustProxy=true
+  -Djnlpx.home=C:\Java\jre1.8.0_71\bin
+  -Djnlpx.origFilenameArg=C:\Users\CURRENT-USER\
+    AppData\Local\Temp\dynamictree_webstart.jnlp
+  -Djnlpx.remove=true
+  -Djnlpx.splashport=60247
+  -Djnlpx.jvm=C:\Java\jre1.8.0_71\bin\javaw.exe
+</pre></td>
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e274" headers="d207e26 d207e29">
+<p>JVM arguments (space-separated list); empty if there are no JVM arguments; <code class="codeph">n/a</code> if this information is not available (for example, in Java SE 1.4.2, this information is not available)</p>
+</td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e281" headers="d207e26 d207e29">
+<p><code class="codeph">.</code></p>
+</td>
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e285" headers="d207e26 d207e29">
+<p>Class path (<code class="codeph">java.class.path</code> system property value)</p>
+</td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e292" headers="d207e26 d207e29">
+<p><code class="codeph">user.home=C:\Users\CURRENT-USER foo.bar=null</code></p>
+</td>
+<td class="cellalignment253" rowspan="1" colspan="1" id="d207e296" headers="d207e26 d207e29">
+<p><code class="codeph">Name=value</code> pairs of any additional system properties specified in the Java Usage Tracker properties file. Multiple pairs are space-separated; empty if no additional property names are specified (default).</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="GUID-79AE85E7-D523-49DB-9243-02E3473999A1"></a>
+<h2 id="JSUTO-GUID-79AE85E7-D523-49DB-9243-02E3473999A1" class="sect2">Items that Contain Spaces in Java Usage Tracker Output</h2>
+<div>
+<p>In the fields that are space-separated lists, a different quote character (by default, the single quotation mark, <code class="codeph">'</code>) is used to quote an item that contains a space. Any existing quote characters are printed twice.</p>
+<div class="section">
+<p>For example, consider the following command:</p>
+<pre dir="ltr">
+/jdk1.8.0_20/bin/java
+  -Dfoo1="a b"
+  -Dfoo=\"
+  -jar c:\\Program\ Files\\Java/jdk1.6.0_25/demo/jfc/Java2D/Java2Demo.jar
+</pre>
+<p>Java Usage Tracker prints these system properties as follows (line breaks were added for clarity):</p>
+<pre dir="ltr">
+"'-Dfoo1=a b' -Dfoo="" ",
+"-jar c:\Program Files\Java/jdk1.6.0_25/demo/jfc/Java2D/Java2Demo.jar",
+""
+</pre>
+<p>For JRE versions prior to 8u20, Java Usage Tracker does not surround fields with quotation marks.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="GUID-ABB06CE8-070D-44F8-A456-FA5803B5C776"></a>
+<h2 id="JSUTO-GUID-ABB06CE8-070D-44F8-A456-FA5803B5C776" class="sect2">Enabling and Configuring Java Usage Tracker</h2>
+<div>
+<div class="section">
+<p>Java Usage Tracker is disabled by default. Enable and configure it by creating a properties file named <code>usagetracker.properties</code>. See <a href="#GUID-A2A9C366-42CF-45FD-B549-6A861115451E" title="To create a Java Usage Tracker properties file, you can use the following example as a template. Lines that begin with the pound sign (#) are comments.">Example Java Usage Tracker properties File</a>.</p>
+<p>For JRE 8u152 and later, if you want Java Usage Tracker to track all JREs on your system, then put the <code>usagetracker.properties</code> file in the central file system location, which differs depending on your operating system:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Windows: <code>%ProgramFiles%\Java\conf\</code></p>
+</li>
+<li>
+<p>Linux and Solaris: <code>/etc/oracle/java/</code></p>
+</li>
+<li>
+<p>macOS: <code>/Library/Application Support/Oracle/Java/</code></p>
+</li>
+</ul>
+<p>If you want Java Usage Tracker to track a specific JRE, then ensure that the <code>usagetracker.properties</code> file doesn&rsquo;t exist in the central file system location, and put the <code>usagetracker.properties</code> file in the directory <code><span class="variable">&lt;JRE directory&gt;</span>/conf/management/</code> (<code><span class="variable">&lt;JRE directory&gt;</span>/lib/management/</code> for JRE releases prior to 9). Note that the path name is different, depending on whether you are configuring Java Usage Tracker for a JDK or for a JRE.</p>
+<p>For additional flexibility, if you want to use a different properties file, then you can specify it with the system property <code class="codeph">-Dcom.oracle.usagetracker.config.file</code> on the command line. In the following example, Java Usage Tracker uses the properties file <code>/path/usagetracker.properties</code>:</p>
+<pre dir="ltr">
+java -Dcom.oracle.usagetracker.config.file=/path/usagetracker.properties MyApplication
+</pre>
+<p>The JVM searches the following locations, in order, for a <code>usagetracker.properties</code> file. It uses the first one it finds to enable and configure Java Usage Tracker.</p>
+<ol>
+<li>
+<p>Path specified by the system property <code class="codeph"><code>-Dcom.oracle.usagetracker.config.file</code></code></p>
+</li>
+<li>
+<p>Central file system location (for JRE 8u152 and later)</p>
+</li>
+<li>
+<p><code><span class="variable">&lt;JRE directory&gt;</span>/conf/management/</code> (<code><span class="variable">&lt;JRE directory&gt;</span>/lib/management/</code> for JRE releases prior to 9)</p>
+</li>
+</ol>
+<div class="infobox-note" id="GUID-ABB06CE8-070D-44F8-A456-FA5803B5C776__GUID-7B14FE24-20A1-4169-9F70-2D7B23A2191A">
+<p class="notep1">Note:</p>
+To enable Java Usage Tracker, the <code>usagetracker.properties</code> file that you create must have a valid value for at least one of the following properties:
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">com.oracle.usagetracker.logToFile</code></p>
+</li>
+<li>
+<p><code class="codeph">com.oracle.usagetracker.logToUDP</code></p>
+</li>
+</ul>
+</div>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="GUID-C75C1DF1-95DA-4636-A2D3-3DFC4096EDE1"></a>
+<h2 id="JSUTO-GUID-C75C1DF1-95DA-4636-A2D3-3DFC4096EDE1" class="sect2">Java Usage Tracker Properties</h2>
+<div>
+<p>This section describes the properties you can specify in the Java Usage Tracker properties file.</p>
+<div class="section">
+<p>These properties are set only in the Java Usage Tracker properties file; they are not set at the command line. This is intended so that Java Usage Tracker has no impact on or interaction with the JRE user or existing applications.</p>
+<div class="infobox-note" id="GUID-C75C1DF1-95DA-4636-A2D3-3DFC4096EDE1__GUID-C7982699-07DA-46A2-9031-33007F39BF9E">
+<p class="notep1">Note:</p>
+<p>The backslash (<code class="codeph">\</code>) is an escape character in a properties file. Consequently, when specifying file paths that include directories or drive letters, use a forward slash (<code class="codeph">/</code>) or an escaped backslash (<code class="codeph">\\</code>) as a directory separator.</p>
+</div>
+<div class="tblformal" id="GUID-C75C1DF1-95DA-4636-A2D3-3DFC4096EDE1__GUID-1776485C-3E12-4EE4-BC69-A617850D7A5F">
+<table class="cellalignment258" summary="Java Usage Tracker properties">
+<thead>
+<tr class="cellalignment253">
+<th class="cellalignment259" rowspan="1" colspan="1" id="d1399e36">Property</th>
+<th class="cellalignment259" rowspan="1" colspan="1" id="d1399e39">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment253">
+<td class="cellalignment253" rowspan="1" colspan="1" id="d1399e44" headers="d1399e36 d1399e39">
+<p><code class="codeph">com.oracle.usagetracker.additionalProperties</code></p>
+</td>
+<td class="cellalignment253" rowspan="1" colspan="1" id="d1399e48" headers="d1399e36 d1399e39">
+<p>Use this property to record values of additional Java properties and their values.</p>
+<p>The value of this property is a comma-separated list of properties and their values. For example (ignore line break):</p>
+<pre dir="ltr">
+com.oracle.usagetracker.additionalProperties =
+com.company.interestingProperty,com.anotherInterestingProperty
+</pre></td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" rowspan="1" colspan="1" id="d1399e56" headers="d1399e36 d1399e39">
+<p><code class="codeph">com.oracle.usagetracker.innerQuote</code></p>
+</td>
+<td class="cellalignment253" rowspan="1" colspan="1" id="d1399e60" headers="d1399e36 d1399e39">
+<p>The character or string used to quote items that contain a space in the JVM argument field list and the additional properties field. The default value is the single quotation mark (<code class="codeph">'</code>).</p>
+<p>This property is available in JRE 8u20 and later.</p>
+</td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" rowspan="1" colspan="1" id="d1399e69" headers="d1399e36 d1399e39">
+<p><code class="codeph">com.oracle.usagetracker.logFileMaxSize</code></p>
+</td>
+<td class="cellalignment253" rowspan="1" colspan="1" id="d1399e73" headers="d1399e36 d1399e39">
+<p>The log file size limit, in bytes. If the file size equals or exceeds the given value when logging is attempted, that attempt will be canceled.</p>
+<p>If this property is not set, then there is no log file limit.</p>
+</td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" rowspan="1" colspan="1" id="d1399e79" headers="d1399e36 d1399e39">
+<p><code class="codeph">com.oracle.usagetracker.logToFile</code></p>
+</td>
+<td class="cellalignment253" rowspan="1" colspan="1" id="d1399e83" headers="d1399e36 d1399e39">
+<p>If this property is specified, the fully qualified path name of the file to which Usage Tracker writes records.</p>
+<p>You can specify <code class="codeph">${user.home}</code> in the path name. The property will expand to the user's home directory. For example (ignore line break):</p>
+<pre dir="ltr">
+com.oracle.usagetracker.logToFile = ${user.home}/.java_usagetracker
+</pre></td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" rowspan="1" colspan="1" id="d1399e94" headers="d1399e36 d1399e39">
+<p><code class="codeph">com.oracle.usagetracker.logToUDP</code></p>
+</td>
+<td class="cellalignment253" rowspan="1" colspan="1" id="d1399e98" headers="d1399e36 d1399e39">
+<p>If this property is specified, Java Usage Tracker logs to the specified remote host in a UDP packet. For example (ignore line break):</p>
+<pre dir="ltr">
+com.oracle.usagetracker.logToUDP =
+loggingmachine.domainname:32139
+</pre>
+<p>Specifying an IP address may be faster in some cases; although, this resolution does not delay the startup of the JVM or the application.</p>
+<p>See <a href="#GUID-8C47F5C3-3E98-401B-9576-52C7480A01C2" title="The following sample, UsageServerTracker.java, is a simple application that listens for Java Usage Tracker data:">Java Usage Tracker Sample: Receiver for UDP Packets</a> for an example application that can receive UDP packets.</p>
+</td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" id="d1399e117" headers="d1399e36 d1399e39"><code class="codeph">com.oracle.usagetracker.maxFieldSize</code></td>
+<td class="cellalignment253" id="d1399e120" headers="d1399e36 d1399e39">
+<p>Any single field limit, in bytes. The default is no limit. Java Usage Tracker truncates a field to this limit, without breaking the record format, if the <code class="codeph">com.oracle.usagetracker.sendTruncatedRecords</code> property is true.</p>
+<p>This property is available in JRE 8u152 and later.</p>
+</td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" id="d1399e129" headers="d1399e36 d1399e39"><code class="codeph">com.oracle.usagetracker.maxSize</code></td>
+<td class="cellalignment253" id="d1399e132" headers="d1399e36 d1399e39">
+<p>Overall record limit, in bytes. The default is no limit. Java Usage Tracker truncates records to this limit if the <code class="codeph">com.oracle.usagetracker.sendTruncatedRecords</code> property is true.</p>
+<p>This property is available in JRE 8u152 and later.</p>
+</td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" rowspan="1" colspan="1" id="d1399e141" headers="d1399e36 d1399e39">
+<p><code class="codeph">com.oracle.usagetracker.quote</code></p>
+</td>
+<td class="cellalignment253" rowspan="1" colspan="1" id="d1399e145" headers="d1399e36 d1399e39">
+<p>The character or string used to quote fields. The default value is the double quotation mark (<code class="codeph">"</code>).</p>
+<p>This property is available in JRE 8u20 and later.</p>
+</td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" id="d1399e154" headers="d1399e36 d1399e39"><code class="codeph">com.oracle.usagetracker.sendTruncatedRecords</code></td>
+<td class="cellalignment253" id="d1399e157" headers="d1399e36 d1399e39">
+<p>Truncates records and individual fields if they exceed the sizes specified by the <code class="codeph">com.oracle.usagetracker.maxSize</code> and <code class="codeph">com.oracle.usagetracker.maxFieldSize</code> properties, respectively. The default value is true.</p>
+<p>This property is available in JRE 8u152 and later.</p>
+</td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" rowspan="1" colspan="1" id="d1399e169" headers="d1399e36 d1399e39">
+<p><code class="codeph">com.oracle.usagetracker.separator</code></p>
+</td>
+<td class="cellalignment253" rowspan="1" colspan="1" id="d1399e173" headers="d1399e36 d1399e39">
+<p>The character or string that separates entries in the log file. The default is the comma (<code class="codeph">,</code>).</p>
+</td>
+</tr>
+<tr class="cellalignment253">
+<td class="cellalignment253" rowspan="1" colspan="1" id="d1399e180" headers="d1399e36 d1399e39">
+<p><code class="codeph">com.oracle.usagetracker.verbose</code></p>
+</td>
+<td class="cellalignment253" rowspan="1" colspan="1" id="d1399e184" headers="d1399e36 d1399e39">
+<p>If this property is set to true, error information may be reported to the standard error stream; this is only recommended for diagnostic purposes.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="GUID-A2A9C366-42CF-45FD-B549-6A861115451E"></a>
+<h2 id="JSUTO-GUID-A2A9C366-42CF-45FD-B549-6A861115451E" class="sect2">Example Java Usage Tracker properties File</h2>
+<div>
+<p>To create a Java Usage Tracker properties file, you can use the following example as a template. Lines that begin with the pound sign (#) are comments.</p>
+<div class="section">
+<pre dir="ltr">
+# UsageTracker template properties file.
+# Copy to &lt;JRE directory&gt;/conf/management/usagetracker.properties
+# (or &lt;JRE directory&gt;/lib/management/usagetracker.properties for
+# JRE releases prior to 9) and edit, uncommenting required settings, to enable.
+ 
+# Settings for logging to a file:
+# Use forward slashes (/) because backslash is an escape character in a
+# properties file.
+# com.oracle.usagetracker.logToFile = ${user.home}/.java_usagetracker
+
+# Settings for logging to a UDP socket:
+# com.oracle.usagetracker.logToUDP = hostname.domain:32139
+  
+# (Optional) Specify a file size limit in bytes:
+# com.oracle.usagetracker.logFileMaxSize = 10000000
+ 
+# If the record should include additional Java properties,
+# this can be a comma-separated list:
+# com.oracle.usagetracker.additionalProperties = 
+ 
+# Additional options:
+# com.oracle.usagetracker.verbose = true
+com.oracle.usagetracker.separator = ,
+com.oracle.usagetracker.quote = "
+com.oracle.usagetracker.innerquote = '
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="GUID-8C47F5C3-3E98-401B-9576-52C7480A01C2"></a>
+<h2 id="JSUTO-GUID-8C47F5C3-3E98-401B-9576-52C7480A01C2" class="sect2">Java Usage Tracker Sample: Receiver for UDP Packets</h2>
+<div>
+<p>The following sample, <code>UsageServerTracker.java</code>, is a simple application that listens for Java Usage Tracker data:</p>
+<div class="section">
+<pre dir="ltr">
+/*
+ * Copyright (c) 2012, 2015, Oracle and/or its affiliates. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * -Redistribution of source code must retain the above copyright notice, this
+ *  list of conditions and the following disclaimer.
+ *
+ * -Redistribution in binary form must reproduce the above copyright notice,
+ *  this list of conditions and the following disclaimer in the documentation
+ *  and/or other materials provided with the distribution.
+ *
+ * Neither the name of Oracle or the names of contributors may
+ * be used to endorse or promote products derived from this software without
+ * specific prior written permission.
+ *
+ * This software is provided "AS IS," without a warranty of any kind. ALL
+ * EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND WARRANTIES, INCLUDING
+ * ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE
+ * OR NON-INFRINGEMENT, ARE HEREBY EXCLUDED. SUN MICROSYSTEMS, INC. ("SUN")
+ * AND ITS LICENSORS SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE
+ * AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR ITS
+ * DERIVATIVES. IN NO EVENT WILL SUN OR ITS LICENSORS BE LIABLE FOR ANY LOST
+ * REVENUE, PROFIT OR DATA, OR FOR DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL,
+ * INCIDENTAL OR PUNITIVE DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY
+ * OF LIABILITY, ARISING OUT OF THE USE OF OR INABILITY TO USE THIS SOFTWARE,
+ * EVEN IF SUN HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+ *
+ * You acknowledge that this software is not designed, licensed or intended
+ * for use in the design, construction, operation or maintenance of any
+ * nuclear facility.
+ */
+ 
+import java.net.InetAddress;
+import java.net.DatagramSocket;
+import java.net.DatagramPacket;
+import java.io.IOException;
+import java.net.SocketException;
+ 
+import java.io.File;
+import java.io.OutputStream;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+ 
+/**
+  * A daemon that listens for and logs UsageTracker information.
+  */
+public class UsageTrackerServer {
+ 
+    static boolean verbose = false;
+    boolean initialized = false;
+    String logFileName = null;
+    File logFile;
+    OutputStreamWriter writer;
+    int port = 32139;
+    InetAddress address = null;
+    DatagramSocket socket;
+    private static final int BUFFERSIZE = 65536;
+    long received = 0;
+    boolean running = true;
+ 
+    /**
+      * Main entry point for starting this daemon.
+      */
+    public static void main(String [] args) {
+        try {
+            UsageTrackerServer uts = new UsageTrackerServer(args);
+            uts.run();
+        } catch (Exception e) {
+            System.out.println("UsageTrackerServer: " + e.getMessage());
+            if (verbose) {
+                e.printStackTrace();
+            }
+            System.exit(1);
+        }
+    }
+ 
+    public static void usage() {
+        System.out.println("UsageTrackerServer [-v] [-o filename] [host]:port\n" +
+            "e.g. UsageTrackerServer -o usagetracker.out :32139\n");
+    }
+ 
+    /**
+      * Initialize a UsageTrackerServer given some arguments.
+      */
+    UsageTrackerServer(String [] args) throws Exception {
+ 
+        boolean usage = false;
+        for (int i=0; i&lt;args.length; i++) {
+ 
+            if (args[i].equals("-?") || args[i].equals("--h")) {
+                usage = true;
+                break;
+            } else if (args[i].equals("-v")) {
+               verbose = true;
+            } else if (args[i].equals("-o")) {
+                logFileName = args[i+1];
+                i++;
+            } else if (args[i].contains(":")) {
+                // parse [address]:port
+                int colon = args[i].indexOf(':');
+                if (colon &gt; 0) {
+                    try {
+                        address = InetAddress.getByName(
+                            args[i].substring(0, colon));
+                    } catch (Exception ae) {
+                        System.out.println("UsageTrackerServer: " +
+                            "problem setting listen address: " + ae);
+                        usage = true;
+                    }
+                }
+                try {
+                    port = Integer.parseInt(args[i].substring(colon+1));
+                } catch (NumberFormatException nfe) {
+                    System.out.println("UsageTrackerServer: cannot set port: " +
+                        args[i].substring(colon+1));
+                    usage = true;
+                }
+            } else {
+                usage = true;
+            }
+        }
+        // Argument failure or request for usage gets the usage message only:
+        if (usage) {
+            usage();
+            return;
+        }
+        // Otherwise, continue to proper initialization:
+        socket = null;
+        try {
+        if (address != null) {
+            socket = new DatagramSocket(port, address);
+        } else {
+            socket = new DatagramSocket(port);
+        }
+        } catch (SocketException se) {
+            throw new Exception("problem creating socket: " + se);
+        }
+        if (logFileName != null) {
+            try {
+                File logFile = new File(logFileName);
+                if (verbose) {
+                    System.out.println("Using logfile: " + logFileName);
+                    if (logFile.exists()) {
+                        System.out.println("File exists, will append.");
+                    }
+                }
+                FileOutputStream fos = new FileOutputStream(logFile, true);
+                writer = new OutputStreamWriter(fos, "UTF-8");
+            } catch (IOException ioe) {
+                throw new Exception("problem using file " + logFileName + ": " +
+                    ioe);
+            }
+        }
+        initialized = true;
+    }
+ 
+   public void run() throws Exception {
+        if (!initialized) {
+            return;
+        }
+        Runnable r = null;
+        if (writer == null) {
+            r = new UsageTrackerServerRunnable(socket);
+        } else {
+            r = new UsageTrackerServerRunnable(socket, writer);
+        }
+        Thread t = new Thread(r, "UsageTrackerServerRunnable");
+        t.start();
+        t.join();
+    }
+ 
+    /**
+      * Runnable that listens and logs.
+      */
+    private class UsageTrackerServerRunnable implements Runnable {
+        DatagramSocket listenSocket;
+        OutputStreamWriter writer = null;
+ 
+        UsageTrackerServerRunnable(DatagramSocket socket) {
+            listenSocket = socket;
+        }
+        UsageTrackerServerRunnable(DatagramSocket socket,
+            OutputStreamWriter writer) {
+            this(socket);
+            this.writer = writer;
+        }
+ 
+        public void run() {
+            byte [] buf = new byte[BUFFERSIZE];
+            DatagramPacket packet = new DatagramPacket(buf, buf.length);
+ 
+            // Ready to receive data
+            if (verbose) {
+                String addr = listenSocket.getLocalAddress().getHostAddress();
+                if (addr.equals("0.0.0.0")) {
+                    addr = "localhost";
+                }
+                System.out.println("UsageTrackerServer: ready to receive on " +
+                    addr + ":" + listenSocket.getLocalPort());
+            }
+            while (running) {
+                try {
+                    listenSocket.receive(packet);
+                    String dataReceived = new String(packet.getData(), 0,
+                        packet.getLength());
+ 
+                    // The format of a UsageTracker record contains a newline at
+                    // the end; if that is missing, we have a truncated/corrupt
+                    // packet.
+                    if (!dataReceived.endsWith("\n")) {
+                        System.out.println("Incomplete message received: " +
+                          "size = " + packet.getLength() + ", data =  " +
+                          dataReceived);
+                        dataReceived = dataReceived + "\n";
+                    }
+                    received++;
+                    if (verbose) {
+                        System.out.println("Received message size: " +
+                            dataReceived.length());
+                    }
+                    if (writer != null) {
+                        writer.write(dataReceived, 0, dataReceived.length());
+                        writer.flush();
+                    } else {
+                        System.out.print(dataReceived);
+                    }
+                } catch (IOException ioe) {
+                    ioe.printStackTrace();
+                }
+            }
+        }
+    }
+}
+</pre>
+<p>The following is an example of running this sample:</p>
+<pre dir="ltr">
+java UsageTrackerServer -v -o usagetracker.out :32139
+</pre>
+<ul style="list-style-type: disc;">
+<li>
+<p>The <code>-v</code> option is verbose; if you specify this option, the sample displays additional information.</p>
+</li>
+<li>
+<p>The <code>-o</code> option enables you to specify the name of a log file; if you do not specify this option, the sample prints messages to standard output.</p>
+</li>
+<li>
+<p>In this example, the UDP receiver listens on the localhost address on port 32139. When a JRE (with an enabled and configured Java Usage Tracker) sends data, the receiver will send the data to the file <code>usagetracker.out</code>. The port number is arbitrary but must be available and must match the one configured in the JRE. If multiple interfaces exist, it may be necessary to specify the port using the form hostname:port or ipaddress:port.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="GUID-319E61FC-BF0C-4C89-A37E-C6A36D4B505A"></a>
+<h2 id="JSUTO-GUID-319E61FC-BF0C-4C89-A37E-C6A36D4B505A" class="sect2">Java Usage Tracker Errors and Exceptions</h2>
+<div>
+<p>If Java Usage Tracker encounters an error or exception during the logging of a record, it does not interrupt the application currently running.</p>
+<div class="section">
+<p>Java Usage Tracker does not report errors unless the property <code class="codeph">oracle.usagetracker.verbose</code> is specified in the properties file.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="GUID-A31358B0-4BA8-4DA5-BE0A-D5EE61E756CA"></a>
+<h2 id="JSUTO-GUID-A31358B0-4BA8-4DA5-BE0A-D5EE61E756CA" class="sect2">Managing Disk Space Used by Java Usage Tracker Log File</h2>
+<div>
+<p>Although the size of the Java Usage Tracker log file is small, consider periodically truncate, compress, archive, or delete the log file. When Java Usage Tracker incrementally adds records to the log file, it does not check for available disk space or perform administrative tasks such as truncating, deleting, or compressing the log file in order to be minimally intrusive.</p>
+<div class="section">
+<p>In addition, you can specify the maximum size of the log file, in bytes, with the <code class="codeph">oracle.usagetracker.logFileMaxSize</code> property in the properties file.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="GUID-DC1796FD-3C4C-4691-AD88-3D6B9D96E942"></a>
+<h2 id="JSUTO-GUID-DC1796FD-3C4C-4691-AD88-3D6B9D96E942" class="sect2">Java Usage Tracker Limitations</h2>
+<div>
+<p>Java Usage Tracker cannot log Java command line options that are processed by the Java launcher before the JVM is started. For example, Java Usage Tracker does not record the command line options <code class="codeph"><code>-client</code></code> and <code class="codeph"><code>-server</code></code> that select the Java HotSpot client and server VM, respectively. In addition, Java Usage Tracker may not log an application if it terminates immediately because it will not stop a process from exiting.</p>
+</div>
+</div>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="GUID-A71BA7C0-C52A-4BE5-BF47-BE77B962A716"></a>
+<h2 id="JSUTO-GUID-A71BA7C0-C52A-4BE5-BF47-BE77B962A716" class="sect2">Java Usage Tracker Frequently Asked Questions</h2>
+<div>
+<p>Here are answers to some frequently asked questions:</p>
+<div class="section">
+<p class="subhead1" id="GUID-A71BA7C0-C52A-4BE5-BF47-BE77B962A716__GUID-7E2F2F34-5B9A-4188-A451-E46326B645CC">Does Java Usage Tracker affect the private JRE within a JDK, or does it only affect the standalone JRE?</p>
+<p>If you have a JDK installed in a computer, there is a JRE in the jre subdirectory; this is the private JRE referred to in the question. Yes, Java Usage Tracker logs the usage of both the private JRE and the standalone JRE, but note that they are configured separately through their own individual <code>conf/management/usagetracker.properties</code> files.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1" id="GUID-A71BA7C0-C52A-4BE5-BF47-BE77B962A716__GUID-C8C7DBF6-BA4F-47EA-BF47-581974AF5E58">Can Java Usage Tracker log the usage of JDK tools?</p>
+<p>If Java Usage Tracker is enabled, it logs the usage of tools that come with the JDK such as jmap and jstack.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1" id="GUID-A71BA7C0-C52A-4BE5-BF47-BE77B962A716__GUID-8DBA700C-F250-41CF-9A7C-666BBB943352">Does Java Usage Tracker log the usage of JVMs created by native Java applications?</p>
+<p>Yes. When a native application creates a JVM with the Java Native Interface (JNI), Java Usage Tracker logs this invocation with a blank Java command.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1" id="GUID-A71BA7C0-C52A-4BE5-BF47-BE77B962A716__GUID-3B4CA59A-DCC9-4663-A335-E1412953F546">Will an invocation similar to java -jar file.jar be tracked by Java Usage Tracker?</p>
+<p>Yes.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1" id="GUID-A71BA7C0-C52A-4BE5-BF47-BE77B962A716__GUID-5C1517A0-23FA-4C7C-AD5C-2815C5520187">Does Oracle capture any of the data logged by Java Usage Tracker?</p>
+<p>No. As the administrator of the JRE installation, usage data obtained from Java Usage Tracker is stored in the file of your choice or sent to the UDP host and port that you specify. There is no facility for this data to leave your own network. (Theoretically, if your firewall permits it, the port your UDP host listens on could be configured as remote, but this is not expected or recommended usage.)</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1" id="GUID-A71BA7C0-C52A-4BE5-BF47-BE77B962A716__GUID-32DDE3CA-8BC5-4275-B908-9B05B8B1DC51">What does the log record look like for native applications, applets, and denied applications?</p>
+<p>The following is an example of a log record for a native application (line breaks were added for clarity):</p>
+<pre dir="ltr">
+"VM start",
+"Mon Feb 01 14:29:35 PST 2016",
+"MY-COMPUTER/192.0.2.0",
+"com.sun.deploy.panel.ControlPanel",
+"C:\Java\jre1.8.0_71",
+"1.8.0_71",
+"25.71-b15",
+"Oracle Corporation",
+"Oracle Corporation",
+"Windows 7",
+"amd64",
+"6.1",
+"-Xbootclasspath/a:C:\Java\jre1.8.0_71\bin\..\lib\deploy.jar
+  -Djava.locale.providers=HOST,JRE,SPI
+  -Duser.home=C:\Users\CURRENT-USER",
+".",
+""
+</pre>
+<p>The following is an example of a log record for an applet:</p>
+<pre dir="ltr">
+"plugin2",
+"Mon Feb 01 14:51:02 PST 2016",
+"MY-COMPUTER/192.0.2.0",
+"https://docs.oracle.com/javase/tutorial/deployment/applet/deployingApplet.html:
+  jnlp_href=examples/dist/applet_ComponentArch_DynamicTreeDemo/dynamictree_applet.jnlp
+  codebase_lookup=false
+  code=appletComponentArch.DynamicTreeApplet.class
+  codebase=https://docs.oracle.com/javase/tutorial/deployment/applet/
+  width=450
+  archive=examples/dist/applet_ComponentArch_DynamicTreeDemo/DynamicTreeDemo.jar
+  height=450
+  app_model=eJy1U71uE0EQHv8kdogVhFEaEJKFEoEodjsoqA47RdABUWwQXbScN/FGd7vL7pw5
+    U0TiJZAoeAPeg55noOUNkGD2fP4BJHdccbc/38w33zdzX37AlndwOzEZ87lmY2lT
+    M2NOnrPI2mdmLFOYP7U6XIuhndDRG+Elwl58KaaCa4n85Wn8OIbdsfSJUxaV0Qjd
+    +XUq9AUfolP6giBdWaDUngCn0pvcJdIj7M+ROaqUR86JWaw8ErhzKdwS9hauoEH8
+    qUlEIAj7Wgw7mVC6nwpfAuoU5GWSO4WzUDvCg5iUcVLG58o4KeMLZQfDNSwRbqHC
+    VFaJmjizlODuxgQjwlDg9lTqsXFlZGHJz05QxMgaRtZ8PHz08NbP764BrWNoT4Sf
+    9Cn4GJrWOCQJIseJCWUsmM/VqoqJ8Vit29YZNIlJq32DSqkof1UPwvWxSTwzTiSp
+    ZFQ6wiseivGSY45EI9JKSSY1cmFtSg2Uhcho4fmYrK8Oz/oms0YTKnLJ5Gww0yJT
+    ychJOZCZ4YF5B6lARGtL0TdL0aGNbNnG4sO3O5++is8NqJFgr97LwoZpetcM76Ls
+    WidMV3lQoyz3NoziwdPVRKzGsv7vWLSm0vlqGzoSvq2FSVXl6v/48tee0RCXhOG1
+    S0YVFuFwnumPRGwtMCqvrxzc32TG+vRWbkCXTHWwV3Yi/HrsSOfZ+iWxt4bR88GT
+    F68RblScvUDaC+USZ28TZxj49XRB1T7CdnRyEh+NEDrLjFJkvwEAyW8t",
+"C:\Java\jre1.8.0_71",
+"1.8.0_71",
+"25.71-b15",
+"Oracle Corporation",
+"Oracle Corporation",
+"Windows 7",
+"x86",
+"6.1",
+"-Xbootclasspath/a:C:\Java\jre1.8.0_71\lib\deploy.jar;
+  C:\Java\jre1.8.0_71\lib\javaws.jar;C:\Java\jre1.8.0_71\lib\plugin.jar
+  -Djava.security.manager
+  -D__jvm_launched=29258397636
+  -D__applet_launched=29258393819 ",
+"C:\Java\jre1.8.0_71\classes",
+""
+</pre>
+<p>The following is an example of a log record of a Java Web Start application that was denied by security settings:</p>
+<pre dir="ltr">
+"javaws application denied [by security settings]",
+"Tue Nov 03 19:43:57 MSK 2015",
+"example.com/192.0.2.0",
+"https://docs.oracle.com/javase/tutorial/deployment/webstart/deploying.html:
+  sourceURL=https://docs.oracle.com/javase/tutorialJWS/samples/deployment/
+    dynamictree_webstartJWSProject/dynamictree_webstart.jnlp
+  app_model=eJytU9FqE0EUvWlSk9pQsSKCIgSpKCIzD4I++BQThZS1LU1FfSrTzbTZMDszztxt
+    E4WCP1HwwT/wP3z3G3z1DwS9s7tpF5Q8dR9md/aeueeec+98+wXL3sGd2KTMZ5qN
+    pFVmxpw8ZF1rX5uRVFA8tSW4GkErpl8HwkuEtWgijgXXEvmb3eh5BKsj6WOXWEyM
+    RlgvwkroIz5El+gjgqzLKUrtCbArvclcLD3CzQKZYaJ41zkxixKPBG5PhDuHfYBT
+    qBO/MrEIBGFfi2AlFYnuKeFzwBId8jLOXIKzUDvCo4iUcVLGC2WclPG5so1hBUuE
+    y5igkmWiBs4sJbi3MMEeYejglWOpR8blJ6eW/GwHRYysYWTN2f1nT2///unq0BxA
+    ayz8uEeHB9CwxiFJEBmOTShjznyYXFQxNh7L75Z1Bk1sVLmvUykl5Z/yQbg2MrFn
+    xolYSUalI7zioRgvOWZINEJtvh1yL1KrpC9FpVIjH820SJMYnZT7J/LAo3BI0B1n
+    JjJGHphWEJbHiNbbXOWNXGXoGzvv2/Tzj7tfvouvdaiRQp98lFMbxuekEdZp3qZ2
+    GKf8R42yPFgwexubFyNwMYdL/85B81g6X25DC8K7OXelLP395RjRL8J7FO7L1DCa
+    0pwgLKtkTKGxyc+efKqQ718O+f/CbKKVrZaA8Hge65nUGk2Juy4es0rp5LBKCgtP
+    HTxc1IPqLSmbAOvUSwdr+QCEK85e6iytBi1Cc9jd6r/YfodwvSTuBOZOcI04O4s4
+    w8WqpgvKbiGsdnd2okGvuzfY3kJon6eVIv0L97SYOQ==",
+"/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home",
+"1.8.0_65",
+"25.65-b01",
+"Oracle Corporation",
+"Oracle Corporation",
+"Mac OS X",
+"x86_64",
+"10.10.5",
+"'-Djava.security.policy=file:/Library/Internet Plug-Ins/
+  JavaAppletPlugin.plugin/Contents/Home/lib/security/javaws.policy'
+  -DtrustProxy=true
+  -Xverify:remote '-Djnlpx.home=/Library/Internet Plug-Ins/
+    JavaAppletPlugin.plugin/Contents/Home/bin'
+  -Djava.security.manager
+  -Djnlpx.origFilenameArg=/Users/CURRENT-USER/Library/Caches/Java/
+    dynamictree_webstart.jnlp
+  -Djnlpx.remove=false
+  -Dsun.awt.warmup=true '-Xbootclasspath/a:/Library/Internet Plug-Ins/
+    JavaAppletPlugin.plugin/Contents/Home/lib/javaws.jar:/Library/
+    Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/lib/
+    deploy.jar:/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/
+    Contents/Home/lib/plugin.jar' '-Dmacosx.jnlpx.dock.name=Java Web
+    Start' '-Dmacosx.jnlpx.dock.icon=/Library/Internet Plug-Ins/
+    JavaAppletPlugin.plugin/Contents/Home/lib/deploy/
+    webStartAppIcon.icns' '-Djnlpx.jvm=""/Library/Internet Plug-Ins/
+      JavaAppletPlugin.plugin/Contents/Home/bin/java""' ",
+"/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/
+  lib/deploy.jar",
+""
+</pre></div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1" id="GUID-A71BA7C0-C52A-4BE5-BF47-BE77B962A716__GUID-1B5EFDA1-A92A-4B07-A427-D92833059D50">How can I remove the quoting behavior of JRE 8u20 and later for records with the previous formatting?</p>
+<p>In the Java Usage Tracker properties file, set blank quote characters with the following two lines:</p>
+<pre dir="ltr">
+com.oracle.usagetracker.quote=
+com.oracle.usagetracker.innerQuote=
+</pre></div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="GUID-E409CC44-9A8F-4043-82C8-6B95CD939296"></a>
+<h2 id="JSUTO-GUID-E409CC44-9A8F-4043-82C8-6B95CD939296" class="sect2">Documentation Accessibility</h2>
+<div>
+<p>For information about Oracle's commitment to accessibility, visit the Oracle Accessibility Program website at <a href="http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=docacc" target="_blank">http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=docacc</a>.</p>
+<div class="section" id="GUID-E409CC44-9A8F-4043-82C8-6B95CD939296__GUID-D88DC1A6-B2C8-4B61-85D2-23B0215F1664">
+<p class="subhead1" id="GUID-E409CC44-9A8F-4043-82C8-6B95CD939296__GUID-C09CA7BE-D07E-4AA0-B42A-8D7427CA200B">Access to Oracle Support</p>
+<p>Oracle customers that have purchased support have access to electronic support through My Oracle Support. For information, visit <a href="http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=info" target="_blank">http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=info</a> or visit <a href="http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=trs" target="_blank">http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=trs</a> if you are hearing impaired.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<hr />
+<div class="notices">
+<p>Java Platform, Standard Edition Java Usage Tracker Guide, <span>Release 1</span></p>
+<p>E50948-05</p>
+<p>Copyright &copy; 2014, 2018,&nbsp;Oracle and/or its affiliates. All rights reserved.</p>
+<div>
+<div>
+<p>Describes how to configure, enable, and troubleshoot Java Usage Tracker; interpret its output; and create applications that listen for its data.</p>
+</div>
+</div>
+<div>
+<div>
+<p>This software and related documentation are provided under a license agreement containing restrictions on use and disclosure and are protected by intellectual property laws. Except as expressly permitted in your license agreement or allowed by law, you may not use, copy, reproduce, translate, broadcast, modify, license, transmit, distribute, exhibit, perform, publish, or display any part, in any form, or by any means. Reverse engineering, disassembly, or decompilation of this software, unless required by law for interoperability, is prohibited.</p>
+<p>The information contained herein is subject to change without notice and is not warranted to be error-free. If you find any errors, please report them to us in writing.</p>
+</div>
+</div>
+<div>
+<div>
+<p>If this is software or related documentation that is delivered to the U.S. Government or anyone licensing it on behalf of the U.S. Government, then the following notice is applicable:</p>
+<p>U.S. GOVERNMENT END USERS: Oracle programs, including any operating system, integrated software, any programs installed on the hardware, and/or documentation, delivered to U.S. Government end users are "commercial computer software" pursuant to the applicable Federal Acquisition Regulation and agency-specific supplemental regulations. As such, use, duplication, disclosure, modification, and adaptation of the programs, including any operating system, integrated software, any programs installed on the hardware, and/or documentation, shall be subject to license terms and license restrictions applicable to the programs. No other rights are granted to the U.S. Government.</p>
+</div>
+</div>
+<div>
+<div>
+<p>This software or hardware is developed for general use in a variety of information management applications. It is not developed or intended for use in any inherently dangerous applications, including applications that may create a risk of personal injury. If you use this software or hardware in dangerous applications, then you shall be responsible to take all appropriate fail-safe, backup, redundancy, and other measures to ensure its safe use. Oracle Corporation and its affiliates disclaim any liability for any damages caused by use of this software or hardware in dangerous applications.</p>
+</div>
+</div>
+<div>
+<div>
+<p>Oracle and Java are registered trademarks of Oracle and/or its affiliates. Other names may be trademarks of their respective owners.</p>
+<p>Intel and Intel Xeon are trademarks or registered trademarks of Intel Corporation. All SPARC trademarks are used under license and are trademarks or registered trademarks of SPARC International, Inc. AMD, Opteron, the AMD logo, and the AMD Opteron logo are trademarks or registered trademarks of Advanced Micro Devices. UNIX is a registered trademark of The Open Group.</p>
+</div>
+</div>
+<div>
+<div>
+<p>This software or hardware and documentation may provide access to or information about content, products, and services from third parties. Oracle Corporation and its affiliates are not responsible for and expressly disclaim all warranties of any kind with respect to third-party content, products, and services unless otherwise set forth in an applicable agreement between you and Oracle. Oracle Corporation and its affiliates will not be responsible for any loss, costs, or damages incurred due to your access to or use of third-party content, products, or services, except as set forth in an applicable agreement between you and Oracle.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment252">
+<tr>
+<td class="cellalignment260">&nbsp;</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2014, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment262">
+<table class="cellalignment255">
+<tr>
+<td class="cellalignment256"><a href="../../index.html"><img width="24" height="24" src="../../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment256"><a href="toc.htm"><img width="24" height="24" src="../../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment256"><a href="../../dcommon/html/feedback.htm"><img width="24" height="24" src="../../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

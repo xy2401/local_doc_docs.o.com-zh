@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Downloading CAP Files and Creating Applets</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-04-13T10:24:54Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Development Kit User Guide, Classic Edition" />
+<meta name="dcterms.identifier" content="E59602-03" />
+<meta name="dcterms.isVersionOf" content="JCUGC" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="sending-and-receiving-apdus.htm" title="Previous" type="text/html" />
+<link rel="Next" href="using-card-installer-deletion.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCUGC.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-775C3D24-0EE2-4DD5-A656-FD930EA10B93"></a> <span id="PAGE" style="display:none;">112/161</span> <!-- End Header -->
+<a id="JCUGC272"></a>
+<h1 id="JCUGC-GUID-775C3D24-0EE2-4DD5-A656-FD930EA10B93" class="sect1">Downloading CAP Files and Creating Applets</h1>
+<div>
+<p>The procedures for CAP file download and applet instance creation are described in the following sections, as are the on-card installer APDU protocol events and APDU types.</p>
+</div>
+<a id="JCUGC273"></a>
+<div class="props_rev_3"><a id="GUID-C2168E1E-5820-41C1-9F38-6D627A4CFBFB"></a>
+<h2 id="JCUGC-GUID-C2168E1E-5820-41C1-9F38-6D627A4CFBFB" class="sect2">Downloading the CAP File</h2>
+<div>
+<div class="section">
+<p>In this procedure, the CAP file is downloaded but applet creation (instantiation) is postponed until a later time. Follow these steps to perform this installation:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Use <code class="codeph">scriptgen</code> to convert a CAP file to an APDU script file.</span></li>
+<li class="stepexpand"><span>Prepend these commands to the APDU script file:</span>
+<div>
+<pre dir="ltr">
+    powerup;
+    // Select the installer applet
+    0x00 0xA4 0x04 0x00 0x09 0xa0 0x00 0x00 0x00 0x62 0x03 0x01 0x08 
+        0x01 0x7F;
+</pre></div>
+</li>
+<li class="stepexpand"><span>Append this command to the APDU script file:</span>
+<div>
+<pre dir="ltr">
+powerdown;
+</pre></div>
+</li>
+<li class="stepexpand"><span>Invoke <code class="codeph">apdutool</code> with this APDU script file path as the argument.</span></li>
+</ol>
+</div>
+</div>
+<a id="JCUGC274"></a>
+<div class="props_rev_3"><a id="GUID-F1C38031-C63A-44BE-88C3-B51C89001DEB"></a>
+<h2 id="JCUGC-GUID-F1C38031-C63A-44BE-88C3-B51C89001DEB" class="sect2">Creating an Applet Instance</h2>
+<div>
+<div class="section">
+<p>In this procedure, the applet from a previously downloaded CAP file or an applet compiled in the mask is created. For example, follow these steps to create the JavaPurse applet:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Determine the applet AID.</span></li>
+<li class="stepexpand"><span>Create an APDU script similar to this:</span>
+<div>
+<pre dir="ltr">
+    powerup;
+    // Select the installer applet
+    0x00 0xA4 0x04 0x00 0x09 0xa0 0x00 0x00 0x00 0x62 0x03 0x01 0x08 
+        0x01 0x7F;
+    // create JavaPurse
+    0x80 0xB8 0x00 0x00 0x0b 0x09 0xa0 0x00 0x00 0x00 0x62 0x03 0x01     
+        0x04 0x01 0x00
+    0x7F;
+    powerdown;
+</pre></div>
+</li>
+<li class="stepexpand"><span>Invoke <code class="codeph">apdutool</code> with this APDU script file path as the argument.</span></li>
+</ol>
+</div>
+</div>
+<a id="JCUGC276"></a><a id="JCUGC275"></a>
+<div class="props_rev_3"><a id="GUID-DAE229B5-A2F7-404B-8B6E-1E5239FE4FC3"></a>
+<h2 id="JCUGC-GUID-DAE229B5-A2F7-404B-8B6E-1E5239FE4FC3" class="sect2">On-card Installer APDU Protocol</h2>
+<div>
+<p>The on-card installer APDU protocol follows a specific time sequence of events in the transmission of Applet Protocol Data Units as shown in <a href="downloading-cap-files-and-creating-applets.htm#GUID-DAE229B5-A2F7-404B-8B6E-1E5239FE4FC3__CCHEJCDD">Figure 9-2</a>.</p>
+<div class="figure" id="GUID-DAE229B5-A2F7-404B-8B6E-1E5239FE4FC3__CCHEJCDD">
+<p class="titleinfigure">Figure 9-2 On-card Installer APDU Transmission Sequence</p>
+<img width="486" height="327" src="img/apdutransmission.gif" alt="Description of Figure 9-2 follows" title="Description of Figure 9-2 follows" /><br />
+<a href="img_text/apdutransmission.htm">Description of "Figure 9-2 On-card Installer APDU Transmission Sequence"</a></div>
+<!-- class="figure" --></div>
+<a id="JCUGC277"></a>
+<div class="props_rev_3"><a id="GUID-60427516-2332-4EB2-BB2F-00D40771C36E"></a>
+<h3 id="JCUGC-GUID-60427516-2332-4EB2-BB2F-00D40771C36E" class="sect3">APDU Types</h3>
+<div>
+<p>There are many different APDU types, which are distinguished by their fields and field values. The following sections describe these APDU types in more detail, including their bit frame formats, field names and field values.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="downloading-cap-files-and-creating-applets.htm#GUID-994119E1-9C9D-4564-9172-ACDBA3F6492A">Select APDU Command</a></p>
+</li>
+<li>
+<p><a href="downloading-cap-files-and-creating-applets.htm#GUID-65E01585-BA5D-4937-A077-1374FB9A465D">Response APDU Command</a></p>
+</li>
+<li>
+<p><a href="downloading-cap-files-and-creating-applets.htm#GUID-72B469DB-6DF3-4705-A716-D1DE0AFF53BB">CAP Begin</a></p>
+</li>
+<li>
+<p><a href="downloading-cap-files-and-creating-applets.htm#GUID-CE2A5321-8B3A-4702-9AA5-6F30C240BB42">CAP End</a></p>
+</li>
+<li>
+<p><a href="downloading-cap-files-and-creating-applets.htm#GUID-E07D5102-4DC0-4E25-B124-7FB474396C01">Component ## Begin</a></p>
+</li>
+<li>
+<p><a href="downloading-cap-files-and-creating-applets.htm#GUID-2760CBA2-CECB-4070-BC6B-281AE82797EC">Component ## End</a></p>
+</li>
+<li>
+<p><a href="downloading-cap-files-and-creating-applets.htm#GUID-CAC35159-1229-4D2C-8C93-BB9F12C672F8">Component ## Data</a></p>
+</li>
+<li>
+<p><a href="downloading-cap-files-and-creating-applets.htm#GUID-3EB791AC-DA1A-4064-9B1F-0B78230C9F20">Create Applet</a></p>
+</li>
+<li>
+<p><a href="downloading-cap-files-and-creating-applets.htm#GUID-A3E2D534-1754-4E7A-96C9-1C79C9E18027">Abort</a></p>
+<div class="infobox-note" id="GUID-60427516-2332-4EB2-BB2F-00D40771C36E__GUID-4F1748C7-39A4-4BC9-849F-76DA504FE0F4">
+<p class="notep1">Note:</p>
+<p>In the following APDU commands, the <code class="codeph">x</code> in the second nibble of the class byte indicates that the installer can be invoked on channels 0, 1, or 2. For example, <code class="codeph">0x8x</code>.</p>
+</div>
+</li>
+</ul>
+</div>
+<a id="JCUGC279"></a><a id="JCUGC278"></a>
+<div class="props_rev_3"><a id="GUID-994119E1-9C9D-4564-9172-ACDBA3F6492A"></a>
+<h4 id="JCUGC-GUID-994119E1-9C9D-4564-9172-ACDBA3F6492A" class="sect4">Select APDU Command</h4>
+<div>
+<div class="section">
+<p><a href="downloading-cap-files-and-creating-applets.htm#GUID-994119E1-9C9D-4564-9172-ACDBA3F6492A__CCHEGBFH" title="example and description of the select apdu command">Table 9-5</a> specifies the field sequence in the <code class="codeph">Select</code> APDU, which is used to invoke the on-card installer.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-994119E1-9C9D-4564-9172-ACDBA3F6492A__CCHEGBFH">
+<p class="titleintable">Table 9-5 Select APDU Command</p>
+<table class="cellalignment12" title="Select APDU Command " summary="example and description of the select apdu command">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment19" id="d28493e234">Command</th>
+<th class="cellalignment20" id="d28493e237">Lc</th>
+<th class="cellalignment21" id="d28493e240">Installer</th>
+<th class="cellalignment22" id="d28493e243">Le</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment23" id="d28493e248" headers="d28493e234">
+<p><code class="codeph">0x0x, 0xa4, 0x04, 0x00</code></p>
+</td>
+<td class="cellalignment24" headers="d28493e248 d28493e237">
+<p>Lc field</p>
+</td>
+<td class="cellalignment25" headers="d28493e248 d28493e240">
+<p>Installer AID</p>
+</td>
+<td class="cellalignment26" headers="d28493e248 d28493e243">
+<p>Le field</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="JCUGC281"></a><a id="JCUGC280"></a>
+<div class="props_rev_3"><a id="GUID-65E01585-BA5D-4937-A077-1374FB9A465D"></a>
+<h4 id="JCUGC-GUID-65E01585-BA5D-4937-A077-1374FB9A465D" class="sect4">Response APDU Command</h4>
+<div>
+<div class="section">
+<p><a href="downloading-cap-files-and-creating-applets.htm#GUID-65E01585-BA5D-4937-A077-1374FB9A465D__CCHCAGBH" title="example and description of the response apdu command">Table 9-6</a> specifies the field sequence in the Response APDU. A Response APDU is sent as a response by the on-card installer after each APDU that it receives. The Response APDU can be either an Acknowledgment (called an ACK), which indicates that the most recent APDU was received successfully, or it can be a Negative Acknowledgement (called a NAK), which indicates that the most recent APDU was not received successfully and must be either resent or the entire installer transmission must be restarted. The first ACK indicates that the on-card installer is ready to receive. The value for an ACK frame SW1SW2 is 9000, and the value for a NAK frame SW1SW2 is 6XXX.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-65E01585-BA5D-4937-A077-1374FB9A465D__CCHCAGBH">
+<p class="titleintable">Table 9-6 Response APDU Command</p>
+<table class="cellalignment12" title="Response APDU Command " summary="example and description of the response apdu command">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment27" id="d28493e295">Data</th>
+<th class="cellalignment22" id="d28493e298">Response</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment28" id="d28493e303" headers="d28493e295">
+<p>[optional response data]</p>
+</td>
+<td class="cellalignment26" headers="d28493e303 d28493e298">
+<p>SW1SW2</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="JCUGC283"></a><a id="JCUGC282"></a>
+<div class="props_rev_3"><a id="GUID-72B469DB-6DF3-4705-A716-D1DE0AFF53BB"></a>
+<h4 id="JCUGC-GUID-72B469DB-6DF3-4705-A716-D1DE0AFF53BB" class="sect4">CAP Begin</h4>
+<div>
+<div class="section">
+<p><a href="downloading-cap-files-and-creating-applets.htm#GUID-72B469DB-6DF3-4705-A716-D1DE0AFF53BB__CCHFCBIF" title="example and description of the cap begin apdu command">Table 9-7</a> specifies the field sequence in the CAP Begin APDU. The CAP Begin APDU is sent to the on-card installer, and indicates that the CAP file components are going to be sent next, in sequentially numbered APDUs.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-72B469DB-6DF3-4705-A716-D1DE0AFF53BB__CCHFCBIF">
+<p class="titleintable">Table 9-7 CAP Begin APDU Command</p>
+<table class="cellalignment12" title="CAP Begin APDU Command " summary="example and description of the cap begin apdu command">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment29" id="d28493e346">Command</th>
+<th class="cellalignment30" id="d28493e349">Lc</th>
+<th class="cellalignment31" id="d28493e352">data</th>
+<th class="cellalignment20" id="d28493e355">Le</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment32" id="d28493e360" headers="d28493e346">
+<p><code class="codeph">0x8x, 0xb0, 0x00, 0x00</code></p>
+</td>
+<td class="cellalignment33" headers="d28493e360 d28493e349">
+<p>[Lc field]</p>
+</td>
+<td class="cellalignment34" headers="d28493e360 d28493e352">
+<p>[optional data]</p>
+</td>
+<td class="cellalignment24" headers="d28493e360 d28493e355">
+<p>Le field</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="JCUGC285"></a><a id="JCUGC284"></a>
+<div class="props_rev_3"><a id="GUID-CE2A5321-8B3A-4702-9AA5-6F30C240BB42"></a>
+<h4 id="JCUGC-GUID-CE2A5321-8B3A-4702-9AA5-6F30C240BB42" class="sect4">CAP End</h4>
+<div>
+<div class="section">
+<p><a href="downloading-cap-files-and-creating-applets.htm#GUID-CE2A5321-8B3A-4702-9AA5-6F30C240BB42__CCHBBIIB" title="example and description of the cap end apdu command">Table 9-8</a> specifies the field sequence in the CAP End APDU. The CAP&nbsp;End&nbsp;APDU is sent to the on-card installer, and indicates that all of the CAP file components have been sent.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-CE2A5321-8B3A-4702-9AA5-6F30C240BB42__CCHBBIIB">
+<p class="titleintable">Table 9-8 CAP End APDU Command</p>
+<table class="cellalignment12" title="CAP End APDU Command " summary="example and description of the cap end apdu command">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment35" id="d28493e409">Command</th>
+<th class="cellalignment20" id="d28493e412">Lc</th>
+<th class="cellalignment36" id="d28493e415">data</th>
+<th class="cellalignment37" id="d28493e418">Le</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment38" id="d28493e423" headers="d28493e409">
+<p><code class="codeph">0x8x, 0xba, 0x00, 0x00</code></p>
+</td>
+<td class="cellalignment24" headers="d28493e423 d28493e412">
+<p>[Lc field]</p>
+</td>
+<td class="cellalignment39" headers="d28493e423 d28493e415">
+<p>[optional data]</p>
+</td>
+<td class="cellalignment40" headers="d28493e423 d28493e418">
+<p>Le field</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="JCUGC287"></a><a id="JCUGC286"></a>
+<div class="props_rev_3"><a id="GUID-E07D5102-4DC0-4E25-B124-7FB474396C01"></a>
+<h4 id="JCUGC-GUID-E07D5102-4DC0-4E25-B124-7FB474396C01" class="sect4">Component ## Begin</h4>
+<div>
+<div class="section">
+<p><a href="downloading-cap-files-and-creating-applets.htm#GUID-E07D5102-4DC0-4E25-B124-7FB474396C01__CCHBIGAH" title="example and description of the component begin apdu command">Table 9-9</a> specifies the field sequence in the Component ## Begin APDU. The double pound sign indicates the component token of the component being sent. The CAP file is divided into many components, based on class, method, and so on. The Component ## Begin APDU is sent to the on-card installer, and indicates that component ## of the CAP file is going to be sent next.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-E07D5102-4DC0-4E25-B124-7FB474396C01__CCHBIGAH">
+<p class="titleintable">Table 9-9 Component ## Begin APDU Command</p>
+<table class="cellalignment12" title="Component ## Begin APDU Command " summary="example and description of the component begin apdu command">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment41" id="d28493e472">Command</th>
+<th class="cellalignment20" id="d28493e475">Lc</th>
+<th class="cellalignment21" id="d28493e478">data</th>
+<th class="cellalignment42" id="d28493e481">Le</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment43" id="d28493e486" headers="d28493e472">
+<p><code class="codeph">0x8x, 0xb2, 0x##, 0x00</code></p>
+</td>
+<td class="cellalignment24" headers="d28493e486 d28493e475">
+<p>[Lc field]</p>
+</td>
+<td class="cellalignment25" headers="d28493e486 d28493e478">
+<p>[optional data]</p>
+</td>
+<td class="cellalignment44" headers="d28493e486 d28493e481">
+<p>Le field</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="JCUGC289"></a><a id="JCUGC288"></a>
+<div class="props_rev_3"><a id="GUID-2760CBA2-CECB-4070-BC6B-281AE82797EC"></a>
+<h4 id="JCUGC-GUID-2760CBA2-CECB-4070-BC6B-281AE82797EC" class="sect4">Component ## End</h4>
+<div>
+<div class="section">
+<p><a href="downloading-cap-files-and-creating-applets.htm#GUID-2760CBA2-CECB-4070-BC6B-281AE82797EC__CCHDIDDA" title="example and description of the component end apdu command">Table 9-10</a> specifies the field sequence in the Component ## End APDU. The Component ## End APDU is sent to the on-card installer, and indicates that component ## of the CAP file has been sent.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-2760CBA2-CECB-4070-BC6B-281AE82797EC__CCHDIDDA">
+<p class="titleintable">Table 9-10 Component ## End APDU Command</p>
+<table class="cellalignment12" title="Component ## End APDU Command " summary="example and description of the component end apdu command">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment41" id="d28493e536">Command</th>
+<th class="cellalignment20" id="d28493e539">Lc</th>
+<th class="cellalignment45" id="d28493e542">data</th>
+<th class="cellalignment37" id="d28493e545">Le</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment43" id="d28493e550" headers="d28493e536">
+<p><code class="codeph">0x8x, 0xbc, 0x##, 0x00</code></p>
+</td>
+<td class="cellalignment24" headers="d28493e550 d28493e539">
+<p>[Lc field]</p>
+</td>
+<td class="cellalignment46" headers="d28493e550 d28493e542">
+<p>[optional data]</p>
+</td>
+<td class="cellalignment40" headers="d28493e550 d28493e545">
+<p>Le field</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="JCUGC291"></a><a id="JCUGC290"></a>
+<div class="props_rev_3"><a id="GUID-CAC35159-1229-4D2C-8C93-BB9F12C672F8"></a>
+<h4 id="JCUGC-GUID-CAC35159-1229-4D2C-8C93-BB9F12C672F8" class="sect4">Component ## Data</h4>
+<div>
+<div class="section">
+<p><a href="downloading-cap-files-and-creating-applets.htm#GUID-CAC35159-1229-4D2C-8C93-BB9F12C672F8__CCHGADFG" title="example and description of the component data apdu command">Table 9-11</a> specifies the field sequence in the Component ## Data APDU. The Component ## Data APDU is sent to the on-card installer, and contains the data for component ## of the CAP file.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-CAC35159-1229-4D2C-8C93-BB9F12C672F8__CCHGADFG">
+<p class="titleintable">Table 9-11 Component ## Data APDU Command</p>
+<table class="cellalignment12" title="Component ## Data APDU Command " summary="example and description of the component data apdu command">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment47" id="d28493e599">Command</th>
+<th class="cellalignment48" id="d28493e602">Lc</th>
+<th class="cellalignment36" id="d28493e605">data</th>
+<th class="cellalignment22" id="d28493e608">Le</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d28493e613" headers="d28493e599">
+<p><code class="codeph">0x8x, 0xb4, 0x##, 0x00</code></p>
+</td>
+<td class="cellalignment50" headers="d28493e613 d28493e602">
+<p>Lc field</p>
+</td>
+<td class="cellalignment39" headers="d28493e613 d28493e605">
+<p>Data field</p>
+</td>
+<td class="cellalignment26" headers="d28493e613 d28493e608">
+<p>Le field</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="JCUGC293"></a><a id="JCUGC292"></a>
+<div class="props_rev_3"><a id="GUID-3EB791AC-DA1A-4064-9B1F-0B78230C9F20"></a>
+<h4 id="JCUGC-GUID-3EB791AC-DA1A-4064-9B1F-0B78230C9F20" class="sect4">Create Applet</h4>
+<div>
+<div class="section">
+<p><a href="downloading-cap-files-and-creating-applets.htm#GUID-3EB791AC-DA1A-4064-9B1F-0B78230C9F20__CCHGDACD" title="example and description of the create applet apdu command">Table 9-12</a> specifies the field sequence in the Create Applet APDU. The Create&nbsp;Applet&nbsp;APDU is sent to the on-card installer, and tells the on-card installer to create an applet instance from each of the already sequentially transmitted components of the CAP file.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-3EB791AC-DA1A-4064-9B1F-0B78230C9F20__CCHGDACD">
+<p class="titleintable">Table 9-12 Create Applet APDU Command</p>
+<table class="cellalignment12" title="Create Applet APDU Command " summary="example and description of the create applet apdu command">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment51" id="d28493e667">Command</th>
+<th class="cellalignment52" id="d28493e670">Lc</th>
+<th class="cellalignment53" id="d28493e673">AID length</th>
+<th class="cellalignment52" id="d28493e676">AID</th>
+<th class="cellalignment54" id="d28493e679">Parameter length</th>
+<th class="cellalignment20" id="d28493e682">Parameter</th>
+<th class="cellalignment55" id="d28493e685">Le</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment56" id="d28493e690" headers="d28493e667">
+<p><code class="codeph">0x8x, 0xb8, 0x00, 0x00</code></p>
+</td>
+<td class="cellalignment57" headers="d28493e690 d28493e670">
+<p>Lc field</p>
+</td>
+<td class="cellalignment58" headers="d28493e690 d28493e673">
+<p>AID length field</p>
+</td>
+<td class="cellalignment57" headers="d28493e690 d28493e676">
+<p>AID field</p>
+</td>
+<td class="cellalignment59" headers="d28493e690 d28493e679">
+<p>parameter length field</p>
+</td>
+<td class="cellalignment24" headers="d28493e690 d28493e682">
+<p>[parameters]</p>
+</td>
+<td class="cellalignment60" headers="d28493e690 d28493e685">
+<p>Le field</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="JCUGC295"></a><a id="JCUGC294"></a>
+<div class="props_rev_3"><a id="GUID-A3E2D534-1754-4E7A-96C9-1C79C9E18027"></a>
+<h4 id="JCUGC-GUID-A3E2D534-1754-4E7A-96C9-1C79C9E18027" class="sect4">Abort</h4>
+<div>
+<div class="section">
+<p><a href="downloading-cap-files-and-creating-applets.htm#GUID-A3E2D534-1754-4E7A-96C9-1C79C9E18027__CCHJIFHA" title="example and description of the abort apdu command">Table 9-13</a> specifies the data sequence in the Abort APDU. The Abort APDU indicates that the transmission of the CAP file is terminated, and that the transmission is not complete and must be redone from the beginning in order to be successful.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-A3E2D534-1754-4E7A-96C9-1C79C9E18027__CCHJIFHA">
+<p class="titleintable">Table 9-13 Abort APDU Command</p>
+<table class="cellalignment12" title="Abort APDU Command " summary="example and description of the abort apdu command">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment19" id="d28493e749">Command</th>
+<th class="cellalignment20" id="d28493e752">Lc</th>
+<th class="cellalignment61" id="d28493e755">data</th>
+<th class="cellalignment37" id="d28493e758">Le</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment23" id="d28493e763" headers="d28493e749">
+<p><code class="codeph">0x8x, 0xbe, 0x00, 0x00</code></p>
+</td>
+<td class="cellalignment24" headers="d28493e763 d28493e752">
+<p>Lc field</p>
+</td>
+<td class="cellalignment62" headers="d28493e763 d28493e755">
+<p>[optional data]</p>
+</td>
+<td class="cellalignment40" headers="d28493e763 d28493e758">
+<p>Le field</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+</div>
+</div>
+<a id="JCUGC297"></a><a id="JCUGC296"></a>
+<div class="props_rev_3"><a id="GUID-3237B4CE-76E0-4B8C-A59A-727CB0391C82"></a>
+<h2 id="JCUGC-GUID-3237B4CE-76E0-4B8C-A59A-727CB0391C82" class="sect2">APDU Responses to Installation Requests</h2>
+<div>
+<div class="section">
+<p>If a command completes successfully, the installer sends a response code of 0x9000. A number of codes can be sent in response to unsuccessful installation requests, as shown in <a href="downloading-cap-files-and-creating-applets.htm#GUID-3237B4CE-76E0-4B8C-A59A-727CB0391C82__CCHIDJBD" title="list and descriptions of the apdu responses to installation requests">Table 9-14</a>.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-3237B4CE-76E0-4B8C-A59A-727CB0391C82__CCHIDJBD">
+<p class="titleintable">Table 9-14 APDU Responses to Installation Requests</p>
+<table class="cellalignment12" title="APDU Responses to Installation Requests " summary="list and descriptions of the apdu responses to installation requests">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment45" id="d28493e811">Response Code</th>
+<th class="cellalignment63" id="d28493e814">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d28493e819" headers="d28493e811">
+<p><code class="codeph">0x6402</code></p>
+</td>
+<td class="cellalignment64" headers="d28493e819 d28493e814">
+<p>Invalid CAP file magic number.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> An incorrect magic number was specified in the CAP file.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Refer to the <span class="italic">Java Virtual Machine Specification</span> for the correct magic number. Ensure that the CAP file is built correctly, run it through <code class="codeph">scriptgen</code>, and download the resulting script file to the card.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d28493e844" headers="d28493e811">
+<p><code class="codeph">0x6403</code></p>
+</td>
+<td class="cellalignment64" headers="d28493e844 d28493e814">
+<p>Invalid CAP file minor number.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> An invalid CAP file minor number was specified in the CAP file.</p>
+</li>
+<li>
+<p><span class="bold">Solution</span>: Refer to the <span class="italic">Java Virtual Machine Specification</span> for the correct minor number. Ensure that the CAP file is built correctly, run it through <code class="codeph">scriptgen</code>, and download the resulting script file to the card.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d28493e869" headers="d28493e811">
+<p><code class="codeph">0x6404</code></p>
+</td>
+<td class="cellalignment64" headers="d28493e869 d28493e814">
+<p>Invalid CAP file major number.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> An invalid CAP file major number was specified in the CAP file.</p>
+</li>
+<li>
+<p><span class="bold">Solution</span>: Refer to the <span class="italic">Java Virtual Machine Specification</span> for the correct major number. Ensure that the CAP file is built correctly, run it through <code class="codeph">scriptgen</code>, and download the resulting script file to the card.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d28493e894" headers="d28493e811">
+<p><code class="codeph">0x640b</code></p>
+</td>
+<td class="cellalignment64" headers="d28493e894 d28493e814">
+<p>Integer not supported.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> An attempt was made to download a CAP file that requires integer support into a CREF that does not support integers.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Either change the CAP file so that it does not require integer support or build the version of CREF that supports integers.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d28493e913" headers="d28493e811">
+<p><code class="codeph">0x640c</code></p>
+</td>
+<td class="cellalignment64" headers="d28493e913 d28493e814">
+<p>Duplicate package AID found.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> A duplicate package AID was detected in CREF.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Choose a new AID for the package to be installed.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d28493e932" headers="d28493e811">
+<p><code class="codeph">0x640d</code></p>
+</td>
+<td class="cellalignment64" headers="d28493e932 d28493e814">
+<p>Duplicate Applet AID found.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> A duplicate Applet AID was detected in CREF.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Choose a new AID for the applet to be installed.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d28493e951" headers="d28493e811">
+<p><code class="codeph">0x640f</code></p>
+</td>
+<td class="cellalignment64" headers="d28493e951 d28493e814">
+<p>Installation aborted.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> Installation was aborted by an outside command.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Restart the CAP installation from the beginning and check the <code class="codeph">INS</code> bytes in the installation script for the offending command.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d28493e973" headers="d28493e811">
+<p><code class="codeph">0x6421</code></p>
+</td>
+<td class="cellalignment64" headers="d28493e973 d28493e814">
+<p>Installer in error state.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> A non-recoverable error previously occurred.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Scan the <code class="codeph">apdutool</code> output for previous APDU responses indicating an error. Restart the CAP installation.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d28493e995" headers="d28493e811">
+<p><code class="codeph">0x6422</code></p>
+</td>
+<td class="cellalignment64" headers="d28493e995 d28493e814">
+<p>CAP file component out of order.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> Installer unable to proceed because it did not receive a component that is a prerequisite to process the current component.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Check the script file contents for the correct component ordering.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d28493e1014" headers="d28493e811">
+<p><code class="codeph">0x6424</code></p>
+</td>
+<td class="cellalignment64" headers="d28493e1014 d28493e814">
+<p>Exception occurred.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> General purpose error in the installer or applet code.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Check your applet code for errors.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d28493e1033" headers="d28493e811">
+<p><code class="codeph">0x6425</code></p>
+</td>
+<td class="cellalignment64" headers="d28493e1033 d28493e814">
+<p>Install APDU command out of order.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> Installer APDU commands were received out of order.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Check the script file for the order of APDU commands. See <a href="sending-and-receiving-apdus.htm#GUID-AF3BBBC3-DD3E-4DA3-B699-12AF0786A853">Sending and Receiving APDUs</a> for more information on the ordering of APDU commands.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d28493e1057" headers="d28493e811">
+<p><code class="codeph">0x6428</code></p>
+</td>
+<td class="cellalignment64" headers="d28493e1057 d28493e814">
+<p>Invalid component tag number.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> An incorrect component tag number was detected during download.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Refer to Chapter 6 in the <span class="italic">Java Virtual Machine Specification</span> for the correct tag number.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d28493e1079" headers="d28493e811">
+<p><code class="codeph">0x6436</code></p>
+</td>
+<td class="cellalignment64" headers="d28493e1079 d28493e814">
+<p>Invalid install instruction.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> An invalid Installer APDU command was received.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Check the script file for the offending command. See <a href="sending-and-receiving-apdus.htm#GUID-AF3BBBC3-DD3E-4DA3-B699-12AF0786A853">Sending and Receiving APDUs</a> for more information on APDU commands.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d28493e1102" headers="d28493e811">
+<p><code class="codeph">0x6437</code></p>
+</td>
+<td class="cellalignment64" headers="d28493e1102 d28493e814">
+<p>On-card package max exceeded.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> Package installation failed because the number of packages that can be stored on the card has been exceeded.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Remove some packages from the CREF.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d28493e1121" headers="d28493e811">
+<p><code class="codeph">0x6438</code></p>
+</td>
+<td class="cellalignment64" headers="d28493e1121 d28493e814">
+<p>Imported package not found.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> A package that is required by the current package was not found.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Download the required package first.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d28493e1140" headers="d28493e811">
+<p><code class="codeph">0x643a</code></p>
+</td>
+<td class="cellalignment64" headers="d28493e1140 d28493e814">
+<p>On-card applet package max exceeded.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> Installation of an applet package failed because the number of applet packages that can be stored on the card has been exceeded.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Remove some applet packages from the CREF.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d28493e1159" headers="d28493e811">
+<p><code class="codeph">0x6442</code></p>
+</td>
+<td class="cellalignment64" headers="d28493e1159 d28493e814">
+<p>Maximum allowable package methods exceeded.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> The limit of 128 package methods on the card has been exceeded.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Modify the package to support fewer methods.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d28493e1178" headers="d28493e811">
+<p><code class="codeph">0x6443</code></p>
+</td>
+<td class="cellalignment64" headers="d28493e1178 d28493e814">
+<p>Applet not found for installation.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> An attempt was made to create an applet instance, but the applet code was not installed on the card.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Verify that the applet package has been downloaded to the card.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d28493e1197" headers="d28493e811">
+<p><code class="codeph">0x6444</code></p>
+</td>
+<td class="cellalignment64" headers="d28493e1197 d28493e814">
+<p>Applet creation failed.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> A general purpose error to indicate that an unsuccessful attempt was made to create the applet.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Verify availability of resources on the card, check the applet's <code class="codeph">install</code> method, and so on.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d28493e1219" headers="d28493e811">
+<p><code class="codeph">0x644f</code></p>
+</td>
+<td class="cellalignment64" headers="d28493e1219 d28493e814">
+<p>Package name is too long.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> The package name exceeds the length specified in the <span class="italic">Java Virtual Machine Specification</span>.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Replace the name and rebuild.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d28493e1241" headers="d28493e811">
+<p><code class="codeph">0x6445</code></p>
+</td>
+<td class="cellalignment64" headers="d28493e1241 d28493e814">
+<p>Maximum allowable applet instances exceeded.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> Creation of the applet instance failed because the number of applet instances that can be stored on the card has been exceeded.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Remove some applet instances from the CREF.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d28493e1260" headers="d28493e811">
+<p><code class="codeph">0x6446</code></p>
+</td>
+<td class="cellalignment64" headers="d28493e1260 d28493e814">
+<p>Memory allocation failed.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> The amount of memory available on the card has been exceeded.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Verify the amount of memory that is available on the card. Remove packages, applets, and so on, to create enough space. Check the memory requirements of the applet or package being installed or downloaded.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d28493e1280" headers="d28493e811">
+<p><code class="codeph">0x6447</code></p>
+</td>
+<td class="cellalignment64" headers="d28493e1280 d28493e814">
+<p>Imported class not found.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Cause:</span> A class that is required by the current class was not found.</p>
+</li>
+<li>
+<p><span class="bold">Solution:</span> Download the required class first.</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<a id="JCUGC298"></a>
+<div class="props_rev_3"><a id="GUID-D1115DEC-F548-4ACD-A9B2-7C14DB050CDB"></a>
+<h2 id="JCUGC-GUID-D1115DEC-F548-4ACD-A9B2-7C14DB050CDB" class="sect2">A Sample APDU Script</h2>
+<div>
+<div class="section">
+<p>The following is a sample APDU script to download, create, and select the HelloWorld applet.</p>
+<pre dir="ltr">
+powerup;
+// Select the on-card installer applet
+0x00 0xA4 0x04 0x00 0x09 0xa0 0x00 0x00 0x00 0x62 0x03 0x01 0x08 0x01 0x7F;
+// CAP Begin 
+0x80 0xB0 0x00 0x00 0x00 0x7F;
+// com/sun/javacard/samples/HelloWorld/javacard/Header.cap
+// component begin
+0x80 0xB2 0x01 0x00 0x00 0x7F;
+// component data
+0x80 0xB4 0x01 0x00 0x16 0x01 0x00 0x13 0xDE 0xCA 0xFF 0xED 0x01 0x02 0x04 0x00 0x01 0x09 0xA0 0x00 0x00 0x00 0x62 0x03 0x01 0x0C 0x01 0x7F;
+// component end
+0x80 0xBC 0x01 0x00 0x00 0x7F;
+// com/sun/javacard/samples/HelloWorld/javacard/Directory.cap
+0x80 0xB2 0x02 0x00 0x00 0x7F;
+0x80 0xB4 0x02 0x00 0x20 0x02 0x00 0x1F 0x00 0x13 0x00 0x1F 0x00 0x0E 0x00 0x0B 0x00 0x36 0x00 0x0C 0x00 0x65 0x00 0x0A 0x00 0x13 0x00 0x00 0x00 0x6C 0x00 0x00 0x00 0x00 0x00 0x00 0x01 0x7F;
+0x80 0xB4 0x02 0x00 0x02 0x01 0x00 0x7F;
+0x80 0xBC 0x02 0x00 0x00 0x7F;
+// com/sun/javacard/samples/HelloWorld/javacard/Import.cap
+0x80 0xB2 0x04 0x00 0x00 0x7F;
+0x80 0xB4 0x04 0x00 0x0E 0x04 0x00 0x0B 0x01 0x00 0x01 0x07 0xA0 0x00 0x00 0x00 0x62 0x01 0x01 0x7F;
+0x80 0xBC 0x04 0x00 0x00 0x7F;
+// com/sun/javacard/samples/HelloWorld/javacard/Applet.cap
+0x80 0xB2 0x03 0x00 0x00 0x7F;
+0x80 0xB4 0x03 0x00 0x11 0x03 0x00 0x0E 0x01 0x0A 0xA0 0x00 0x00 0x00 0x62 0x03 0x01 0x0C 0x01 0x01 0x00 0x14 0x7F;
+0x80 0xBC 0x03 0x00 0x00 0x7F;
+// com/sun/javacard/samples/HelloWorld/javacard/Class.cap
+0x80 0xB2 0x06 0x00 0x00 0x7F;
+0x80 0xB4 0x06 0x00 0x0F 0x06 0x00 0x0C 0x00 0x80 0x03 0x01 0x00 0x01 0x07 0x01 0x00 0x00 0x00 0x1D 0x7F;
+0x80 0xBC 0x06 0x00 0x00 0x7F;
+// com/sun/javacard/samples/HelloWorld/javacard/Method.cap
+0x80 0xB2 0x07 0x00 0x00 0x7F;
+0x80 0xB4 0x07 0x00 0x20 0x07 0x00 0x65 0x00 0x02 0x10 0x18 0x8C 0x00 0x01 0x18 0x11 0x01 0x00 0x90 0x0B 0x87 0x00 0x18 0x8B 0x00 0x02 0x7A 0x01 0x30 0x8F 0x00 0x03 0x8C 0x00 0x04 0x7A 0x7F;
+0x80 0xB4 0x07 0x00 0x20 0x05 0x23 0x19 0x8B 0x00 0x05 0x2D 0x19 0x8B 0x00 0x06 0x32 0x03 0x29 0x04 0x70 0x19 0x1A 0x08 0xAD 0x00 0x16 0x04 0x1F 0x8D 0x00 0x0B 0x3B 0x16 0x04 0x1F 0x41 0x7F;
+0x80 0xB4 0x07 0x00 0x20 0x29 0x04 0x19 0x08 0x8B 0x00 0x0C 0x32 0x1F 0x64 0xE8 0x19 0x8B 0x00 0x07 0x3B 0x19 0x16 0x04 0x08 0x41 0x8B 0x00 0x08 0x19 0x03 0x08 0x8B 0x00 0x09 0x19 0xAD 0x7F;
+0x80 0xB4 0x07 0x00 0x08 0x00 0x03 0x16 0x04 0x8B 0x00 0x0A 0x7A 0x7F;
+0x80 0xBC 0x07 0x00 0x00 0x7F;
+// com/sun/javacard/samples/HelloWorld/javacard/StaticField.cap
+0x80 0xB2 0x08 0x00 0x00 0x7F;
+0x80 0xB4 0x08 0x00 0x0D 0x08 0x00 0x0A 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x7F;
+0x80 0xBC 0x08 0x00 0x00 0x7F;
+// com/sun/javacard/samples/HelloWorld/javacard/ConstantPool.cap
+0x80 0xB2 0x05 0x00 0x00 0x7F;
+0x80 0xB4 0x05 0x00 0x20 0x05 0x00 0x36 0x00 0x0D 0x02 0x00 0x00 0x00 0x06 0x80 0x03 0x00 0x03 0x80 0x03 0x01 0x01 0x00 0x00 0x00 0x06 0x00 0x00 0x01 0x03 0x80 0x0A 0x01 0x03 0x80 0x0A 0x7F;
+0x80 0xB4 0x05 0x00 0x19 0x06 0x03 0x80 0x0A 0x07 0x03 0x80 0x0A 0x09 0x03 0x80 0x0A 0x04 0x03 0x80 0x0A 0x05 0x06 0x80 0x10 0x02 0x03 0x80 0x0A 0x03 0x7F;
+0x80 0xBC 0x05 0x00 0x00 0x7F;
+// com/sun/javacard/samples/HelloWorld/javacard/RefLocation.cap
+0x80 0xB2 0x09 0x00 0x00 0x7F;
+0x80 0xB4 0x09 0x00 0x16 0x09 0x00 0x13 0x00 0x03 0x0E 0x23 0x2C 0x00 0x0C 0x05 0x0C 0x06 0x03 0x07 0x05 0x10 0x0C 0x08 0x09 0x06 0x09 0x7F;
+0x80 0xBC 0x09 0x00 0x00 0x7F;
+// CAP End
+0x80 0xBA 0x00 0x00 0x00 0x7F;
+// create HelloWorld
+0x80 0xB8 0x00 0x00 0x0b 0x09 0xa0 0x00 0x00 0x00 0x62 0x03 0x01 0x03;
+0x01 0x00 0x7F;
+// Select HelloWorld
+0x00 0xA4 0x04 0x00 9 0xA0 0x00 0x00 0x00 0x62 0x03 0x01 0x03 0x01 0x7F;
+powerdown;
+</pre></div>
+<!-- class="section" --></div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="sending-and-receiving-apdus.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="using-card-installer-deletion.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

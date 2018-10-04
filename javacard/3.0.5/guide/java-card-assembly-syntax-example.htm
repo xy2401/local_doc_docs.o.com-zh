@@ -1,0 +1,722 @@
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Java Card Assembly Syntax Example</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="This appendix contains an annotated Java Card platform assembly (" />
+<meta name="dcterms.created" content="2018-04-13T10:24:54Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Development Kit User Guide, Classic Edition" />
+<meta name="dcterms.identifier" content="E59602-03" />
+<meta name="dcterms.isVersionOf" content="JCUGC" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="appendices.htm" title="Previous" type="text/html" />
+<link rel="Next" href="additional-optional-ant-tasks.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCUGC.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-6F7CA4BF-ABF1-4F4A-94DC-773ABCAB5FF2"></a> <span id="PAGE" style="display:none;">155/161</span> <!-- End Header -->
+<a id="JCUGC723"></a><a id="JCUGC386"></a>
+<h1 id="JCUGC-GUID-6F7CA4BF-ABF1-4F4A-94DC-773ABCAB5FF2" class="sect1"><span class="enumeration_appendix">A</span> Java Card Assembly Syntax Example</h1>
+<div>
+<div><span>This appendix contains an annotated Java Card platform assembly ("Java Card Assembly") file output from the Converter. The comments in this file are intended to help you understand the syntax of the Java Card Assembly language, and to act as a guide for debugging Converter output.</span></div>
+<div class="infobox-note" id="GUID-6F7CA4BF-ABF1-4F4A-94DC-773ABCAB5FF2__GUID-85C693F6-DA6C-487E-8022-52E0089845F1">
+<p class="notep1">Note:</p>
+<p>If you are using a source release, you can get an HTML file with the BNF grammar for the Java Card Assembly syntax by using the Java <code class="codeph">jjdoc</code> tool with:</p>
+<p><span class="italic">JC_CLASSIC_HOME</span><code class="codeph">\src\tools\converter\com\sun\javacard\jcasm\Parser.jj</code></p>
+</div>
+<pre dir="ltr">
+/*                                                                                  
+ * Java Card Assembly annotated example. The code 
+ * contained within this example is not an executable
+ * program. The intention of this program is to illustrate the 
+ * syntax and use of the Java Card Assembly directives and commands.
+ *                                                                                  
+ * A Java Card Assembly file is textual representation of the 
+ * contents of a CAP file. 
+ * The contents of a Java Card Assembly file are hierarchically 
+ * structured. The format of this structure is:         
+ *                                                                                  
+ *     package 
+ *         package directives                                                          
+ *         imports block                                                               
+ *         applet declarations                                                         
+ *         constant pool                                                               
+ *         class                                                                       
+ *             field declarations                                                      
+ *             virtual method tables
+ *             interface table 
+ *             [remote interface table] - only for remote classes 
+ *             methods                                                                 
+ *                 method directives                                                   
+ *                 method statements                                                   
+ *                                                                                  
+ * Java Card Assembly files support both the Java single line 
+ * comments and Java block 
+ * comments. Anything contained within a comment is ignored.
+ *
+ * Numbers may be specified using the standard Java notation. 
+ * Numbers prefixed 
+ * with a 0x are interpreted as
+ * base-16, numbers prefixed with a 0 are base-8, otherwise
+ * numbers are interpreted
+ * as base-10.
+ *
+*/                                                                                 
+/*
+ * A package is declared with the .package directive. Only one 
+ * package is allowed 
+ * inside a Java Card Assembly 
+ * file. All directives (.package, .class, et.al) are case
+ * insensitive. Package, 
+ * class, field and
+ * method names are case sensitive. For example, the .package
+ * directive may be written 
+ * as .PACKAGE,
+ * however the package names example and ExAmPle are different.
+ */
+.package example {
+    /*
+     * There are only two package directives. The .aid and .version
+     * directives declare
+     * the aid and version that appear in the Header Component of 
+     * the CAP file.
+     * These directives are required.
+    .aid 0:1:2:3:4:5:6:7:8:9:0xa:0xb:0xc:0xd:0xe:0xf;
+        // the AIDs length must be
+        // between 5 and 16 bytes inclusive
+    .version 0.1;        // major version &lt;DOT&gt; minor version
+    /*
+     * The imports block declares all of packages that this 
+     * package imports. The data
+     * that is declared
+     * in this section appears in the Import Component of the 
+     * CAP file. The ordering
+     * of the entries
+     * within this block define the package tokens which must be 
+     * used within this
+     * package. The imports
+     * block is optional, but all packages except for java/lang 
+     * import at least 
+     * java/lang. There should
+     * be only one imports block within a package.
+     */
+    .imports {
+        0xa0:0x00:0x00:0x00:0x62:0x00:0x01 1.0;    
+        // java/lang aid &lt;SPACE&gt;  
+        // java/lang major version &lt;DOT&gt; java/lang minor version
+        0:1:2:3:4:5 0.1;                        // package test2
+        1:1:2:3:4:5 0.1;                        // package test3
+        2:1:2:3:4:5 0.1;                        // package test4
+    }
+    /*
+     * The applet block declares all of the applets within 
+     * this package. The data
+     * declared within this block appears
+     * in the Applet Component of the CAP file. This section may 
+     * be omitted if this
+     * package declares no applets. There 
+     * should be only one applet block within a package.
+     */
+    .applet {
+        6:4:3:2:1:0 test1;    // the class name of a class within this
+                             // package which
+        7:4:3:2:1:0 test2;   // contains the method install([BSB)V
+        8:4:3:2:1:0 test3;
+    }
+    /*
+     * The constant pool block declares all of the constant 
+     * pool's entries in the
+     * Constant Pool Component. The positional
+     * ordering of the entries within the constant pool block 
+     * define the constant pool
+     * indices used within this package.
+     * There should be only one constant pool block within a package.
+     *
+     * There are six types of constant pool entries. Each of these
+     * entries directly
+     * corresponds to the constant pool
+     * entries as defined in the Constant Pool Component. 
+     *
+     * The commented numbers which follow each line are the constant
+     * pool indexes
+     * which will be used within this package.
+     */
+    .constantPool {
+        /*
+         * The first six entries declare constant pool entries that
+         * are contained in
+         * other packages.
+         * Note that superMethodRef are always declared internal
+         * entry. 
+         */
+        classRef    0.0;     // 0    package token 0, class token 0
+        instanceFieldRef 1.0.2;// 1  package token 1, class token 0,
+                              //   instance field token 2
+        virtualMethodRef 2.0.2; // 2 package token 2, class token 0,
+                    //  instance field token 2
+        classRef    0.3;  // 3 package token 0, class token 3
+        staticFieldRef  1.0.4;   // 4 package token 1, class token 0,
+                    //      field token 4
+        staticMethodRef  2.0.5;  // 5 package token 2, class token 0,
+                    //      method token 5
+        /*
+         * The next five entries declare constant pool entries
+         * relative to this class.
+         *
+        classRef    test0;        // 6
+        instanceFieldRef    test1/field1;        // 7
+        virtualMethodRef    test1/method1()V;        // 8
+        superMethodRef  test9/equals(Ljava/lang/Object;)Z;     // 9
+        staticFieldRef    test1/field0;        // 10
+        staticMethodRef    test1/method3()V;        // 11
+    }
+    /*
+     * The class directive declares a class within the Class Component
+     * of a CAP file.
+     * All classes except java/lang/Object should extend an internal
+     * or external
+     * class. There can be
+     * zero or more class entries defined within a package.
+     * 
+     * for classes which extend a external class, the grammar is:
+     * .class modifiers* class_name class_token extends
+     * packageToken.ClassToken
+     *
+     * for classes which extend a class within this package, 
+     * the grammar is:
+     * .class modifiers* class_name class_token extends className
+     *
+     * The modifiers which are allowed are defined by the Java Card
+     * language subset.
+     * The class token is required for public and protected classes,
+     * and should not be
+     * present for other classes.
+     */
+    .class final public test1 0 extends 0.0 {
+        /*
+         * The fields directive declares the fields within this class.
+         * There should
+         * be only one fields
+         * block per class.
+         */
+        .fields {
+            public static int field0 0;
+            public int field1 0;
+        }
+        /*
+         * The public method table declares the virtual methods within
+         * this classes
+         * public virtual method
+         * table. The number following the directive is the method
+         * table base (See the
+         * Class Component specification).
+         *
+         * Method names declared in this table are relative to 
+         * this class. This
+         * directive is required even if there
+         * are not virtual methods in this class. This is necessary
+         * to establish the
+         * method table base.
+         */
+        .publicmethodtable 1 {
+            equals(Ljava/lang/Object;)Z;
+            method1()V;
+            method2()V;
+        }
+        /*
+         * The package method table declares the virtual methods
+         * within this classes
+         * package virtual method
+         * table. The format of this table is identical to the public
+         * method table.
+         */
+        .packagemethodtable 0 {}
+        .method public method1()V 1 { return; }
+        .method public method2()V 2 { return; }
+        .method protected static native method3()V 0 { }
+        .method public static install([BSB)V 1 { return; }
+    }
+    .class final public test9 9 extends test1 {
+        .publicmethodtable 0 {
+            equals(Ljava/lang/Object;)Z;
+            method1()V;
+            method2()V;
+        }
+        .packagemethodtable 0 {}
+        .method public equals(Ljava/lang/Object;)Z 0 {
+            invokespecial 9;
+            return;
+        }
+    }
+    .class final public test0 1 extends 0.0 {
+        .Fields {
+            // access_flag, type, name [token [static Initializer]] ;
+            public static byte field0 4 = 10;
+            public static byte[] field1 0;
+            public static boolean field2 1;
+            public short field4 2;
+            public int field3 0;
+        }
+        .PublicMethodTable 1 {
+            equals(Ljava/lang/Object;)Z;
+            abc()V;                  // method must be in this class
+            def()V;
+            labelTest()V;
+            instructions()V;
+        }
+        .PackageMethodTable 0 {
+            ghi()V;                  // method must be in this class
+            jkl()V;
+        }
+        // if the class implements more than one interface, multiple
+        // interfaceInfoTables will be present.
+    .implementedInterfaceInfoTable
+    .interface 1.0 {   // java/rmi/Remote
+    }
+    .interface RemoteAccount { // The table contains method tokens
+    10;  // getBalance()S
+    9;  // debit(S)V
+    8;  // credit(S)V
+    11;  // setAccountNumber([B)V
+    12;  // getAccountNumber()[B
+    }
+  }
+    .implementedRemoteInterfaceInfoTable { // The table contains
+                                           // method tokens
+    // excluding java.rmi.Remote
+    .interface RemoteAccount { // Contains method tokens
+    getBalance()S   10;   // getBalance()S
+    debit(S)V       9;   // debit(S)V
+    credit(S)V      8;   // credit(S)V
+    setAccountNumber([B)V   11;  // setAccountNumber([B)V
+    getAccountNumber()[B    12;  // getAccountNumber()[B
+    }
+    }
+        /*
+         * Declaration of 2 public visible virtual methods and two
+         * package visible
+         * virtual methods..
+         */
+        .method public abc()V 1 {
+            return;
+        }
+        .method public def()V 2 {
+            return;
+        }
+        .method ghi()V 0x80 {               // per the CAP file
+                                 //specification, method tokens 
+                             // for package visible methods
+            return; // must have the most significant bit set to 1.
+        }
+        .method jkl()V 0x81 {
+            return;
+        }
+        /*
+         * This method illustrates local labels and exception table
+         * entries. Labels
+         * are local to each
+         * method. No restrictions are placed on label names except
+         * that they must
+         * begin with an alphabetic
+         * character. Label names are case insensitive.
+         *
+         * Two method directives are supported, .stack and .locals.
+         * These
+         * directives are used to 
+         * create the method header for each method. If a method
+         * directive is omitted,
+         * the value 0 will be used.
+         *
+         */
+        .method public static install([BSB)V 0 {
+            .stack 0;
+            .locals 0;
+l0:            
+l1:            
+l2:            
+l3:            
+l4:            
+l5:            
+            return;
+            /*
+             * Each method may optionally declare an 
+             * exception table. The start offset,
+             * end offset and handler offset
+             * may be specified numerically, or with a 
+             * label. The format of this table
+             * is different from the exception 
+             * tables contained within a CAP file. In a 
+             * CAP file, there is no end
+             * offset, instead the length from the 
+             * starting offset is specified. In the Java Card Assembly 
+             * file an end offset is specified
+             * to allow editing of the
+             * instruction stream without having to recalculate 
+             * the exception table
+             * lengths manually.
+             */
+            .exceptionTable {
+                // start_offset end_offset handler_offset
+                // catch_type_index;
+                l0 l4 l5 3;
+                l1 l3 l5 3;
+            }
+        }
+        /*
+         * Labels can be used to specify the target of a 
+         * branch as well. 
+         * Here, forward and backward branches are
+         * illustrated.
+         */
+        .method public labelTest()V 3 {
+L1:            goto L2;
+            
+            
+L2:            goto L1;
+            
+            
+            goto_w L1;
+            
+            
+            goto_w L3;
+            
+            
+            
+L3:            return;
+        }
+        /*
+         * This method illustrates the use of each Java Card platform
+         * instruction for version 3.0.5. 
+         * Mnemonics are case insensitive.
+         * 
+         * See the Java Card virtual machine specification for 
+         * the specification of
+         * each instruction.
+         */
+        .method public instructions()V 4 {
+            aaload;
+            aastore;
+            aconst_null;
+   aload 0;
+   aload_0;
+   aload_1;
+   aload_2;
+   aload_3;
+   anewarray 0;
+   areturn;
+   arraylength;
+   astore 0;
+   astore_0;
+   astore_1;
+   astore_2;
+   astore_3;
+   athrow;
+   baload;
+   bastore;
+   bipush 0;
+   bspush 0;
+   checkcast 10 0;
+   checkcast 11 0;
+   checkcast 12 0;
+   checkcast 13 0;
+   checkcast 14 0;
+   dup2;
+   dup;
+   dup_x 0x11;
+   getfield_a 1;
+   getfield_a_this 1;
+   getfield_a_w 1;
+   getfield_b 1;
+   getfield_b_this 1;
+   getfield_b_w 1;
+   getfield_i 1;
+   getfield_i_this 1;
+   getfield_i_w 1;
+   getfield_s 1;
+   getfield_s_this 1;
+   getfield_s_w 1;
+   getstatic_a 4;
+   getstatic_b 4;
+   getstatic_i 4;
+   getstatic_s 4;
+   goto 0;
+   goto_w 0;
+   i2b;
+   i2s;
+   iadd;
+   iaload;
+   iand;
+   iastore;
+   icmp;
+   iconst_0;
+   iconst_1;
+   iconst_2;
+   iconst_3;
+   iconst_4;
+   iconst_5;
+   iconst_m1;
+   idiv;
+   if_acmpeq 0;
+   if_acmpeq_w 0;
+   if_acmpne 0;
+   if_acmpne_w 0;
+   if_scmpeq 0;
+   if_scmpeq_w 0;
+   if_scmpge 0;
+   if_scmpge_w 0;
+   if_scmpgt 0;
+   if_scmpgt_w 0;
+   if_scmple 0;
+   if_scmple_w 0;
+   if_scmplt 0;
+   if_scmplt_w 0;
+   if_scmpne 0;
+   if_scmpne_w 0;
+   ifeq 0;
+   ifeq_w 0;
+   ifge 0;
+   ifge_w 0;
+   ifgt 0;
+   ifgt_w 0;
+   ifle 0;
+   ifle_w 0;
+   iflt 0;
+   iflt_w 0;
+   ifne 0;
+   ifne_w 0;
+   ifnonnull 0;
+   ifnonnull_w 0;
+   ifnull 0;
+   ifnull_w 0;
+   iinc 0 0;
+   iinc_w 0 0;
+   iipush 0;
+   iload 0;
+   iload_0;
+   iload_1;
+   iload_2;
+   iload_3;
+   ilookupswitch 0 1 0 0;
+   impdep1;
+   impdep2;
+   imul;
+   ineg;
+   instanceof 10 0;
+   instanceof 11 0;
+   instanceof 12 0;
+   instanceof 13 0;
+   instanceof 14 0;
+   invokeinterface 0 0 0;
+   invokespecial 3;   // superMethodRef
+   invokespecial 5;   // staticMethodRef
+   invokestatic 5;
+   invokevirtual 2;
+   ior;
+   irem;
+   ireturn;
+   ishl;
+   ishr;
+   istore 0;
+   istore_0;
+   istore_1;
+   istore_2;
+   istore_3;
+   isub;
+   itableswitch 0 0 1 0 0;
+   iushr;
+   ixor;
+   jsr 0;
+   new 0;
+   newarray 10;
+   newarray 11;
+   newarray 12;
+   newarray 13;
+   newarray boolean[];        // array types may be declared numerically or
+   newarray byte[];        // symbolically.
+   newarray short[];
+   newarray int[];
+   nop;
+   pop2;
+   pop;
+   putfield_a 1;
+   putfield_a_this 1;
+   putfield_a_w 1;
+   putfield_b 1;
+   putfield_b_this 1;
+   putfield_b_w 1;
+   putfield_i 1;
+   putfield_i_this 1;
+   putfield_i_w 1;
+   putfield_s 1;
+   putfield_s_this 1;
+   putfield_s_w 1;
+   putstatic_a 4;
+   putstatic_b 4;
+   putstatic_i 4;
+   putstatic_s 4;
+   ret 0;
+   return;
+   s2b;
+   s2i;
+   sadd;
+   saload;
+   sand;
+   sastore;
+   sconst_0;
+   sconst_1;
+   sconst_2;
+   sconst_3;
+   sconst_4;
+   sconst_5;
+   sconst_m1;
+   sdiv;
+   sinc 0 0;
+   sinc_w 0 0;
+   sipush 0;
+   sload 0;
+   sload_0;
+   sload_1;
+   sload_2;
+   sload_3;
+   slookupswitch 0 1 0 0;
+   smul;
+   sneg;
+   sor;
+   srem;
+   sreturn;
+   sshl;
+   sshr;
+   sspush 0;
+   sstore 0;
+   sstore_0;
+   sstore_1;
+   sstore_2;
+   sstore_3;
+   ssub;
+   stableswitch 0 0 1 0 0;
+   sushr;
+   swap_x 0x11;
+   sxor;
+        }
+    }
+    .class public test2 2 extends 0.0 {
+        .publicMethodTable 0 {}
+   equals(Ljava/lang/Object;)Z;
+        .packageMethodTable 0 {}
+        .method public static install([BSB)V 0 {
+   .stack 0;
+   .locals 0;
+}
+   return;
+        }
+    }
+    .class public test3 3 extends test2 {
+    /*
+    * Declaration of static array initialization is done the same way
+    * as in Java
+    * Only one dimensional arrays are allowed in the 
+    * Java Card platform
+    * Array of zero elements, 1 element, n elements
+    */
+    .fields {
+        public static final int[] array0 0 = {}; //  [I
+        public static final byte[] array1 1 = {17}; //  [B
+        public static short[] arrayn 2 = {1,2,3,...,n}; //  [S
+    }
+        .publicMethodTable 0 {}
+   equals(Ljava/lang/Object;)Z;
+        .packageMethodTable 0 {}
+        .method public static install([BSB)V 0 {
+   .stack 0;
+   .locals 0;
+   return;
+        }
+    }
+    .interface public test4 4 extends 0.0 {
+    }
+}
+</pre></div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="appendices.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="additional-optional-ant-tasks.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

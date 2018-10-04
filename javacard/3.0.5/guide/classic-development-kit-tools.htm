@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Classic Development Kit Tools</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="The following tools are included in the development kit:" />
+<meta name="dcterms.created" content="2018-04-13T10:24:54Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Development Kit User Guide, Classic Edition" />
+<meta name="dcterms.identifier" content="E59602-03" />
+<meta name="dcterms.isVersionOf" content="JCUGC" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="classic-applet-development.htm" title="Previous" type="text/html" />
+<link rel="Next" href="using-classic-tools.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCUGC.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-216B44CC-1D30-4493-B585-EE153ADC7F96"></a> <span id="PAGE" style="display:none;">22/161</span> <!-- End Header -->
+<a id="JCUGC134"></a>
+<h1 id="JCUGC-GUID-216B44CC-1D30-4493-B585-EE153ADC7F96" class="sect1">Classic Development Kit Tools</h1>
+<div>
+<p>The following tools are included in the development kit:</p>
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Eclipse plug-in</span> - The plug-in provides a way to run the rest of the tools in this list from inside Eclipse. <a href="running-samples-eclipse.htm" title="To run a sample, you import the project, build the project, start the device, run the CAP script to install the code, and then run the sample-specific script. Detailed instructions are provided for running each of the samples using Eclipse. Some instructions vary in how they do a task, so that you can learn about the plug-in as you follow along.">Running the Samples in Eclipse</a></p>
+</li>
+<li>
+<p><span class="bold">apdutool</span> - A client-side tool used to send APDU commands to the RE and your on-card applet application. During the application deployment process, you can use it to read the output script file generated by <code class="codeph">scriptgen</code> to send it to the Card Manager application. See <a href="packaging-and-deploying-your-application.htm" title="This chapter describes how to prepare your applet application to be put into module JAR files and then deployed to a smart card. The off-card installer, the scriptgen tool, resides on your desktop and operates as a packager.">Packaging and Deploying Your Application</a>.</p>
+</li>
+<li>
+<p><span class="bold">capdump</span> - Creates an ASCII version of a CAP file. See <a href="working-cap-files.htm" title="This chapter describes how you can generate a CAP file from a given Java Card Assembly file using the capgen tool, and how you can produce an ASCII representation of a CAP file using the capdump tool.">Working With CAP Files</a>.</p>
+</li>
+<li>
+<p><span class="bold">capgen</span> - Generates a CAP file from a Java Card Assembly file. See <a href="working-cap-files.htm" title="This chapter describes how you can generate a CAP file from a given Java Card Assembly file using the capgen tool, and how you can produce an ASCII representation of a CAP file using the capdump tool.">Working With CAP Files</a>.</p>
+</li>
+<li>
+<p><span class="bold">classic_simulator</span> - Allows you to test your Java classes within the Eclipse IDE or from the command line. See <a href="debugging-applications.htm" title="This chapter describes the debug proxy tool that is included in the development kit. You can use it either within the Eclipse IDE or as a separate tool with any Java technology-enabled IDE.">Debugging Applications</a>.</p>
+</li>
+<li>
+<p><span class="bold">Converter</span> - Converts Java classes into a CAP file, a Java Card Assembly file, or an export file. See <a href="converting-and-exporting-java-class-files.htm" title="This chapter describes how to use the Converter tool, including the input files it can process and the output it produces. How to work with export files is also described.">Converting and Exporting Java Class Files</a>.</p>
+</li>
+<li>
+<p><span class="bold">cref</span> - Runs the RI from the command line. See <a href="using-reference-implementation.htm" title="This chapter describes how to run the Reference Implementation (RI). The RI provides a Java Card runtime environment (RE) executable for the Microsoft Windows platform, Java Card RE packages, and an installer applet.">Using the Reference Implementation</a>. There are three versions of <code class="codeph">cref</code> to handle various communication protocols.</p>
+</li>
+<li>
+<p><span class="bold">exp2text</span> - Enables you to view any export file in text format. See <a href="converting-and-exporting-java-class-files.htm" title="This chapter describes how to use the Converter tool, including the input files it can process and the output it produces. How to work with export files is also described.">Converting and Exporting Java Class Files</a>.</p>
+</li>
+<li>
+<p><span class="bold">on-card installer</span> - The on-card installer resides on the smart card and downloads Java Card technology packages to a smart card. It can also delete packages and applets. See <a href="packaging-and-deploying-your-application.htm" title="This chapter describes how to prepare your applet application to be put into module JAR files and then deployed to a smart card. The off-card installer, the scriptgen tool, resides on your desktop and operates as a packager.">Packaging and Deploying Your Application</a>.</p>
+</li>
+<li>
+<p><span class="bold">maskgen</span> - Produces a mask file from a set of Java Card Assembly files. See <a href="producing-mask-file-java-card-assembly-files.htm" title="This chapter describes how to use the maskgen tool to create a mask from Java Card Assembly and CAP files. The maskgen tool is not available or of use outside of a source release bundle, so you can disregard this chapter if you do not have a source release of the development kit. If you have a source release, you can localize locale-specific data associated with the maskgen tool, see Localizing With The Development Kit.">Producing a Mask File from Java Card Assembly Files</a>.</p>
+</li>
+<li>
+<p><span class="bold">Normalizer</span> - Allows version 2.2.2 applets to be deployed on the Java Card 3 Platform. See <a href="compatibility-classic-applets.htm" title="This chapter describes how to generate application module JAR files from classic applets using the Normalizer tool. These application modules contain classic CAP files and provide compatibility for the Java Card 3 platform by enabling classic applets to run on smart cards with implementations of either the Connected Edition or Classic Edition. See Working With CAP Files for more information on CAP files.">Compatibility for Classic Applets</a>.</p>
+</li>
+<li>
+<p><span class="bold">off-card verifier</span> - Verifies the contents of a smart card using <code class="codeph">verifycap</code>, <code class="codeph">verifyexp</code>, and <code class="codeph">verifyrev</code>. See <a href="verifying-cap-and-export-files.htm" title="This chapter describes off-card verification as a means for evaluating CAP and export files in a desktop environment. When applied to the set of CAP files that reside on a Java Card technology compliant smart card and the set of export files used to construct those CAP files, the Java Card technology-enabled off-card verifier provides the means to assert that the content of the smart card has been verified.">Verifying CAP and Export Files</a>.</p>
+</li>
+<li>
+<p><span class="bold">scriptgen</span> - The off-card installer, of which <code class="codeph">scriptgen</code> is a part, resides on the desktop and generates script files for <code class="codeph">apdutool</code>'s use. See <a href="packaging-and-deploying-your-application.htm" title="This chapter describes how to prepare your applet application to be put into module JAR files and then deployed to a smart card. The off-card installer, the scriptgen tool, resides on your desktop and operates as a packager.">Packaging and Deploying Your Application</a>.</p>
+</li>
+<li>
+<p><span class="bold">optional Ant tasks</span> - Additional, optional, and unsupported Ant tasks that can streamline development by combining the command line tools into useful groups of tasks. See <a href="setting-optional-ant-tasks.htm#GUID-D030D0EA-5B28-451F-A9F2-9C88B686F01F">Setting Up the Optional Ant Tasks</a>.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="classic-applet-development.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="using-classic-tools.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

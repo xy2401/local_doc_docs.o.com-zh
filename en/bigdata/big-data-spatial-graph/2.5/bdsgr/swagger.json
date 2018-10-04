@@ -1,0 +1,1303 @@
+
+{
+    "swagger":"2.0",
+    "info":{
+        "version":"2017.08.28",
+        "title":"REST API for Big Data Spatial and Graph",
+        "description":"The RESTful Web Services Spatial API is composed of the Vector Hadoop API, which uses the java Spatial Hadoop Java API, and the Vector Spark API, which uses the Spatial Spark Java API. The RESTful Web Services Spatial APIs contains services to spatially filter records and a subset of the functions available in the Hadoop and Spark java APIs. The record filtering examples show how to consume the service response with the Map API, and they show the service response on a map. The binning and clustering results can be also consumed by the Map API for display.",
+        "x-summary":"The RESTful Web Services Spatial API is composed of the Vector Hadoop API, which uses the java Spatial Hadoop Java API, and the Vector Spark API, which uses the Spatial Spark Java API."
+    },
+    "basePath":"/spatialviewer/api/v1",
+    "schemes":[
+        "http"
+    ],
+    "paths":{
+        "/indexes":{
+            "get":{
+                "tags":[
+                    "Vector Hadoop API"
+                ],
+                "summary":"List Hadoop spatial indexes",
+                "description":"List the spatial indexes that were created using the Hadoop API and that have their metadata in the directory index_metadata contained in the SpatialViewer HDFS working directory (see SpatialViewer configuration). ",
+                "operationId":"listHadoopSpatialIndexes",
+                "produces":[
+                    "application/json"
+                ],
+                "responses":{
+                    "200":{
+                        "description":"successful request",
+                        "schema":{
+                            "type":"object",
+                            "$ref":"#/definitions/ListHadoopIndexesResponse"
+                        }
+                    }
+                },
+                "x-internal-id":"indexes-get"
+            }
+        },
+        "/createIndex":{
+            "post":{
+                "tags":[
+                    "Vector Hadoop API"
+                ],
+                "summary":"Create a spatial index using the Hadoop API",
+                "description":" The index metadata directory is the directory index_metadata contained in the SpatialViewer HDFS working directory (see SpatialViewer configuration).",
+                "operationId":"createHadoopSpatialIndex",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"asynchronous",
+                        "in":"query",
+                        "type":"boolean",
+                        "default":false,
+                        "description":"if true the index is created asynchronously."
+                    },
+                    {
+                        "in":"body",
+                        "name":"body",
+                        "description":"Index details",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/HadoopIndexInfo"
+                        }
+                    }
+                ],
+                "responses":{
+                    "201":{
+                        "description":"successful index creation",
+                        "schema":{
+                            "type":"object",
+                            "$ref":"#/definitions/CreateHadoopIndexJobResponse"
+                        }
+                    },
+                    "202":{
+                        "description":"accepted asynchronous index creation",
+                        "schema":{
+                            "type":"object",
+                            "$ref":"#/definitions/AsyncCreateHadoopIndexJobResponse"
+                        }
+                    }
+                },
+                "x-internal-id":"createIndex-post"
+            }
+        },
+        "/filterByIndex":{
+            "get":{
+                "tags":[
+                    "Vector Hadoop API"
+                ],
+                "summary":"Filter spatially the records in a spatial index using the Hadoop API",
+                "description":" Note that you can use the service response as data source for the Map API to display the results on map. For example: \n<br>\n<br> // Default http method when fetching remote geospatial contents\n<br>OM.gv.setHttpMethod(\"GET\");\n<br>\n<br>tweetsLayer = \n<strong>new</strong> OM.layer.VectorLayer(\"Result\", \n<br> { \n<br> def:{ \n<br> type:OM.layer.VectorLayer.TYPE_DATAPACK, \n<br> url:'http://\n<oracle_big_data_spatialviewer>\n :8045/spatialviewer/api/v1/filterByIndex?indexName=TweetsJune&amp;queryWindow={\"type\":\"Rectangle\",\"srid\":8307,\"coordinates\":[-116.71875109864604,29.0139035635888,-59.06250208499334,50.80315612882312]}&amp;heatMapResult=false&amp;mbrFilter=true', \n <br> jsonp: \n <strong>true</strong>}, \n <br> boundingTheme: \n <strong>true</strong>});\n</oracle_big_data_spatialviewer>",
+                "operationId":"filterByHadoopIndex",
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"indexName",
+                        "in":"query",
+                        "type":"string",
+                        "description":"The index name. <br>Example&#58; TweetsJune",
+                        "required":true
+                    },
+                    {
+                        "name":"queryWindow",
+                        "in":"query",
+                        "type":"string",
+                        "description":"The queryWindow in GeoJSON format. <br> Note that the query window can be created using the Map API toolbar standard tools like the Rectangle tool&#58; <br>var queryWindow = toolbar.getBuiltInTool(OM.control.ToolBar.BUILTIN_RECTANGLE).getGeometry().transform(8307).toString();<br><br>Example&#58; {\"type\"&#58;\"Rectangle\",\"srid\"&#58;8307,\"coordinates\"&#58;[-116.71875109864604,29.0139035635888,-59.06250208499334,50.80315612882312]}",
+                        "required":true
+                    },
+                    {
+                        "name":"heatMapResult",
+                        "in":"query",
+                        "type":"boolean",
+                        "default":false,
+                        "description":"true if we want to get a heat map as result. If false then the data actual shape will be returned.  False by default. Note that if the number of returned data is expected to be huge then it is recommended to set heatMapResult to true."
+                    },
+                    {
+                        "name":"mbrFilter",
+                        "in":"query",
+                        "type":"boolean",
+                        "default":false,
+                        "description":"If the parameter is true the results will be filtered only using the RTree data (that is data in a particular MBR). If the parameter is false then a second filtering is used. That is if the queryWindow is not an MBR then an extra filtering will be made to match the provided geometry. If possible and for better performance set mbrFilter to true. The parameter will be ignored if the result will be a heat map. False by default."
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"successful request",
+                        "schema":{
+                            "type":"object",
+                            "$ref":"#/definitions/RecordsInfo"
+                        }
+                    }
+                },
+                "x-internal-id":"filterByIndex-get"
+            }
+        },
+        "/indexes/{indexName}":{
+            "delete":{
+                "tags":[
+                    "Vector Hadoop API"
+                ],
+                "summary":"Delete a spatial index",
+                "description":"",
+                "operationId":"deleteHadoopIndex",
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"indexName",
+                        "in":"path",
+                        "description":"The index name.",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"successful request",
+                        "schema":{
+                            "type":"object",
+                            "$ref":"#/definitions/DeleteHadoopIndexJobResponse"
+                        }
+                    }
+                },
+                "x-internal-id":"indexes-{indexName}-delete"
+            }
+        },
+        "/categorizationJob":{
+            "post":{
+                "tags":[
+                    "Vector Hadoop API"
+                ],
+                "summary":"Service to classify the data into hierarchical entities",
+                "description":"This service provides a way to classify the data into hierarchical entities. In a given set of catalogs with a defined level of boundaries such as continents, countries and states, it is possible to join a record of the user data to a record of each level of the hierarchy data set. For example it can be used to show all the twitters from specified HDFS files in the hierarchy World Continents/World Countries/World State Provinces/World Cities.",
+                "operationId":"categorizationJob",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"asynchronous",
+                        "in":"query",
+                        "type":"boolean",
+                        "default":false,
+                        "description":"if true the operation is runned asynchronously."
+                    },
+                    {
+                        "in":"body",
+                        "name":"body",
+                        "description":"Job details",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/CategorizationJobInfo"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"Successful request. <br><br>The response contains the location of the results in HDFS. <br><br>Additionally When the job finishes the results will be saved in the folder categorization_results contained in the SpatialViewer local working directory (see SpatialViewer configuration).",
+                        "schema":{
+                            "type":"object",
+                            "$ref":"#/definitions/CategorizationJobResponse"
+                        }
+                    },
+                    "202":{
+                        "description":"accepted asynchronous request. <br><br>The response contains the resource manager web application URL to track the job. <br><br>Additionally When the job finishes the results will be saved in the folder categorization_results contained in the SpatialViewer local working directory (see SpatialViewer configuration).",
+                        "schema":{
+                            "type":"object",
+                            "$ref":"#/definitions/AsyncCategorizationJobResponse"
+                        }
+                    }
+                },
+                "x-internal-id":"categorizationJob-post"
+            }
+        },
+        "/binningJob":{
+            "post":{
+                "tags":[
+                    "Vector Hadoop API"
+                ],
+                "summary":"This service performs spatial binning over a spatial dataset.",
+                "operationId":"binningJob",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"asynchronous",
+                        "in":"query",
+                        "type":"boolean",
+                        "default":false,
+                        "description":"if true the operation is runned asynchronously."
+                    },
+                    {
+                        "in":"body",
+                        "name":"body",
+                        "description":"Job details",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/BinningJobInfo"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"Successful request. <br><br>The response contains the location of the results in HDFS. <br><br>Additionally When the job finishes the results will be saved in the folder binning_results contained in the SpatialViewer local working directory (see SpatialViewer configuration). The result can be used as data source of the Map API VectorLayer (OM.layer.VectorLayer) for display.",
+                        "schema":{
+                            "type":"object",
+                            "$ref":"#/definitions/BinningJobResponse"
+                        }
+                    },
+                    "202":{
+                        "description":"accepted asynchronous request. <br><br>The response contains the resource manager web application URL to track the job. <br><br>Additionally When the job finishes the results will be saved in the folder binning_results contained in the SpatialViewer local working directory (see SpatialViewer configuration). The result can be used as data source of the Map API VectorLayer (OM.layer.VectorLayer) for display.",
+                        "schema":{
+                            "type":"object",
+                            "$ref":"#/definitions/AsyncBinningJobResponse"
+                        }
+                    }
+                },
+                "x-internal-id":"binningJob-post"
+            }
+        },
+        "/clusteringJob":{
+            "post":{
+                "tags":[
+                    "Vector Hadoop API"
+                ],
+                "summary":"This service is used to find spatial clusters in a data set",
+                "description":" The service uses a distributed version of the K-means algorithm.",
+                "operationId":"clusteringJob",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"asynchronous",
+                        "in":"query",
+                        "type":"boolean",
+                        "default":false,
+                        "description":"if true the operation is runned asynchronously."
+                    },
+                    {
+                        "in":"body",
+                        "name":"body",
+                        "description":"Job details",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/ClusteringJobInfo"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"Successful request. <br><br>The response contains the location of the results in HDFS. <br><br>When the job finish the results will be saved in the folder clustering_results contained in the SpatialViewer local working directory (see SpatialViewer configuration). The result can be used as data source of the Map API VectorLayer (OM.layer.VectorLayer) for display.",
+                        "schema":{
+                            "type":"object",
+                            "$ref":"#/definitions/ClusteringJobResponse"
+                        }
+                    },
+                    "202":{
+                        "description":"accepted asynchronous request. <br><br>The response contains the resource manager web application URL to track the job. <br><br>Additionally When the job finishes the results will be saved in the folder clustering_results contained in the SpatialViewer local working directory (see SpatialViewer configuration). The result can be used as data source of the Map API VectorLayer (OM.layer.VectorLayer) for display.",
+                        "schema":{
+                            "type":"object",
+                            "$ref":"#/definitions/AsyncClusteringJobResponse"
+                        }
+                    }
+                },
+                "x-internal-id":"clusteringJob-post"
+            }
+        },
+        "/spark/indexes":{
+            "get":{
+                "tags":[
+                    "Vector Spark API"
+                ],
+                "summary":"List Spark spatial indexes",
+                "description":"List the spatial indexes that were created using the Spark API and that have their metadata in the directory spark_index_metadata contained in the SpatialViewer local working directory (see SpatialViewer configuration). ",
+                "operationId":"listSparkSpatialIndexes",
+                "produces":[
+                    "application/json"
+                ],
+                "responses":{
+                    "200":{
+                        "description":"successful request",
+                        "schema":{
+                            "type":"object",
+                            "$ref":"#/definitions/ListHadoopIndexesResponse"
+                        }
+                    }
+                },
+                "x-internal-id":"spark-indexes-get"
+            }
+        },
+        "/spark/createIndex":{
+            "post":{
+                "tags":[
+                    "Vector Spark API"
+                ],
+                "summary":"Create a spatial index using the Spark API",
+                "description":" The index metadata directory is the directory spark_index_metadata contained in the SpatialViewer local working directory (see SpatialViewer configuration).",
+                "operationId":"createSparkSpatialIndex",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"asynchronous",
+                        "in":"query",
+                        "type":"boolean",
+                        "default":false,
+                        "description":"if true the index is created asynchronously."
+                    },
+                    {
+                        "in":"body",
+                        "name":"body",
+                        "description":"Index details",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/SparkIndexInfo"
+                        }
+                    }
+                ],
+                "responses":{
+                    "201":{
+                        "description":"successful index creation",
+                        "schema":{
+                            "type":"object",
+                            "$ref":"#/definitions/CreateSparkIndexJobResponse"
+                        }
+                    },
+                    "202":{
+                        "description":"accepted asynchronous index creation",
+                        "schema":{
+                            "type":"object",
+                            "$ref":"#/definitions/AsyncCreateSparkIndexJobResponse"
+                        }
+                    }
+                },
+                "x-internal-id":"spark-createIndex-post"
+            }
+        },
+        "/spark/filterByIndex":{
+            "get":{
+                "tags":[
+                    "Vector Spark API"
+                ],
+                "summary":"Filter spatially the records in a spatial index using the Spark API",
+                "description":" Note that you can use the service response as data source for the Map API to display the results on map. For example: \n<br>\n<br> // Default http method when fetching remote geospatial contents\n<br>OM.gv.setHttpMethod(\"GET\");\n<br>\n<br>tweetsLayer = \n<strong>new</strong> OM.layer.VectorLayer(\"Result\", \n<br> { \n<br> def:{ \n<br> type:OM.layer.VectorLayer.TYPE_DATAPACK, \n<br> url:'http://\n<oracle_big_data_spatialviewer>\n :8045/spatialviewer/api/v1/spark/filterByIndex?indexPath=/user/oracle/spatialviewer/TweetsJune&amp;queryWindow={\"type\":\"Rectangle\",\"srid\":8307,\"coordinates\":[-116.71875109864604,29.0139035635888,-59.06250208499334,50.80315612882312]}', \n <br> jsonp: \n <strong>true</strong>}, \n <br> boundingTheme: \n <strong>true</strong>});\n</oracle_big_data_spatialviewer>",
+                "operationId":"filterBySparkIndex",
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"indexPath",
+                        "in":"query",
+                        "type":"string",
+                        "description":"The index path in HDFS. <br>Example&#58; /user/oracle/spatialviewer/TweetsJune",
+                        "required":true
+                    },
+                    {
+                        "name":"queryWindow",
+                        "in":"query",
+                        "type":"string",
+                        "description":"The queryWindow in GeoJSON format. <br> Note that the query window can be created using the Map API toolbar standard tools like the Rectangle tool&#58; <br>var queryWindow = toolbar.getBuiltInTool(OM.control.ToolBar.BUILTIN_RECTANGLE).getGeometry().transform(8307).toString();<br><br>Example&#58; {\"type\"&#58;\"Rectangle\",\"srid\"&#58;8307,\"coordinates\"&#58;[-116.71875109864604,29.0139035635888,-59.06250208499334,50.80315612882312]}",
+                        "required":true
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"successful request",
+                        "schema":{
+                            "type":"object",
+                            "$ref":"#/definitions/RecordsInfo"
+                        }
+                    }
+                },
+                "x-internal-id":"spark-filterByIndex-get"
+            }
+        },
+        "/spark/indexes/{indexName}":{
+            "delete":{
+                "tags":[
+                    "Vector Spark API"
+                ],
+                "summary":"Delete a spatial index",
+                "description":"",
+                "operationId":"deleteSparkIndex",
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"indexName",
+                        "in":"path",
+                        "description":"The index name.",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"successful request",
+                        "schema":{
+                            "type":"object",
+                            "$ref":"#/definitions/DeleteSparkIndexJobResponse"
+                        }
+                    }
+                },
+                "x-internal-id":"spark-indexes-{indexName}-delete"
+            }
+        }
+    },
+    "definitions":{
+        "HadoopIndexInfo":{
+            "type":"object",
+            "properties":{
+                "indexName":{
+                    "type":"string",
+                    "description":"The index name.",
+                    "example":"TweetsJune"
+                },
+                "dataPath":{
+                    "type":"string",
+                    "description":"Path of the file or files to index in HDFS.",
+                    "example":"/user/oracle/spatialviewer/tweetsJune.json"
+                },
+                "indexPath":{
+                    "type":"string",
+                    "description":"New index path. This is the job output path.",
+                    "example":"/user/oracle/spatialviewer/TweetsJune"
+                },
+                "srid":{
+                    "type":"integer",
+                    "description":"SRID of the geometries to be indexed.",
+                    "format":"int32",
+                    "example":8307
+                },
+                "tolerance":{
+                    "type":"number",
+                    "description":"Double value that represents the tolerance used when performing spatial operations.",
+                    "format":"double",
+                    "example":0.05
+                },
+                "jarWithNeededClasses":{
+                    "type":"string",
+                    "description":"jar name with the user-defined classes like custom RecordInfoProvider or InputFormat. If the InputFormat class or the RecordInfoProvider class is not in the API, or in the hadoop API classes, then a jar with the user-defined classes must be provided. To be able to use this jar the user must add it in the /opt/oracle/oracle-spatial-graph/spatial/web-server/spatialviewer/WEB-INF/lib directory and restart the server. Optional property.",
+                    "example":"myjar.jar"
+                },
+                "inputFormatClass":{
+                    "type":"string",
+                    "description":"The input format class.",
+                    "example":"oracle.spatial.hadoop.vector.geojson.mapred.GeoJsonInputFormat"
+                },
+                "recordInfoProviderClass":{
+                    "type":"string",
+                    "description":"The class that provides the spatial information.",
+                    "example":"oracle.spatial.hadoop.vector.geojson.GeoJsonRecordInfoProvider"
+                },
+                "useMVSuggest":{
+                    "type":"string",
+                    "description":"True if the MVSuggest (data enrichment) service must be used, false otherwise.",
+                    "example":false
+                },
+                "jobtemplates":{
+                    "type":"string",
+                    "description":"When using the MVSuggest service, the user can define the templates (file names) used to create the index. See examples on how to use the MVSuggest (data enrichment service) in the folder /opt/oracle/oracle-spatial-graph/spatial/vector/examples. Optional property.",
+                    "example":"world_continents,world_countries,world_states_provinces"
+                }
+            }
+        },
+        "SparkIndexInfo":{
+            "type":"object",
+            "properties":{
+                "indexName":{
+                    "type":"string",
+                    "description":"The index name.",
+                    "example":"TweetsJune"
+                },
+                "dataPath":{
+                    "type":"string",
+                    "description":"Path of the file or files to index in HDFS.",
+                    "example":"/user/oracle/spatialviewer/tweetsJune.json"
+                },
+                "indexPath":{
+                    "type":"string",
+                    "description":"New index path. This is the job output path.",
+                    "example":"/user/oracle/spatialviewer/TweetsJune"
+                },
+                "srid":{
+                    "type":"integer",
+                    "description":"SRID of the geometries to be indexed.",
+                    "format":"int32",
+                    "example":8307
+                },
+                "tolerance":{
+                    "type":"number",
+                    "description":"Double value that represents the tolerance used when performing spatial operations.",
+                    "format":"double",
+                    "example":0.05
+                },
+                "jarWithNeededClasses":{
+                    "type":"string",
+                    "description":"jar name with the user-defined classes like custom RecordInfoProvider or InputFormat. If the InputFormat class or the RecordInfoProvider class is not in the API, or in the hadoop API classes, then a jar with the user-defined classes must be provided. To be able to use this jar the user must add it in the /opt/oracle/oracle-spatial-graph/spatial/web-server/spatialviewer/WEB-INF/lib directory and restart the server. Optional property.",
+                    "example":"myjar.jar"
+                },
+                "inputFormatClass":{
+                    "type":"string",
+                    "description":"The input format class. Optional. If the input format class is not specified then the SparkContext's textFile is used.",
+                    "example":"oracle.spatial.hadoop.vector.geojson.mapred.GeoJsonInputFormat"
+                },
+                "keyClass":{
+                    "type":"string",
+                    "description":"Class of the input format keys. This property is required if an input format is defined.",
+                    "example":"org.apache.hadoop.io.LongWritable"
+                },
+                "valueClass":{
+                    "type":"string",
+                    "description":"Class of the input format values. This property is required if an input format is defined.",
+                    "example":"org.apache.hadoop.io.Text"
+                },
+                "recordInfoProviderClass":{
+                    "type":"string",
+                    "description":"The class that provides the spatial information.",
+                    "example":"oracle.spatial.spark.vector.recordinfoprovider.GeoJsonRecordInfoProvider"
+                }
+            }
+        },
+        "CategorizationJobInfo":{
+            "type":"object",
+            "properties":{
+                "useIndex":{
+                    "type":"boolean",
+                    "description":"true if an index is used as input, false otherwise",
+                    "example":true
+                },
+                "indexName":{
+                    "type":"string",
+                    "description":"The index name. Specify this property if useIndex is true.",
+                    "example":"TweetsJune"
+                },
+                "dataPath":{
+                    "type":"string",
+                    "description":"Path of the file or files in HDFS to categorize. Specify this property if useIndex is false.",
+                    "example":"/user/oracle/spatialviewer/tweetsJune.json"
+                },
+                "jarWithNeededClasses":{
+                    "type":"string",
+                    "description":"jar name with the user-defined classes like custom RecordInfoProvider or InputFormat. If the InputFormat class or the RecordInfoProvider class is not in the API, or in the hadoop API classes, then a jar with the user-defined classes must be provided. To be able to use this jar the user must add it in the /opt/oracle/oracle-spatial-graph/spatial/web-server/spatialviewer/WEB-INF/lib directory and restart the server. Optional property that can be set if if useIndex is false.",
+                    "example":"myjar.jar"
+                },
+                "inputFormatClass":{
+                    "type":"string",
+                    "description":"The input format class. Specify this property if useIndex is false.",
+                    "example":"oracle.spatial.hadoop.vector.geojson.mapred.GeoJsonInputFormat"
+                },
+                "recordInfoProviderClass":{
+                    "type":"string",
+                    "description":"The class that provides the spatial information. Specify this property if useIndex is false.",
+                    "example":"oracle.spatial.hadoop.vector.geojson.GeoJsonRecordInfoProvider"
+                },
+                "useMVSuggest":{
+                    "type":"string",
+                    "description":"If the MVSuggest service has to be used or not. If the geometry must be found from a location string, then use the MVSuggest service. In this case the provided RecordInfoProvider has to implement the interface oracle.spatial.hadoop.vector.LocalizableRecordInfoProvider. See examples on how to use the MVSuggest (data enrichment service) in the folder /opt/oracle/oracle-spatial-graph/spatial/vector/examples. Specify this property if useIndex is false.",
+                    "example":false
+                },
+                "jobtemplates":{
+                    "type":"string",
+                    "description":"The templates to create the thematic maps (file names). The examples in the folder /opt/oracle/oracle-spatial-graph/spatial/vector/examples provide commonly used templates like countries or world regions templates.",
+                    "example":"world_continents,world_countries,world_states_provinces"
+                },
+                "outputPath":{
+                    "type":"string",
+                    "description":"The Hadoop job output path.",
+                    "example":"/user/oracle/spatialviewer/catResult"
+                },
+                "resultName":{
+                    "type":"string",
+                    "description":"The result name.",
+                    "example":"Categorization TweetsJune"
+                }
+            }
+        },
+        "BinningJobInfo":{
+            "type":"object",
+            "properties":{
+                "useIndex":{
+                    "type":"boolean",
+                    "description":"true if an index is used as input, false otherwise",
+                    "example":true
+                },
+                "indexName":{
+                    "type":"string",
+                    "description":"The index name. Specify this property if useIndex is true.",
+                    "example":"TweetsJune"
+                },
+                "dataPath":{
+                    "type":"string",
+                    "description":"Path of the file or files in HDFS. Specify this property if useIndex is false.",
+                    "example":"/user/oracle/spatialviewer/tweetsJune.json"
+                },
+                "jarWithNeededClasses":{
+                    "type":"string",
+                    "description":"jar name with the user-defined classes like custom RecordInfoProvider or InputFormat. If the InputFormat class or the RecordInfoProvider class is not in the API, or in the hadoop API classes, then a jar with the user-defined classes must be provided. To be able to use this jar the user must add it in the /opt/oracle/oracle-spatial-graph/spatial/web-server/spatialviewer/WEB-INF/lib directory and restart the server. Optional property that can be set if if useIndex is false.",
+                    "example":"myjar.jar"
+                },
+                "inputFormatClass":{
+                    "type":"string",
+                    "description":"The input format class. Specify this property if useIndex is false.",
+                    "example":"oracle.spatial.hadoop.vector.geojson.mapred.GeoJsonInputFormat"
+                },
+                "recordInfoProviderClass":{
+                    "type":"string",
+                    "description":"The class that provides the spatial information. Specify this property if useIndex is false.",
+                    "example":"oracle.spatial.hadoop.vector.geojson.GeoJsonRecordInfoProvider"
+                },
+                "srid":{
+                    "type":"integer",
+                    "description":"SRID of the geometries. Specify this property if useIndex is false.",
+                    "format":"int32",
+                    "example":8307
+                },
+                "tolerance":{
+                    "type":"number",
+                    "description":"Double value that represents the tolerance used when performing spatial operations. Specify this property if useIndex is false.",
+                    "format":"double",
+                    "example":0.05
+                },
+                "gridMinX":{
+                    "type":"number",
+                    "description":"Minium X value of the binning grid minimum bounding rectangle (MBR).",
+                    "format":"double",
+                    "example":-175
+                },
+                "gridMinY":{
+                    "type":"number",
+                    "description":"Minium Y value of the binning grid minimum bounding rectangle (MBR).",
+                    "format":"double",
+                    "example":-75
+                },
+                "gridMaxX":{
+                    "type":"number",
+                    "description":"Maximum X value of the binning grid minimum bounding rectangle (MBR).",
+                    "format":"double",
+                    "example":175
+                },
+                "gridMaxY":{
+                    "type":"number",
+                    "description":"Maximum Y value of the binning grid minimum bounding rectangle (MBR).",
+                    "format":"double",
+                    "example":75
+                },
+                "shape":{
+                    "type":"string",
+                    "description":"Shape of the binning grid cells. The possible values are hexagon or rectangle.",
+                    "default":"hexagon",
+                    "enum":[
+                        "hexagon",
+                        "rectangle"
+                    ],
+                    "example":"hexagon"
+                },
+                "cellWidth":{
+                    "type":"number",
+                    "description":"Width of the hexagon or rectangle.",
+                    "format":"double",
+                    "example":5
+                },
+                "cellHeight":{
+                    "type":"number",
+                    "description":"If the shape is a rectangle then specify the rectangle's height.",
+                    "format":"double",
+                    "example":2.5
+                },
+                "thematicAttribute":{
+                    "type":"string",
+                    "description":"The thematic field can be one of the fields returned by the function getExtraFields of the specified RecordInfoProvider class or the count attribute that specifies the number of records in the bin.",
+                    "example":"count"
+                },
+                "outputPath":{
+                    "type":"string",
+                    "description":"The Hadoop job output path.",
+                    "example":"/user/oracle/spatialviewer/binResult"
+                },
+                "resultName":{
+                    "type":"string",
+                    "description":"The result name.",
+                    "example":"Binning Count TweetsJune"
+                }
+            }
+        },
+        "ClusteringJobInfo":{
+            "type":"object",
+            "properties":{
+                "dataPath":{
+                    "type":"string",
+                    "description":"Path of the file or files in HDFS.",
+                    "example":"/user/oracle/spatialviewer/tweetsJune.json"
+                },
+                "jarWithNeededClasses":{
+                    "type":"string",
+                    "description":"jar name with the user-defined classes like custom RecordInfoProvider or InputFormat. If the InputFormat class or the RecordInfoProvider class is not in the API, or in the hadoop API classes, then a jar with the user-defined classes must be provided. To be able to use this jar the user must add it in the /opt/oracle/oracle-spatial-graph/spatial/web-server/spatialviewer/WEB-INF/lib directory and restart the server. Optional property.",
+                    "example":"myjar.jar"
+                },
+                "inputFormatClass":{
+                    "type":"string",
+                    "description":"The input format class.",
+                    "example":"oracle.spatial.hadoop.vector.geojson.mapred.GeoJsonInputFormat"
+                },
+                "recordInfoProviderClass":{
+                    "type":"string",
+                    "description":"The class that provides the spatial information.",
+                    "example":"oracle.spatial.hadoop.vector.geojson.GeoJsonRecordInfoProvider"
+                },
+                "srid":{
+                    "type":"integer",
+                    "description":"SRID of the geometries.",
+                    "format":"int32",
+                    "example":8307
+                },
+                "tolerance":{
+                    "type":"number",
+                    "description":"Double value that represents the tolerance used when performing spatial operations. ",
+                    "format":"double",
+                    "example":0.05
+                },
+                "numberOfClusters":{
+                    "type":"integer",
+                    "description":"Number of clusters to be found.",
+                    "format":"int32",
+                    "example":4
+                },
+                "outputPath":{
+                    "type":"string",
+                    "description":"The Hadoop job output path.",
+                    "example":"/user/oracle/spatialviewer/clusteringResult"
+                },
+                "resultName":{
+                    "type":"string",
+                    "description":"The result name.",
+                    "example":"Clustering Tweets June"
+                }
+            }
+        },
+        "RecordsInfo":{
+            "type":"object",
+            "properties":{
+                "type":{
+                    "type":"string",
+                    "example":"FeatureCollection"
+                },
+                "copyright":{
+                    "type":"string",
+                    "example":"Copyright (c) 2014, 2015, Oracle and/or its affiliates. All rights reserved."
+                },
+                "srs":{
+                    "type":"integer",
+                    "description":"SRID of the geometries.",
+                    "format":"int32",
+                    "example":8307
+                },
+                "geodetic":{
+                    "type":"boolean",
+                    "description":"true if the geometries are geodetic, false otherwise.",
+                    "example":true
+                },
+                "features":{
+                    "type":"array",
+                    "items":{
+                        "$ref":"#/definitions/Feature"
+                    }
+                }
+            }
+        },
+        "Geometry":{
+            "type":"object",
+            "properties":{
+                "type":{
+                    "type":"string",
+                    "example":"Point"
+                },
+                "coordinates":{
+                    "type":"array",
+                    "items":{
+                        "type":"number",
+                        "format":"double"
+                    },
+                    "example":[
+                        -73.86659,
+                        50.41706
+                    ]
+                },
+                "properties":{
+                    "type":"object",
+                    "description":"Extra fields of the filtered records (see 2.8.2.1 Spatial Indexing Class Structure). For example we can have  extra fields named followers_count, friends_count, location and user_id",
+                    "properties":{
+                        "followers_count":{
+                            "type":"string",
+                            "example":"70"
+                        },
+                        "friends_count":{
+                            "type":"string",
+                            "example":"51"
+                        },
+                        "location":{
+                            "type":"string",
+                            "example":"Canada"
+                        },
+                        "user_id":{
+                            "type":"string",
+                            "example":"5039703"
+                        }
+                    }
+                }
+            }
+        },
+        "Feature":{
+            "type":"object",
+            "properties":{
+                "type":{
+                    "type":"string",
+                    "example":"Feature"
+                },
+                "_id":{
+                    "type":"string",
+                    "description":"Feature id.",
+                    "example":1
+                },
+                "geometry":{
+                    "type":"string",
+                    "description":"Feature geometry.",
+                    "$ref":"#/definitions/Geometry"
+                }
+            }
+        },
+        "HadoopIndexMetadata":{
+            "type":"object",
+            "properties":{
+                "name":{
+                    "type":"string",
+                    "description":"The index name.",
+                    "example":"TweetsApril"
+                },
+                "indexPath":{
+                    "type":"string",
+                    "description":"The index path.",
+                    "example":"hdfs://hadoop.cluster.url:8020/user/oracle/spatialviewer/TweetsApril"
+                },
+                "userInputString":{
+                    "type":"string",
+                    "description":"Path of the file or files that were indexed. The path is as provided by the user.",
+                    "example":"/user/oracle/spatialviewer/tweetsApril.json"
+                },
+                "srid":{
+                    "type":"integer",
+                    "description":"SRID of the indexed geometries.",
+                    "format":"int32",
+                    "example":8307
+                },
+                "tolerance":{
+                    "type":"number",
+                    "description":"Double value that represents the tolerance used when performing spatial operations.",
+                    "format":"double",
+                    "example":0.05
+                },
+                "geodetic":{
+                    "type":"boolean",
+                    "description":"true if the geometries are geodetic, false otherwise.",
+                    "example":true
+                },
+                "mbr":{
+                    "type":"array",
+                    "items":{
+                        "type":"number",
+                        "format":"double"
+                    },
+                    "description":"MBR (Minimum Bounding Rectangle) of the indexed geometries.",
+                    "example":[
+                        -179.58998,
+                        -78.46628,
+                        179.3833,
+                        82.48332
+                    ]
+                },
+                "attributesList":{
+                    "type":"array",
+                    "items":{
+                        "type":"string"
+                    },
+                    "description":"Extra fields of the indexed records (see 2.8.2.1 Spatial Indexing Class Structure).",
+                    "example":[
+                        "followers_count",
+                        "friends_count",
+                        "location",
+                        "user_id"
+                    ]
+                },
+                "attributesListString":{
+                    "type":"string",
+                    "description":"Extra fields of the indexed records (see 2.8.2.1 Spatial Indexing Class Structure) in a string format.",
+                    "example":"followers_count, friends_count, location, user_id"
+                }
+            }
+        },
+        "ListHadoopIndexesResponse":{
+            "type":"object",
+            "description":"List of indexes metadata.",
+            "properties":{
+                "status":{
+                    "type":"string",
+                    "example":"success"
+                },
+                "title":{
+                    "type":"string",
+                    "example":"Get indexes."
+                },
+                "o:successCode":{
+                    "type":"string",
+                    "example":"SV-05001"
+                },
+                "response":{
+                    "type":"object",
+                    "properties":{
+                        "items":{
+                            "type":"array",
+                            "items":{
+                                "$ref":"#/definitions/HadoopIndexMetadata"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "CreateHadoopIndexJobResponse":{
+            "type":"object",
+            "properties":{
+                "status":{
+                    "type":"string",
+                    "description":"success or error",
+                    "example":"success"
+                },
+                "title":{
+                    "type":"string",
+                    "description":"Service title.",
+                    "example":"Create Index."
+                },
+                "o:successCode":{
+                    "type":"string",
+                    "description":"The success code.",
+                    "example":"SV-05002"
+                },
+                "response":{
+                    "type":"string",
+                    "description":"The response contains the location of the new created index.",
+                    "example":"hdfs://<namenode>:8020/user/oracle/spatialviewer/TweetsJune"
+                }
+            }
+        },
+        "AsyncCreateHadoopIndexJobResponse":{
+            "type":"object",
+            "properties":{
+                "status":{
+                    "type":"string",
+                    "description":"success or error",
+                    "example":"success"
+                },
+                "title":{
+                    "type":"string",
+                    "description":"Service title.",
+                    "example":"Create Index."
+                },
+                "o:successCode":{
+                    "type":"string",
+                    "description":"The success code.",
+                    "example":"SV-05002"
+                },
+                "response":{
+                    "type":"string",
+                    "description":"The response contains the location of the resource manager web application URL to track the job (see in the configuration the Hadoop parameter yarn.resourcemanager.webapp.address).",
+                    "example":"http://resource.mananger.webapp:8088"
+                }
+            }
+        },
+        "CreateSparkIndexJobResponse":{
+            "type":"object",
+            "properties":{
+                "status":{
+                    "type":"string",
+                    "description":"success or error",
+                    "example":"success"
+                },
+                "title":{
+                    "type":"string",
+                    "description":"Service title.",
+                    "example":"Create Spark Index."
+                },
+                "o:successCode":{
+                    "type":"string",
+                    "description":"The success code.",
+                    "example":"SV-05006"
+                },
+                "response":{
+                    "type":"string",
+                    "description":"The response contains the location of the new created index.",
+                    "example":"hdfs://<namenode>:8020/user/oracle/spatialviewer/TweetsJune"
+                }
+            }
+        },
+        "AsyncCreateSparkIndexJobResponse":{
+            "type":"object",
+            "properties":{
+                "status":{
+                    "type":"string",
+                    "description":"success or error",
+                    "example":"success"
+                },
+                "title":{
+                    "type":"string",
+                    "description":"Service title.",
+                    "example":"Create Spark Index."
+                },
+                "o:successCode":{
+                    "type":"string",
+                    "description":"The success code.",
+                    "example":"SV-05006"
+                },
+                "response":{
+                    "type":"string",
+                    "description":"The response contains the location of the resource manager web application URL to track the job (see in the configuration the Hadoop parameter yarn.resourcemanager.webapp.address).",
+                    "example":"http://resource.mananger.webapp:8088"
+                }
+            }
+        },
+        "CategorizationJobResponse":{
+            "type":"object",
+            "properties":{
+                "status":{
+                    "type":"string",
+                    "description":"success or error",
+                    "example":"success"
+                },
+                "title":{
+                    "type":"string",
+                    "description":"Service title.",
+                    "example":"Create categorization job."
+                },
+                "o:successCode":{
+                    "type":"string",
+                    "description":"The success code.",
+                    "example":"SV-05003"
+                },
+                "response":{
+                    "type":"string",
+                    "description":"The response contains the location of the results in HDFS.",
+                    "example":"hdfs://<namenode>:8020/user/oracle/spatialviewer/catResult"
+                }
+            }
+        },
+        "AsyncCategorizationJobResponse":{
+            "type":"object",
+            "properties":{
+                "status":{
+                    "type":"string",
+                    "description":"success or error",
+                    "example":"success"
+                },
+                "title":{
+                    "type":"string",
+                    "description":"Service title.",
+                    "example":"Create categorization job."
+                },
+                "o:successCode":{
+                    "type":"string",
+                    "description":"The success code.",
+                    "example":"SV-05003"
+                },
+                "response":{
+                    "type":"string",
+                    "description":"The response contains the location of the resource manager web application URL to track the job (see in the configuration the Hadoop parameter yarn.resourcemanager.webapp.address).",
+                    "example":"http://resource.mananger.webapp:8088"
+                }
+            }
+        },
+        "BinningJobResponse":{
+            "type":"object",
+            "properties":{
+                "status":{
+                    "type":"string",
+                    "description":"success or error",
+                    "example":"success"
+                },
+                "title":{
+                    "type":"string",
+                    "description":"Service title.",
+                    "example":"Create binning job."
+                },
+                "o:successCode":{
+                    "type":"string",
+                    "description":"The success code.",
+                    "example":"SV-05004"
+                },
+                "response":{
+                    "type":"string",
+                    "description":"The response contains the location of the results in HDFS.",
+                    "example":"hdfs://<namenode>:8020/user/oracle/spatialviewer/binResult"
+                }
+            }
+        },
+        "AsyncBinningJobResponse":{
+            "type":"object",
+            "properties":{
+                "status":{
+                    "type":"string",
+                    "description":"success or error",
+                    "example":"success"
+                },
+                "title":{
+                    "type":"string",
+                    "description":"Service title.",
+                    "example":"Create binning job."
+                },
+                "o:successCode":{
+                    "type":"string",
+                    "description":"The success code.",
+                    "example":"SV-05004"
+                },
+                "response":{
+                    "type":"string",
+                    "description":"The response contains the resource manager web application URL to track the job. See this value in the SpatialViewer Hadoop configuration (refer to user's guide chapter 1.8.4 Configuring the Oracle SpatialViewer on Oracle Big Data Appliance). The parameter is yarn.resourcemanager.webapp.address.",
+                    "example":"http://resource.mananger.webapp:8088"
+                }
+            }
+        },
+        "ClusteringJobResponse":{
+            "type":"object",
+            "properties":{
+                "status":{
+                    "type":"string",
+                    "description":"success or error",
+                    "example":"success"
+                },
+                "title":{
+                    "type":"string",
+                    "description":"Service title.",
+                    "example":"Create clustering job."
+                },
+                "o:successCode":{
+                    "type":"string",
+                    "description":"The success code.",
+                    "example":"SV-05005"
+                },
+                "response":{
+                    "type":"string",
+                    "description":"The response contains the location of the results in HDFS.",
+                    "example":"hdfs://<namenode>:8020/user/oracle/spatialviewer/clusteringResult"
+                }
+            }
+        },
+        "AsyncClusteringJobResponse":{
+            "type":"object",
+            "properties":{
+                "status":{
+                    "type":"string",
+                    "description":"success or error",
+                    "example":"success"
+                },
+                "title":{
+                    "type":"string",
+                    "description":"Service title.",
+                    "example":"Create clustering job."
+                },
+                "o:successCode":{
+                    "type":"string",
+                    "description":"The success code.",
+                    "example":"SV-05005"
+                },
+                "response":{
+                    "type":"string",
+                    "description":"The response contains the resource manager web application URL to track the job. See this value in the SpatialViewer Hadoop configuration (refer to user's guide chapter 1.8.4 Configuring the Oracle SpatialViewer on Oracle Big Data Appliance). The parameter is yarn.resourcemanager.webapp.address.",
+                    "example":"http://resource.mananger.webapp:8088"
+                }
+            }
+        },
+        "DeleteHadoopIndexJobResponse":{
+            "type":"object",
+            "properties":{
+                "status":{
+                    "type":"string",
+                    "description":"success or error",
+                    "example":"success"
+                },
+                "title":{
+                    "type":"string",
+                    "description":"Service title.",
+                    "example":"Delete index."
+                },
+                "o:successCode":{
+                    "type":"string",
+                    "description":"The success code.",
+                    "example":"SV-05001"
+                },
+                "response":{
+                    "type":"string",
+                    "description":"Name of the deleted index.",
+                    "example":"TweetsJune"
+                }
+            }
+        },
+        "DeleteSparkIndexJobResponse":{
+            "type":"object",
+            "properties":{
+                "status":{
+                    "type":"string",
+                    "description":"success or error",
+                    "example":"success"
+                },
+                "title":{
+                    "type":"string",
+                    "description":"Service title.",
+                    "example":"Delete Spark index."
+                },
+                "o:successCode":{
+                    "type":"string",
+                    "description":"The success code.",
+                    "example":"SV-05008"
+                },
+                "response":{
+                    "type":"string",
+                    "description":"Name of the deleted index.",
+                    "example":"TweetsJune"
+                }
+            }
+        }
+    },
+    "tags":[
+        {
+            "name":"Vector Hadoop API",
+            "description":"The operations from the Vector Hadoop API category."
+        },
+        {
+            "name":"Vector Spark API",
+            "description":"The operations from the Vector Spark API category."
+        }
+    ]
+}

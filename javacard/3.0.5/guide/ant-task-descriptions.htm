@@ -1,0 +1,1987 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Ant Task Descriptions</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-04-13T10:24:54Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Development Kit User Guide, Classic Edition" />
+<meta name="dcterms.identifier" content="E59602-03" />
+<meta name="dcterms.isVersionOf" content="JCUGC" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="setting-optional-ant-tasks.htm" title="Previous" type="text/html" />
+<link rel="Next" href="custom-types.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCUGC.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-609231D2-A1ED-41FC-90D9-A970C8BD12C4"></a> <span id="PAGE" style="display:none;">159/161</span> <!-- End Header -->
+<script  >
+//<![CDATA[
+window.name='ant-task-descriptions'
+//]]>
+</script> <script  >
+    function footdisplay(footnum,footnote) {
+    var msg = window.open('about:blank', 'NewWindow' + footnum,
+        'directories=no,height=100,location=no,menubar=no,resizable=yes,' +
+        'scrollbars=yes,status=no,toolbar=no,width=598');
+    msg.document.open('text/html');
+    msg.document.write('<!DOCTYPE html ');
+    msg.document.write('PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" ');
+    msg.document.write('"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'); 
+    msg.document.write('<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" ><head><title>');
+   
+    msg.document.write('Footnote&amp;nbsp; ' + footnum);
+    msg.document.write('<\/title><meta http-equiv="Content-Type" ');
+    msg.document.write('content="text/html; charset=utf-8" />');
+    msg.document.write('');
+    msg.document.write('<style> <![CDATA[ ');
+    msg.document.write('h1 {text-align: center; font-size: 14pt;}');
+    msg.document.write('fieldset {border: none;}');
+    msg.document.write('form {text-align: center;}');
+    msg.document.write(' ]]\u003e <\/style>');
+    msg.document.write('<\/head><body><div id="footnote"><h1>Footnote&nbsp; ' + footnum + '<\/h1><p>');
+    msg.document.write(footnote);
+    msg.document.write('<\/p><form action="" method="post"><fieldset>');
+    msg.document.write('<input type="button" value="OK" ');
+    msg.document.write('onclick="window.close();" />');
+    msg.document.write('<\/fieldset><\/form><\/div><\/body><\/html>');
+    msg.document.close();
+    setTimeout(function() {
+        var height = msg.document.getElementById('footnote').offsetHeight;
+        msg.resizeTo(598, height + 100);
+    }
+    , 100);
+    msg.focus();
+}
+</script><noscript>
+<p>The script content on this page is for navigation purposes only and does not alter the content in any way.</p>
+</noscript><a id="JCUGC393"></a>
+<h1 id="JCUGC-GUID-609231D2-A1ED-41FC-90D9-A970C8BD12C4" class="sect1">Ant Task Descriptions</h1>
+<div>
+<p>The eleven Ant tasks provided in the Ant tasks bundle are provided to simplify the use of the development kit for Ant users. This section describes each of these Ant tasks and how to use them. Note that the JAR files for the tasks are expected to be in the system classpath, unless otherwise noted.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="ant-task-descriptions.htm#GUID-FE6AA07E-D751-4AAD-BA7E-E2D3D764FA8C">APDUTool</a></p>
+</li>
+<li>
+<p><a href="ant-task-descriptions.htm#GUID-2B74E2AB-2E8C-4FB8-B42C-1E369EBC2D3B">CapDump</a></p>
+</li>
+<li>
+<p><a href="ant-task-descriptions.htm#GUID-D2639C63-91E0-4853-ABF3-FCD6FA02E6E4">Capgen</a></p>
+</li>
+<li>
+<p><a href="ant-task-descriptions.htm#GUID-F6F65768-7735-4CBC-906F-88A7C48DF42D">Converter</a></p>
+</li>
+<li>
+<p><a href="ant-task-descriptions.htm#GUID-4862EA7D-0BFA-4025-9654-91AEB4335850">DeployCap</a></p>
+</li>
+<li>
+<p><a href="ant-task-descriptions.htm#GUID-EBA40AE0-A558-4EB7-AAE1-4119B4B7736C">Exp2Text</a></p>
+</li>
+<li>
+<p><a href="ant-task-descriptions.htm#GUID-BBCD88C1-C0DC-4198-BC63-6962CFA4B517">Maskgen</a></p>
+</li>
+<li>
+<p><a href="ant-task-descriptions.htm#GUID-45525AD6-94D6-4AEC-8CD7-D7EE87ACE4F6">Scriptgen</a></p>
+</li>
+<li>
+<p><a href="ant-task-descriptions.htm#GUID-2E03C28B-ED43-47BB-A46B-786616B85A70">VerifyCap</a></p>
+</li>
+<li>
+<p><a href="ant-task-descriptions.htm#GUID-9132C357-28DE-4E9A-8122-D946D988A0F9">VerifyExp</a></p>
+</li>
+<li>
+<p><a href="ant-task-descriptions.htm#GUID-35B43F96-464E-4F51-9C2F-310B2519CE6E">VerifyRev</a></p>
+</li>
+</ul>
+</div>
+<a id="JCUGC395"></a><a id="JCUGC394"></a>
+<div class="props_rev_3"><a id="GUID-FE6AA07E-D751-4AAD-BA7E-E2D3D764FA8C"></a>
+<h2 id="JCUGC-GUID-FE6AA07E-D751-4AAD-BA7E-E2D3D764FA8C" class="sect2">APDUTool</h2>
+<div>
+<p>Runs APDUTool to send the APDU script file to <code class="codeph">cref</code> and check if all APDUs were sent correctly. You can set <code class="codeph">CheckDownloadFailure=true</code> to stop the build if any response status is not 9000.</p>
+<p>APDUTool is invoked in a different instance of the Java Virtual Machine<a id="fn_1" href="#fn_1" onclick='footdisplay(1,"The terms \"Java Virtual Machine\" and \"JVM\" mean a Virtual Machine for the Java(TM) platform. ")'><sup>Foot&nbsp;1</sup></a> software (JVM software) than the one being used by Ant.</p>
+<div class="tblformal" id="GUID-FE6AA07E-D751-4AAD-BA7E-E2D3D764FA8C__GUID-D4BD20FA-1033-4C69-810E-D63822CF6617">
+<p class="titleintable">Table B-2 Parameters for APDUTool</p>
+<table class="cellalignment12" title="Parameters for APDUTool" summary="provides a list and description of the parameter attributes for the apdu tool">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment71" id="d43447e114">Attribute</th>
+<th class="cellalignment93" id="d43447e117">Description</th>
+<th class="cellalignment42" id="d43447e120">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e125" headers="d43447e114">
+<p>ScriptFile</p>
+</td>
+<td class="cellalignment94" headers="d43447e125 d43447e117">
+<p>Fully qualified path and name of the APDU script file.</p>
+</td>
+<td class="cellalignment44" headers="d43447e125 d43447e120">
+<p>Yes</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e135" headers="d43447e114">
+<p>CrefExe</p>
+</td>
+<td class="cellalignment94" headers="d43447e135 d43447e117">
+<p>Fully qualified path and name of <code class="codeph">cref</code> executable.</p>
+</td>
+<td class="cellalignment44" headers="d43447e135 d43447e120">
+<p>Yes</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e148" headers="d43447e114">
+<p>OutEEFile</p>
+</td>
+<td class="cellalignment94" headers="d43447e148 d43447e117">
+<p>Output EEPROM file that contains the EEPROM image after <code class="codeph">cref</code> finishes execution.</p>
+</td>
+<td class="cellalignment44" headers="d43447e148 d43447e120">
+<p>Yes</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e161" headers="d43447e114">
+<p>CheckDownloadFailure</p>
+</td>
+<td class="cellalignment94" headers="d43447e161 d43447e117">
+<p>Stops the build if any response status coming back from <code class="codeph">cref</code> is not 9000.</p>
+</td>
+<td class="cellalignment44" headers="d43447e161 d43447e120">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e174" headers="d43447e114">
+<p>classpath</p>
+</td>
+<td class="cellalignment94" headers="d43447e174 d43447e117">
+<p>Classpath to use for this task. If required JAR files are not already in the system classpath, you can specify this attribute to put them in the classpath when this task is executed.</p>
+</td>
+<td class="cellalignment44" headers="d43447e174 d43447e120">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e184" headers="d43447e114">
+<p>dir</p>
+</td>
+<td class="cellalignment94" headers="d43447e184 d43447e117">
+<p>The directory in which to invoke the JVM software.</p>
+</td>
+<td class="cellalignment44" headers="d43447e184 d43447e120">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e194" headers="d43447e114">
+<p>InEEFile</p>
+</td>
+<td class="cellalignment94" headers="d43447e194 d43447e117">
+<p>Input EEPROM file for <code class="codeph">cref</code>. If specified <code class="codeph">cref</code> initiates using the EEPROM image stored in this file.</p>
+</td>
+<td class="cellalignment44" headers="d43447e194 d43447e120">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e210" headers="d43447e114">
+<p>nobanner</p>
+</td>
+<td class="cellalignment94" headers="d43447e210 d43447e117">
+<p>Set this element to <code class="codeph">true</code> if you do not want the APDUTool banner showing.</p>
+</td>
+<td class="cellalignment44" headers="d43447e210 d43447e120">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e223" headers="d43447e114">
+<p>version</p>
+</td>
+<td class="cellalignment94" headers="d43447e223 d43447e117">
+<p>Prints the version number of APDUTool.</p>
+</td>
+<td class="cellalignment44" headers="d43447e223 d43447e120">
+<p>No</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<a id="JCUGC396"></a>
+<div class="props_rev_3"><a id="GUID-A23E80D3-842F-438F-9D1A-1A1553861E23"></a>
+<h3 id="JCUGC-GUID-A23E80D3-842F-438F-9D1A-1A1553861E23" class="sect3">Errors</h3>
+<div>
+<div class="section">
+<p>Execution of this task fails if any of the required elements are not supplied, if <code class="codeph">apdutool.jar</code> and <code class="codeph">apduio.jar</code> are not in the classpath, or if APDUTool returns an error code.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="JCUGC397"></a>
+<div class="props_rev_3"><a id="GUID-F0F90392-1ACC-4F17-9ADD-4967620FDC8E"></a>
+<h3 id="JCUGC-GUID-F0F90392-1ACC-4F17-9ADD-4967620FDC8E" class="sect3">Examples</h3>
+<div>
+<div class="section">
+<p>To use these examples:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Enter the following example code to run APDUTool to send APDUs in APDU script file <code class="codeph">test.scr</code> to <code class="codeph">cref</code> and to check if all APDUs were sent correctly.</span>
+<div>
+<p>Also checks that the response returned from the card was 9000.</p>
+<pre dir="ltr">
+&lt;target name="APDUToolTarget" &gt;
+        &lt;apdutool
+            scriptFile="${samples.helloworld.script}"
+            outEEFile="${samples.eeprom}/outEEFile"
+            CrefExe="${jcardkit_home}/bin/cref.exe"&gt;
+        &lt;/apdutool&gt;
+&lt;/target&gt;
+</pre></div>
+</li>
+<li class="stepexpand"><span>Enter the following example code to run the APDUTool to install the APDU script in <code class="codeph">test.scr</code> file to <code class="codeph">cref</code> and check if the APDU commands were processed successfully:</span>
+<div>
+<div class="infobox-note" id="GUID-F0F90392-1ACC-4F17-9ADD-4967620FDC8E__GUID-7546F6D8-EA0C-4E14-9582-742CBE8EB4C9">
+<p class="notep1">Note:</p>
+<p>Classpath in this example is referenced by the <code class="codeph">classpath</code> refid.</p>
+</div>
+<pre dir="ltr">
+&lt;target name="APDUToolTarget" &gt; 
+  &lt;apdutool 
+      scriptFile="${samples.helloworld.script}" 
+      outEEFile="${samples.eeprom}/outEEFile" 
+      CheckDownloadFailure="true" 
+      CrefExe="${jcardkit_home}/bin/cref.exe"&gt; 
+      &lt;classpath refid="classpath"/&gt; 
+  &lt;/apdutool&gt;
+&lt;/target&gt;
+</pre></div>
+</li>
+<li class="stepexpand"><span>Enter the following example code to run APDUTool to install the APDU script in <code class="codeph">test.scr</code> file to <code class="codeph">cref</code>, which is initialized using a stored EEPROM image from the file <code class="codeph">inEEFile</code>:</span>
+<div>
+<div class="infobox-note" id="GUID-F0F90392-1ACC-4F17-9ADD-4967620FDC8E__GUID-AEE13475-EEE0-4281-AD86-FB4CC7F28631">
+<p class="notep1">Note:</p>
+<p>Also check if the APDU commands were sent correctly. Classpath used in this example is referenced by the <code class="codeph">classpath</code> refid.</p>
+</div>
+<pre dir="ltr">
+&lt;target name="APDUToolTarget" &gt; 
+  &lt;apdutool 
+      scriptFile="${samples.helloworld.script}" 
+      outEEFile="${samples.eeprom}/outEEFile" 
+      inEEFile="${samples.eeprom}/inEEFile" 
+      CheckDownloadFailure="true" 
+      CrefExe="${jcardkit_home}/bin/cref.exe"&gt; 
+      &lt;classpath refid="classpath"/&gt; 
+  &lt;/apdutool&gt;
+&lt;/target&gt;
+</pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<a id="JCUGC399"></a><a id="JCUGC398"></a>
+<div class="props_rev_3"><a id="GUID-2B74E2AB-2E8C-4FB8-B42C-1E369EBC2D3B"></a>
+<h2 id="JCUGC-GUID-2B74E2AB-2E8C-4FB8-B42C-1E369EBC2D3B" class="sect2">CapDump</h2>
+<div>
+<p>Run the CapDump tool to dump the contents of a CAP file.</p>
+<div class="tblformal" id="GUID-2B74E2AB-2E8C-4FB8-B42C-1E369EBC2D3B__GUID-9B7D880A-13E4-4605-9ADF-62F6E0629353">
+<p class="titleintable">Table B-3 Parameters for CapDump</p>
+<table class="cellalignment12" title="Parameters for CapDump" summary="provides a list and description of the parameter attributes for the capdump tool">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment95" id="d43447e361">Attribute</th>
+<th class="cellalignment67" id="d43447e364">Description</th>
+<th class="cellalignment48" id="d43447e367">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment96" id="d43447e372" headers="d43447e361">
+<p>CapFile</p>
+</td>
+<td class="cellalignment68" headers="d43447e372 d43447e364">
+<p>Fully qualified name of CAP file.</p>
+</td>
+<td class="cellalignment50" headers="d43447e372 d43447e367">
+<p>Yes</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment96" id="d43447e382" headers="d43447e361">
+<p>classpath</p>
+</td>
+<td class="cellalignment68" headers="d43447e382 d43447e364">
+<p>Classpath to use for this task. If required JAR files are not already in the system classpath, you can specify this attribute to put them in the classpath when this task is executed.</p>
+</td>
+<td class="cellalignment50" headers="d43447e382 d43447e367">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment96" id="d43447e392" headers="d43447e361">
+<p>dir</p>
+</td>
+<td class="cellalignment68" headers="d43447e392 d43447e364">
+<p>The directory in which to invoke the JVM software.</p>
+</td>
+<td class="cellalignment50" headers="d43447e392 d43447e367">
+<p>No</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<a id="JCUGC400"></a>
+<div class="props_rev_3"><a id="GUID-C2476CC6-4C15-47E4-9BAE-18D2A42FD7BB"></a>
+<h3 id="JCUGC-GUID-C2476CC6-4C15-47E4-9BAE-18D2A42FD7BB" class="sect3">Errors</h3>
+<div>
+<div class="section">
+<p>Execution of this task fails if CapFile element is not supplied, if <code class="codeph">capdump.jar</code> is not in the classpath, or if CapDump returns an error code.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="JCUGC401"></a>
+<div class="props_rev_3"><a id="GUID-29106BEB-2B9B-4061-B6A5-33D274080877"></a>
+<h3 id="JCUGC-GUID-29106BEB-2B9B-4061-B6A5-33D274080877" class="sect3">Examples</h3>
+<div>
+<div class="section">
+<p>To use these examples:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Enter the following example code to run CapDump to dump the contents of the <code class="codeph">test.cap</code> file:</span>
+<div>
+<pre dir="ltr">
+&lt;target name="CapDumpTarget" &gt; 
+  &lt;capdump 
+      CapFile="${samples.output}/test.cap" 
+  &lt;/capdump&gt;
+&lt;/target&gt;
+</pre></div>
+</li>
+<li class="stepexpand"><span>Enter the following example code to run CapDump to dump the contents of the <code class="codeph">test.cap</code> file:</span>
+<div>
+<div class="infobox-note" id="GUID-29106BEB-2B9B-4061-B6A5-33D274080877__GUID-D396E380-EF8B-4A4B-ACCC-AB018696B3C4">
+<p class="notep1">Note:</p>
+<p>Classpath used in this example code is referenced by the <code class="codeph">classpath</code> refid</p>
+</div>
+<pre dir="ltr">
+&lt;target name="CapDumpTarget" &gt; 
+  &lt;capdump 
+      CapFile="${samples.output}/test.cap" 
+      &lt;classpath refid="classpath"/&gt; 
+  &lt;/capdump&gt;
+&lt;/target&gt;
+</pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<a id="JCUGC403"></a><a id="JCUGC402"></a>
+<div class="props_rev_3"><a id="GUID-D2639C63-91E0-4853-ABF3-FCD6FA02E6E4"></a>
+<h2 id="JCUGC-GUID-D2639C63-91E0-4853-ABF3-FCD6FA02E6E4" class="sect2">Capgen</h2>
+<div>
+<p>Runs Capgen to generate a CAP file from a JCA file.</p>
+<div class="tblformal" id="GUID-D2639C63-91E0-4853-ABF3-FCD6FA02E6E4__GUID-21BCC95C-D5D3-4910-8FA2-3AE00ED8D947">
+<p class="titleintable">Table B-4 Parameters for Capgen</p>
+<table class="cellalignment12" title="Parameters for Capgen" summary="provides a list and description of the parameter attributes for the capgen tool">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment95" id="d43447e498">Attribute</th>
+<th class="cellalignment69" id="d43447e501">Description</th>
+<th class="cellalignment45" id="d43447e504">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment96" id="d43447e509" headers="d43447e498">
+<p>JCAFile</p>
+</td>
+<td class="cellalignment70" headers="d43447e509 d43447e501">
+<p>Fully qualified path and name of the input JCA file.</p>
+</td>
+<td class="cellalignment46" headers="d43447e509 d43447e504">
+<p>Yes</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment96" id="d43447e519" headers="d43447e498">
+<p>OutFile</p>
+</td>
+<td class="cellalignment70" headers="d43447e519 d43447e501">
+<p>Fully qualified path and name of the output CAP file.</p>
+</td>
+<td class="cellalignment46" headers="d43447e519 d43447e504">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment96" id="d43447e529" headers="d43447e498">
+<p>classpath</p>
+</td>
+<td class="cellalignment70" headers="d43447e529 d43447e501">
+<p>Classpath to use for this task. If required JAR files are not already in the system classpath, you can specify this attribute to put them in the classpath when this task is executed.</p>
+</td>
+<td class="cellalignment46" headers="d43447e529 d43447e504">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment96" id="d43447e539" headers="d43447e498">
+<p>dir</p>
+</td>
+<td class="cellalignment70" headers="d43447e539 d43447e501">
+<p>The directory in which to invoke the JVM software.</p>
+</td>
+<td class="cellalignment46" headers="d43447e539 d43447e504">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment96" id="d43447e549" headers="d43447e498">
+<p>nobanner</p>
+</td>
+<td class="cellalignment70" headers="d43447e549 d43447e501">
+<p>Set this element to <code class="codeph">true</code> if you do not want the Capgen banner showing.</p>
+</td>
+<td class="cellalignment46" headers="d43447e549 d43447e504">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment96" id="d43447e562" headers="d43447e498">
+<p>version</p>
+</td>
+<td class="cellalignment70" headers="d43447e562 d43447e501">
+<p>Prints Capgen version number.</p>
+</td>
+<td class="cellalignment46" headers="d43447e562 d43447e504">
+<p>No</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<a id="JCUGC404"></a>
+<div class="props_rev_3"><a id="GUID-EAE3AD9F-A32D-48CA-A711-14974FF96D4E"></a>
+<h3 id="JCUGC-GUID-EAE3AD9F-A32D-48CA-A711-14974FF96D4E" class="sect3">Errors</h3>
+<div>
+<div class="section">
+<p>Execution of this task fails if any of the required elements are not supplied, if <code class="codeph">converter.jar</code> is not in the classpath, or if Capgen returns an error code.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="JCUGC405"></a>
+<div class="props_rev_3"><a id="GUID-35F742E5-493A-4234-AF9C-2DDB37D5C0E4"></a>
+<h3 id="JCUGC-GUID-35F742E5-493A-4234-AF9C-2DDB37D5C0E4" class="sect3">Examples</h3>
+<div>
+<div class="section">
+<p>To use these examples:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Enter the following example code to run Capgen to generate the <code class="codeph">mathDemo.cap</code> file from the <code class="codeph">mathDemo.jca</code> file.</span>
+<div>
+<pre dir="ltr">
+&lt;target name="CapgenTarget" &gt; 
+  &lt;capgen 
+      JCAFile="${sample.output}/mathDemo.jca" 
+      outfile="${sample.output}/mathDemo.cap"&gt; 
+      &lt;/capgen&gt;
+&lt;/target&gt;
+</pre></div>
+</li>
+<li class="stepexpand"><span>Enter the following example code to run Capgen to generate a <code class="codeph">mathDemo.cap</code> file from the <code class="codeph">mathDemo.jca</code> file.</span>
+<div>
+<div class="infobox-note" id="GUID-35F742E5-493A-4234-AF9C-2DDB37D5C0E4__GUID-588FDDF3-70C2-49DC-A635-298E606F4A6D">
+<p class="notep1">Note:</p>
+<p>Classpath used in this example is referenced by the <code class="codeph">classpath</code> refid.</p>
+</div>
+<pre dir="ltr">
+&lt;target name="CapgenTarget" &gt; 
+  &lt;capgen 
+      JCAFile="${sample.output}/mathDemo.jca" 
+      outfile="${sample.output}/mathDemo.cap"&gt; 
+      &lt;classpath refid="classpath"/&gt; 
+  &lt;/capgen&gt;
+&lt;/target&gt;
+</pre></div>
+</li>
+<li class="stepexpand"><span>Enter the following example code to run Capgen as in the previous example, except no output file is specified.</span>
+<div>
+<div class="infobox-note" id="GUID-35F742E5-493A-4234-AF9C-2DDB37D5C0E4__GUID-C7196B34-FC6A-416C-A26F-37C07C6F0A47">
+<p class="notep1">Note:</p>
+<p>Capgen generates <code class="codeph">out.cap</code> in the directory in which the JVM software was invoked.</p>
+</div>
+<pre dir="ltr">
+&lt;target name="CapgenTarget" &gt; 
+  &lt;capgen 
+      JCAFile="${sample.output}/mathDemo.jca"/&gt; 
+      &lt;classpath refid="classpath"/&gt; 
+  &lt;/capgen&gt;
+&lt;/target&gt;
+</pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<a id="JCUGC407"></a><a id="JCUGC406"></a>
+<div class="props_rev_3"><a id="GUID-F6F65768-7735-4CBC-906F-88A7C48DF42D"></a>
+<h2 id="JCUGC-GUID-F6F65768-7735-4CBC-906F-88A7C48DF42D" class="sect2">Converter</h2>
+<div>
+<p>Runs Converter to generate CAP, EXP and JCA files from a Java technology-based package. By default the Java Card platform converter creates CAP and EXP files for the input package. However, if any one of the CAP, JCA or EXP flags are enabled, only the output files enabled are generated.</p>
+<div class="tblformal" id="GUID-F6F65768-7735-4CBC-906F-88A7C48DF42D__GUID-9D95AC1F-2280-46A9-AA72-4A800DBEE361">
+<p class="titleintable">Table B-5 Parameters for Converter</p>
+<table class="cellalignment12" title="Parameters for Converter" summary="provides a list and description of the parameter attributes for the converter tool">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment37" id="d43447e685">Attribute</th>
+<th class="cellalignment93" id="d43447e688">Description</th>
+<th class="cellalignment15" id="d43447e691">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d43447e696" headers="d43447e685">
+<p>PackageName</p>
+</td>
+<td class="cellalignment94" headers="d43447e696 d43447e688">
+<p>Fully qualified name of the package being converted.</p>
+</td>
+<td class="cellalignment18" headers="d43447e696 d43447e691">
+<p>Yes</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d43447e706" headers="d43447e685">
+<p>PackageAID</p>
+</td>
+<td class="cellalignment94" headers="d43447e706 d43447e688">
+<p>AID of the package being converted.</p>
+</td>
+<td class="cellalignment18" headers="d43447e706 d43447e691">
+<p>Yes</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d43447e716" headers="d43447e685">
+<p>MajorMinorVersion</p>
+</td>
+<td class="cellalignment94" headers="d43447e716 d43447e688">
+<p>Major and Minor version numbers of the package, for example, 1.2 (where 1 is major version number and 2 is minor version number).</p>
+</td>
+<td class="cellalignment18" headers="d43447e716 d43447e691">
+<p>Yes</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d43447e726" headers="d43447e685">
+<p>CAP</p>
+</td>
+<td class="cellalignment94" headers="d43447e726 d43447e688">
+<p>If enabled, tells the converter to create a CAP file.</p>
+</td>
+<td class="cellalignment18" headers="d43447e726 d43447e691">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d43447e736" headers="d43447e685">
+<p>EXP</p>
+</td>
+<td class="cellalignment94" headers="d43447e736 d43447e688">
+<p>If enabled, tells the converter to create a EXP file.</p>
+</td>
+<td class="cellalignment18" headers="d43447e736 d43447e691">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d43447e746" headers="d43447e685">
+<p>JCA</p>
+</td>
+<td class="cellalignment94" headers="d43447e746 d43447e688">
+<p>If enabled, tells the converter to create a JCA file.</p>
+</td>
+<td class="cellalignment18" headers="d43447e746 d43447e691">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d43447e756" headers="d43447e685">
+<p>ClassDir</p>
+</td>
+<td class="cellalignment94" headers="d43447e756 d43447e688">
+<p>The root directory of the class hierarchy. Specifies the directory where the converter looks for class files.</p>
+</td>
+<td class="cellalignment18" headers="d43447e756 d43447e691">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d43447e766" headers="d43447e685">
+<p>Int</p>
+</td>
+<td class="cellalignment94" headers="d43447e766 d43447e688">
+<p>If enabled, turns on support for the 32-bit integer type.</p>
+</td>
+<td class="cellalignment18" headers="d43447e766 d43447e691">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d43447e776" headers="d43447e685">
+<p>Debug</p>
+</td>
+<td class="cellalignment94" headers="d43447e776 d43447e688">
+<p>If enabled, enables generation of debugging information.</p>
+</td>
+<td class="cellalignment18" headers="d43447e776 d43447e691">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d43447e786" headers="d43447e685">
+<p>ExportPath</p>
+</td>
+<td class="cellalignment94" headers="d43447e786 d43447e688">
+<p>Root directories where the Converter looks for export files.</p>
+</td>
+<td class="cellalignment18" headers="d43447e786 d43447e691">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d43447e796" headers="d43447e685">
+<p>ExportMap</p>
+</td>
+<td class="cellalignment94" headers="d43447e796 d43447e688">
+<p>If enabled, tells the converter to use the token mapping from the pre-defined export file of the package being converted. The converter looks for the export file in the exportpath.</p>
+</td>
+<td class="cellalignment18" headers="d43447e796 d43447e691">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d43447e807" headers="d43447e685">
+<p>Outputdirectory</p>
+</td>
+<td class="cellalignment94" headers="d43447e807 d43447e688">
+<p>Sets the output directory where the output files are placed.</p>
+</td>
+<td class="cellalignment18" headers="d43447e807 d43447e691">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d43447e817" headers="d43447e685">
+<p>Verbose</p>
+</td>
+<td class="cellalignment94" headers="d43447e817 d43447e688">
+<p>If enabled, enables verbose converter output.</p>
+</td>
+<td class="cellalignment18" headers="d43447e817 d43447e691">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d43447e827" headers="d43447e685">
+<p>noWarn</p>
+</td>
+<td class="cellalignment94" headers="d43447e827 d43447e688">
+<p>If enabled, instructs the Converter to not report warning messages.</p>
+</td>
+<td class="cellalignment18" headers="d43447e827 d43447e691">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d43447e837" headers="d43447e685">
+<p>Mask</p>
+</td>
+<td class="cellalignment94" headers="d43447e837 d43447e688">
+<p>If enabled, tells the Converter that this package is for mask, so restrictions on native methods are relaxed.</p>
+</td>
+<td class="cellalignment18" headers="d43447e837 d43447e691">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d43447e847" headers="d43447e685">
+<p>NoVerify</p>
+</td>
+<td class="cellalignment94" headers="d43447e847 d43447e688">
+<p>If enabled, tells the Converter to turn off verification. Verification is turned on by default.</p>
+</td>
+<td class="cellalignment18" headers="d43447e847 d43447e691">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d43447e857" headers="d43447e685">
+<p>classpath</p>
+</td>
+<td class="cellalignment94" headers="d43447e857 d43447e688">
+<p>Classpath to use for this task. If required JAR files are not already in the system classpath, you can specify this attribute to put them in the classpath when this task is executed.</p>
+</td>
+<td class="cellalignment18" headers="d43447e857 d43447e691">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d43447e867" headers="d43447e685">
+<p>dir</p>
+</td>
+<td class="cellalignment94" headers="d43447e867 d43447e688">
+<p>The directory to invoke the Java VM in.</p>
+</td>
+<td class="cellalignment18" headers="d43447e867 d43447e691">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d43447e877" headers="d43447e685">
+<p>nobanner</p>
+</td>
+<td class="cellalignment94" headers="d43447e877 d43447e688">
+<p>Set this element to <code class="codeph">true</code> if you do not want the Capgen banner showing.</p>
+</td>
+<td class="cellalignment18" headers="d43447e877 d43447e691">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment40" id="d43447e890" headers="d43447e685">
+<p>version</p>
+</td>
+<td class="cellalignment94" headers="d43447e890 d43447e688">
+<p>Prints Converter version number.</p>
+</td>
+<td class="cellalignment18" headers="d43447e890 d43447e691">
+<p>No</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<a id="JCUGC408"></a>
+<div class="props_rev_3"><a id="GUID-7B6FDCA5-4912-42D9-AFB9-5D8A56C9A76D"></a>
+<h3 id="JCUGC-GUID-7B6FDCA5-4912-42D9-AFB9-5D8A56C9A76D" class="sect3">Parameters Specified As Nested Elements</h3>
+<div>
+<p>The <span class="bold">AppletNameID</span> parameters are specified as nested elements and use nested element AppletNameAID to specify names and AIDs of applets belonging to the package being converted. For details regarding AppletNameAID type, see <a href="custom-types.htm#GUID-CCA69251-6331-47C5-B5D6-D32BEAAD735B">AppletNameAID</a> .</p>
+</div>
+</div>
+<a id="JCUGC725"></a>
+<div class="props_rev_3"><a id="GUID-1BF28832-DA6B-42D5-BE91-E229C483B119"></a>
+<h3 id="JCUGC-GUID-1BF28832-DA6B-42D5-BE91-E229C483B119" class="sect3">Errors</h3>
+<div>
+<p>Execution of this task fails if any of the required elements are not supplied, if <code class="codeph">converter.jar</code> or <code class="codeph">offcardverifier.jar</code> are not in the classpath, or if Converter returns an error code.</p>
+</div>
+</div>
+<a id="JCUGC411"></a>
+<div class="props_rev_3"><a id="GUID-788E9597-7FE4-41CF-8269-61C0B109D926"></a>
+<h3 id="JCUGC-GUID-788E9597-7FE4-41CF-8269-61C0B109D926" class="sect3">Examples</h3>
+<div>
+<div class="section">
+<p>To use these examples:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Enter the following example code to run the Converter and generate <code class="codeph">helloworld.cap</code>, <code class="codeph">helloworld.JCA</code> and <code class="codeph">helloworld.EXP</code> files:</span>
+<div>
+<pre dir="ltr">
+&lt;target name="convert_HelloWorld.cap" &gt; 
+  &lt;convert 
+      JCA="true" 
+      EXP="true" 
+      CAP="true" 
+      packagename="com.sun.javacard.samples.HelloWorld" 
+      packageaid="0xa0:0x0:0x0:0x0:0x62:0x3:0x1:0xc:0x1" 
+      majorminorversion="1.0" 
+      classdir="${classroot}" 
+      outputdirectory="${classroot}"&gt; 
+      &lt;AppletNameAID 
+          appletname="com.sun.javacard.samples.HelloWorld.HelloWorld" 
+          aid="0xa0:0x0:0x0:0x0:0x62:0x3:0x1:0xc:0x1:0x1"/&gt; 
+      &lt;exportpath refid="export"/&gt; 
+      &lt;classpath refid="classpath"/&gt; 
+  &lt;/convert&gt;
+&lt;/target&gt;
+</pre></div>
+</li>
+<li class="stepexpand"><span>Enter the following example code to run the Converter with the converter options specified in the<code class="codeph">helloworld.cfg</code> file instead of being specified in the target itself.</span>
+<div>
+<div class="infobox-note" id="GUID-788E9597-7FE4-41CF-8269-61C0B109D926__GUID-B0A3BA60-DC26-4E4A-8F25-C247E2AAB611">
+<p class="notep1">Note:</p>
+<p>This example also shows how a classpath can be specified for a target and how a directory can be set in which the Java VM is invoked for the converter task.</p>
+</div>
+<pre dir="ltr">
+&lt;target name="convert_HelloWorld" &gt; 
+  &lt;convert 
+      dir="${samples}" 
+      Configfile="${samples.configDir}/helloworld.cfg"&gt; 
+      &lt;classpath&gt; 
+          &lt;pathelement path="${samples}"/&gt; 
+          &lt;fileset dir="${lib}"&gt; 
+              &lt;include name="**/converter.jar"/&gt; 
+              &lt;include name="**/offcardverifier.jar"/&gt; 
+          &lt;/fileset&gt; 
+      &lt;/classpath&gt; 
+  &lt;/convert&gt;
+&lt;/target&gt; 
+</pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<a id="JCUGC413"></a><a id="JCUGC412"></a>
+<div class="props_rev_3"><a id="GUID-4862EA7D-0BFA-4025-9654-91AEB4335850"></a>
+<h2 id="JCUGC-GUID-4862EA7D-0BFA-4025-9654-91AEB4335850" class="sect2">DeployCap</h2>
+<div>
+<p>This task sends a CAP file to <code class="codeph">cref</code> and hides the complexities of creating a script file, running <code class="codeph">cref</code> and then running APDUTool to send the script to <code class="codeph">cref</code>. The resulting EEPROM image is saved in the specified output file. This task automatically checks if installation was successful or not by checking status words returned by <code class="codeph">cref</code>.</p>
+<div class="tblformal" id="GUID-4862EA7D-0BFA-4025-9654-91AEB4335850__GUID-78E58361-EB56-4EFB-9C88-4A59FBFDA555">
+<p class="titleintable">Table B-6 Parameters for DeployCap</p>
+<table class="cellalignment12" title="Parameters for DeployCap" summary="provides a list and description of the parameter attributes for the deploycap tool">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment54" id="d43447e1038">Attribute</th>
+<th class="cellalignment67" id="d43447e1041">Description</th>
+<th class="cellalignment15" id="d43447e1044">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment59" id="d43447e1049" headers="d43447e1038">
+<p>CapFile</p>
+</td>
+<td class="cellalignment68" headers="d43447e1049 d43447e1041">
+<p>Fully qualified path and name of the CAP file which is to be sent to <code class="codeph">cref</code>.</p>
+</td>
+<td class="cellalignment18" headers="d43447e1049 d43447e1044">
+<p>Yes</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment59" id="d43447e1062" headers="d43447e1038">
+<p>CrefExe</p>
+</td>
+<td class="cellalignment68" headers="d43447e1062 d43447e1041">
+<p>Fully qualified path and name of <code class="codeph">cref</code> executable.</p>
+</td>
+<td class="cellalignment18" headers="d43447e1062 d43447e1044">
+<p>Yes</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment59" id="d43447e1075" headers="d43447e1038">
+<p>OutEEFile</p>
+</td>
+<td class="cellalignment68" headers="d43447e1075 d43447e1041">
+<p>Output EEPROM file that contains the EEPROM image after <code class="codeph">cref</code> finishes execution.</p>
+</td>
+<td class="cellalignment18" headers="d43447e1075 d43447e1044">
+<p>Yes</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment59" id="d43447e1088" headers="d43447e1038">
+<p>InEEFile</p>
+</td>
+<td class="cellalignment68" headers="d43447e1088 d43447e1041">
+<p>Input EEPROM file for <code class="codeph">cref</code>. If specified <code class="codeph">cref</code> initiates using the EEPROM image stored in this file.</p>
+</td>
+<td class="cellalignment18" headers="d43447e1088 d43447e1044">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment59" id="d43447e1104" headers="d43447e1038">
+<p>classpath</p>
+</td>
+<td class="cellalignment68" headers="d43447e1104 d43447e1041">
+<p>Classpath to use for this task. If required JAR files are not already in the system classpath, you can specify this attribute to put them in the classpath when this task is executed.</p>
+</td>
+<td class="cellalignment18" headers="d43447e1104 d43447e1044">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment59" id="d43447e1114" headers="d43447e1038">
+<p>dir</p>
+</td>
+<td class="cellalignment68" headers="d43447e1114 d43447e1041">
+<p>The directory to invoke the Java VM in.</p>
+</td>
+<td class="cellalignment18" headers="d43447e1114 d43447e1044">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment59" id="d43447e1124" headers="d43447e1038">
+<p>nobanner</p>
+</td>
+<td class="cellalignment68" headers="d43447e1124 d43447e1041">
+<p>Set this element to <code class="codeph">true</code> if you do not want the tool banner showing.</p>
+</td>
+<td class="cellalignment18" headers="d43447e1124 d43447e1044">
+<p>No</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<a id="JCUGC414"></a>
+<div class="props_rev_3"><a id="GUID-A7DE2DD4-BFAF-4508-AD3F-A9E54E42EF6D"></a>
+<h3 id="JCUGC-GUID-A7DE2DD4-BFAF-4508-AD3F-A9E54E42EF6D" class="sect3">Errors and Return Codes</h3>
+<div>
+<p>Execution of this task fails if any of the required elements are not supplied, if <code class="codeph">apdutool.jar</code>, <code class="codeph">apduio.jar</code> and <code class="codeph">scriptgen.jar</code> are not in the classpath, or if APDUTool, Scriptgen or <code class="codeph">cref</code> fail to execute.</p>
+</div>
+</div>
+<a id="JCUGC415"></a>
+<div class="props_rev_3"><a id="GUID-A9606203-E25B-4C73-810A-11A137C0E7B6"></a>
+<h3 id="JCUGC-GUID-A9606203-E25B-4C73-810A-11A137C0E7B6" class="sect3">Examples</h3>
+<div>
+<div class="section">
+<p>To use these examples:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Enter the following example code to install <code class="codeph">helloworld.cap</code> file in <code class="codeph">cref</code>:</span>
+<div>
+<div class="infobox-note" id="GUID-A9606203-E25B-4C73-810A-11A137C0E7B6__GUID-AE41B340-D9D8-4DD6-9C2D-4CD60FB965DD">
+<p class="notep1">Note:</p>
+<p>By default it is checked if the APDU commands were sent correctly. Classpath used in the above example is referenced by the <code class="codeph">classpath</code> refid.</p>
+</div>
+<pre dir="ltr">
+&lt;target name="Deploy_Hello_world_CAP" &gt; 
+  &lt;deploycap 
+      CAPFile="${samples.output}/helloworld.cap" 
+      outEEFile="${samples.eeprom}/outEEFile" 
+      CrefExe="{JAVACARD_HOME}/bin/cref"&gt; 
+      &lt;classpath refid="classpath"/&gt; 
+  &lt;/deploycap&gt;
+&lt;/target&gt; 
+</pre></div>
+</li>
+<li class="stepexpand"><span>Enter the following example code to install <code class="codeph">helloworld.cap</code> file in <code class="codeph">cref</code>, which in this case is initialized with EEFile:</span>
+<div>
+<div class="infobox-note" id="GUID-A9606203-E25B-4C73-810A-11A137C0E7B6__GUID-31F20294-3FD8-4D6C-ACD6-3C496CE4D33D">
+<p class="notep1">Note:</p>
+<p>The <code class="codeph">cref</code> output EEPROM image is also saved in the same EEFile. By default it is checked if the APDU commands were sent correctly. This example shows that the resulting EEPROM image can be stored in the same EEPROM image file that was used to initialize <code class="codeph">cref</code>.</p>
+</div>
+<pre dir="ltr">
+&lt;target name="Deploy_Hello_world_CAP" &gt; 
+  &lt;deploycap 
+      CAPFile="${samples.output}/helloworld.cap" 
+      outEEFile="${samples.eeprom}/EEFile" 
+      inEEFile="${samples.eeprom}/EEFile" 
+      CrefExe="{JAVACARD_HOME}/bin/cref"&gt; 
+      &lt;classpath refid="classpath"/&gt; 
+  &lt;/deploycap&gt;
+&lt;/target&gt; 
+</pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<a id="JCUGC417"></a><a id="JCUGC416"></a>
+<div class="props_rev_3"><a id="GUID-EBA40AE0-A558-4EB7-AAE1-4119B4B7736C"></a>
+<h2 id="JCUGC-GUID-EBA40AE0-A558-4EB7-AAE1-4119B4B7736C" class="sect2">Exp2Text</h2>
+<div>
+<p>Run Exp2Text tool to convert the export file of a package to a text file.</p>
+<div class="tblformal" id="GUID-EBA40AE0-A558-4EB7-AAE1-4119B4B7736C__GUID-AC7184B4-1CAC-42FF-B3E6-822E30E99650">
+<p class="titleintable">Table B-7 Parameters for Exp2Text</p>
+<table class="cellalignment12" title="Parameters for Exp2Text" summary="provides a list and description of the parameter attributes for the exp2text tool">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment71" id="d43447e1256">Attribute</th>
+<th class="cellalignment14" id="d43447e1259">Description</th>
+<th class="cellalignment97" id="d43447e1262">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1267" headers="d43447e1256">
+<p>PackageName</p>
+</td>
+<td class="cellalignment17" headers="d43447e1267 d43447e1259">
+<p>Fully qualified name of the package.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1267 d43447e1262">
+<p>Yes</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1277" headers="d43447e1256">
+<p>ClassDir</p>
+</td>
+<td class="cellalignment17" headers="d43447e1277 d43447e1259">
+<p>Root directory where the exp2text tool looks for the export file. If no ClassDir is specified, the directory in which the Java VM is invoked is taken as base dir.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1277 d43447e1262">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1287" headers="d43447e1256">
+<p>OutputDir</p>
+</td>
+<td class="cellalignment17" headers="d43447e1287 d43447e1259">
+<p>The root directory for output.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1287 d43447e1262">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1297" headers="d43447e1256">
+<p>classpath</p>
+</td>
+<td class="cellalignment17" headers="d43447e1297 d43447e1259">
+<p>Classpath to use for this task. If required JAR files are not already in the system classpath, you can specify this attribute to put them in the classpath when this task is executed.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1297 d43447e1262">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1307" headers="d43447e1256">
+<p>dir</p>
+</td>
+<td class="cellalignment17" headers="d43447e1307 d43447e1259">
+<p>The directory to invoke the Java VM in.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1307 d43447e1262">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1317" headers="d43447e1256">
+<p>nobanner</p>
+</td>
+<td class="cellalignment17" headers="d43447e1317 d43447e1259">
+<p>Set this element to <code class="codeph">true</code> if you do not want the Exp2Text banner showing.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1317 d43447e1262">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1330" headers="d43447e1256">
+<p>version</p>
+</td>
+<td class="cellalignment17" headers="d43447e1330 d43447e1259">
+<p>Prints Exp2Text version number.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1330 d43447e1262">
+<p>No</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<a id="JCUGC418"></a>
+<div class="props_rev_3"><a id="GUID-3BF47622-DAD1-4C54-AF96-9810960404F8"></a>
+<h3 id="JCUGC-GUID-3BF47622-DAD1-4C54-AF96-9810960404F8" class="sect3">Errors</h3>
+<div>
+<p>Execution of this task fails if any of the required elements are not supplied, if <code class="codeph">converter.jar</code> is not in the classpath, or if <code class="codeph">Exp2Text</code> returns an error code.</p>
+</div>
+</div>
+<a id="JCUGC419"></a>
+<div class="props_rev_3"><a id="GUID-7E8FA4E4-A2EC-48F3-8210-059C8C5C46AD"></a>
+<h3 id="JCUGC-GUID-7E8FA4E4-A2EC-48F3-8210-059C8C5C46AD" class="sect3">Examples</h3>
+<div>
+<div class="section">
+<p>To use these examples:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Enter the following example code to run <code class="codeph">Exp2Text</code> and generate text file from the export file of package HelloWorld:</span>
+<div>
+<div class="infobox-note" id="GUID-7E8FA4E4-A2EC-48F3-8210-059C8C5C46AD__GUID-F515CC4C-FD38-4827-903B-5D84E77DBF60">
+<p class="notep1">Note:</p>
+<p>This example assumes that <code class="codeph">converter.jar</code> is already in classpath.</p>
+</div>
+<pre dir="ltr">
+&lt;target name="Exp2TextTarget" &gt; 
+  &lt;Exp2Text 
+      packagename="com.sun.javacard.samples.HelloWorld" 
+      classdir="${classroot}" 
+      outputdir="${classroot}"&gt; 
+  &lt;/Exp2Text&gt;
+&lt;/target&gt;
+</pre></div>
+</li>
+<li class="stepexpand"><span>Enter the following example code to run <code class="codeph">Exp2Text</code> and generate text file from the export file of package HelloWorld:</span>
+<div>
+<div class="infobox-note" id="GUID-7E8FA4E4-A2EC-48F3-8210-059C8C5C46AD__GUID-51A96DB3-D30D-4649-96C4-1B286F942B38">
+<p class="notep1">Note:</p>
+<p><code class="codeph">Classdir</code> and the root <code class="codeph">outputdir</code> are both assumed to be the directory where the Java VM was invoked. Classpath used in this example is referenced by the <code class="codeph">classpath</code> refid.</p>
+</div>
+<pre dir="ltr">
+&lt;target name="Exp2TextTarget" &gt; 
+  &lt;Exp2Text 
+      packagename="com.sun.javacard.samples.HelloWorld"&gt; 
+      &lt;classpath refid="classpath"/&gt; 
+  &lt;/Exp2Text&gt;
+&lt;/target&gt;
+</pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<a id="JCUGC421"></a><a id="JCUGC420"></a>
+<div class="props_rev_3"><a id="GUID-BBCD88C1-C0DC-4198-BC63-6962CFA4B517"></a>
+<h2 id="JCUGC-GUID-BBCD88C1-C0DC-4198-BC63-6962CFA4B517" class="sect2">Maskgen</h2>
+<div>
+<p>Runs Maskgen to generate a mask for <code class="codeph">cref</code>, depending on the generator used (see details below).</p>
+<div class="tblformal" id="GUID-BBCD88C1-C0DC-4198-BC63-6962CFA4B517__GUID-4B34121E-A30F-4429-B788-56512862FCBC">
+<p class="titleintable">Table B-8 Parameters for Maskgen</p>
+<table class="cellalignment12" title="Parameters for Maskgen" summary="provides a list and description of the parameter attributes for the maskgen tool">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment71" id="d43447e1451">Attribute</th>
+<th class="cellalignment99" id="d43447e1454">Description</th>
+<th class="cellalignment15" id="d43447e1457">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1462" headers="d43447e1451">
+<p>Generator</p>
+</td>
+<td class="cellalignment100" headers="d43447e1462 d43447e1454">
+<p>Tells Maskgen for which platform is the mask to be generated. Possible choices are a51, <code class="codeph">cref</code>, and size. For details see Maskgen documentation in the <a href="producing-mask-file-java-card-assembly-files.htm" title="This chapter describes how to use the maskgen tool to create a mask from Java Card Assembly and CAP files. The maskgen tool is not available or of use outside of a source release bundle, so you can disregard this chapter if you do not have a source release of the development kit. If you have a source release, you can localize locale-specific data associated with the maskgen tool, see Localizing With The Development Kit.">Producing a Mask File from Java Card Assembly Files</a>.</p>
+</td>
+<td class="cellalignment18" headers="d43447e1462 d43447e1457">
+<p>Yes</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1496" headers="d43447e1451">
+<p>ConfigFile</p>
+</td>
+<td class="cellalignment100" headers="d43447e1496 d43447e1454">
+<p>Fully qualified path and name of generator specific configuration file.</p>
+</td>
+<td class="cellalignment18" headers="d43447e1496 d43447e1457">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1506" headers="d43447e1451">
+<p>DebugInfo</p>
+</td>
+<td class="cellalignment100" headers="d43447e1506 d43447e1454">
+<p>If enabled, tells Maskgen to generate location debug information for mask.</p>
+</td>
+<td class="cellalignment18" headers="d43447e1506 d43447e1457">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1516" headers="d43447e1451">
+<p>MemRefSize</p>
+</td>
+<td class="cellalignment100" headers="d43447e1516 d43447e1454">
+<p>Integer value that tells Maskgen what memory reference size to use in the mask. Two possible values for element are 16 and 32. Default value used by Maskgen is 32.</p>
+</td>
+<td class="cellalignment18" headers="d43447e1516 d43447e1457">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1526" headers="d43447e1451">
+<p>OutFile</p>
+</td>
+<td class="cellalignment100" headers="d43447e1526 d43447e1454">
+<p>Fully qualified path and name of the output mask file. If this element is not specified, the default file name is <code class="codeph">a.out</code> and is generated in the directory where the Java VM is invoked.</p>
+</td>
+<td class="cellalignment18" headers="d43447e1526 d43447e1457">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1539" headers="d43447e1451">
+<p>classpath</p>
+</td>
+<td class="cellalignment100" headers="d43447e1539 d43447e1454">
+<p>Classpath to use for this task. If required JAR files are not already in the system classpath, you can specify this attribute to put them in the classpath when this task is executed.</p>
+</td>
+<td class="cellalignment18" headers="d43447e1539 d43447e1457">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1549" headers="d43447e1451">
+<p>dir</p>
+</td>
+<td class="cellalignment100" headers="d43447e1549 d43447e1454">
+<p>The directory to invoke the Java VM in.</p>
+</td>
+<td class="cellalignment18" headers="d43447e1549 d43447e1457">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1559" headers="d43447e1451">
+<p>nobanner</p>
+</td>
+<td class="cellalignment100" headers="d43447e1559 d43447e1454">
+<p>Set this element to <code class="codeph">true</code> if you do not want the Maskgen banner showing.</p>
+</td>
+<td class="cellalignment18" headers="d43447e1559 d43447e1457">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1572" headers="d43447e1451">
+<p>version</p>
+</td>
+<td class="cellalignment100" headers="d43447e1572 d43447e1454">
+<p>Prints Maskgen version number.</p>
+</td>
+<td class="cellalignment18" headers="d43447e1572 d43447e1457">
+<p>No</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<a id="JCUGC422"></a>
+<div class="props_rev_3"><a id="GUID-C8D8BEB6-95EA-4BC7-811C-27FAEBEC58F2"></a>
+<h3 id="JCUGC-GUID-C8D8BEB6-95EA-4BC7-811C-27FAEBEC58F2" class="sect3">Parameters Specified As Nested Elements</h3>
+<div>
+<p>The JCAInputFile parameters are specified as nested elements and use nested element JCAInputFile to specify names of input JCA files for Maskgen. Input JCA files are required to create a Mask file. The reason a standard FileSet to specify JCA file names is not used here is that Maskgen supports input file names that starts with an "@" symbol to specify an input file that contains a list of names of input JCA files. A file name that starts with "@" is not supported by any of the standard Ant types. See the description for <a href="custom-types.htm#GUID-5940D453-F653-4A23-BB5A-C9F3BE6FB9C1">JCAInputFile</a> for details.</p>
+</div>
+</div>
+<a id="JCUGC726"></a>
+<div class="props_rev_3"><a id="GUID-B1A25236-F023-42AE-AFC1-5C6DDAACBC00"></a>
+<h3 id="JCUGC-GUID-B1A25236-F023-42AE-AFC1-5C6DDAACBC00" class="sect3">Errors</h3>
+<div>
+<p>Execution of this task fails if any of the required elements are not supplied, if <code class="codeph">converter.jar</code> is not in the classpath or if <code class="codeph">Maskgen</code> returns an error code.</p>
+</div>
+</div>
+<a id="JCUGC425"></a>
+<div class="props_rev_3"><a id="GUID-17629097-AE16-4C33-BE15-5D722AD217E7"></a>
+<h3 id="JCUGC-GUID-17629097-AE16-4C33-BE15-5D722AD217E7" class="sect3">Examples</h3>
+<div>
+<div class="section">
+<p>To use these examples:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Enter the following example code to run Maskgen to generate <code class="codeph">mask.c</code> file from input JCA files specified in files <code class="codeph">mask1.in</code> and <code class="codeph">mask2.in:</code></span>
+<div>
+<pre dir="ltr">
+&lt;target name="MasgenTarget" &gt; 
+  &lt;maskgen  
+      generator="cref"  
+      configfile="${maskDir}/mask.cfg" 
+      outfile="${crefDir}/common/mask.c" &gt; 
+      &lt;jcainputfile inputfile="@${maskDir}/mask1.in" / &gt; 
+      &lt;jcainputfile inputfile="@${maskDir}/mask2.in" / &gt; 
+  &lt;/maskgen &gt;
+&lt;/target &gt;
+</pre></div>
+</li>
+<li class="stepexpand"><span>Enter the following example code to run Maskgen to generate <code class="codeph">mask.c</code> file from input JCA files specified in files <code class="codeph">api.in</code> and installer and <code class="codeph">helloworld</code> JCA files:</span>
+<div>
+<pre dir="ltr">
+&lt;target name="MasgenTarget" &gt; 
+  &lt;maskgen  
+      generator="cref"  
+      configfile="${maskDir}/mask.cfg" 
+      outfile="${crefDir}/common/mask.c" &gt; 
+      &lt;jcainputfile inputfile="@${maskDir}/api.in" / &gt; 
+      &lt;jcainputfile inputfile="${jcaDir}/installer.jca" / &gt; 
+      &lt;jcainputfile inputfile="${jcaDir}/helloworld.jca" / &gt; 
+  &lt;/maskgen &gt;
+&lt;/target &gt;
+</pre></div>
+</li>
+<li class="stepexpand"><span>Enter the following example code to run Maskgen without specifying an output file and classpath.</span>
+<div>
+<div class="infobox-note" id="GUID-17629097-AE16-4C33-BE15-5D722AD217E7__GUID-EB2CEF4A-E5DC-457B-AAAA-DAF63FCC2702">
+<p class="notep1">Note:</p>
+<p>Maskgen generates the file <code class="codeph">a.out</code> in the directory in which Java VM was invoked.</p>
+</div>
+<pre dir="ltr">
+&lt;target name="MasgenTarget" &gt; 
+  &lt;maskgen  
+      generator="cref"  
+      configfile="${maskDir}/mask.cfg" 
+      outfile="${crefDir}/common/mask.c" &gt; 
+      &lt;jcainputfile inputfile="@${maskDir}/api.in" / &gt; 
+      &lt;jcainputfile inputfile="${jcaDir}/installer.jca" / &gt; 
+      &lt;jcainputfile inputfile="${jcaDir}/helloworld.jca" / &gt; 
+      &lt;classpath refid="classpath"/&gt; 
+  &lt;/maskgen &gt;
+&lt;/target &gt;
+</pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<a id="JCUGC427"></a><a id="JCUGC426"></a>
+<div class="props_rev_3"><a id="GUID-45525AD6-94D6-4AEC-8CD7-D7EE87ACE4F6"></a>
+<h2 id="JCUGC-GUID-45525AD6-94D6-4AEC-8CD7-D7EE87ACE4F6" class="sect2">Scriptgen</h2>
+<div>
+<p>Runs Scriptgen to generate an APDU script file from a CAP file.</p>
+<div class="tblformal" id="GUID-45525AD6-94D6-4AEC-8CD7-D7EE87ACE4F6__GUID-2B8E2A88-85BE-4EAC-A76A-62A1EE415DF9">
+<p class="titleintable">Table B-9 Parameters for Scriptgen</p>
+<table class="cellalignment12" title="Parameters for Scriptgen" summary="provides a list and description of the parameter attributes for the scriptgen tool">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment71" id="d43447e1719">Attribute</th>
+<th class="cellalignment99" id="d43447e1722">Description</th>
+<th class="cellalignment97" id="d43447e1725">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1730" headers="d43447e1719">
+<p>CapFile</p>
+</td>
+<td class="cellalignment100" headers="d43447e1730 d43447e1722">
+<p>Fully qualified path and name of the input CAP file.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1730 d43447e1725">
+<p>Yes</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1740" headers="d43447e1719">
+<p>HashFile</p>
+</td>
+<td class="cellalignment100" headers="d43447e1740 d43447e1722">
+<p>Fully qualified path and name of the verifier-generated file that contains the hashes for all of the components in the input CAP file.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1740 d43447e1725">
+<p>Yes</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1750" headers="d43447e1719">
+<p>OutFile</p>
+</td>
+<td class="cellalignment100" headers="d43447e1750 d43447e1722">
+<p>Fully qualified path and name of the output script file. If no output file name is specified, generated script is output on the console.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1750 d43447e1725">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1760" headers="d43447e1719">
+<p>PkgName</p>
+</td>
+<td class="cellalignment100" headers="d43447e1760 d43447e1722">
+<p>Fully qualified name of the package inside the CAP file.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1760 d43447e1725">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1770" headers="d43447e1719">
+<p>NoBeginEnd</p>
+</td>
+<td class="cellalignment100" headers="d43447e1770 d43447e1722">
+<p>If enabled, instructs Scriptgen to suppress "CAP_BEGIN", "CAP_END" APDU commands.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1770 d43447e1725">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1780" headers="d43447e1719">
+<p>classpath</p>
+</td>
+<td class="cellalignment100" headers="d43447e1780 d43447e1722">
+<p>Classpath to use for this task. If required JAR files are not already in the system classpath, you can specify this attribute to put them in the classpath when this task is executed.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1780 d43447e1725">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1790" headers="d43447e1719">
+<p>dir</p>
+</td>
+<td class="cellalignment100" headers="d43447e1790 d43447e1722">
+<p>The directory to invoke the Java VM in.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1790 d43447e1725">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1800" headers="d43447e1719">
+<p>nobanner</p>
+</td>
+<td class="cellalignment100" headers="d43447e1800 d43447e1722">
+<p>Set this element to <code class="codeph">true</code> if you do not want the Scriptgen banner showing.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1800 d43447e1725">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment72" id="d43447e1813" headers="d43447e1719">
+<p>version</p>
+</td>
+<td class="cellalignment100" headers="d43447e1813 d43447e1722">
+<p>Prints Scriptgen version number.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1813 d43447e1725">
+<p>No</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<a id="JCUGC428"></a>
+<div class="props_rev_3"><a id="GUID-B0F7F56D-FB6C-4FEF-9C4A-CF49A50AA44E"></a>
+<h3 id="JCUGC-GUID-B0F7F56D-FB6C-4FEF-9C4A-CF49A50AA44E" class="sect3">Errors</h3>
+<div>
+<p>Execution of this task fails if any of the required elements are not supplied, if <code class="codeph">scriptgen.jar</code> is not in the classpath or if Scriptgen returns an error code.</p>
+</div>
+</div>
+<a id="JCUGC429"></a>
+<div class="props_rev_3"><a id="GUID-227E3C1F-4A5A-4D2D-811F-64D381E03591"></a>
+<h3 id="JCUGC-GUID-227E3C1F-4A5A-4D2D-811F-64D381E03591" class="sect3">Examples</h3>
+<div>
+<div class="section">
+<p>To use these examples:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Enter the following example code to run Scriptgen and generate script file <code class="codeph">helloWorld.scr</code> from <code class="codeph">helloWorld.cap</code> file.</span>
+<div>
+<div class="infobox-note" id="GUID-227E3C1F-4A5A-4D2D-811F-64D381E03591__GUID-5C74DED5-0A01-4A96-8702-13DDD521493D">
+<p class="notep1">Note:</p>
+<p>Classpath used in this example is referenced by the <code class="codeph">classpath</code> refid.</p>
+</div>
+<pre dir="ltr">
+&lt;target name="ScriptgenTarget" &gt; 
+  &lt;scriptgen  
+      noBeginEnd="true" 
+      noBanner="true" 
+      HashFile="${samples.helloworld.output}/HelloWorld.hash"
+      CapFile="${samples.helloworld.output}/HelloWorld.cap"  
+      outFile="${samples.helloworld.script}/helloWorld.scr" &gt; 
+      &lt;classpath refid="classpath" /&gt; 
+  &lt;/scriptgen &gt;
+&lt;/target &gt;
+</pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<a id="JCUGC431"></a><a id="JCUGC430"></a>
+<div class="props_rev_3"><a id="GUID-2E03C28B-ED43-47BB-A46B-786616B85A70"></a>
+<h2 id="JCUGC-GUID-2E03C28B-ED43-47BB-A46B-786616B85A70" class="sect2">VerifyCap</h2>
+<div>
+<p>Runs off-card Java Card platform CAP file verifier to verify a CAP file. The Java Card platform off-card verifier is invoked in a separate instance of Java VM.</p>
+<div class="tblformal" id="GUID-2E03C28B-ED43-47BB-A46B-786616B85A70__GUID-E28E5D2C-2ED5-47D9-981E-8FC2AB29883D">
+<p class="titleintable">Table B-10 Parameters for VerifyCap</p>
+<table class="cellalignment12" title="Parameters for VerifyCap" summary="provides a list and description of the parameter attributes for the verifycap tool">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment97" id="d43447e1912">Attribute</th>
+<th class="cellalignment101" id="d43447e1915">Description</th>
+<th class="cellalignment97" id="d43447e1918">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment98" id="d43447e1923" headers="d43447e1912">
+<p>CapFile</p>
+</td>
+<td class="cellalignment102" headers="d43447e1923 d43447e1915">
+<p>Fully qualified path and name of CAP file that is to be verified.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1923 d43447e1918">
+<p>Yes</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment98" id="d43447e1933" headers="d43447e1912">
+<p>PkgName</p>
+</td>
+<td class="cellalignment102" headers="d43447e1933 d43447e1915">
+<p>Fully qualified Name of the package inside the CAP file for which the CAP file was generated.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1933 d43447e1918">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment98" id="d43447e1943" headers="d43447e1912">
+<p>noWarn</p>
+</td>
+<td class="cellalignment102" headers="d43447e1943 d43447e1915">
+<p>If enabled, tells the verifier not to output any warning messages.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1943 d43447e1918">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment98" id="d43447e1953" headers="d43447e1912">
+<p>Verbose</p>
+</td>
+<td class="cellalignment102" headers="d43447e1953 d43447e1915">
+<p>If enabled, enables verbose verifier output.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1953 d43447e1918">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment98" id="d43447e1963" headers="d43447e1912">
+<p>classpath</p>
+</td>
+<td class="cellalignment102" headers="d43447e1963 d43447e1915">
+<p>Classpath to use for this task. If required JAR files are not already in the system classpath, you can specify this attribute to put them in the classpath when this task is executed.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1963 d43447e1918">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment98" id="d43447e1973" headers="d43447e1912">
+<p>dir</p>
+</td>
+<td class="cellalignment102" headers="d43447e1973 d43447e1915">
+<p>The directory to invoke the Java VM in.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1973 d43447e1918">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment98" id="d43447e1983" headers="d43447e1912">
+<p>nobanner</p>
+</td>
+<td class="cellalignment102" headers="d43447e1983 d43447e1915">
+<p>Set this element to <code class="codeph">true</code> if you want to suppress Verifier banner.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1983 d43447e1918">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment98" id="d43447e1996" headers="d43447e1912">
+<p>version</p>
+</td>
+<td class="cellalignment102" headers="d43447e1996 d43447e1915">
+<p>Prints the version number of the off-card verifier.</p>
+</td>
+<td class="cellalignment98" headers="d43447e1996 d43447e1918">
+<p>No</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<a id="JCUGC432"></a>
+<div class="props_rev_3"><a id="GUID-42589DBD-3C53-4EC9-8805-BD7F1731AF6E"></a>
+<h3 id="JCUGC-GUID-42589DBD-3C53-4EC9-8805-BD7F1731AF6E" class="sect3">Parameters Specified As Nested Elements</h3>
+<div>
+<p>The ExportFiles are parameters specified as nested elements that use nested element ExportFiles to specify group of export files for packages imported by the package whose CAP file is being verified and the export file corresponding to the CAP being verified. For details regarding ExportFiles type see <a href="custom-types.htm#GUID-E7C2FB1A-4AD4-4469-8877-8DCEDCF4B06F">ExportFiles</a>.</p>
+</div>
+</div>
+<a id="JCUGC727"></a>
+<div class="props_rev_3"><a id="GUID-E8291BAE-EC00-4878-BEEF-5FA20538DA70"></a>
+<h3 id="JCUGC-GUID-E8291BAE-EC00-4878-BEEF-5FA20538DA70" class="sect3">Errors</h3>
+<div>
+<p>Execution of this task fails if any of the required elements are not supplied, if <code class="codeph">offcardverifier.jar</code> is not in the classpath, or if Verifier returns an error code.</p>
+</div>
+</div>
+<a id="JCUGC435"></a>
+<div class="props_rev_3"><a id="GUID-459200AD-D2BF-474B-99FA-D09800A77001"></a>
+<h3 id="JCUGC-GUID-459200AD-D2BF-474B-99FA-D09800A77001" class="sect3">Examples</h3>
+<div>
+<div class="section">
+<p>To use these examples:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Enter the following example code to run the Java Card platform off-card verifier and verify the <code class="codeph">HelloWorld.cap</code> file.</span>
+<div>
+<pre dir="ltr">
+&lt;target name="VerifyCapTarget" &gt; 
+  &lt;verifycap  
+      CapFile="${samples.helloworld.output}/HelloWorld.cap" &gt; 
+      &lt;exportfiles file="${samples.helloworld.output}/HelloWorld.exp" /&gt; 
+      &lt;exportfiles file="${api_exports}/javacard/framework/javacard/framework.exp" /&gt; 
+      &lt;exportfiles file="${api_exports}/java/lang/javacard/lang.exp" /&gt; 
+      &lt;classpath refid="classpath"/&gt; 
+  &lt;/verifycap&gt;
+&lt;/target&gt; 
+</pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<a id="JCUGC437"></a><a id="JCUGC436"></a>
+<div class="props_rev_3"><a id="GUID-9132C357-28DE-4E9A-8122-D946D988A0F9"></a>
+<h2 id="JCUGC-GUID-9132C357-28DE-4E9A-8122-D946D988A0F9" class="sect2">VerifyExp</h2>
+<div>
+<p>Runs off-card Java Card platform EXP file verifier to verify an EXP file. Java Card platform off-card verifier is invoked in a separate instance of Java VM.</p>
+<div class="tblformal" id="GUID-9132C357-28DE-4E9A-8122-D946D988A0F9__GUID-7D44CFD2-12AF-4134-8B3A-4F6F6D795CAF">
+<p class="titleintable">Table B-11 Parameters for VerifyExp</p>
+<table class="cellalignment12" title="Parameters for VerifyExp" summary="provides a list and description of the parameter attributes for the verifyexp tool">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment97" id="d43447e2108">Attribute</th>
+<th class="cellalignment27" id="d43447e2111">Description</th>
+<th class="cellalignment103" id="d43447e2114">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment98" id="d43447e2119" headers="d43447e2108">
+<p>noWarn</p>
+</td>
+<td class="cellalignment28" headers="d43447e2119 d43447e2111">
+<p>If enabled, tells the verifier not to output any warning messages.</p>
+</td>
+<td class="cellalignment104" headers="d43447e2119 d43447e2114">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment98" id="d43447e2129" headers="d43447e2108">
+<p>Verbose</p>
+</td>
+<td class="cellalignment28" headers="d43447e2129 d43447e2111">
+<p>If enabled, enables verbose verifier output.</p>
+</td>
+<td class="cellalignment104" headers="d43447e2129 d43447e2114">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment98" id="d43447e2139" headers="d43447e2108">
+<p>classpath</p>
+</td>
+<td class="cellalignment28" headers="d43447e2139 d43447e2111">
+<p>Classpath to use for this task. If required JAR files are not already in the system classpath, you can specify this attribute to put them in the classpath when this task is executed.</p>
+</td>
+<td class="cellalignment104" headers="d43447e2139 d43447e2114">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment98" id="d43447e2149" headers="d43447e2108">
+<p>dir</p>
+</td>
+<td class="cellalignment28" headers="d43447e2149 d43447e2111">
+<p>The directory to invoke the Java VM in.</p>
+</td>
+<td class="cellalignment104" headers="d43447e2149 d43447e2114">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment98" id="d43447e2159" headers="d43447e2108">
+<p>nobanner</p>
+</td>
+<td class="cellalignment28" headers="d43447e2159 d43447e2111">
+<p>Set this element to <code class="codeph">true</code> if you want to suppress Verifier banner.</p>
+</td>
+<td class="cellalignment104" headers="d43447e2159 d43447e2114">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment98" id="d43447e2172" headers="d43447e2108">
+<p>version</p>
+</td>
+<td class="cellalignment28" headers="d43447e2172 d43447e2111">
+<p>Prints the version number of off-card verifier.</p>
+</td>
+<td class="cellalignment104" headers="d43447e2172 d43447e2114">
+<p>No</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<a id="JCUGC438"></a>
+<div class="props_rev_3"><a id="GUID-EB34B159-2620-4D91-9376-46C3061F5026"></a>
+<h3 id="JCUGC-GUID-EB34B159-2620-4D91-9376-46C3061F5026" class="sect3">Parameters Specified As Nested Elements</h3>
+<div>
+<p>The ExportFiles are parameters specified as nested elements that use nested element ExportFiles to specify the EXP file being verified. For details regarding ExportFiles type see <a href="custom-types.htm#GUID-E7C2FB1A-4AD4-4469-8877-8DCEDCF4B06F">ExportFiles</a>. VerifiyExp requires that only one input EXP file be specified. This tasks throws an error if more than one EXP files are specified.</p>
+</div>
+</div>
+<a id="JCUGC440"></a>
+<div class="props_rev_3"><a id="GUID-7B994D96-3BF2-4EEE-9C18-34BF0143015B"></a>
+<h3 id="JCUGC-GUID-7B994D96-3BF2-4EEE-9C18-34BF0143015B" class="sect3">Errors</h3>
+<div>
+<p>Execution of this task fails if no EXP file is specified or if more than one EXP file is specified, if <code class="codeph">offcardverifier.jar</code> is not in the classpath, or if Verifier returns an error code.</p>
+</div>
+</div>
+<a id="JCUGC441"></a>
+<div class="props_rev_3"><a id="GUID-4EF243D0-FF82-4C36-8E60-EC3558D825E1"></a>
+<h3 id="JCUGC-GUID-4EF243D0-FF82-4C36-8E60-EC3558D825E1" class="sect3">Examples</h3>
+<div>
+<div class="section">
+<p>To use these examples:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Enter the following example code to run the Java Card platform off-card verifier to verify <code class="codeph">HelloWorld.exp</code> file:</span>
+<div>
+<pre dir="ltr">
+&lt;target name="VerifyExpTarget" &gt; 
+  &lt;verifyExp  
+      &lt;exportfiles file="${samples.helloworld.output}/HelloWorld.exp" /&gt; 
+      &lt;classpath refid="classpath"/&gt; 
+  &lt;/verifyExp&gt;
+&lt;/target&gt; 
+</pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<a id="JCUGC443"></a><a id="JCUGC442"></a>
+<div class="props_rev_3"><a id="GUID-35B43F96-464E-4F51-9C2F-310B2519CE6E"></a>
+<h2 id="JCUGC-GUID-35B43F96-464E-4F51-9C2F-310B2519CE6E" class="sect2">VerifyRev</h2>
+<div>
+<p>Runs off-card Java Card platform verifier to verify binary compatibility between two versions of an EXP file. Java Card platform off-card verifier is invoked in a separate instance of Java VM.</p>
+<div class="tblformal" id="GUID-35B43F96-464E-4F51-9C2F-310B2519CE6E__GUID-0BE8E2DF-1E0B-4094-A123-98B1068C57E6">
+<p class="titleintable">Table B-12 Parameters for VerifyRev</p>
+<table class="cellalignment12" title="Parameters for VerifyRev" summary="provides a list and description of the parameter attributes for the verifyrev tool">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment97" id="d43447e2284">Attribute</th>
+<th class="cellalignment27" id="d43447e2287">Description</th>
+<th class="cellalignment103" id="d43447e2290">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment98" id="d43447e2295" headers="d43447e2284">
+<p>noWarn</p>
+</td>
+<td class="cellalignment28" headers="d43447e2295 d43447e2287">
+<p>If enabled, tells the verifier not to output any warning messages.</p>
+</td>
+<td class="cellalignment104" headers="d43447e2295 d43447e2290">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment98" id="d43447e2305" headers="d43447e2284">
+<p>Verbose</p>
+</td>
+<td class="cellalignment28" headers="d43447e2305 d43447e2287">
+<p>If enabled, enables verbose verifier output.</p>
+</td>
+<td class="cellalignment104" headers="d43447e2305 d43447e2290">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment98" id="d43447e2315" headers="d43447e2284">
+<p>classpath</p>
+</td>
+<td class="cellalignment28" headers="d43447e2315 d43447e2287">
+<p>Classpath to use for this task. If required jar files are not already in the system classpath, you can specify this attribute to put them in the classpath when this task is executed.</p>
+</td>
+<td class="cellalignment104" headers="d43447e2315 d43447e2290">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment98" id="d43447e2325" headers="d43447e2284">
+<p>dir</p>
+</td>
+<td class="cellalignment28" headers="d43447e2325 d43447e2287">
+<p>The directory to invoke the Java VM in.</p>
+</td>
+<td class="cellalignment104" headers="d43447e2325 d43447e2290">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment98" id="d43447e2335" headers="d43447e2284">
+<p>nobanner</p>
+</td>
+<td class="cellalignment28" headers="d43447e2335 d43447e2287">
+<p>Set this element to <code class="codeph">true</code> if you want to suppress Verifier banner.</p>
+</td>
+<td class="cellalignment104" headers="d43447e2335 d43447e2290">
+<p>No</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment98" id="d43447e2348" headers="d43447e2284">
+<p>version</p>
+</td>
+<td class="cellalignment28" headers="d43447e2348 d43447e2287">
+<p>Prints the version number of off-card verifier.</p>
+</td>
+<td class="cellalignment104" headers="d43447e2348 d43447e2290">
+<p>No</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<a id="JCUGC444"></a>
+<div class="props_rev_3"><a id="GUID-CC791873-69D7-45E6-99D1-AE42DD3627E2"></a>
+<h3 id="JCUGC-GUID-CC791873-69D7-45E6-99D1-AE42DD3627E2" class="sect3">Parameters Specified As Nested Elements</h3>
+<div>
+<p>The ExportFiles are parameters specified as nested elements that use nested element ExportFiles to specify the EXP files being verified. For details regarding ExportFiles type see <a href="custom-types.htm#GUID-E7C2FB1A-4AD4-4469-8877-8DCEDCF4B06F">ExportFiles</a>. VerifyExp requires that exactly two input EXP files are specified: it throws an error if that is not the case.</p>
+</div>
+</div>
+<a id="JCUGC446"></a>
+<div class="props_rev_3"><a id="GUID-4B2B7E70-CF5D-4AF4-A344-37F3D1221F3A"></a>
+<h3 id="JCUGC-GUID-4B2B7E70-CF5D-4AF4-A344-37F3D1221F3A" class="sect3">Errors</h3>
+<div>
+<p>Execution of this task fails if no EXP file is specified or if less or more than two EXP files are specified, if <code class="codeph">offcardverifier.jar</code> is not in the classpath, or if Verifier returns an error code.</p>
+</div>
+</div>
+<a id="JCUGC447"></a>
+<div class="props_rev_3"><a id="GUID-265CC836-BD59-4E03-911E-329F11B609F4"></a>
+<h3 id="JCUGC-GUID-265CC836-BD59-4E03-911E-329F11B609F4" class="sect3">Examples</h3>
+<div>
+<div class="section">
+<p>To use these examples:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Enter the following example code to run the Java Card platform off-card verifier to verify binary compatibility between two versions of <code class="codeph">HelloWorld.exp</code> file.</span>
+<div>
+<pre dir="ltr">
+&lt;target name="VerifyExpTarget" &gt; 
+  &lt;verifyExp  
+      &lt;exportfiles file="${samples.helloworld.output}/HelloWorld.exp" /&gt; 
+      &lt;exportfiles file="${samples.helloworld.output.new}/HelloWorld.exp" /&gt; 
+      &lt;classpath refid="classpath"/&gt; 
+  &lt;/verifyExp&gt;
+&lt;/target&gt; 
+</pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<hr />
+<br />
+<p style="text-decoration:underline">Footnote Legend</p>
+Footnote&nbsp;1:
+<p>The terms "Java Virtual Machine" and "JVM" mean a Virtual Machine for the Java(TM) platform.</p>
+<br /></div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="setting-optional-ant-tasks.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="custom-types.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+</body>
+</html>

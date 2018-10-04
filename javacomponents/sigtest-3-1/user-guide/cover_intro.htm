@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<title>Introduction to API Coverage Tool</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = document) - Version 1.0.24" />
+<meta name="dcterms.created" content="2014-07-01T13:22:30Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="SigTest User's Guide" />
+<meta name="dcterms.identifier" content="E19036-03" />
+<meta name="dcterms.isVersionOf" content="SIGTS" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2006, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="part2.htm" title="Previous" type="text/html" />
+<link rel="Next" href="cover_using.htm" title="Next" type="text/html" />
+<link rel="alternate" href="SIGTS.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../../nav/css/html5.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<span id="PAGE" style="display:none;">13/25</span> <!-- End Header --><a id="Z400001024000"></a>
+<h1 class="chapter"><span class="secnum">5</span> Introduction to API Coverage Tool</h1>
+<p>The API Coverage tool is used to estimate the test coverage that a test suite under development affords to implementations of its related API specification. It does this by determining how many public class members the test suite references within the API specification that it is designed to test against. The tool uses a signature file representation of the API specification as the source of specification analysis. It does not process a formal specification in any form.</p>
+<p>The API Coverage tool code is contained in both the <code>sigtestdev.jar</code> and <code>sigtest.jar</code> files. Additional installation is not required. See <a href="cover_using.htm#Z4000c4b1051662">Chapter 6</a> for details about running API Coverage tool.</p>
+<a id="Z4000c4925054"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">5.1</span> Static API Coverage Analysis</h2>
+<p>The tool operates on the principle that a reference to an API member from within a test class indicates a test of that member by the test suite. The ratio of referenced class members to the total number of class members calculated for an API yields a percentage of test coverage for the API.</p>
+<p>This method is called <span class="italic">static</span> API coverage analysis because it does not actually run any tests from the test suite. Since it does not dynamically determine which API members are actually accessed by the tests, the coverage calculation expresses only an estimated percentage of test coverage.</p>
+<a id="Z4000c4924981"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">5.1.1</span> Major Source of Error</h3>
+<p>Static analysis cannot correctly predict the outcome of virtual calls to overridden methods that are resolved at runtime through dynamic method dispatch. The frequency of this type of overridden method can vary between differing implementations of the same API specification. This makes it difficult to formulate an exact percentage of test suite coverage when using static analysis (in spite of the fact that the implementations may all be binary compatible and correctly implement the specification).</p>
+<p>Tests that make dynamic calls to API members are not recognized by API Coverage tool. This may cause some test calls to not be accurately measured and may result in test coverage being underreported.</p>
+</div>
+<!-- class="sect2" -->
+<a id="Z4000c4924985"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">5.1.2</span> Advantages of Static Coverage Analysis</h3>
+<p>Static API coverage testing provides the following advantages over dynamic coverage methods.</p>
+<ul>
+<li>
+<p>Static testing is more lightweight. Testing is easier to setup and quicker to run than dynamic methods.</p>
+</li>
+<li>
+<p>Static testing is easier to automate and provides more consistent results because it is not affected by external conditions such as machine load, or network traffic.</p>
+</li>
+<li>
+<p>Static testing is more practical for gathering results for very large APIs. A test suite and its associated API might include many thousands of tests and associated API class members making it very cumbersome to instrument dynamic tests.</p>
+</li>
+<li>
+<p>Static testing allows you to quickly <span class="italic">estimate</span> the quality of test coverage for all APIs, especially APIs that are difficult to test dynamically.</p>
+</li>
+</ul>
+</div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="Z4000c4925062"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">5.2</span> How It Works</h2>
+<p>The static API coverage algorithms examine precompiled test suite test classes to determine the members that they reference. This includes inner classes and fields as well as constructors, although constructors cannot be inherited.</p>
+<p>The algorithms are based on the fact that the constant pool of any class file holds all of its external class references. This constant pool consists of the following related records:</p>
+<pre>
+CONSTANT_Fieldref
+CONSTANT_Methodref
+CONSTANT_InterfaceMethodref
+</pre>
+<p>Each of these records contains the fully qualified name of an external class and the name of the class member referenced. For a method, this includes the signature of the method and its return type.</p>
+<a id="Z4000c4924991"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">5.2.1</span> Level of Accuracy During Analysis</h3>
+<p><a href="#Z4000c4924010">Table 5-1</a> lists example scenarios encountered during static coverage analysis and their related potential for error. The table references the following objects:</p>
+<ul>
+<li>
+<p><code>Q.m</code> is a method referenced by the test suite.</p>
+<p>Where <code>Q</code> is the fully qualified class name, and <code>m</code> is the descriptor of the called method (including the name, list of arguments, and return type).</p>
+</li>
+<li>
+<p><code>SubQ</code> is a subclass of, and <code>SupQ</code> is a superclass of class <code>Q</code>.</p>
+</li>
+</ul>
+<p><code>x</code> is an object on the stack referenced by either the <code>invokevirtual</code> or <code>invokeinterface</code> instruction.</p>
+<p>The main potential for an inaccurate coverage measurement exists when a great many members are overridden in subclasses of an implementation (as described in condition #2 of <a href="#Z4000c4924010">Table 5-1</a>).</p>
+<div class="tblhruleformal">
+<p class="titleintable"><a id="sthref18"></a><a id="Z4000c4924010"></a>Table 5-1 Example Scenarios and Potential Errors</p>
+<table class="cellalignment36" title="Example Scenarios and Potential Errors " summary="Add Summary attribute value here." dir="ltr">
+<thead>
+<tr class="cellalignment25">
+<th class="cellalignment37" id="r1c1-t2">Condition</th>
+<th class="cellalignment37" id="r1c2-t2">Scenario</th>
+<th class="cellalignment37" id="r1c3-t2">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r2c1-t2" headers="r1c1-t2">
+<p>#1: Object <code>x</code> is of type <code>Q</code></p>
+</td>
+<td class="cellalignment31" headers="r2c1-t2 r1c2-t2">
+<p>Class <code>Q</code> declares method <code>m</code> and <code>Q.m</code> is the method called</p>
+<p>Method <code>m</code> is inherited from superclass <code>SupQ</code> and is not declared in <code>Q</code>; method <code>SupQ.m</code> is called</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t2 r1c3-t2">
+<p><code>Q.m</code> is correctly marked as covered</p>
+<p>Correctly marks either <code>Q.m</code> or <code>SupQ.m</code> as covered, depending on the calculation mode in use (described later in <a href="#Z4000c4925041">"Coverage Analysis Modes"</a>)</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r3c1-t2" headers="r1c1-t2">
+<p>#2: Object <code>x</code> is of type <code>SubQ</code>, a subclass of <code>Q</code></p>
+</td>
+<td class="cellalignment31" headers="r3c1-t2 r1c2-t2">
+<p>No subclass or superclass of <code>Q</code> overrides method <code>m</code>; <code>Q.m</code> is called</p>
+<p>A subclass of <code>Q</code> <span class="italic">does</span> override method <code>m</code> and the overriding method is called; if there are multiple inherited subclasses, exactly which method is called cannot be correctly identified before runtime</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t2 r1c3-t2">
+<p>Correctly marks <code>Q.m</code> as covered</p>
+<p><code>Q.m</code> is incorrectly marked as covered; <span class="italic">this scenario is the main source of analysis errors</span></p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r4c1-t2" headers="r1c1-t2">
+<p>#3: A method is called by means of reflection</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t2 r1c2-t2">
+<p>Uses: <code>Method.invoke(Object, Object[])</code></p>
+</td>
+<td class="cellalignment31" headers="r4c1-t2 r1c3-t2">
+<p>No method is marked as covered, assuming that <code>java.lang.reflect</code> is not in the API under test; this case cannot be correctly resolved</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" --></div>
+<!-- class="sect2" -->
+<a id="Z4000c4925041"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">5.2.2</span> Coverage Analysis Modes</h3>
+<p>The API Coverage tool uses these two modes of analysis:</p>
+<ul>
+<li>
+<p><span class="bold">Real World Mode:</span> Returns a fairly accurate estimate based on input from one specific API implementation, such as a reference implementation. You can then compare the real world results to those of the worst case mode.</p>
+</li>
+<li>
+<p><span class="bold">Worst Case Mode:</span> Returns an estimate based on a hypothetical API in which every class overrides or hides all members from its superclass. This scenario is highly unlikely to occur in actual practice. You use this mode by extrapolating its results into those of the real world case to estimate the possible range in test coverage that a test suite will provide in the field over a number of differing implementations.</p>
+</li>
+</ul>
+<p><a href="cover_using.htm#Z4000c4b1051662">Chapter 6</a> describes how to set up and use the API Coverage tool.</p>
+</div>
+<!-- class="sect2" -->
+<a id="Z4000c4925048"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">5.2.3</span> Filtering Coverage By Marking Up Signature Files</h3>
+<p>Typically, API Coverage tool measures coverage for an entire API or package(s). However, in some use cases it is convenient to track the coverage of a particular feature that spreads throughout multiple packages and classes.</p>
+<p>For example, you might want to track a new feature that adds a few methods or fields to preexisting classes, or you might want to track a feature that adds an extra interface implemented by a preexisting class. You will want to know which of those newly added methods are tested.</p>
+<p>The way to get this information is to mark up a signature file with directives that indicate which API members belong to the feature that you want reported in the API Coverage tool report. A fragment of a signature file with filtering directives (in bold) is shown in <a href="#Z400001026722">Example 5-1</a>.</p>
+<div class="example">
+<p class="titleinexample"><a id="Z400001026722"></a>Example 5-1 Signature File Mark-Up</p>
+<pre>
+#APICover file v4.1
+
+CLSS public final java.awt.SplashScreen 
+meth public boolean isVisible() 
+<span class="bold">#coverage on </span>
+meth public java.awt.Dimension getSize() 
+meth public java.awt.Graphics2D createGraphics() 
+<span class="bold">#coverage off </span>
+meth public java.awt.Rectangle getBounds() 
+meth public java.net.URL getImageURL() 
+meth public static java.awt.SplashScreen getSplashScreen() 
+meth public void close() 
+meth public void setImageURL(java.net.URL) throws java.io.IOException 
+meth public void update() 
+supr java.lang.Object 
+hfds image,imageURL,log,splashPtr,theInstance,wasClosed
+</pre></div>
+<!-- class="example" -->
+<a id="Z4000c4924960"></a>
+<div class="sect3">
+<h4 class="sect3"><span class="secnum">5.2.3.1</span> Filtering Markup Format</h4>
+<p>The following steps describe how to mark up a signature file to designate classes and members you want to track.</p>
+<ol>
+<li>
+<p><a id="Z4000c4924910"></a>Copy the signature file.</p>
+</li>
+<li>
+<p><a id="Z4000c4924914"></a>In a text editor, change the first line of the copy of the signature file from <code>#Signature</code> <code>file</code> <code>v4.1</code> to <code>#APICover</code> <code>file</code> <code>v4.1</code>.</p>
+</li>
+<li>
+<p><a id="Z4000c4924925"></a>Use the <code>#coverage</code> <code>on</code> and <code>#coverage</code> <code>off</code> directives to mark the classes and members.</p>
+<p>Classes or members between the <code>#coverage</code> <code>on</code> and <code>#coverage</code> <code>off</code> directives are tracked during coverage calculation. All the other classes and members are excluded.</p>
+</li>
+</ol>
+</div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" --></div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment24">
+<tr>
+<td class="cellalignment31">
+<table class="cellalignment29">
+<tr>
+<td class="cellalignment28"><a href="part2.htm"><img width="24" height="24" src="../../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment28"><a href="cover_using.htm"><img width="24" height="24" src="../../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2006, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment33">
+<table class="cellalignment27">
+<tr>
+<td class="cellalignment28"><a href="../../index.html"><img width="24" height="24" src="../../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment28"><a href="toc.htm"><img width="24" height="24" src="../../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment28"><a href="../../dcommon/html/feedback.htm"><img width="24" height="24" src="../../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

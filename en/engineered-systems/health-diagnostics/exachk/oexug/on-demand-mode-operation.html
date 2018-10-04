@@ -1,0 +1,232 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="Usually, health checks run at scheduled intervals. However, Oracle recommends that you run health checks on-demand when needed.">
+      <meta name="description" content="Usually, health checks run at scheduled intervals. However, Oracle recommends that you run health checks on-demand when needed.">
+      <title>Running Health Checks On-Demand</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide">
+      <meta property="og:description" content="Usually, health checks run at scheduled intervals. However, Oracle recommends that you run health checks on-demand when needed.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-orachk-and-exachk-users-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:43:23-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2016, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E83827-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/exachk">
+      
+      <link rel="prev" href="automated-daemon-mode-operation.html" title="Previous" type="text/html">
+      <link rel="next" href="silent-mode-operation.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"exachk","element_name":"EXAchk","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® ORAchk and EXAchk User's Guide">
+    <meta name="dcterms.isVersionOf" content="OEXUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="automated-daemon-mode-operation.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="silent-mode-operation.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="oracle-orachk-and-exachk-common-features-tasks.html" property="item" typeof="WebPage"><span property="name">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Running Health Checks On-Demand</li>
+            </ol>
+            <a id="GUID-7CB110A3-023B-400C-837E-5F4DE5A2BBDB" name="GUID-7CB110A3-023B-400C-837E-5F4DE5A2BBDB"></a>
+            
+            <h2 id="OEXUG-GUID-7CB110A3-023B-400C-837E-5F4DE5A2BBDB" class="sect2"><span class="enumeration_section">1.3 </span>Running Health Checks On-Demand
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>Usually, health checks run at scheduled intervals. However, Oracle recommends that you run health checks on-demand when needed.</p>
+               <p>Examples of when you must run health checks on-demand:</p>
+               <ul style="list-style-type: disc;">
+                  <li>
+                     <p>Pre- or post-upgrades</p>
+                  </li>
+                  <li>
+                     <p>Machine relocations from one subnet to another</p>
+                  </li>
+                  <li>
+                     <p>Hardware failure or repair</p>
+                  </li>
+                  <li>
+                     <p>Problem troubleshooting</p>
+                  </li>
+                  <li>
+                     <p>In addition to go-live testing</p>
+                  </li>
+               </ul>
+               <div class="p">To start on-demand health check runs, log in to the system as an appropriate user, and then run an appropriate tool. Specify the options to direct the type of run that you want.<pre class="pre codeblock"><code>$ ./orachk</code></pre><pre class="pre codeblock"><code>$ ./exachk</code></pre></div>
+               <div class="p">
+                  <div class="infoboxnote" id="GUID-7CB110A3-023B-400C-837E-5F4DE5A2BBDB__GUID-BE974CC3-E003-4EE2-B1BC-A39D690AC5D1">
+                     <p class="notep1">Note:</p>
+                     <p>To avoid problems while running the tool from terminal sessions on a network attached workstation or laptop, consider running the tool using VNC. If there is a network interruption, then the tool continues to process to completion. If the tool fails to run, then re-run the tool. The tool does not resume from the point of failure.</p>
+                  </div>
+               </div>
+               <p>Output varies depending on your environment and options used:</p>
+               <ul style="list-style-type: disc;">
+                  <li>
+                     <p>The tool starts discovering your environment</p>
+                  </li>
+                  <li>
+                     <p>If you have configured passwordless SSH equivalency, then the tool does not prompt you for passwords</p>
+                  </li>
+                  <li>
+                     <p>If you have not configured passwordless SSH for a particular component at the required access level, then the tool prompts you for password</p>
+                  </li>
+                  <li>
+                     <p>If the daemon is running, then the commands are sent to the daemon process that answers all prompts, such as selecting the database and providing passwords</p>
+                  </li>
+                  <li>
+                     <p>If the daemon is not running, then the tool prompts you for required information, such as which database you want to run against, the required passwords, and so on</p>
+                  </li>
+                  <li>
+                     <p>The tool investigates the status of the discovered components</p>
+                     <div class="p">
+                        <div class="infoboxnote" id="GUID-7CB110A3-023B-400C-837E-5F4DE5A2BBDB__GUID-B839B6D8-3B95-402D-82F9-8DD5BC8B37D8">
+                           <p class="notep1">Note:</p>
+                           <p>If you are prompted for passwords, then the Expect utility runs when available. In this way, the passwords are gathered at the beginning, and the Expect utility supplies the passwords when needed at the root password prompts. The Expect utility being supplying the passwords enables the tool to continue without the need for further input. If you do not use the Expect utility, then closely monitor the run and enter the passwords interactively as prompted.</p>
+                           <p>Without the Expect utility installed, you must enter passwords many times depending on the size of your environment. Therefore, Oracle recommends that you use the Expect utility.</p>
+                        </div>
+                     </div>
+                     <p>While running pre- or post-upgrade checks, Oracle ORAchk and Oracle EXAchk automatically detect databases that are registered with Oracle Clusterware and presents the list of databases to check.</p>
+                     <div class="p">Run the pre-upgrade checks during the upgrade planning phase. Oracle ORAchk and Oracle EXAchk prompt you for the version to which you are planning to upgrade:<pre class="pre codeblock"><code>$ ./orachk &#x2013;u &#x2013;o pre</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;u &#x2013;o pre</code></pre></div>
+                     <div class="p">After upgrading, run the post-upgrade checks:<pre class="pre codeblock"><code>$ ./orachk &#x2013;u &#x2013;o post</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;u &#x2013;o post</code></pre></div>
+                  </li>
+                  <li>
+                     <p>The tool starts collecting information across all the relevant components, including the remote nodes.</p>
+                  </li>
+                  <li>
+                     <p>The tool runs the health checks against the collected data and displays the results.</p>
+                  </li>
+                  <li>
+                     <p>After completing the health check run, the tool points to the location of the detailed HTML report and the <code>.zip</code> &nbsp;file that contains more output.
+                     </p>
+                  </li>
+               </ul>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="on-demand-mode-operation.html#GUID-580F7387-C4F3-4471-8F88-F1294C4DD342">Running On-Demand With or Without the Daemon</a><br>When running on-demand, if the daemon is running, then the daemon answers all prompts where possible including the passwords.
+                  </li>
+                  <li class="ulchildlink"><a href="on-demand-mode-operation.html#GUID-91B64CD3-36FD-4965-8236-44A4B5D9E186">Sending Results by Email</a><br>Optionally email the HTML report to one or more recipients using the <code class="codeph">&#x2013;sendemail</code> option.
+                  </li>
+               </ul>
+               <div class="relinfo">
+                  <p><strong>Related Topics</strong></p>
+                  <ul>
+                     <li><a href="quick-start-guide.html#GUID-79386C04-A479-43F9-BCEC-B5D706297793" title="Handling of root passwords depends on whether you have installed the Expect utility.">Handling of root Passwords</a></li>
+                     <li><a href="quick-start-guide.html#GUID-20CD79D7-E1B2-4236-8484-3064DDF86BC9" title="Run health checks as root. Also, run health checks as the Oracle Database home owner or the Oracle Grid Infrastructure home owner.">Deciding Which User Should Run Oracle ORAchk or Oracle EXAchk</a></li>
+                     <li><a href="automated-daemon-mode-operation.html#GUID-2C32CB18-C837-40E8-AB6E-1FC6672A83E8" title="Oracle recommends that you use the daemon process to schedule recurring health checks at regular intervals.">Using Oracle ORAchk and Oracle EXAchk to Automatically Check for Risks and System Health</a></li>
+                     <li><a href="running-subsets-of-checks.html#GUID-964727B7-F2C4-4E68-A134-96953CA8C0A6" title="You can use Upgrade Readiness Mode to obtain an Upgrade Readiness Assessment.">Upgrade Readiness Mode (Oracle Clusterware and Oracle Database Upgrade Checks)</a></li>
+                     <li><a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/exachk/oexug&amp;id=expect_utility_download" target="_blank">Expect - Expect - Home Page</a></li>
+                  </ul>
+               </div>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="oracle-orachk-and-exachk-common-features-tasks.html#GUID-50F7EA11-11FD-431C-B99A-EC9E2176BBDB" title="Oracle ORAchk and Oracle EXAchk share a common health check framework and a large portion of their features and tasks are common.">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</a></p>
+                  </div>
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-580F7387-C4F3-4471-8F88-F1294C4DD342" name="GUID-580F7387-C4F3-4471-8F88-F1294C4DD342"></a><h3 id="OEXUG-GUID-580F7387-C4F3-4471-8F88-F1294C4DD342" class="sect3"><span class="enumeration_section">1.3.1 </span>Running On-Demand With or Without the Daemon
+               </h3>
+               <div>
+                  <p>When running on-demand, if the daemon is running, then the daemon answers all prompts where possible including the passwords.</p>
+                  <div class="p">To run health checks on-demand if the daemon is running, then use:<pre class="pre codeblock"><code>$ ./orachk</code></pre><pre class="pre codeblock"><code>$ ./exachk</code></pre></div>
+                  <div class="p">You will see the output similar to:<pre class="oac_no_warn" dir="ltr">Sending commands to daemon (mypid #) args:</pre></div>
+                  <div class="p">To avoid connecting to the daemon process, meaning the tool to interactively prompt you as required, use the <code class="codeph">-nodaemon</code> option:<pre class="pre codeblock"><code>$ ./orachk &#x2013;nodaemon</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;nodaemon</code></pre></div>
+                  <div class="p">
+                     <div class="infoboxnote" id="GUID-580F7387-C4F3-4471-8F88-F1294C4DD342__GUID-A516ECFE-504E-429D-89ED-63DB421DC145">
+                        <p class="notep1">Note:</p>
+                        <p>Daemon mode is supported only on the Linux and Solaris operating systems.</p>
+                     </div>
+                  </div>
+                  <div class="p">
+                     <div class="infoboxnote" id="GUID-580F7387-C4F3-4471-8F88-F1294C4DD342__IFYOUARERUNNINGDATABASEPRE-UPGRADEC-29C679F1">
+                        <p class="notep1">Note:</p>
+                        <p>If you are running database pre-upgrade checks (<code class="codeph">-u &#x2013;o pre</code>) and if the daemon is running, then you must use the <code class="codeph">&#x2013;nodaemon</code> option.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="running-subsets-of-checks.html#GUID-964727B7-F2C4-4E68-A134-96953CA8C0A6" title="You can use Upgrade Readiness Mode to obtain an Upgrade Readiness Assessment.">Upgrade Readiness Mode (Oracle Clusterware and Oracle Database Upgrade Checks)</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="on-demand-mode-operation.html#GUID-7CB110A3-023B-400C-837E-5F4DE5A2BBDB" title="Usually, health checks run at scheduled intervals. However, Oracle recommends that you run health checks on-demand when needed.">Running Health Checks On-Demand</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-91B64CD3-36FD-4965-8236-44A4B5D9E186" name="GUID-91B64CD3-36FD-4965-8236-44A4B5D9E186"></a><h3 id="OEXUG-GUID-91B64CD3-36FD-4965-8236-44A4B5D9E186" class="sect3"><span class="enumeration_section">1.3.2 </span>Sending Results by Email
+               </h3>
+               <div>
+                  <p>Optionally email the HTML report to one or more recipients using the <code class="codeph">&#x2013;sendemail</code> option.
+                  </p>
+                  <div class="p"><pre class="pre codeblock"><code>$ ./orachk &#x2013;sendemail “NOTIFICATION_EMAIL=email_recipients"</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;sendemail “NOTIFICATION_EMAIL=email_recipients"</code></pre></div>
+                  <p>Where <span class="variable" translate="no">email_recipients</span> is a comma-delimited list of email addresses.
+                  </p>
+                  <div class="p">
+                     <div class="infoboxnote" id="GUID-91B64CD3-36FD-4965-8236-44A4B5D9E186__GUID-BA52522F-E703-4E4D-B1CC-6BC2578596ED">
+                        <p class="notep1">Note:</p>
+                        <p>Verify the email configuration settings using the <code class="codeph">&#x2013;testemail</code> option.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="automated-daemon-mode-operation.html#GUID-2DAC9DF0-C481-470C-98EC-42B4AC46E72E" title="Set the NOTIFICATION_EMAIL daemon option to send email notifications to the recipients you specify.">NOTIFICATION_EMAIL</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="on-demand-mode-operation.html#GUID-7CB110A3-023B-400C-837E-5F4DE5A2BBDB" title="Usually, health checks run at scheduled intervals. However, Oracle recommends that you run health checks on-demand when needed.">Running Health Checks On-Demand</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

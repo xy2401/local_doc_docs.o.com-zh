@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>More Secure Applet</title>
+<meta name="generator" content="DITA Open Toolkit version 1.7.5" />
+<meta name="dcterms.created" content="2015-05-27T21:10:48Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Programming Notes" />
+<meta name="dcterms.identifier" content="E59598-01" />
+<meta name="dcterms.isVersionOf" content="JCPCL" />
+<meta name="dcterms.rights" content="Copyright &nbsp;&copy;&nbsp;1998, 2015, Oracle and/or its affiliates. All rights reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="security_service_example.htm" title="Previous" type="text/html" />
+<link rel="Next" href="client_changes_to_support_security.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCPCL.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-0821D1AF-B877-4043-9ED0-A0176CA4D1E5"></a> <span id="PAGE" style="display:none;">62/72</span> <!-- End Header --><a id="JCPCL164"></a>
+<h1 id="JCPCL-GUID-0821D1AF-B877-4043-9ED0-A0176CA4D1E5" class="sect1">More Secure Applet</h1>
+<div>
+<p>The supporting applet also must undergo some significant changes, in particular regarding the initialization of the remote object:</p>
+<pre>
+package examples.securepurse;
+
+import javacard.framework.*;
+import javacard.framework.service.*;
+import java.rmi.*;
+import com.sun.javacard.samples.SecureRMIDemo.MySecurityService;
+
+public class SecurePurseApplet extends Applet {
+    Dispatcher dispatcher;
+
+    private SecurePurseApplet() {
+        SecurityService sec;
+        // First get a security service
+        sec = new MySecurityService();
+        // Allocates an RMI service for the Java Card platform and
+        // sets the initial reference
+        RemoteService rmi = new RMIService(new SecurePurseImpl(sec));
+        // Allocates and initializes a dispatcher for the remote object
+        dispatcher = new Dispatcher((short) 2);
+        dispatcher.addService(rmi, Dispatcher.PROCESS_COMMAND);
+        dispatcher.addService(sec, Dispatcher.PROCESS_INPUT_DATA);
+    }
+
+    public static void install(byte[] buffer, short offset, byte length) {
+        // Allocates and registers the applet
+        (new SecurePurseApplet()).register();
+    }
+
+    public void process(APDU apdu) {
+        dispatcher.process(apdu);
+    }
+}
+
+
+</pre>
+<p>The security service that is used by the remote object must be initialized at some point. Here, this is done in the constructor for the <code>SecurePurseApplet</code>:</p>
+<pre>
+sec = new MySecurityService();
+</pre>
+<p>The initialization then goes on with the initialization of the Java Card RMI service. The only new thing here is that the remote object being allocated and set as the initial reference is now a <code>SecurePurseImpl</code>:</p>
+<pre>
+RemoteService rmi = new RMIService( new SecurePurseImpl(sec) );
+</pre>
+<p>Next, the dispatcher must be initialized. Here, it must dispatch simple Java Card RMI requests and security-related requests (such as <code>EXTERNAL AUTHENTICATE</code>). In fact, the security service handles these requests directly. First, allocate a dispatcher and inform it that it will delegate commands to two different services:</p>
+<pre>
+dispatcher = new Dispatcher((short)2);
+</pre>
+<p>Then, register services with the dispatcher. The security service is registered as a service that performs preprocessing operations on incoming commands, and the Java Card RMI service is registered as a service that processes the command requested:</p>
+<pre>
+dispatcher.addService(rmi, Dispatcher.PROCESS_COMMAND);
+dispatcher.addService(sec, Dispatcher.PROCESS_INPUT_DATA);
+</pre>
+<p>The rest of the class (<code>install</code> and <code>process</code> methods) remain unchanged.</p>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment106">
+<tr>
+<td class="cellalignment113">
+<table class="cellalignment111">
+<tr>
+<td class="cellalignment110"><a href="security_service_example.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment110"><a href="client_changes_to_support_security.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright &nbsp;&copy;&nbsp;1998, 2015, Oracle and/or its affiliates. All rights reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment115">
+<table class="cellalignment109">
+<tr>
+<td class="cellalignment110"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment110"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment110"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

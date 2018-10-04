@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<title>Introduction to Signature Test Tool</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = document) - Version 1.0.24" />
+<meta name="dcterms.created" content="2014-07-01T13:22:30Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="SigTest User's Guide" />
+<meta name="dcterms.identifier" content="E19036-03" />
+<meta name="dcterms.isVersionOf" content="SIGTS" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2006, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="part1.htm" title="Previous" type="text/html" />
+<link rel="Next" href="sig_using.htm" title="Next" type="text/html" />
+<link rel="alternate" href="SIGTS.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../../nav/css/html5.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<span id="PAGE" style="display:none;">10/25</span> <!-- End Header --><a id="Z4000c4424697"></a>
+<h1 class="chapter"><span class="secnum">3</span> Introduction to Signature Test Tool</h1>
+<p>You can use the Signature Test tool to easily compare the signatures of two different implementations of the same API. It verifies that all of the members are present, reports when new members are added, and checks the specified behavior of each API member.</p>
+<a id="Z4000c4424616"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">3.1</span> Signature Test Basics</h2>
+<p>A signature test compares two implementations of an API and reports the differences. The Signature Test tool compares the signatures of two implementations or versions of the same API and can do the following:</p>
+<ul>
+<li>
+<p>Create and run a test that verifies that all of the members are present</p>
+</li>
+<li>
+<p>Report when new members are added</p>
+</li>
+<li>
+<p>Check the specified behavior of each API member</p>
+</li>
+<li>
+<p>Determine whether the old version of the API can be replaced with the newer one without adversely affecting existing clients of the API</p>
+</li>
+</ul>
+<p>The signature test created by the Signature Test tool can be run independently at the command line, or under the control of the JavaTest&trade; harness.</p>
+<div class="infobox-note">
+<p class="notep1">Note:</p>
+<p>For simplicity, this user's guide refers to the test harness as the <span class="italic">JavaTest harness</span>. Note that the open source version of the harness, called <span class="italic">JT harness</span>, can be used in its place. The JT harness software can be downloaded from this URL: <code><a href="http://jtharness.java.net/">http://jtharness.java.net/</a></code></p>
+</div>
+<p>The Signature Test tool was originally created to assist in the creation of Java technology compatibility test suites (TCKs). It simplified the process of verifying that the API signature of a new implementation of a Java technology matched the signature of a reference implementation of that API.</p>
+<p>When used in a software development environment, the Signature Test tool can be used to track and control changes to an API throughout the development process.</p>
+</div>
+<!-- class="sect1" -->
+<a id="Z4000c4424627"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">3.2</span> What is Tested</h2>
+<p>The signature test algorithm compares the API implementation under test with a signature file created from the API you are comparing it to &mdash; often referred to as a <span class="italic">reference implementation</span>. The signature test checks for compatibility by verifying the equality of API member sets. By checking for mutual compatibility of API member sets, the test verifies that the following conditions are true:</p>
+<ul>
+<li>
+<p>If an API item is defined in the reference implementation of the API, then that item is implemented in the API under test, and vice versa.</p>
+</li>
+<li>
+<p>Attributes chosen for comparison are identical in both implementations of the API. The tool chooses attributes for comparison according to the type of check being processed. This is described more in <a href="#Z4000c4424582">"Mutual Binary Compatibility Check"</a> and <a href="#Z4000c4424588">"Mutual Source Compatibility Check"</a>.</p>
+</li>
+</ul>
+<p>By checking for migration compatibility of API member sets, the test verifies that the following conditions are true:</p>
+<ul>
+<li>
+<p>If an API item is defined in the previous version of the API, then that item is implemented in the API version under test</p>
+</li>
+<li>
+<p>If an API item is not defined in the previous version of the API, but added to the API version under test, the added item does not break backward compatibility. This is described more in <a href="#Z4000c4424594">"Migration Binary and Source Code Check"</a>.</p>
+</li>
+<li>
+<p>Attributes chosen for comparison are identical in both versions of the API or their change does not break backward compatibility. The tool chooses attributes for comparison according to the type of check being processed. This is described more in <a href="#Z4000c4424594">"Migration Binary and Source Code Check"</a>.</p>
+</li>
+</ul>
+<a id="Z4000c4424582"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">3.2.1</span> Mutual Binary Compatibility Check</h3>
+<p>The signature test binary compatibility check mode verifies that a Java technology implementation undergoing compatibility testing and its referenced APIs are mutually binary compatible as defined in Chapter 13, &rdquo;Binary Compatibility,&rdquo; of <span class="italic">The Java Language Specification</span>. This assures that any application runs with any compatible API without any linkage errors.</p>
+<p>This check is less strict than the default source compatibility check, described next. It is for use primarily in the special case of when a technology is developed for Java technology environments that are purely runtime. Such an environment does not provide a Java technology-based compiler (Java compiler), nor does it include class files that could be used to compile applications for that environment. Because of the limited use of such an environment, the API requirements are slightly relaxed compared to environments that support application development.</p>
+<p>Java application environments can contain several Java technologies. Not all Java technologies can be combined with each other, and in particular, their sets of API signatures might be incompatible with each other. Relaxing signature checks to the level of mutual binary compatibility allows the developer to combine technologies in a purely runtime environment that cannot be combined otherwise.</p>
+</div>
+<!-- class="sect2" -->
+<a id="Z4000c4424588"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">3.2.2</span> Mutual Source Compatibility Check</h3>
+<p>While binary compatibility is important, it cannot guarantee that an application in binary form as a set of class files can be <span class="italic">recompiled</span> without error.</p>
+<p>The signature test source compatibility check mode verifies that any application that compiles without error with a compatible API, compiles without error with all other source compatible APIs.</p>
+<p>Mutual source compatibility is a stricter check than the mutual binary compatibility and the Signature Test tool performs it by default.</p>
+<div class="sect3"><!-- infolevel="all" infotype="General" --><a id="sthref8"></a>
+<h4 class="sect3"><span class="secnum">3.2.2.1</span> Extended Source Compatibility</h4>
+<p>Extended Source Compatibility adds some additional checks. These additional check rules provides more behavior compatibility than base source compatibility rule set.</p>
+</div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" -->
+<a id="Z4000c4424594"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">3.2.3</span> Migration Binary and Source Code Check</h3>
+<p>Mutual compatibility is generally used in certification processes where the goal is to ensure that an alternative or third-party implementation of an API conforms to a reference implementation. Application developers have a different concern, they must ensure that evolving library APIs that their applications link to continue to work with customers' applications. The Signature Test tool can be used to check APIs as they evolve and ensure both binary and source code migration compatibility.</p>
+<p>Migration binary compatibility checking ensures that there will be no linkage errors between pre-existing client binaries and the new version. This determination is based on the Chapter 13, &rdquo;Binary Compatibility,&rdquo; of The Java Language Specification.</p>
+<p>Migration source code compatibility means that pre-existing client source code can be recompiled with the new version without compilation errors.</p>
+</div>
+<!-- class="sect2" -->
+<a id="Z4000c4424598"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">3.2.4</span> Class and Class Member Attributes Checked</h3>
+<p>A Java platform API consists of classes, and interfaces, and their member fields, methods, and constructors, and documented annotations. In turn, all of these API items can have various attributes such as names, modifiers, a list of parameters, a list of interfaces, exceptions, nested classes, and so forth. A signature test checks that certain members and attributes belonging to the API under test are the same as those defined by the API to which it is being compared. Signature test only checks public and protected API items and in the most cases ignores private and package access items. Members with private and package visibility are taken into account when the tool calculates hiding for more visible members.</p>
+<p>The tool checks the following attributes when comparing items in the API implementation under test:</p>
+<ul>
+<li>
+<p>Classes and interfaces, including nested classes and interfaces:</p>
+<ul>
+<li>
+<p>Set of modifiers except <code>strictfp</code></p>
+</li>
+<li>
+<p>Name of the superclass</p>
+</li>
+<li>
+<p>Names of all superinterfaces, direct plus indirect, where order is insignificant</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Constructors:</p>
+<ul>
+<li>
+<p>Set of modifiers</p>
+</li>
+<li>
+<p>List of argument types</p>
+</li>
+<li>
+<p>In source compatibility mode only, the normalized list of thrown exceptions where order is insignificant</p>
+<p>Normalizing the throw lists involves removing all superfluous exception classes. An exception class is superfluous if it is a subclass of either the <code>java.lang.RuntimeException</code> class, the <code>java.lang.Error</code> class, or another class from the same list.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Methods:</p>
+<ul>
+<li>
+<p>The set of modifiers, except <code>strictfp</code>, <code>synchronized</code>, and <code>native</code></p>
+</li>
+<li>
+<p>The return type</p>
+</li>
+<li>
+<p>The list of argument types</p>
+</li>
+<li>
+<p>In source mode only, the normalized list of thrown exceptions, described earlier, where order is insignificant</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Fields:</p>
+<ul>
+<li>
+<p>Set of modifiers, except <code>transient</code></p>
+</li>
+<li>
+<p>Field type</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Documented annotations with <code>SOURCE</code> and <code>RUNTIME</code> retention of the following types:</p>
+<ul>
+<li>
+<p>Classes and interfaces</p>
+</li>
+<li>
+<p>Fields, methods and constructors</p>
+</li>
+<li>
+<p>Parameters and annotation types</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>The tool performs the check in the following order:</p>
+<ol>
+<li>
+<p>For all top-level public and protected classes and interfaces, it compares the attributes of any classes and interfaces with the same fully qualified name.</p>
+</li>
+<li>
+<p>Taking into account all declared and inherited members, it compares all public and protected members of the same kind and same simple name, treating constructors as class members for convenience sake.</p>
+</li>
+</ol>
+</div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="Z4000c4424658"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">3.3</span> Source and Binary Compatibility Modes</h2>
+<p>Earlier Signature Test tool versions performed a comparison of all exceptions declared in <code>throws</code> clauses for methods and constructors. Certain variations in this area caused an error message during the signature test. Despite these error messages, the source files compiled successfully together. Successful compilation is the basic criteria for source compatibility with the current Signature Test tool, while successful linking as the basic criteria for binary compatibility.</p>
+<p>Changes to the <code>throws</code> clause of methods or constructors do not break compatibility with existing binaries because these clauses are checked only at compile time, causing no linkage error. For the purpose of signature testing, this relates directly to binary compatibility as described earlier in <a href="#Z4000c4424582">"Mutual Binary Compatibility Check"</a>.</p>
+<p>The adaptation of JSR 68, <span class="italic">The Java ME Platform Specification</span>, formalized the use of building blocks in API development. A building block is a subset of an existing API that is approved for reuse in the construction of profiles or optional packages. The building block concept enables a developer to duplicate the functionality provided by another API without having to redefine an entirely new API. For further details see JSR 68 at <code><a href="http://www.jcp.org/en/jsr/detail?id=68">http://www.jcp.org/en/jsr/detail?id=68</a></code>.</p>
+<p>The use of building blocks created a need for more lenient checking of exception throw lists compared to earlier Signature Test tool versions. Consequently, Signature Test tool 2.2 provides both a source and a binary compatibility mode of operation. This retains compatibility with earlier signature files while adding support for building blocks and eliminating the unnecessary error messages.</p>
+<p>Since Signature Tool 3.1 extended source code compatibility mode was introduced. This mode adds some behavioral checks such as fields volatile modifier tracking.</p>
+<p>The <code>SignatureTest</code> command recognizes the <code>-mode</code> option that takes the values &rdquo;src&rdquo;, "src-ext" or &rdquo;<code>bin</code>&rdquo; as arguments for choosing source mode or binary mode. The choice of which mode to use depends on the type of signature file being used in the test. This is described in more detail later in these sections:</p>
+<ul>
+<li>
+<p><a href="sig_using.htm#Z4000c461059107">"<code>Setup</code> Command"</a> describes how to generate a signature file</p>
+</li>
+<li>
+<p><a href="sig_using.htm#Z4000c461059240">"<code>SignatureTest</code> Command"</a> describes how to specify the mode when running a signature test</p>
+</li>
+<li>
+<p><a href="sig_using.htm#Z4000c461059373">"<code>Merge</code> Command"</a> describes how to generate a combined signature file from set of signature files</p>
+</li>
+</ul>
+<p>The difference between the binary and source compatibility modes is how the tool handles the <code>throws</code> list for constructors and methods (as described in <a href="#Z4000c4424598">"Class and Class Member Attributes Checked"</a>). Constant checking behavior is also different in binary and source compatibility modes. Although constant checking can be applied to binary compatibility, it is a necessary prerequisite for source code compatibility. <a href="sig_using.htm#Z4000c461058595">"Constant Checking in Differing Run Modes"</a> describes these differences in more detail.</p>
+</div>
+<!-- class="sect1" -->
+<a id="Z4000c4424681"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">3.4</span> Using Custom Signature Loaders</h2>
+<p>The signature test has a requirement for the Java Platform, Standard Edition (Java SE platform) runtime environment version 1.4 or later. This requirement might prevent use of the tool on limited or nonstandard environments such as some Java Platform, Micro Edition (Java ME platform) or Java Platform, Enterprise Edition (Java EE platform) configurations.</p>
+<p>To overcome this, the tool provides support for custom signature loaders that can be implemented as plug-ins. These plug-ins gather signatures from a runtime environment when the <code>SignatureTest</code> command cannot be run directly. For example, you might create a light-weight remote JavaTest harness agent and run the signature loader on a remote Connected Device Configuration (CDC) compatible device. Another example is using a wrapped J2EE platform bean as a signature loader inside a J2EE platform container where any direct file I/O operations are prohibited.</p>
+<p>As an aid in developing such an extension, the Signature Test tool distribution includes a class library that contains a signature serializer and some related utility classes in the <span class="italic">SigTest-Directory</span><code>/lib/remote.jar</code> file. This file contains a subset of the Signature Test tool classes that are necessary to develop a custom plug-in. All of these library classes are CDC 1.0 compatible and have minimal memory requirements. The source code for these classes is distributed in the <span class="italic">SigTest-Directory</span><code>/redistributables/sigtest_src.zip</code> file. The code is designed for running a plug-in with the JavaTest harness using the Java ME Framework. The server and client source code and the HTML test descriptions for an actual plug-in example are located in the <span class="italic">SigTest-Directory</span><code>/examples/remote</code> directory.</p>
+<div class="infobox-note">
+<p class="notep1">Note:</p>
+<p>The open source version of the ME Framework is available at: <code><a href="http://cqme.java.net/framework.html">http://cqme.java.net/framework.html</a></code>.</p>
+</div>
+</div>
+<!-- class="sect1" --></div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment24">
+<tr>
+<td class="cellalignment31">
+<table class="cellalignment29">
+<tr>
+<td class="cellalignment28"><a href="part1.htm"><img width="24" height="24" src="../../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment28"><a href="sig_using.htm"><img width="24" height="24" src="../../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2006, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment33">
+<table class="cellalignment27">
+<tr>
+<td class="cellalignment28"><a href="../../index.html"><img width="24" height="24" src="../../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment28"><a href="toc.htm"><img width="24" height="24" src="../../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment28"><a href="../../dcommon/html/feedback.htm"><img width="24" height="24" src="../../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

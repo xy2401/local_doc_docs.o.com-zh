@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Running the Converter</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-04-13T10:24:54Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Development Kit User Guide, Classic Edition" />
+<meta name="dcterms.identifier" content="E59602-03" />
+<meta name="dcterms.isVersionOf" content="JCUGC" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="setting-java-compiler-options.htm" title="Previous" type="text/html" />
+<link rel="Next" href="file-naming-converter.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCUGC.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-7A26B008-6F3B-4E69-800F-D04B3DDF76B1"></a> <span id="PAGE" style="display:none;">93/161</span> <!-- End Header -->
+<a id="JCUGC203"></a><a id="JCUGC202"></a>
+<h1 id="JCUGC-GUID-7A26B008-6F3B-4E69-800F-D04B3DDF76B1" class="sect1">Running the Converter</h1>
+<div>
+<div class="section">
+<p>To run the Converter:</p>
+<ol>
+<li>
+<p>Invoke the Converter by enter the following at the command line:</p>
+<p><code class="codeph">converter.bat</code> [<span class="italic">options</span>] <span class="italic">package-name package-aid major-version</span><code class="codeph">.</code><span class="italic">minor-version</span></p>
+</li>
+</ol>
+<div class="infobox-note" id="GUID-7A26B008-6F3B-4E69-800F-D04B3DDF76B1__GUID-AF499A9F-B110-40B2-B1FB-2D775BF560C0">
+<p class="notep1">Note:</p>
+<p>The <code class="codeph">converter.bat</code> file used to invoke the Converter is a batch file that you must run from a working directory of <span class="italic">JC_CLASSIC_HOME</span><code class="codeph">\bin</code> in order for the code to execute properly.</p>
+</div>
+<p>The Converter command line options described in <a href="running-converter.htm#GUID-7A26B008-6F3B-4E69-800F-D04B3DDF76B1__BGBFFCCH" title="Lists and describes the converter command line arguments.">Table 5-1</a> allow you to:</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p>Specify the root directory where the Converter looks for classes.</p>
+</li>
+<li>
+<p>Specify the root directories where the Converter looks for export files.</p>
+</li>
+<li>
+<p>Use the token mapping from a pre-defined export file of the package being converted. The Converter looks for the export file in the export path.</p>
+</li>
+<li>
+<p>Set the applet AID and the class that defines the install method for the applet.</p>
+</li>
+<li>
+<p>Specify the root directories where the Converter outputs files.</p>
+</li>
+<li>
+<p>Specify that the Converter output one or more of the following:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>CAP file</p>
+</li>
+<li>
+<p>JCA file</p>
+</li>
+<li>
+<p>EXP export file</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Identify that the package is used as a mask.</p>
+<p>When a package is used as a mask, restrictions on native methods are relaxed.</p>
+</li>
+<li>
+<p>Specify support for the 32-bit integer type.</p>
+</li>
+<li>
+<p>Enable generation of debugging information.</p>
+</li>
+<li>
+<p>Turn off verification (the default of input and output files. Verification is the default.).</p>
+</li>
+</ul>
+<p>When the Converter runs, it performs the conversion process in the following sequence:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span><span class="bold">Loads the package</span> - If the <code class="codeph">exportmap</code> option is set, the converter loads the package from the export path (see <a href="using-export-files.htm#GUID-0ACC1ED0-24A6-4490-8C8A-700919143A25">Specifying an Export Map</a>). It loads the class files of the Java package and creates a data structure to represent the package.</span></li>
+<li class="stepexpand"><span><span class="bold">Subset checking</span> - Checks for unsupported Java features in class files.</span></li>
+<li class="stepexpand"><span><span class="bold">Conversion</span> - Checks for consistency between the applet AIDs and the imported package AIDs.</span></li>
+<li class="stepexpand"><span><span class="bold">Reference Checking</span> - Checks that all references are valid, internal referenced items are defined in the package, and import items are declared in the export files (see <a href="using-export-files.htm#GUID-30C3A621-9550-4F2E-A9AA-B55B1D4AE90B">Using Export Files</a>).</span>
+<div>
+<p>The Converter creates the <code class="codeph">JcImportTokenTable</code> to store tokens for import items (class, methods, and fields). If the Converter only generates an export file, it does not check private APIs and byte code. Also included is a second round of subset checking that operations do not exceed the limitations set by the JCVM specification.</p>
+</div>
+</li>
+<li class="stepexpand"><span><span class="bold">Optimization</span> - Optimizes the bytecode.</span></li>
+<li class="stepexpand"><span><span class="bold">Generates output</span> - Builds and outputs the EXP export file and the JCA file, checks the package version in the export file of the current package against the package version specified in the command line. If the <code class="codeph">-exportmap</code> option is used in the command line, the export file specified in the command line must represent the same version as that of the package. The converter does not support upgrading the export file version.</span>
+<div>
+<p>Before writing the export and JCA files, the Converter determines the output file path. The Converter assumes the output files are written into the directory:</p>
+<p><span class="italic">root_dir</span><code class="codeph">\</code><span class="italic">package_dir</span><code class="codeph">\javacard</code></p>
+<p>By default, the <span class="italic">root_dir</span> is the class root directory specified by the <code class="codeph">-classdir</code> option. Users can specify a different <span class="italic">root_dir</span> by using the <code class="codeph">-d</code> option.</p>
+</div>
+</li>
+</ol>
+<div class="section">
+<div class="tblformal" id="GUID-7A26B008-6F3B-4E69-800F-D04B3DDF76B1__BGBFFCCH">
+<p class="titleintable">Table 5-1 Converter Command Line Arguments</p>
+<table class="cellalignment12" title="Converter Command Line Arguments " summary="Lists and describes the converter command line arguments.">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment47" id="d19259e188">Option</th>
+<th class="cellalignment82" id="d19259e191">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e196" headers="d19259e188">
+<p><code class="codeph">-help</code></p>
+</td>
+<td class="cellalignment83" headers="d19259e196 d19259e191">
+<p>Prints help message.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e205" headers="d19259e188">
+<p><span class="italic">package-name</span></p>
+</td>
+<td class="cellalignment83" headers="d19259e205 d19259e191">
+<p>Fully-qualified name of the package to convert.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e213" headers="d19259e188">
+<p><span class="italic">package-aid</span></p>
+</td>
+<td class="cellalignment83" headers="d19259e213 d19259e191">
+<p>5- to 16-decimal, hex or octal numbers separated by colons. Each of the numbers must be byte-length.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e221" headers="d19259e188">
+<p><span class="italic">major-version minor-version</span></p>
+</td>
+<td class="cellalignment83" headers="d19259e221 d19259e191">
+<p>User-defined version of the package.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e229" headers="d19259e188">
+<p><code class="codeph">-applet</code> <span class="italic">AID class_name</span></p>
+</td>
+<td class="cellalignment83" headers="d19259e229 d19259e191">
+<p>Sets the default applet AID and the name of the class that defines the applet. If the package contains multiple applet classes, this option must be specified for each class.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e240" headers="d19259e188">
+<p><code class="codeph">-classdir</code> <span class="italic">root-directory-of-class hierarchy</span></p>
+</td>
+<td class="cellalignment83" headers="d19259e240 d19259e191">
+<p>Sets the root directory where the Converter looks for classes. If this option is not specified, the Converter uses the current user directory as the root.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e251" headers="d19259e188">
+<p><code class="codeph">-d</code> <span class="italic">root-directory-for-output</span></p>
+</td>
+<td class="cellalignment83" headers="d19259e251 d19259e191">
+<p>Sets the root directory for output.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e262" headers="d19259e188">
+<p><code class="codeph">-debug</code></p>
+</td>
+<td class="cellalignment83" headers="d19259e262 d19259e191">
+<p>Generates the optional debug component of a CAP file. If the <code class="codeph">-mask</code> option is also specified, the file <code class="codeph">debug.msk</code> is generated in the output directory.</p>
+<p><span class="bold">Note:</span> To generate the debug component, you must first compile your class files with the Java compiler's <code class="codeph">-g</code> option.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e283" headers="d19259e188">
+<p><code class="codeph">-exportmap</code></p>
+</td>
+<td class="cellalignment83" headers="d19259e283 d19259e191">
+<p>Uses the token mapping from the pre-defined export file of the package being converted. The Converter looks for the export file in the <code class="codeph">exportpath</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e294" headers="d19259e188">
+<p><code class="codeph">-exportpath</code> <span class="italic">list-of-directories</span></p>
+</td>
+<td class="cellalignment83" headers="d19259e294 d19259e191">
+<p>Specifies the root directories in which the Converter looks for export files. The separator character for multiple paths is the semicolon (<code class="codeph">;</code>). If this option is not specified, the Converter sets the export path to the Java <code class="codeph">classpath</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e311" headers="d19259e188">
+<p><code class="codeph">-i</code></p>
+</td>
+<td class="cellalignment83" headers="d19259e311 d19259e191">
+<p>Instructs the Converter to support the 32-bit integer type.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e321" headers="d19259e188">
+<p><code class="codeph">-mask</code></p>
+</td>
+<td class="cellalignment83" headers="d19259e321 d19259e191">
+<p>Cannot be used with <code class="codeph">-out</code> [<span class="italic">CAP</span>]. Indicates this package is for a mask, so restrictions on native methods are relaxed.</p>
+<p>If you have a source release, you can specify this option to generate a mask out of this package using <code class="codeph">maskgen</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e340" headers="d19259e188">
+<p><code class="codeph">-nobanner</code></p>
+</td>
+<td class="cellalignment83" headers="d19259e340 d19259e191">
+<p>Suppresses all banner messages.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e349" headers="d19259e188">
+<p><code class="codeph">-noverify</code></p>
+</td>
+<td class="cellalignment83" headers="d19259e349 d19259e191">
+<p>Suppresses the verification of input and output files. For more information on file verification, see <a href="file-naming-converter.htm#GUID-1EC36C85-3146-488D-BEF9-21F8AF5930F9">Verification of Input and Output Files</a> .</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e361" headers="d19259e188">
+<p><code class="codeph">-nowarn</code></p>
+</td>
+<td class="cellalignment83" headers="d19259e361 d19259e191">
+<p>Instructs the Converter not to report warning messages.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e370" headers="d19259e188">
+<p><code class="codeph">-out</code> [<span class="italic">CAP</span>] [<span class="italic">EXP</span>] [<span class="italic">JCA</span>]</p>
+</td>
+<td class="cellalignment83" headers="d19259e370 d19259e191">
+<p>Cannot be used with <code class="codeph">-mask</code>. Instructs the Converter to output the CAP file, and/or the export file, and/or the Java Card Assembly file. By default (if this option is not specified), the Converter outputs a CAP file and an export file.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e391" headers="d19259e188">
+<p><code class="codeph">-v</code>, <code class="codeph">-verbose</code></p>
+</td>
+<td class="cellalignment83" headers="d19259e391 d19259e191">
+<p>Enables verbose output. Verbose output includes progress messages, such as "opening file", "closing file", and whether the package requires integer data type support.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e403" headers="d19259e188">
+<p><code class="codeph">-V</code>, <code class="codeph">-version</code></p>
+</td>
+<td class="cellalignment83" headers="d19259e403 d19259e191">
+<p>Prints the Converter version string.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e415" headers="d19259e188">
+<p><code class="codeph">-sign</code></p>
+</td>
+<td class="cellalignment83" headers="d19259e415 d19259e191">
+<p>Specifies to sign the output CAP file</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e423" headers="d19259e188">
+<p><code class="codeph">-keystore</code> <span class="italic">value</span></p>
+</td>
+<td class="cellalignment83" headers="d19259e423 d19259e191">
+<p>Keystore to use in signing</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e433" headers="d19259e188">
+<p><code class="codeph">-storepass</code> <span class="italic">value</span></p>
+</td>
+<td class="cellalignment83" headers="d19259e433 d19259e191">
+<p>Keystore password</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e443" headers="d19259e188">
+<p><code class="codeph">-alias</code> <span class="italic">value</span></p>
+</td>
+<td class="cellalignment83" headers="d19259e443 d19259e191">
+<p>Keystore alias to use in signing</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e454" headers="d19259e188">
+<p><code class="codeph">-passkey</code> <span class="italic">value</span></p>
+</td>
+<td class="cellalignment83" headers="d19259e454 d19259e191">
+<p>Alias password</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e464" headers="d19259e188">
+<p><code class="codeph">-useproxyclass</code></p>
+</td>
+<td class="cellalignment83" headers="d19259e464 d19259e191">
+<p>Cannot be specified with <code class="codeph">keepproxysource</code>. Builds CAP files as usual in the specified output directory using the existing class files of the application and existing class files of the associated proxy sub-package. New proxy classes are not created.</p>
+<p>Provides a way for the application developer to build a CAP file with customized proxy files. This option requests the converter to take the class files of the application package and the class files of the co-located proxy sub-package to build a new CAP file. The classes in the application package are converted into new<code class="codeph">.cap</code> components. New descriptors are created. Dynamically-loaded-classes attributes need to be recomputed based on the new Proxy class file names.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e480" headers="d19259e188">
+<p><code class="codeph">-usecapcomponents</code></p>
+</td>
+<td class="cellalignment83" headers="d19259e480 d19259e191">
+<p>Specifies that the converter retain the specified user supplied CAP components instead of generating them in the final CAP bundle. The input format is as follows:</p>
+<p><span class="italic">application-classes-dir</span><code class="codeph">/</code><span class="italic">application-classes</span><code class="codeph">/javacard/*.cap</code></p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment49" id="d19259e497" headers="d19259e188">
+<p><code class="codeph">-keepproxysource</code> <span class="italic">directory</span></p>
+</td>
+<td class="cellalignment83" headers="d19259e497 d19259e191">
+<p>Cannot be used with <code class="codeph">-useproxyclass</code>. Creates the proxy source files and other stub files in the specified <span class="italic">directory</span>. The converter also builds CAP files as usual in the specified output directory.</p>
+<p>Supports customizing the proxy files generated by the converter. Requests the converter retain the intermediate proxy class source code in the specified directory and the source code of the associated stub classes representing the dependent external classes using the hierarchical directory structure of the Java package name(s).</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+<a id="JCUGC204"></a>
+<div class="props_rev_3"><a id="GUID-C051B5C4-ACF0-4D24-8180-6DC6A68F508F"></a>
+<h2 id="JCUGC-GUID-C051B5C4-ACF0-4D24-8180-6DC6A68F508F" class="sect2">Using Delimiters with Command Line Options</h2>
+<div>
+<div class="section">
+<p>To use delimiters with command line options:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li><span>Add a double quote (") around command line option arguments that contain a space symbol.</span></li>
+</ol>
+<div class="section">
+<p>In the following sample command line, the converter checks for export files in the<code class="codeph">.\export files</code>, <span class="italic">JC_CLASSIC_HOME</span><code class="codeph">\api_export_files</code>, and current directories.</p>
+<p><code class="codeph">converter -exportpath ".\export files;.;</code> <span class="italic">JC_CLASSIC_HOME</span><code class="codeph">\api_export_files"</code></p>
+<p><code class="codeph">MyWallet 0xa0:0x00:0x00:0x00:0x62:0x12:0x34 1.0</code></p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="JCUGC205"></a>
+<div class="props_rev_3"><a id="GUID-A6D1E96D-0443-4257-9618-07F9739E890A"></a>
+<h2 id="JCUGC-GUID-A6D1E96D-0443-4257-9618-07F9739E890A" class="sect2">Using a Command Configuration File</h2>
+<div>
+<div class="section">
+<p>Instead of entering all of the command line arguments and options on the command line, you can include them in a text-format configuration file. This is convenient if you frequently use the same set of arguments and options.</p>
+<p>To use a command configuration file:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Enter the command line arguments and options in a text-format configuration file.</span></li>
+<li class="stepexpand"><span>Use double quote (") delimiters for the command line options that require arguments in the configuration file.</span>
+<div>
+<p>You must use double quote (") delimiters for the command line options that require arguments in the configuration file. For example, if the options from the command line example used in <a href="running-converter.htm#GUID-C051B5C4-ACF0-4D24-8180-6DC6A68F508F">Using Delimiters with Command Line Options</a> were placed in a configuration file, the result would look like this:</p>
+<p><code class="codeph">-exportpath ".\export files;.;</code> <span class="italic">JC_CLASSIC_HOME</span><code class="codeph">\api_export_files"</code></p>
+<p><code class="codeph">MyWallet 0xa0:0x00:0x00:0x00:0x62:0x12:0x34 1.0</code></p>
+</div>
+</li>
+<li class="stepexpand"><span>Specify the configuration file in the command line when you run the Converter.</span>
+<div>
+<p>The syntax to specify a configuration file is:</p>
+<p><code class="codeph">converter &ndash;config</code> <span class="italic">configurationfile name</span></p>
+<p>The <span class="italic">configurationfile name</span> argument contains the file path and file name of the configuration file.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="setting-java-compiler-options.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="file-naming-converter.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

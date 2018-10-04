@@ -1,0 +1,210 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="An administrator must create Oracle Big Data Manager users at the command line. Once they’ve been created, you can edit user details and manage access in the Oracle Big Data Manager console.">
+      <meta name="description" content="An administrator must create Oracle Big Data Manager users at the command line. Once they’ve been created, you can edit user details and manage access in the Oracle Big Data Manager console.">
+      <title>Managing Oracle Big Data Manager Users, Roles, and Access</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="Oracle Big Data Manager User’s Guide ">
+      <meta property="og:description" content="An administrator must create Oracle Big Data Manager users at the command line. Once they’ve been created, you can edit user details and manage access in the Oracle Big Data Manager console.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="Oracle Big Data Manager User’s Guide For Oracle Big Data Appliance">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-big-data-manager-users-guide-oracle-big-data-appliance.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-13T16:17:47-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2018">
+      <meta name="dcterms.category" content="bigdata">
+      <meta name="dcterms.identifier" content="E98480-01">
+      
+      <meta name="dcterms.product" content="en/bigdata/big-data-appliance/4.13">
+      
+      <link rel="prev" href="navigating-oracle-big-data-manager-console.html" title="Previous" type="text/html">
+      <link rel="next" href="registering-storage-providers-oracle-big-data-manager.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"bigdata","element_name":"Big Data","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"not-applicable","element_name":"Not applicable","display_in_url":false},"product":{"short_name":"big-data-appliance","element_name":"Big Data Appliance","display_in_url":true},"release":{"short_name":"4.13","element_name":"Release 4.13","display_in_url":true}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle Big Data Manager User's Guide (for Oracle Big Data Appliance)">
+    <meta name="dcterms.isVersionOf" content="BBDMG">
+    <meta name="dcterms.release" content="Release 4.13">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="navigating-oracle-big-data-manager-console.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="registering-storage-providers-oracle-big-data-manager.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">Oracle Big Data Manager User’s Guide </span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="getting-started-oracle-big-data-manager.html" property="item" typeof="WebPage"><span property="name">Getting Started with Big Data Manager</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Managing Oracle Big Data Manager Users, Roles, and Access</li>
+            </ol>
+            <a id="GUID-918C17B3-F6C8-4CBE-9262-6F54AEC0A4C3" name="GUID-918C17B3-F6C8-4CBE-9262-6F54AEC0A4C3"></a>
+            
+            <h2 id="BBDMG-GUID-918C17B3-F6C8-4CBE-9262-6F54AEC0A4C3" class="sect2"><span class="enumeration_section">2.3 </span>Managing <span>Oracle Big Data Manager</span> Users, Roles, and Access
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>An administrator must create <span>Oracle Big Data Manager</span> users at the command line. Once they’ve been created, you can edit user details and manage access in the <span>Oracle Big Data Manager</span> console.
+               </p>
+               <div class="infoboxnote" id="GUID-918C17B3-F6C8-4CBE-9262-6F54AEC0A4C3__GUID-3D86B323-15BF-4F53-9950-7C2FCDFEB9C8">
+                  <p class="notep1">Note:</p>
+                  <p>By default, the <code class="codeph">bigdatamgr</code> user is created and granted the administrator role in <span>Oracle Big Data Manager</span>. This user should be used to grant roles and register providers. The <code class="codeph">bigdatamgr</code> user has the same password as the Cloudera Manager administrator that was defined in <span class="wintitle">Create Instance</span> wizard when creating the cluster.
+                  </p>
+               </div>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="managing-oracle-big-data-manager-users-roles-and-access.html#GUID-C8DBEE6B-350F-4BDA-A920-463999E51FB8">Adding Oracle Big Data Manager Users</a><br>An administrator must create Oracle Big Data Manager user accounts on the Linux command line. After creating a user account, the administrator can use the Oracle Big Data Manager console to edit user details and manage access.
+                  </li>
+                  <li class="ulchildlink"><a href="managing-oracle-big-data-manager-users-roles-and-access.html#GUID-DF02B11F-2388-40A5-946C-4C3185D616CE">Editing User Details and Managing Roles</a><br>A user with administrator privileges can edit user details and manage roles in the <span>Oracle Big Data Manager</span> console.
+                  </li>
+                  <li class="ulchildlink"><a href="managing-oracle-big-data-manager-users-roles-and-access.html#GUID-0E9D6104-AA4F-4ADF-A655-BB6BA3FBEFE0">Controlling Access to Specific Providers</a><br>A user with administrator privileges can control access to storage containers.
+                  </li>
+               </ul>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="getting-started-oracle-big-data-manager.html" title="Oracle Big Data Manager is installed and configured during the Mammoth installation of the Oracle Big Data Appliance software. No further configuration is required.">Getting Started with Big Data Manager</a></p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="sect2"><a id="GUID-C8DBEE6B-350F-4BDA-A920-463999E51FB8" name="GUID-C8DBEE6B-350F-4BDA-A920-463999E51FB8"></a><h3 id="BBDMG-GUID-C8DBEE6B-350F-4BDA-A920-463999E51FB8" class="sect3"><span class="enumeration_section">2.3.1 </span>Adding Oracle Big Data Manager Users
+               </h3>
+               <div>
+                  <p>An administrator must create Oracle Big Data Manager user accounts on the Linux command line. After creating a user account, the administrator can use the Oracle Big Data Manager console to edit user details and manage access.</p>
+                  <div class="section">To add a user:</div>
+                  <!-- class="section" -->
+                  <ol>
+                     <li class="stepexpand"><span>Open a command shell and use SSH to connect to a cluster node as the <code class="codeph">bigdatamgr</code> user (or another user with administration privileges).</span></li>
+                     <li class="stepexpand"><span>Open a <code class="codeph">root</code> shell: </span><div><pre class="pre codeblock"><code>su -
+</code></pre></div>
+                     </li>
+                     <li class="stepexpand"><span>Export the new user’s password to a password file:</span><div><pre class="pre codeblock"><code><span class="variable" translate="no">user_password</span> &gt; <span class="variable" translate="no">user_password_file</span>
+chmod 600 <span class="variable" translate="no">user_password_file</span></code></pre><p>where:</p>
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p><code class="codeph"><span class="variable" translate="no">user_password</span></code> is the password for the new user.
+                                 </p>
+                              </li>
+                              <li>
+                                 <p><code class="codeph"><span class="variable" translate="no">user_password_file</span></code> is the password file for the new user. This file must have permissions <code class="codeph">600</code>.
+                                 </p>
+                              </li>
+                           </ul>
+                           <div class="infoboxnote" id="GUID-C8DBEE6B-350F-4BDA-A920-463999E51FB8__GUID-536ACFA8-34C6-4E38-814D-CD3C5AE3474F">
+                              <p class="notep1">Note:</p>
+                              <p>It is a safer practice to define the user password as an environment variable and then pass that value to the command. When the value is passed as the value of the environment variable, the actual value won't be visible in the bash history. In this case, use the following, instead of the commands listed above.</p><pre class="pre codeblock"><code>echo ${<span class="variable" translate="no">USER_PASSWORD</span>}&gt;${<span class="variable" translate="no">USER_PASSWORD_FILE</span>}
+chmod 600 ${<span class="variable" translate="no">USER_PASSWORD_FILE</span>}</code></pre><p>where:</p>
+                              <ul style="list-style-type: disc;">
+                                 <li>
+                                    <p><code class="codeph"><span class="variable" translate="no">USER_PASSWORD</span></code> is the environment variable containing the value of the password for the new user. The name of the environment variable can be any valid environment variable name.
+                                    </p>
+                                 </li>
+                                 <li>
+                                    <p><code class="codeph"><span class="variable" translate="no">USER_PASSWORD_FILE</span></code> is the environment variable containing the value of the password file for the new user. The name of the environment variable can be any valid environment variable name. This file has to have permissions <code class="codeph">600</code>.
+                                    </p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </li>
+                     <li class="stepexpand"><span>Add the user and create a home directory for the user in the cluster’s HDFS file system:</span><div><pre class="pre codeblock"><code>/usr/bin/bdm-add-user--create-hdfs-home <span class="variable" translate="no">new_user</span> <span class="variable" translate="no">user_password_file</span></code></pre><p>where <code class="codeph"><span class="variable" translate="no">new_user</span></code> is the new user name.
+                           </p>
+                        </div>
+                     </li>
+                     <li class="stepexpand"><span>On the node where <span>Oracle Big Data Manager</span> runs, enter the following command to restart <span>Oracle Big Data Manager</span>. This reloads the user configuration from the database.</span><div><pre class="pre codeblock"><code>service bigdatamanager restart</code></pre><p>You can also use Configuration Manager to restart the Big Data Manager service.</p>
+                           <div class="infoboxnote" id="GUID-C8DBEE6B-350F-4BDA-A920-463999E51FB8__GUID-DAB3E98D-D284-4FC1-B32D-6E2818607AD5">
+                              <p class="notep1">Note:</p>On Oracle Big Data Appliance, Oracle Big Data Manager is by default hosted on the same node as Cloudera Manager and is accessed on port <code class="codeph">8890</code>.
+                           </div>
+                        </div>
+                     </li>
+                  </ol>
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="managing-oracle-big-data-manager-users-roles-and-access.html#GUID-918C17B3-F6C8-4CBE-9262-6F54AEC0A4C3" title="An administrator must create Oracle Big Data Manager users at the command line. Once they’ve been created, you can edit user details and manage access in the Oracle Big Data Manager console.">Managing Oracle Big Data Manager Users, Roles, and Access</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-DF02B11F-2388-40A5-946C-4C3185D616CE" name="GUID-DF02B11F-2388-40A5-946C-4C3185D616CE"></a><h3 id="BBDMG-GUID-DF02B11F-2388-40A5-946C-4C3185D616CE" class="sect3"><span class="enumeration_section">2.3.2 </span>Editing User Details and Managing Roles
+               </h3>
+               <div>
+                  <p>A user with administrator privileges can edit user details and manage roles in the <span>Oracle Big Data Manager</span> console.
+                  </p>
+                  <div class="section">To access and modify user details and manage user roles:</div>
+                  <!-- class="section" -->
+                  <ol>
+                     <li><span>Sign in to the <span>Oracle Big Data Manager</span> console as the <code class="codeph">bigdatamgr</code> user, or as another user with administrator privileges..</span></li>
+                     <li><span>Click <span class="bold">Administration</span> at the top of the page to open the <span class="wintitle">Administration</span> page. </span></li>
+                     <li><span>Click <span class="bold">Users</span> on the left of the page to show the list of users that have been added.</span></li>
+                     <li><span>Edit details as needed.</span></li>
+                  </ol>
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="managing-oracle-big-data-manager-users-roles-and-access.html#GUID-918C17B3-F6C8-4CBE-9262-6F54AEC0A4C3" title="An administrator must create Oracle Big Data Manager users at the command line. Once they’ve been created, you can edit user details and manage access in the Oracle Big Data Manager console.">Managing Oracle Big Data Manager Users, Roles, and Access</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-0E9D6104-AA4F-4ADF-A655-BB6BA3FBEFE0" name="GUID-0E9D6104-AA4F-4ADF-A655-BB6BA3FBEFE0"></a><h3 id="BBDMG-GUID-0E9D6104-AA4F-4ADF-A655-BB6BA3FBEFE0" class="sect3"><span class="enumeration_section">2.3.3 </span>Controlling Access to Specific Providers
+               </h3>
+               <div>
+                  <p>A user with administrator privileges can control access to storage containers.</p>
+                  <div class="section">
+                     <div class="infoboxnote" id="GUID-0E9D6104-AA4F-4ADF-A655-BB6BA3FBEFE0__GUID-8513F851-D98E-4B36-9C88-EEF74829BD46">
+                        <p class="notep1">Note:</p>When a new cluster is created,  the <code class="codeph">bigdatamgr</code> user is created and granted the <span>Oracle Big Data Manager</span> Administrator role.
+                     </div>
+                     <p>To control access to storage containers:</p>
+                  </div>
+                  <!-- class="section" -->
+                  <ol>
+                     <li><span>Sign into the Oracle Big Data Manager console as the <code class="codeph">bigdatamgr</code> user, or another user with administrator privileges.</span></li>
+                     <li><span>Click <span class="bold">Administration</span> at the top of the page to open the <span class="wintitle">Administration</span> page. </span></li>
+                     <li><span>Click <span class="bold">Storages</span> on the left of the page to show a list of registered storage providers.</span></li>
+                     <li><span>Click the menu icon to the right of the provider you are providing access to, and select <span class="bold">Manage Users</span>.</span></li>
+                     <li><span>Use the arrows to move users from the left panel to the right panel to create an access list of users who will be able to see that provider in the web application. This doesn’t give Write access to the storage. Users must have appropriate permissions to work with data in the provider.</span></li>
+                  </ol>
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="managing-oracle-big-data-manager-users-roles-and-access.html#GUID-918C17B3-F6C8-4CBE-9262-6F54AEC0A4C3" title="An administrator must create Oracle Big Data Manager users at the command line. Once they’ve been created, you can edit user details and manage access in the Oracle Big Data Manager console.">Managing Oracle Big Data Manager Users, Roles, and Access</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

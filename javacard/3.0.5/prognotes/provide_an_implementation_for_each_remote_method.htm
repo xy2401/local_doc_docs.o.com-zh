@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Provide an Implementation for Each Remote Method</title>
+<meta name="generator" content="DITA Open Toolkit version 1.7.5" />
+<meta name="dcterms.created" content="2015-05-27T21:10:48Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Programming Notes" />
+<meta name="dcterms.identifier" content="E59598-01" />
+<meta name="dcterms.isVersionOf" content="JCPCL" />
+<meta name="dcterms.rights" content="Copyright &nbsp;&copy;&nbsp;1998, 2015, Oracle and/or its affiliates. All rights reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="define_the_constructor_for_the_remote_object.htm" title="Previous" type="text/html" />
+<link rel="Next" href="sample_applet.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCPCL.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-D388D5EB-A8E1-46D6-B801-84311AAD4AA8"></a> <span id="PAGE" style="display:none;">47/72</span> <!-- End Header -->
+<h1 id="JCPCL-GUID-D388D5EB-A8E1-46D6-B801-84311AAD4AA8" class="sect1">Provide an Implementation for Each Remote Method</h1>
+<div>
+<p>The implementation class for a remote object contains the code that implements each of the remote methods specified in the remote interface. For example, the following code is the implementation of the method that debits the purse:</p>
+<pre>
+    public short debit(short amount) throws RemoteException, UserException
+        if (( amount &lt; 0 )||( balance &lt; amount )
+            UserException.throwIt(REQUEST_FAILED);
+        balance -= amount;
+        return balance; 
+   }
+
+
+</pre>
+<p>An operation is only allowed if the value of its parameter is compatible with the current state of the purse object. In this particular case, the application only checks that the amounts handled are positive and that the balance of the purse always remains positive.</p>
+<p>In Java Card RMI, the arguments to and return values from remote methods are restricted. The main reason for this limitation is that the Java Card 3 platform does not support object serialization. The following are the rules for the Java Card 3 platform:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The arguments to remote methods can be of any supported integral type (such as&nbsp;<code>boolean</code>, <code>byte</code>, <code>short</code> and <code>int</code>), or any single-dimensional arrays of these integral types.</p>
+<div class="infobox-note" id="GUID-D388D5EB-A8E1-46D6-B801-84311AAD4AA8__GUID-FBC8E736-3589-4427-A9A7-808B0D125229">
+<p class="notep1"><a id="GUID-FBC8E736-3589-4427-A9A7-808B0D125229"></a>Note:</p>
+<p>The <code>int</code> type is optionally supported on the Java Card 3 platform, so applications that use this type might not run on all platforms.</p>
+</div>
+</li>
+<li>
+<p>The return value from a remote method can be any type supported as arguments, as well as any remote interface type. The method can also return <code>void</code>.</p>
+</li>
+</ul>
+<p>On the other hand, object passing in Java Card RMI follows the normal RMI rules:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>By default, non-remote objects are passed by copy, which means that all data members of an object are copied, except those marked <code>static</code> or <code>transient</code>. In the case of the Java Card 3 platform, this rule is trivial to apply, because the only objects concerned are arrays of integral types.</p>
+</li>
+<li>
+<p>Remote objects are passed by reference. In the case of the Java Card 3 platform, remote objects can only be passed as return values. A reference to a remote object is actually a reference to a stub, which is a client-side proxy for the remote objects. Stubs are needed only when the format <code>remote_ref_with_class</code> is used for passing remote references. When another format, such as <code>remote_ref_with_interfaces</code>, is used, stubs are not necessary. Stubs are described in <a href="generate_the_stubs.htm#GUID-B15A7538-5D2D-4577-88A9-6152231FCB46">Generate the Stubs</a>.</p>
+<div class="infobox-note" id="GUID-D388D5EB-A8E1-46D6-B801-84311AAD4AA8__GUID-DE4D8F7F-FDB7-4BE0-9B24-C3D4F35B5D4F">
+<p class="notep1"><a id="GUID-DE4D8F7F-FDB7-4BE0-9B24-C3D4F35B5D4F"></a>Note:</p>
+<p>Even though the semantics of the Java Card 3 platform transient arrays are somewhat similar to transient fields in the Java programming language, different rules apply. The Java Card 3 platform contents are copied in Java Card RMI and passed by value when they are returned from a remote method.</p>
+</div>
+</li>
+</ul>
+<p>A class can define methods not specified in a remote interface, but they can only be invoked on-card within the Java Card VM and cannot be invoked remotely.</p>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment106">
+<tr>
+<td class="cellalignment113">
+<table class="cellalignment111">
+<tr>
+<td class="cellalignment110"><a href="define_the_constructor_for_the_remote_object.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment110"><a href="sample_applet.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright &nbsp;&copy;&nbsp;1998, 2015, Oracle and/or its affiliates. All rights reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment115">
+<table class="cellalignment109">
+<tr>
+<td class="cellalignment110"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment110"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment110"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

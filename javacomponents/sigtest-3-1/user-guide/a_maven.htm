@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<title>Using the SigTest Tools With Apache Maven</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = document) - Version 1.0.24" />
+<meta name="dcterms.created" content="2014-07-01T13:22:31Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="SigTest User's Guide" />
+<meta name="dcterms.identifier" content="E19036-03" />
+<meta name="dcterms.isVersionOf" content="SIGTS" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2006, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="a_ant.htm" title="Previous" type="text/html" />
+<link rel="Next" href="a_serialization_example.htm" title="Next" type="text/html" />
+<link rel="alternate" href="SIGTS.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../../nav/css/html5.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<span id="PAGE" style="display:none;">24/25</span> <!-- End Header --><a id="Z4000c551039922"></a>
+<h1 class="appendix"><span class="secnum">F</span> Using the SigTest Tools With Apache Maven</h1>
+<p>The Apache Maven SigTest plug-in (<code>sigtest-plugin</code>) makes the functionality of the Sigtest, Setup and Merge commands available from Maven 2 build scripts. The Maven APICover plug-in (<code>apicover-plugin</code>) makes the functionality of the APICover tool available to Maven 2 build scripts. All goals are bound by default to the &rdquo;test&rdquo; life cycle phase.</p>
+<a id="Z4000c551039867"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">F.1</span> Goal Overview</h2>
+<p>The the four <code>sigtest-plugin</code> goals are described in <a href="#Z4000c551037214">Table F-1</a>:</p>
+<div class="tblhruleformal">
+<p class="titleintable"><a id="sthref46"></a><a id="Z4000c551037214"></a>Table F-1 The <code>sigtest-plugin</code> Goals</p>
+<table class="cellalignment36" title="The sigtest-plugin Goals" summary="Add Summary attribute value here." dir="ltr">
+<thead>
+<tr class="cellalignment25">
+<th class="cellalignment37" id="r1c1-t2">Goal</th>
+<th class="cellalignment37" id="r1c2-t2">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r2c1-t2" headers="r1c1-t2">
+<p><code>sigtest-plugin:setup</code></p>
+</td>
+<td class="cellalignment31" headers="r2c1-t2 r1c2-t2">
+<p>Provides <code>Setup</code> command functionality to Maven 2 build scripts. Creates a signature file from an API defined by a specification or a reference implementation.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r3c1-t2" headers="r1c1-t2">
+<p><code>sigtest-plugin:test</code></p>
+</td>
+<td class="cellalignment31" headers="r3c1-t2 r1c2-t2">
+<p>Provides static mode SignatureTest functionality to Maven 2 build scripts. Compares the reference API represented in the signature file to the API under test and produces a report.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r4c1-t2" headers="r1c1-t2">
+<p><code>sigtest-plugin:merge</code></p>
+</td>
+<td class="cellalignment31" headers="r4c1-t2 r1c2-t2">
+<p>Provides Merge functionality to Maven 2 build scripts. Creates a combined signature file from several signature files representing different Java platform APIs in one Java runtime environment according to the JSR 68 rules.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r5c1-t2" headers="r1c1-t2">
+<p><code>apicover-plugin:apicover</code></p>
+</td>
+<td class="cellalignment31" headers="r5c1-t2 r1c2-t2">
+<p>Provides API Coverage tool functionality to Maven 2 build scripts, This goal is used to estimate the test coverage that a test suite under development affords to implementations of its related API specification.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" --></div>
+<!-- class="sect1" -->
+<a id="Z4000c551039878"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">F.2</span> Goal Descriptions</h2>
+<p>The following sections describe the requirements and parameters for each of the goals listed in <a href="#Z4000c551037214">Table F-1</a>. An example follows each section.</p>
+<a id="Z4000c551039813"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">F.2.1</span> sigtest-plugin:setup</h3>
+<p>The <code>setup</code> goal accepts a reference implementation of an API as input. The command processes API input in order to generate a signature file that represents the API to be used as a reference for comparison during signature testing.</p>
+<ul>
+<li>
+<p>Full name: <code>com.sun.tdk:sigtest-plugin:2.2:setup</code></p>
+</li>
+<li>
+<p>Requires a Maven 2.0 project to be executed.</p>
+</li>
+<li>
+<p>Binds by default to the life cycle phase: test</p>
+</li>
+</ul>
+<div class="tblhruleformal">
+<p class="titleintable"><a id="sthref47"></a><a id="Z4000c551037233"></a>Table F-2 Required Parameters (<code>sigtest-plugin:setup</code>)</p>
+<table class="cellalignment36" title=" Required Parameters (sigtest-plugin:setup)" summary="Add Summary attribute value here." dir="ltr">
+<thead>
+<tr class="cellalignment25">
+<th class="cellalignment37" id="r1c1-t3">Name</th>
+<th class="cellalignment37" id="r1c2-t3">Type</th>
+<th class="cellalignment37" id="r1c3-t3">Corresponding Setup Command Option</th>
+<th class="cellalignment37" id="r1c4-t3">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r2c1-t3" headers="r1c1-t3">
+<p>fileName</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t3 r1c2-t3">
+<p>String</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t3 r1c3-t3">
+<p>-filename</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t3 r1c4-t3">
+<p>Specifies the name of the signature file to be created.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r3c1-t3" headers="r1c1-t3">
+<p>pathElements</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t3 r1c2-t3">
+<p>List</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t3 r1c3-t3">
+<p>-classpath</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t3 r1c4-t3">
+<p>Specifies the path to one or more APIs that generate the signature file. Can contain multiple directories, Zip files or JAR files.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r4c1-t3" headers="r1c1-t3">
+<p>packages</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t3 r1c2-t3">
+<p>List</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t3 r1c3-t3">
+<p>-package</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t3 r1c4-t3">
+<p>Specifies classes or packages to be included in the signature file including its subpackages if a package is specified.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" -->
+<div class="tblhruleformal">
+<p class="titleintable"><a id="sthref48"></a><a id="Z4000c551037257"></a>Table F-3 Optional Parameters (<code>sigtest-plugin:setup</code>)</p>
+<table class="cellalignment36" title="Optional Parameters (sigtest-plugin:setup)" summary="Add Summary attribute value here." dir="ltr">
+<thead>
+<tr class="cellalignment25">
+<th class="cellalignment37" id="r1c1-t4">Name</th>
+<th class="cellalignment37" id="r1c2-t4">Type</th>
+<th class="cellalignment37" id="r1c3-t4">Corresponding Setup Command Option</th>
+<th class="cellalignment37" id="r1c4-t4">Default Value</th>
+<th class="cellalignment37" id="r1c5-t4">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r2c1-t4" headers="r1c1-t4">
+<p>excludes</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t4 r1c2-t4">
+<p>List</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t4 r1c3-t4">
+<p>-exclude</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t4 r1c4-t4">&nbsp;</td>
+<td class="cellalignment31" headers="r2c1-t4 r1c5-t4">
+<p>Specifies a package or class to be excluded from the signature file, including its subpackages.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r3c1-t4" headers="r1c1-t4">
+<p>nonClosedFile</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t4 r1c2-t4">
+<p>boolean</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t4 r1c3-t4">
+<p>-NonClosedFile</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t4 r1c4-t4">
+<p>FALSE</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t4 r1c5-t4">
+<p>Causes direct and indirect superclasses and superinterfaces of tested classes <span class="italic">not</span> to be included in the signature file. This eliminates cases where they do not belong to the scope defined by &rdquo;packages&rdquo; parameters.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r4c1-t4" headers="r1c1-t4">
+<p>apiVersion</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t4 r1c2-t4">
+<p>String</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t4 r1c3-t4">
+<p>-apiVersion</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t4 r1c4-t4">&nbsp;</td>
+<td class="cellalignment31" headers="r4c1-t4 r1c5-t4">
+<p>Specifies the API version string to be recorded in the second line of the signature file.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r5c1-t4" headers="r1c1-t4">
+<p>failOnError</p>
+</td>
+<td class="cellalignment31" headers="r5c1-t4 r1c2-t4">
+<p>boolean</p>
+</td>
+<td class="cellalignment31" headers="r5c1-t4 r1c3-t4">&nbsp;</td>
+<td class="cellalignment31" headers="r5c1-t4 r1c4-t4">
+<p>TRUE</p>
+</td>
+<td class="cellalignment31" headers="r5c1-t4 r1c5-t4">
+<p>Stops the build process if the command exits with an error.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r6c1-t4" headers="r1c1-t4">
+<p>negative</p>
+</td>
+<td class="cellalignment31" headers="r6c1-t4 r1c2-t4">
+<p>boolean</p>
+</td>
+<td class="cellalignment31" headers="r6c1-t4 r1c3-t4">&nbsp;</td>
+<td class="cellalignment31" headers="r6c1-t4 r1c4-t4">
+<p>FALSE</p>
+</td>
+<td class="cellalignment31" headers="r6c1-t4 r1c5-t4">
+<p>Treats tests that do not succeed as having passed, and tests that do succeed as having failed. Used for negative tests.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" -->
+<div class="example">
+<p class="titleinexample"><a id="Z40000311040292"></a>Example F-1 Sample Plugin Configuration (<code>pom.xml</code>)</p>
+<pre>
+&lt;project&gt;
+  . . .
+  &lt;build&gt; 
+      . . .
+      &lt;plugins&gt; 
+        &lt;plugin&gt; 
+          . . .
+          &lt;groupId&gt;com.sun.tdk&lt;/groupId&gt; 
+          &lt;artifactId&gt;sigtest-plugin&lt;/artifactId&gt; 
+          &lt;configuration&gt; 
+            &lt;fileName&gt;java-awt-lang-math.sig&lt;/fileName&gt; 
+            &lt;packages&gt; 
+              &lt;package&gt;java.awt&lt;/package&gt; 
+              &lt;package&gt;java.lang&lt;/package&gt; 
+              &lt;package&gt;java.math&lt;/package&gt; 
+            &lt;/packages&gt; 
+            &lt;excludes&gt; 
+              &lt;exclude&gt;java.lang.Math&lt;/exclude&gt; 
+              &lt;exclude&gt;java.lang.ref&lt;/exclude&gt; 
+            &lt;/excludes&gt; 
+            &lt;pathElements&gt; 
+              &lt;pathElement&gt;${ref.jhome}/jre/lib/rt.jar&lt;/pathElement&gt; 
+            &lt;/pathElements&gt; 
+            &lt;apiVersion&gt;Java Six&lt;/apiVersion&gt; 
+          &lt;/configuration&gt; 
+        &lt;/plugin&gt; 
+        . . .
+      &lt;/plugins&gt; 
+      . . .
+  &lt;/build&gt; 
+ . . 
+&lt;/project&gt;
+</pre></div>
+<!-- class="example" --></div>
+<!-- class="sect2" -->
+<a id="Z4000c551039828"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">F.2.2</span> sigtest-plugin:test</h3>
+<p>The <code>test</code> goal compares the reference API (represented in a signature file) to the API under test and produces a report. Unlike the SignatureTest command it only supports static mode&mdash;reflection is not supported</p>
+<ul>
+<li>
+<p>Full name: <code>com.sun.tdk:sigtest-plugin:2.2:test</code></p>
+</li>
+<li>
+<p>Requires a Maven 2.0 project to be executed.</p>
+</li>
+<li>
+<p>Binds by default to the life cycle phase: test</p>
+</li>
+</ul>
+<div class="tblhruleformal">
+<p class="titleintable"><a id="sthref49"></a><a id="Z4000c551037364"></a>Table F-4 Required Parameters (<code>sigtest-plugin:test</code>)</p>
+<table class="cellalignment36" title="Required Parameters (sigtest-plugin:test)" summary="Add Summary attribute value here." dir="ltr">
+<thead>
+<tr class="cellalignment25">
+<th class="cellalignment37" id="r1c1-t5">Name</th>
+<th class="cellalignment37" id="r1c2-t5">Type</th>
+<th class="cellalignment37" id="r1c3-t5">Corresponding Setup Option</th>
+<th class="cellalignment37" id="r1c4-t5">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r2c1-t5" headers="r1c1-t5">
+<p>fileName</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t5 r1c2-t5">
+<p>String</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t5 r1c3-t5">
+<p>-filename</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t5 r1c4-t5">
+<p>Specifies the name of the signature file to be created.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r3c1-t5" headers="r1c1-t5">
+<p>pathElements</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t5 r1c2-t5">
+<p>List</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t5 r1c3-t5">
+<p>-classpath</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t5 r1c4-t5">
+<p>Specifies the path to one or more APIs that generate the signature file. Can specify multiple directories, Zip files or JAR files.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r4c1-t5" headers="r1c1-t5">
+<p>packages</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t5 r1c2-t5">
+<p>List</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t5 r1c3-t5">
+<p>-package</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t5 r1c4-t5">
+<p>Specifies classes or packages to be included in the signature file, including its subpackages if a package is specified.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" -->
+<div class="tblhruleformal">
+<p class="titleintable"><a id="sthref50"></a><a id="Z4000c551037388"></a>Table F-5 Optional Parameters (<code>sigtest-plugin:test</code>)</p>
+<table class="cellalignment36" title="Optional Parameters (sigtest-plugin:test) " summary="Add Summary attribute value here." dir="ltr">
+<thead>
+<tr class="cellalignment25">
+<th class="cellalignment37" id="r1c1-t6">Name</th>
+<th class="cellalignment37" id="r1c2-t6">Type</th>
+<th class="cellalignment37" id="r1c3-t6">Corresponding SignatureTest Option</th>
+<th class="cellalignment37" id="r1c4-t6">Default Value</th>
+<th class="cellalignment37" id="r1c5-t6">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r2c1-t6" headers="r1c1-t6">
+<p>excludes</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t6 r1c2-t6">
+<p>List</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t6 r1c3-t6">
+<p>-exclude</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t6 r1c4-t6">&nbsp;</td>
+<td class="cellalignment31" headers="r2c1-t6 r1c5-t6">
+<p>Specifies a package or class to be excluded from the signature file, including its subpackages.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r3c1-t6" headers="r1c1-t6">
+<p>apiVersion</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t6 r1c2-t6">
+<p>String</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t6 r1c3-t6">
+<p>-apiVersion</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t6 r1c4-t6">&nbsp;</td>
+<td class="cellalignment31" headers="r3c1-t6 r1c5-t6">
+<p>Specifies the API version string to be recorded in the second line of the signature file.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r4c1-t6" headers="r1c1-t6">
+<p>binary</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t6 r1c2-t6">
+<p>boolean</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t6 r1c3-t6">
+<p>-mode bin</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t6 r1c4-t6">
+<p>FALSE</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t6 r1c5-t6">
+<p>Specifies that binary mode be used during the signature test instead of the source code compatibility mode.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r5c1-t6" headers="r1c1-t6">
+<p>backward</p>
+</td>
+<td class="cellalignment31" headers="r5c1-t6 r1c2-t6">
+<p>boolean</p>
+</td>
+<td class="cellalignment31" headers="r5c1-t6 r1c3-t6">
+<p>-Backward</p>
+</td>
+<td class="cellalignment31" headers="r5c1-t6 r1c4-t6">
+<p>FALSE</p>
+</td>
+<td class="cellalignment31" headers="r5c1-t6 r1c5-t6">
+<p>Specifies migration instead of mutual compatibility check mode.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r6c1-t6" headers="r1c1-t6">
+<p>human</p>
+</td>
+<td class="cellalignment31" headers="r6c1-t6 r1c2-t6">
+<p>boolean</p>
+</td>
+<td class="cellalignment31" headers="r6c1-t6 r1c3-t6">
+<p>-FormatHuman</p>
+</td>
+<td class="cellalignment31" headers="r6c1-t6 r1c4-t6">
+<p>FALSE</p>
+</td>
+<td class="cellalignment31" headers="r6c1-t6 r1c5-t6">
+<p>Specifies the human-readable report output format.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r7c1-t6" headers="r1c1-t6">
+<p>errorAll</p>
+</td>
+<td class="cellalignment31" headers="r7c1-t6 r1c2-t6">
+<p>boolean</p>
+</td>
+<td class="cellalignment31" headers="r7c1-t6 r1c3-t6">
+<p>-ErrorAll</p>
+</td>
+<td class="cellalignment31" headers="r7c1-t6 r1c4-t6">
+<p>FALSE</p>
+</td>
+<td class="cellalignment31" headers="r7c1-t6 r1c5-t6">
+<p>Specifies that the signature test be made stricter by upgrading certain warnings to errors.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r8c1-t6" headers="r1c1-t6">
+<p>debug</p>
+</td>
+<td class="cellalignment31" headers="r8c1-t6 r1c2-t6">
+<p>boolean</p>
+</td>
+<td class="cellalignment31" headers="r8c1-t6 r1c3-t6">
+<p>-debug</p>
+</td>
+<td class="cellalignment31" headers="r8c1-t6 r1c4-t6">
+<p>FALSE</p>
+</td>
+<td class="cellalignment31" headers="r8c1-t6 r1c5-t6">
+<p>Enables printing of the stack trace for debugging purposes if SignatureTest fails.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r9c1-t6" headers="r1c1-t6">
+<p>failOnError</p>
+</td>
+<td class="cellalignment31" headers="r9c1-t6 r1c2-t6">
+<p>boolean</p>
+</td>
+<td class="cellalignment31" headers="r9c1-t6 r1c3-t6">&nbsp;</td>
+<td class="cellalignment31" headers="r9c1-t6 r1c4-t6">
+<p>TRUE</p>
+</td>
+<td class="cellalignment31" headers="r9c1-t6 r1c5-t6">
+<p>Stops the build process if the command exits with an error.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r10c1-t6" headers="r1c1-t6">
+<p>negative</p>
+</td>
+<td class="cellalignment31" headers="r10c1-t6 r1c2-t6">
+<p>boolean</p>
+</td>
+<td class="cellalignment31" headers="r10c1-t6 r1c3-t6">&nbsp;</td>
+<td class="cellalignment31" headers="r10c1-t6 r1c4-t6">
+<p>FALSE</p>
+</td>
+<td class="cellalignment31" headers="r10c1-t6 r1c5-t6">
+<p>Treats tests that do not succeed as having passed, and tests that do succeed as having failed. Used for negative tests.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" -->
+<div class="example">
+<p class="titleinexample"><a id="Z40000311040602"></a>Example F-2 Sample Plugin Configuration (<code>pom.xml</code>)</p>
+<pre>
+&lt;project&gt;
+  . . .
+  &lt;build&gt; 
+      . . .
+      &lt;plugins&gt; 
+        &lt;plugin&gt; 
+          . . .
+          &lt;groupId&gt;com.sun.tdk&lt;/groupId&gt; 
+          &lt;artifactId&gt;sigtest-plugin&lt;/artifactId&gt; 
+          &lt;configuration&gt; 
+            &lt;fileName&gt;java-awt-lang-math.sig&lt;/fileName&gt; 
+            &lt;packages&gt; 
+              &lt;package&gt;java.awt&lt;/package&gt; 
+              &lt;package&gt;java.lang&lt;/package&gt; 
+              &lt;package&gt;java.math&lt;/package&gt; 
+            &lt;/packages&gt; 
+            &lt;excludes&gt; 
+              &lt;exclude&gt;java.lang.Math&lt;/exclude&gt; 
+              &lt;exclude&gt;java.lang.ref&lt;/exclude&gt; 
+            &lt;/excludes&gt; 
+            &lt;pathElements&gt; 
+              &lt;pathElement&gt;${ref.jhome}/jre/lib/rt.jar&lt;/pathElement&gt; 
+            &lt;/pathElements&gt; 
+            &lt;apiVersion&gt;Java Six&lt;/apiVersion&gt; 
+            &lt;failOnError&gt;false&lt;/failOnError&gt; 
+            &lt;human&gt;true&lt;/human&gt; 
+            &lt;backward&gt;true&lt;/backward&gt; 
+            &lt;out&gt;report.txt&lt;/out&gt; 
+            &lt;debug&gt;true&lt;/debug&gt; 
+          &lt;/configuration&gt; 
+        &lt;/plugin&gt; 
+        . . .
+      &lt;/plugins&gt; 
+      . . .
+  &lt;/build&gt; 
+ . . 
+&lt;/project&gt; 
+</pre></div>
+<!-- class="example" --></div>
+<!-- class="sect2" -->
+<a id="Z4000c551039841"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">F.2.3</span> sigtest-plugin:merge</h3>
+<p>The <code>merge</code> goal command combines (merges) a number of input signature files into a single signature file.</p>
+<ul>
+<li>
+<p>Full name: <code>com.sun.tdk:sigtest-plugin:2.2:merge</code></p>
+</li>
+<li>
+<p>Requires a Maven 2.0 project to be executed.</p>
+</li>
+<li>
+<p>Binds by default to the life cycle phase: test</p>
+</li>
+</ul>
+<div class="tblhruleformal">
+<p class="titleintable"><a id="sthref51"></a><a id="Z4000c551037529"></a>Table F-6 Required Parameters (<code>sigtest-plugin:merge</code>)</p>
+<table class="cellalignment36" title="Required Parameters (sigtest-plugin:merge)" summary="Add Summary attribute value here." dir="ltr">
+<thead>
+<tr class="cellalignment25">
+<th class="cellalignment37" id="r1c1-t7">Name</th>
+<th class="cellalignment37" id="r1c2-t7">Type</th>
+<th class="cellalignment37" id="r1c3-t7">Corresponding Merge option</th>
+<th class="cellalignment37" id="r1c4-t7">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r2c1-t7" headers="r1c1-t7">
+<p>write</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t7 r1c2-t7">
+<p>String</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t7 r1c3-t7">
+<p>-Write</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t7 r1c4-t7">
+<p>Specifies the resulting output signature file.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r3c1-t7" headers="r1c1-t7">
+<p>files</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t7 r1c2-t7">
+<p>List</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t7 r1c3-t7">
+<p>-Files</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t7 r1c4-t7">
+<p>Specifies the names of the signature files to be merged.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" -->
+<div class="tblhruleformal">
+<p class="titleintable"><a id="sthref52"></a><a id="Z4000c551037548"></a>Table F-7 Optional Parameters (<code>sigtest-plugin:merge</code>)</p>
+<table class="cellalignment36" title="Optional Parameters (sigtest-plugin:merge)" summary="Add Summary attribute value here." dir="ltr">
+<thead>
+<tr class="cellalignment25">
+<th class="cellalignment37" id="r1c1-t8">Name</th>
+<th class="cellalignment37" id="r1c2-t8">Type</th>
+<th class="cellalignment37" id="r1c3-t8">Corresponding Merge Option</th>
+<th class="cellalignment37" id="r1c4-t8">Default Value</th>
+<th class="cellalignment37" id="r1c5-t8">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r2c1-t8" headers="r1c1-t8">
+<p>binary</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t8 r1c2-t8">
+<p>boolean</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t8 r1c3-t8">
+<p>-Binary</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t8 r1c4-t8">
+<p>FALSE</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t8 r1c5-t8">
+<p>Specifies that binary mode be used during the signature test instead of the source code compatibility mode.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r3c1-t8" headers="r1c1-t8">
+<p>failOnError</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t8 r1c2-t8">
+<p>boolean</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t8 r1c3-t8">&nbsp;</td>
+<td class="cellalignment31" headers="r3c1-t8 r1c4-t8">
+<p>TRUE</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t8 r1c5-t8">
+<p>Stops the build process if the command exits with an error.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r4c1-t8" headers="r1c1-t8">
+<p>negative</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t8 r1c2-t8">
+<p>boolean</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t8 r1c3-t8">&nbsp;</td>
+<td class="cellalignment31" headers="r4c1-t8 r1c4-t8">
+<p>FALSE</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t8 r1c5-t8">
+<p>Treats tests that do not succeed as having passed, and tests that do succeed as having failed. Used for negative tests.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" -->
+<div class="example">
+<p class="titleinexample"><a id="Z40000191040852"></a>Example F-3 Sample Plugin Configuration (<code>pom.xm)</code></p>
+<pre>
+&lt;project&gt;
+  . . .
+  &lt;build&gt; 
+      . . .
+      &lt;plugins&gt; 
+        . . .
+        &lt;plugin&gt; 
+          . . .
+          &lt;groupId&gt;com.sun.tdk&lt;/groupId&gt; 
+          &lt;artifactId&gt;sigtest-plugin&lt;/artifactId&gt; 
+          &lt;configuration&gt; 
+            &lt;files&gt;
+              &lt;file&gt;baseAPI.sig&lt;/file&gt;
+              &lt;file&gt;optionalAPI1.sig&lt;/file&gt;
+              &lt;file&gt;optionalAPI2.sig&lt;/file&gt;
+            &lt;/files&gt; 
+            &lt;write&gt;result.sig&lt;/write&gt; 
+            &lt;failOnError&gt;false&lt;/failOnError&gt; 
+          &lt;/configuration&gt; 
+        &lt;/plugin&gt; 
+        . . .
+      &lt;/plugins&gt; 
+      . . .
+  &lt;/build&gt; 
+  . . . 
+&lt;/project&gt;
+</pre></div>
+<!-- class="example" --></div>
+<!-- class="sect2" -->
+<a id="Z4000c551039854"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">F.2.4</span> apicover-plugin:apicover</h3>
+<p>The <code>apicover-plugin:apicover</code> goal is used to estimate the test coverage that a test suite under development affords to implementations of its related API specification. It does this by determining how many public class members the test suite references within the API specification that it is designed to test against. The tool uses a signature file representation of the API specification as the basis of its specification analysis.</p>
+<ul>
+<li>
+<p>Full name: <code>com.sun.tdk:apicover-plugin:2.2:apicover</code></p>
+</li>
+<li>
+<p>Requires a Maven 2.0 project to be executed.</p>
+</li>
+<li>
+<p>Binds by default to the life cycle phase: test</p>
+</li>
+</ul>
+<div class="tblhruleformal">
+<p class="titleintable"><a id="sthref53"></a><a id="Z4000c551037631"></a>Table F-8 Required Parameters (<code>apicover-plugin:apicover</code>)</p>
+<table class="cellalignment36" title="Required Parameters (apicover-plugin:apicover)" summary="Add Summary attribute value here." dir="ltr">
+<thead>
+<tr class="cellalignment25">
+<th class="cellalignment37" id="r1c1-t9">Name</th>
+<th class="cellalignment37" id="r1c2-t9">Type</th>
+<th class="cellalignment37" id="r1c3-t9">Corresponding APICover Option</th>
+<th class="cellalignment37" id="r1c4-t9">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r2c1-t9" headers="r1c1-t9">
+<p>tests</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t9 r1c2-t9">
+<p>List</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t9 r1c3-t9">
+<p>-ts</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t9 r1c4-t9">
+<p>Specifies the path to the test suite classes to be analyzed. Also accepts a JAR file.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r3c1-t9" headers="r1c1-t9">
+<p>api</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t9 r1c2-t9">
+<p>String</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t9 r1c3-t9">
+<p>-api</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t9 r1c4-t9">
+<p>Specifies the location of the signature file representing the API under examination.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" -->
+<div class="tblhruleformal">
+<p class="titleintable"><a id="sthref54"></a><a id="Z4000c551037650"></a>Table F-9 Optional Parameters (<code>apicover-plugin:apicover</code>)</p>
+<table class="cellalignment36" title="Optional Parameters (apicover-plugin:apicover) " summary="Add Summary attribute value here." dir="ltr">
+<thead>
+<tr class="cellalignment25">
+<th class="cellalignment37" id="r1c1-t10">Name</th>
+<th class="cellalignment37" id="r1c2-t10">Type</th>
+<th class="cellalignment37" id="r1c3-t10">Corresponding APICover Option</th>
+<th class="cellalignment37" id="r1c4-t10">Default Value</th>
+<th class="cellalignment37" id="r1c5-t10">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r2c1-t10" headers="r1c1-t10">
+<p>tsIncludes</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t10 r1c2-t10">
+<p>List</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t10 r1c3-t10">
+<p>-tsInclude</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t10 r1c4-t10">&nbsp;</td>
+<td class="cellalignment31" headers="r2c1-t10 r1c5-t10">
+<p>Recursively includes classes from the specified test suite package.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r3c1-t10" headers="r1c1-t10">
+<p>tsIncludeWs</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t10 r1c2-t10">
+<p>List</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t10 r1c3-t10">
+<p>-tsIncludeW</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t10 r1c4-t10">&nbsp;</td>
+<td class="cellalignment31" headers="r3c1-t10 r1c5-t10">
+<p>Includes classes from the specified test suite package without subpackages.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r4c1-t10" headers="r1c1-t10">
+<p>tsExcludes</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t10 r1c2-t10">
+<p>List</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t10 r1c3-t10">
+<p>-tsExclude</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t10 r1c4-t10">&nbsp;</td>
+<td class="cellalignment31" headers="r4c1-t10 r1c5-t10">
+<p>Recursively excludes classes from the specified test suite package.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r5c1-t10" headers="r1c1-t10">
+<p>apiIncludes</p>
+</td>
+<td class="cellalignment31" headers="r5c1-t10 r1c2-t10">
+<p>List</p>
+</td>
+<td class="cellalignment31" headers="r5c1-t10 r1c3-t10">
+<p>-apiInclude</p>
+</td>
+<td class="cellalignment31" headers="r5c1-t10 r1c4-t10">&nbsp;</td>
+<td class="cellalignment31" headers="r5c1-t10 r1c5-t10">
+<p>Recursively includes classes from the specified API package.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r6c1-t10" headers="r1c1-t10">
+<p>apiIncludeWs</p>
+</td>
+<td class="cellalignment31" headers="r6c1-t10 r1c2-t10">
+<p>List</p>
+</td>
+<td class="cellalignment31" headers="r6c1-t10 r1c3-t10">
+<p>-apiIncludeW</p>
+</td>
+<td class="cellalignment31" headers="r6c1-t10 r1c4-t10">&nbsp;</td>
+<td class="cellalignment31" headers="r6c1-t10 r1c5-t10">
+<p>Includes classes from the specified API package without subpackages.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r7c1-t10" headers="r1c1-t10">
+<p>apiExcludes</p>
+</td>
+<td class="cellalignment31" headers="r7c1-t10 r1c2-t10">
+<p>List</p>
+</td>
+<td class="cellalignment31" headers="r7c1-t10 r1c3-t10">
+<p>-apiExclude</p>
+</td>
+<td class="cellalignment31" headers="r7c1-t10 r1c4-t10">&nbsp;</td>
+<td class="cellalignment31" headers="r7c1-t10 r1c5-t10">
+<p>Recursively excludes classes from the specified API package.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r8c1-t10" headers="r1c1-t10">
+<p>excludeLists</p>
+</td>
+<td class="cellalignment31" headers="r8c1-t10 r1c2-t10">
+<p>List</p>
+</td>
+<td class="cellalignment31" headers="r8c1-t10 r1c3-t10">
+<p>-excludeList</p>
+</td>
+<td class="cellalignment31" headers="r8c1-t10 r1c4-t10">&nbsp;</td>
+<td class="cellalignment31" headers="r8c1-t10 r1c5-t10">
+<p>Specifies the file name of an exclude list that contains API elements to be excluded from the coverage calculation.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r9c1-t10" headers="r1c1-t10">
+<p>excludeInterfaces</p>
+</td>
+<td class="cellalignment31" headers="r9c1-t10 r1c2-t10">
+<p>boolean</p>
+</td>
+<td class="cellalignment31" headers="r9c1-t10 r1c3-t10">
+<p>-excludeInterfaces</p>
+</td>
+<td class="cellalignment31" headers="r9c1-t10 r1c4-t10">
+<p>FALSE</p>
+</td>
+<td class="cellalignment31" headers="r9c1-t10 r1c5-t10">
+<p>Excludes all interface classes.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r10c1-t10" headers="r1c1-t10">
+<p>excludeAbstractClasses</p>
+</td>
+<td class="cellalignment31" headers="r10c1-t10 r1c2-t10">
+<p>boolean</p>
+</td>
+<td class="cellalignment31" headers="r10c1-t10 r1c3-t10">
+<p>-excludeAbstractClasses</p>
+</td>
+<td class="cellalignment31" headers="r10c1-t10 r1c4-t10">
+<p>FALSE</p>
+</td>
+<td class="cellalignment31" headers="r10c1-t10 r1c5-t10">
+<p>Excludes all abstract classes including interfaces.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r11c1-t10" headers="r1c1-t10">
+<p>excludeAbstractMethods</p>
+</td>
+<td class="cellalignment31" headers="r11c1-t10 r1c2-t10">
+<p>boolean</p>
+</td>
+<td class="cellalignment31" headers="r11c1-t10 r1c3-t10">
+<p>-excludeAbstractMethods</p>
+</td>
+<td class="cellalignment31" headers="r11c1-t10 r1c4-t10">
+<p>FALSE</p>
+</td>
+<td class="cellalignment31" headers="r11c1-t10 r1c5-t10">
+<p>Excludes all abstract methods from all classes and interfaces</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r12c1-t10" headers="r1c1-t10">
+<p>excludeFields</p>
+</td>
+<td class="cellalignment31" headers="r12c1-t10 r1c2-t10">
+<p>boolean</p>
+</td>
+<td class="cellalignment31" headers="r12c1-t10 r1c3-t10">
+<p>-excludeFields</p>
+</td>
+<td class="cellalignment31" headers="r12c1-t10 r1c4-t10">
+<p>FALSE</p>
+</td>
+<td class="cellalignment31" headers="r12c1-t10 r1c5-t10">
+<p>Excludes all fields from all classes and interfaces.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r13c1-t10" headers="r1c1-t10">
+<p>includeConstantFields</p>
+</td>
+<td class="cellalignment31" headers="r13c1-t10 r1c2-t10">
+<p>boolean</p>
+</td>
+<td class="cellalignment31" headers="r13c1-t10 r1c3-t10">
+<p>-includeConstantFields</p>
+</td>
+<td class="cellalignment31" headers="r13c1-t10 r1c4-t10">
+<p>FALSE</p>
+</td>
+<td class="cellalignment31" headers="r13c1-t10 r1c5-t10">
+<p>Specifies the inclusion of all final fields of any type in the coverage calculation.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r14c1-t10" headers="r1c1-t10">
+<p>mode</p>
+</td>
+<td class="cellalignment31" headers="r14c1-t10 r1c2-t10">
+<p>String</p>
+</td>
+<td class="cellalignment31" headers="r14c1-t10 r1c3-t10">
+<p>-mode</p>
+</td>
+<td class="cellalignment31" headers="r14c1-t10 r1c4-t10">
+<p>w (worst case)</p>
+</td>
+<td class="cellalignment31" headers="r14c1-t10 r1c5-t10">
+<p>Specifies the mode of coverage calculation as &rdquo;w&rdquo; which represents the worst case or &rdquo;r&rdquo; which represents the real world.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r15c1-t10" headers="r1c1-t10">
+<p>detail</p>
+</td>
+<td class="cellalignment31" headers="r15c1-t10 r1c2-t10">
+<p>String</p>
+</td>
+<td class="cellalignment31" headers="r15c1-t10 r1c3-t10">
+<p>-detail</p>
+</td>
+<td class="cellalignment31" headers="r15c1-t10 r1c4-t10">
+<p>2</p>
+</td>
+<td class="cellalignment31" headers="r15c1-t10 r1c5-t10">
+<p>Specifies the level of report detail as an integer from 0-4</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r16c1-t10" headers="r1c1-t10">
+<p>format</p>
+</td>
+<td class="cellalignment31" headers="r16c1-t10 r1c2-t10">
+<p>String</p>
+</td>
+<td class="cellalignment31" headers="r16c1-t10 r1c3-t10">
+<p>-format</p>
+</td>
+<td class="cellalignment31" headers="r16c1-t10 r1c4-t10">
+<p>plain</p>
+</td>
+<td class="cellalignment31" headers="r16c1-t10 r1c5-t10">
+<p>Specifies the report format as plain text or XML. The values can be &rdquo;plain&rdquo; or &rdquo;xml&rdquo;. Note that an example of the XML output is available in <span class="italic">SIGTEST_HOME</span><code>/msc.</code></p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r17c1-t10" headers="r1c1-t10">
+<p>report</p>
+</td>
+<td class="cellalignment31" headers="r17c1-t10 r1c2-t10">
+<p>String</p>
+</td>
+<td class="cellalignment31" headers="r17c1-t10 r1c3-t10">
+<p>-report</p>
+</td>
+<td class="cellalignment31" headers="r17c1-t10 r1c4-t10">
+<p>See the description.</p>
+</td>
+<td class="cellalignment31" headers="r17c1-t10 r1c5-t10">
+<p>Specifies the location of the generated report file. The path argument defaults to the working directory when only a file name is specified. If a file name is not specified, it defaults to the Maven logger</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r18c1-t10" headers="r1c1-t10">
+<p>out</p>
+</td>
+<td class="cellalignment31" headers="r18c1-t10 r1c2-t10">
+<p>String</p>
+</td>
+<td class="cellalignment31" headers="r18c1-t10 r1c3-t10">
+<p>-out</p>
+</td>
+<td class="cellalignment31" headers="r18c1-t10 r1c4-t10">
+<p>See the description</p>
+</td>
+<td class="cellalignment31" headers="r18c1-t10 r1c5-t10">
+<p>Generates a specially formatted report file for use by other applications and places it at the specified location/file name. The path defaults to the working directory.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" -->
+<div class="example">
+<p class="titleinexample"><a id="Z40000191041001"></a>Example F-4 Sample Plugin Configuration (<code>pom.xml</code>)</p>
+<pre>
+&lt;project&gt;
+  . . .
+  &lt;build&gt; 
+      . . .
+      &lt;plugins&gt; 
+        . . .
+        &lt;plugin&gt; 
+          . . .
+          &lt;groupId&gt;com.sun.tdk&lt;/groupId&gt; 
+          &lt;artifactId&gt;apicover-plugin&lt;/artifactId&gt; 
+          &lt;configuration&gt; 
+            &lt;api&gt;publicAPIv3.sig&lt;/api&gt; 
+            &lt;tests&gt; 
+              &lt;test&gt;${ts.path}/testSet1.jar&lt;/test&gt; 
+              &lt;test&gt;${ts.path}/testSet2.jar&lt;/test&gt; 
+              &lt;test&gt;${ts.path}/testSet3.jar&lt;/test&gt; 
+            &lt;/tests&gt; 
+            &lt;apiIncludes&gt; 
+              &lt;apiInclude&gt;com.acme.api&lt;/apiInclude&gt; 
+            &lt;/apiIncludes&gt; 
+            &lt;mode&gt;r&lt;/mode&gt; 
+            &lt;detail&gt;4&lt;/detail&gt; 
+            &lt;format&gt;plain&lt;/format&gt; 
+            &lt;report&gt;${report.path}/covrep_real.txt&lt;/report&gt; 
+          &lt;/configuration&gt; 
+          . . .
+        &lt;/plugin&gt; 
+        . . .
+      &lt;/plugins&gt; 
+      . . .
+  &lt;/build&gt; 
+  . . . 
+&lt;/project&gt;
+</pre></div>
+<!-- class="example" --></div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" --></div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment24">
+<tr>
+<td class="cellalignment31">
+<table class="cellalignment29">
+<tr>
+<td class="cellalignment28"><a href="a_ant.htm"><img width="24" height="24" src="../../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment28"><a href="a_serialization_example.htm"><img width="24" height="24" src="../../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2006, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment33">
+<table class="cellalignment27">
+<tr>
+<td class="cellalignment28"><a href="../../index.html"><img width="24" height="24" src="../../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment28"><a href="toc.htm"><img width="24" height="24" src="../../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment28"><a href="../../dcommon/html/feedback.htm"><img width="24" height="24" src="../../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

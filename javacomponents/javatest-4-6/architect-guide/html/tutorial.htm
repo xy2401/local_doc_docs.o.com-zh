@@ -1,0 +1,841 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>JavaTest Tutorial</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = document) - Version 1.0.24" />
+<meta name="date" content="2014-08-01T11:38:0Z" />
+<meta name="robots" content="noarchive" />
+<meta name="doctitle" content="JavaTest Tutorial" />
+<meta name="relnum" content="JavaTest Harness 4.6" />
+<meta name="partnum" content="E20663-04" />
+<link rel="copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+<link rel="stylesheet" href="../../dcommon/css/blafdoc.css" title="Oracle BLAFDoc" type="text/css" />
+<link rel="contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="index" href="index.htm" title="Index" type="text/html" />
+<link rel="prev" href="part1.htm" title="Previous" type="text/html" />
+<link rel="next" href="concepts.htm" title="Next" type="text/html" />
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<div class="header"><a id="top" name="top"></a>
+<div class="zz-skip-header"><a href="#BEGIN">Skip Headers</a></div>
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td align="left" valign="top"><b>JavaTest Harness Architect's Guide,</b><br />
+<b>JavaTest Harness 4.6 for the Java Platform</b><br />
+E20663-04</td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+<td align="center" valign="top"><a href="toc.htm"><img src="../../dcommon/gifs/toc.gif" alt="Go To Table Of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td align="center" valign="top"><a href="index.htm"><img src="../../dcommon/gifs/index.gif" alt="Go To Index" /><br />
+<span class="icon">Index</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<tr>
+<td align="center"><a href="part1.htm"><img src="../../dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="concepts.htm"><img src="../../dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<a name="BEGIN" id="BEGIN"></a></div>
+<!-- class="header" -->
+<div class="ind"><!-- End Header -->
+<script type="text/javascript" class="oac_no_warn">
+<!-- // <![CDATA[
+window.name='tutorial'
+// ]]> -->
+</script> <script type="text/javascript" class="oac_no_warn">
+// <![CDATA[
+function footdisplay(footnum,footnote) {
+    var msg = window.open('', 'NewWindow' + footnum,
+        'directories=no,height=120,location=no,menubar=no,resizable=yes,' +
+        'scrollbars=yes,status=no,toolbar=no,width=598');
+    msg.document.open('text/html');
+    msg.document.write('<!DOCTYPE html ');
+    msg.document.write('PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" ');
+
+    msg.document.write('"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">');
+    msg.document.write('<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><title>');
+    msg.document.write('Footnote ' + footnum);
+    msg.document.write('<\/title><meta http-equiv="Content-Type" ');
+    msg.document.write('content="text/html; charset=utf-8" />');
+    msg.document.write('<meta http-equiv="Content-Script-Type" ');
+    msg.document.write('content="text/javascript" />');
+    msg.document.write('<style type="text/css"> <![CDATA[ ');
+    msg.document.write('h1 {text-align: center; font-size: 14pt;}');
+    msg.document.write('fieldset {border: none;}');
+    msg.document.write('form {text-align: center;}');
+    msg.document.write(' ]]\u003e <\/style>');
+    msg.document.write('<\/head><body><h1>Footnote ' + footnum + '<\/h1><p>');
+    msg.document.write(footnote);
+    msg.document.write('<\/p><form action="" method="post"><fieldset>');
+    msg.document.write('<input type="button" value="OK" ');
+    msg.document.write('onclick="window.close();" />');
+    msg.document.write('<\/fieldset><\/form><\/body><\/html>');
+    msg.document.close();
+    msg.focus();
+}
+// ]]>
+</script> <noscript>
+<p>The script content on this page is for navigation purposes only and does not alter the content in any way.</p>
+</noscript><a id="CJBFADIE" name="CJBFADIE"></a>
+<h1 class="chapter"><span class="secnum">2</span> JavaTest Tutorial</h1>
+<p><a id="sthref14" name="sthref14"></a><a id="sthref15" name="sthref15"></a><a id="sthref16" name="sthref16"></a>This tutorial introduces you to the JavaTest version GUI and some basic underlying concepts. The tutorial instructions have you run a very simple test suite called Demo TCK that is included in the <code>examples</code> directory. Demo TCK contains 17 tests that test the functionality of some very simple demo APIs.</p>
+<a id="Z400360d1003318" name="Z400360d1003318"></a>
+<div class="sect1">
+<h2 class="sect1">Overview</h2>
+<p>The tutorial should be run using version 6.0 or later of the Java Platform, Standard Edition (Java SE) on the Solaris Operating System (Solaris OS) , Linux, or Microsoft Windows (WIN32) operating systems.</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>Unless otherwise indicated, all examples in this book use Microsoft Windows style command prompts and file separators.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+<p>To keep things simple, these instructions show you how to run both the JavaTest harness and the tests on the same system in different<a id="Z400360d1001465" name="Z400360d1001465" href="#Z400360d1001465" onclick='footdisplay(1,"It is also possible to run the JavaTest harness and the tests on separate systems using the JavaTest Agent.")'><sup class="tablefootnote">Foot&nbsp;1&nbsp;</sup></a> Java virtual machines (JVM processes<a id="Z400360d1001468" name="Z400360d1001468" href="#Z400360d1001468" onclick='footdisplay(2,"The terms \"Java virtual machine\" and \"JVM\" are sometimes used to mean \"a virtual machine for the Java platform\".")'><sup class="tablefootnote">Foot&nbsp;2&nbsp;</sup></a>). <a href="#CJBDDJHH">Figure 2-1</a> diagram illustrates this point.</p>
+<div class="figure"><a id="CJBDDJHH" name="CJBDDJHH"></a>
+<p class="titleinfigure">Figure 2-1 JavaTest Harness and Tests Running on Same System</p>
+<img src="img/arch-fig1.jpg" alt="Description of Figure 2-1 follows" title="Description of Figure 2-1 follows" longdesc="img_text/arch-fig1.htm" /><br />
+<a id="sthref17" name="sthref17" href="img_text/arch-fig1.htm">Description of "Figure 2-1 JavaTest Harness and Tests Running on Same System"</a><br />
+<br /></div>
+<!-- class="figure" --></div>
+<!-- class="sect1" -->
+<a id="Z400360d1008271" name="Z400360d1008271"></a>
+<div class="sect1">
+<h2 class="sect1">Running the Tutorial</h2>
+<p>The tutorial tasks are as follows</p>
+<ol>
+<li>
+<p><a href="#CJBHBFCI">Start the JavaTest Harness</a></p>
+</li>
+<li>
+<p><a href="#CJBGHEFH">Run the Quick Start Wizard</a></p>
+</li>
+<li>
+<p><a href="#Z400360d1003248">Configure Test Information</a></p>
+</li>
+<li>
+<p><a href="#Z400360d1003256">Run Tests</a></p>
+</li>
+<li>
+<p><a href="#Z400360d1003356">Browse the Results</a></p>
+</li>
+<li>
+<p><a href="#Z400360d1003278">Exclude the Failed Test</a></p>
+</li>
+<li>
+<p><a href="#Z400360d1003299">Generate a Report</a></p>
+</li>
+</ol>
+<a id="CJBHBFCI" name="CJBHBFCI"></a>
+<div class="sect2">
+<h3 class="sect2">Start the JavaTest Harness</h3>
+<ol>
+<li><a id="Z40004a01003920" name="Z40004a01003920"></a>
+<p>Verify that the Java SE platform (version 1.6 or later) is in your path.</p>
+<p>At a command prompt, enter:</p>
+<p><code>C:\&gt;</code> <code>java -version</code></p>
+</li>
+<li><a id="Z400360d1002991" name="Z400360d1002991"></a>
+<p>Make <span class="italic">jt_install</span><code>\examples\javatest\simpleTags\demotck</code> the current directory.</p>
+<p>The directory <span class="italic">jt_install</span> is the directory into which you installed the JavaTest harness software.</p>
+</li>
+<li><a id="Z400360d1002999" name="Z400360d1002999"></a>
+<p>Start the JavaTest harness.</p>
+<p>At a command prompt enter:</p>
+<p><code>C:\&gt;</code> <code>java -jar lib\javatest.jar -newDesktop</code></p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p><a id="sthref18" name="sthref18"></a>The <code>-newDesktop</code> option is used here to ensure that the JavaTest harness starts up exactly as described in these instructions &#8212; under normal circumstances you should <span class="italic">not</span> use this option because you will lose information that the harness saved about your previous session. For information about JavaTest options, see the JavaTest online help.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+<p>The JavaTest harness should start and display the Quick Start wizard window:</p>
+<div class="figure"><a id="Z4000ebb1002959" name="Z4000ebb1002959"></a>
+<p class="titleinfigure">Figure 2-2 The JavaTest Harness with Quick Start Wizard</p>
+<img src="img/welcome.jpg" alt="Description of Figure 2-2 follows" title="Description of Figure 2-2 follows" longdesc="img_text/welcome.htm" /><br />
+<a id="sthref19" name="sthref19" href="img_text/welcome.htm">Description of "Figure 2-2 The JavaTest Harness with Quick Start Wizard"</a><br />
+<br /></div>
+<!-- class="figure" --></li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<a id="CJBGHEFH" name="CJBGHEFH"></a>
+<div class="sect2">
+<h3 class="sect2">Run the Quick Start Wizard</h3>
+<p>The Quick Start wizard leads you through the basic steps required to start running the test suite.</p>
+<ol>
+<li><a id="Z400360d1003003" name="Z400360d1003003"></a>
+<p>Panel 1: Welcome to the JavaTest Harness</p>
+<p>Choose "Start a new test run", and click Next</p>
+</li>
+<li><a id="Z400360d1003007" name="Z400360d1003007"></a>
+<p>Panel 2: Test Suite</p>
+<p>Click the Next button (accept the default).</p>
+</li>
+<li><a id="Z400360d1003011" name="Z400360d1003011"></a>
+<p>Panel 3: Configuration</p>
+<p>Choose "Create a new configuration", and click Next</p>
+</li>
+<li><a id="Z400360d1003015" name="Z400360d1003015"></a>
+<p><a id="sthref20" name="sthref20"></a>Panel 4: Work Directory</p>
+<p>The JavaTest harness uses the work directory to store information and to write test results. Click the Browse button to activate a file chooser. Use the file chooser to create a work directory &#8212; be sure to create the work directory in a convenient location <span class="italic">outside of the test suite directory</span> (<code>demotck</code>). Click Next.</p>
+</li>
+<li><a id="Z400360d1003023" name="Z400360d1003023"></a>
+<p>Panel 5: Almost Done ...</p>
+<p>Click the Finish button to complete the Quick Start process. For these options, the configuration editor window is started automatically.</p>
+</li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<a id="Z400360d1003248" name="Z400360d1003248"></a>
+<div class="sect2">
+<h3 class="sect2">Configure Test Information</h3>
+<p>Because the "Start the configuration editor" checkbox was checked in the last panel of the Quick Start wizard, the configuration editor starts automatically.<a id="sthref21" name="sthref21"></a></p>
+<p>You use the configuration editor to configure the information required to run the test suite. As shown below, the configuration editor consists of three panes and a menu bar:</p>
+<img src="img/confeditor.jpg" alt="Description of confeditor.jpg follows" title="Description of confeditor.jpg follows" longdesc="img_text/confeditor.htm" /><br />
+<a id="sthref22" name="sthref22" href="img_text/confeditor.htm">Description of the illustration confeditor.jpg</a><br />
+<br />
+<p>The left pane lists the titles of the questions you have answered, are currently answering, or that the editor deduces must be answered. The current question is highlighted.</p>
+<p>The center pane displays the interview questions. You answer the questions by using controls such as text boxes, radio buttons, or combo boxes located below each question. Whenever possible, the editor deduces answers from your system configuration and includes them in text boxes, combo boxes, and radio buttons. You can accept these answers or provide other answers.</p>
+<p>The right pane displays important information about each question, such as:</p>
+<ul>
+<li>
+<p>Background information</p>
+</li>
+<li>
+<p>Examples of answers</p>
+</li>
+<li>
+<p>Additional information about choosing an answer</p>
+</li>
+</ul>
+<ol>
+<li><a id="Z400360d1003145" name="Z400360d1003145"></a>
+<p>Answer the questions in the configuration editor.</p>
+<p>The following table presents the titles, answers, and information about each of the thirteen questions in the Demo TCK <a id="sthref23" name="sthref23"></a><a id="sthref24" name="sthref24"></a>interview.</p>
+<div class="inftblhruleinformalwide">
+<table class="HRuleInformalWide" summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="23%" />
+<col width="37%" />
+<col width="*" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t4">Question Title</th>
+<th align="left" valign="bottom" id="r1c2-t4">Answer</th>
+<th align="left" valign="bottom" id="r1c3-t4">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t4" headers="r1c1-t4">
+<p>Welcome!</p>
+</td>
+<td align="left" headers="r2c1-t4 r1c2-t4">
+<p>N/A</p>
+</td>
+<td align="left" headers="r2c1-t4 r1c3-t4">
+<p>Briefly describes the purpose and function of the Demo TCK Configuration Editor.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t4" headers="r1c1-t4">
+<p>Configuration Name</p>
+</td>
+<td align="left" headers="r3c1-t4 r1c2-t4">
+<p>Demo_TCK</p>
+</td>
+<td align="left" headers="r3c1-t4 r1c3-t4">
+<p>Names the interview file.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t4" headers="r1c1-t4">
+<p>Description</p>
+</td>
+<td align="left" headers="r4c1-t4 r1c2-t4">
+<p>tutorial</p>
+</td>
+<td align="left" headers="r4c1-t4 r1c3-t4">
+<p>Describes the configuration.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t4" headers="r1c1-t4">
+<p>How to Run Tests</p>
+</td>
+<td align="left" headers="r5c1-t4 r1c2-t4">
+<p>On this computer</p>
+</td>
+<td align="left" headers="r5c1-t4 r1c3-t4">
+<p>Runs both the JavaTest harness and the tests on the same computer.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r6c1-t4" headers="r1c1-t4">
+<p>Java Virtual Machine</p>
+</td>
+<td align="left" headers="r6c1-t4 r1c2-t4">
+<p>The absolute path to the <code>java</code> command on a WIN32 system. For example:</p>
+<p><span class="italic">jdk_inst_dir</span><code>\bin\java.exe</code></p>
+<p>or</p>
+<p><span class="italic">jre_inst_dir</span><code>\jre\java.exe</code></p>
+</td>
+<td align="left" headers="r6c1-t4 r1c3-t4">
+<p>Click the Browse button to activate a file chooser, or type the path directly in the text box.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r7c1-t4" headers="r1c1-t4">
+<p>Test Verboseness</p>
+</td>
+<td align="left" headers="r7c1-t4 r1c2-t4">
+<p>Medium</p>
+</td>
+<td align="left" headers="r7c1-t4 r1c3-t4">
+<p>Causes all executing tests to emit standard information messages.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r8c1-t4" headers="r1c1-t4">
+<p>Parameters...</p>
+</td>
+<td align="left" headers="r8c1-t4 r1c2-t4">
+<p>N/A</p>
+</td>
+<td align="left" headers="r8c1-t4 r1c3-t4">
+<p>Introduces the section of questions that collect information about which tests to run and how to run them.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r9c1-t4" headers="r1c1-t4">
+<p>Specify Tests to Run?</p>
+</td>
+<td align="left" headers="r9c1-t4 r1c2-t4">
+<p>No</p>
+</td>
+<td align="left" headers="r9c1-t4 r1c3-t4">
+<p>Runs all of the tests.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r10c1-t4" headers="r1c1-t4">
+<p>Specify an Exclude List?</p>
+</td>
+<td align="left" headers="r10c1-t4 r1c2-t4">
+<p>No</p>
+</td>
+<td align="left" headers="r10c1-t4 r1c3-t4">
+<p>Specifies that an exclude list is not used for this test run.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r11c1-t4" headers="r1c1-t4">
+<p>Specify Status?</p>
+</td>
+<td align="left" headers="r11c1-t4 r1c2-t4">
+<p>No</p>
+</td>
+<td align="left" headers="r11c1-t4 r1c3-t4">
+<p>Specifies that prior run status is not used to filter the test run. Feel free to try it on subsequent runs.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r12c1-t4" headers="r1c1-t4">
+<p>Concurrency</p>
+</td>
+<td align="left" headers="r12c1-t4 r1c2-t4">
+<p>1</p>
+</td>
+<td align="left" headers="r12c1-t4 r1c3-t4">
+<p>Specifies the default concurrency setting (1).</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r13c1-t4" headers="r1c1-t4">
+<p>Time Factor</p>
+</td>
+<td align="left" headers="r13c1-t4 r1c2-t4">
+<p>1</p>
+</td>
+<td align="left" headers="r13c1-t4 r1c3-t4">
+<p>Specifies the default standard time out value for each test (1).</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r14c1-t4" headers="r1c1-t4">
+<p>Congratulations!</p>
+</td>
+<td align="left" headers="r14c1-t4 r1c2-t4">
+<p>N/A</p>
+</td>
+<td align="left" headers="r14c1-t4 r1c3-t4">
+<p>The configuration editor has collected all of the information it needs to run the tests.</p>
+<p>Click the Done button to save the interview.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblhruleinformalwide" --></li>
+<li>
+<p>After you select Done, the Save Configuration File window opens. JavaTest interviews are saved to files that end with the .jti suffix. Use the file chooser to specify a file in a convenient location.</p>
+</li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<a id="Z400360d1003256" name="Z400360d1003256"></a>
+<div class="sect2">
+<h3 class="sect2">Run Tests</h3>
+<ol>
+<li><a id="Z400360d1003027" name="Z400360d1003027"></a>
+<p>Set the view filter to Last Test Run.</p>
+<p>Choose "Last Test Run" in the View Filter combo box located in the tool bar. This changes your "view" of the test tree so that you only see the results of the current test run. This is generally the view that most users prefer to begin with.</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>Note that when you change to the Last Run filter before you do a test run, the folders and tests in the tree turn to gray, indicating that they are filtered out. This occurs because there are currently no results from a "last test run".</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</li>
+<li><a id="Z400360d1003031" name="Z400360d1003031"></a>
+<p>Choose Run Tests &gt; Start to start the test run.</p>
+<p>The test suite should begin to run. You will see activity in the test tree panel that indicates which tests are running. You can also watch the progress of the test run in the progress monitor on the bottom-right portion of the JavaTest harness window and the pie chart in the Summary tab.</p>
+</li>
+<li><a id="Z400360d1003035" name="Z400360d1003035"></a>
+<p>Expand the test tree folders to reveal the tests.</p>
+<p>Click on different test folders to expand the test tree.</p>
+<div class="figure"><a id="Z4000ebb1002967" name="Z4000ebb1002967"></a>
+<p class="titleinfigure">Figure 2-3 Expanded Test Tree</p>
+<img src="img/testree.jpg" alt="Description of Figure 2-3 follows" title="Description of Figure 2-3 follows" longdesc="img_text/testree.htm" /><br />
+<a id="sthref25" name="sthref25" href="img_text/testree.htm">Description of "Figure 2-3 Expanded Test Tree"</a><br />
+<br /></div>
+<!-- class="figure" -->
+<p>As tests complete, the tests and their folders change color to represent their state. The following table briefly describes the colors and their meaning:</p>
+<div class="inftblhruleinformal">
+<table class="HRuleInformal" summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="9%" />
+<col width="*" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t6">Color</th>
+<th align="left" valign="bottom" id="r1c2-t6">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t6" headers="r1c1-t6">
+<p>green</p>
+</td>
+<td align="left" headers="r2c1-t6 r1c2-t6">
+<p>Passed</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t6" headers="r1c1-t6">
+<p>red</p>
+</td>
+<td align="left" headers="r3c1-t6 r1c2-t6">
+<p>Failed</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t6" headers="r1c1-t6">
+<p>blue</p>
+</td>
+<td align="left" headers="r4c1-t6 r1c2-t6">
+<p>Error &#8212; The test could not run properly. Usually indicates a configuration problem.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t6" headers="r1c1-t6">
+<p>gray</p>
+</td>
+<td align="left" headers="r5c1-t6 r1c2-t6">
+<p>Filtered out &#8212; Due to a parameter setting (for example, it is on an exclude list), the test is not selected to be run.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r6c1-t6" headers="r1c1-t6">
+<p>white</p>
+</td>
+<td align="left" headers="r6c1-t6 r1c2-t6">
+<p>Not run</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblhruleinformal" -->
+<p>Folders reflect the state of the tests hierarchically beneath them. You know that the entire test suite passed if the test suite root folder is green. See the JavaTest online help for more information.</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>The test <code>lists\DoublyLinkedList\InsertTest.java</code> intentionally contains errors and is supposed to fail as part of the tutorial. If any other tests fail, check your answers to the configuration interview.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<a id="Z400360d1003356" name="Z400360d1003356"></a>
+<div class="sect2">
+<h3 class="sect2">Browse the Results</h3>
+<p>Now that the test run is complete, you will use the Folder tabbed pane and Test tabbed pane portion of the JavaTest harness to examine the results. You will also examine the output of the test that failed.</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>The Folder tabbed pane and the Test tabbed pane occupy the same portion of the Test Manager window. The Folder tabbed pane is displayed when you choose a folder entry in the test tree and the Test tabbed pane is displayed when you choose a test entry in the test tree.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+<a id="Z400360d1003304" name="Z400360d1003304"></a>
+<div class="sect3">
+<h4 class="sect3">The Folder Pane</h4>
+<p><a id="sthref26" name="sthref26"></a>The Folder tabbed pane displays information about the tests in the selected folder.</p>
+<div class="figure"><a id="Z4000ebb1002971" name="Z4000ebb1002971"></a>
+<p class="titleinfigure">Figure 2-4 The Folder Pane</p>
+<img src="img/browse.jpg" alt="Description of Figure 2-4 follows" title="Description of Figure 2-4 follows" longdesc="img_text/browse.htm" /><br />
+<a id="sthref27" name="sthref27" href="img_text/browse.htm">Description of "Figure 2-4 The Folder Pane"</a><br />
+<br /></div>
+<!-- class="figure" -->
+<a id="Z400360d1003262" name="Z400360d1003262"></a>
+<div class="sect4">
+<h5 class="sect4">Browse the Results</h5>
+<ol>
+<li><a id="Z400360d1003039" name="Z400360d1003039"></a>
+<p>Click on the top folder in the test tree (the test tree root).</p>
+</li>
+<li><a id="Z400360d1003043" name="Z400360d1003043"></a>
+<p>Click on the Summary tab (shown by default).</p>
+<p>Notice the statistics displayed in the Summary panel. It describes how many tests in the test suite passed, failed, had errors, and were filtered out.</p>
+</li>
+<li><a id="Z400360d1003047" name="Z400360d1003047"></a>
+<p>Click on any of the other <span class="italic">folder</span> icons in the test tree.</p>
+<p>Notice that the Summary panel changes to reflect the statistics for tests hierarchically beneath it.</p>
+</li>
+<li><a id="Z400360d1003053" name="Z400360d1003053"></a>
+<p>Click on the test tree root folder again.</p>
+</li>
+<li><a id="Z400360d1003057" name="Z400360d1003057"></a>
+<p>Click on the Passed tab.</p>
+<p>This pane contains a list of the tests that passed during the test run.</p>
+</li>
+<li><a id="Z400360d1003061" name="Z400360d1003061"></a>
+<p>Click on the Failed tab.</p>
+<p>This pane contains a list of the tests that failed during the test run (only one test in this case).</p>
+</li>
+<li><a id="Z400360d1003065" name="Z400360d1003065"></a>
+<p>Double-click the <code>lists\DoublyLinkedList\InsertTest.java</code> test in the Failed tab.</p>
+<p>This automatically selects the test in the test tree and changes the display from the Folder pane to the Test pane.</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>To read more information about any of the panes, click on a tab to establish focus, and press F1 to activate online help about that pane.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</li>
+</ol>
+</div>
+<!-- class="sect4" --></div>
+<!-- class="sect3" -->
+<a id="Z400360d1003313" name="Z400360d1003313"></a>
+<div class="sect3">
+<h4 class="sect3">The Test Pane</h4>
+<p><a id="sthref28" name="sthref28"></a>The Test tabbed pane displays information about the selected test. The five tabs provide information about the test and information about the results of its execution.</p>
+<div class="figure"><a id="Z4000ebb1002975" name="Z4000ebb1002975"></a>
+<p class="titleinfigure">Figure 2-5 The Test Pane</p>
+<img src="img/testpane.jpg" alt="Description of Figure 2-5 follows" title="Description of Figure 2-5 follows" longdesc="img_text/testpane.htm" /><br />
+<a id="sthref29" name="sthref29" href="img_text/testpane.htm">Description of "Figure 2-5 The Test Pane"</a><br />
+<br /></div>
+<!-- class="figure" -->
+<a id="Z400360d1003270" name="Z400360d1003270"></a>
+<div class="sect4">
+<h5 class="sect4">Browse the Results</h5>
+<p>Click on the different tabs and examine the information the panes contain.</p>
+<p>The following table briefly describes each tabbed pane:</p>
+<div class="inftblhruleinformal">
+<table class="HRuleInformal" summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="23%" />
+<col width="*" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t10">Tab</th>
+<th align="left" valign="bottom" id="r1c2-t10">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t10" headers="r1c1-t10">
+<p>Test Run Messages</p>
+</td>
+<td align="left" headers="r2c1-t10 r1c2-t10">
+<p>Displays messages generated during the selected test's execution</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t10" headers="r1c1-t10">
+<p>Test Run Details</p>
+</td>
+<td align="left" headers="r3c1-t10 r1c2-t10">
+<p>A table of values generated during the selected test's execution</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t10" headers="r1c1-t10">
+<p>Configuration</p>
+</td>
+<td align="left" headers="r4c1-t10 r1c2-t10">
+<p>A table of the configuration values used during the selected test's execution</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t10" headers="r1c1-t10">
+<p>Files</p>
+</td>
+<td align="left" headers="r5c1-t10 r1c2-t10">
+<p>Displays the Java language source code and any other files related to the selected test</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r6c1-t10" headers="r1c1-t10">
+<p>Test Description</p>
+</td>
+<td align="left" headers="r6c1-t10 r1c2-t10">
+<p>A table of the test description values specified for the test</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblhruleinformal" -->
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>To read more information about any of the panes, click on a tab to establish focus, and press F1 to activate the online help about that pane.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+<ol>
+<li><a id="Z400360d1003075" name="Z400360d1003075"></a>
+<p>Click on the Test Run Messages tab.</p>
+<p>This pane provides access to any messages generated by the JavaTest harness or the test during execution. Notice that the various red icons indicate that the test failed.</p>
+</li>
+<li><a id="Z400360d1003079" name="Z400360d1003079"></a>
+<p>Click on the Execute/Messages entry in the left hand column.</p>
+<p>The display on the right shows the command line used to run the test. Problems can often be debugged by examining how the test was invoked. In this case it was invoked correctly.</p>
+<div class="figure"><a id="Z4000ebb1002979" name="Z4000ebb1002979"></a>
+<p class="titleinfigure">Figure 2-6 Test Messages</p>
+<img src="img/messages.jpg" alt="Description of Figure 2-6 follows" title="Description of Figure 2-6 follows" longdesc="img_text/messages.htm" /><br />
+<a id="sthref30" name="sthref30" href="img_text/messages.htm">Description of "Figure 2-6 Test Messages"</a><br />
+<br /></div>
+<!-- class="figure" --></li>
+<li><a id="Z400360d1003083" name="Z400360d1003083"></a>
+<p>Click on the out1 entry in the left-hand column.</p>
+<p>The display on the right shows errors reported by the test. The messages indicate that either the test or the API contain errors &#8212; in this case the test contains errors.</p>
+<div class="figure"><a id="Z4000ebb1002983" name="Z4000ebb1002983"></a>
+<p class="titleinfigure">Figure 2-7 Logged Error Messages</p>
+<img src="img/log.jpg" alt="Description of Figure 2-7 follows" title="Description of Figure 2-7 follows" longdesc="img_text/log.htm" /><br />
+<a id="sthref31" name="sthref31" href="img_text/log.htm">Description of "Figure 2-7 Logged Error Messages"</a><br />
+<br /></div>
+<!-- class="figure" --></li>
+</ol>
+</div>
+<!-- class="sect4" --></div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" -->
+<a id="Z400360d1003278" name="Z400360d1003278"></a>
+<div class="sect2">
+<h3 class="sect2">Exclude the Failed Test</h3>
+<p><a id="sthref32" name="sthref32"></a>The JavaTest harness allows you to "exclude" tests from a test suite by specifying an <span class="italic">exclude list</span> file. This section shows you how to use the quick set mode of the configuration editor window to specify an exclude list that includes <code>lists\DoublyLinkedList\InsertTest.java</code>. Tests that are excluded are not executed during test runs, and though they are still displayed in the test tree, their status is not reflected in the pass/fail status of the test suite.</p>
+<ol>
+<li><a id="Z400360d1003087" name="Z400360d1003087"></a>
+<p>Choose Configure &gt; Edit Quick Set from the test manager menu bar.</p>
+<p>The configuration editor window opens directly to a panel that allows you to specify an exclude list. This quick set mode allows you to quickly change values that change frequently between test runs. These values are also referred to as <span class="italic">standard values</span>. Note that standard values can also be changed using the configuration editor window in question mode.</p>
+</li>
+<li><a id="Z400360d1003093" name="Z400360d1003093"></a>
+<p>In the Exclude List pane, click Other.</p>
+<p>This activates a tool with which you can specify a set of exclude lists.</p>
+</li>
+<li><a id="Z400360d1003097" name="Z400360d1003097"></a>
+<p>Click the Add button on the upper right portion of the tool.</p>
+<p>This invokes a file chooser with which you can specify an exclude list. The current directory of the file chooser should be the directory in which you started the JavaTest harness. If it is not, please navigate to that directory.</p>
+</li>
+<li><a id="Z400360d1003101" name="Z400360d1003101"></a>
+<p>Double-click on the <code>lib</code> directory entry in the file chooser.</p>
+</li>
+<li><a id="Z400360d1003107" name="Z400360d1003107"></a>
+<p><a id="sthref33" name="sthref33"></a>Choose the <code>demo.jtx</code> entry in the file chooser and click Select.</p>
+<p>Notice that the exclude list (<code>demo.jtx</code>) is added to the Exclude Lists text box.</p>
+</li>
+<li><a id="Z400360d1003115" name="Z400360d1003115"></a>
+<p>Click Done in the configuration editor.</p>
+</li>
+<li><a id="Z400360d1003119" name="Z400360d1003119"></a>
+<p>Change the view filter to "Current Configuration".</p>
+<p>The Current Configuration filter shows which tests are selected and filtered out in the configuration, in effect a filter that shows which tests <span class="italic">will</span> <span class="italic">be</span> run next, as opposed to the Last Test Run filter which shows the tests that <span class="italic">were</span> run.</p>
+<p>Notice that the icon for the for <code>InsertTest.java</code> entry in the Test tree changes from red to gray. This indicates that the test has been filtered out and will not be executed. Also notice that the Test Suite Root folder has changed from red to green, indicating that all the currently selected tests have passed.</p>
+</li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<a id="Z400360d1003299" name="Z400360d1003299"></a>
+<div class="sect2">
+<h3 class="sect2">Generate a Report</h3>
+<p><a id="sthref34" name="sthref34"></a><a id="sthref35" name="sthref35"></a>You can use the JavaTest harness to generate an HTML report that describes the results of the test run. All of the information contained in the report is available from the GUI; however, the following steps describe how to generate and browse a report that describes the test run done in the previous sections of this tutorial.</p>
+<ol>
+<li><a id="Z400360d1003129" name="Z400360d1003129"></a>
+<p>Choose Report &gt; Create Report.</p>
+<p>The Create a New Report dialog box opens.</p>
+</li>
+<li><a id="Z400360d1003133" name="Z400360d1003133"></a>
+<p>Specify the directory in which you want the report files to be written.</p>
+<p>If you wish to use a file chooser to specify the directory, click on the Browse button.</p>
+</li>
+<li><a id="Z400360d1003137" name="Z400360d1003137"></a>
+<p>Click the Create Report(s) button.</p>
+<p>The reports are generated and you are asked whether you want to view the report.</p>
+</li>
+<li><a id="Z400360d1003141" name="Z400360d1003141"></a>
+<p>Click Yes.</p>
+<p>The reports are displayed in the JavaTest report browser window. Scroll through the report and follow the various links to view data about the test run.</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>If you wish to print the report, you can open the report in your favorite web browser and print it from there.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</li>
+</ol>
+</div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="Z400360d1003392" name="Z400360d1003392"></a>
+<div class="sect1">
+<h2 class="sect1">Summary</h2>
+<p>This tutorial touches only on the core functionality of the JavaTest harness GUI. Please continue to explore additional functionality on your own. Also, please consult the online help for information about all of the JavaTest features.</p>
+</div>
+<!-- class="sect1" -->
+<hr />
+<br />
+<p style="text-decoration:underline">Footnote Legend</p>
+Footnote&nbsp;1:&nbsp;It is also possible to run the JavaTest harness and the tests on separate systems using the JavaTest Agent.<br />
+Footnote&nbsp;2:&nbsp;The terms "Java virtual machine" and "JVM" are sometimes used to mean "a virtual machine for the Java platform".<br /></div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+<div class="footer">
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<col width="33%" />
+<col width="*" />
+<col width="33%" />
+<tr>
+<td valign="bottom">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<col width="*" />
+<col width="48%" />
+<col width="48%" />
+<tr>
+<td>&nbsp;</td>
+<td align="center"><a href="part1.htm"><img src="../../dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="concepts.htm"><img src="../../dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="copyrightlogo"><img class="copyrightlogo" src="../../dcommon/gifs/oracle.gif" alt="Oracle Logo" /><br />
+<span class="copyrightlogo">Copyright&nbsp;&#169;&nbsp;2002, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span> <a href="../../dcommon/html/cpyr.htm"><br />
+<span class="copyrightlogo">Legal Notices</span></a></td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+<td align="center" valign="top"><a href="toc.htm"><img src="../../dcommon/gifs/toc.gif" alt="Go To Table Of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td align="center" valign="top"><a href="index.htm"><img src="../../dcommon/gifs/index.gif" alt="Go To Index" /><br />
+<span class="icon">Index</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<!-- class="footer" -->
+</body>
+</html>

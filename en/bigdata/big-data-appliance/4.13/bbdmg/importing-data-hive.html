@@ -1,0 +1,97 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="In the Oracle Big Data Manager console, you can import&nbsp;.csv files,&nbsp;Apache Avro&nbsp;files, and Apache Parquet files from&nbsp;HDFS into HiveServer2.">
+      <meta name="description" content="In the Oracle Big Data Manager console, you can import&nbsp;.csv files,&nbsp;Apache Avro&nbsp;files, and Apache Parquet files from&nbsp;HDFS into HiveServer2.">
+      <title>Importing Data into Hive</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="Oracle Big Data Manager User’s Guide ">
+      <meta property="og:description" content="In the Oracle Big Data Manager console, you can import&nbsp;.csv files,&nbsp;Apache Avro&nbsp;files, and Apache Parquet files from&nbsp;HDFS into HiveServer2.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="Oracle Big Data Manager User’s Guide For Oracle Big Data Appliance">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-big-data-manager-users-guide-oracle-big-data-appliance.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-13T16:17:47-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2018">
+      <meta name="dcterms.category" content="bigdata">
+      <meta name="dcterms.identifier" content="E98480-01">
+      
+      <meta name="dcterms.product" content="en/bigdata/big-data-appliance/4.13">
+      
+      <link rel="prev" href="copying-data-http-s.html" title="Previous" type="text/html">
+      <link rel="next" href="comparing-data-sets.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"bigdata","element_name":"Big Data","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"not-applicable","element_name":"Not applicable","display_in_url":false},"product":{"short_name":"big-data-appliance","element_name":"Big Data Appliance","display_in_url":true},"release":{"short_name":"4.13","element_name":"Release 4.13","display_in_url":true}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle Big Data Manager User's Guide (for Oracle Big Data Appliance)">
+    <meta name="dcterms.isVersionOf" content="BBDMG">
+    <meta name="dcterms.release" content="Release 4.13">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="copying-data-http-s.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="comparing-data-sets.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">Oracle Big Data Manager User’s Guide </span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="transferring-and-comparing-data.html" property="item" typeof="WebPage"><span property="name">Transferring and Comparing Data</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Importing Data into Hive</li>
+            </ol>
+            <a id="GUID-AB176F89-ED85-4999-B5EC-E3C03B3C7F6E" name="GUID-AB176F89-ED85-4999-B5EC-E3C03B3C7F6E"></a>
+            
+            <h2 id="BBDMG-GUID-AB176F89-ED85-4999-B5EC-E3C03B3C7F6E" class="sect2"><span class="enumeration_section">4.6 </span>Importing Data into Hive
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>In the Oracle Big Data Manager console, you can import&nbsp;<code>.csv</code> files,&nbsp;Apache Avro&nbsp;files, and Apache Parquet files from&nbsp;HDFS into HiveServer2. 
+               </p>
+               <div class="section">To import one of the supported files:</div>
+               <!-- class="section" -->
+               <ol>
+                  <li class="stepexpand"><span>Click <span class="bold">Data</span> on the console menu bar to go to the <span>Data explorer</span>.</span></li>
+                  <li class="stepexpand"><span>If it isn’t already selected, click the <span class="bold">Explorer</span> tab (on the left side of the page).</span></li>
+                  <li class="stepexpand"><span>From the storage drop-down list in one of the panels, select <span class="bold">HDFS Storage</span>.</span><div>Apache Hive import might not work, depending on the access rights of the file and its parent directories. If so, you can copy or move the file to the <span class="bold">/tmp</span> directory and import from there.
+                     </div>
+                  </li>
+                  <li class="stepexpand"><span>Navigate to the file you want to import, right-click it, select <span class="bold">Import into Hive</span>, and select how to import it: <span class="bold">Import as CSV</span>, <span class="bold">Import as Apache Avro</span>, or <span class="bold">Import as Apache Parquet</span>.</span><div>When you import a <code>.csv</code> file, a table containing the data is shown as a preview.
+                     </div>
+                  </li>
+               </ol>
+            </div>
+            <div>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="transferring-and-comparing-data.html" title="In the Oracle Big Data Manager console, you can create jobs to copy, move, and compare data. You can run the jobs once or repeatedly, on a set schedule. You can also upload files from your local machine and upload data into Hive.">Transferring and Comparing Data</a></p>
+                  </div>
+               </div>
+            </div>
+            
+         </div>
+      </article>
+   </body>
+</html>

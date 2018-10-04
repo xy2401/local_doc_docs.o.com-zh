@@ -1,0 +1,366 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 25226-->
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>Overview of Enterprise Applications - Your First Cup: An Introduction to the Java EE Platform</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2012-04-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gcqyw.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gcqyb.html">1.&nbsp;&nbsp;Introduction</a></p>
+<p class="toc level1 tocsp"><a href="gcrlo.html">2.&nbsp;&nbsp;Understanding Java Platform, Enterprise Edition</a></p>
+<p class="toc level2"><a href="gkhoy.html">Differences between Java EE and Java SE</a></p>
+<p class="toc level3"><a href="gkhoy.html#gcrkk">The Java Programming Language Platforms</a></p>
+<p class="toc level4"><a href="gkhoy.html#gcrlb">Java SE</a></p>
+<p class="toc level4"><a href="gkhoy.html#gcrlz">Java EE</a></p>
+<p class="toc level4"><a href="gkhoy.html#gcrld">Java ME</a></p>
+<p class="toc level4"><a href="gkhoy.html#gjvih">JavaFX</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level2 tocsp"><a href="">Overview of Enterprise Applications</a></p>
+<p class="toc level3"><a href="#gcrkr">Tiered Applications</a></p>
+<p class="toc level4"><a href="#gcrla">The Client Tier</a></p>
+<p class="toc level4"><a href="#gcrnl">The Web Tier</a></p>
+<p class="toc level5"><a href="#gcroc">Java EE Technologies Used in the Web Tier</a></p>
+<p class="toc level4 tocsp"><a href="#gcrls">The Business Tier</a></p>
+<p class="toc level5"><a href="#gcrlc">Java EE Technologies Used in the Business Tier</a></p>
+<p class="toc level4 tocsp"><a href="#gcrkw">The Enterprise Information Systems Tier</a></p>
+<p class="toc level5"><a href="#gcrkx">Java EE Technologies Used in the EIS Tier</a></p>
+</div>
+<p class="toc level2 tocsp"><a href="gcrkq.html">Java EE Servers</a></p>
+<p class="toc level3"><a href="gcrkq.html#gcrkz">Java EE Containers</a></p>
+<p class="toc level4"><a href="gcrkq.html#gcrmb">The Web Container</a></p>
+<p class="toc level4"><a href="gcrkq.html#gcrlj">The Application Client Container</a></p>
+<p class="toc level4"><a href="gcrkq.html#gcrma">The EJB Container</a></p>
+<p class="toc level1 tocsp"><a href="gcrkp.html">3.&nbsp;&nbsp;Creating Your First Java EE Application</a></p>
+<p class="toc level1 tocsp"><a href="glcfc.html">4.&nbsp;&nbsp;Creating Your Second Web Application</a></p>
+<p class="toc level1 tocsp"><a href="gcrll.html">5.&nbsp;&nbsp;Next Steps</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><p class="Banner">Your First Cup
+</p></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="./gcqzl.html#gcrnx">Download</a> | 
+<a href="./firstcup.pdf">PDF</a> | 
+<a href="http://docs.oracle.com/javaee/support/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="gkhoy.html"><img src="graphics/leftButton.gif" border="0" alt="Previous" title="Previous"></a>
+                 <a href="p1.html"><img src="graphics/upButton.gif" border="0" alt="Contents" title="Contents"></a>
+                 <a href="gcrkq.html"><img src="graphics/rightButton.gif" border="0" alt="Next" title="Next"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="gcrky"></a><h2>Overview of Enterprise Applications</h2>
+<p>This section describes enterprise applications and how they are designed and developed.</p>
+
+<p>As stated above, the Java EE platform is designed to help developers create
+large-scale, multi-tiered, scalable, reliable, and secure network applications. A shorthand name for such
+applications is &ldquo;enterprise applications,&rdquo; so called because these applications are designed to solve the
+problems encountered by large enterprises. Enterprise applications are not only useful for large
+corporations, agencies, and governments, however. The benefits of an enterprise application are helpful,
+even essential, for individual developers and small organizations in an increasingly networked world.</p>
+
+<p>The features that make enterprise applications powerful, like security and reliability, often make
+these applications complex. The Java EE platform is designed to reduce the complexity
+of enterprise application development by providing a development model, API, and runtime environment
+that allows developers to concentrate on functionality.</p>
+
+
+
+<a name="gcrkr"></a><h3>Tiered Applications</h3>
+<p>In a multi-tiered application, the functionality of the application is separated into isolated
+functional areas, called tiers. Typically, multi-tiered applications have a client tier, a middle
+tier, and a data tier (often called the enterprise information systems tier). The
+client tier consists of a client program that makes requests to the middle
+tier. The middle tier's business functions handle client requests and process application data,
+storing it in a permanent datastore in the data tier.</p>
+
+<p>Java EE application development concentrates on the middle tier to make enterprise application
+management easier, more robust, and more secure.</p>
+
+
+
+<a name="gcrla"></a><h4>The Client Tier</h4>
+<p>The client tier consists of application clients that access a Java EE
+server and that are usually located on a different machine from the server.
+The clients make requests to the server. The server processes the requests and
+returns a response back to the client. Many different types of applications can
+be Java EE clients, and they are not always, or even often Java
+applications. Clients can be a web browser, a standalone application, or other servers,
+and they run on a different machine from the Java EE server. </p>
+
+
+
+<a name="gcrnl"></a><h4>The Web Tier</h4>
+<p>The web tier consists of components that handle the interaction between clients and
+the business tier. Its primary tasks are the following: </p>
+
+
+<ul><li><p>Dynamically generate content in various formats for the client.</p>
+
+</li>
+<li><p>Collect input from users of the client interface and return appropriate results from the components in the business tier.</p>
+
+</li>
+<li><p>Control the flow of screens or pages on the client.</p>
+
+</li>
+<li><p>Maintain the state of data for a user's session.</p>
+
+</li>
+<li><p>Perform some basic logic and hold some data temporarily in JavaBeans components.</p>
+
+</li></ul>
+
+
+<a name="gcroc"></a><h5>Java EE Technologies Used in the Web Tier</h5>
+<p>The following Java EE technologies are used in the web tier in Java
+EE applications.</p>
+
+<a name="gctog"></a><p class="caption">Table&nbsp;2-1 Web-Tier Java EE Technologies</p><table><col width="50%"><col width="50%"><tr><th align="left" valign="top" scope="column"><p>Technology</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Purpose</p>
+
+</th>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>Servlets</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Java programming language classes that dynamically process requests and construct responses, usually
+for HTML pages</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>JavaServer Faces technology</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>A user-interface component framework for web applications that
+allows you to include UI components (such as fields and buttons) on a
+page, convert and validate UI component data, save UI component data to server-side
+data stores, and maintain component state.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>JavaServer Faces Facelets technology</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Facelets applications are a type
+of JavaServer Faces applications that use XHTML pages rather than JSP pages.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>Expression Language</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>A
+set of standard tags used in JSP and Facelets pages to refer to
+Java EE components.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>JavaServer Pages (JSP)</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Text-based documents that are compiled into servlets and
+define how dynamic content can be added to static pages, such as HTML
+pages.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>JavaServer Pages Standard Tag Library</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>A tag library that encapsulates core functionality common
+to JSP pages</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>JavaBeans Components</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Objects that act as temporary data stores for the
+pages of an application</p>
+
+</td>
+</tr>
+</table>
+
+<a name="gcrls"></a><h4>The Business Tier</h4>
+<p>The business tier consists of components that provide the business logic for an
+application. Business logic is code that provides functionality to a particular business domain,
+like the financial industry, or an e-commerce site. In a properly designed enterprise
+application, the core functionality exists in the business tier components.</p>
+
+
+
+<a name="gcrlc"></a><h5>Java EE Technologies Used in the Business Tier</h5>
+<p>The following Java EE technologies are used in the business tier in Java
+EE applications:</p>
+
+<a name="glyoi"></a><p class="caption">Table&nbsp;2-2 Business Tier Java EE Technologies</p><table><col width="50%"><col width="50%"><tr><th align="left" valign="top" scope="column"><p>Technology</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Description</p>
+
+</th>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>Enterprise JavaBeans (enterprise bean) components</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Enterprise beans are managed components that encapsulate
+the core functionality of an application.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>JAX-RS RESTful web services</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>An API for creating web
+services that respond to HTTP methods (for example <tt>GET</tt> or <tt>POST</tt> methods).
+JAX-RS web services are developed according to the principles of REST, or representational
+state transfer.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>JAX-WS web service endpoints</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>An API for creating and consuming SOAP web
+services.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>Java Persistence API entities</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>An API for accessing data in underlying data stores
+and mapping that data to Java programming language objects.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>Java EE managed beans</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Managed components
+that may provide the business logic of an application, but do not require
+the transactional or security features of enterprise beans.</p>
+
+</td>
+</tr>
+</table>
+
+<a name="gcrkw"></a><h4>The Enterprise Information Systems Tier</h4>
+<p>The enterprise information systems (EIS) tier consists of database servers, enterprise resource planning
+systems, and other legacy data sources, like mainframes. These resources typically are located
+on a separate machine than the Java EE server, and are accessed by
+components on the business tier.</p>
+
+
+
+<a name="gcrkx"></a><h5>Java EE Technologies Used in the EIS Tier</h5>
+<p>The following Java EE technologies are used to access the EIS tier in
+Java EE applications:</p>
+
+<a name="glymi"></a><p class="caption">Table&nbsp;2-3 EIS Tier Java EE Technologies</p><table><col width="50%"><col width="50%"><tr><th align="left" valign="top" scope="column"><p>Technology</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Description</p>
+
+</th>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>The Java Database Connectivity API (JDBC)</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>A low-level API for accessing
+and retrieving data from underlying data stores. A common use of JDBC is
+to make SQL queries on a particular database.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>The Java Persistence API</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>An API
+for accessing data in underlying data stores and mapping that data to Java
+programming language objects. The Java Persistence API is a much higher-level API than
+JDBC, and hides the complexity of JDBC from the user.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>The Java EE
+Connector Architecture</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>An API for connecting to other enterprise resources, like enterprise resource planning
+or customer management system software.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>The Java Transaction API (JTA)</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>An API for defining
+and managing transactions, including distributed transactions or transactions that cross multiple underlying data
+sources.</p>
+
+</td>
+</tr>
+</table>
+         </div>
+         <div class="navigation">
+             <a href="gkhoy.html"><img src="graphics/leftButton.gif" border="0" alt="Previous" title="Previous"></a>
+             <a href="p1.html"><img src="graphics/upButton.gif" border="0" alt="Contents" title="Contents"></a>
+             <a href="gcrkq.html"><img src="graphics/rightButton.gif" border="0" alt="Next" title="Next"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+<!-- Start SiteCatalyst code   -->
+<script language="JavaScript" src="http://www.oracle.com/ocom/groups/systemobject/@mktg_admin/documents/systemobject/s_code_download.js"></script>
+<script language="JavaScript" src="http://www.oracle.com/ocom/groups/systemobject/@mktg_admin/documents/systemobject/s_code.js"></script>
+ 
+<!-- ********** DO NOT ALTER ANYTHING BELOW THIS LINE ! *********** -->
+<!--  Below code will send the info to Omniture server -->
+<script language="javascript">var s_code=s.t();if(s_code)document.write(s_code)</script>
+<noscript><p>Scripting on this page tracks web page traffic,
+but does not change the content in any way.</p></noscript>
+<!-- End SiteCatalyst code -->
+</body>
+</html>
+

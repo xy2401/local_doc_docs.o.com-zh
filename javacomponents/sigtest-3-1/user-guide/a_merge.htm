@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<title>Merge Command Operative Principles</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = document) - Version 1.0.24" />
+<meta name="dcterms.created" content="2014-07-01T13:22:31Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="SigTest User's Guide" />
+<meta name="dcterms.identifier" content="E19036-03" />
+<meta name="dcterms.isVersionOf" content="SIGTS" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2006, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="a_compat.htm" title="Previous" type="text/html" />
+<link rel="Next" href="a_ant.htm" title="Next" type="text/html" />
+<link rel="alternate" href="SIGTS.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../../nav/css/html5.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<span id="PAGE" style="display:none;">22/25</span> <!-- End Header --><a id="CGFIJBBF"></a>
+<h1 class="appendix"><span class="secnum">D</span> Merge Command Operative Principles</h1>
+<p>This appendix describes the command operative principles used by the Signature Test tool.</p>
+<a id="Z40000851295828"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">D.1</span> <code>Merge</code> Command Operative Principles</h2>
+<p>The <code>Merge</code> command operates according to the following principles, where A and B are input APIs that are combined into the resulting API C:</p>
+<ul>
+<li>
+<p>The <code>Merge</code> operation is commutative, so with API A and B, A + B = B + A.</p>
+</li>
+<li>
+<p>It recognizes either binary or source compatibility when merging APIs.</p>
+</li>
+<li>
+<p>For any application X that is compatible with either API A or B, when A and B are merged then X must be compatible with the resulting API C.</p>
+</li>
+<li>
+<p>The resulting API C cannot contain a class that is not found in either of the A or B input APIs. This means that any class in C has to have corresponding classes in either A or B or both A and B.</p>
+</li>
+<li>
+<p>API C must not contain a class member that is not found in its corresponding classes in A and B. This applies only to declared class members and not inherited members.</p>
+</li>
+<li>
+<p>If some class in A or B, or both, has a member that overrides a member from a superclass, then the corresponding class in C must also have this overriding member.</p>
+</li>
+<li>
+<p>Each API element in C has a set of attributes derived from the attributes of its corresponding elements in A and B, and this is the smallest possible set of attributes that does not break compatibility. So if <code>attr</code> is an attribute of an element from API C, then <code>attr</code> must be defined for the corresponding element from A or B, and <code>attr</code> cannot be omitted without breaking compatibility between A and C or between B and C.</p>
+</li>
+<li>
+<p>No unnecessary APIs or relationships between classes or interfaces can be introduced.</p>
+</li>
+</ul>
+<p>The basic algorithmic rules for combining two input APIs A and B into a signature file that represents the resulting API C are as follows:</p>
+<ul>
+<li>
+<p>If one of the input APIs A or B contains an element that the other does not, then this element goes into the resulting signature file of API C without modification except for the following case: If the element in question is the first declared class member in the inheritance chain of input API A or B, and the other input API inherits the same element, then this element represented the resulting API C.</p>
+</li>
+<li>
+<p>If both of the input APIs contain two identical elements, only one of them is represented in the resulting API.</p>
+</li>
+<li>
+<p>If both of the input APIs contain a corresponding element, but with a different set of attributes, then either of the following occurs:</p>
+<ul>
+<li>
+<p>A conflict wherein the resulting API cannot exist.</p>
+</li>
+<li>
+<p>A compromise wherein the new element with a composite set of attributes is created and it is represented in the resulting API-set.</p>
+</li>
+</ul>
+</li>
+</ul>
+<a id="Z40000851058472"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">D.1.1</span> Element Handling by <code>Merge</code></h3>
+<p>General rules for handling elements of all kinds during the <code>Merge</code> process are as follows.</p>
+<ul>
+<li>
+<p>When there are two different access modifiers select the more visible one.</p>
+<p>For example, if A is a <code>public</code> <code>int</code> <code>foo</code>, and B is <code>protected</code> <code>int</code> <code>foo</code>, then the merge into C results into <code>public</code> <code>int</code> <code>foo</code>.</p>
+</li>
+<li>
+<p>If the elements differ in the <code>final</code> modifier, do not include it. If a class is <code>final</code>, then all of its methods are implicitly <code>final</code> according to Section 8.4.3.3 of <span class="italic">The Java Language Specification, 2nd Edition</span>.</p>
+</li>
+<li>
+<p>If corresponding elements differ in the <code>static</code> modifier, then declare a conflict.</p>
+</li>
+</ul>
+<p>Element-specific rules are as follows:</p>
+<ul>
+<li>
+<p>If corresponding classes differ in the <code>abstract</code> modifier, then declare a conflict.</p>
+</li>
+<li>
+<p>Apply the following rules for classes or interfaces and nested classes or interfaces, where for the purpose of this description, c1 and c2 are corresponding classes from the input APIs:</p>
+<p>If a superclass of c1 is a subclass of a superclass of c2, use the superclass of c1 as the superclass for the new element. Otherwise, if a superclass of c2 is a subclass of a superclass of c1, use the superclass of c2 as the superclass for the new element. If neither of the previous two conditions are possible, then declare a conflict.</p>
+</li>
+<li>
+<p>For classes or interfaces and nested classes or interfaces, create a combined set of superinterfaces of the corresponding classes and dismiss duplicates. Use the combined set for the new element.</p>
+</li>
+<li>
+<p>For methods and constructors, construct a <code>throws</code> list as follows:</p>
+<ul>
+<li>
+<p>In binary compatibility mode, an empty <code>throws</code> list results independently of the source lists.</p>
+</li>
+<li>
+<p>In source compatibility mode, both <code>throws</code> lists are normalized as described in <a href="sig_using.htm#Z4000c461052565">Table 4-3</a> before they are compared. If the normalized lists are equal, one is used as the result, otherwise, a conflict is declared.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Methods that differ in the <code>abstract</code> modifier are not included.</p>
+</li>
+<li>
+<p>If a method result type is not identical a conflict is declared.</p>
+</li>
+<li>
+<p>If a field value type is not identical a conflict is declared.</p>
+</li>
+<li>
+<p>If a field element differs in the <code>volatile</code> modifier, it is included.</p>
+</li>
+<li>
+<p>Process <code>constant</code> field values as follows:</p>
+<ul>
+<li>
+<p>If one of the fields has a constant value and other does not, include the constant value in the result field.</p>
+</li>
+<li>
+<p>If both fields have a constant value then declare a conflict if the values are different, otherwise include the value in the result field.</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" --></div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment24">
+<tr>
+<td class="cellalignment31">
+<table class="cellalignment29">
+<tr>
+<td class="cellalignment28"><a href="a_compat.htm"><img width="24" height="24" src="../../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment28"><a href="a_ant.htm"><img width="24" height="24" src="../../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2006, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment33">
+<table class="cellalignment27">
+<tr>
+<td class="cellalignment28"><a href="../../index.html"><img width="24" height="24" src="../../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment28"><a href="toc.htm"><img width="24" height="24" src="../../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment28"><a href="../../dcommon/html/feedback.htm"><img width="24" height="24" src="../../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

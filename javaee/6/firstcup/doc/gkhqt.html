@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 25226-->
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>Architecture of the Example Applications - Your First Cup: An Introduction to the Java EE Platform</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2012-04-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gcqyw.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gcqyb.html">1.&nbsp;&nbsp;Introduction</a></p>
+<p class="toc level1 tocsp"><a href="gcrlo.html">2.&nbsp;&nbsp;Understanding Java Platform, Enterprise Edition</a></p>
+<p class="toc level1 tocsp"><a href="gcrkp.html">3.&nbsp;&nbsp;Creating Your First Java EE Application</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level2"><a href="">Architecture of the Example Applications</a></p>
+<p class="toc level3"><a href="#gcrlr">Tiers in the Example Applications</a></p>
+<p class="toc level3"><a href="#gcrlu">Java EE Technologies Used in the Example Applications</a></p>
+</div>
+<p class="toc level2 tocsp"><a href="gcrkm.html">Coding the <tt>DukesAgeResource</tt> Example Application</a></p>
+<p class="toc level3"><a href="gcrkm.html#gcskg">Getting Started</a></p>
+<p class="toc level4"><a href="gcrkm.html#gcskj">Create a Directory for the Example</a></p>
+<p class="toc level3 tocsp"><a href="gcrkm.html#gcrkn">Creating the Web Service</a></p>
+<p class="toc level4"><a href="gcrkm.html#gcrom">JAX-RS Resources</a></p>
+<p class="toc level4"><a href="gcrkm.html#gcroi">Creating the Endpoint</a></p>
+<p class="toc level4"><a href="gcrkm.html#gctoz">Building and Deploying the Web Service</a></p>
+<p class="toc level1 tocsp"><a href="glcfc.html">4.&nbsp;&nbsp;Creating Your Second Web Application</a></p>
+<p class="toc level1 tocsp"><a href="gcrll.html">5.&nbsp;&nbsp;Next Steps</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><p class="Banner">Your First Cup
+</p></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="./gcqzl.html#gcrnx">Download</a> | 
+<a href="./firstcup.pdf">PDF</a> | 
+<a href="http://docs.oracle.com/javaee/support/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="gcrkp.html"><img src="graphics/leftButton.gif" border="0" alt="Previous" title="Previous"></a>
+                 <a href="p1.html"><img src="graphics/upButton.gif" border="0" alt="Contents" title="Contents"></a>
+                 <a href="gcrkm.html"><img src="graphics/rightButton.gif" border="0" alt="Next" title="Next"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="gkhqt"></a><h2>Architecture of the Example Applications</h2>
+<p>The example applications consist of four main components: <tt>DukesAgeResource</tt>, a JAX-RS RESTful
+web service; <tt>DukesBirthdayBean</tt>, an enterprise bean; <tt>FirstcupUser</tt>, a Java Persistence API entity; and <tt>firstcup</tt>,
+a web application created with JavaServer Faces Facelets technology.</p>
+
+<a name="gjbew"></a><p class="caption">Figure&nbsp;3-1 Architecture of the First Cup Example Applications</p><img src="figures/firstcup-architecture.gif" alt="Architecture of First Cup example applications."></img><p><tt>DukesAgeResource</tt> is a JAX-RS resource that calculates the age of Duke, the Java
+mascot. Duke was born May 23, 1995, when the first demo of Java
+technology was publicly released.</p>
+
+<p><tt>DukesBirthdayBean</tt> is a local, no-interface view stateless session bean that calculates the difference
+between the user's age and Duke's age, and stores the user-submitted data in
+a Java Persistence API entity.</p>
+
+<p><tt>FirstcupUser</tt> is a Java Persistence API entity that represents a particular user's birthday.
+It is stored in a Java DB database table, and managed by
+<tt>DukesBirthdayBean</tt>'s business methods.</p>
+
+<p>The <tt>firstcup</tt> web application is a JavaServer Faces Facelets application that accesses <tt>DukesAgeResource</tt>
+to display Duke's age, reads in a date provided by the user, accesses
+<tt>DukesBirthdayBean</tt> to calculate who is older, and then displays the difference in years
+between the user and Duke and the average age difference of all
+users.</p>
+
+<p>The <tt>firstcup</tt> web application consists of the following:</p>
+
+
+<ul><li><p><tt>greeting.xhtml</tt>: An XHTML page that uses the JavaServer Faces Facelets tag libraries. Users can type their birth date in a field and submit it for comparison against Duke's birth date.</p>
+
+</li>
+<li><p><tt>response.xhtml</tt>: A Facelets-enabled XHTML page that tells the user whether he or she is older or younger than Duke, based on the date the user entered in the <tt>greeting.xhtml</tt> page, and displays the average age difference of all users.</p>
+
+</li>
+<li><p><tt>DukesBDay.java</tt>: A JavaServer Faces managed bean that defines properties to hold the user's birth date, get Duke's current age from the <tt>DukesAgeResource</tt> web service, and get the age difference between the user and Duke from the enterprise bean.</p>
+
+</li>
+<li><p><tt>web.xml</tt>: The web application's deployment descriptor, which is used to configure certain aspects of a web application when it is installed. In this case, it is used to provide a mapping to the application's <tt>FacesServlet</tt> instance, which accepts incoming requests, passes them to the life cycle for processing, and initializes resources. It also specifies <tt>greeting.xhtml</tt> as the welcome file for the application.</p>
+
+</li>
+<li><p><tt>WebMessages.properties</tt> and <tt>WebMessages_es.properties</tt>: Java programming language properties files that contain the localized strings used in <tt>greeting.xhtml</tt> and <tt>response.xhtml</tt>. By default, the English language strings in <tt>WebMessages.properties</tt> are used, but Spanish language strings are also provided in <tt>WebMessages_es.properties</tt>.</p>
+
+</li>
+<li><p><tt>DukesBirthdayBean.java</tt>: as described above, the enterprise bean packaged within the <tt>firstcup</tt> application. <tt>DukesBirthdayBean</tt> calculates the difference between the user's birthday and Duke's birthday.</p>
+
+</li></ul>
+
+
+<a name="gcrlr"></a><h3>Tiers in the Example Applications</h3>
+<p>The example applications have one web tier component (the <tt>firstcup</tt> web client),
+three business tier components (the <tt>DukesAgeResource</tt> web service, the <tt>FirstcupUser</tt> entity, and the
+<tt>DukesBirthdayBean</tt> enterprise bean), and one enterprise information system (EIS) tier (the data in
+the Java DB database table). The user's web browser is the client tier
+component, as it accesses the rest of the application through the web tier.</p>
+
+
+
+<a name="gcrlu"></a><h3>Java EE Technologies Used in the Example Applications</h3>
+<p>The <tt>DukesAgeResource</tt> web service is a JAX-RS resource. The <tt>DukesBirthdayBean</tt> enterprise bean is a
+stateless session bean. The <tt>FirstcupUser</tt> entity is a Java Persistence API entity. The
+<tt>firstcup</tt> web client is a JavaServer Faces application that runs in the web container
+of the Java EE server.</p>
+
+
+         </div>
+         <div class="navigation">
+             <a href="gcrkp.html"><img src="graphics/leftButton.gif" border="0" alt="Previous" title="Previous"></a>
+             <a href="p1.html"><img src="graphics/upButton.gif" border="0" alt="Contents" title="Contents"></a>
+             <a href="gcrkm.html"><img src="graphics/rightButton.gif" border="0" alt="Next" title="Next"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+<!-- Start SiteCatalyst code   -->
+<script language="JavaScript" src="http://www.oracle.com/ocom/groups/systemobject/@mktg_admin/documents/systemobject/s_code_download.js"></script>
+<script language="JavaScript" src="http://www.oracle.com/ocom/groups/systemobject/@mktg_admin/documents/systemobject/s_code.js"></script>
+ 
+<!-- ********** DO NOT ALTER ANYTHING BELOW THIS LINE ! *********** -->
+<!--  Below code will send the info to Omniture server -->
+<script language="javascript">var s_code=s.t();if(s_code)document.write(s_code)</script>
+<noscript><p>Scripting on this page tracks web page traffic,
+but does not change the content in any way.</p></noscript>
+<!-- End SiteCatalyst code -->
+</body>
+</html>
+

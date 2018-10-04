@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Running the RMIPurse Sample in Eclipse</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="The RMIPurse sample consists of two projects: a Java Card project with the Java Card applet, and a Java SE project with a Java application that communicates with the applet using RMI." />
+<meta name="dcterms.created" content="2018-04-13T10:24:54Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Development Kit User Guide, Classic Edition" />
+<meta name="dcterms.identifier" content="E59602-03" />
+<meta name="dcterms.isVersionOf" content="JCUGC" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="rmipurse-sample.htm" title="Previous" type="text/html" />
+<link rel="Next" href="running-rmipurse-sample-command-line.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCUGC.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-D4980F54-D87A-401E-9422-2600CC4D3D8B"></a> <span id="PAGE" style="display:none;">51/161</span> <!-- End Header -->
+<h1 id="JCUGC-GUID-D4980F54-D87A-401E-9422-2600CC4D3D8B" class="sect1">Running the RMIPurse Sample in Eclipse</h1>
+<div>
+<p>The RMIPurse sample consists of two projects: a Java Card project with the Java Card applet, and a Java SE project with a Java application that communicates with the applet using RMI.</p>
+<div class="p">Start Eclipse. Sample_Platform and Sample_Device must already be created.</div>
+<!-- class="section" -->
+<div class="section">This sample uses the rmic tool, which is provided with the development kit.</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Create a launch configuration to specify launch parameters for the rmic tool:</span>
+<ol>
+<li><span>From the workbench menu bar, select <span class="bold">Run</span>, <span class="bold">External Tools</span> and <span class="bold">External Tools Configurations...</span></span></li>
+<li><span>On the <span class="wintitle">External Tools Configurations</span> dialog, select <span class="bold">Program</span> in the left hand list of launch configuration types, and then click <span class="bold">New launch configuration</span> in the toolbar.</span></li>
+</ol>
+</li>
+<li class="stepexpand"><span>On the <span class="wintitle">Create, manage, and run configurations</span> dialog, enter the following text for these fields:</span>
+<div>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Name:</span> <code class="codeph">rmic</code></p>
+</li>
+<li>
+<p><span class="bold">Location:</span> <code class="codeph">${env_var:JAVA_HOME}\bin\rmic.exe</code></p>
+</li>
+<li>
+<p><span class="bold">Working directory:</span> <code class="codeph">${project_loc}</code></p>
+</li>
+<li>
+<p><span class="bold">Arguments:</span> <code class="codeph">&mdash;nowarn &mdash;v1.2 -classpath ".;${project_classpath}</code><code class="codeph">"&nbsp;-d .\stubs ${java_type_name}</code></p>
+</li>
+</ul>
+Click <span class="bold">Apply</span> and <span class="bold">Close</span>.</div>
+</li>
+<li class="stepexpand"><span>Import the <code class="codeph">RMIPurse_Applet</code> Java Card project and the <code class="codeph">RMIPurse_Client</code> Java project into your workspace. You can import both projects in the same Import wizard.&nbsp;If the builds don't start automatically, start them manually.</span>
+<div>The <code class="codeph">RMIPurse_Applet</code> project build creates <code class="codeph">apdu_scripts</code> and <code class="codeph">deliverables</code> directories.</div>
+</li>
+<li class="stepexpand"><span>In <span class="wintitle">Java Card View</span>, double-click on Sample_Device. In the <span class="wintitle">Properties for Sample_Device</span> dialog, select the <span class="bold">CREF</span> tab:</span>
+<ol>
+<li><span>In the <span class="bold">Output file with EEPROM data</span> field, type a file name to be used for saving EEPROM between simulator sessions, e.g., <code class="codeph">RMIPurse.eeprom</code>. The file will be automatically created in the <code class="codeph">bin</code> directory. Later, after the sample run, you can safely delete it.</span></li>
+<li><span>Clear the <span class="bold">Input file with EEPROM data</span> and the <span class="bold">Combined (input and output) file for EEPROM data</span> fields.</span></li>
+<li><span>Clear <span class="bold">Do not open APDU console</span>.</span></li>
+<li><span>Click <span class="bold">OK</span>.</span></li>
+</ol>
+</li>
+<li class="stepexpand"><span>In <span class="wintitle">Java Card View</span>, right-click on Sample_Device and select <span class="bold">Start</span>.</span>
+<div>The simulator starts and you can see that Sample_Device console is created.</div>
+</li>
+<li class="stepexpand"><span>In the <span class="wintitle">Sample_Device console</span> toolbar, click on the <span class="bold">Select Script</span> drop-down and execute:</span>
+<ul>
+<li><code class="codeph">cap-com.sun.jcclassic.samples.rmi</code> and</li>
+<li><code class="codeph">create-com.sun.jcclassic.samples.rmi.PurseApplet</code></li>
+</ul>
+</li>
+<li class="stepexpand"><span>Stop the Sample_Device.</span></li>
+<li class="stepexpand"><span>In the <span class="wintitle">Package Explorer</span> view, expand <code class="codeph">RMIPurse_Applet\src\com.sun.jcclassic.samples.rmi</code> and select <code class="codeph">PurseImpl.java</code>. From the Eclipse menu bar, select <span class="bold">Run</span>, then <span class="bold">External Tools</span> and <span class="bold">rmic</span>. (If this is the first rmic execution, select <span class="bold">Run</span>, <span class="bold">External Tools</span> , <span class="bold">External Tools Configurations...</span> and click <span class="bold">Run</span>).</span>
+<div>Click <span class="bold">F5</span> to refresh the view, and you should see <code class="codeph">PurseImpl_Stub.class</code> in the <code class="codeph">RMIPurse_Applet\stubs\com\sun\jcclassic\samples\rmi</code> directory.</div>
+</li>
+<li class="stepexpand"><span>In <span class="wintitle">Java Card View</span>, double-click on Sample_Device. In the <span class="wintitle">Properties for Sample_Device</span> dialog, select the <span class="bold">CREF</span> tab:</span>
+<ol>
+<li><span>In the <span class="bold">Input file with EEPROM data</span> field, click <span class="bold">Browse...</span> and select the <code class="codeph">RMIPurse.eeprom</code> file.</span></li>
+<li><span>Clear the <span class="bold">Output file for EEPROM data</span> field.</span></li>
+<li><span>Select <span class="bold">Do not open APDU console</span>.</span></li>
+<li><span>Click <span class="bold">OK</span>.</span></li>
+</ol>
+</li>
+<li class="stepexpand"><span>In <span class="wintitle">Java Card View</span>, right-click on Sample_Device and select <span class="bold">Start</span>.</span>
+<div>The simulator starts and you can see the output in the <span class="wintitle">Console</span> view.</div>
+</li>
+<li class="stepexpand"><span>In the <span class="wintitle">Package Explorer</span> view, expand <code class="codeph">RMIPurse_Client</code> project, navigate to <code class="codeph">PurseClient.java</code>, right-click on it, and select <span class="bold">Run As</span> and <span class="bold">Java Application</span>.</span></li>
+</ol>
+<div class="section">You see the application output in the console. Now you can compare it with the contents of <code class="codeph">rmidemo.expected.output</code> file.</div>
+<!-- class="section" --></div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="rmipurse-sample.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="running-rmipurse-sample-command-line.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

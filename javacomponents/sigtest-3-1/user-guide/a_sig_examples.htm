@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<title>Signature Test Tool Quick Start Examples</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = document) - Version 1.0.24" />
+<meta name="dcterms.created" content="2014-07-01T13:22:30Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="SigTest User's Guide" />
+<meta name="dcterms.identifier" content="E19036-03" />
+<meta name="dcterms.isVersionOf" content="SIGTS" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2006, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="part4.htm" title="Previous" type="text/html" />
+<link rel="Next" href="a_api_examples.htm" title="Next" type="text/html" />
+<link rel="alternate" href="SIGTS.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../../nav/css/html5.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<span id="PAGE" style="display:none;">19/25</span> <!-- End Header --><a id="Z40001031034631"></a>
+<h1 class="appendix"><span class="secnum">A</span> Signature Test Tool Quick Start Examples</h1>
+<p>This appendix contains the following two step-by-step examples that show you how to use the Signature Test tool:</p>
+<ul>
+<li>
+<p><a href="#Z4000c501037466">Example 1: Compare Two Different Implementations of the Same API</a></p>
+</li>
+<li>
+<p><a href="#Z4000c501037517">Example 2: Merge Two Signature Files</a></p>
+</li>
+</ul>
+<a id="Z40001031037531"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">A.1</span> Example Programs</h2>
+<p>Sample sources used in the examples, along with simple UNIX operating system shell and Windows batch scripts are provided in the <code>examples/usersguide</code> directory. You can use these to help run the examples. The README file in that directory explains how to use them.</p>
+<div class="infobox-note">
+<p class="notep1">Note:</p>
+<p>The examples use UNIX operating system syntax.</p>
+</div>
+<div class="infobox-note">
+<p class="notep1">Caution:</p>
+<p>Code examples are an optional part of the SigTest distribution and are not required to use the SigTest tools. You can remove the example directory (<span class="italic">$SIGTEST_HOME</span><code>/examples)</code> if you are concerned about security issues the examples might create.</p>
+</div>
+<p><a href="#Z40000131044738">Example A-1</a> and <a href="#Z40000131044797">Example A-2</a> show the two implementations of the test API used throughout these examples.</p>
+<div class="example">
+<p class="titleinexample"><a id="Z40000131044738"></a>Example A-1 Version 1.0 of <code>test.java</code></p>
+<pre>
+package example;
+public class test {
+    public &lt;T&gt; T get (T x) {
+        return x;
+    }
+}
+</pre></div>
+<!-- class="example" -->
+<div class="example">
+<p class="titleinexample"><a id="Z40000131044797"></a>Example A-2 Version 2.0 of <code>test.java</code></p>
+<pre>
+package example;
+
+public class test {
+
+    public String get (int x) {
+        return "";
+    }
+  
+    public void put () {
+    }
+}
+</pre></div>
+<!-- class="example" --></div>
+<!-- class="sect1" -->
+<a id="Z4000c501037466"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">A.2</span> Example 1: Compare Two Different Implementations of the Same API</h2>
+<p>You can compare two implementations of an API in two ways:</p>
+<ul>
+<li>
+<p>Run the <code>Setup</code> command to create a signature file for the first implementation and then run the <code>SignatureTest</code> command to compare them. This is shown in the first part of this example: <a href="#Z4000c501037367">(UNKNOWN STEP NUMBER)</a> .</p>
+</li>
+<li>
+<p>Run the <code>SetupAndTest</code> command. The command combines the <code>Setup</code> and <code>SignatureTest</code> commands. This is shown in the second part of this example: <a href="#Z4000c501037398">(UNKNOWN STEP NUMBER)</a> .</p>
+</li>
+</ul>
+<a id="Z4000c501037367"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">A.2.1</span> Using the <code>Setup</code> and <code>SignatureTest</code> Commands</h3>
+<p>This example shows how to compare the following implementations of the <code>test.java</code> API using the <code>Setup</code> and <code>SignatureTest</code> commands.</p>
+<ol>
+<li>
+<p><a id="Z4000c501037155"></a>Make <span class="italic">SigTest-directory</span><code>/examples/usersguide</code> the current directory.</p>
+</li>
+<li>
+<p><a id="Z4000c501037161"></a>Compile the two implementation files.</p>
+<p>SigTest tool works with class files. Use the following commands to compile the source files into class file:</p>
+<pre>
+% javac -d V1.0 V1.0/test.java
+% javac -d V2.0 V2.0/test.java
+</pre></li>
+<li>
+<p><a id="Z4000c501037165"></a>Set the CLASSPATH environment variable to include the path to <code>sigtestdev.jar</code>.</p>
+<pre>
+% setenv CLASSPATH=../../lib/sigtestdev.jar
+</pre></li>
+<li>
+<p><a id="Z4000c501037171"></a>Set the JAVA_HOME environment variable to include the base directory of the Java platform runtime installation on your system.</p>
+<pre>
+% setenv JAVAHOME=<span class="italic">java_runtime_path</span>
+</pre></li>
+<li>
+<p><a id="Z4000c501037176"></a>Use the <code>Setup</code> command to create a signature file for the V1.0 implementation.</p>
+<p>Note that the &rdquo;\&rdquo; characters are used to break long lines. Type this as a single line at the command line.</p>
+<pre>
+% java com.sun.tdk.signaturetest.Setup \
+ -classpath V1.0:$JAVA_HOME/jre/lib/rt.jar \
+ -static \
+ -apiVersion V1.0 \
+ -package example \
+ -fileName test.sig
+</pre>
+<p>The <code>Setup</code> command emits console output similar to the following:</p>
+<pre>
+Constant checking: on
+Found in total: 16260 classes
+Selected by -Package: 1 classes
+Written to sigfile: 2 classes
+STATUS:Passed.
+</pre></li>
+<li>
+<p><a id="Z4000c501037184"></a>Confirm that the contents of the signature file are correct by comparing it to the following file:</p>
+<pre>
+#Signature file v4.0
+
+CLSS public example.test
+cons public &lt;init&gt;()
+meth public &lt;%0 extends java.lang.Object&gt; {%%0} get({%%0})
+supr java.lang.Object
+
+CLSS public java.lang.Object
+cons public &lt;init&gt;()
+meth protected java.lang.Object clone() throws java.lang.CloneNotSupportedException
+meth protected void finalize() throws java.lang.Throwable
+meth public boolean equals(java.lang.Object)
+meth public final java.lang.Class&lt;?&gt; getClass()
+meth public final void notify()
+meth public final void notifyAll()
+meth public final void wait() throws java.lang.InterruptedException
+meth public final void wait(long) throws java.lang.InterruptedException
+meth public final void wait(long,int) throws java.lang.InterruptedException
+meth public int hashCode()
+meth public java.lang.String toString()
+</pre></li>
+<li>
+<p><a id="Z4000c501037190"></a>Use the <code>SignatureTest</code> command to compare the V2.0 API signature with the V1.0 signature file you created in Step <a href="#Z4000c501037176">5</a>.</p>
+<pre>
+% java com.sun.tdk.signaturetest.Setup \
+-classpath V2.0:$JAVA_HOME/jre/lib/rt.jar \
+-static \
+-package example \
+-fileName test.sig \
+-out report.txt
+</pre>
+<p>The <code>-out</code> option directs the command to write its results to <code>report.txt</code>.</p>
+<p>A message similar to the following is written to the console when the command terminates:</p>
+<pre>
+See log recorded to file report.txt for more details.
+STATUS:Failed.3 errors
+</pre></li>
+<li>
+<p><a id="Z4000c501037200"></a>Confirm that the contents of the <code>report.txt</code> file are correct by comparing it to to the following file:</p>
+<div class="infobox-note">
+<p class="notep1">Note:</p>
+<p>There might be some minor differences because of system-specific information.</p>
+</div>
+<pre>
+SignatureTest report
+Tested version:
+Check mode: src [throws normalized]
+Constant checking: off
+
+
+Missing Methods
+---------------
+
+example.test:       method public &lt;%0 extends java.lang.Object&gt; {%%0} example.test.get({%%0})
+
+Added Methods
+-------------
+
+example.test:       method public java.lang.String example.test.get(int)
+example.test:       method public void example.test.put()
+
+
+STATUS:Failed.3 errors
+</pre></li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<a id="Z4000c501037398"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">A.2.2</span> Using the <code>SetupAndTest</code> Command</h3>
+<p>The <code>SetupAndTest</code> command combines the functionality of the <code>Setup</code> and <code>SignatureTest</code> commands into a single command.</p>
+<ol>
+<li>
+<p><a id="Z4000c501037207"></a>Follow steps 1 - 4 in the previous example.</p>
+</li>
+<li>
+<p><a id="Z4000c501037211"></a>Use the following <code>SetupAndTest</code> command to create a signature file.</p>
+<pre>
+% java $CLASSPATH com.sun.tdk.signaturetest.SetupAndTest \
+-reference V1.0:$JAVA_HOME/jre/lib/rt.jar \
+-test V2.0:$JAVA_HOME/jre/lib/rt.jar \
+-package example
+</pre>
+<p>The <code>SetupAndTest</code> command reports results similar to following example to standard output.</p>
+<pre>
+Invoke Setup ...
+Class path: "V1.0;C:\java\jdk1.5.0_06\/jre/lib/rt.jar"
+Constant checking: on
+Found in total: 12749 classes
+Selected by -Package: 1 classes
+Written to sigfile: 2 classes
+Invoke SignatureTest ...
+SignatureTest report
+Tested version: 2.0
+Check mode: src [throws normalized]
+Constant checking: on
+
+
+Missing Methods
+---------------
+
+example.test:       method public &lt;%0 extends java.lang.Object&gt; {%%0} example.te
+st.get({%%0})
+
+Added Methods
+-------------
+
+example.test:       method public java.lang.String example.test.get(int)
+example.test:       method public void example.test.put()
+
+
+STATUS:Failed.3 errors
+</pre></li>
+</ol>
+</div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="Z4000c501037517"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">A.3</span> Example 2: Merge Two Signature Files</h2>
+<p>This example shows how to use the <code>Merge</code> command to accomplish the following:</p>
+<ol>
+<li>
+<p>Compile three <code>.java</code> files to produce <code>.class</code> files.</p>
+</li>
+<li>
+<p>Run the <code>Setup</code> command on each <code>.class</code> file to produce a signature file.</p>
+</li>
+<li>
+<p>Use the <code>Merge</code> command to combine the files.</p>
+</li>
+</ol>
+<a id="Z4000c501037413"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">A.3.1</span> Running Merge Example</h3>
+<p>These examples use the environment variables listed below:.</p>
+<div class="inftblhruleinformal">
+<table class="cellalignment36" summary="Add Summary attribute value here." dir="ltr">
+<thead>
+<tr class="cellalignment25">
+<th class="cellalignment37" id="r1c1-t5">Environment Variable</th>
+<th class="cellalignment37" id="r1c2-t5">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r2c1-t5" headers="r1c1-t5">
+<p>CLASSPATH</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t5 r1c2-t5">
+<p>Must include the <code>sigtestdev.jar</code> file. For example:<code>/sigtest-1.5/lib/sigtestdev.jar</code></p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r3c1-t5" headers="r1c1-t5">
+<p>RT_JAR</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t5 r1c2-t5">
+<p>The location of the runtime <code>rt.jar</code> file. For example: <code>/opt/jdk1.5.0_09/jre/lib/rt.jar</code></p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblhruleinformal" -->
+<ol>
+<li>
+<p><a id="Z4000c501037220"></a>Set up the environment with the environment variable settings in the table above.</p>
+</li>
+<li>
+<p><a id="Z4000c501037226"></a>Create each of the files shown in the following examples. Create each in a different directory but with the same file name.</p>
+<p>Create directories named <code>1</code>, <code>2</code>, and <code>3</code>. Add the appropriate file to each directory.</p>
+<pre>
+package x;
+public class A {
+    public void abc() {}
+    public void foo() {}
+}
+
+
+package x;
+public class A {
+    public void abc() {}
+    public void bar() {}
+}
+
+
+package x;
+public class A {
+    public static void abc() {}
+}
+</pre></li>
+<li>
+<p><a id="Z4000c501037238"></a>Run these commands to compile each file into a separate <code>x</code> subdirectory:</p>
+<pre>
+% javac -d 1 1/A.java
+% javac -d 2 2/A.java
+% javac -d 3 3/A.java
+</pre>
+<p>This creates the following class files:</p>
+<ol>
+<li>
+<p><a id="Z4000c501037039"></a><code>./1/x/A.class</code></p>
+</li>
+<li>
+<p><a id="Z4000c501037043"></a><code>./2/x/A.class</code></p>
+</li>
+<li>
+<p><a id="Z4000c501037047"></a><code>./3/x/A.class</code></p>
+</li>
+</ol>
+</li>
+<li>
+<p><a id="Z4000c501037244"></a>Run the following three <code>Setup</code> commands on each <code>A.class</code> file to produce the three <code>x</code><span class="italic">#</span><code>.sig</code> files like the ones shown in following examples.</p>
+<ol>
+<li>
+<p><a id="Z4000c501037129"></a><span class="bold">Command #1</span>:</p>
+<pre>
+% java -cp 1:$CLASSPATH com.sun.tdk.signaturetest.Setup \
+-static -classpath 1:$RT_JAR -package x -FileName x1.sig
+</pre>
+<p>The command generates the <code>./x1.sig</code> file like the one shown in the following example and produces a similar console message.</p>
+<pre>
+Class path: "1:/opt/jdk1.5.0_09/jre/lib/rt.jar"
+Constant checking: on
+Found in total: 13185 classes
+Selected by -Package: 1 classes
+Written to sigfile: 2 classes
+STATUS:Passed.
+</pre></li>
+<li>
+<p><a id="Z4000c501037134"></a><span class="bold">Command #2:</span></p>
+<pre>
+% java -cp 2:$CLASSPATH com.sun.tdk.signaturetest.Setup \
+-static -classpath 2:$RT_JAR -package x -FileName x2.sig
+</pre>
+<p>The command generates the <code>./x2.sig</code> file shown in the following example and produces a console message similar to this indicating successful setup.</p>
+<pre>
+Class path: "2:/opt/jdk1.5.0_09/jre/lib/rt.jar"
+Constant checking: on
+Found in total: 13185 classes
+Selected by -Package: 1 classes
+Written to sigfile: 2 classes
+STATUS:Passed.
+</pre></li>
+<li>
+<p><a id="Z4000c501037138"></a><span class="bold">Command #3:</span></p>
+<pre>
+% java -cp 3:$CLASSPATH com.sun.tdk.signaturetest.Setup \
+-static -classpath 3:$RT_JAR -package x -FileName x3.sig
+</pre>
+<p>The command generates the <code>./x3.sig</code> file shown in following example and produces a console message similar to this indicating successful setup.</p>
+<pre>
+Class path: "3:/opt/jdk1.5.0_09/jre/lib/rt.jar"
+Constant checking: on
+Found in total: 13185 classes
+Selected by -Package: 1 classes
+Written to sigfile: 2 classes
+STATUS:Passed.
+</pre></li>
+</ol>
+</li>
+<li>
+<p><a id="Z4000c501037265"></a>Run the following command to merge <code>x1.sig</code> and <code>x2.sig</code> and produce the <code>x1+x2.sig</code> file shown in the following example:</p>
+<pre>
+% java -cp $CLASSPATH com.sun.tdk.signaturetest.Merge -Files \
+x1.sig:x2.sig -Write x1+x2.sig
+</pre>
+<p>The command generates a console message similar to the following message:</p>
+<pre>
+Warning: class java.lang.Throwable not found
+STATUS:Passed.
+</pre></li>
+<li>
+<p><a id="Z4000c501037274"></a>Run this command to merge <code>x2.sig</code> and <code>x3.sig</code> attempting to produce the <code>x2+x3.sig</code> file:</p>
+<pre>
+% java -cp $CLASSPATH com.sun.tdk.signaturetest.Merge -Files
+x2.sig:x3.sig -Write x2+x3.sig
+</pre>
+<p>The command prints a message to the console similar to the following. it indicates a conflicting <code>static</code> modifier, and no signature file is created:</p>
+<pre>
+x.A.abc : &lt;static&gt; modifier conflict
+STATUS:Error.Error
+</pre>
+<p>The conflict occurs because <code>x2.sig</code> contains this method (see <a href="#Z40000131044953">Example A-4</a>):</p>
+<pre>
+meth public void x.A.abc()
+and x3.sig contains this method:
+meth public static void x.A.abc()
+</pre></li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<a id="Z4000c501037460"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">A.3.2</span> Example Result Files</h3>
+<p>This section contains the files that are generated from the previous <code>Merge</code> examples.</p>
+<div class="example">
+<p class="titleinexample"><a id="Z40000131044890"></a>Example A-3 Contents of <code>./x1.sig</code></p>
+<pre>
+#Signature file v4.0
+#Version 
+
+CLSS public java.lang.Object
+cons public &lt;init&gt;()
+meth protected java.lang.Object clone() throws java.lang.CloneNotSupportedException
+meth protected void finalize() throws java.lang.Throwable
+meth public boolean equals(java.lang.Object)
+meth public final java.lang.Class&lt;?&gt; getClass()
+meth public final void notify()
+meth public final void notifyAll()
+meth public final void wait() throws java.lang.InterruptedException
+meth public final void wait(long) throws java.lang.InterruptedException
+meth public final void wait(long,int) throws java.lang.InterruptedException
+meth public int hashCode()
+meth public java.lang.String toString()
+CLSS public x.A
+cons public &lt;init&gt;()
+meth public void abc()
+meth public void foo()
+supr java.lang.Object
+</pre></div>
+<!-- class="example" -->
+<div class="example">
+<p class="titleinexample"><a id="Z40000131044953"></a>Example A-4 Contents of <code>./x2.sig</code></p>
+<pre>
+#Signature file v4.0
+#Version 
+
+CLSS public java.lang.Object
+cons public &lt;init&gt;()
+meth protected java.lang.Object clone() throws java.lang.CloneNotSupportedException
+meth protected void finalize() throws java.lang.Throwable
+meth public boolean equals(java.lang.Object)
+meth public final java.lang.Class&lt;?&gt; getClass()
+meth public final void notify()
+meth public final void notifyAll()
+meth public final void wait() throws java.lang.InterruptedException
+meth public final void wait(long) throws java.lang.InterruptedException
+meth public final void wait(long,int) throws java.lang.InterruptedException
+meth public int hashCode()
+meth public java.lang.String toString()
+
+CLSS public x.A
+cons public &lt;init&gt;()
+meth public void abc()
+meth public void bar()
+supr java.lang.Object
+</pre></div>
+<!-- class="example" -->
+<div class="example">
+<p class="titleinexample"><a id="Z40000131045023"></a>Example A-5 Contents of <code>./x3.sig</code></p>
+<pre>
+#Signature file v4.0
+#Version 
+
+CLSS public java.lang.Object
+cons public &lt;init&gt;()
+meth protected java.lang.Object clone() throws java.lang.CloneNotSupportedException
+meth protected void finalize() throws java.lang.Throwable
+meth public boolean equals(java.lang.Object)
+meth public final java.lang.Class&lt;?&gt; getClass()
+meth public final void notify()
+meth public final void notifyAll()
+meth public final void wait() throws java.lang.InterruptedException
+meth public final void wait(long) throws java.lang.InterruptedException
+meth public final void wait(long,int) throws java.lang.InterruptedException
+meth public int hashCode()
+meth public java.lang.String toString()
+
+CLSS public x.A
+cons public &lt;init&gt;()
+meth public static void abc()
+supr java.lang.Object
+</pre></div>
+<!-- class="example" -->
+<div class="example">
+<p class="titleinexample"><a id="Z40000131045116"></a>Example A-6 Contents of <code>./x1+x2.sig</code></p>
+<pre>
+#Signature file v4.0
+#Version 
+
+CLSS public java.lang.Object
+cons public &lt;init&gt;()
+meth protected java.lang.Object clone() throws java.lang.CloneNotSupportedException
+meth protected void finalize() throws java.lang.Throwable
+meth public boolean equals(java.lang.Object)
+meth public final java.lang.Class&lt;?&gt; getClass()
+meth public final void notify()
+meth public final void notifyAll()
+meth public final void wait() throws java.lang.InterruptedException
+meth public final void wait(long) throws java.lang.InterruptedException
+meth public final void wait(long,int) throws java.lang.InterruptedException
+meth public int hashCode()
+meth public java.lang.String toString()
+
+CLSS public x.A
+cons public &lt;init&gt;()
+meth public void abc()
+meth public void bar()
+meth public void foo()
+supr java.lang.Object
+</pre></div>
+<!-- class="example" --></div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" --></div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment24">
+<tr>
+<td class="cellalignment31">
+<table class="cellalignment29">
+<tr>
+<td class="cellalignment28"><a href="part4.htm"><img width="24" height="24" src="../../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment28"><a href="a_api_examples.htm"><img width="24" height="24" src="../../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2006, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment33">
+<table class="cellalignment27">
+<tr>
+<td class="cellalignment28"><a href="../../index.html"><img width="24" height="24" src="../../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment28"><a href="toc.htm"><img width="24" height="24" src="../../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment28"><a href="../../dcommon/html/feedback.htm"><img width="24" height="24" src="../../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

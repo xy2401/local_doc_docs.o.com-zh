@@ -1,0 +1,513 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="This section explains the features and tasks specific to Oracle EXAchk on Oracle Big Data Appliance.">
+      <meta name="description" content="This section explains the features and tasks specific to Oracle EXAchk on Oracle Big Data Appliance.">
+      <title>Oracle Big Data Appliance</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide">
+      <meta property="og:description" content="This section explains the features and tasks specific to Oracle EXAchk on Oracle Big Data Appliance.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-orachk-and-exachk-users-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:43:23-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2016, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E83827-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/exachk">
+      
+      <link rel="prev" href="oracle-exalytics.html" title="Previous" type="text/html">
+      <link rel="next" href="deprecated-features.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"exachk","element_name":"EXAchk","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® ORAchk and EXAchk User's Guide">
+    <meta name="dcterms.isVersionOf" content="OEXUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="oracle-exalytics.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="deprecated-features.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="oracle-exachk-specific-features-and-tasks.html" property="item" typeof="WebPage"><span property="name">Oracle EXAchk Specific Features and Tasks</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Oracle Big Data Appliance</li>
+            </ol>
+            <a id="GUID-7534A5C5-E51E-4341-9D7D-3E2A3215415E" name="GUID-7534A5C5-E51E-4341-9D7D-3E2A3215415E"></a>
+            
+            <h2 id="OEXUG-GUID-7534A5C5-E51E-4341-9D7D-3E2A3215415E" class="sect2"><span class="enumeration_section">3.6 </span>Oracle Big Data Appliance
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>This section explains the features and tasks specific to Oracle EXAchk on Oracle Big Data Appliance.</p>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="oracle-big-data.html#GUID-BC3B4FB6-B8F6-4463-83C4-DB5C695A8B76">Scope and Supported Platforms for Running Oracle EXAchk on Oracle Big Data Appliance</a><br>Oracle EXAchk for Oracle Big Data Appliance supports all Oracle Big Data Appliance versions later than 2.0.1.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-big-data.html#GUID-B6758920-CBA3-46F5-9C63-1716A3026F2F">Installing Oracle EXAchk on the Oracle Big Data Appliance</a><br>Follow these procedures to install Oracle EXAchk on the Oracle Big Data Appliance.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-big-data.html#GUID-15087BA4-EB1A-4FF7-AB97-11A8306A293E">Oracle EXAchk on Oracle Big Data Usage</a><br>Run the <code class="codeph">exachk -h</code> command to view the list of options supported for Oracle Big Data Appliance.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-big-data.html#GUID-E0F18005-6914-4998-82D6-5B587CBE1638">Oracle EXAchk on Oracle Big Data Output</a><br>Identify the checks that you must act immediately to remediate, or investigate further to assess the checks that can cause performance or stability issues.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-big-data.html#GUID-14EBB9E9-C4A2-4CCF-8A30-260270623A14">Troubleshooting Oracle EXAchk on Oracle BigData Appliance</a><br>In addition to the base troubleshooting, the following are also applicable to Oracle EXAchk on Oracle BigData.
+                  </li>
+               </ul>
+               <div class="relinfo">
+                  <p><strong>Related Topics</strong></p>
+                  <ul>
+                     <li><a href="oracle-orachk-and-exachk-common-features-tasks.html#GUID-50F7EA11-11FD-431C-B99A-EC9E2176BBDB" title="Oracle ORAchk and Oracle EXAchk share a common health check framework and a large portion of their features and tasks are common.">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</a></li>
+                  </ul>
+               </div>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="oracle-exachk-specific-features-and-tasks.html#GUID-FFA47C35-4BC4-4B58-9C6D-3115D069A5F1" title="Review this information on the features of Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance, Oracle Exalogic, Oracle SuperCluster, Oracle Exalytics, and Oracle Big Data Appliance.">Oracle EXAchk Specific Features and Tasks</a></p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="sect2"><a id="GUID-BC3B4FB6-B8F6-4463-83C4-DB5C695A8B76" name="GUID-BC3B4FB6-B8F6-4463-83C4-DB5C695A8B76"></a><h3 id="OEXUG-GUID-BC3B4FB6-B8F6-4463-83C4-DB5C695A8B76" class="sect3"><span class="enumeration_section">3.6.1 </span>Scope and Supported Platforms for Running Oracle EXAchk on Oracle Big Data Appliance
+               </h3>
+               <div>
+                  <p>Oracle EXAchk for Oracle Big Data Appliance supports all Oracle Big Data Appliance versions later than 2.0.1.</p>
+                  <p>Oracle EXAchk for Oracle Big Data Appliance audits important configuration settings within an Oracle Big Data Appliance. Oracle EXAchk examines the following components:</p>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p>CPU</p>
+                     </li>
+                     <li>
+                        <p>Hardware, firmware, and BIOS</p>
+                     </li>
+                     <li>
+                        <p>Operating System kernel parameters, system packages</p>
+                     </li>
+                     <li>
+                        <p>Ethernet network, InfiniBand switches</p>
+                     </li>
+                     <li>
+                        <p>RAM, hard disks</p>
+                     </li>
+                     <li>
+                        <p>Software Installed</p>
+                     </li>
+                  </ul>
+                  <div class="section">
+                     <p class="subhead2" id="GUID-BC3B4FB6-B8F6-4463-83C4-DB5C695A8B76__GUID-9574CC57-1352-42D5-8A43-77F4B098A602">Goals for Oracle Big Data Appliance Health Checks</p>
+                     <ol>
+                        <li>
+                           <p>Provide a mechanism to check the complete health of an Oracle Big Data Appliance on a proactive and reactive basis.</p>
+                        </li>
+                        <li>
+                           <p>Provide a “recommendation engine” for best practices and tips to fix Oracle Big Data Appliance known issues.</p>
+                        </li>
+                     </ol>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-BC3B4FB6-B8F6-4463-83C4-DB5C695A8B76__GUID-D9657648-70E3-4E83-ABC6-BBDF890524CE">Recommended Validation Frequency</p>
+                     <div class="p">Oracle recommends validating Oracle Big Data Appliance immediately after initial deployment, before and after any change, and at least once a quarter as part of planned maintenance operations. The runtime duration of Oracle EXAchk depends on the number of nodes to check, CPU load, network latency, and so on.
+                        <div class="infoboxnote" id="GUID-BC3B4FB6-B8F6-4463-83C4-DB5C695A8B76__GUID-E153950F-8788-44E7-AA9E-419090FCBFC3">
+                           <p class="notep1">Note:</p>
+                           <p>Plan to run Oracle EXAchk when there is less load on the Oracle Big Data Appliance.&nbsp;This helps you avoid runtime timeouts during health checks.</p>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-big-data.html#GUID-7534A5C5-E51E-4341-9D7D-3E2A3215415E" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Big Data Appliance.">Oracle Big Data Appliance</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-B6758920-CBA3-46F5-9C63-1716A3026F2F" name="GUID-B6758920-CBA3-46F5-9C63-1716A3026F2F"></a><h3 id="OEXUG-GUID-B6758920-CBA3-46F5-9C63-1716A3026F2F" class="sect3"><span class="enumeration_section">3.6.2 </span>Installing Oracle EXAchk on the Oracle Big Data Appliance
+               </h3>
+               <div>
+                  <p>Follow these procedures to install Oracle EXAchk on the Oracle Big Data Appliance.</p>
+                  <ol>
+                     <li class="stepexpand"><span>Download the&nbsp;<code>exachk.zip</code>&nbsp;file to a directory on the Oracle Big Data Appliance, as <code class="codeph">root</code> user.</span></li>
+                     <li class="stepexpand"><span>Extract the contents of&nbsp;<code>exachk.zip</code>.</span><div><pre class="pre codeblock"><code>$ unzip exachk.zip</code></pre></div>
+                     </li>
+                     <li class="stepexpand"><span>(recommended) Add the location of the <code>exachk</code> executable to the <code>/root/.bash_profile</code> &nbsp;file so that you can run Oracle EXAchk from anywhere.</span><div>
+                           <p>For example:</p>
+                           <div class="p">From:<pre class="pre codeblock"><code># User specific environment and startup programs
+PATH=$PATH:$HOME/bin
+</code></pre></div>
+                           <div class="p">To:<pre class="pre codeblock"><code># User specific environment and startup programs
+PATH=$PATH:$HOME/bin: <span class="variable" translate="no">path to exachk</span>
+</code></pre></div>
+                           <div class="p">If <code>exachk</code> is installed in <code>/root/exachk_home</code>, then update the <code>/root/.bash_profile</code> file as follows:<pre class="pre codeblock"><code>PATH=$PATH:$HOME/bin:/root/exachk_home</code></pre></div>
+                        </div>
+                     </li>
+                  </ol>
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-big-data.html#GUID-7534A5C5-E51E-4341-9D7D-3E2A3215415E" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Big Data Appliance.">Oracle Big Data Appliance</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-15087BA4-EB1A-4FF7-AB97-11A8306A293E" name="GUID-15087BA4-EB1A-4FF7-AB97-11A8306A293E"></a><h3 id="OEXUG-GUID-15087BA4-EB1A-4FF7-AB97-11A8306A293E" class="sect3"><span class="enumeration_section">3.6.3 </span>Oracle EXAchk on Oracle Big Data Usage
+               </h3>
+               <div>
+                  <p>Run the <code class="codeph">exachk -h</code> command to view the list of options supported for Oracle Big Data Appliance.
+                  </p>
+                  <div class="p">
+                     <div class="infoboxnote" id="GUID-15087BA4-EB1A-4FF7-AB97-11A8306A293E__GUID-A52DCCC4-E73C-478F-A78F-3BAC3D53D0DD">
+                        <p class="notep1">Note:</p>
+                        <p>Run Oracle EXAchk as <code class="codeph">root</code> from <span class="variable" translate="no">node1</span> of the Oracle Big Data Appliance cluster.
+                        </p>
+                        <p>Most data collection options require password for each InfiniBand switch. This is required, if there is no SSH user&nbsp;equivalency from running compute node to switch.</p>
+                     </div>
+                  </div>
+                  <ol>
+                     <li>
+                        <div class="p">To view the command options, run the following command as <code class="codeph">root</code> or non-root user:<pre class="pre codeblock"><code>./exachk -h
+  
+Usage : ./exachk [-abvhpfmsuSo:c:t:]
+        -a      All (Perform best practice check and recommended patch check)
+        -b      Best Practice check only. No recommended patch check
+        -h      Show usage
+        -v      Show version
+         ...
+</code></pre></div>
+                     </li>
+                  </ol>
+                  <p><span class="bold">List of Oracle EXAchk options supported for Oracle Big Data Appliance:</span></p><pre class="pre codeblock"><code>        -a      (Perform best practice check and recommended patch check.  This is the default option.  If no options are specified exachk runs with -a)
+        -b      Best Practice check only. No recommended patch check
+        -h      Show usage
+        -v      Show version
+        -m      exclude checks for Maximum Availability Architecture (MAA) scorecards(see user guide for more details)
+        -o      Argument to an option. if -o is followed by v,V,Verbose,VERBOSE or Verbose, it will print checks which 	passes on the screen
+                 if -o option is not specified,it will print only failures on screen. for eg: exachk -a -o v
+        -clusternodes
+                Pass comma separated node names to run exachk only on subset of nodes.
+        -localonly
+                Run exachk only on local node.
+
+        -debug  Run exachk in debug mode. Debug log will be generated.
+                eg:- ./exachk -debug 
+                Output goes to stdout as well as generated log files
+
+        -nopasd  Skip PASS'ed check to print in exachk report and upload to database. 
+
+        -noscore  Do not print healthscore in HTML report.
+        -diff &lt;Old Report&gt; &lt;New Report&gt; [-outfile &lt;Output HTML&gt;]
+                Diff two exachk reports. Pass directory name or zip file or html report file as &lt;Old Report&gt; &amp; &lt;New Report&gt;
+        -&lt;initsetup|initrmsetup|initcheck|initpresetup&gt;
+                initsetup       : Setup auto restart. Auto restart functionality automatically brings up exachk daemon when node starts
+                initrmsetup   : Remove auto restart functionality
+                initcheck       : Check if auto restart functionality is setup or not
+         -d &lt;start|start -debug|stop|status|info|stop_client|nextautorun&gt;
+                start           : Start the exachk daemon
+                start -debug     : Start the exachk daemon in debug mode
+                stop            : Stop the exachk daemon
+                status          : Check if the exachk daemon is running
+        -daemon
+                run exachk only if daemon is running
+
+       -nodaemon
+                Dont use daemon to run exachk
+
+       -set
+                configure exachk daemon parameter like "param1=value1;param2=value2... "
+
+                 Supported parameters are:-
+
+                 AUTORUN_FLAGS &lt;flags&gt; : exachk flags to use for auto runs.
+
+                     example: exachk -set "AUTORUN_FLAGS=-profile sysadmin" to run sysadmin profile every 12 hours
+
+                              exachk -set "AUTORUN_FLAGS=-profile dba" to run dba profile once every 2 days.
+
+                 NOTIFICATION_EMAIL : Comma separated list of email addresses used for notifications by daemon if mail server is configured.
+
+                 PASSWORD_CHECK_INTERVAL &lt;number of hours&gt; : Interval to verify passwords in daemon mode
+
+                 collection_retention &lt;number of days&gt; : Purge exachk collection directories and zip files older than specified days.
+       -unset &lt;parameter&gt;
+                unset the parameter
+                  example: exachk -unset "AUTORUN_SCHEDULE"
+
+       -get parameter | all
+                Print the value of parameter
+        -excludeprofile
+                Pass specific profile.
+                List of supported profiles is same as for -profile.
+
+       -merge
+                Pass comma separated collection names(directory or zip files) to merge collections and prepare single report.
+                eg:- ./exachk -merge exachk_hostname1_db1_120213_163405.zip,exachk_hostname2_db2_120213_164826.zip
+       -profile Pass specific profile.
+                 List of supported profiles for BDA:
+                 switch          Infiniband switch checks
+                 sysadmin     sysadmin checks
+       
+       -ibswitches
+                Pass comma separated infiniband switch names to run exachk only on selected infiniband switches.</code></pre><div class="p">
+                     <div class="infoboxnote" id="GUID-15087BA4-EB1A-4FF7-AB97-11A8306A293E__GUID-99304F14-9753-4F73-BE4F-EF568D967C0B">
+                        <p class="notep1">Note:</p>
+                        <p>If you run any other profiles that are not listed above, then Oracle EXAchk returns an error as follows:</p><pre class="oac_no_warn" dir="ltr">&lt;profile_name&gt; is not supported component. EXAchk will run generic checks for components identified from environment</pre></div>
+                  </div>
+                  <div class="p">For example, to perform all checks including best practice checks and recommendations, run:<pre class="pre codeblock"><code># ./exachk -a</code></pre><div class="infoboxnote" id="GUID-15087BA4-EB1A-4FF7-AB97-11A8306A293E__GUID-467B8F83-14CA-4CE9-9777-5760AF35E976">
+                        <p class="notep1">Note:</p>
+                        <p>If you do not specify any options, then Oracle EXAchk runs with the <code class="codeph">-a</code> by default.
+                        </p>
+                     </div>
+                  </div>
+                  <div class="p">Output looks&nbsp;similar to the following:<pre class="pre codeblock"><code>Checking ssh user equivalency settings on all nodes in cluster
+
+Node &lt;BDANode01&gt; is configured for ssh user equivalency for root user
+...
+
+Node &lt;BDANode0n&gt; is configured for ssh user equivalency for root user
+
+Copying plug-ins
+. . . . . . . . . . . . . . . . . . . . . . . . . . .
+. . . . . . . . . .
+
+
+9 of the included audit checks require root privileged data collection on INFINIBAND SWITCH .
+
+1. Enter 1 if you will enter root password for each INFINIBAND SWITCH when prompted
+
+2. Enter 2 to exit and to arrange for root access and run the exachk later.
+
+3. Enter 3 to skip checking best practices on INFINIBAND SWITCH
+
+Please indicate your selection from one of the above options for INFINIBAND SWITCH[1-3][1]:- 1
+
+Is root password same on all INFINIBAND SWITCH ?[y/n][y]y
+
+Enter root password for INFINIBAND SWITCH :-
+
+Verifying root password.
+. . .
+
+*** Checking Best Practice Recommendations (PASS/WARNING/FAIL) ***
+
+Collections and audit checks log file is
+/&lt;dir&gt;/exachk_&lt;BDANode0x_040414_091246/log/exachk.log
+Starting to run exachk in background on &lt;BDANode01&gt;
+...
+Starting to run exachk in background on &lt;BDANode0n&gt;
+
+=============================================================
+                    Node name - &lt;BDANode01&gt;
+=============================================================
+
+Collecting - Verify ASR configuration check via ASREXACHECK
+
+Starting to run root privileged commands in background on INFINIBAND SWITCH &lt;RackName&gt;sw-ib1.
+
+Starting to run root privileged commands in background on INFINIBAND SWITCH &lt;RackName&gt;sw-ib2.
+
+Starting to run root privileged commands in background on INFINIBAND SWITCH &lt;RackName&gt;sw-ib3.
+
+Collections from INFINIBAND SWITCH:
+------------------------------------
+Collecting - Infiniband Switch NTP configuration
+Collecting - Infiniband switch HOSTNAME configuration
+Data collections completed. Checking best practices on BDANode01&gt;
+--------------------------------------------------------------------------------------
+ ...
+
+Copying results from &lt;BDANode02&gt; and generating report. This might take a while. Be patient.
+
+=============================================================
+                    Node name - &lt;BDANode02&gt;
+=============================================================
+
+Collecting - Verify ASR configuration check via ASREXACHECK
+
+Data collections completed. Checking best practices on BDANode02&gt;
+--------------------------------------------------------------------------------------
+...
+---------------------------------------------------------------------------------
+
+Detailed report (html) - /&lt;dir&gt;/exachk_&lt;BDANode01&gt;_040414_091246/exachk_&lt;BDANode01&gt;_040414_091246.html
+
+
+UPLOAD(if required) - /&lt;dir&gt;/exachk_&lt;BDANode01&gt;_040414_091246.zip
+</code></pre></div>
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-big-data.html#GUID-7534A5C5-E51E-4341-9D7D-3E2A3215415E" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Big Data Appliance.">Oracle Big Data Appliance</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-E0F18005-6914-4998-82D6-5B587CBE1638" name="GUID-E0F18005-6914-4998-82D6-5B587CBE1638"></a><h3 id="OEXUG-GUID-E0F18005-6914-4998-82D6-5B587CBE1638" class="sect3"><span class="enumeration_section">3.6.4 </span>Oracle EXAchk on Oracle Big Data Output
+               </h3>
+               <div>
+                  <p>Identify the checks that you must act immediately to remediate, or investigate further to assess the checks that can cause performance or stability issues.</p>
+                  <p>The following message statuses are specific to Oracle EXAchk on Oracle Big Data:</p>
+                  <div class="section">
+                     <p class="subhead2" id="GUID-E0F18005-6914-4998-82D6-5B587CBE1638__GUID-B2BE36C1-F851-497D-B391-4F7564769400">Oracle EXAchk on Oracle Big Data Message Definitions</p>
+                     <div class="tblformal" id="GUID-E0F18005-6914-4998-82D6-5B587CBE1638__GUID-B20A1DC8-F665-428D-9F5B-20670641D765">
+                        <p class="titleintable">Table 3-13 Oracle EXAchk on Oracle Big Data Message Definitions</p>
+                        <table cellpadding="4" cellspacing="0" class="Formal" title="Oracle EXAchk on Oracle Big Data Message Definitions" summary="This table describes what you can infer from the messages status." frame="hsides" border="1" rules="rows">
+                           <thead>
+                              <tr align="left" valign="top">
+                                 <th align="left" valign="bottom" width="20%" id="d62143e332">Message Status</th>
+                                 <th align="left" valign="bottom" width="20%" id="d62143e334">Description or Possible Impact</th>
+                                 <th align="left" valign="bottom" width="20%" id="d62143e336">Action to be Taken</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d62143e340" headers="d62143e332 ">
+                                    <p>FAIL</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d62143e340 d62143e334 ">
+                                    <p>Shows checks that did not pass due to issues.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d62143e340 d62143e336 ">
+                                    <p>Address the issue immediately.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d62143e350" headers="d62143e332 ">
+                                    <p>WARNING</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d62143e350 d62143e334 ">
+                                    <p>Shows checks that can cause performance or stability issues if not addressed.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d62143e350 d62143e336 ">
+                                    <p>Investigate the issue further.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d62143e360" headers="d62143e332 ">
+                                    <p>INFO</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d62143e360 d62143e334 ">
+                                    <p>Indicates information about the system.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d62143e360 d62143e336 ">
+                                    <p>Read the information displayed in these checks and follow the instructions provided, if any.</p>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- class="inftblhruleinformal" -->
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="understanding-and-managing-reports-and-output.html#GUID-A5C2EA79-4935-44A1-8C3D-8A1E02CCC0A6" title="Hide individual findings from the report using Remove findings .">How to Remove Checks from an Existing HTML Report</a></li>
+                        <li><a href="understanding-and-managing-reports-and-output.html#GUID-2754E64A-BBE8-4F35-8D6A-C67B3A3B9974">HTML Report Output</a></li>
+                        <li><a href="understanding-and-managing-reports-and-output.html#GUID-D39A97FB-8185-43EC-9F56-D0663201EF68" title="Oracle ORAchk and Oracle EXAchk automatically compare the two most recent HTML reports and generate a third diff report, when run in automated daemon mode.">Comparing Two Reports</a></li>
+                        <li><a href="health-check-catalog.html#GUID-B26FAD6B-4D22-40FF-ADC8-0319010DB2C2" title="The Health Check Catalogs list the health checks that are included within Oracle ORAchk or Oracle EXAchk.">Health Check Catalog</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-big-data.html#GUID-7534A5C5-E51E-4341-9D7D-3E2A3215415E" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Big Data Appliance.">Oracle Big Data Appliance</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-14EBB9E9-C4A2-4CCF-8A30-260270623A14" name="GUID-14EBB9E9-C4A2-4CCF-8A30-260270623A14"></a><h3 id="OEXUG-GUID-14EBB9E9-C4A2-4CCF-8A30-260270623A14" class="sect3"><span class="enumeration_section">3.6.5 </span>Troubleshooting Oracle EXAchk on Oracle BigData Appliance
+               </h3>
+               <div>
+                  <p>In addition to the base troubleshooting, the following are also applicable to Oracle EXAchk on Oracle BigData.</p>
+                  <p>If you face any problems running Oracle EXAchk, then create a service request through My Oracle Support.</p>
+                  <p>Refer to My Oracle Support Note&nbsp;1643715.1 for the latest known issues specific to Oracle EXAchk on Oracle BigData Appliance:</p>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="oracle-big-data.html#GUID-9F1903AC-BF08-4CDB-99E4-B0F32757DA67">Timeouts Checking Switches</a><br></li>
+                  </ul>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="oracle-exalytics.html#GUID-4FBC3CEF-E81B-4473-BDEC-415FDC7A11AE">Runtime Command Timeouts</a></li>
+                        <li><a href="https://support.oracle.com/rs?type=doc&amp;amp;id=1643715.1" target="_blank">https://support.oracle.com/rs?type=doc&amp;id=1643715.1</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-big-data.html#GUID-7534A5C5-E51E-4341-9D7D-3E2A3215415E" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Big Data Appliance.">Oracle Big Data Appliance</a></p>
+                     </div>
+                  </div>
+               </div>
+               <div class="sect3"><a id="GUID-9F1903AC-BF08-4CDB-99E4-B0F32757DA67" name="GUID-9F1903AC-BF08-4CDB-99E4-B0F32757DA67"></a><h4 id="OEXUG-GUID-9F1903AC-BF08-4CDB-99E4-B0F32757DA67" class="sect4"><span class="enumeration_section">3.6.5.1 </span>Timeouts Checking Switches
+                  </h4>
+                  <div>
+                     <p></p>
+                     <div class="section">
+                        <p>If there is a slow SSH on a given switch, then Oracle EXAchk throws an error:</p><pre class="oac_no_warn" dir="ltr">Starting to run root privileged commands in background on INFINIBAND SWITCH &lt;cluster&gt;sw-ib1.
+
+Timed out
+Unable to create temp directory on &lt;cluster&gt;sw-ib1
+
+Skipping root privileged commands on INFINIBAND SWITCH &lt;cluster&gt; sw-ib1 is 
+available but SSH is blocked.</pre><p>To resolve, increase the SSH timeout using Oracle EXAchk environment variable.</p>
+                     </div>
+                     <!-- class="section" -->
+                     <ol>
+                        <li class="stepexpand"><span>Reset the environment variable <code class="codeph">RAT_PASSWORDCHECK_TIMEOUT</code>:</span><div><pre class="pre codeblock"><code># set RAT_PASSWORDCHECK_TIMEOUT=40</code></pre></div>
+                        </li>
+                        <li class="stepexpand"><span>Rerun Oracle EXAchk.</span><div><pre class="pre codeblock"><code># ./exachk -a</code></pre></div>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-big-data.html#GUID-14EBB9E9-C4A2-4CCF-8A30-260270623A14" title="In addition to the base troubleshooting, the following are also applicable to Oracle EXAchk on Oracle BigData.">Troubleshooting Oracle EXAchk on Oracle BigData Appliance</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

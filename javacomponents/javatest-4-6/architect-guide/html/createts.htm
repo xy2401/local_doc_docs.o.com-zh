@@ -1,0 +1,733 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>Creating a Test Suite</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = document) - Version 1.0.24" />
+<meta name="date" content="2014-08-01T11:38:0Z" />
+<meta name="robots" content="noarchive" />
+<meta name="doctitle" content="Creating a Test Suite" />
+<meta name="relnum" content="JavaTest Harness 4.6" />
+<meta name="partnum" content="E20663-04" />
+<link rel="copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+<link rel="stylesheet" href="../../dcommon/css/blafdoc.css" title="Oracle BLAFDoc" type="text/css" />
+<link rel="contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="index" href="index.htm" title="Index" type="text/html" />
+<link rel="prev" href="concepts.htm" title="Previous" type="text/html" />
+<link rel="next" href="tests.htm" title="Next" type="text/html" />
+
+                    <script>var w=window;if(w.performance||w.mozPerformance||w.msPerformance||w.webkitPerformance){var d=document;AKSB=w.AKSB||{},AKSB.q=AKSB.q||[],AKSB.mark=AKSB.mark||function(e,_){AKSB.q.push(["mark",e,_||(new Date).getTime()])},AKSB.measure=AKSB.measure||function(e,_,t){AKSB.q.push(["measure",e,_,t||(new Date).getTime()])},AKSB.done=AKSB.done||function(e){AKSB.q.push(["done",e])},AKSB.mark("firstbyte",(new Date).getTime()),AKSB.prof={custid:"322179",ustr:"",originlat:"0",clientrtt:"1",ghostip:"23.212.3.15",ipv6:false,pct:"10",clientip:"45.78.37.67",requestid:"29b71909",region:"32996",protocol:"",blver:14,akM:"dsca",akN:"ae",akTT:"O",akTX:"1",akTI:"29b71909",ai:"206465",ra:"false",pmgn:"",pmgi:"",pmp:"",qc:""},function(e){var _=d.createElement("script");_.async="async",_.src=e;var t=d.getElementsByTagName("script"),t=t[t.length-1];t.parentNode.insertBefore(_,t)}(("https:"===d.location.protocol?"https:":"http:")+"//ds-aksb-a.akamaihd.net/aksb.min.js")}</script>
+                    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<div class="header"><a id="top" name="top"></a>
+<div class="zz-skip-header"><a href="#BEGIN">Skip Headers</a></div>
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td align="left" valign="top"><b>JavaTest Harness Architect's Guide,</b><br />
+<b>JavaTest Harness 4.6 for the Java Platform</b><br />
+E20663-04</td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+<td align="center" valign="top"><a href="toc.htm"><img src="../../dcommon/gifs/toc.gif" alt="Go To Table Of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td align="center" valign="top"><a href="index.htm"><img src="../../dcommon/gifs/index.gif" alt="Go To Index" /><br />
+<span class="icon">Index</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<tr>
+<td align="center"><a href="concepts.htm"><img src="../../dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="tests.htm"><img src="../../dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<a name="BEGIN" id="BEGIN"></a></div>
+<!-- class="header" -->
+<div class="ind"><!-- End Header --><a id="CJBGJHDB" name="CJBGJHDB"></a>
+<h1 class="chapter"><span class="secnum">4</span> Creating a Test Suite</h1>
+<p><a id="sthref65" name="sthref65"></a><a id="sthref66" name="sthref66"></a>This chapter leads you through the process of creating a very small working test suite quickly and easily by following step-by-step instructions. To simplify the process, conceptual information is generally not provided but is available in later chapters.</p>
+<p>The test suite you create here can serve as the basis for your entire test suite. If your tests have no special requirements that the Standard Test Finder and Standard Test Script cannot accommodate, you may be able to create your product test suite by simply adding additional tests and creating a configuration interview to gather the information required to execute your tests.</p>
+<p>Notes:</p>
+<ul>
+<li>
+<p>The instructions in this chapter assume that you have completed the tutorial in <a href="tutorial.htm#CJBFADIE">Chapter 2</a> and that you have read <a href="concepts.htm#CJBEEGAG">Chapter 3</a>.</p>
+</li>
+<li>
+<p>The instructions also assume that you are familiar with basic operating system commands on your system.</p>
+</li>
+<li>
+<p>In the examples, path names are given using the "<code>\</code>" file separator. If your system uses a different file separator, please substitute it where appropriate.</p>
+</li>
+</ul>
+<p>This chapter describes how to:</p>
+<ol>
+<li>
+<p>Create a test suite directory</p>
+</li>
+<li>
+<p>Create a <code>testsuite.jtt</code> file</p>
+</li>
+<li>
+<p>Copy <code>javatest.jar</code> to the test suite <code>lib</code> directory</p>
+</li>
+<li>
+<p>Add appropriate classes to the <code>classes</code> directory</p>
+</li>
+<li>
+<p>Create a test</p>
+</li>
+<li>
+<p>Run the test suite</p>
+</li>
+</ol>
+<p>Other issues of interest regarding test suite creation are discussed at the end of the chapter.</p>
+<a id="Z400361a1010151" name="Z400361a1010151"></a>
+<div class="sect1">
+<h2 class="sect1">Create a Test Suite</h2>
+<p>To create a test suite, follow the steps in these simple tasks.</p>
+<ol>
+<li>
+<p><a href="#CJBCHABE">Create a Test Suite Directory</a></p>
+</li>
+<li>
+<p><a href="#CJBEHJFG">Create the testsuite.jtt File</a></p>
+</li>
+<li>
+<p><a href="#CJBBEBBF">Copy <code>javatest.jar</code></a></p>
+</li>
+<li>
+<p><a href="#CJBFEJCH">Set Up the <code>classes</code> Directory</a></p>
+</li>
+<li>
+<p><a href="#CJBGJHAD">Use a Simple Test Template</a></p>
+</li>
+<li>
+<p><a href="#CJBBEGDI">Create and Compile a Simple Test Example</a></p>
+</li>
+</ol>
+<a id="CJBCHABE" name="CJBCHABE"></a>
+<div class="sect2">
+<h3 class="sect2">Create a Test Suite Directory</h3>
+<p>Create the directory and sub-directories for your test suite.</p>
+<ol>
+<li><a id="Z400361a1009774" name="Z400361a1009774"></a>
+<p>Create the top-level test suite directory.</p>
+<p>Create the directory somewhere convenient in your file system. This directory is referred to as <span class="italic">ts_dir</span> for the remainder of this chapter.</p>
+</li>
+<li><a id="Z400361a1009780" name="Z400361a1009780"></a>
+<p>Under <span class="italic">ts_dir</span>, create sub-directories named <code>tests</code>, <code>lib</code>, and <code>classes</code>.</p>
+</li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<a id="CJBEHJFG" name="CJBEHJFG"></a>
+<div class="sect2">
+<h3 class="sect2">Create the testsuite.jtt File</h3>
+<p><a id="sthref67" name="sthref67"></a><a id="sthref68" name="sthref68"></a>As described in <a href="concepts.htm#CJBEEGAG">Chapter 3</a>, the JavaTest harness reads the <code>testsuite.jtt</code> file to find out information about your test suite. The following steps describe how to create the <code>testsuite.jtt</code> file for this test suite.</p>
+<ol>
+<li><a id="Z400361a1009789" name="Z400361a1009789"></a>
+<p>Make <span class="italic">ts_dir</span> the current directory.</p>
+</li>
+<li><a id="Z400361a1009795" name="Z400361a1009795"></a>
+<p>Create the <code>testsuite.jtt</code> file.</p>
+<p>Enter the following information into a text editor:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+# Test Suite properties file for DemoTCK test suite 
+# with tag-style tests
+name=My Test Suite
+id=1.0
+finder=com.sun.javatest.finder.TagTestFinder
+script=com.sun.javatest.lib.StdTestScript
+interview=com.sun.javatest.interview.SimpleInterviewParameters
+</pre>
+<p>You can substitute your own string values for the <code>name</code> and <code>id</code> properties.</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p><a id="sthref69" name="sthref69"></a><a id="sthref70" name="sthref70"></a>The <code>classpath</code> entry is not used here because the Standard Test Finder, Standard Test Script, and Simple Interview classes are all contained within <code>javatest.jar</code> which is automatically on the class path. If you create your own components, you must include the <code>classpath</code> entry to point to the JAR file that contains these classes. See <a href="testsuite.htm#BBJJGDAD">Chapter 8</a> for more information about the <code>testsuite.jtt</code> file.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+<p>Save the file as <span class="italic">ts_dir</span><code>\testsuite.jtt.</code></p>
+</li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<a id="CJBBEBBF" name="CJBBEBBF"></a>
+<div class="sect2">
+<h3 class="sect2">Copy <code>javatest.jar</code></h3>
+<p>The test suite works best if there is a copy of the <code>javatest.jar</code> file in the <code>lib</code> directory of the test suite; this enables the JavaTest harness to automatically locate the test suite.</p>
+<ol>
+<li><a id="Z400361a1013411" name="Z400361a1013411"></a>
+<p><span class="bold">Copy</span> <code>javatest.jar</code> <span class="bold">from</span> <span class="italic">jt_install</span><code>\examples\javatest\simpleTags\demotck\lib</code> <span class="bold">to</span> <span class="italic">ts_dir</span><code>\lib</code>.</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>The <code>javatest.jar</code> file contains the <code>SimpleInterview</code> class that is used with this test suite (<code>com.sun.javatest.SimpleInterview.Parameters</code>). As your test suite becomes more complicated and customized, you may need to create a custom interview. See <a href="interview.htm#BBJGIBFG">Chapter 6</a> for more information.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<a id="CJBFEJCH" name="CJBFEJCH"></a>
+<div class="sect2">
+<h3 class="sect2">Set Up the <code>classes</code> Directory</h3>
+<p><a id="sthref71" name="sthref71"></a>In order to execute, tests must have access to some of the classes contained in <code>javatest.jar</code>. Extracting these classes eliminates the need for each test to have <code>javatest.jar</code> on its class path. The the most convenient location to place these classes is the <span class="italic">ts_dir</span><code>\classes</code> directory.</p>
+<ol>
+<li><a id="Z400361a1009801" name="Z400361a1009801"></a>
+<p>Make <span class="italic">ts_dir</span><code>\classes</code> the current directory.</p>
+</li>
+<li><a id="Z400361a1009807" name="Z400361a1009807"></a>
+<p>Verify that the Java SE platform (version 1.6 or later) is in your path.</p>
+<p>At a command prompt, enter:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+C:\&gt; <code>java -version</code>
+</pre></li>
+<li><a id="CJBBBGFF" name="CJBBBGFF"></a>
+<p>From <code>javatest.jar</code>, extract the classes required to run the tests.</p>
+<p>Use the following command line:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>jar -xvf ..\lib\javatest.jar com\sun\javatest\Test.class</code>
+<code>com\sun\javatest\Status.class</code>
+</pre>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>As your test suite become more complex, you may have to add additional libraries to the <code>classes</code> directory.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<a id="CJBGJHAD" name="CJBGJHAD"></a>
+<div class="sect2">
+<h3 class="sect2">Use a Simple Test Template</h3>
+<p><a id="sthref72" name="sthref72"></a><a id="sthref73" name="sthref73"></a>The following instructions describe how to create a very simple test to add to your test suite. For more detailed instructions about writing TCK tests, see the <span class="italic">Test Suite Developers Guide</span>.</p>
+<ol>
+<li><a id="Z400361a1009820" name="Z400361a1009820"></a>
+<p>Make <span class="italic">ts_dir</span><code>\tests</code> the current directory.</p>
+</li>
+<li><a id="Z400361a1009826" name="Z400361a1009826"></a>
+<p>Enter the test code into your favorite text editor.</p>
+<p>The following template can be used as the basis for writing simple tests:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>import java.io.PrintWriter;</code>
+<code>import com.sun.javatest.Status;</code>
+<code>import com.sun.javatest.Test;</code>
+<code>/** @test</code>
+  * @executeClass MyTest
+  * @sources MyTest.java
+ **/
+<code>public class </code>MyTest<code> implements Test{</code>
+<code>    public static void main(String[] args) {</code>
+<code>        PrintWriter err = new PrintWriter(System.err, true);</code>
+<code>        Test t = new </code>MyTest<code>();</code>
+<code>        Status s = t.run(args, null, err);</code>
+<code>        s.exit();</code>
+<code>    }</code>
+<code>    public Status run(String[] args, PrintWriter log1, PrintWriterlog2) {</code>
+<code>        Status result;</code>
+        // your test code here ...
+<code>        return result;</code>
+<code>    }</code>
+<code>}</code>
+</pre>
+<p>Note that the section delimited with the <code>/**</code> <code>**/</code> characters is the test description portion of the test. It must be present for the JavaTest harness to locate and recognize the test. You will change all instances of <code>MyTest</code>, and replace the line <code>// your test code here...</code> with your own code. The following table describes the test description entries recognized by the Standard Test Script:</p>
+<div class="inftblhruleinformalwide">
+<table class="HRuleInformalWide" summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="19%" />
+<col width="*" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t5">Test Description Entry</th>
+<th align="left" valign="bottom" id="r1c2-t5">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t5" headers="r1c1-t5">
+<p><a id="sthref74" name="sthref74"></a><a id="sthref75" name="sthref75"></a>test</p>
+</td>
+<td align="left" headers="r2c1-t5 r1c2-t5">
+<p>Identifies the comment block as a test description and the containing file as a test</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t5" headers="r1c1-t5">
+<p><a id="sthref76" name="sthref76"></a><a id="sthref77" name="sthref77"></a>executeClass</p>
+</td>
+<td align="left" headers="r3c1-t5 r1c2-t5">
+<p>Specifies the name of the test's executable class file (assumed to be located in the <code>classes</code> directory)</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t5" headers="r1c1-t5">
+<p><a id="sthref78" name="sthref78"></a><a id="sthref79" name="sthref79"></a>executeArgs</p>
+</td>
+<td align="left" headers="r4c1-t5 r1c2-t5">
+<p>Specifies arguments (if any) that the test accepts</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t5" headers="r1c1-t5">
+<p><a id="sthref80" name="sthref80"></a><a id="sthref81" name="sthref81"></a>sources</p>
+</td>
+<td align="left" headers="r5c1-t5 r1c2-t5">
+<p>Names the source files required to compile the test. This entry is required if you use the JavaTest harness to compile your tests. See <a href="compile.htm#CGFCDEDA">Chapter 7</a> for more information. This tag is also used by the JavaTest harness to display a test's sources in the Files tab of the Test pane.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r6c1-t5" headers="r1c1-t5">
+<p>keywords</p>
+</td>
+<td align="left" headers="r6c1-t5 r1c2-t5">
+<p>Specifies user-defined keywords that direct the JavaTest harness to include or exclude tests from a test run.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblhruleinformalwide" -->
+<p>You can create simple tests by replacing the comment:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>// your test code here ...</code>
+</pre>
+<p>with code that tests your API. Note that the test must return a <code>Status</code> object as a result.</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>You can find examples of simple tests at: <span class="italic">jt_install</span><code>\examples\javatest\simpleTags\demotck\tests</code></p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<a id="CJBBEGDI" name="CJBBEGDI"></a>
+<div class="sect2">
+<h3 class="sect2">Create and Compile a Simple Test Example</h3>
+<p>The following sample is a <span class="italic">very</span> simple test you can use to get started.</p>
+<ol>
+<li><a id="Z400361a1009833" name="Z400361a1009833"></a>
+<p>Save the following file as <code>MyTest.java</code>.</p>
+<p>Be sure to copy the <span class="italic">entire</span> file, including the test description delimited with the <code>/**</code> <code>**/</code> characters</p>
+<pre xml:space="preserve" class="oac_no_warn">
+import java.io.PrintWriter;
+import com.sun.javatest.Status;
+import com.sun.javatest.Test;
+ 
+/** @test    
+  * @executeClass MyTest
+  * @sources MyTest.java
+ **/
+ 
+public class MyTest implements Test {
+    public static void main(String[] args) {
+        PrintWriter err = new PrintWriter(System.err, true);
+        Test t = new MyTest();
+        Status s = t.run(args, null, err);
+        s.exit();
+    }
+ 
+    public Status run(String[] args, PrintWriter log1, PrintWriter log2) {
+        Status result;
+        if (1 + 1 == 2)
+            result = Status.passed("OK");
+        else
+            result = Status.failed("Oops");
+        return result;
+    }
+}
+</pre></li>
+<li><a id="Z400361a1009839" name="Z400361a1009839"></a>
+<p>Compile <code>MyTest.java</code>.</p>
+<p>Use the following command on WIN32 systems:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>C:\&gt; javac -d </code><code>..</code><code>\classes -classpath </code><code>..</code><code>\classes MyTest.java</code>
+</pre>
+<p>Use the following command on Solaris or Linux systems:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>% javac -d ../classes -classpath ../classes MyTest.java</code>
+</pre>
+<p><code>MyTest.class</code> is created in the <span class="italic">ts_dir</span><code>\classes</code> directory. As you add more and more tests you should organize them hierarchically in subdirectories.</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>As you add more and more tests, you may want to use the JavaTest harness to compile the tests. For more information, see <a href="compile.htm#CGFCDEDA">Chapter 7</a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<a id="Z400361a1010015" name="Z400361a1010015"></a>
+<div class="sect2">
+<h3 class="sect2">Run a Test Suite</h3>
+<p>You are now ready to run the test suite.</p>
+<ol>
+<li><a id="Z400361a1009852" name="Z400361a1009852"></a>
+<p>Make <span class="italic">ts_dir</span> the current directory.</p>
+</li>
+<li><a id="Z400361a1009858" name="Z400361a1009858"></a>
+<p>Start the JavaTest harness.</p>
+<p>At a command prompt enter:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>c:\&gt; java -jar lib\javatest.jar -newdesktop</code>
+</pre>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p><a id="sthref82" name="sthref82"></a>The <code>-newdesktop</code> option is used here to ensure that the JavaTest harness starts up like it did in the tutorial &mdash; under normal circumstances you should <span class="italic">not</span> use this option. For information about JavaTest options, see the online help.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</li>
+<li><a id="Z400361a1009866" name="Z400361a1009866"></a>
+<p>Run the tests the same way you ran the tests in <a href="tutorial.htm#CJBFADIE">Chapter 2</a>.</p>
+<p>The configuration interview for this test suite contains a question not included in the tutorial configuration interview. Use the following information to answer the question:</p>
+<div class="inftblhruleinformal">
+<table class="HRuleInformal" summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="16%" />
+<col width="20%" />
+<col width="*" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t9">Question Title</th>
+<th align="left" valign="bottom" id="r1c2-t9">Answer</th>
+<th align="left" valign="bottom" id="r1c3-t9">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t9" headers="r1c1-t9">
+<p>Class Path</p>
+</td>
+<td align="left" headers="r2c1-t9 r1c2-t9">
+<p><span class="italic">ts_dir</span><code>\classes</code></p>
+</td>
+<td align="left" headers="r2c1-t9 r1c3-t9">
+<p>The test uses library classes located in the <code>classes</code> directory.</p>
+<p>Click the Add button to activate a file chooser. Select the classes directory and click the <a id="sthref83" name="sthref83"></a>Add File button.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblhruleinformal" --></li>
+</ol>
+</div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="Z400361a1010280" name="Z400361a1010280"></a>
+<div class="sect1">
+<h2 class="sect1">Odds and Ends</h2>
+<p>This section takes a closer look at the components that make up a typical test suite and how they are organized. In addition, the various class paths required to run the JavaTest harness, the agent, and tests classes are discussed.</p>
+<p>Note that much of the organization described here is optional; however, experience has shown that it works well for most test suites.</p>
+<a id="Z400361a1010062" name="Z400361a1010062"></a>
+<div class="sect2">
+<h3 class="sect2">Top-Level Test Suite Directory</h3>
+<p>The top-level test suite directory generally contains the following files and directories:</p>
+<div class="tblhruleformalwide"><a id="sthref84" name="sthref84"></a><a id="Z400361a1007020" name="Z400361a1007020"></a>
+<p class="titleintable">Table 4-1 Top-Level Test Suite Files and Directories &nbsp;</p>
+<table class="HRuleFormalWide" title="Top-Level Test Suite Files and Directories " summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="20%" />
+<col width="*" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t10">File/Directory</th>
+<th align="left" valign="bottom" id="r1c2-t10">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t10" headers="r1c1-t10">
+<p><code>testsuite.jtt</code><a id="sthref85" name="sthref85"></a><a id="sthref86" name="sthref86"></a></p>
+</td>
+<td align="left" headers="r2c1-t10 r1c2-t10">
+<p>A text file that serves as a registry of information about the test suite. This files includes the paths to plug-in components (for example, the test finder, test script, or configuration interview) as well as other static information about the test suite. The presence of this file defines the top-level directory of the test suite; therefore it <span class="italic">must</span> be located there. This file is described in detail in <a href="testsuite.htm#BBJJGDAD">Chapter 8</a>.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t10" headers="r1c1-t10">
+<p><code>lib\javatest.jar</code><a id="sthref87" name="sthref87"></a></p>
+</td>
+<td align="left" headers="r3c1-t10 r1c2-t10">
+<p>Contains all of the classes required to execute the JavaTest harness and library classes. The library classes can be used to simplify the creation of tests. If <code>javatest.jar</code> is located in the same directory as the <code>testsuite.jtt</code> file, or in the <span class="italic">ts_dir</span><code>\lib</code> directory, the JavaTest harness automatically locates the test suite and does not prompt the user for the path to test suite directory.</p>
+<p>Note that it is very important <span class="italic">not</span> to put <code>javatest.jar</code> on the test suite class path. It is very large and scanning it for library classes at every test invocation impacts the performance of your test suite. The best option is to extract any referenced classes into the <code>classes</code> directory as shown in Step <a href="#CJBBBGFF">3</a> in <a href="#CJBFEJCH">(UNKNOWN STEP NUMBER)</a> . Use of these library classes is described in <a href="tests.htm#BBJHGHDD">Chapter 5</a>.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t10" headers="r1c1-t10">
+<p><code>tests\</code><a id="sthref88" name="sthref88"></a></p>
+</td>
+<td align="left" headers="r4c1-t10 r1c2-t10">
+<p>Contains test source files and test descriptions. Tests should be organized hierarchically the way you want them to be displayed in the test tree.</p>
+<p>If you use the HTML test finder rather than the tag test finder, include the HTML test description files along with the test sources in the <code>tests</code> directory. For a discussion of test finders, see <a href="finder.htm#CEHJBHHG">Chapter 9</a>.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t10" headers="r1c1-t10">
+<p><code>classes\</code><a id="sthref89" name="sthref89"></a></p>
+</td>
+<td align="left" headers="r5c1-t10 r1c2-t10">
+<p>The directory that contains all of the compiled test classes and library classes required to run your tests. This directory is automatically placed on the JavaTest harness class path.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r6c1-t10" headers="r1c1-t10">
+<p><code>lib\</code><a id="sthref90" name="sthref90"></a></p>
+</td>
+<td align="left" headers="r6c1-t10 r1c2-t10">
+<p>An optional directory that contains any other files required by your the test suite. These files might include:</p>
+<p><code>jt</code><span class="italic">testsuite</span><code>.jar</code> &mdash; If you create a custom interview, or customize any of the JavaTest plug-in classes, you package the classes and interview files in a custom JAR file. See "The Test Suite JAR File" below for details.</p>
+<p><span class="italic">test_suite_x.x</span><code>.jtx</code> &mdash; The exclude list is a mechanism used by test suites to identify tests that should not be run.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r7c1-t10" headers="r1c1-t10">
+<p><code>doc\</code><a id="sthref91" name="sthref91"></a></p>
+</td>
+<td align="left" headers="r7c1-t10 r1c2-t10">
+<p>An optional directory that contains documentation that describes how to run the test suite and specifies the rules for certifying a product.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformalwide" --></div>
+<!-- class="sect2" -->
+<a id="CJBHEFFH" name="CJBHEFFH"></a>
+<div class="sect2">
+<h3 class="sect2"><a id="sthref92" name="sthref92"></a><a id="sthref93" name="sthref93"></a>The Test Suite JAR File</h3>
+<p>All of the components you create for the test suite should be delivered to the user in a single JAR file installed in the <code>lib</code> directory of the test suite. The JAR file is added to the class path in the <code>testsuite.jtt</code> file as described in <a href="testsuite.htm#BBJJGDAD">Chapter 8</a>. Experience has shown that it is best to organized the JAR file with the following directory structure:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+com\
+  your_company\
+     your_product\
+     Interview class files and resource files, More Info help
+</pre>
+<p>For example, the JAR file for the demo TCK test suite:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<span class="italic">        jt_install</span><code>\examples\javatest\simpleTags\demotck\jtdemotck.jar</code>
+</pre>
+<p>is organized like this:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+com\
+  sun\
+     demotck\
+     Interview class files and resource files, More Info help
+</pre>
+<p>If you provide a large number of components, you can further organize them into sub-packages:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+com\
+  your_company\
+     your_product\
+     Interview class files and resource files, More Info help
+         lib\
+         Everything else (TestSuite, Script, Finder, etc.)
+</pre></div>
+<!-- class="sect2" -->
+<a id="Z400361a1010112" name="Z400361a1010112"></a>
+<div class="sect2">
+<h3 class="sect2"><a id="sthref94" name="sthref94"></a>Class Paths</h3>
+<p>When you create a test suite, it is important to keep in mind the three potential class paths that are involved:</p>
+<ul>
+<li>
+<p>JavaTest class path</p>
+</li>
+<li>
+<p>Agent class path</p>
+</li>
+<li>
+<p>Test class path</p>
+</li>
+</ul>
+<p>Two of the ways described in the following sections in which you can set a class path are through a <code>CLASSPATH</code> environment setting or through a <code>-classpath</code> flag in the command line. The <code>CLASSPATH</code> environment setting is generally a safe way to set the classpath, although setting it as an environment variable is less explicit than using the <code>-classpath</code> flag.</p>
+<p>The <code>-classpath</code> flag to the particular software development kit tool (such as <code>java and</code> <code>javac</code>) is generally the best way to set the class path if you know it explicitly. The main disadvantage of using the <code>-classpath</code> flag is that it overrides the <code>CLASSPATH</code> environment setting.</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>If you have required classes that are set in the environment variable and you also use the <code>-classpath</code> flag, you must make special arrangements for the additional class paths to be set through the <code>-classpath</code> parameter.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+<p>Shell example:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+% CLASSPATH=<span class="italic">otherclasses</span> javac -classpath <span class="italic">classes</span> -d out foo/
+</pre>
+<p>In this example, only <span class="italic">classes</span> set by <code>-classpath</code> are on the classpath. The <span class="italic">otherclasses</span> set by the <code>CLASSPATH</code> environment setting are dropped.</p>
+<p>Shell example:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+% CLASSPATH=<span class="italic">otherclasses</span> javac -classpath $CLASSPATH:<span class="italic">classes</span> d out foo/
+</pre>
+<p>In this example, the environment setting is added to the <code>-classpath</code> argument. The resulting classpath is <span class="italic">otherclasses</span><code>:</code><span class="italic">classes</span>.</p>
+<a id="Z400361a1010027" name="Z400361a1010027"></a>
+<div class="sect3">
+<h4 class="sect3"><a id="sthref95" name="sthref95"></a><a id="sthref96" name="sthref96"></a>JavaTest Class Path</h4>
+<p>This is the class path that the JavaTest harness uses to access its classes, libraries, and your plug-in classes. The JavaTest class path can be set by means of:</p>
+<ul>
+<li>
+<p>The <code>CLASSPATH</code> environment variable</p>
+</li>
+<li>
+<p>The <code>-classpath</code> option to the Java runtime</p>
+</li>
+<li>
+<p>The <code>-jar</code> option to the Java runtime (this is the standard)</p>
+</li>
+</ul>
+<p>In addition, each test suite can use the <code>classpath</code> entry in the <code>testsuite.jtt</code> file to extend the class path. The <code>classpath</code> entry is used to add custom plug-in components and interviews that you create.</p>
+</div>
+<!-- class="sect3" -->
+<a id="Z400361a1010042" name="Z400361a1010042"></a>
+<div class="sect3">
+<h4 class="sect3"><a id="sthref97" name="sthref97"></a><a id="sthref98" name="sthref98"></a>Agent Class Path</h4>
+<p>Often you must run tests on a system other than one on which the JavaTest harness runs. In this case you use an agent (such as the JavaTest Agent) to run the tests on that system. The agent class path is used by the agent to access its classes, libraries, and any plug-in classes. The class path can be set by means of:</p>
+<ul>
+<li>
+<p>The <code>CLASSPATH</code> environment variable</p>
+</li>
+<li>
+<p>The <code>-classpath</code> option to the Java runtime</p>
+</li>
+<li>
+<p>The <code>-jar</code> option to the Java runtime</p>
+</li>
+<li>
+<p>Some other platform-specific mechanism</p>
+</li>
+</ul>
+</div>
+<!-- class="sect3" -->
+<a id="Z400361a1010053" name="Z400361a1010053"></a>
+<div class="sect3">
+<h4 class="sect3"><a id="sthref99" name="sthref99"></a><a id="sthref100" name="sthref100"></a>Test Class Path</h4>
+<p>This is the class path used by the tests during execution. It is normally the responsibility of the configuration interview and/or test script to set the class path for each test in the test environment command entry (see <a href="interview.htm#BBJDCFGC">Command Strings</a>). Test classes are normally located in the <span class="italic">ts_dir</span><code>\classes</code> directory, you normally include this on the test class path. You can also put any classes that your tests require in <span class="italic">ts_dir</span><code>\classes</code> and they will be found.</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>If your platform requires that tests run in the same JVM as the agent, you must include the classes required by the tests on the agent class path. In this case your interview need not put a test class path in the test environment command entry.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" --></div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+<div class="footer">
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<col width="33%" />
+<col width="*" />
+<col width="33%" />
+<tr>
+<td valign="bottom">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<col width="*" />
+<col width="48%" />
+<col width="48%" />
+<tr>
+<td>&nbsp;</td>
+<td align="center"><a href="concepts.htm"><img src="../../dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="tests.htm"><img src="../../dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="copyrightlogo"><img class="copyrightlogo" src="../../dcommon/gifs/oracle.gif" alt="Oracle Logo" /><br />
+<span class="copyrightlogo">Copyright&nbsp;&copy;&nbsp;2002, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span> <a href="../../dcommon/html/cpyr.htm"><br />
+<span class="copyrightlogo">Legal Notices</span></a></td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+<td align="center" valign="top"><a href="toc.htm"><img src="../../dcommon/gifs/toc.gif" alt="Go To Table Of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td align="center" valign="top"><a href="index.htm"><img src="../../dcommon/gifs/index.gif" alt="Go To Index" /><br />
+<span class="icon">Index</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<!-- class="footer" -->
+</body>
+</html>

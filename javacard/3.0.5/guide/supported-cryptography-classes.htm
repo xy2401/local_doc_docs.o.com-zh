@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Supported Cryptography Classes</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-04-13T10:24:54Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Development Kit User Guide, Classic Edition" />
+<meta name="dcterms.identifier" content="E59602-03" />
+<meta name="dcterms.isVersionOf" content="JCUGC" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="overview-using-cryptography-extensions.htm" title="Previous" type="text/html" />
+<link rel="Next" href="instantiating-classes.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCUGC.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-0F2BEB9A-5BB0-4908-926D-BB39672B8095"></a> <span id="PAGE" style="display:none;">134/161</span> <!-- End Header -->
+<a id="JCUGC357"></a><a id="JCUGC356"></a>
+<h1 id="JCUGC-GUID-0F2BEB9A-5BB0-4908-926D-BB39672B8095" class="sect1">Supported Cryptography Classes</h1>
+<div>
+<div class="section">
+<p>The implementation of security and cryptography in the RI supports the use of the following classes:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">javacardx.crypto.AEADCipher</code></p>
+</li>
+<li>
+<p><code class="codeph">javacardx.crypto.Cipher</code></p>
+</li>
+<li>
+<p><code class="codeph">javacard.security.Checksum</code></p>
+</li>
+<li>
+<p><code class="codeph">javacard.security.InitializedMessageDigest</code></p>
+</li>
+<li>
+<p><code class="codeph">javacard.security.KeyAgreement</code></p>
+</li>
+<li>
+<p><code class="codeph">javacard.security.KeyBuilder</code></p>
+</li>
+<li>
+<p><code class="codeph">javacard.security.KeyPair</code></p>
+</li>
+<li>
+<p><code class="codeph">javacard.security.MessageDigest</code></p>
+</li>
+<li>
+<p><code class="codeph">javacard.security.RandomData</code></p>
+</li>
+<li>
+<p><code class="codeph">javacard.security.Signature</code></p>
+</li>
+<li>
+<p><code class="codeph">javacard.security.SignatureMessageRecovery</code></p>
+<div class="infobox-note" id="GUID-0F2BEB9A-5BB0-4908-926D-BB39672B8095__GUID-32854721-F8D6-41F0-A0A1-F754E2D57032">
+<p class="notep1">Note:</p>
+<p>The implementation of <code class="codeph">RandomData</code> in the RI is not suitable for porting.</p>
+</div>
+</li>
+</ul>
+<p><a href="supported-cryptography-classes.htm#GUID-0F2BEB9A-5BB0-4908-926D-BB39672B8095__Z40017a21003682" title="provides a list and description of the algorithms implemented by the cryptography classes">Table 14-1</a> lists the cryptography algorithms that are implemented for the RI.</p>
+</div>
+<!-- class="section" -->
+<div class="tblformal" id="GUID-0F2BEB9A-5BB0-4908-926D-BB39672B8095__Z40017a21003682">
+<p class="titleintable">Table 14-1 Algorithms Implemented by the Cryptography Classes</p>
+<table class="cellalignment12" title="Algorithms Implemented by the Cryptography Classes " summary="provides a list and description of the algorithms implemented by the cryptography classes">
+<thead>
+<tr class="cellalignment2">
+<th class="cellalignment45" id="d39380e88">Class</th>
+<th class="cellalignment63" id="d39380e91">Algorithm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d39380e96" headers="d39380e88">
+<p><code class="codeph">AEADCipher</code></p>
+</td>
+<td class="cellalignment64" headers="d39380e96 d39380e91">
+<p>Supports <code class="codeph">ALG_AES_CCM</code> and <code class="codeph">ALG_AES_GCM</code> (supports only the 12 byte IV length, which is the value recommended by NIST)</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d39380e110" headers="d39380e88">
+<p><code class="codeph">Checksum</code></p>
+</td>
+<td class="cellalignment64" headers="d39380e110 d39380e91">
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">ALG_ISO3309_CRC16</code>&mdash;ISO/IEC 3309-compliant 16-bit CRC algorithm. This algorithm uses the generator polynomial: <code class="codeph">x^16+x^12+x^5+1</code>. The default initial checksum value used by this algorithm is 0. This algorithm is also compliant with the frame-checking sequence as specified in section 4.2.5.2 of the ISO/IEC 13239 specification.</p>
+</li>
+<li>
+<p><code class="codeph">ALG_ISO3309_CRC32</code>&mdash;ISO/IEC 3309-compliant 32-bit CRC algorithm. This algorithm uses the generator polynomial: <code class="codeph">X^32+X^26+X^23+X^22+X^16+X^12+X^11+X^10+X^8 +X^7+X^5+X^4+X^2+X+1</code>. The default initial checksum value used by this algorithm is 0. This algorithm is also compliant with the frame-checking sequence as specified in section 4.2.5.3 of the ISO/IEC 13239 specification.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d39380e133" headers="d39380e88">
+<p><code class="codeph">Cipher</code></p>
+</td>
+<td class="cellalignment64" headers="d39380e133 d39380e91">
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">ALG_DES_CBC_ISO9797_M2</code>&mdash;provides a cipher using <code class="codeph">DES</code> in <code class="codeph">CBC</code> mode. This algorithm uses <code class="codeph">CBC</code> for <code class="codeph">DES</code> and <code class="codeph">3DES</code>. Input data is padded according to the ISO 9797 method 2 (ISO 7816-4, EMV'96) scheme.</p>
+</li>
+<li>
+<p><code class="codeph">ALG_RSA_PKCS1</code>&mdash;provides a cipher using <code class="codeph">RSA</code>. Input data is padded according to the <code class="codeph">PKCS#1</code> (v1.5) scheme.</p>
+</li>
+<li>
+<p><code class="codeph">ALG_AES_BLOCK_128_CBC_NOPAD</code>&mdash;provides a cipher using <code class="codeph">AES</code> with block size 128 in CBC mode and does not pad input data.</p>
+</li>
+<li>
+<p><code class="codeph">AEADCipher</code>&mdash;Supports <code class="codeph">ALG_AES_CCM</code> and <code class="codeph">ALG_AES_GCM</code> (supports only the 12 byte IV length, which is the value recommended by NIST)</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d39380e190" headers="d39380e88">
+<p><code class="codeph">InitializedMessageDigest</code></p>
+</td>
+<td class="cellalignment64" headers="d39380e190 d39380e91">
+<p>Provides the functionality of MessageDigest, with the additional ability to allow for initialization with a starting hash value corresponding to a previously hashed part of the message. Provides for SHA1 and SHA256.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d39380e198" headers="d39380e88">
+<p><code class="codeph">KeyAgreement</code></p>
+</td>
+<td class="cellalignment64" headers="d39380e198 d39380e91">
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">ALG_EC_SVDP_DH</code>&mdash;elliptic curve secret value derivation primitive, Diffie-Hellman version, per [IEEE P1363].</p>
+</li>
+<li>
+<p><code class="codeph">ALG_EC_SVDP_DHC</code>&mdash;elliptic curve secret value derivation primitive, Diffie-Hellman version, with cofactor multiplication, per [IEEE P1363].</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d39380e215" headers="d39380e88">
+<p><code class="codeph">KeyBuilder</code></p>
+</td>
+<td class="cellalignment64" headers="d39380e215 d39380e91">
+<p>The algorithms define the key lengths for:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>128-bit <code class="codeph">AES</code></p>
+</li>
+<li>
+<p>64-bit <code class="codeph">DES</code></p>
+</li>
+<li>
+<p>112-, 128-, 160-, 192-bit <code class="codeph">ECC</code></p>
+</li>
+<li>
+<p>128-bit <code class="codeph">DES3</code></p>
+</li>
+<li>
+<p>512-bit <code class="codeph">RSA</code></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d39380e249" headers="d39380e88">
+<p><code class="codeph">KeyPair</code></p>
+</td>
+<td class="cellalignment64" headers="d39380e249 d39380e91">
+<p>The algorithms define the key lengths for:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>112-, 128-, 160-, 192-bit <code class="codeph">ECC</code></p>
+</li>
+<li>
+<p>512-bit <code class="codeph">RSA</code></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d39380e268" headers="d39380e88">
+<p><code class="codeph">MessageDigest</code></p>
+</td>
+<td class="cellalignment64" headers="d39380e268 d39380e91">
+<p>Message digest algorithm <code class="codeph">SHA1</code> and <code class="codeph">SHA256</code></p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d39380e281" headers="d39380e88">
+<p><code class="codeph">RandomData</code></p>
+</td>
+<td class="cellalignment64" headers="d39380e281 d39380e91">
+<p>Pseudo-random number generator with a 48-bit seed, which is modified using a linear congruential formula.</p>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d39380e289" headers="d39380e88">
+<p><code class="codeph">Signature</code></p>
+</td>
+<td class="cellalignment64" headers="d39380e289 d39380e91">
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">ALG_DES_MAC8_ISO9797_M2</code>&mdash;generates an 8-byte <code class="codeph">MAC</code> (most significant 8 bytes of encrypted block) using <code class="codeph">DES</code> or <code class="codeph">3DES</code> in <code class="codeph">CBC</code> mode. This algorithm uses <code class="codeph">CBC</code> for <code class="codeph">DES</code> and <code class="codeph">3DES</code>. Input data is padded according to the ISO 9797 method 2 (ISO 7816-4, EMV'96) scheme.</p>
+</li>
+<li>
+<p><code class="codeph">ALG_RSA_SHA_PKCS1</code>&mdash;encrypts the 20 byte <code class="codeph">SHA1</code> digest using <code class="codeph">RSA</code>. The digest is padded according to the <code class="codeph">PKCS#1</code> (v1.5) scheme.</p>
+</li>
+<li>
+<p><code class="codeph">ALG_AES_MAC_128_NOPAD</code>&mdash;generates a 16-byte MAC using <code class="codeph">AES</code> with blocksize 128 in CBC mode and does not pad input data.</p>
+</li>
+<li>
+<p><code class="codeph">ALG_ECDSA_SHA</code>&mdash;signs/verifies the 20-byte SHA digest using ECDSA.</p>
+</li>
+<li>
+<p><code class="codeph">ALG_AES_CMAC_128</code></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="cellalignment2">
+<td class="cellalignment46" id="d39380e354" headers="d39380e88">
+<p><code class="codeph">SignatureMessageRecovery</code></p>
+</td>
+<td class="cellalignment64" headers="d39380e354 d39380e91">
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">ALG_RSA_SHA_ISO9796_MR</code>&mdash;This algorithm uses the first part of the input message as padding bytes during signing. During verification, these message bytes (recoverable message) can be recovered to reconstruct the message.</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="overview-using-cryptography-extensions.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="instantiating-classes.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

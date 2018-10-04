@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Command-Line Options</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="When you use the java command to start a Java application, you can specify options to enable Java Flight Recorder, configure its settings, and start a recording." />
+<meta name="dcterms.created" content="2018-03-13T00:14:21Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Platform, Standard Edition Java Flight Recorder Command Reference" />
+<meta name="dcterms.identifier" content="E92740-01" />
+<meta name="dcterms.isVersionOf" content="JFRCR" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2001, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="preface.htm" title="Previous" type="text/html" />
+<link rel="Next" href="diagnostic-command-reference.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JFRCR.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../../nav/css/html5.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-FE61CA60-E1DF-460E-A8E0-F4FF5D58A7A0"></a> <span id="PAGE" style="display:none;">4/5</span> <!-- End Header -->
+<h1 id="JFRCR-GUID-FE61CA60-E1DF-460E-A8E0-F4FF5D58A7A0" class="sect1"><span class="enumeration_chapter">1</span> Command-Line Options</h1>
+<div>
+<p>When you use the <code class="codeph">java</code> command to start a Java application, you can specify options to enable Java Flight Recorder, configure its settings, and start a recording.</p>
+<div class="section">
+<p>The following command-line options for the <code class="codeph">java</code> command are specific to Java Flight Recorder:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">-XX:+|-FlightRecorder</code>: Enables Java Flight Recorder (not required for JDK 8u40 and later)</p>
+</li>
+<li>
+<p><code class="codeph">-XX:FlightRecorderOptions</code>: Sets the parameters for Java Flight Recorder</p>
+</li>
+<li>
+<p><code class="codeph">-XX:StartFlightRecording</code>: Starts a recording with the provided parameters, or with the default values</p>
+</li>
+</ul>
+<p>The command-line options for Java Flight Recorder are described in the <a class="olink JSWOR624" target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E67782-01&amp;id=JSWOR624">java</a> chapter of the <span><cite>Java Platform, Standard Edition Tools Reference</cite></span>. These options are available only in the commercially licensed JDK from Oracle. To use these options, you must unlock the commercial features as described in the next section.</p>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p class="subhead1">Unlocking Commercial Features</p>
+<p>Use one of the following methods to access for Java Flight Recorder and related options:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Specify the <code class="codeph">-XX:+UnlockCommercialFeatures</code> option when you start your application with the <code class="codeph">java</code> command.</p>
+</li>
+<li>
+<p>Use the <code class="codeph">VM.unlock_commercial_features</code> parameter for the <code class="codeph">jcmd</code> utility to unlock commercial features after the application is running.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" -->
+<div class="example" id="GUID-FE61CA60-E1DF-460E-A8E0-F4FF5D58A7A0__GUID-5ACA38F1-CBF9-476A-9508-4A7AB33ACFB1">
+<p class="titleinexample">Example 1-1 Unlock Commercial Features When Starting an Application</p>
+<p>The following <code class="codeph">java</code> command unlocks commercial features for an application named <code class="codeph">MyApp</code> and starts a recording:</p>
+<pre dir="ltr">
+java -XX:+UnlockCommercialFeatures -XX:StartFlightRecording MyApp
+</pre></div>
+<!-- class="example" -->
+<div class="example" id="GUID-FE61CA60-E1DF-460E-A8E0-F4FF5D58A7A0__GUID-84B9DB3A-B518-4E56-85DD-95E34732DE95">
+<p class="titleinexample">Example 1-2 Unlock Commercial Features for a Running Application</p>
+<p>The following <code class="codeph">jcmd</code> command unlocks commercial features for a Java process with the process ID <code class="codeph">1968</code>:</p>
+<pre dir="ltr">
+jcmd 1968 VM.unlock_commercial_features
+</pre></div>
+<!-- class="example" --></div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment63">
+<tr>
+<td class="cellalignment70">
+<table class="cellalignment74">
+<tr>
+<td class="cellalignment67"><a href="preface.htm"><img width="24" height="24" src="../../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment67"><a href="diagnostic-command-reference.htm"><img width="24" height="24" src="../../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2001, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment72">
+<table class="cellalignment73">
+<tr>
+<td class="cellalignment67"><a href="../../index.html"><img width="24" height="24" src="../../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment67"><a href="toc.htm"><img width="24" height="24" src="../../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment67"><a href="../../dcommon/html/feedback.htm"><img width="24" height="24" src="../../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

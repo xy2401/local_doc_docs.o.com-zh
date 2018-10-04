@@ -1,0 +1,1982 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalogic.">
+      <meta name="description" content="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalogic.">
+      <title>Oracle Exalogic</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide">
+      <meta property="og:description" content="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalogic.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-orachk-and-exachk-users-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:43:23-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2016, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E83827-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/exachk">
+      
+      <link rel="prev" href="oracle-exadata-and-zero-data-loss-recovery-appliance.html" title="Previous" type="text/html">
+      <link rel="next" href="oracle-supercluster.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"exachk","element_name":"EXAchk","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® ORAchk and EXAchk User's Guide">
+    <meta name="dcterms.isVersionOf" content="OEXUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="oracle-supercluster.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="oracle-exachk-specific-features-and-tasks.html" property="item" typeof="WebPage"><span property="name">Oracle EXAchk Specific Features and Tasks</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Oracle Exalogic</li>
+            </ol>
+            <a id="GUID-61B15081-6424-4F1E-A84C-0E0D8EEF0FF0" name="GUID-61B15081-6424-4F1E-A84C-0E0D8EEF0FF0"></a>
+            
+            <h2 id="OEXUG-GUID-61B15081-6424-4F1E-A84C-0E0D8EEF0FF0" class="sect2"><span class="enumeration_section">3.3 </span>Oracle Exalogic
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalogic.</p>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-D8766AEA-8E4F-402A-BECB-014C6EEEAB37">Scope and Supported Platforms for Running Oracle EXAchk on Oracle Exalogic</a><br>Oracle EXAchk is a health check tool that is designed to audit important configuration settings in an Oracle Exalogic Elastic Cloud machine.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-1F58607B-A887-4AC5-8FF4-61B997558416">Prerequisites for Running Oracle EXAchk on Oracle Exalogic</a><br>Review the list of prerequisites.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-3D04DAC4-1AAF-4446-ABB0-3F2DD373EF40">Prerequisite for Viewing Oracle EXAchk HTML Report</a><br>Review the prerequisite for viewing Oracle EXAchk HTML Report in a web browser.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-8FCD0FC1-336B-4346-A3B2-FC558A39DDBE">Installing and Upgrading Oracle EXAchk on Oracle Exalogic</a><br>Follow these instructions to install and upgrade Oracle EXAchk on Oracle Exalogic.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-C86295B2-272A-4F18-89E1-7A68523B071B">Oracle EXAchk on Oracle Exalogic Usage</a><br>For optimum performance of the Oracle EXAchk tool, Oracle recommends that you complete the following steps.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-3E706CE7-D5C0-49C6-A28B-130E3F84E6E1">Oracle EXAchk on Oracle Exalogic Output</a><br>Identify the checks that you must act immediately to remediate, or investigate further to assess the checks that might cause performance or stability issues.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-FD211CBD-E022-41B5-B40E-0208E816C3E3">Oracle EXAchk on Oracle Exalogic Command-Line Options</a><br>List of command-line options applicable to Oracle Exalogic.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-A2CF0850-47DA-4616-9A0C-7B145C691CB6">Verifying and Enabling Passwordless SSH to the Oracle VM Manager CLI</a><br>Before running Oracle EXAchk with the&nbsp;<code class="codeph">el_extensive</code>&nbsp;profile, you must verify whether passwordless SSH is enabled for the CLI shell of Oracle VM Manager. 
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-6584ED70-3C89-461D-8C69-54FD79E821AA">Troubleshooting Oracle EXAchk on Oracle Exalogic</a><br>Troubleshoot and fix Oracle EXAchk on Oracle Exalogic issues.
+                  </li>
+               </ul>
+               <div class="relinfo">
+                  <p><strong>Related Topics</strong></p>
+                  <ul>
+                     <li><a href="oracle-orachk-and-exachk-common-features-tasks.html#GUID-50F7EA11-11FD-431C-B99A-EC9E2176BBDB" title="Oracle ORAchk and Oracle EXAchk share a common health check framework and a large portion of their features and tasks are common.">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</a></li>
+                  </ul>
+               </div>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="oracle-exachk-specific-features-and-tasks.html#GUID-FFA47C35-4BC4-4B58-9C6D-3115D069A5F1" title="Review this information on the features of Oracle EXAchk on Oracle Exadata and Zero Data Loss Recovery Appliance, Oracle Exalogic, Oracle SuperCluster, Oracle Exalytics, and Oracle Big Data Appliance.">Oracle EXAchk Specific Features and Tasks</a></p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="sect2"><a id="GUID-D8766AEA-8E4F-402A-BECB-014C6EEEAB37" name="GUID-D8766AEA-8E4F-402A-BECB-014C6EEEAB37"></a><h3 id="OEXUG-GUID-D8766AEA-8E4F-402A-BECB-014C6EEEAB37" class="sect3"><span class="enumeration_section">3.3.1 </span>Scope and Supported Platforms for Running Oracle EXAchk on Oracle Exalogic
+               </h3>
+               <div>
+                  <p>Oracle EXAchk is a health check tool that is designed to audit important configuration settings in an Oracle Exalogic Elastic Cloud machine.</p>
+                  <p>Oracle EXAchk examines the following components:</p>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p>Compute nodes</p>
+                     </li>
+                     <li>
+                        <p>Storage appliance</p>
+                     </li>
+                     <li>
+                        <p>InfiniBand fabric</p>
+                     </li>
+                     <li>
+                        <p>Ethernet network</p>
+                     </li>
+                     <li>
+                        <p>Oracle Exalogic Control vServers, relevant only in virtual configurations</p>
+                     </li>
+                     <li>
+                        <p>Guest vServers, relevant only in virtual configurations</p>
+                     </li>
+                  </ul>
+                  <p>Oracle EXAchk audits the following configuration settings:</p>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p>Hardware and firmware</p>
+                     </li>
+                     <li>
+                        <p>Operating system kernel parameters</p>
+                     </li>
+                     <li>
+                        <p>Operating system packages</p>
+                     </li>
+                  </ul>
+                  <p>You must run Oracle EXAchk for Oracle Exalogic in the following conditions:</p>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p>After deploying the machine.</p>
+                     </li>
+                     <li>
+                        <p>Before and after patching or upgrading the infrastructure.</p>
+                     </li>
+                     <li>
+                        <p>Before and after making any changes in the system configuration.</p>
+                     </li>
+                     <li>
+                        <p>Before and after any planned maintenance activity.</p>
+                     </li>
+                  </ul>
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="https://support.oracle.com/rs?type=doc&amp;amp;id=1449226.1" target="_blank">https://support.oracle.com/rs?type=doc&amp;id=1449226.1</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-61B15081-6424-4F1E-A84C-0E0D8EEF0FF0" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalogic.">Oracle Exalogic</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-1F58607B-A887-4AC5-8FF4-61B997558416" name="GUID-1F58607B-A887-4AC5-8FF4-61B997558416"></a><h3 id="OEXUG-GUID-1F58607B-A887-4AC5-8FF4-61B997558416" class="sect3"><span class="enumeration_section">3.3.2 </span>Prerequisites for Running Oracle EXAchk on Oracle Exalogic
+               </h3>
+               <div>
+                  <p>Review the list of prerequisites.</p>
+                  <p>Oracle recommends that you install Oracle EXAchk on the pre-existing share&nbsp;<code>/export/common/general</code>&nbsp;on the ZFS storage appliance on the Exalogic machine. You can then run Oracle EXAchk and access the Oracle EXAchk generated HTML reports from a compute node on which the&nbsp;<code>/export/common/general</code>&nbsp;share is mounted.
+                  </p>
+                  <p>For Exalogic machines in a virtual configuration, Oracle recommends that you mount the&nbsp;<code>/export/common/general&nbsp;share</code> on the vServer that hosts the Enterprise Controller component of the Exalogic control stack, and run Oracle EXAchk from that vServer.
+                  </p>
+                  <p>To install Oracle EXAchk on the&nbsp;<code>/export/common/general</code>&nbsp;share, you must complete the following steps:
+                  </p>
+                  <ol>
+                     <li>
+                        <p>Enable NFS on the <code>/export/common/general</code> share.
+                        </p>
+                     </li>
+                     <li>
+                        <p>Mount the <code>/export/common/general</code> share.
+                        </p>
+                     </li>
+                  </ol>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-4CF52699-6C26-440D-A8DC-841D3B96293A">Enable NFS on the /export/common/general Share</a><br>Before installing Oracle EXAchk on the pre-existing share&nbsp;<code>export/common/general</code>, enable NFS share mode on the share.
+                     </li>
+                     <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-A080BA1E-77DD-42E2-A610-1F5145F21DD9">Mount the /export/common/general Share</a><br>In this section, compute node&nbsp;<code class="codeph">el01cn01</code>&nbsp;is used as the example of the host on which the&nbsp;<code>/export/common/general</code>&nbsp;share is mounted.
+                     </li>
+                  </ul>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-61B15081-6424-4F1E-A84C-0E0D8EEF0FF0" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalogic.">Oracle Exalogic</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="sect3"><a id="GUID-4CF52699-6C26-440D-A8DC-841D3B96293A" name="GUID-4CF52699-6C26-440D-A8DC-841D3B96293A"></a><h4 id="OEXUG-GUID-4CF52699-6C26-440D-A8DC-841D3B96293A" class="sect4"><span class="enumeration_section">3.3.2.1 </span>Enable NFS on the /export/common/general Share
+                  </h4>
+                  <div>
+                     <p>Before installing Oracle EXAchk on the pre-existing share&nbsp;<code>export/common/general</code>, enable NFS share mode on the share.
+                     </p>
+                     <ol>
+                        <li class="stepexpand"><span>In a web browser, enter the IP address or host name of the storage node as follows:</span><div>
+                              <div class="p"><pre class="pre codeblock"><code>https://ipaddress:215</code></pre></div>
+                              <p>or</p>
+                              <div class="p"><pre class="pre codeblock"><code>https://hostname:215</code></pre></div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Log in as <code class="codeph">root</code>.</span></li>
+                        <li class="stepexpand"><span>Click <span class="bold">Shares</span> in the top navigation pane.</span></li>
+                        <li class="stepexpand"><span>Place your cursor over the row corresponding to the share&nbsp;<code>/export/common/general</code>.</span></li>
+                        <li class="stepexpand"><span>Click the <span class="bold">Edit entry</span>.</span><div>
+                              <div class="p">
+                                 <div class="figure" id="GUID-4CF52699-6C26-440D-A8DC-841D3B96293A__GUID-4FC64ED1-4B68-4E5D-94A9-956C484DD898">
+                                    <p class="titleinfigure">Figure 3-1 Oracle Exalogic - Shares</p><img src="img/exalogic-shares.png" alt="Description of Figure 3-1 follows" title="Description of Figure 3-1 follows" longdesc="img_text/exalogic-shares.html"><br><a href="img_text/exalogic-shares.html">Description of "Figure 3-1 Oracle Exalogic - Shares"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>On the resulting page, select <span class="bold">Protocols</span> in the top navigation pane.</span></li>
+                        <li class="stepexpand"><span>In the <span class="bold">NFS</span> section, deselect <span class="bold">Inherit from project</span>, and click plus (+) located next to <span class="bold">NFS Exceptions</span>.</span><div>
+                              <div class="p">
+                                 <div class="figure" id="GUID-4CF52699-6C26-440D-A8DC-841D3B96293A__GUID-E3595ED5-FCF2-4A6B-A356-7B46AB1789B2">
+                                    <p class="titleinfigure">Figure 3-2 Oracle Exalogic - Edit Protocols</p><img src="img/exalogic-edit-protocols.png" alt="Description of Figure 3-2 follows" title="Description of Figure 3-2 follows" longdesc="img_text/exalogic-edit-protocols.html"><br><a href="img_text/exalogic-edit-protocols.html">Description of "Figure 3-2 Oracle Exalogic - Edit Protocols"</a></div>
+                                 <!-- class="figure" -->
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Edit the following in the <span class="bold">NFS Exceptions</span> section:</span><div>
+                              <div class="tblformal" id="GUID-4CF52699-6C26-440D-A8DC-841D3B96293A__GUID-B52D948D-9C76-4E95-85CA-5CE38077FEBE">
+                                 <p class="titleintable">Table 3-5 NFS Exceptions</p>
+                                 <table cellpadding="4" cellspacing="0" class="Formal" title="NFS Exceptions" summary="This table lists and describes NFS exceptions." frame="hsides" border="1" rules="rows">
+                                    <thead>
+                                       <tr align="left" valign="top">
+                                          <th align="left" valign="bottom" width="20%" id="d53726e375">Element</th>
+                                          <th align="left" valign="bottom" width="20%" id="d53726e377">Action/Description</th>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                       <tr align="left" valign="top">
+                                          <td align="left" valign="top" width="20%" id="d53726e381" headers="d53726e375 ">
+                                             <p>TYPE</p>
+                                          </td>
+                                          <td align="left" valign="top" width="20%" headers="d53726e381 d53726e377 ">
+                                             <p>Select <span class="bold">Network</span>.
+                                             </p>
+                                          </td>
+                                       </tr>
+                                       <tr align="left" valign="top">
+                                          <td align="left" valign="top" width="20%" id="d53726e391" headers="d53726e375 ">
+                                             <p>ENTITY</p>
+                                          </td>
+                                          <td align="left" valign="top" width="20%" headers="d53726e391 d53726e377 ">
+                                             <p>Enter the IP address of the host that gains access to the share.</p>
+                                             <div class="p">For example:<pre class="pre codeblock"><code>192.168.10.0/24</code></pre></div>
+                                          </td>
+                                       </tr>
+                                       <tr align="left" valign="top">
+                                          <td align="left" valign="top" width="20%" id="d53726e402" headers="d53726e375 ">
+                                             <p>ACCESS MODE</p>
+                                          </td>
+                                          <td align="left" valign="top" width="20%" headers="d53726e402 d53726e377 ">
+                                             <p>Select <span class="bold">Read/write</span>.
+                                             </p>
+                                          </td>
+                                       </tr>
+                                       <tr align="left" valign="top">
+                                          <td align="left" valign="top" width="20%" id="d53726e412" headers="d53726e375 ">
+                                             <p>CHARSET</p>
+                                          </td>
+                                          <td align="left" valign="top" width="20%" headers="d53726e412 d53726e377 ">
+                                             <p>Keep the default setting.</p>
+                                          </td>
+                                       </tr>
+                                       <tr align="left" valign="top">
+                                          <td align="left" valign="top" width="20%" id="d53726e419" headers="d53726e375 ">
+                                             <p>ROOT ACCESS</p>
+                                          </td>
+                                          <td align="left" valign="top" width="20%" headers="d53726e419 d53726e377 ">
+                                             <p>Select the check box.</p>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </div>
+                              <!-- class="inftblhruleinformal" -->
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Click <span class="bold">Apply</span>.</span></li>
+                        <li class="stepexpand"><span>Log out.</span></li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-1F58607B-A887-4AC5-8FF4-61B997558416" title="Review the list of prerequisites.">Prerequisites for Running Oracle EXAchk on Oracle Exalogic</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-A080BA1E-77DD-42E2-A610-1F5145F21DD9" name="GUID-A080BA1E-77DD-42E2-A610-1F5145F21DD9"></a><h4 id="OEXUG-GUID-A080BA1E-77DD-42E2-A610-1F5145F21DD9" class="sect4"><span class="enumeration_section">3.3.2.2 </span>Mount the /export/common/general Share
+                  </h4>
+                  <div>
+                     <p>In this section, compute node&nbsp;<code class="codeph">el01cn01</code>&nbsp;is used as the example of the host on which the&nbsp;<code>/export/common/general</code>&nbsp;share is mounted.
+                     </p>
+                     <div class="p">
+                        <div class="p">
+                           <div class="infoboxnote" id="GUID-A080BA1E-77DD-42E2-A610-1F5145F21DD9__GUID-915ABC74-A51B-4DA5-8F79-AC2E1F367B1F">
+                              <p class="notep1">Note:</p>
+                              <ul style="list-style-type: disc;">
+                                 <li>
+                                    <p>For an Oracle Exalogic machine in a virtual configuration running EECS 2.0.6, mount the&nbsp;<code>export/common/general</code>&nbsp;share on the vServer that hosts the Enterprise Controller component of the Exalogic Control stack. Substitute the compute node&nbsp;<code class="codeph">el01cn01</code>&nbsp;in this procedure with the host name or IP address of that vServer.
+                                    </p>
+                                    <p>For an Oracle Exalogic machine running EECS 2.0.4 (virtual), if traffic from the&nbsp;<code class="codeph">eth-admin</code>&nbsp;network cannot be routed to the&nbsp;<code class="codeph">EoIB-external-mgmt</code>&nbsp;network, when you run Oracle EXAchk from the Enterprise Controller vServer, then health checks are not performed for the switches and the storage appliance. On such racks, to perform health checks on the physical components, you must mount the&nbsp;<code>export/common/general</code>&nbsp;share on a compute node as well.
+                                    </p>
+                                 </li>
+                                 <li>
+                                    <p>In a virtual configuration, if you run Oracle EXAchk from a compute node, Oracle EXAchk does not perform health checks for the Exalogic Control components.</p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- class="section" -->
+                     <ol>
+                        <li class="stepexpand"><span>Check if the&nbsp;<code>/export/common/general</code>&nbsp;share is already mounted at the&nbsp;<code>/u01/common/general</code>&nbsp;directory on compute node&nbsp;<code class="codeph">el01cn01</code>.</span><div>
+                              <div class="p">You can do this by logging in to&nbsp;<code class="codeph">el01cn01</code>&nbsp;as <code class="codeph">root</code>&nbsp;and running the following command:<pre class="pre codeblock"><code># mount</code></pre></div>
+                              <div class="p">If the&nbsp;<code>/export/common/general</code>&nbsp;share is already mounted on the compute node, then the output of the&nbsp;mount&nbsp;command contains an entry like the following:<pre class="pre codeblock"><code>192.168.10.97:<span class="bold">/export/common/general on /u01/common/general</span> ...</code></pre></div>
+                              <p>In this example, <code class="codeph">192.168.10.97</code> is the IP address of the storage node <code class="codeph">el01sn01</code>.
+                              </p>
+                              <p>If you see the previous line in the output of the mount command, then skip step 2.</p>
+                              <p>If the output of mount command does not contain the previous line, perform step 2.</p>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Mount the&nbsp;<code>/export/common/general</code>&nbsp;share at a directory on compute node&nbsp;<code class="codeph">el01cn01</code>.</span><ol type="a">
+                              <li class="substepexpand"><span>Create the directory&nbsp;<code>/u01/common/general</code>&nbsp;to serve as the mount point on&nbsp;<code class="codeph">el01cn01</code> as follows:</span><div><pre class="pre codeblock"><code># mkdir -p /u01/common/general</code></pre></div>
+                              </li>
+                              <li class="substepexpand"><span>Depending on the operating system running on the host on which you want to mount the&nbsp;<code>/export/common/general</code>&nbsp;share, complete the following steps:</span><div>
+                                    <p><span class="bold">Oracle Linux</span></p>
+                                    <div class="p">Edit the&nbsp;<code>/etc/fstab</code>&nbsp;file by using a text editor like&nbsp;<code class="codeph">vi</code>, and add the following entry for the mount point that you just created:<pre class="pre codeblock"><code>el01sn01-priv:/export/common/general /u01/common/general nfs4 rw,bg,hard,nointr,rsize=131072,wsize=131072,proto=tcp</code></pre></div>
+                                    <p><span class="bold">Oracle Solaris</span></p>
+                                    <div class="p">Edit the&nbsp;<code>/etc/vfstab</code>&nbsp;file by using a text editor like&nbsp;<code class="codeph">vi</code>, and add the following entry for the mount point that you just created:<pre class="pre codeblock"><code>el01sn01-priv:/export/common/general - /u01/common/general nfs - yes  rw,bg,hard,nointr,rsize=131072,wsize=131072,proto=tcp</code></pre></div>
+                                 </div>
+                              </li>
+                              <li class="substepexpand"><span>Save and close the file.</span></li>
+                              <li class="substepexpand"><span>Mount the volumes by running the following command:</span><div><pre class="pre codeblock"><code># mount -a</code></pre></div>
+                              </li>
+                           </ol>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-1F58607B-A887-4AC5-8FF4-61B997558416" title="Review the list of prerequisites.">Prerequisites for Running Oracle EXAchk on Oracle Exalogic</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-3D04DAC4-1AAF-4446-ABB0-3F2DD373EF40" name="GUID-3D04DAC4-1AAF-4446-ABB0-3F2DD373EF40"></a><h3 id="OEXUG-GUID-3D04DAC4-1AAF-4446-ABB0-3F2DD373EF40" class="sect3"><span class="enumeration_section">3.3.3 </span>Prerequisite for Viewing Oracle EXAchk HTML Report
+               </h3>
+               <div>
+                  <p>Review the prerequisite for viewing Oracle EXAchk HTML Report in a web browser.</p>
+                  <div class="section">
+                     <p>Enable access to the <code>/export/common/general</code> share through the HTTP/WebDAV Protocol
+                     </p>
+                     <p>To enable access to a share through the HTTP/WebDAV protocol, complete the following steps:</p>
+                  </div>
+                  <!-- class="section" -->
+                  <ol>
+                     <li class="stepexpand"><span>In a web browser, enter the IP address or host name of the storage node as follows:</span><div>
+                           <div class="p"><pre class="pre codeblock"><code>https://ipaddress:215</code></pre></div>
+                           <p>Or</p>
+                           <div class="p"><pre class="pre codeblock"><code>https://hostname:215</code></pre></div>
+                        </div>
+                     </li>
+                     <li class="stepexpand"><span>Log in as <code class="codeph">root</code>.</span></li>
+                     <li class="stepexpand"><span>Enable the HTTP service on the appliance, by doing the following:</span><ol type="a">
+                           <li class="substepexpand"><span>Click <span class="bold">Configuration</span> in the top navigation pane.</span><div>
+                                 <div class="p">
+                                    <div class="figure" id="GUID-3D04DAC4-1AAF-4446-ABB0-3F2DD373EF40__GUID-EE69C6F6-E939-4A48-93FD-95AED639CE2D">
+                                       <p class="titleinfigure">Figure 3-3 Oracle Exalogic - Configuration</p><img src="img/exalogic-configuration.png" alt="Description of Figure 3-3 follows" title="Description of Figure 3-3 follows" longdesc="img_text/exalogic-configuration.html"><br><a href="img_text/exalogic-configuration.html">Description of "Figure 3-3 Oracle Exalogic - Configuration"</a></div>
+                                    <!-- class="figure" -->
+                                 </div>
+                              </div>
+                           </li>
+                           <li class="substepexpand"><span>Click <span class="bold">HTTP</span> under <span class="bold">Data Services</span>.</span><div>
+                                 <div class="p">
+                                    <div class="figure" id="GUID-3D04DAC4-1AAF-4446-ABB0-3F2DD373EF40__GUID-14EF9778-1F59-42C6-ADA0-94B90FA93CE0">
+                                       <p class="titleinfigure">Figure 3-4 Oracle Exalogic - Data Services</p><img src="img/exalogic-data-services.png" alt="Description of Figure 3-4 follows" title="Description of Figure 3-4 follows" longdesc="img_text/exalogic-data-services.html"><br><a href="img_text/exalogic-data-services.html">Description of "Figure 3-4 Oracle Exalogic - Data Services"</a></div>
+                                    <!-- class="figure" -->
+                                 </div>
+                              </div>
+                           </li>
+                           <li class="substepexpand"><span>Ensure that the <span class="bold">Require client login</span> check box is not selected.</span><div>
+                                 <div class="p">
+                                    <div class="figure" id="GUID-3D04DAC4-1AAF-4446-ABB0-3F2DD373EF40__GUID-925A3B11-D97C-4986-8CCA-CE557D791508">
+                                       <p class="titleinfigure">Figure 3-5 Oracle Exalogic - Client Login</p><img src="img/exalogic-client-login.png" alt="Description of Figure 3-5 follows" title="Description of Figure 3-5 follows" longdesc="img_text/exalogic-client-login.html"><br><a href="img_text/exalogic-client-login.html">Description of "Figure 3-5 Oracle Exalogic - Client Login"</a></div>
+                                    <!-- class="figure" -->
+                                 </div>
+                              </div>
+                           </li>
+                           <li class="substepexpand"><span>Click <span class="bold">Apply</span>.</span><div>If the button is disabled, select and deselect the <span class="bold">Require client login</span> check box.
+                                 <div class="p">
+                                    <div class="figure" id="GUID-3D04DAC4-1AAF-4446-ABB0-3F2DD373EF40__GUID-29CF7521-B9DF-419E-99A5-55D6956B285C">
+                                       <p class="titleinfigure">Figure 3-6 Oracle Exalogic - Client Login</p><img src="img/exalogic-client-login_1.png" alt="Description of Figure 3-6 follows" title="Description of Figure 3-6 follows" longdesc="img_text/exalogic-client-login_1.html"><br><a href="img_text/exalogic-client-login_1.html">Description of "Figure 3-6 Oracle Exalogic - Client Login"</a></div>
+                                    <!-- class="figure" -->
+                                 </div>
+                              </div>
+                           </li>
+                        </ol>
+                     </li>
+                     <li class="stepexpand"><span>Enable read-only HTTP access to the&nbsp;<code>/export/common/general</code>&nbsp;share by doing the following:</span><ol type="a">
+                           <li class="substepexpand"><span>Click <span class="bold">Shares</span> in the top navigation pane.</span></li>
+                           <li class="substepexpand"><span>Place your cursor over the row corresponding to the <code>/export/common/general</code> share.</span></li>
+                           <li class="substepexpand"><span>Click the <span class="bold">Edit entry</span> button (pencil icon) near the right edge of the row.</span></li>
+                           <li class="substepexpand"><span>On the resulting page, click <span class="bold">Protocols</span> in the navigation pane.</span></li>
+                           <li class="substepexpand"><span>Scroll down to the <span class="bold">HTTP</span> section.</span></li>
+                           <li class="substepexpand"><span>Deselect the <span class="bold">Inherit from project</span> check box.</span></li>
+                           <li class="substepexpand"><span>In the <span class="bold">Share mode</span> field, select <span class="bold">Read only</span>.</span><div>
+                                 <div class="p">
+                                    <div class="figure" id="GUID-3D04DAC4-1AAF-4446-ABB0-3F2DD373EF40__GUID-CD0CE2EB-57E4-4E22-8831-B33AD5A2DE53">
+                                       <p class="titleinfigure">Figure 3-7 Oracle Exalogic - Share Mode</p><img src="img/exalogic-share-mode.png" alt="Description of Figure 3-7 follows" title="Description of Figure 3-7 follows" longdesc="img_text/exalogic-share-mode.html"><br><a href="img_text/exalogic-share-mode.html">Description of "Figure 3-7 Oracle Exalogic - Share Mode"</a></div>
+                                    <!-- class="figure" -->
+                                 </div>
+                              </div>
+                           </li>
+                           <li class="substepexpand"><span>Click <span class="bold">APPLY</span> .</span></li>
+                        </ol>
+                     </li>
+                     <li class="stepexpand"><span>Log out.</span></li>
+                  </ol>
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-61B15081-6424-4F1E-A84C-0E0D8EEF0FF0" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalogic.">Oracle Exalogic</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-8FCD0FC1-336B-4346-A3B2-FC558A39DDBE" name="GUID-8FCD0FC1-336B-4346-A3B2-FC558A39DDBE"></a><h3 id="OEXUG-GUID-8FCD0FC1-336B-4346-A3B2-FC558A39DDBE" class="sect3"><span class="enumeration_section">3.3.4 </span>Installing and Upgrading Oracle EXAchk on Oracle Exalogic
+               </h3>
+               <div>
+                  <p>Follow these instructions to install and upgrade Oracle EXAchk on Oracle Exalogic.</p>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-2A225D96-B0FF-44D1-8137-3847D35FFCBE">Installing Oracle EXAchk on a Physical Oracle Exalogic Machine</a><br>Follow these instructions to install Oracle EXAchk on a physical Oracle Exalogic machine.
+                     </li>
+                     <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-7A943B2A-2C9E-4006-A387-05709F37DFD7">Installing Oracle EXAchk on a Virtual Oracle Exalogic Machine</a><br>Follow these instructions to install Oracle EXAchk on a virtual Oracle Exalogic machine.
+                     </li>
+                     <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-191EB087-EC9A-49D2-BA23-5020E09719C9">Upgrading Oracle EXAchk on Oracle Exalogic</a><br>Follow these instructions to upgrade Oracle EXAchk on Oracle Exalogic.
+                     </li>
+                  </ul>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-61B15081-6424-4F1E-A84C-0E0D8EEF0FF0" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalogic.">Oracle Exalogic</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="sect3"><a id="GUID-2A225D96-B0FF-44D1-8137-3847D35FFCBE" name="GUID-2A225D96-B0FF-44D1-8137-3847D35FFCBE"></a><h4 id="OEXUG-GUID-2A225D96-B0FF-44D1-8137-3847D35FFCBE" class="sect4"><span class="enumeration_section">3.3.4.1 </span>Installing Oracle EXAchk on a Physical Oracle Exalogic Machine
+                  </h4>
+                  <div>
+                     <p>Follow these instructions to install Oracle EXAchk on a physical Oracle Exalogic machine.</p>
+                     <div class="section">
+                        <p>Install Oracle EXAchk in the&nbsp;<code>/export/common/general</code>&nbsp;share by completing the following steps:
+                        </p>
+                     </div>
+                     <!-- class="section" -->
+                     <ol>
+                        <li class="stepexpand"><span>Ensure that&nbsp;<code>/export/common/general</code> share is mounted on the compute node&nbsp;<code class="codeph">el01cn01</code>.</span></li>
+                        <li class="stepexpand"><span>SSH to the compute node&nbsp;<code class="codeph">el01cn01</code>.</span></li>
+                        <li class="stepexpand"><span>Create a sub-directory named&nbsp;<code>exachk</code>&nbsp;in&nbsp;the <code>/u01/common/general/</code> directory&nbsp;to hold the Oracle EXAchk binaries:</span><div><pre class="pre codeblock"><code># mkdir /u01/common/general/exachk</code></pre></div>
+                        </li>
+                        <li class="stepexpand"><span>Go to the&nbsp;<code>/u01/common/general/exachk</code>&nbsp;directory.</span></li>
+                        <li class="stepexpand"><span>Download the&nbsp;<code>exachk.zip</code>&nbsp;file.</span></li>
+                        <li class="stepexpand"><span>Extract the contents of the&nbsp;<code>exachk.zip</code> file.</span><div>
+                              <div class="p"><pre class="pre codeblock"><code># unzip exachk.zip</code></pre></div>
+                              <div class="p">The Oracle EXAchk tool is now available at the following location on compute node&nbsp;<code class="codeph">el01cn01</code>:<pre class="pre codeblock"><code>/u01/common/general/exachk/exachk</code></pre></div>
+                           </div>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="https://docs.oracle.com/cd/E18476_01/doc.220/e35316/install_upgrade.htm#ELCHK111" target="_blank">https://docs.oracle.com/cd/E18476_01/doc.220/e35316/install_upgrade.htm#ELCHK111</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-8FCD0FC1-336B-4346-A3B2-FC558A39DDBE" title="Follow these instructions to install and upgrade Oracle EXAchk on Oracle Exalogic.">Installing and Upgrading Oracle EXAchk on Oracle Exalogic</a></p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="sect3"><a id="GUID-7A943B2A-2C9E-4006-A387-05709F37DFD7" name="GUID-7A943B2A-2C9E-4006-A387-05709F37DFD7"></a><h4 id="OEXUG-GUID-7A943B2A-2C9E-4006-A387-05709F37DFD7" class="sect4"><span class="enumeration_section">3.3.4.2 </span>Installing Oracle EXAchk on a Virtual Oracle Exalogic Machine
+                  </h4>
+                  <div>
+                     <p>Follow these instructions to install Oracle EXAchk on a virtual Oracle Exalogic machine.</p>
+                     <div class="section">
+                        <p>Install Oracle EXAchk in the&nbsp;<code>/export/common/general</code>&nbsp;share by completing the following steps:
+                        </p>
+                     </div>
+                     <!-- class="section" -->
+                     <ol>
+                        <li class="stepexpand"><span>Ensure that&nbsp;<code>/export/common/general</code> share is mounted on the vServer that hosts the Enterprise Controller.</span><div>
+                              <div class="infoboxnote" id="GUID-7A943B2A-2C9E-4006-A387-05709F37DFD7__GUID-C8CBEF7C-435D-4F44-99D9-4B53C6926504">
+                                 <p class="notep1">Note:</p>
+                                 <p>For an Exalogic machine running EECS 2.0.4 (virtual), if traffic from the&nbsp;<code class="codeph">eth-admin</code>&nbsp;network cannot be routed to the&nbsp;<code class="codeph">EoIB-external-mgmt</code>&nbsp;network, when you run Oracle EXAchk from the Enterprise Controller vServer, health checks will not be performed for the switches and the storage appliance. On such racks, to perform health checks on the physical components, you must mount the&nbsp;<code>export/common/general</code>share on a compute node as well.
+                                 </p>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>SSH to the vServer.</span></li>
+                        <li class="stepexpand"><span>Create a subdirectory named&nbsp;<code>exachk</code>&nbsp;in&nbsp;<code>/u01/common/general/</code>&nbsp;to hold the EXAchk binaries:</span><div><pre class="pre codeblock"><code># mkdir /u01/common/general/exachk</code></pre><div class="infoboxnote" id="GUID-7A943B2A-2C9E-4006-A387-05709F37DFD7__GUID-0DAC64F5-649D-4D3A-90FA-7D67C0A4A060">
+                                 <p class="notep1">Note:</p>If the vServer is down or otherwise inaccessible, then you can run Oracle EXAchk from a compute node. However, in this case, the health checks are performed for the Exalogic Control components.
+                              </div>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Go to the&nbsp;<code>/u01/common/general/exachk</code>&nbsp;directory.</span></li>
+                        <li class="stepexpand"><span>Download the&nbsp;<code>exachk.zip</code>&nbsp;file.</span></li>
+                        <li class="stepexpand"><span>Extract the contents of the&nbsp;<code>exachk.zip</code> file.</span><div>
+                              <div class="p"><pre class="pre codeblock"><code># unzip exachk.zip</code></pre></div>
+                              <div class="p">The Oracle EXAchk tool is now available at the following location on compute node&nbsp;<code class="codeph">el01cn01</code>:<pre class="pre codeblock"><code>/u01/common/general/exachk/exachk</code></pre></div>
+                           </div>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="https://docs.oracle.com/cd/E18476_01/doc.220/e35316/install_upgrade.htm#ELCHK111" target="_blank">https://docs.oracle.com/cd/E18476_01/doc.220/e35316/install_upgrade.htm#ELCHK111</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-8FCD0FC1-336B-4346-A3B2-FC558A39DDBE" title="Follow these instructions to install and upgrade Oracle EXAchk on Oracle Exalogic.">Installing and Upgrading Oracle EXAchk on Oracle Exalogic</a></p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="sect3"><a id="GUID-191EB087-EC9A-49D2-BA23-5020E09719C9" name="GUID-191EB087-EC9A-49D2-BA23-5020E09719C9"></a><h4 id="OEXUG-GUID-191EB087-EC9A-49D2-BA23-5020E09719C9" class="sect4"><span class="enumeration_section">3.3.4.3 </span>Upgrading Oracle EXAchk on Oracle Exalogic
+                  </h4>
+                  <div>
+                     <p>Follow these instructions to upgrade Oracle EXAchk on Oracle Exalogic.</p>
+                     <ol>
+                        <li class="stepexpand"><span>Back up the directory containing the existing Oracle EXAchk binaries by moving it to a new location.</span><div>
+                              <div class="p">For example, if the Oracle EXAchk binaries are currently in the directory <code>/u01/common/general/exachk</code>, then move them to a directory named <code>exachk_05302012</code> by running the following commands:<pre class="pre codeblock"><code># cd /u01/common/general
+# mv exachk exachk_05302012
+</code></pre></div>
+                              <p>In this example, the date when Oracle EXAchk is upgraded (05302012) is used to uniquely identify the backup directory. Pick any unique naming format, like a combination of the backup date and the release number and use it consistently.</p>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Create the&nbsp;<code>exachk</code>&nbsp;directory afresh.</span><div><pre class="pre codeblock"><code>$ mkdir /u01/common/general/exachk</code></pre></div>
+                        </li>
+                        <li class="stepexpand"><span>Install the latest version of Oracle EXAchk.</span></li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="https://support.oracle.com/rs?type=doc&amp;amp;id=1449226.1" target="_blank">https://support.oracle.com/rs?type=doc&amp;id=1449226.1</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-8FCD0FC1-336B-4346-A3B2-FC558A39DDBE" title="Follow these instructions to install and upgrade Oracle EXAchk on Oracle Exalogic.">Installing and Upgrading Oracle EXAchk on Oracle Exalogic</a></p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-C86295B2-272A-4F18-89E1-7A68523B071B" name="GUID-C86295B2-272A-4F18-89E1-7A68523B071B"></a><h3 id="OEXUG-GUID-C86295B2-272A-4F18-89E1-7A68523B071B" class="sect3"><span class="enumeration_section">3.3.5 </span>Oracle EXAchk on Oracle Exalogic Usage
+               </h3>
+               <div>
+                  <p>For optimum performance of the Oracle EXAchk tool, Oracle recommends that you complete the following steps.</p>
+                  <p>Oracle EXAchk is a minimal impact tool. However, Oracle recommends that you run Oracle EXAchk when the load on the system is low. The runtime of Oracle EXAchk depends on the number of nodes to check, CPU load, network latency, and so on.</p>
+                  <p>Do not run the scripts in the Oracle EXAchk directory unless specifically documented.</p>
+                  <p>To avoid problems while running the tool from terminal sessions on a workstation or laptop, connect to the Exalogic machine and then run Oracle EXAchk by using VNC. Even if a network interruption occurs, Oracle EXAchk continues to run.</p>
+                  <p>Run Oracle EXAchk as <code class="codeph">root</code>.
+                  </p>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-E3FFEC18-7B57-4DE0-A39D-C5664A3B3653">Performing Health Checks for Oracle Exalogic Infrastructure</a><br>Perform health checks in a virtual or physical rack.
+                     </li>
+                     <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-807D05AA-362E-4ED8-BD42-68B4B3F33391">Performing Health Checks for Guest vServers</a><br>Run Oracle EXAchk to perform health checks for guest vServers.
+                     </li>
+                     <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-B606D79A-97D9-42E2-86CB-7DE31149E0BC">About the Oracle EXAchk Health Check Process</a><br>Review the Oracle EXAchk start up sequence of events.
+                     </li>
+                     <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-C049DE1C-33C8-4F40-890A-B67EE5A54C6D">Running Oracle EXAchk in Silent Mode</a><br>When you run Oracle EXAchk in silent mode, it does not perform health checks for storage nodes and InfiniBand switches.
+                     </li>
+                     <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-B33FE749-A8F1-4F04-A8B7-256D6F570076">Overriding Discovered Component Addresses</a><br>In a physical environment, the component IP addresses or host names are determined in the first run based on user input. In a virtual environment, Oracle EXAchk has an in-built mechanism to automatically discover the IP addresses or host names of all the components. These features are designed to minimize the need for end-user input.
+                     </li>
+                     <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-0342BB83-6E09-42C4-B115-30845692336C">Setting Environment Variables for Local Issues</a><br>Oracle EXAchk attempts to derive all the data it needs from the environment in which it is run.
+                     </li>
+                     <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-F9CD196D-6102-4ACB-8541-9B3269B2C2D6">External ZFS Storage Appliance</a><br>For Exalogic systems, support has been added to run health checks on External ZFS Storage appliances. The results of these checks are displayed in the <span class="bold">External ZFS Storage Appliance</span> of the report.
+                     </li>
+                  </ul>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="oracle-exadata-and-zero-data-loss-recovery-appliance.html#GUID-5BFAD3BC-59B9-4B9F-86B2-33E9ED3F58BF" title="This topic explains how Oracle EXAchk InfiniBand switch processing is done when Oracle Exalogic and Oracle Exadata engineered systems reside on the same InfiniBand fabric.">Oracle EXAchk InfiniBand Switch Processing</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-61B15081-6424-4F1E-A84C-0E0D8EEF0FF0" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalogic.">Oracle Exalogic</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="sect3"><a id="GUID-E3FFEC18-7B57-4DE0-A39D-C5664A3B3653" name="GUID-E3FFEC18-7B57-4DE0-A39D-C5664A3B3653"></a><h4 id="OEXUG-GUID-E3FFEC18-7B57-4DE0-A39D-C5664A3B3653" class="sect4"><span class="enumeration_section">3.3.5.1 </span>Performing Health Checks for Oracle Exalogic Infrastructure
+                  </h4>
+                  <div>
+                     <p>Perform health checks in a virtual or physical rack.</p>
+                  </div>
+                  <div>
+                     <ul class="ullinks">
+                        <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-0265AAA8-F7FD-44B9-A17B-8B1EE45BE962">Prerequisites for Running Health Checks on Oracle Exalogic Infrastructure</a><br>The term infrastructure is used here to indicate the compute nodes, switches, storage appliance, and, also, the Exalogic Control stack if a machine in a virtual configuration.
+                        </li>
+                        <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-BBF88A9D-3699-49D2-AAF2-75E9AC40C425">Running Oracle EXAchk for Physical Racks</a><br>Perform health checks for all the infrastructure components in an Oracle Exalogic machine in a physical Linux or Solaris configuration.
+                        </li>
+                        <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-DCCA02F9-2ABD-440A-BD38-BF6C05F4C52D">Running Oracle EXAchk for Virtual Racks</a><br>Perform health checks for all the infrastructure components in an Oracle Exalogic machine in a virtual configuration.
+                        </li>
+                        <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-A18E4847-B3B3-42EA-8ED0-375CAB2F97DC">Running Oracle EXAchk for Hybrid Racks</a><br>Perform health checks for all the infrastructure components in an Oracle Exalogic machine in a hybrid configuration, that is, a machine on which half the nodes are running Oracle VM Server and the other half are on Oracle Linux.
+                        </li>
+                     </ul>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="oracle-exalogic.html#GUID-B33FE749-A8F1-4F04-A8B7-256D6F570076" title="In a physical environment, the component IP addresses or host names are determined in the first run based on user input. In a virtual environment, Oracle EXAchk has an in-built mechanism to automatically discover the IP addresses or host names of all the components. These features are designed to minimize the need for end-user input.">Overriding Discovered Component Addresses</a></li>
+                           <li><a href="orachk-exachk-command-line-options.html#GUID-775DBBA4-8A14-4EC0-9EB1-C3174929DAED" title="Most command-line options apply to both Oracle ORAchk and Oracle EXAchk.">Oracle ORAchk and Oracle EXAchk Command-Line Options</a></li>
+                           <li><a href="oracle-exalogic.html#GUID-3E706CE7-D5C0-49C6-A28B-130E3F84E6E1" title="Identify the checks that you must act immediately to remediate, or investigate further to assess the checks that might cause performance or stability issues.">Oracle EXAchk on Oracle Exalogic Output</a></li>
+                           <li><a href="https://docs.oracle.com/cd/E18476_01/doc.220/e35316/advanced_option.htm#A132212701" target="_blank">https://docs.oracle.com/cd/E18476_01/doc.220/e35316/advanced_option.htm#A132212701</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-C86295B2-272A-4F18-89E1-7A68523B071B" title="For optimum performance of the Oracle EXAchk tool, Oracle recommends that you complete the following steps.">Oracle EXAchk on Oracle Exalogic Usage</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="sect4"><a id="GUID-0265AAA8-F7FD-44B9-A17B-8B1EE45BE962" name="GUID-0265AAA8-F7FD-44B9-A17B-8B1EE45BE962"></a><h5 id="OEXUG-GUID-0265AAA8-F7FD-44B9-A17B-8B1EE45BE962" class="sect5"><span class="enumeration_section">3.3.5.1.1 </span>Prerequisites for Running Health Checks on Oracle Exalogic Infrastructure
+                     </h5>
+                     <div>
+                        <p>The term infrastructure is used here to indicate the compute nodes, switches, storage appliance, and, also, the Exalogic Control stack if a machine in a virtual configuration.</p>
+                        <p>Before running Oracle EXAchk for the Oracle Exalogic infrastructure components, ensure to meet the following prerequisites:</p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>Ensure that Oracle EXAchk is installed as described in Installing Oracle EXAchk.</p>
+                           </li>
+                           <li>
+                              <p>Before running Oracle EXAchk for the first time, make a note of the short names of the storage nodes and switches: <code class="codeph">el01sn01</code>, <code class="codeph">el01sw-ib01</code>, and so on. Oracle EXAchk prompts you for these names at the start of the health check process. This is a one time prompt. Oracle EXAchk stores the names you provide, and uses the stored names for subsequent runs.
+                              </p>
+                           </li>
+                        </ul>
+                     </div>
+                     <div>
+                        <div class="familylinks">
+                           <div class="parentlink">
+                              <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-E3FFEC18-7B57-4DE0-A39D-C5664A3B3653" title="Perform health checks in a virtual or physical rack.">Performing Health Checks for Oracle Exalogic Infrastructure</a></p>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+                  <div class="sect4"><a id="GUID-BBF88A9D-3699-49D2-AAF2-75E9AC40C425" name="GUID-BBF88A9D-3699-49D2-AAF2-75E9AC40C425"></a><h5 id="OEXUG-GUID-BBF88A9D-3699-49D2-AAF2-75E9AC40C425" class="sect5"><span class="enumeration_section">3.3.5.1.2 </span>Running Oracle EXAchk for Physical Racks
+                     </h5>
+                     <div>
+                        <p>Perform health checks for all the infrastructure components in an Oracle Exalogic machine in a physical Linux or Solaris configuration.</p>
+                        <ol>
+                           <li class="stepexpand"><span>SSH as <code class="codeph">root</code> to the compute node on which you installed Oracle EXAchk.</span></li>
+                           <li class="stepexpand"><span>Go to the directory where you have installed Oracle EXAchk.</span><div><pre class="pre codeblock"><code># cd /u01/common/general/exachk</code></pre></div>
+                           </li>
+                           <li class="stepexpand"><span>Run the following command:</span><div><pre class="pre codeblock"><code># ./exachk</code></pre></div>
+                           </li>
+                        </ol>
+                        <div class="section">
+                           <p>When running Oracle EXAchk for the first time, the tool:</p>
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>Detects the size of the Exalogic rack</p>
+                              </li>
+                              <li>
+                                 <p>Prompts for the host name or IP address of the switch and storage node</p>
+                              </li>
+                           </ul>
+                           <p>For information about overriding the IP addresses and host names set during the first run.</p>
+                        </div>
+                        <!-- class="section" -->
+                     </div>
+                     <div>
+                        <div class="familylinks">
+                           <div class="parentlink">
+                              <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-E3FFEC18-7B57-4DE0-A39D-C5664A3B3653" title="Perform health checks in a virtual or physical rack.">Performing Health Checks for Oracle Exalogic Infrastructure</a></p>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+                  <div class="sect4"><a id="GUID-DCCA02F9-2ABD-440A-BD38-BF6C05F4C52D" name="GUID-DCCA02F9-2ABD-440A-BD38-BF6C05F4C52D"></a><h5 id="OEXUG-GUID-DCCA02F9-2ABD-440A-BD38-BF6C05F4C52D" class="sect5"><span class="enumeration_section">3.3.5.1.3 </span>Running Oracle EXAchk for Virtual Racks
+                     </h5>
+                     <div>
+                        <p>Perform health checks for all the infrastructure components in an Oracle Exalogic machine in a virtual configuration.</p>
+                        <ol>
+                           <li class="stepexpand"><span>SSH as&nbsp;<code class="codeph">root</code> to the vServer that hosts the Enterprise Controller.</span></li>
+                           <li class="stepexpand"><span>Go to the directory where you have installed Oracle EXAchk.</span><div><pre class="pre codeblock"><code># cd /u01/common/general/exachk</code></pre></div>
+                           </li>
+                           <li class="stepexpand"><span>Run the following command:</span><div><pre class="pre codeblock"><code># ./exachk</code></pre></div>
+                           </li>
+                        </ol>
+                        <div class="section">
+                           <p>Oracle EXAchk automatically discovers the IP addresses or host names of all the components in the machine, and starts performing the health checks.</p>
+                        </div>
+                        <!-- class="section" -->
+                     </div>
+                     <div>
+                        <div class="familylinks">
+                           <div class="parentlink">
+                              <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-E3FFEC18-7B57-4DE0-A39D-C5664A3B3653" title="Perform health checks in a virtual or physical rack.">Performing Health Checks for Oracle Exalogic Infrastructure</a></p>
+                           </div>
+                        </div>
+                     </div>
+                     
+                     <div class="sect5"><a id="TASK-15-F7A0DFBB" name="TASK-15-F7A0DFBB"></a><h6 id="OEXUG-TASK-15-F7A0DFBB" class="sect6"><span class="enumeration_section">3.3.5.1.3.1 </span></h6>
+                        <div>
+                           <div class="section">
+                              <p>For an Exalogic machine running EECS 2.0.4 (virtual), if traffic from the&nbsp;<code class="codeph">eth-admin</code>&nbsp;network is not routed to the&nbsp;<code class="codeph">EoIB-external-mgmt</code>&nbsp;network when you run Oracle EXAchk from the Enterprise Controller vServer, Oracle EXAchk does not run health checks for the switches and storage heads.
+                              </p>
+                              <p>On such racks, do the following to perform health checks on all the components:</p>
+                           </div>
+                           <!-- class="section" -->
+                           <ol>
+                              <li><span>Perform health checks for the Oracle Exalogic Control components:</span><ol type="a">
+                                    <li class="substepexpand"><span>SSH as&nbsp;<code class="codeph">root</code> to the Enterprise Controller vServer.</span></li>
+                                    <li class="substepexpand"><span>Go to the directory where you have installed Oracle EXAchk.</span><div><pre class="pre codeblock"><code># cd /u01/common/general/exachk</code></pre></div>
+                                    </li>
+                                    <li class="substepexpand"><span>Run the following command:</span><div><pre class="pre codeblock"><code># ./exachk -profile control_VM</code></pre></div>
+                                       <div>
+                                          <p>Oracle EXAchk reports that all the checks on the compute nodes passed. However, this command did not perform any health checks on the compute nodes, the storage appliance, and the switches.</p>
+                                       </div>
+                                    </li>
+                                 </ol>
+                              </li>
+                              <li><span>Perform health checks for the physical components, such as compute nodes, storage appliance, and switches:</span><ol type="a">
+                                    <li class="substepexpand"><span>SSH as&nbsp;<code class="codeph">root</code> to the compute node on which you installed Oracle EXAchk.</span></li>
+                                    <li class="substepexpand"><span>Ensure that passwordless SSH to the Oracle VM Manager CLI shell is enabled.</span></li>
+                                    <li class="substepexpand"><span>Go to the directory where you have installed Oracle EXAchk.</span><div><pre class="pre codeblock"><code># cd /u01/common/general/exachk</code></pre></div>
+                                    </li>
+                                    <li class="substepexpand"><span>Run the following command:</span><div><pre class="pre codeblock"><code># ./exachk -profile el_extensive</code></pre></div>
+                                    </li>
+                                 </ol>
+                              </li>
+                           </ol>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="sect4"><a id="GUID-A18E4847-B3B3-42EA-8ED0-375CAB2F97DC" name="GUID-A18E4847-B3B3-42EA-8ED0-375CAB2F97DC"></a><h5 id="OEXUG-GUID-A18E4847-B3B3-42EA-8ED0-375CAB2F97DC" class="sect5"><span class="enumeration_section">3.3.5.1.4 </span>Running Oracle EXAchk for Hybrid Racks
+                     </h5>
+                     <div>
+                        <p>Perform health checks for all the infrastructure components in an Oracle Exalogic machine in a hybrid configuration, that is, a machine on which half the nodes are running Oracle VM Server and the other half are on Oracle Linux.</p>
+                        <ol>
+                           <li class="stepexpand"><span>SSH as&nbsp;<code class="codeph">root</code> to the vServer that hosts the Enterprise Controller component of the Exalogic Control stack.</span></li>
+                           <li class="stepexpand"><span>Go to the directory where you have installed Oracle EXAchk.</span><div><pre class="pre codeblock"><code># cd /u01/common/general/exachk</code></pre></div>
+                           </li>
+                           <li class="stepexpand"><span>Run the following command:</span><div><pre class="pre codeblock"><code>./exachk -hybrid -phy physical_node_1[,physical_node_2,...]</code></pre></div>
+                           </li>
+                        </ol>
+                        <div class="section">
+                           <p>In this command,&nbsp;<code class="codeph">physical_node_1</code>,&nbsp;<code class="codeph">physical_node_2</code>, and so on, are the&nbsp;<code class="codeph">eth-admin</code>&nbsp;IP addresses of the compute nodes running Oracle Linux.
+                           </p>
+                           <p>The <code class="codeph">-phy physical_node_1[,physical_node_2,...]</code> must be specified only the first time you run Oracle EXAchk with the <code class="codeph">-hybrid</code> option. Oracle EXAchk stores the host names in the <code>exachk_exalogic.conf</code> file. For subsequent runs, you can run Oracle EXAchk without specifying the <code class="codeph">-phy</code> option. Oracle EXAchk uses the host names stored in the&nbsp;<code>exachk_exalogic.conf</code> &nbsp;file.
+                           </p>
+                        </div>
+                        <!-- class="section" -->
+                     </div>
+                     <div>
+                        <div class="familylinks">
+                           <div class="parentlink">
+                              <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-E3FFEC18-7B57-4DE0-A39D-C5664A3B3653" title="Perform health checks in a virtual or physical rack.">Performing Health Checks for Oracle Exalogic Infrastructure</a></p>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+               </div>
+               <div class="sect3"><a id="GUID-807D05AA-362E-4ED8-BD42-68B4B3F33391" name="GUID-807D05AA-362E-4ED8-BD42-68B4B3F33391"></a><h4 id="OEXUG-GUID-807D05AA-362E-4ED8-BD42-68B4B3F33391" class="sect4"><span class="enumeration_section">3.3.5.2 </span>Performing Health Checks for Guest vServers
+                  </h4>
+                  <div>
+                     <p>Run Oracle EXAchk to perform health checks for guest vServers.</p>
+                  </div>
+                  <div>
+                     <ul class="ullinks">
+                        <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-09AFC3F3-FD4B-4561-9163-E91D61872DF2">Prerequisites for Running Health Checks on Guest vServers</a><br>Before running Oracle EXAchk on guest vServers, ensure to meet the prerequisites.
+                        </li>
+                        <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-2BC2A9D4-15A0-4934-A460-F4707CED8E04">Installing IaaS CLI and API</a><br></li>
+                        <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-D6245C81-7794-4B01-A887-A3C38435A903">Additional Prerequisites for STIG-hardened vServers</a><br>You can harden guest vServers using the STIGfix tool. The STIGfix tool is packaged as part of the Exalogic Lifecycle Toolkit.
+                        </li>
+                        <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-4B0CB8D7-DCE9-4045-A6D6-1B6D869408B5">Running Oracle EXAchk for vServers That are Not STIG-hardened</a><br>Perform health checks for all the guest vServers that are not STIG-hardened, in a vDC on an Oracle Exalogic machine.
+                        </li>
+                        <li class="ulchildlink"><a href="oracle-exalogic.html#GUID-20FB1E81-2D92-4976-8369-6AE0A17F9734">Running Oracle EXAchk for STIG-hardened vServers</a><br>Run Oracle EXAchk for STIG-hardened vServers.
+                        </li>
+                     </ul>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="https://support.oracle.com/rs?type=doc&amp;id=1586312.1" target="_blank">https://support.oracle.com/rs?type=doc&amp;id=1586312.1</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-C86295B2-272A-4F18-89E1-7A68523B071B" title="For optimum performance of the Oracle EXAchk tool, Oracle recommends that you complete the following steps.">Oracle EXAchk on Oracle Exalogic Usage</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="sect4"><a id="GUID-09AFC3F3-FD4B-4561-9163-E91D61872DF2" name="GUID-09AFC3F3-FD4B-4561-9163-E91D61872DF2"></a><h5 id="OEXUG-GUID-09AFC3F3-FD4B-4561-9163-E91D61872DF2" class="sect5"><span class="enumeration_section">3.3.5.2.1 </span>Prerequisites for Running Health Checks on Guest vServers
+                     </h5>
+                     <div>
+                        <p>Before running Oracle EXAchk on guest vServers, ensure to meet the prerequisites.</p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>Install Oracle EXAchk as described in Installing Oracle EXAchk.</p>
+                           </li>
+                           <li>
+                              <p>Install IaaS CLI and API on the vServer that hosts the Enterprise Controller. Note that the IaaS CLI and API are pre-installed on the Enterprise Controller vServer in EECS 2.0.4.</p>
+                           </li>
+                        </ul>
+                        <p>To verify this prerequisite, check whether the <code>/opt/oracle/iaas/cli</code> and <code>/opt/oracle/iaas/api</code> directories exist on the vServer. If the directories exist, then the IaaS CLI and API are installed.
+                        </p>
+                     </div>
+                     <div>
+                        <div class="familylinks">
+                           <div class="parentlink">
+                              <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-807D05AA-362E-4ED8-BD42-68B4B3F33391" title="Run Oracle EXAchk to perform health checks for guest vServers.">Performing Health Checks for Guest vServers</a></p>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+                  <div class="sect4"><a id="GUID-2BC2A9D4-15A0-4934-A460-F4707CED8E04" name="GUID-2BC2A9D4-15A0-4934-A460-F4707CED8E04"></a><h5 id="OEXUG-GUID-2BC2A9D4-15A0-4934-A460-F4707CED8E04" class="sect5"><span class="enumeration_section">3.3.5.2.2 </span>Installing IaaS CLI and API
+                     </h5>
+                     <div>
+                        <p></p>
+                        <ol>
+                           <li class="stepexpand"><span>Go to&nbsp;<a href="https://edelivery.oracle.com" target="_blank">https://edelivery.oracle.com</a>.</span><ol type="a">
+                                 <li><span>Sign in by using your Oracle account.</span></li>
+                              </ol>
+                           </li>
+                           <li class="stepexpand"><span>Read and accept the Oracle Software Delivery Cloud Trial License Agreement and the Export Restrictions.</span><ol type="a">
+                                 <li><span>Click <span class="bold">Continue</span>.</span></li>
+                              </ol>
+                           </li>
+                           <li class="stepexpand"><span>In the <span class="bold">Select a Product Pack</span> field, select <span class="bold">Oracle Fusion Middleware</span>.</span><ol type="a">
+                                 <li><span>In the <span class="bold">Platform</span> field, select <span class="bold">Linux x86-64</span>.</span></li>
+                                 <li><span>Click <span class="bold">Go</span>.</span></li>
+                              </ol>
+                           </li>
+                           <li class="stepexpand"><span>In the results displayed, select <span class="bold">Oracle Exalogic Elastic Cloud Software 11g Media Pack</span>, and click <span class="bold">Continue</span>.</span></li>
+                           <li class="stepexpand"><span>Look for Oracle Exalogic <span class="variable" translate="no">version</span> IaaS Client for Exalogic Linux x86-64 (64&#x2013;bit), and download the appropriate version &#x2013; 2.0.4.0.0, 2.0.6.0.0, or 2.0.6.0.1 depending on the EECS release installed on the Exalogic machine.</span></li>
+                           <li class="stepexpand"><span>Unzip the downloaded file. </span></li>
+                           <li class="stepexpand"><span>Install both the RPMs by running the following command in the directory in which you unzipped the RPMs:</span><div><pre class="pre codeblock"><code>rpm -i *.rpm</code></pre></div>
+                           </li>
+                        </ol>
+                     </div>
+                     <div>
+                        <div class="familylinks">
+                           <div class="parentlink">
+                              <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-807D05AA-362E-4ED8-BD42-68B4B3F33391" title="Run Oracle EXAchk to perform health checks for guest vServers.">Performing Health Checks for Guest vServers</a></p>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+                  <div class="sect4"><a id="GUID-D6245C81-7794-4B01-A887-A3C38435A903" name="GUID-D6245C81-7794-4B01-A887-A3C38435A903"></a><h5 id="OEXUG-GUID-D6245C81-7794-4B01-A887-A3C38435A903" class="sect5"><span class="enumeration_section">3.3.5.2.3 </span>Additional Prerequisites for STIG-hardened vServers
+                     </h5>
+                     <div>
+                        <p>You can harden guest vServers using the STIGfix tool. The STIGfix tool is packaged as part of the Exalogic Lifecycle Toolkit.</p>
+                        <div class="section">
+                           <p>Download the toolkit installer and <code>tar</code> bundle.
+                           </p>
+                           <p>Refer to My Oracle Support Note for toolkit install instructions.</p>
+                        </div>
+                        <!-- class="section" -->
+                        <div class="p">
+                           <p>To run Oracle EXAchk on STIG-hardened vServers, you must perform the following prerequisites:</p>
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>Run Oracle EXAchk on STIG-hardened vServers separately from other guest vServers.</p>
+                              </li>
+                              <li>
+                                 <p>The vServer that hosts the Enterprise Controller and the STIG-hardened guest vServers must have the same user with <code class="codeph">sudo</code> privileges.
+                                 </p>
+                                 <p>You can create these users by doing the following.</p>
+                                 <p>Create the account on the vServer hosting Enterprise Controller as follows:</p>
+                              </li>
+                           </ul>
+                        </div>
+                        <!-- class="section" -->
+                        <ol>
+                           <li class="stepexpand"><span>Log in to the vServer hosting Enterprise Controller as <code class="codeph">root</code>.</span></li>
+                           <li class="stepexpand"><span>Run the following scripts to create the account <code class="codeph">ELAdmin</code>:</span><div><pre class="pre codeblock"><code># useradd -d /home/ELAdmin -s /bin/bash -m ELAdmin
+# echo "ELAdmin:&lt;password&gt;"|chpasswd
+# echo "PATH=$PATH.:/usr/kerberos/sbin:/usr/kerberos/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin" &gt;&gt;/home/ELAdmin/.bashrc
+# usermod -a -G oinstall ELAdmin
+</code></pre></div>
+                              <ol type="a">
+                                 <li><span>Replace&nbsp;<code class="codeph"><span class="variable" translate="no">password</span></code>&nbsp;with a password of your choice.</span></li>
+                              </ol>
+                           </li>
+                           <li class="stepexpand"><span>Run the <code class="codeph">visudo</code> command.</span></li>
+                           <li class="stepexpand"><span>Under&nbsp;<span class="bold">## Allows people in group wheel to run all commands</span>, add the following line:</span><div><pre class="pre codeblock"><code>%ELAdmin ALL=(ALL) ALL</code></pre></div>
+                           </li>
+                           <li class="stepexpand"><span>Under&nbsp;<span class="bold">## Same thing without a password</span>, add the following line:</span><div><pre class="pre codeblock"><code>%ELAdmin ALL=(ALL) NOPASSWD: ALL</code></pre></div>
+                           </li>
+                           <li class="stepexpand"><span>Save the file.</span></li>
+                        </ol>
+                     </div>
+                     <div>
+                        <div class="familylinks">
+                           <div class="parentlink">
+                              <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-807D05AA-362E-4ED8-BD42-68B4B3F33391" title="Run Oracle EXAchk to perform health checks for guest vServers.">Performing Health Checks for Guest vServers</a></p>
+                           </div>
+                        </div>
+                     </div>
+                     
+                     <div class="sect5"><a id="TASK-15-F7A5596E" name="TASK-15-F7A5596E"></a><h6 id="OEXUG-TASK-15-F7A5596E" class="sect6"><span class="enumeration_section">3.3.5.2.3.1 </span></h6>
+                        <div>
+                           <div class="section">
+                              <p>Create the ELAdmin account that you created on the Enterprise Controller, on the guest vServer that is STIG-hardened as follows:</p>
+                           </div>
+                           <!-- class="section" -->
+                           <ol>
+                              <li class="stepexpand"><span>Log in to the vServer that is STIG-hardened.</span></li>
+                              <li class="stepexpand"><span>Switch to the <code class="codeph">root</code> user by running the following command:</span><div><pre class="pre codeblock"><code>su root</code></pre></div>
+                              </li>
+                              <li class="stepexpand"><span>Run the following scripts to create the account ELAdmin:</span><div><pre class="pre codeblock"><code># useradd -d /home/ELAdmin -s /bin/bash -m ELAdmin
+# echo "ELAdmin:&lt;password&gt;"|chpasswd
+# echo "PATH=$PATH.:/usr/kerberos/sbin:/usr/kerberos/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin" &gt;&gt;/home/ELAdmin/.bashrc
+</code></pre></div>
+                                 <ol type="a">
+                                    <li><span>Replace&nbsp;<code class="codeph"><span class="variable" translate="no">password</span></code>&nbsp;with a password of your choice.</span></li>
+                                 </ol>
+                              </li>
+                              <li class="stepexpand"><span>Run the&nbsp;<code class="codeph">visudo</code>&nbsp;command.</span></li>
+                              <li class="stepexpand"><span>Under&nbsp;<span class="bold">## Allows people in group wheel to run all commands</span>, add the following line:</span><div><pre class="pre codeblock"><code>%ELAdmin ALL=(ALL) ALL</code></pre></div>
+                              </li>
+                              <li class="stepexpand"><span>Under&nbsp;<span class="bold">## Same thing without a password</span>, add the following line:</span><div><pre class="pre codeblock"><code>%ELAdmin ALL=(ALL) NOPASSWD: ALL</code></pre></div>
+                              </li>
+                              <li class="stepexpand"><span>Save the file.</span></li>
+                           </ol>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="sect4"><a id="GUID-4B0CB8D7-DCE9-4045-A6D6-1B6D869408B5" name="GUID-4B0CB8D7-DCE9-4045-A6D6-1B6D869408B5"></a><h5 id="OEXUG-GUID-4B0CB8D7-DCE9-4045-A6D6-1B6D869408B5" class="sect5"><span class="enumeration_section">3.3.5.2.4 </span>Running Oracle EXAchk for vServers That are Not STIG-hardened
+                     </h5>
+                     <div>
+                        <p>Perform health checks for all the guest vServers that are not STIG-hardened, in a vDC on an Oracle Exalogic machine.</p>
+                        <ol>
+                           <li class="stepexpand"><span>SSH as&nbsp;<code class="codeph">root</code> to the vServer that hosts the Enterprise Controller.</span></li>
+                           <li class="stepexpand"><span>Go to the directory in which you installed Oracle EXAchk.</span><div><pre class="pre codeblock"><code># cd /u01/common/general/exachk</code></pre></div>
+                           </li>
+                           <li class="stepexpand"><span>Create a set of <code>.out</code> files, one for each Cloud User. </span><div>
+                                 <p>Name the files as, for example, <code>guest_vm_ip_user.out</code>, where user is a Cloud User.
+                                 </p>
+                                 <p>In each <code>.out</code> file, specify the IP addresses of the guest vServers created by the Cloud User.
+                                 </p>
+                                 <div class="p">The <code>guest_vm_ip_user.out</code> has the following format:<pre class="pre codeblock"><code>ip_address_of_guest_vserver1
+ip_address_of_guest_vserver2
+ip_address_of_guest_vserver3</code></pre></div>
+                              </div>
+                           </li>
+                           <li class="stepexpand"><span>Run Oracle EXAchk with the <code class="codeph">-vmguest</code> option, and specify one or more <code>guest_vm_ip_user.out</code> files as arguments depending upon the users for which you want to perform health checks for guest vServers.</span><div><pre class="pre codeblock"><code># ./exachk -vmguest guest_vm_ip_user-1.out[,guest_vm_ip_user-1.out,...]</code></pre></div>
+                           </li>
+                        </ol>
+                     </div>
+                     <div>
+                        <div class="familylinks">
+                           <div class="parentlink">
+                              <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-807D05AA-362E-4ED8-BD42-68B4B3F33391" title="Run Oracle EXAchk to perform health checks for guest vServers.">Performing Health Checks for Guest vServers</a></p>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+                  <div class="sect4"><a id="GUID-20FB1E81-2D92-4976-8369-6AE0A17F9734" name="GUID-20FB1E81-2D92-4976-8369-6AE0A17F9734"></a><h5 id="OEXUG-GUID-20FB1E81-2D92-4976-8369-6AE0A17F9734" class="sect5"><span class="enumeration_section">3.3.5.2.5 </span>Running Oracle EXAchk for STIG-hardened vServers
+                     </h5>
+                     <div>
+                        <p>Run Oracle EXAchk for STIG-hardened vServers.</p>
+                        <ol>
+                           <li class="stepexpand"><span>Log in as&nbsp;<code class="codeph">root</code>&nbsp;on the vServer that hosts the Enterprise Controller.</span></li>
+                           <li class="stepexpand"><span>Switch to the&nbsp;<code class="codeph">ELAdmin</code>&nbsp;user by running the following command:</span><div><pre class="pre codeblock"><code>su - ELAdmin</code></pre></div>
+                              <div>
+                                 <div class="infoboxnote" id="GUID-20FB1E81-2D92-4976-8369-6AE0A17F9734__GUID-EE9D38BF-FB29-4BAF-8228-8A5AACD6B19A">
+                                    <p class="notep1">Note:</p>
+                                    <p>When running Oracle EXAchk on STIG-hardened vServers, Oracle recommends using only the&nbsp;ELAdmin&nbsp;user which you created above.</p>
+                                 </div>
+                                 <p>Create the <code>guest_vm_ip_user.out</code> manually. The <code>guest_vm_ip_user.out</code> has the following format:
+                                 </p><pre class="pre codeblock"><code>ip_address_of_stig_hardened_guest_vserver1
+ip_address_of_stig_hardened_guest_vserver2
+ip_address_of_stig_hardened_guest_vserver3
+</code></pre></div>
+                           </li>
+                           <li class="stepexpand"><span>Run Oracle EXAchk with the <code class="codeph">-vmguest</code> option, and specify one or more <code>guest_vm_ip_user.out</code> files as arguments, depending on the users for which you want to perform health checks for guest vServers:</span><div><pre class="pre codeblock"><code># ./exachk -vmguest guest_vm_ip_<span class="italic">user</span>-1.out[,guest_vm_ip_<span class="italic">user</span>-1.out,...]</code></pre></div>
+                           </li>
+                        </ol>
+                     </div>
+                     <div>
+                        <div class="familylinks">
+                           <div class="parentlink">
+                              <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-807D05AA-362E-4ED8-BD42-68B4B3F33391" title="Run Oracle EXAchk to perform health checks for guest vServers.">Performing Health Checks for Guest vServers</a></p>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+               </div>
+               <div class="sect3"><a id="GUID-B606D79A-97D9-42E2-86CB-7DE31149E0BC" name="GUID-B606D79A-97D9-42E2-86CB-7DE31149E0BC"></a><h4 id="OEXUG-GUID-B606D79A-97D9-42E2-86CB-7DE31149E0BC" class="sect4"><span class="enumeration_section">3.3.5.3 </span>About the Oracle EXAchk Health Check Process
+                  </h4>
+                  <div>
+                     <p>Review the Oracle EXAchk start up sequence of events.</p>
+                     <ol>
+                        <li>
+                           <p>At the start of the health check process, Oracle EXAchk prompts you for the names of the storage nodes and switches.</p>
+                           <p>At the prompt, enter the names or IP addresses of the storage nodes and switches. This is a one time process. Oracle EXAchk remembers these values and uses them for the subsequent health checks.</p>
+                           <div class="p"><pre class="pre codeblock"><code>$ ./exachk
+
+Could not find infiniband gateway switch names from env or configuration file. Please enter the first gateway infiniband switch name : el01sw-ib02
+Could not find storage node names from env or configuration file. Please enter the first storage server : el01sn01
+
+Checking ssh user equivalency settings on all nodes in cluster
+
+Node el01cn02 is configured for ssh user equivalency for root user
+
+Node el01cn03 is configured for ssh user equivalency for root user
+
+Node el01cn04 is configured for ssh user equivalency for root user
+
+Node el01cn05 is configured for ssh user equivalency for root user
+
+Node el01cn06 is configured for ssh user equivalency for root user 
+</code></pre></div>
+                           <div class="p">
+                              <div class="infoboxnote" id="GUID-B606D79A-97D9-42E2-86CB-7DE31149E0BC__GUID-DA582498-226B-40F4-BDF0-EE25E7ABE7F1">
+                                 <p class="notep1">Note:</p>
+                                 <p>Enter the host names or IP addresses for the nodes, in the sequence in which they are arranged on the machine.</p>
+                              </div>
+                           </div>
+                        </li>
+                        <li>
+                           <p>The health check tool checks the SSH user equivalency settings on all the nodes in the cluster.</p>
+                           <div class="p">Oracle EXAchk is a non-intrusive health check tool. Therefore, it does not change anything in the environment. The tool verifies the SSH user equivalency settings, assuming that it is configured on all the compute nodes on the system:
+                              <ul style="list-style-type: disc;">
+                                 <li>
+                                    <p>If the tool determines that the user equivalence is not established on the nodes, it provides you an option to set the SSH user equivalency either temporarily or permanently.</p>
+                                 </li>
+                                 <li>
+                                    <p>If you choose to set SSH user equivalence temporarily, then Oracle EXAchk does this during the health check. However, after the completion of the health check, Oracle EXAchk returns the system to the state in which it found.</p>
+                                 </li>
+                              </ul>
+                           </div>
+                           <p>When Oracle EXAchk prompts you to specify your preference. Enter the password for the nodes for which you are prompted. The default preference,&nbsp;1, allows you to enter the&nbsp;<code class="codeph">root</code>&nbsp;password once for all the nodes on each host of the Oracle Exalogic machine.
+                           </p>
+                           <div class="p"><pre class="pre codeblock"><code>Using cached file /root/exachk/o_ibswitches.out for gateway infiniband switches list ....
+
+Using cached file /root/exachk/o_storage.out for storage nodes list ....
+
+Checking ssh user equivalency settings on all nodes in cluster
+
+Node 0 is configured for ssh user equivalency for root user
+
+Node 0 is configured for ssh user equivalency for root user
+
+root user equivalence is not setup between 2 and STORAGE SERVER.
+
+1. Enter 1 if you will enter root password for each STORAGE SERVER when prompted.
+
+2. Enter 2 to exit and configure root user equivalence manually and re-run exachk.
+
+3. Enter 3 to skip checking best practices on STORAGE SERVER.
+
+Please indicate your selection from one of the above options[1-3][1]:- 1-3
+
+Is root password same on all STORAGE SERVER?[y/n][y]
+</code></pre></div>
+                           <p>On confirming the option and entering the credentials to proceed, Oracle EXAchk creates various output files, log files, and collection files for collecting the data required for the health check.</p>
+                           <div class="p"><pre class="pre codeblock"><code>Preparing to run root privileged commands on INFINIBAND SWITCH el01sw-ib04.
+
+root@el01sw-ib04's password: 
+Collecting -  Environment Test
+Collecting -  Ethernet over infiniband data and control SL
+Collecting -  Free Memory
+Collecting -  Gateway Configuration
+Collecting -  Infiniband status
+Collecting -  List Link Up
+Collecting -  Localhost Configuration in /etc/hosts
+Collecting -  VNICS
+Collecting -  Version
+Collecting -  configvalid
+Collecting -  opensm
+
+Preparing to run root privileged commands on INFINIBAND SWITCH el01sw-ib05.
+
+root@el01sw-ib05's password: 
+Collecting -  Environment Test
+Collecting -  Ethernet over infiniband data and control SL
+Collecting -  Free Memory
+Collecting -  Gateway Configuration
+Collecting -  Infiniband status
+Collecting -  List Link Up
+Collecting -  Localhost Configuration in /etc/hosts
+Collecting -  VNICS
+Collecting -  Version
+Collecting -  configvalid
+Collecting -  opensm 
+</code></pre></div>
+                        </li>
+                        <li>
+                           <p>Oracle EXAchk checks the status of the components of the Oracle Exalogic stack, such as compute nodes, storage nodes, and InfiniBand switches. Depending on the status of each component, the tool runs the appropriate collections and audit checks.</p>
+                           <div class="p"><pre class="pre codeblock"><code>==================================================================
+					Node name - 0
+==================================================================
+	WARNING =&gt; 	NTP is not synchronized correctly.
+	INFO =&gt; 	One or more NFS Mount Points don't sue the current recommended NFSv4.
+	WARNING =&gt; 	One or more NFS Mount Points uses incorrect rsize or wsize.
+	WARNING =&gt; 	Virtual Memory is not tuned to the recommended configuration.
+	WARNING =&gt; 	Ypbind is not configured correctly.
+	WARNING =&gt; 	DNS service is not configured correctly.
+	WARNING =&gt; 	IP Configuration for eth0 and bond0 are not configured correctly.
+	INFO =&gt;		EoIB Setup is not set up.
+	INFO =&gt;		Please verify BIOS Setting. See the Action / Repair section for instructions.
+	WARNING =&gt; 	Lock Daemon Configuration is not configured correctly.
+==================================================================
+					Node name - 0
+==================================================================
+	WARNING =&gt; 	NTP is not synchronized correctly.
+	INFO =&gt; 	One or more NFS Mount Points don't sue the current recommended NFSv4.
+	WARNING =&gt; 	One or more NFS Mount Points uses incorrect rsize or wsize.
+	WARNING =&gt; 	Virtual Memory is not tuned to the recommended configuration.
+	WARNING =&gt; 	Ypbind is not configured correctly.
+	WARNING =&gt; 	DNS service is not configured correctly.
+	WARNING =&gt; 	IP Configuration for eth0 and bond0 are not configured correctly.
+	INFO =&gt;		EoIB Setup is not set up.
+	INFO =&gt;		Please verify BIOS Setting. See the Action / Repair section for instructions.
+	WARNING =&gt; 	Lock Daemon Configuration is not configured correctly.
+</code></pre></div>
+                        </li>
+                        <li>
+                           <p>Oracle EXAchk runs in the background monitoring the progress of the command run. If any of the commands times out, Oracle EXAchk either skips or terminates that command so that the process continues. Oracle EXAchk logs such cases in the log files. </p>
+                           <div class="p">If Oracle EXAchk stops running for any reason, it cannot resume or restart automatically. You must start Oracle EXAchk afresh. However, before running Oracle EXAchk again, complete the following steps:
+                              <ul style="list-style-type: disc;">
+                                 <li>
+                                    <div class="p">Verify whether the previous Oracle EXAchk process has been terminated, by running the following command:<pre class="pre codeblock"><code># ps -ef | grep exachk</code></pre></div>
+                                    <div class="p">If the Oracle EXAchk process is still running, terminate it by running the following command:<pre class="pre codeblock"><code># kill pid</code></pre></div>
+                                    <p>In this command&nbsp;<code class="codeph">pid</code> &nbsp;is the process ID of the Oracle EXAchk process that you want to terminate.
+                                    </p>
+                                 </li>
+                                 <li>
+                                    <p>Verify if&nbsp;<code>/tmp/.exachk/</code>, the temporary directory generated by Oracle EXAchk during the previous run is deleted. If the directory still exists, delete it.
+                                    </p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                        <li>
+                           <p>When Oracle EXAchk completes the health check, it produces an HTML report and a <code>zip</code> file.
+                           </p>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-C86295B2-272A-4F18-89E1-7A68523B071B" title="For optimum performance of the Oracle EXAchk tool, Oracle recommends that you complete the following steps.">Oracle EXAchk on Oracle Exalogic Usage</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-C049DE1C-33C8-4F40-890A-B67EE5A54C6D" name="GUID-C049DE1C-33C8-4F40-890A-B67EE5A54C6D"></a><h4 id="OEXUG-GUID-C049DE1C-33C8-4F40-890A-B67EE5A54C6D" class="sect4"><span class="enumeration_section">3.3.5.4 </span>Running Oracle EXAchk in Silent Mode
+                  </h4>
+                  <div>
+                     <p>When you run Oracle EXAchk in silent mode, it does not perform health checks for storage nodes and InfiniBand switches.</p>
+                     <div class="section">
+                        <p>To run <code class="codeph">root</code> privilege checks, Oracle EXAchk uses the<code>root_exachk.sh</code> script.
+                        </p>
+                        <p>Before running Oracle EXAchk in silent mode, ensure to meet the following prerequisites:</p>
+                     </div>
+                     <!-- class="section" -->
+                     <ol>
+                        <li class="stepexpand"><span>Configure SSH user equivalence for the&nbsp;<code class="codeph">root</code>&nbsp;user from the compute node on which Oracle EXAchk is staged to all the other compute nodes on which you plan to run the health check tool.</span><div>
+                              <p>To verify SSH user equivalence, log in by using the&nbsp;Oracle&nbsp;software owner credentials and run the SSH command.</p>
+                              <div class="p">For example:<pre class="pre codeblock"><code>$ ssh -o NumberOfPasswordPrompts=0 -o StrictHostKeyChecking=no -l oracle el01cn01 "echo \"oracle user equivalence is setup correctly\""</code></pre></div>
+                              <p>In this example,&nbsp;<code class="codeph">oracle</code>&nbsp;is the&nbsp;Oracle&nbsp;software owner, and&nbsp;<code class="codeph">el01cn01</code>&nbsp;is the compute node host name.
+                              </p>
+                              <div class="p">If the SSH user is not properly configured on the compute nodes, the tool displays the following message:<pre class="oac_no_warn" dir="ltr">Permission denied (publickey,gssapi-with-mic,password)</pre></div>
+                              <p><span class="bold">Upgrading Multiple Nodes Simultaneously</span> section in My Oracle Support Note 1446396.1, for more information about configuring passwordless login.
+                              </p>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>(required only for the <code class="codeph">-s</code> option) Add the following line to the <code>sudoers</code> file on each compute node by using the <code class="codeph">visudo</code> command:</span><div><pre class="pre codeblock"><code>oracle ALL=(root) NOPASSWD:/tmp/root_exachk.sh</code></pre></div>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="on-demand-mode-operation.html#GUID-7CB110A3-023B-400C-837E-5F4DE5A2BBDB" title="Usually, health checks run at scheduled intervals. However, Oracle recommends that you run health checks on-demand when needed.">Running Health Checks On-Demand</a></li>
+                           <li><a href="automated-daemon-mode-operation.html#GUID-2C32CB18-C837-40E8-AB6E-1FC6672A83E8" title="Oracle recommends that you use the daemon process to schedule recurring health checks at regular intervals.">Using Oracle ORAchk and Oracle EXAchk to Automatically Check for Risks and System Health</a></li>
+                           <li><a href="https://support.oracle.com/rs?type=doc&amp;amp;id=1446396.1" target="_blank">https://support.oracle.com/rs?type=doc&amp;id=1446396.1</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-C86295B2-272A-4F18-89E1-7A68523B071B" title="For optimum performance of the Oracle EXAchk tool, Oracle recommends that you complete the following steps.">Oracle EXAchk on Oracle Exalogic Usage</a></p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="sect3"><a id="GUID-B33FE749-A8F1-4F04-A8B7-256D6F570076" name="GUID-B33FE749-A8F1-4F04-A8B7-256D6F570076"></a><h4 id="OEXUG-GUID-B33FE749-A8F1-4F04-A8B7-256D6F570076" class="sect4"><span class="enumeration_section">3.3.5.5 </span>Overriding Discovered Component Addresses
+                  </h4>
+                  <div>
+                     <p>In a physical environment, the component IP addresses or host names are determined in the first run based on user input. In a virtual environment, Oracle EXAchk has an in-built mechanism to automatically discover the IP addresses or host names of all the components. These features are designed to minimize the need for end-user input.</p>
+                     <div class="p">However, if the components were entered incorrectly during the first run or the auto-discovery mechanism fails to identify the components correctly, then do the following to override the values:
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>If you are running Oracle EXAchk from a compute node, then do the following:</p>
+                              <ul style="list-style-type: disc;">
+                                 <li>
+                                    <p>To override the names of the IB switches, edit or create the file&nbsp;<code>o_ibswitches.out</code>&nbsp;in the directory that contains the <code class="codeph">exachk</code> binary. The file should contain a list of host names of the NM2-GW switches, each on a separate line.
+                                    </p>
+                                 </li>
+                                 <li>
+                                    <p>To override the names of the storage components, edit or create the file&nbsp;<code>o_storage.out</code>&nbsp;in the directory that contains the <code class="codeph">exachk</code> binary. The file should contain a list of host names of the storage heads, each on a separate line.
+                                    </p>
+                                 </li>
+                                 <li>
+                                    <div class="p">To override the names of the compute nodes, add the environment variable <code class="codeph">RAT_CLUSTERNODES</code>, and specify a comma-delimited list of host names as the value of the variable.<pre class="pre codeblock"><code>export RAT_CLUSTERNODES="el01cn01,el01cn02,el01cn03,el01cn04"</code></pre></div>
+                                 </li>
+                              </ul>
+                           </li>
+                           <li>
+                              <p>If you are running Oracle EXAchk from the vServer that hosts the Enterprise Controller component of the Exalogic Control stack, you must use a file named&nbsp;<code>exachk_exalogic.conf</code>&nbsp;to define the names of the components.
+                              </p>
+                              <p>The <code>exachk.zip</code> contains the following templates for <code>exachk_exalogic.conf</code> in the templates subdirectory:
+                              </p>
+                              <ul style="list-style-type: disc;">
+                                 <li>
+                                    <p><code>exachk_exalogic.conf.tmpl_full</code></p>
+                                 </li>
+                                 <li>
+                                    <p><code>exachk_exalogic.conf.tmpl_half</code></p>
+                                 </li>
+                                 <li>
+                                    <p><code>exachk_exalogic.conf.tmpl_quarter</code></p>
+                                 </li>
+                                 <li>
+                                    <p><code>exachk_exalogic.conf.tmpl_eight</code></p>
+                                 </li>
+                              </ul>
+                              <p>Copy the template that corresponds to the size of your Exalogic machine to the directory that contains the <code class="codeph">exachk</code> binary, and rename the template file to&nbsp;<code>exachk_exalogic.conf</code>.
+                              </p>
+                              <p>Modify&nbsp;<code>exachk_exalogic.conf</code>&nbsp;to match your IP address schema.
+                              </p>
+                              <div class="p">
+                                 <div class="infoboxnote" id="GUID-B33FE749-A8F1-4F04-A8B7-256D6F570076__GUID-77C75AF9-4730-49F7-AD3E-3114A80A7DCC">
+                                    <p class="notep1">Note:</p>
+                                    <p>Oracle recommends that you create a copy of the&nbsp;<code>exachk_exalogic.conf</code>&nbsp;file that Oracle EXAchk generates the first time when the system is fully populated and functional, so that you can use the file later.
+                                    </p>
+                                 </div>
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-C86295B2-272A-4F18-89E1-7A68523B071B" title="For optimum performance of the Oracle EXAchk tool, Oracle recommends that you complete the following steps.">Oracle EXAchk on Oracle Exalogic Usage</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-0342BB83-6E09-42C4-B115-30845692336C" name="GUID-0342BB83-6E09-42C4-B115-30845692336C"></a><h4 id="OEXUG-GUID-0342BB83-6E09-42C4-B115-30845692336C" class="sect4"><span class="enumeration_section">3.3.5.6 </span>Setting Environment Variables for Local Issues
+                  </h4>
+                  <div>
+                     <p>Oracle EXAchk attempts to derive all the data it needs from the environment in which it is run.</p>
+                     <p>However, at times, the tool does not work as expected due to local system variations. In such cases, you can use local environment variables to override the default behavior of Oracle EXAchk.</p>
+                     <div class="tblformal" id="GUID-0342BB83-6E09-42C4-B115-30845692336C__GUID-19A4B1BA-0220-40ED-9188-5D26757FF119">
+                        <p class="titleintable">Table 3-6 Oracle EXAchk Environment Variables</p>
+                        <table cellpadding="4" cellspacing="0" class="Formal" title="Oracle EXAchk Environment Variables" summary="This table describes how to set local environment variables to override the default behavior of Oracle EXAchk." frame="hsides" border="1" rules="rows">
+                           <thead>
+                              <tr align="left" valign="top">
+                                 <th align="left" valign="bottom" width="20%" id="d53726e2461">Environment Variables</th>
+                                 <th align="left" valign="bottom" width="20%" id="d53726e2463">Description</th>
+                                 <th align="left" valign="bottom" width="20%" id="d53726e2465">Example</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e2469" headers="d53726e2461 ">
+                                    <p><code class="codeph">RAT_OS</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2469 d53726e2463 ">
+                                    <p>Enables the utility to verify the platform information.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2469 d53726e2465 ">
+                                    <div class="p">For a 64-bit Oracle Enterprise Linux 5 machine, with x86 architecture, use the following command to set the <code class="codeph">RAT_OS</code> variable:<pre class="pre codeblock"><code>export RAT_OS=LINUXX8664OELRHEL5</code></pre></div>
+                                    <div class="p">For a 64-bit Oracle Solaris 11 machine, with x86 architecture, use the following command to set the <code class="codeph">RAT_OS</code> variable:<pre class="pre codeblock"><code>export RAT_OS=SOLARISX866411</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e2492" headers="d53726e2461 ">
+                                    <p><code class="codeph">RAT_SSHELL</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2492 d53726e2463 ">
+                                    <p>Redirects Oracle EXAchk to the default secure shell location.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2492 d53726e2465 "><pre class="pre codeblock"><code>export RAT_SSHELL="/usr/bin/ssh -q"</code></pre></td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e2503" headers="d53726e2461 ">
+                                    <p><code class="codeph">RAT_SCOPY</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2503 d53726e2463 ">
+                                    <p>Redirects Oracle EXAchk to the default secure copy (SCP) location.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2503 d53726e2465 "><pre class="pre codeblock"><code>export RAT_SCOPY="/usr/bin/scp -q"</code></pre></td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e2514" headers="d53726e2461 ">
+                                    <p><code class="codeph">RAT_LOCALONLY</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2514 d53726e2463 ">
+                                    <p>If set to 1, then directs Oracle EXAchk to perform health checks on only the compute node from which Oracle EXAchk is run; that is, Oracle EXAchk skips the checks for the storage nodes, the switches, and all the compute nodes other than one from which it is run.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2514 d53726e2465 ">
+                                    <div class="p">To direct Oracle EXAchk to perform health checks on only the compute node from which Oracle EXAchk is run, use the following command:<pre class="pre codeblock"><code>export RAT_LOCALONLY=1</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e2527" headers="d53726e2461 ">
+                                    <p><code class="codeph">RAT_CELLS</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2527 d53726e2463 ">
+                                    <p>Directs Oracle EXAchk to run checks on one of the two storage nodes.</p>
+                                    <p>If the names of the storage nodes are non-standard, then edit the <code>theo_storage.out</code> file that is located in the same directory where Oracle EXAchk is installed, and specify the name of the storage node.
+                                    </p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2527 d53726e2465 ">
+                                    <div class="p">To direct Oracle EXAchk to run checks on the second storage node, use the following command:<pre class="pre codeblock"><code>export RAT_CELLS="el01sn02"
+</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e2545" headers="d53726e2461 ">
+                                    <p><code class="codeph">RAT_SWITCHES</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2545 d53726e2463 ">
+                                    <p>Directs Oracle EXAchk to run checks on subsets of the InfiniBand switches, in addition to the default checks on the InfiniBand switches.</p>
+                                    <p>If the names of the switches are non-standard, then edit the <code>theo_ibswitches.out</code> file that is located in the same directory where Oracle EXAchk is installed, and specify the names of the switches.
+                                    </p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2545 d53726e2465 ">
+                                    <div class="p">To direct Exact to run on the InfiniBand switch <code class="codeph">el01sw-ib02</code> and its subsets, use the following command:<pre class="pre codeblock"><code>export RAT_IBSWITCHES="el01sw-ib02"
+</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e2566" headers="d53726e2461 ">
+                                    <p><code class="codeph">RAT_CLUSTERNODES</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2566 d53726e2463 ">
+                                    <p>Directs Oracle EXAchk to run checks on specific nodes.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2566 d53726e2465 ">
+                                    <div class="p">On a quarter rack, which has eight compute nodes, use the following command to list the compute nodes on which the health check needs to be performed:<pre class="pre codeblock"><code>export RAT_CLUSTERNODES="el01cn01,el01cn02,el01cn03,el01cn04,el01cn05,el01cn06,el01cn07,el01cn08"
+</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e2579" headers="d53726e2461 ">
+                                    <p><code class="codeph">RAT_ELRACKTYPE</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2579 d53726e2463 ">
+                                    <p>Indicates whether the machine is an eighth rack (0), quarter rack (1), half rack (2), or full rack (3).</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2579 d53726e2465 ">
+                                    <div class="p">To specify that the system is a full rack, use the following command:<pre class="pre codeblock"><code>export RAT_ELRACKTYPE="3"
+</code></pre></div>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- class="inftblhruleinformal" -->
+                     <div class="p">
+                        <div class="infoboxnote" id="GUID-0342BB83-6E09-42C4-B115-30845692336C__GUID-9758E32D-3AC1-43DD-8065-04963AE619CB">
+                           <p class="notep1">Note:</p>
+                           <p>In a virtual configuration, when running Oracle EXAchk from the vServer that hosts the Enterprise Controller component of the Exalogic Control stack, do not use the <code class="codeph">RAT_CELLS</code>, <code class="codeph">RAT_SWITCHES</code>, and <code class="codeph">RAT_CLUSTERNODES</code> variables to override the storage node, switches, and compute nodes for which Oracle EXAchk should perform health checks. Instead, use the <code>exachk_exalogic.conf</code> file.
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="oracle-exalogic.html#GUID-B33FE749-A8F1-4F04-A8B7-256D6F570076" title="In a physical environment, the component IP addresses or host names are determined in the first run based on user input. In a virtual environment, Oracle EXAchk has an in-built mechanism to automatically discover the IP addresses or host names of all the components. These features are designed to minimize the need for end-user input.">Overriding Discovered Component Addresses</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-C86295B2-272A-4F18-89E1-7A68523B071B" title="For optimum performance of the Oracle EXAchk tool, Oracle recommends that you complete the following steps.">Oracle EXAchk on Oracle Exalogic Usage</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-F9CD196D-6102-4ACB-8541-9B3269B2C2D6" name="GUID-F9CD196D-6102-4ACB-8541-9B3269B2C2D6"></a><h4 id="OEXUG-GUID-F9CD196D-6102-4ACB-8541-9B3269B2C2D6" class="sect4"><span class="enumeration_section">3.3.5.7 </span>External ZFS Storage Appliance
+                  </h4>
+                  <div>
+                     <p>For Exalogic systems, support has been added to run health checks on External ZFS Storage appliances. The results of these checks are displayed in the <span class="bold">External ZFS Storage Appliance</span> of the report.
+                     </p>
+                     <div class="p">
+                        <div class="figure" id="GUID-F9CD196D-6102-4ACB-8541-9B3269B2C2D6__GUID-33ABCFB4-A99E-4168-9B02-613370906C96">
+                           <p class="titleinfigure">Figure 3-8 External ZFS Storage Appliance</p><img src="img/external-zfs-storage-applicance.png" alt="Description of Figure 3-8 follows" title="Description of Figure 3-8 follows" longdesc="img_text/external-zfs-storage-applicance.html"><br><a href="img_text/external-zfs-storage-applicance.html">Description of "Figure 3-8 External ZFS Storage Appliance"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-C86295B2-272A-4F18-89E1-7A68523B071B" title="For optimum performance of the Oracle EXAchk tool, Oracle recommends that you complete the following steps.">Oracle EXAchk on Oracle Exalogic Usage</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-3E706CE7-D5C0-49C6-A28B-130E3F84E6E1" name="GUID-3E706CE7-D5C0-49C6-A28B-130E3F84E6E1"></a><h3 id="OEXUG-GUID-3E706CE7-D5C0-49C6-A28B-130E3F84E6E1" class="sect3"><span class="enumeration_section">3.3.6 </span>Oracle EXAchk on Oracle Exalogic Output
+               </h3>
+               <div>
+                  <p>Identify the checks that you must act immediately to remediate, or investigate further to assess the checks that might cause performance or stability issues.</p>
+                  <div class="section">
+                     <p class="subhead2" id="GUID-3E706CE7-D5C0-49C6-A28B-130E3F84E6E1__GUID-61C3B766-B89B-4AC5-8624-E5AB721BF3A5">Reading and Interpreting the Oracle EXAchk HTML Report</p>
+                     <div class="p">You can view the Oracle EXAchk HTML report in a browser by using an HTTP URL as shown in the following example:<pre class="pre codeblock"><code>http://el01sn01/export/common/general/exachk/exachk_el01cn01_053112_101705/exachk_el01cn01_053112_101705.html</code></pre></div>
+                     <p>In this example,&nbsp;<code class="codeph"><span class="variable" translate="no">el01sn01</span></code>&nbsp;is the name of the storage node,&nbsp;<code class="codeph"><span class="variable" translate="no">el01cn01</span></code>&nbsp;is the name of the compute node on which the share is mounted, and&nbsp;<code class="codeph"><span class="variable" translate="no">053112_101705</span></code>&nbsp;is the date and time stamp for the report.
+                     </p>
+                     <p>The following is specific to Oracle EXAchk on Oracle Exalogic:</p>
+                     <div class="tblformal" id="GUID-3E706CE7-D5C0-49C6-A28B-130E3F84E6E1__GUID-3B01BB3A-1EE0-458B-B7B0-529A1C505437">
+                        <p class="titleintable">Table 3-7 Oracle EXAchk on Oracle Exalogic Message Definitions</p>
+                        <table cellpadding="4" cellspacing="0" class="Formal" title="Oracle EXAchk on Oracle Exalogic Message Definitions" summary="This table describes what you infer from the message status." frame="hsides" border="1" rules="rows">
+                           <thead>
+                              <tr align="left" valign="top">
+                                 <th align="left" valign="bottom" width="20%" id="d53726e2713">Message Status</th>
+                                 <th align="left" valign="bottom" width="20%" id="d53726e2715">Description or Possible Impact</th>
+                                 <th align="left" valign="bottom" width="20%" id="d53726e2717">Action to be Taken</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e2721" headers="d53726e2713 ">
+                                    <p>FAIL</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2721 d53726e2715 ">
+                                    <p>Shows checks that did not pass due to issues.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2721 d53726e2717 ">
+                                    <p>Address the issue immediately.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e2731" headers="d53726e2713 ">
+                                    <p>WARNING</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2731 d53726e2715 ">
+                                    <p>Shows checks that might cause performance or stability issues if not addressed.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2731 d53726e2717 ">
+                                    <p>Investigate the issue further.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e2741" headers="d53726e2713 ">
+                                    <p>ERROR</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2741 d53726e2715 ">
+                                    <p>Shows errors in system components.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2741 d53726e2717 ">
+                                    <p>Take corrective measures, and restart Oracle EXAchk.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e2751" headers="d53726e2713 ">
+                                    <p>INFO</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2751 d53726e2715 ">
+                                    <p>Indicates information about the system.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2751 d53726e2717 ">
+                                    <p>Read the information displayed in these checks, and follow the instructions provided, if any.</p>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- class="inftblhruleinformal" -->
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-3E706CE7-D5C0-49C6-A28B-130E3F84E6E1__GUID-CB9C2DD8-7480-45E5-A5A6-71D7B1D3633C">System-Wide Firmware and Software Versions</p>
+                     <p>This section lists the firmware and software versions of all the components for which the health check was performed.</p>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-3E706CE7-D5C0-49C6-A28B-130E3F84E6E1__GUID-8C449647-301C-489F-ABBF-31C1C685CCCE">Skipped Nodes</p>
+                     <p>This section lists components for which Oracle EXAchk did not perform any health check. Skipped components are those that, typically, Oracle EXAchk cannot access.</p>
+                     <p>The following table lists the typical situations when Oracle EXAchk skips a component and the solutions for each situation:</p>
+                     <div class="tblformal" id="GUID-3E706CE7-D5C0-49C6-A28B-130E3F84E6E1__GUID-49A4CAC7-02EB-43E2-8BE2-FACED85221FC">
+                        <p class="titleintable">Table 3-8 Oracle EXAchk on Oracle Exalogic Skipped Nodes</p>
+                        <table cellpadding="4" cellspacing="0" class="Formal" title="Oracle EXAchk on Oracle Exalogic Skipped Nodes" summary="This table describes typical situations when Oracle EXAchk skips a component and the solutions for each situation." frame="hsides" border="1" rules="rows">
+                           <thead>
+                              <tr align="left" valign="top">
+                                 <th align="left" valign="bottom" width="20%" id="d53726e2782">Situation</th>
+                                 <th align="left" valign="bottom" width="20%" id="d53726e2784">Solution</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e2788" headers="d53726e2782 ">
+                                    <p>The IP address of the component is incorrect or the host name cannot be resolved.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2788 d53726e2784 ">
+                                    <p>Update <code>exachk_exalogic.conf</code> or the <code>o*.out</code> files, as appropriate, with the correct IP addresses, and run Oracle EXAchk again.
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e2801" headers="d53726e2782 ">
+                                    <p>The component is not running.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2801 d53726e2784 ">
+                                    <p>Ping or SSH to the component. If the ping or SSH command fails, ensure that the component is started. Then, run Oracle EXAchk again.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e2808" headers="d53726e2782 ">
+                                    <p>The network is congested and slow, causing an SSH time-out.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2808 d53726e2784 ">
+                                    <p>Try increasing the value of the environment variable, <code class="codeph">RAT_TIMEOUT</code>, and run Oracle EXAchk again.
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e2818" headers="d53726e2782 ">
+                                    <p>The component is overloaded and low on memory, causing a password time-out.</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2818 d53726e2784 ">
+                                    <p>Try increasing the value of the environment variable, <code class="codeph">RAT_PASSWORDCHECK_TIMEOUT</code>, and run Oracle EXAchk again.
+                                    </p>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- class="inftblhruleinformal" -->
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-3E706CE7-D5C0-49C6-A28B-130E3F84E6E1__GUID-D2D33FA6-0471-4A88-9087-3B08CA1AE406">Comparing Component Versions in Two Oracle EXAchk Collections</p>
+                     <p>You can use the&nbsp;<code class="codeph">-exadiff</code>&nbsp;option of Oracle EXAchk to compare two Oracle EXAchk collections. When you use this option, Oracle EXAchk generates a comparison report in HTML format, highlighting the differences in the versions of the infrastructure components, hardware, firmware, and software between the two reports. The two Oracle EXAchk reports can be for different Oracle Exalogic racks or at different points in time for the same rack, such as before and after upgrading the rack.
+                     </p>
+                     <p>To compare two Oracle EXAchk collections, complete the following steps:</p>
+                     <ol>
+                        <li>
+                           <p>Identify the two Oracle EXAchk collections, zip files that you want to compare.</p>
+                        </li>
+                        <li>
+                           <p>If the collections do not exist on the host, compute node or vServer on which you are running Oracle EXAchk, then copy the collections to the host.</p>
+                        </li>
+                        <li>
+                           <div class="p">Run the following command:<pre class="pre codeblock"><code>./exachk -exadiff collection_1 collection_2</code></pre></div>
+                           <p>In this command, <code class="codeph">collection_1</code> and <code class="codeph">collection_2</code> are the full paths and names of the two collections that you want to compare. You can specify either the collection zip file or the directory in which the zip file has been extracted.
+                           </p>
+                        </li>
+                        <li>
+                           <p>Wait for the command to finish running.</p>
+                           <p>After comparing the two collections, Oracle EXAchk saves the results of the comparison in an HTML file named <code>rack_comparison_date_time.html</code>, for example, <code>rack_comparison_131219_213435.html</code>.
+                           </p>
+                        </li>
+                     </ol>
+                     <p>You can view the HTML report in a browser by using an HTTP URL as shown in the following example:</p>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="example" id="GUID-3E706CE7-D5C0-49C6-A28B-130E3F84E6E1__GUID-AB3598AB-8444-4B87-9520-2472E66042BC">
+                     <p class="titleinexample">Example 3-1 Comparing Component Versions in Two Oracle EXAchk Collections</p><pre class="pre codeblock"><code>http://el01sn01/export/common/general/exachk/rack_comparison_131219_213435.html</code></pre><p>In this example,&nbsp;<code class="codeph"><span class="variable" translate="no">el01sn01</span></code>&nbsp;is the name of the active storage node,&nbsp;<code>/common/general</code>&nbsp;is the share in which the Oracle EXAchk reports are stored, and&nbsp;<code class="codeph"><span class="variable" translate="no">131219_213435</span></code>&nbsp;is the date and time stamp for the report.
+                     </p>
+                  </div>
+                  <!-- class="example" -->
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="understanding-and-managing-reports-and-output.html#GUID-A5C2EA79-4935-44A1-8C3D-8A1E02CCC0A6" title="Hide individual findings from the report using Remove findings .">How to Remove Checks from an Existing HTML Report</a></li>
+                        <li><a href="understanding-and-managing-reports-and-output.html#GUID-D39A97FB-8185-43EC-9F56-D0663201EF68" title="Oracle ORAchk and Oracle EXAchk automatically compare the two most recent HTML reports and generate a third diff report, when run in automated daemon mode.">Comparing Two Reports</a></li>
+                        <li><a href="understanding-and-managing-reports-and-output.html#GUID-2754E64A-BBE8-4F35-8D6A-C67B3A3B9974">HTML Report Output</a></li>
+                        <li><a href="oracle-exalogic.html#GUID-0342BB83-6E09-42C4-B115-30845692336C" title="Oracle EXAchk attempts to derive all the data it needs from the environment in which it is run.">Setting Environment Variables for Local Issues</a></li>
+                        <li><a href="https://docs.oracle.com/cd/E18476_01/doc.220/e35316/install_upgrade.htm#CIAGCAJD" target="_blank">https://docs.oracle.com/cd/E18476_01/doc.220/e35316/install_upgrade.htm#CIAGCAJD</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-61B15081-6424-4F1E-A84C-0E0D8EEF0FF0" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalogic.">Oracle Exalogic</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-FD211CBD-E022-41B5-B40E-0208E816C3E3" name="GUID-FD211CBD-E022-41B5-B40E-0208E816C3E3"></a><h3 id="OEXUG-GUID-FD211CBD-E022-41B5-B40E-0208E816C3E3" class="sect3"><span class="enumeration_section">3.3.7 </span>Oracle EXAchk on Oracle Exalogic Command-Line Options
+               </h3>
+               <div>
+                  <p>List of command-line options applicable to Oracle Exalogic.</p>
+                  <div class="section">
+                     <p class="subhead2" id="GUID-FD211CBD-E022-41B5-B40E-0208E816C3E3__GUID-8C73458B-B6B6-4F3F-8248-BFF6B874EB0F">Command Options Applicable to Oracle Exalogic</p>
+                     <div class="infoboxnote" id="GUID-FD211CBD-E022-41B5-B40E-0208E816C3E3__GUID-BCD1AAD7-7090-45D2-81A6-0A8D7EE96C74">
+                        <p class="notep1">Note:</p>
+                        <p>Oracle EXAchk daemon option <code class="codeph">-d</code> is not supported on Oracle Exalogic.
+                        </p>
+                     </div>
+                     <div class="tblformal" id="GUID-FD211CBD-E022-41B5-B40E-0208E816C3E3__GUID-789053E1-AAFF-418E-9249-3623CE432656">
+                        <p class="titleintable">Table 3-9 Command Options Applicable to Oracle Exalogic</p>
+                        <table cellpadding="4" cellspacing="0" class="Formal" title="Command Options Applicable to Oracle Exalogic" summary="This table lists and describes the command-line options specific to Oracle EXAchk on Oracle Exalogic." frame="hsides" border="1" rules="rows">
+                           <thead>
+                              <tr align="left" valign="top">
+                                 <th align="left" valign="bottom" width="20%" id="d53726e2972">Option</th>
+                                 <th align="left" valign="bottom" width="20%" id="d53726e2974">Purpose and Syntax</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e2978" headers="d53726e2972 ">
+                                    <p><code class="codeph">-clusternodes</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2978 d53726e2974 ">
+                                    <p>Performs checks on only the specified compute nodes and all the other components, and exclude the unspecified compute nodes.</p>
+                                    <div class="p">Syntax:<pre class="pre codeblock"><code>./exachk -clusternodes cn_1[,cn_2,...]</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e2990" headers="d53726e2972 ">
+                                    <p><code class="codeph">-diff</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e2990 d53726e2974 ">
+                                    <p>Compares two Oracle EXAchk HTML reports and generate an HTML report showing the changes in the health of the Exalogic rack between Oracle EXAchk runs.</p>
+                                    <div class="p">Syntax:<pre class="pre codeblock"><code># ./exachk -diff report1 report2 [-outfile compared_report.html]</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e3002" headers="d53726e2972 ">
+                                    <p><code class="codeph">-exadiff</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e3002 d53726e2974 ">
+                                    <p>Compares two Oracle EXAchk zip collections and generate an HTML report showing the differences in the versions of the infrastructure components, hardware, firmware, and software between the two reports. The two Oracle EXAchk reports can be for different Exalogic racks or at different points in time for the same rack, such as before and after upgrading the rack.</p>
+                                    <div class="p">Syntax:<pre class="pre codeblock"><code>./exachk -exadiff exachk_collection_zip_1 exachk_collection_zip_2</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e3014" headers="d53726e2972 ">
+                                    <p><code class="codeph">-f</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e3014 d53726e2974 ">
+                                    <p>Performs checks on already collected data.</p>
+                                    <div class="p">Syntax:<pre class="pre codeblock"><code>./exachk -f report_name</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e3026" headers="d53726e2972 ">
+                                    <p><code class="codeph">-vmguest</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e3026 d53726e2974 ">
+                                    <p>Performs checks for guest vServers as well.</p>
+                                    <div class="p">Syntax:<pre class="pre codeblock"><code>./exachk -vmguest conf_file_1[,conf_file_2,...]</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e3038" headers="d53726e2972 ">
+                                    <p><code class="codeph">-hybrid</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e3038 d53726e2974 ">
+                                    <p>Performs checks on physical nodes as well in a hybrid rack.</p>
+                                    <div class="p">Syntax:<pre class="pre codeblock"><code>./exachk -hybrid</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e3050" headers="d53726e2972 ">
+                                    <p><code class="codeph">-localonly</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e3050 d53726e2974 ">
+                                    <p>Perform checks for only the host on which Oracle EXAchk is running.</p>
+                                    <div class="p">Syntax:<pre class="pre codeblock"><code>./exachk -localonly</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e3062" headers="d53726e2972 ">
+                                    <p><code class="codeph">-nopass</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e3062 d53726e2974 ">
+                                    <p>Excludes passed checks from the HTML report.</p>
+                                    <div class="p">Syntax:<pre class="pre codeblock"><code>./exachk -nopass</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e3074" headers="d53726e2972 ">
+                                    <p><code class="codeph">-o v</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e3074 d53726e2974 ">
+                                    <p>Displays results for all checks, including those that passed.</p>
+                                    <div class="p">Syntax:<pre class="pre codeblock"><code>./exachk -o v</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e3086" headers="d53726e2972 ">
+                                    <p><code class="codeph">-phy</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e3086 d53726e2974 ">
+                                    <p>Use this option along with <code class="codeph">-hybrid</code>, to specify the physical nodes in a hybrid rack.
+                                    </p>
+                                    <div class="p">Syntax:<pre class="pre codeblock"><code>./exachk -hybrid -phy node_1[,node_2,...]</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e3101" headers="d53726e2972 ">
+                                    <p><code class="codeph">-profile</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e3101 d53726e2974 ">
+                                    <p>Performs specific checks or checks for specific components.</p>
+                                    <div class="p">Syntax:<pre class="pre codeblock"><code>./exachk -profile profile_name</code></pre></div>
+                                    <p>See Supported Profiles for the -profile option, for more details.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e3116" headers="d53726e2972 ">
+                                    <p><code class="codeph">-s&nbsp;or&nbsp;-S</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e3116 d53726e2974 ">
+                                    <p>Runs Oracle EXAchk in silent mode.</p>
+                                    <div class="p">Syntax:<pre class="pre codeblock"><code>./exachk -s</code></pre></div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e3128" headers="d53726e2972 ">
+                                    <p><code class="codeph">-v</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e3128 d53726e2974 ">
+                                    <p>Displays the version of the tool.</p>
+                                    <div class="p">Syntax:<pre class="pre codeblock"><code>./exachk -v</code></pre></div>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- class="inftblhruleinformal" -->
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-FD211CBD-E022-41B5-B40E-0208E816C3E3__GUID-4C572BDC-1237-4350-A05B-BD459D9AB724">Supported Profiles for the -profile Option</p>
+                     <div class="tblformal" id="GUID-FD211CBD-E022-41B5-B40E-0208E816C3E3__GUID-887BDE6D-398C-4DA3-ABC3-DA4B87DB5383">
+                        <p class="titleintable">Table 3-10 Supported Profiles for the -profile option</p>
+                        <table cellpadding="4" cellspacing="0" class="Formal" title="Supported Profiles for the -profile option" summary="This table lists and describes the profiles supported for -profile option." frame="hsides" border="1" rules="rows">
+                           <thead>
+                              <tr align="left" valign="top">
+                                 <th align="left" valign="bottom" width="20%" id="d53726e3152">Profile</th>
+                                 <th align="left" valign="bottom" width="20%" id="d53726e3154">Description</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e3158" headers="d53726e3152 ">
+                                    <p><code class="codeph">control_VM</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e3158 d53726e3154 ">
+                                    <p>Runs health checks for only the Oracle Exalogic control components.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e3166" headers="d53726e3152 ">
+                                    <p><code class="codeph">el_extensive</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e3166 d53726e3154 ">
+                                    <p>In addition to the standard set of checks, run the following checks that are useful for a freshly installed or upgraded machine:</p>
+                                    <ul style="list-style-type: disc;">
+                                       <li>
+                                          <p>Verify whether the BIOS on the compute nodes is configured correctly.</p>
+                                       </li>
+                                       <li>
+                                          <p>Verify whether PCI 64-bit resource allocation setting on the compute nodes is disabled.</p>
+                                       </li>
+                                       <li>
+                                          <p>In Oracle VM Manager, for each server pool name, verify whether VM Start Policy is set to Start on current server.</p>
+                                       </li>
+                                    </ul>
+                                    <div class="p">
+                                       <div class="infoboxnote" id="GUID-FD211CBD-E022-41B5-B40E-0208E816C3E3__GUID-A2FE928A-E579-4B3A-B30A-4E58ECAD112C">
+                                          <p class="notep1">Note:</p>
+                                          <p>Before running Oracle EXAchk with the <code class="codeph">el_extensive</code> profile, verify whether passwordless SSH has been enabled for the CLI shell of Oracle VM Manager.
+                                          </p>
+                                       </div>
+                                    </div>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e3191" headers="d53726e3152 ">
+                                    <p><code class="codeph">switch</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e3191 d53726e3154 ">
+                                    <p>Runs checks for the switches.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e3199" headers="d53726e3152 ">
+                                    <p><code class="codeph">virtual_infra</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e3199 d53726e3154 ">
+                                    <p>Runs checks for the Oracle Exalogic virtual infrastructure. This check is applicable to only Oracle Exalogic machines in a virtual configuration.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d53726e3207" headers="d53726e3152 ">
+                                    <p><code class="codeph">zfs</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d53726e3207 d53726e3154 ">
+                                    <p>Runs checks for the storage appliance.</p>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- class="inftblhruleinformal" -->
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="https://docs.oracle.com/cd/E18476_01/doc.220/e35316/using_exachk_rep.htm#A132214788" target="_blank">https://docs.oracle.com/cd/E18476_01/doc.220/e35316/using_exachk_rep.htm#A132214788</a></li>
+                        <li><a href="https://docs.oracle.com/cd/E18476_01/doc.220/e35316/using_exachk_rep.htm#CHDHJGEC" target="_blank">https://docs.oracle.com/cd/E18476_01/doc.220/e35316/using_exachk_rep.htm#CHDHJGEC</a></li>
+                        <li><a href="https://docs.oracle.com/cd/E18476_01/doc.220/e35316/running_exachk.htm#A1004260302" target="_blank">https://docs.oracle.com/cd/E18476_01/doc.220/e35316/running_exachk.htm#A1004260302</a></li>
+                        <li><a href="https://docs.oracle.com/cd/E18476_01/doc.220/e35316/running_exachk.htm#BEJFHFFD" target="_blank">https://docs.oracle.com/cd/E18476_01/doc.220/e35316/running_exachk.htm#BEJFHFFD</a></li>
+                        <li><a href="https://docs.oracle.com/cd/E18476_01/doc.220/e35316/advanced_option.htm#CHDHHICE" target="_blank">https://docs.oracle.com/cd/E18476_01/doc.220/e35316/advanced_option.htm#CHDHHICE</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-61B15081-6424-4F1E-A84C-0E0D8EEF0FF0" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalogic.">Oracle Exalogic</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-A2CF0850-47DA-4616-9A0C-7B145C691CB6" name="GUID-A2CF0850-47DA-4616-9A0C-7B145C691CB6"></a><h3 id="OEXUG-GUID-A2CF0850-47DA-4616-9A0C-7B145C691CB6" class="sect3"><span class="enumeration_section">3.3.8 </span>Verifying and Enabling Passwordless SSH to the Oracle VM Manager CLI
+               </h3>
+               <div>
+                  <p>Before running Oracle EXAchk with the&nbsp;<code class="codeph">el_extensive</code>&nbsp;profile, you must verify whether passwordless SSH is enabled for the CLI shell of Oracle VM Manager. 
+                  </p>
+                  <div class="p">
+                     <div class="p">To do this, try logging in through SSH to the Oracle VM Manager CLI shell by running the following command on the host running the Oracle VM Manager vServer:<pre class="pre codeblock"><code># ssh -l admin <span class="italic">host_name_of_localhost</span> -p 10000</code></pre></div>
+                     <p><code class="codeph"><code>host_name_of_localhost</code></code>&nbsp;is the host name of the localhost.
+                     </p>
+                     <p>If you can log in without having to enter a password, that is, if the&nbsp;<code class="codeph">OVM&gt;</code>&nbsp;prompt is displayed, then passwordless SSH is enabled.
+                     </p>
+                     <p>If a password prompt is displayed, do the following:</p>
+                  </div>
+                  <!-- class="section" -->
+                  <ol>
+                     <li><span>Enter the password for the&nbsp;admin&nbsp;user, default is&nbsp;<code class="codeph">welcome1</code>.</span></li>
+                     <li><span>Log out from the <code class="codeph">OVM&gt;</code> shell, and try logging in again through SSH. If the password prompt continues to display, then passwordless SSH is not enabled. To enable passwordless SSH to the Oracle VM Manager CLI, complete the following steps:</span><ol type="a">
+                           <li class="substepexpand"><span>SSH as&nbsp;root to the vServer that hosts the Oracle VM Manager.</span></li>
+                           <li class="substepexpand"><span>Ensure that&nbsp;the <code class="codeph">ssh</code> agent&nbsp;is running:</span><div><pre class="pre codeblock"><code># eval 'ssh-agent'</code></pre><p>The output is similar to following example: <samp class="msgph">Agent pid 18529</samp></p>
+                              </div>
+                           </li>
+                           <li class="substepexpand"><span>Generate a public/private key pair:</span><div><pre class="pre codeblock"><code># ssh-keygen -t rsa -f ~/.ssh/admin</code></pre><p>If&nbsp;the ssh agent&nbsp;is not running, the following error message is displayed: <samp class="msgph">Could not open a connection to your authentication agent.</samp></p>
+                                 <p>When prompted for a pass phrase, press <span class="bold">Enter</span>.
+                                 </p>
+                                 <p>The keys are generated and stored in the&nbsp;<code>~/.ssh/</code>&nbsp;directory. The&nbsp;<code>admin</code>&nbsp;file contains the private key and the&nbsp;<code>admin.pub</code>&nbsp;file contains the public key.
+                                 </p>
+                              </div>
+                           </li>
+                           <li class="substepexpand"><span>Add the private key to the authentication agent:</span><div><pre class="pre codeblock"><code># ssh-add ~/.ssh/admin
+Identity added: /home/user/.ssh/admin (/home/user/.ssh/admin)</code></pre><div class="p">Copy the public key to the&nbsp;<code>.ssh</code>&nbsp;directory in the&nbsp;oracle&nbsp;user's home directory:<pre class="pre codeblock"><code># cp ~/.ssh/admin.pub /home/oracle/.ssh/</code></pre></div>
+                              </div>
+                           </li>
+                           <li class="substepexpand"><span>Append the file containing the public key, that is,&nbsp;<code>admin.pub</code> to the&nbsp;<code>ovmcli_authorized_keys</code>&nbsp;file:</span><div><pre class="pre codeblock"><code># cd /home/oracle/.ssh/# cat admin.pub &gt;&gt; ovmcli_authorized_keys</code></pre></div>
+                           </li>
+                           <li class="substepexpand"><span>SSH as the&nbsp;admin&nbsp;user to the Oracle VM Manager CLI:</span><div><pre class="pre codeblock"><code># ssh -l admin localhost -p 10000</code></pre><p>At the prompt to continue connecting, enter&nbsp;<span class="bold">yes</span>.
+                                 </p>
+                                 <p>At the prompt for the password, enter the&nbsp;admin&nbsp;user's password.</p>
+                                 <p>The following shell is displayed: <code class="codeph">OVM&gt;</code></p>
+                                 <p>For subsequent logins, the newly established passwordless SSH channel is used.</p>
+                              </div>
+                           </li>
+                        </ol>
+                     </li>
+                  </ol>
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-61B15081-6424-4F1E-A84C-0E0D8EEF0FF0" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalogic.">Oracle Exalogic</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-6584ED70-3C89-461D-8C69-54FD79E821AA" name="GUID-6584ED70-3C89-461D-8C69-54FD79E821AA"></a><h3 id="OEXUG-GUID-6584ED70-3C89-461D-8C69-54FD79E821AA" class="sect3"><span class="enumeration_section">3.3.9 </span>Troubleshooting Oracle EXAchk on Oracle Exalogic
+               </h3>
+               <div>
+                  <p>Troubleshoot and fix Oracle EXAchk on Oracle Exalogic issues.</p>
+                  <p>Refer to My Oracle Support Note 1478378.1 for the latest known issues specific to Oracle EXAchk on Oracle Exalogic.</p>
+                  <div class="section">
+                     <p class="subhead2" id="GUID-6584ED70-3C89-461D-8C69-54FD79E821AA__GUID-3121C42C-5C50-4F0B-93DC-96F6CAAF910A">Contacting Support with Oracle EXAchk Report</p>
+                     <ol>
+                        <li>
+                           <div class="p">Run Oracle EXAchk with the <code class="codeph">&#x2013;profile el_extensive</code> option to include a larger set of health checks in the generated HTML report:<pre class="pre codeblock"><code>./exachk -profile el_extensive</code></pre></div>
+                           <p>Contact Support with Oracle EXAchk result bundle as needed for further assistance.</p>
+                        </li>
+                        <li>
+                           <div class="p">To get assistance from Oracle Support on problems related to running Oracle EXAchk or issues related to generating complete Oracle EXAchk report, run the Oracle EXAchk command with <code class="codeph">-debug</code> option:<pre class="pre codeblock"><code>./exachk -debug</code></pre></div>
+                           <p>Contact Support with the resulting output <code>zip</code> file.
+                           </p>
+                        </li>
+                     </ol>
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="oracle-exalogic.html#GUID-0342BB83-6E09-42C4-B115-30845692336C" title="Oracle EXAchk attempts to derive all the data it needs from the environment in which it is run.">Setting Environment Variables for Local Issues</a></li>
+                        <li><a href="orachk-exachk-command-line-options.html#GUID-775DBBA4-8A14-4EC0-9EB1-C3174929DAED" title="Most command-line options apply to both Oracle ORAchk and Oracle EXAchk.">Oracle ORAchk and Oracle EXAchk Command-Line Options</a></li>
+                        <li><a href="troubleshoot-orachk-and-exachk.html#GUID-7179D6FF-995F-420C-96D0-239C8D2CA4E6" title="Follow the steps explained in this section to troubleshoot and fix Oracle ORAchk and Oracle EXAchk related issues.">Troubleshooting Oracle ORAchk and Oracle EXAchk</a></li>
+                        <li><a href="https://support.oracle.com/rs?type=doc&amp;amp;id=1478378.1" target="_blank">https://support.oracle.com/rs?type=doc&amp;id=1478378.1</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-exalogic.html#GUID-61B15081-6424-4F1E-A84C-0E0D8EEF0FF0" title="This section explains the features and tasks specific to Oracle EXAchk on Oracle Exalogic.">Oracle Exalogic</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

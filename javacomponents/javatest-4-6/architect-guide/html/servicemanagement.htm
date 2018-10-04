@@ -1,0 +1,598 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>Service Management</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = document) - Version 1.0.24" />
+<meta name="date" content="2014-08-01T11:38:1Z" />
+<meta name="robots" content="noarchive" />
+<meta name="doctitle" content="Service Management" />
+<meta name="relnum" content="JavaTest Harness 4.6" />
+<meta name="partnum" content="E20663-04" />
+<link rel="copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+<link rel="stylesheet" href="../../dcommon/css/blafdoc.css" title="Oracle BLAFDoc" type="text/css" />
+<link rel="contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="index" href="index.htm" title="Index" type="text/html" />
+<link rel="prev" href="script.htm" title="Previous" type="text/html" />
+<link rel="next" href="junit.htm" title="Next" type="text/html" />
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<div class="header"><a id="top" name="top"></a>
+<div class="zz-skip-header"><a href="#BEGIN">Skip Headers</a></div>
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td align="left" valign="top"><b>JavaTest Harness Architect's Guide,</b><br />
+<b>JavaTest Harness 4.6 for the Java Platform</b><br />
+E20663-04</td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+<td align="center" valign="top"><a href="toc.htm"><img src="../../dcommon/gifs/toc.gif" alt="Go To Table Of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td align="center" valign="top"><a href="index.htm"><img src="../../dcommon/gifs/index.gif" alt="Go To Index" /><br />
+<span class="icon">Index</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<tr>
+<td align="center"><a href="script.htm"><img src="../../dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="junit.htm"><img src="../../dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<a name="BEGIN" id="BEGIN"></a></div>
+<!-- class="header" -->
+<div class="ind"><!-- End Header --><a id="Z400364d1006568" name="Z400364d1006568"></a>
+<h1 class="chapter"><span class="secnum">11</span> Service Management</h1>
+<p>This chapter describes the <code>ServiceManager</code> (<code>com.sun.javatest.services</code>) component provided by the JavaTest harness and how test suite architects can use it to manage services that a test suite might require for test execution.<a id="sthref296" name="sthref296"></a></p>
+<p>This chapter contains the following sections:</p>
+<ul>
+<li>
+<p><a href="#BBJFIJAI">Description</a></p>
+</li>
+<li>
+<p><a href="#BBJJCFHC">Services-Related Work Flow</a></p>
+</li>
+<li>
+<p><a href="#Z40031351009892">Implementation</a></p>
+</li>
+<li>
+<p><a href="#Z40031351010050">Service Management Architecture</a></p>
+</li>
+</ul>
+<a id="BBJFIJAI" name="BBJFIJAI"></a>
+<div class="sect1">
+<h2 class="sect1">Description</h2>
+<p>A service is any unique component related to a test suite that is required for test execution and must be started in separate process or thread (such as RMI daemon or ORB service) before the test suite is run. Some TCKs might require many services. The <code>ServiceManager</code> component enables users to configure the services required to run tests.</p>
+<p>Each test suite optionally specifies and describes a set of services that it requires to run tests. During the test suite load process, the <code>TestSuite</code> instantiates objects that implement the <code>Service</code> interface and uploads those objects to the <code>ServiceManager</code> component.</p>
+<p>The <code>ServiceManager</code> component manages all aspects of the service life cycle. From information given by the test suite and the JavaTest harness, it determines which services are required and when they should be started. From test execution events, it also determines which services should be stopped.</p>
+<p>The <code>ServiceManager</code> is available either when running the JavaTest harness or as a separate service without running the JavaTest harness.</p>
+<div class="tblhruleformalwide"><a id="sthref297" name="sthref297"></a><a id="Z400364d1006587" name="Z400364d1006587"></a>
+<p class="titleintable">Table 11-1 Service Manager Features&nbsp;</p>
+<table class="HRuleFormalWide" title="Service Manager Features " summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="44%" />
+<col width="*" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t2">Features</th>
+<th align="left" valign="bottom" id="r1c2-t2">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t2" headers="r1c1-t2">
+<p>Automatically start and stop services</p>
+</td>
+<td align="left" headers="r2c1-t2 r1c2-t2">
+<p>Can start and stop services automatically.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t2" headers="r1c1-t2">
+<p>Mapping services on tests or test suites</p>
+</td>
+<td align="left" headers="r3c1-t2 r1c2-t2">
+<p>Mapping services on individual tests or a set of tests, not on the whole test suite, enables the ServiceManager to start/stop services for group of tests.</p>
+<p>For example, if a user is not running CORBA tests, the Service Manager will not try to start CORBA services. Consequently the user should not have to configure CORBA services.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t2" headers="r1c1-t2">
+<p>Manually start a service</p>
+</td>
+<td align="left" headers="r4c1-t2 r1c2-t2">
+<p>In case of remote test execution, users need the ability to determine (manually or automatically) if a service should be started or not.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t2" headers="r1c1-t2">
+<p>Services are thread safe</p>
+</td>
+<td align="left" headers="r5c1-t2 r1c2-t2">
+<p>Services work safely in case of parallel test execution.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r6c1-t2" headers="r1c1-t2">
+<p>Process management - when to start services</p>
+</td>
+<td align="left" headers="r6c1-t2 r1c2-t2">
+<p>Provides an ability to start services in two modes:</p>
+<ol>
+<li>
+<p>As needed - Start service only when the first test or group of tests that needs the service is about to run.</p>
+</li>
+<li>
+<p>Up front - Start all needed services up front so that any errors starting services can be detected before the actual test run.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r7c1-t2" headers="r1c1-t2">
+<p>Process management - when to stop services</p>
+</td>
+<td align="left" headers="r7c1-t2 r1c2-t2">
+<p>Needed services stay up, once started, until the end of the run or until it can be shown they are no longer be required. Test execution finish, time out, and end of test run are points to stop related services.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r8c1-t2" headers="r1c1-t2">
+<p>Performance</p>
+</td>
+<td align="left" headers="r8c1-t2 r1c2-t2">
+<p>The test suite does not run noticeably slower with this mechanism enabled.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r9c1-t2" headers="r1c1-t2">
+<p>Usability - configuration file</p>
+</td>
+<td align="left" headers="r9c1-t2 r1c2-t2">
+<p>The user only provides or edits a single configuration file for all the services, not a file for each service. The file is optional. If the user doesn't provide a file, the test suite should assume that any required services will be started manually.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r10c1-t2" headers="r1c1-t2">
+<p>Services dependencies</p>
+</td>
+<td align="left" headers="r10c1-t2 r1c2-t2">
+<p>Dependencies between different services are supported.</p>
+<p>For example, one service must be started or stopped before other services.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformalwide" --></div>
+<!-- class="sect1" -->
+<a id="BBJJCFHC" name="BBJJCFHC"></a>
+<div class="sect1">
+<h2 class="sect1">Services-Related Work Flow</h2>
+<p>Services-related work flow of harness execution is supported in both GUI and batch mode test execution. The work flow consists of the following:</p>
+<ol>
+<li>
+<p>The <code>ServiceManager</code> and <code>Service</code><a id="sthref298" name="sthref298"></a> instances are instantiated after the test suite is loaded inside harness.</p>
+</li>
+<li>
+<p>When the JavaTest harness object (<code>Harness</code>) starts a test run, information that the <code>Harness</code> has about the tests and groups of tests that should be run is provided to the <code>ServiceManager</code>.</p>
+</li>
+<li>
+<p>The <code>ServiceManager</code> filters out services that are unnecessary for the test run based on information from the <code>Harness</code> and information from deployed services regarding which test paths for which the service should be started.</p>
+<p>The services-related workflow is performed before starting a test run in the main <code>Harness</code> execution thread. During this process one of the following actions is taken based on the information that the harness has about the tests and groups of tests that should be run:</p>
+<ul>
+<li>
+<p>Start services as needed.</p>
+<p>After being notified by the <code>Harness</code> that a test has started, the <code>ServiceManager</code> determines if a particular service should be started for running the next test. This enables "lazy" service start up, which may be useful for performance reasons.</p>
+</li>
+<li>
+<p>Start all required services now.</p>
+<p>Before running any tests, the <code>ServiceManager</code> starts all required services.</p>
+</li>
+<li>
+<p>Start services manually.</p>
+<p>Service management is turned off for the test run. The <code>Harness</code> assumes that the user will manually start all required services.</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>When running in GUI mode, the <code>ServiceManager</code> functionality is enabled after the user presses the Run button which blocks the <code>Harness</code> execution thread until it determines how services will be started. In batch mode, the <code>ServiceManager</code> is functionality is enabled by using an option in the command line.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</li>
+</ul>
+</li>
+<li>
+<p>The <code>ServiceManager</code> stops services either as it determines that a service is not required (all tests that require this service are completed) or at the end of test run.</p>
+<p>Stopping services after the test run finished is preferred.</p>
+</li>
+</ol>
+</div>
+<!-- class="sect1" -->
+<a id="Z40031351009892" name="Z40031351009892"></a>
+<div class="sect1">
+<h2 class="sect1">Implementation</h2>
+<p>Because the <code>ServiceManager</code> component must serve different requirements, its <a id="sthref299" name="sthref299"></a>service support design is as flexible as possible.To achieve this flexibility, the design uses abstract concepts of service, service description, service execution and service parameters. Some functionality, such as <a id="sthref300" name="sthref300"></a>remote service management when services are instantiated and run on a remote host, has not been implemented. However the capability to implement the functionality is supported in the architecture. Additional functionality could be implemented by the test suite and set through the API, as is currently done in the JavaTest harness for other components.</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<p>Services support is optional, so that test suites, which do not need services support, are not required to implement additional components.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+<p>The JavaTest harness provides useful default implementations of the following interfaces:</p>
+<ul>
+<li>
+<p><code>Service</code> - Interface describing a service.</p>
+<p><code>Service</code> objects should be instantiated by <code>ServiceReader</code>. The particular implementation class should be specified so that the <code>ServiceReader</code> can access it. A default implementation, <code>AntService</code> (see <a href="#CGFBADEB">Implementation of <code>Service</code> Interface</a>) is provided by the JavaTest harness. Such a service is the Ant target in provided ant <code>xml</code> file. The benefit of such a service representation is that the service can easily be started without running the JavaTest harness.</p>
+</li>
+<li>
+<p><a id="sthref301" name="sthref301"></a><code>ServiceReader</code> - Interface responsible for reading service definitions and parameters.</p>
+<p>The implementation should be provided by the test suite. A default implementation, <a id="sthref302" name="sthref302"></a><code>PropertyServiceReader</code> (see <a href="#CGFDFJFJ">Implementations of <code>ServiceReader</code> Interface</a>), is provided by the JavaTest harness. This implementation reads <code>Service</code> type definitions and start parameters of each particular instance, as well as maps test paths to service instances from a single property file.</p>
+</li>
+<li>
+<p><code>ServiceConnector</code><a id="sthref303" name="sthref303"></a> and <a id="sthref304" name="sthref304"></a><code>ServiceExecutor</code> - <code>ServiceConnector</code> is responsible for the connection between harness representative (<code>Service</code> interface) and <code>ServiceExecutor</code> is responsible for responsible for running service in case of remote execution.</p>
+<p>Each executor type is related to a respective service type, such as <code>AntService</code><a id="sthref305" name="sthref305"></a> and <a id="sthref306" name="sthref306"></a><code>AntServiceExecutor</code> (see <a href="#CGFBADEB">Implementation of <code>Service</code> Interface</a>). <code>Connector</code> doesn't depend on the <code>Service</code> and <code>ServiceExecutor</code> type. <a id="sthref307" name="sthref307"></a><code>Connector</code> has a unified interface and any <code>Connector</code> implementation should work with any <code>Service</code> - <code>ServiceExecutor</code> pair. The JavaTest harness only provides a pseudo local connector that redirects requests to a <code>ServiceExecutor</code> working in the same VM. The following are available types of <code>ServiceExecutor</code>:</p>
+<ul>
+<li>
+<p><code>ThreadServiceExecutor</code><a id="sthref308" name="sthref308"></a> - Executes any service described by <code>Runnable</code> object in a separate thread.</p>
+</li>
+<li>
+<p><code>ProcessServiceExecutor</code><a id="sthref309" name="sthref309"></a> - Executes in a separate process by <code>Runnable.exec()</code>.</p>
+</li>
+<li>
+<p><code>AntServiceExecutor</code><a id="sthref310" name="sthref310"></a> - Extends <a id="sthref311" name="sthref311"></a><code>ProcessServiceExecutor</code> to execute <code>ant</code> tasks using Ant.</p>
+</li>
+</ul>
+</li>
+</ul>
+<a id="CGFDFJFJ" name="CGFDFJFJ"></a>
+<div class="sect2">
+<h3 class="sect2">Implementations of <code>ServiceReader</code> Interface</h3>
+<p>To make the process of acquiring information about services and instantiating components more flexible, a test suite should provide a special component that implements the <code>ServiceReader</code> interface. The <code>ServiceReader</code> interface reads information regarding service descriptions and tests-to-services mappings during test suite load, instantiates <code>Service</code> objects, and pushes the collected information into them.</p>
+<p>The JavaTest harness provides two implementations of the <code>ServiceReader</code> interface:</p>
+<ul>
+<li>
+<p><code>PropertyServiceReader</code> is the default implementation. It looks for information in a property file (see <a href="#BABIFHCE">PropertyServiceReader File Format</a>).</p>
+</li>
+<li>
+<p><code>XMLServiceReader</code> looks for information in an XML file (see <a href="#BABCFAJG">XMLServiceReader File Format</a>).</p>
+</li>
+</ul>
+<p>The <code>getServiceReader()</code> method of the <code>TestSuite</code> class defines which implementation to use.</p>
+<p>A test suite that uses <code>PropertyServiceReader</code> can be run by the test harness and the lite harness. A test suite that uses <code>XMLServiceReader</code> cannot be run by the lite harness because the lite harness does not support XML.</p>
+<a id="BABIFHCE" name="BABIFHCE"></a>
+<div class="sect3"><!-- infolevel="all" infotype="General" -->
+<h4 class="sect3">PropertyServiceReader File Format</h4>
+<p>The property file format is described below, an example follows.</p>
+<pre xml:space="preserve" class="oac_no_warn">
+service.<span class="italic">id</span>.class=...
+service.<span class="italic">id</span>.description=...
+service.<span class="italic">id</span>.arg.<span class="italic">argname</span>=...
+property.<span class="italic">general-property-name</span>=...
+testpath.<span class="italic">tpid</span>.path=...
+testpath.<span class="italic">tpid</span>.ids=[<span class="italic">space-separated list of service IDs</span>] 
+</pre>
+<p>Example property file:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+property.port=8080
+property.testuite=<span class="italic">path_to_testsuite</span>
+
+service.rmid_1.class=com.foo.bar.RMIDService
+service.rmid_1.description=This is first variant of service to start rmid daemon
+service.rmid_1.arg.arg1=5000
+service.rmid_1.arg.arg2=<span class="italic">path_to_testsuite</span>
+
+service.rmid_2.class=com.foo.bar.RMIDService
+service.rmid_2.description=This is second variant of service to start rmid daemon 
+
+service.msg_service.class=com.foo.bar2.MessagingService
+service.msg_service.description=messaging service
+service.msg_service.arg.timeout=1000
+
+testpath.1.path=api/java_rmi
+testpath.1.ids=ant rmid_1
+
+testpath.2.path=api/foo_bar
+testpath.2.ids=rmid_2 msg_service
+</pre></div>
+<!-- class="sect3" -->
+<a id="BABCFAJG" name="BABCFAJG"></a>
+<div class="sect3"><!-- infolevel="all" infotype="General" -->
+<h4 class="sect3">XMLServiceReader File Format</h4>
+<p>The following sample provides a description of the contents and format of an XML service description file.</p>
+<pre xml:space="preserve" class="oac_no_warn">
+&lt;Services&gt;
+&lt;property file="local.properties"/&gt;
+&lt;property name="port" value="8080"/&gt;
+&lt;property name="testsuite" value="${root}/tests"/&gt;
+...................................
+&lt;service id="rmid_1" class="com.<span class="italic">foo.bar</span>.RMIDService" description="This is first variant of service to start rmid daemon"&gt;
+&lt;arg name="arg1" value="5000"/&gt;
+&lt;arg name="arg2" value="${testsuite}"/&gt;
+&lt;/service&gt;
+&lt;service id="rmid_2" class="com.<span class="italic">foo.bar</span>.RMIDService" description="This is second variant of service to start rmid daemon"&gt;
+&lt;/service&gt;
+&lt;service id="msg_service" class="com.<span class="italic">foo.bar2</span>.MessagingService" description="messaging service"&gt;
+&lt;arg name="timeout" value="1000"/&gt;
+&lt;/service&gt; 
+..................................
+&lt;testpath path="api/java_rmi"&gt;
+&lt;service refid="ant"/&gt;
+&lt;service refid="rmid_1"&gt;
+&lt;/testpath&gt;
+&lt;testpath path="api/<span class="italic">foo_bar</span>"&gt;
+&lt;service refid="rmid_2"/&gt;
+&lt;service refid="msg_service"/&gt;
+&lt;/testpath&gt;
+.....................................
+&lt;/Services&gt; 
+</pre>
+<p>The format of the <code>XMLServicesReader</code> file consists of three sections:</p>
+<ul>
+<li>
+<p><span class="bold">Properties</span> - The first section specifies options and shared values that are used later in the service definition process.</p>
+<p>You can load property values from a file or specify them separately. Properties that do not have explicitly-set values are called parameters. Parameter values are resolved later by <code>Service</code> or <code>ParamResolver</code> classes. In the code example, <code>root</code> and <code>testsuite</code> properties are parameters. The <code>Service</code> interface should provide operations to get and set parameters and arguments. <code>Service</code> properties are described in <a href="#CGFFABIC">Service Properties</a>.</p>
+</li>
+<li>
+<p><span class="bold">Services</span> - The second section of the file describes the services.</p>
+<p>Services are described by using a tag. Each service specification tag contains a unique string ID that enables the user to refer to this service in the test map section, a <code>Service</code> interface implementation class, and description text.</p>
+</li>
+<li>
+<p><span class="bold">Test Map</span> - The third section of the file provides a map from test paths to services.</p>
+<p>Based on this information, <code>ServiceManager</code> determines, which services should be started/stopped and when. It consists of a regular expression with path-to-tests pattern and tags with references to services. One test path can refer to many services. Different test paths can refer to the same services. In case both such test paths are selected for test run, only one instance of a service will be started.</p>
+</li>
+</ul>
+</div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" -->
+<a id="CGFBADEB" name="CGFBADEB"></a>
+<div class="sect2">
+<h3 class="sect2">Implementation of <code>Service</code> Interface</h3>
+<p>The JavaTest harness provides a default implementation (<code>AntService)</code><a id="sthref312" name="sthref312"></a> of the <code>Service</code> interface that not only provides a description but also provides a definition and execution. The default implementation uses Ant. Each service is presented as an Ant target in a valid Ant file. In the service description XML file, a special service class (<code>com.sun.javatest.services.AntService</code>) describes the Ant-based service as follows:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+&lt;service id="any_uniq_id _you_want" 
+class="com.sun.javatest.services.AntService"&gt;&lt;arg name="ant.bin" value="~/apache-ant/bin/ant"/&gt;
+&lt;arg name="ant.targets" value="rmid-target run-tests"/&gt;
+&lt;arg name="ant.workdir" value="directory_to_start_ant_from"/&gt;
+&lt;arg name="ant.env.JAVA_HOME" value="path to JDK"/&gt;
+&lt;arg name="option1" value="-buildfile ${lib}/build.xml"/&gt;
+&lt;arg name="option2" value="-verbose"/&gt;
+&lt;/service&gt;
+</pre>
+<ul>
+<li>
+<p><code>ant.bin</code> - Specifies path to ANT execution script.</p>
+</li>
+<li>
+<p><code>ant.targets</code> - Specifies targets to execute</p>
+</li>
+<li>
+<p><code>ant.workdir</code> - Specifies the directory from which to start ant.</p>
+</li>
+</ul>
+<p>This is set to <code>java.lang.ProcessBuilder</code> using its <code>directory()</code> method.</p>
+<ul>
+<li>
+<p><code>ant.env.JAVA_HOME</code> - The environment entry with which the process starts.</p>
+<p>Set to <code>ProcessBuilder</code> through its <code>environment()</code> method.</p>
+</li>
+<li>
+<p>"<code>option1</code>" and "<code>option2</code>" - All other arguments inside the <code>AntService</code> are interpreted as ant start options.</p>
+<p>No special naming conventions are needed for them.</p>
+</li>
+<li>
+<p>Ant-based services are the only service implementations provided by JavaTest harness. JavaTest harness provides <code>AntService</code>, which implements the <code>Service</code> interface, and <code>AntServiceExecutor</code>, which implements the <code>ServiceExecutor</code> interface.</p>
+</li>
+</ul>
+</div>
+<!-- class="sect2" -->
+<a id="CGFFABIC" name="CGFFABIC"></a>
+<div class="sect2">
+<h3 class="sect2">Service Properties</h3>
+<p><a id="sthref313" name="sthref313"></a>All possible parameters, commands, and arguments, could be described as <code>string</code> key-value pairs. Such pairs should be passed to the <code>Service</code> object by the <code>ServiceReader</code>, who creates the <code>Service</code> objects. Each particular <code>Service</code> type may interpret them and pass through a connector to the <code>ServiceExecutor</code>.</p>
+<p>However, not all key-value pairs or values may be known when the test suite is created. For example, some host names and port numbers may be known only when answering an Interview question before a test run. To resolve this issue, values in service descriptions are parametrized. That means, that some key-value pairs will have variable values with references to other keys, and are resolved when additional non-variable sets of properties are passed from somewhere outside (such as after interview completion).</p>
+<p>The <code>ServiceManager</code> has a public API used to access to each <code>Service</code> and its <code>ServiceProperties</code><a id="sthref314" name="sthref314"></a> object. The non-variable set of properties may be passed at any time. However, a more convenient approach is to resolve variable properties using values obtained from the interview. These values are also key-value pairs and are stored in a special object, <code>TestEnvironment</code><a id="sthref315" name="sthref315"></a>. <code>Harness</code> passes this object to resolve service properties before every test run. Consequently, refer to interview question's tags to resolve variable values by interview.</p>
+<p>A special <code>ServiceProperties</code> class performs this behavior. Its instance is the main part of each <code>Service</code> object. <code>ServiceReader</code> should instantiate a <code>ServiceProperties</code> object, fill it with information available from the service description file and pass it to the corresponding <code>Service</code> object. Should the test suite use the standard <code>XMLServiceReader</code>, the test suite developer shouldn't care about this.</p>
+<p>Each key-value pair from the <code>ServiceReader</code> must use the format:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+<code>string=[string | ${string}]</code>*
+</pre>
+<p>If a key has no value, it becomes a variable.</p>
+<p><code>${string}</code> represents a reference to another key. If its value has at least one reference inside it, it also becomes variable.</p>
+<p>Example:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+key1=
+key2=value2
+key3=value31_${key1}_value32_${key2}_value33
+</pre>
+<p>Later if we pass <code>key1=value1</code>, the expression is resolved as:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+key1=value1
+key2=value2
+key3=value31_value1_value32_value2_value33
+</pre>
+<p>As described in <a href="#CGFDFJFJ">Implementations of <code>ServiceReader</code> Interface</a>, some properties are common to several objects and some are individually specified for each Service object. That is the reason why there are two namespaces for property names. One namespace is a common namespace, and the other is an individual namespace. The common namespace is shared between all <code>Services.</code> Consequently, a property, specified inside each particular <code>Service</code>, may refer to common properties. If a name of a property specified for an individual Service is contained in a common namespace, the individual property overwrites the common property.</p>
+<p>Individual namespaces are not shared between <code>Service</code> objects. A property from one individual namespace cannot refer to a property from another individual namespace. If a property attempts to do this, the reference is interpreted as unknown.</p>
+<p>When it prepare a command, a <code>Service</code> objects asks its <code>ServiceProperties</code> object to resolve its arguments. The <code>ServiceProperties</code> object returns a Map containing only the resolved individual properties (not the common properties). Resolved common properties may be achieved, using another method. Such division enables the <code>Service</code> class implementation to be simplified. It treats its individual arguments by using its own name conventions. Common properties are used to resolve individual properties or for other goals.</p>
+</div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="Z40031351010050" name="Z40031351010050"></a>
+<div class="sect1">
+<h2 class="sect1"><a id="sthref316" name="sthref316"></a>Service Management Architecture</h2>
+<p>The architecture of the Service Management feature of the JavaTest harness consists of five components:</p>
+<ul>
+<li>
+<p><code>ServiceManager</code></p>
+</li>
+<li>
+<p><code>Service</code></p>
+</li>
+<li>
+<p><a id="sthref317" name="sthref317"></a><code>ServiceExecutor</code></p>
+</li>
+<li>
+<p><code>Connector</code><a id="sthref318" name="sthref318"></a></p>
+</li>
+<li>
+<p><code>ParamResolver</code><a id="sthref319" name="sthref319"></a></p>
+</li>
+</ul>
+<p><a href="#CGFBBABG">Figure 11-1</a> illustrates the relationship between these components.</p>
+<div class="figure"><a id="CGFBBABG" name="CGFBBABG"></a>
+<p class="titleinfigure">Figure 11-1 Service Management Architecture</p>
+<img src="img/service1.jpg" alt="Description of Figure 11-1 follows" title="Description of Figure 11-1 follows" longdesc="img_text/service1.htm" /><br />
+<a id="sthref320" name="sthref320" href="img_text/service1.htm">Description of "Figure 11-1 Service Management Architecture"</a><br />
+<br /></div>
+<!-- class="figure" -->
+<ol>
+<li>
+<p><code>ServiceManager</code> - Instantiated for each test suite instance.</p>
+<p>The same test suite, opened two times in different tabs, is interpreted as two different test suites and will have different <code>ServiceManager</code> objects. <code>ServiceManager</code> objects accomplish the following functions:</p>
+<ul>
+<li>
+<p>Are notified of all <code>Harness</code> events.</p>
+</li>
+<li>
+<p>Manage a set of services.</p>
+</li>
+<li>
+<p>Provide methods to achieve service's state, info and data to the JavaTest harness and test suite.</p>
+</li>
+<li>
+<p>Provide methods for external configuration by JavaTest and test suite.</p>
+</li>
+<li>
+<p>Start and stop services</p>
+</li>
+<li>
+<p>Count which services and when should be started and stopped.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>Service</code> - Root service interface.</p>
+<p><code>Service</code> interface has two main goals:</p>
+<ul>
+<li>
+<p>Contains service information, execution parameters, and test mapping.</p>
+</li>
+<li>
+<p>Provides start, stop, other operating methods, are invoked by <code>ServiceManager</code>, and are delegated through <code>Connector</code> to <code>ServiceExecutor</code>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>ServiceExecutor</code> - Root interface for the service executor.</p>
+<p>Method invocations from <code>Service</code> go through <code>Connector</code> and are executed by <code>ServiceExecutor</code>. The <code>Service</code> and <code>ServiceExecutor</code> implementation types have a 1:n relationship. Consequently, each <code>Service</code> implementation can have different <code>ServiceExecutors</code> for different situations (such as local and remote execution). <code>ServiceExecutor</code> implementations can execute a service as separate process, as a thread, or in any other required manner. <code>Service</code> and <code>ServiceExecutor</code> types must be coordinated to perform message exchange correctly.</p>
+</li>
+<li>
+<p><code>Connector</code> - Interface that determines common connection methods between <code>Service</code> and <code>ServiceExecutor</code>, such as <code>sendMessage</code> or <code>getOutputStream</code> methods.</p>
+<p>Particular implementation should not be related with concrete Service and ServiceExecutor realizations. <code>Connector</code> is harness-side component, and we have no any interface for agent side part, because on those side such component (and it's incoming events) manages <code>ServiceExecutor</code>. Agent-side component is not under any management, so there is no need for it to have API.</p>
+</li>
+<li>
+<p><code>ParamResolver</code> - Component, related with <code>ServiceExecutor</code>. <code>Connector</code>, that sends commands to a service and provides the parameters for this command execution.</p>
+<p>The parameters are decoded by <code>ParamResolver</code> and passed to <code>ServiceExecutor</code>. For example, if a connector sends <code>"$host_name"</code> <code>param</code>, it should be resolved by the <code>ParamResolver</code>. Implementations of <code>ParamResolver</code> should be interoperable with <code>ServiceExecutor</code>. How and what to resolve depends on the implementations of both components.</p>
+</li>
+</ol>
+<p>Service execution is divided into 3 components (<code>Service</code>, <code>Connector</code>, <code>ServiceExecutor</code>), because it must be able to implement remote services start-up and execution by any test suite. It is not possible to implement this feature directly in the JavaTest harness and its agent, as requirements from different customers vary.</p>
+<a id="Z400364d1009811" name="Z400364d1009811"></a>
+<div class="sect2">
+<h3 class="sect2">Mechanism to Instantiate <code>Service</code>, <code>Connector</code>, and <code>ServiceExecutor</code> Interfaces</h3>
+<p>The <code>Connector</code> and <code>ServiceExecutor</code> may differ because configuration settings (such as local or remote execution) and the specific implementors are known only at the beginning of a test run. The <code>ServiceManager</code> should have a public API to enable any object (such as a test suite) to specify non-default <code>Connectors</code> for each service.</p>
+<p>The <code>Service</code> interface has a method that returns an instance of the default <code>ServiceExecutor</code>, which will be used should service be run in the same VM as the JavaTest harness. This executor interoperates with the pseudo LocalConnector, which directly delegates requests to this executor by invoking its methods. If a test suite wants to execute a service in another way, before starting test run, it should set another <code>Connector</code> for this <code>Service</code> (through the <code>ServiceManager</code> by using the Service's ID). This <code>Connector</code> may be directly associated with a <code>ServiceExecutor</code> (as <code>LocalConnector</code> does it), or it can be a network connector, and send messages to a remote agent.</p>
+</div>
+<!-- class="sect2" -->
+<a id="Z400364d1009833" name="Z400364d1009833"></a>
+<div class="sect2">
+<h3 class="sect2">Separate Services Start Up</h3>
+<p>To simplify <a id="sthref321" name="sthref321"></a>service start-up (in case there is no remote environment or you don't want to use the JavaTest harness to run the Service management feature), a separate entry point is available inside the JavaTest harness, such as <code>ServicesMain</code>, that performs the following operations:</p>
+<ol>
+<li>
+<p>Takes the test suite path as input.</p>
+</li>
+<li>
+<p>Instantiates all found <code>Services</code>, <code>ServiceExecutors,</code> and local <code>Connectors.</code></p>
+</li>
+<li>
+<p>Invokes the <a id="sthref322" name="sthref322"></a><code>Service.start</code> methods.</p>
+</li>
+</ol>
+<p>Services are unmanageable in this case and must be stopped by shutdown hook. <a href="#CGFGBEJB">Figure 11-2</a> illustrates the sequence of performing a separate services start-up.</p>
+<div class="figure"><a id="CGFGBEJB" name="CGFGBEJB"></a>
+<p class="titleinfigure">Figure 11-2 Separate Service Start-Up</p>
+<img src="img/service2.jpg" alt="Description of Figure 11-2 follows" title="Description of Figure 11-2 follows" longdesc="img_text/service2.htm" /><br />
+<a id="sthref323" name="sthref323" href="img_text/service2.htm">Description of "Figure 11-2 Separate Service Start-Up"</a><br />
+<br /></div>
+<!-- class="figure" --></div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" --></div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+<div class="footer">
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<col width="33%" />
+<col width="*" />
+<col width="33%" />
+<tr>
+<td valign="bottom">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<col width="*" />
+<col width="48%" />
+<col width="48%" />
+<tr>
+<td>&nbsp;</td>
+<td align="center"><a href="script.htm"><img src="../../dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="junit.htm"><img src="../../dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="copyrightlogo"><img class="copyrightlogo" src="../../dcommon/gifs/oracle.gif" alt="Oracle Logo" /><br />
+<span class="copyrightlogo">Copyright&nbsp;&copy;&nbsp;2002, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span> <a href="../../dcommon/html/cpyr.htm"><br />
+<span class="copyrightlogo">Legal Notices</span></a></td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+<td align="center" valign="top"><a href="toc.htm"><img src="../../dcommon/gifs/toc.gif" alt="Go To Table Of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td align="center" valign="top"><a href="index.htm"><img src="../../dcommon/gifs/index.gif" alt="Go To Index" /><br />
+<span class="icon">Index</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<!-- class="footer" -->
+</body>
+</html>

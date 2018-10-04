@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<title>Using the API Coverage Tool</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = document) - Version 1.0.24" />
+<meta name="dcterms.created" content="2014-07-01T13:22:30Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="SigTest User's Guide" />
+<meta name="dcterms.identifier" content="E19036-03" />
+<meta name="dcterms.isVersionOf" content="SIGTS" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2006, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="cover_intro.htm" title="Previous" type="text/html" />
+<link rel="Next" href="part3.htm" title="Next" type="text/html" />
+<link rel="alternate" href="SIGTS.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../../nav/css/html5.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<span id="PAGE" style="display:none;">14/25</span> <!-- End Header --><a id="Z4000c4b1051662"></a>
+<h1 class="chapter"><span class="secnum">6</span> Using the API Coverage Tool</h1>
+<p>API Coverage tool requires these environmental settings and components:</p>
+<ul>
+<li>
+<p>A properly configured certified Java Platform, Standard Edition (&rdquo;Java SE platform&rdquo;) runtime version 1.4 or later</p>
+</li>
+<li>
+<p>One of the following JAR files in your class path:</p>
+<ul>
+<li>
+<p><code>sigtestdev.jar</code></p>
+</li>
+<li>
+<p><code>sigtest.jar</code></p>
+</li>
+</ul>
+<p>The API Coverage tool <code>Main</code> class is contained in both JAR files.</p>
+</li>
+</ul>
+<p>The API Coverage tool is a command-line utility that executes in a Java application environment. It generates static API test coverage reports in either plain text or XML format based on the following two input items:</p>
+<ul>
+<li>
+<p>The test suite being tested for its coverage, represented by a set of test class files</p>
+</li>
+<li>
+<p>A signature file that forms a text representation of the public members of an API that must be tested by the test suite</p>
+</li>
+</ul>
+<p>You can use the <code>Setup</code> command of the Signature Test tool to create the appropriate signature file for use by the API Coverage tool. The <code>Setup</code> command is described in <a href="sig_using.htm#Z4000c461059399">Chapter 4</a>.</p>
+<a id="Z4000c4b1051587"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">6.1</span> Running API Coverage Tool</h2>
+<p>API Coverage tool command synopsis:</p>
+<pre>
+% java -jar apicover.jar [<span class="italic">options</span>]
+or
+% java com.sun.tdk.apicover.Main [<span class="italic">options</span>]
+</pre>
+<p>The second alternative assumes that <code>apicover.jar</code> is on the class path. The rules described in <a href="sig_using.htm#Z4000c461058755">"Case Sensitivity of Option Arguments"</a> apply. <a href="#Z4000c4b1050327">Table 6-1</a> lists the available options.</p>
+<div class="infobox-note">
+<p class="notep1">Note:</p>
+<p>Arguments to options marked with an asterisk (*) in <a href="#Z4000c4b1050327">Table 6-1</a> can be specified multiple times. For example, if you want to specify filtering for the <code>java.awt</code>, <code>java.lang</code>, and <code>java.math</code> packages, you can specify the three arguments separated by a file separator character as shown in the following example:. <code>-tsInclude java.awt:java.lang:java.math</code> On Unix operating systems the separator character is &rdquo;:&rdquo; and on Microsoft Windows it is &rdquo;;&rdquo;.</p>
+</div>
+<div class="tblhruleformal">
+<p class="titleintable"><a id="sthref19"></a><a id="Z4000c4b1050327"></a>Table 6-1 API Coverage Tool Command Options</p>
+<table class="cellalignment36" title="API Coverage Tool Command Options " summary="Add Summary attribute value here." dir="ltr">
+<thead>
+<tr class="cellalignment25">
+<th class="cellalignment37" id="r1c1-t3">Options</th>
+<th class="cellalignment37" id="r1c2-t3">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r2c1-t3" headers="r1c1-t3">
+<p><code>-help</code></p>
+</td>
+<td class="cellalignment31" headers="r2c1-t3 r1c2-t3">
+<p>Optional. Displays usage information for available command options and exits.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r3c1-t3" headers="r1c1-t3">
+<p><code>-ts</code> <span class="italic">path</span></p>
+</td>
+<td class="cellalignment31" headers="r3c1-t3 r1c2-t3">
+<p>Required. Cannot be repeated. Path to the test suite classes to be analyzed. Also accepts a JAR file.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r4c1-t3" headers="r1c1-t3">
+<p><code>-tsInclude</code> <span class="italic">package_name*</span></p>
+</td>
+<td class="cellalignment31" headers="r4c1-t3 r1c2-t3">
+<p>Optional. Can be repeated. Recursively include classes from the specified test suite package.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r5c1-t3" headers="r1c1-t3">
+<p><code>-tsIncludeW</code> <span class="italic">package_name*</span></p>
+</td>
+<td class="cellalignment31" headers="r5c1-t3 r1c2-t3">
+<p>Optional. Can be repeated. Include classes from the specified test suite package without subpackages.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r6c1-t3" headers="r1c1-t3">
+<p><code>-tsExclude</code> <span class="italic">package_name*</span></p>
+</td>
+<td class="cellalignment31" headers="r6c1-t3 r1c2-t3">
+<p>Optional. Can be repeated. Recursively exclude classes from the specified test suite package.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r7c1-t3" headers="r1c1-t3">
+<p><code>-excludeList</code> <span class="italic">filename</span></p>
+</td>
+<td class="cellalignment31" headers="r7c1-t3 r1c2-t3">
+<p>Optional. Can be repeated. Specifies the file name of an exclude list which contains API elements to be excluded from the coverage calculation. <a href="#Z4000c4b1051569">"Exclude List"</a> describes the exclude list format.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r8c1-t3" headers="r1c1-t3">
+<p><code>-excludeInterfaces</code></p>
+</td>
+<td class="cellalignment31" headers="r8c1-t3 r1c2-t3">
+<p>Optional. Exclude all interface classes. This option is superfluous if used with <code>-excludeAbstractClasses.</code></p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r9c1-t3" headers="r1c1-t3">
+<p><code>-excludeAbstractClasses</code></p>
+</td>
+<td class="cellalignment31" headers="r9c1-t3 r1c2-t3">
+<p>Optional. Exclude all abstract classes including interfaces.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r10c1-t3" headers="r1c1-t3">
+<p><code>-excludeAbstractMethods</code></p>
+</td>
+<td class="cellalignment31" headers="r10c1-t3 r1c2-t3">
+<p>Optional. Exclude all abstract methods from all classes and interfaces</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r11c1-t3" headers="r1c1-t3">
+<p><code>-excludeFields</code></p>
+</td>
+<td class="cellalignment31" headers="r11c1-t3 r1c2-t3">
+<p>Optional. Exclude all fields from all classes and interfaces. cannot be used with the <code>-includeConstantField</code> option.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r12c1-t3" headers="r1c1-t3">
+<p><code>-includeConstantFields</code></p>
+</td>
+<td class="cellalignment31" headers="r12c1-t3 r1c2-t3">
+<p>Optional. Specifies to include all final fields of any type in the coverage calculation. cannot be used with the <code>-excludeFields</code> option. The default, without this option, is to remove from the coverage calculation all final fields of primitive types and type <code>java.lang.String</code>.</p>
+<p>Constant fields such as final fields of primitive and String types are initialized at compile-time with a constant expression. The Java technology-based compiler usually optimizes them and replaces them with their values. In such cases, test suite classes does not contain a reference to the field, even if the field were used/referenced in the test suite. For this reason, the tool removes all constant fields from the calculation by default to make coverage calculations more consistent. The <code>-includeConstantFields</code> option provides a means for changing this behavior.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r13c1-t3" headers="r1c1-t3">
+<p><code>-api</code> <span class="italic">path/filename</span></p>
+</td>
+<td class="cellalignment31" headers="r13c1-t3 r1c2-t3">
+<p>Required. Cannot be repeated. Specifies the location of the signature file representing the API under examination. The <span class="italic">path</span> defaults to the working directory. Accepts <code>v1</code> and <code>v2</code> format signature files generated by the Signature Test Tool <code>Setup</code> command, and rejects <code>v0</code>. See the <code>-FileFormat</code> option description in <a href="sig_using.htm#Z4000c461059399">Chapter 4</a>.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r14c1-t3" headers="r1c1-t3">
+<p><code>-apiInclude</code> <span class="italic">package_name*</span></p>
+</td>
+<td class="cellalignment31" headers="r14c1-t3 r1c2-t3">
+<p>Optional. Can be repeated. Recursively include classes from the specified API package.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r15c1-t3" headers="r1c1-t3">
+<p><code>-apiIncludeW</code> <span class="italic">package_name*</span></p>
+</td>
+<td class="cellalignment31" headers="r15c1-t3 r1c2-t3">
+<p>Optional. Can be repeated. Include classes from the specified API package without subpackages.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r16c1-t3" headers="r1c1-t3">
+<p><code>-apiExclude</code> <span class="italic">package_name*</span></p>
+</td>
+<td class="cellalignment31" headers="r16c1-t3 r1c2-t3">
+<p>Optional. Can be repeated. Recursively excludes classes from the specified API package.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r17c1-t3" headers="r1c1-t3">
+<p><code>-mode [w | r]</code></p>
+</td>
+<td class="cellalignment31" headers="r17c1-t3 r1c2-t3">
+<p>Optional. Specifies the mode of coverage calculation as <code>w</code> for worst case or <code>r</code> for real world. Defaults to worst case.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r18c1-t3" headers="r1c1-t3">
+<p><code>-detail [0 | 1 | 2 | 3 | 4 | 5]</code></p>
+</td>
+<td class="cellalignment31" headers="r18c1-t3 r1c2-t3">
+<p>Optional. Specifies the level of report detail as an integer from 0&ndash;5. Defaults to 2. See <a href="#Z4000c4b1050394">Table 6-2</a>.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r19c1-t3" headers="r1c1-t3">
+<p><code>-format [plain | xml]</code></p>
+</td>
+<td class="cellalignment31" headers="r19c1-t3 r1c2-t3">
+<p>Optional. Specifies the report format as plain text or XML. Defaults to <code>plain</code>. Note that an example of the XML output is available in <span class="italic">SIGTEST_HOME</span><code>/msc.</code></p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r20c1-t3" headers="r1c1-t3">
+<p><code>-report</code> <span class="italic">path/filename</span></p>
+</td>
+<td class="cellalignment31" headers="r20c1-t3 r1c2-t3">
+<p>Optional. Where to place the generated report file. The <span class="italic">path</span> argument defaults to the working directory when only a file name is specified; otherwise, defaults to standard out.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r21c1-t3" headers="r1c1-t3">
+<p><code>-version</code></p>
+</td>
+<td class="cellalignment31" headers="r21c1-t3 r1c2-t3">
+<p>Optional. Displays version information.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" -->
+<p><a href="#Z4000c4b1050394">Table 6-2</a> describes the reporting levels resulting from the five settings available with the <code>-detail</code> option.</p>
+<div class="tblhruleformal">
+<p class="titleintable"><a id="sthref20"></a><a id="Z4000c4b1050394"></a>Table 6-2 Report File Contents for Levels of Detail</p>
+<table class="cellalignment36" title="Report File Contents for Levels of Detail " summary="Add Summary attribute value here." dir="ltr">
+<thead>
+<tr class="cellalignment25">
+<th class="cellalignment37" id="r1c1-t4">Detail Setting</th>
+<th class="cellalignment37" id="r1c2-t4">Package Summary</th>
+<th class="cellalignment37" id="r1c3-t4">Class Summary</th>
+<th class="cellalignment37" id="r1c4-t4">Members Not Covered</th>
+<th class="cellalignment37" id="r1c5-t4">Covered Members</th>
+<th class="cellalignment37" id="r1c6-t4">Reference Count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r2c1-t4" headers="r1c1-t4">
+<p>0</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t4 r1c2-t4">
+<p>X</p>
+</td>
+<td class="cellalignment31" headers="r2c1-t4 r1c3-t4">&nbsp;</td>
+<td class="cellalignment31" headers="r2c1-t4 r1c4-t4">&nbsp;</td>
+<td class="cellalignment31" headers="r2c1-t4 r1c5-t4">&nbsp;</td>
+<td class="cellalignment31" headers="r2c1-t4 r1c6-t4">&nbsp;</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r3c1-t4" headers="r1c1-t4">
+<p>1</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t4 r1c2-t4">
+<p>X</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t4 r1c3-t4">
+<p>X</p>
+</td>
+<td class="cellalignment31" headers="r3c1-t4 r1c4-t4">&nbsp;</td>
+<td class="cellalignment31" headers="r3c1-t4 r1c5-t4">&nbsp;</td>
+<td class="cellalignment31" headers="r3c1-t4 r1c6-t4">&nbsp;</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r4c1-t4" headers="r1c1-t4">
+<p>2</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t4 r1c2-t4">
+<p>X</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t4 r1c3-t4">
+<p>X</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t4 r1c4-t4">
+<p>X</p>
+</td>
+<td class="cellalignment31" headers="r4c1-t4 r1c5-t4">&nbsp;</td>
+<td class="cellalignment31" headers="r4c1-t4 r1c6-t4">&nbsp;</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r5c1-t4" headers="r1c1-t4">
+<p>3</p>
+</td>
+<td class="cellalignment31" headers="r5c1-t4 r1c2-t4">
+<p>X</p>
+</td>
+<td class="cellalignment31" headers="r5c1-t4 r1c3-t4">
+<p>X</p>
+</td>
+<td class="cellalignment31" headers="r5c1-t4 r1c4-t4">&nbsp;</td>
+<td class="cellalignment31" headers="r5c1-t4 r1c5-t4">
+<p>X</p>
+</td>
+<td class="cellalignment31" headers="r5c1-t4 r1c6-t4">&nbsp;</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r6c1-t4" headers="r1c1-t4">
+<p>4</p>
+</td>
+<td class="cellalignment31" headers="r6c1-t4 r1c2-t4">
+<p>X</p>
+</td>
+<td class="cellalignment31" headers="r6c1-t4 r1c3-t4">
+<p>X</p>
+</td>
+<td class="cellalignment31" headers="r6c1-t4 r1c4-t4">
+<p>X</p>
+</td>
+<td class="cellalignment31" headers="r6c1-t4 r1c5-t4">
+<p>X</p>
+</td>
+<td class="cellalignment31" headers="r6c1-t4 r1c6-t4">&nbsp;</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r7c1-t4" headers="r1c1-t4">
+<p>5</p>
+</td>
+<td class="cellalignment31" headers="r7c1-t4 r1c2-t4">
+<p>X</p>
+</td>
+<td class="cellalignment31" headers="r7c1-t4 r1c3-t4">
+<p>X</p>
+</td>
+<td class="cellalignment31" headers="r7c1-t4 r1c4-t4">&nbsp;</td>
+<td class="cellalignment31" headers="r7c1-t4 r1c5-t4">
+<p>X</p>
+</td>
+<td class="cellalignment31" headers="r7c1-t4 r1c6-t4">
+<p>X</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" -->
+<a id="Z4000c4b1051560"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">6.1.1</span> Special Report File</h3>
+<p>The special report file specified with the <code>-out</code> option contains the same coverage data that the standard report file contains. The main difference is that this format is easier for other applications to parse.</p>
+<p>The special report file is essentially a table with these two columns delimited by a tab character:</p>
+<ul>
+<li>
+<p>The left column provides the coverage counter value which can be zero.</p>
+</li>
+<li>
+<p>The right column provides the fully qualified name of the corresponding API member: a class, constructor, method, or field.</p>
+</li>
+</ul>
+<p>The <code>-mode</code> option affects the special report file, while the <code>-detail</code> setting has no effect on it.</p>
+</div>
+<!-- class="sect2" -->
+<a id="Z4000c4b1051569"></a>
+<div class="sect2">
+<h3 class="sect2"><span class="secnum">6.1.2</span> Exclude List</h3>
+<p>In some cases a test suite either cannot or should not test certain elements of an API, whether they be a class, a method, or field. In this case you can use the <code>-excludeList</code> <span class="italic">filename</span> option (described in <a href="#Z4000c4b1050327">Table 6-1</a>) to make the coverage calculation more accurate by excluding the elements listed in the specified exclude list file(s).</p>
+<p>The exclude list is a text file that specifies each entry for exclusion on a separate line, as follows:</p>
+<ul>
+<li>
+<p><span class="italic">Package name</span> specified to recursively exclude all classes of the package</p>
+</li>
+<li>
+<p><span class="italic">Class name</span> specified as a fully qualified class name</p>
+</li>
+<li>
+<p><span class="italic">Field name</span> specified using a fully qualified class name: <span class="italic">classname</span>.<span class="italic">fieldname</span></p>
+</li>
+<li>
+<p><span class="italic">Method name</span> specified using a fully qualified class name: <span class="italic">classname</span>.<span class="italic">methodname</span> (<span class="italic">parameters</span>)</p>
+</li>
+</ul>
+<p>Exclude list processing follows these rules:</p>
+<ul>
+<li>
+<p>Regards a line starting with the # character as a comment.</p>
+</li>
+<li>
+<p>Ignores empty lines.</p>
+</li>
+<li>
+<p>Silently ignores an entry if it is not found in the API.</p>
+<div class="infobox-note">
+<p class="notep1">Note:</p>
+<p>Each entry specified for exclusion should match its appearance in a report file. For example, you must specify an inner class with the <code>$</code> character prepended to its name, like this: <span class="italic">Outer</span><code>$</code><span class="italic">Inner</span></p>
+</div>
+</li>
+</ul>
+</div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<div class="sect1"><!-- infolevel="all" infotype="General" --><a id="sthref21"></a>
+<h2 class="sect1"><span class="secnum">6.2</span> Merging API Coverage XML Reports</h2>
+<p>The API Coverage Tool Merge command merges multiple API Coverage reports in XML format into a single report. Synopsis:</p>
+<pre>
+% java com.sun.tdk.apicover.CMerge [options]
+</pre>
+<p>The rules described in <a href="sig_using.htm#Z4000c461058755">"Case Sensitivity of Option Arguments"</a> apply to the Merge command. <a href="#BCGCGEEB">Table 6-3</a> lists the Merge command options.</p>
+<div class="tblformal">
+<p class="titleintable"><a id="sthref22"></a><a id="BCGCGEEB"></a>Table 6-3 Merge Command Options</p>
+<table class="cellalignment38" title="Merge Command Options" summary="Left column lists Merge command option names. Right column describes each option." dir="ltr">
+<thead>
+<tr class="cellalignment25">
+<th class="cellalignment37" id="r1c1-t6">Option</th>
+<th class="cellalignment37" id="r1c2-t6">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r2c1-t6" headers="r1c1-t6">
+<p><code>-Files</code></p>
+</td>
+<td class="cellalignment31" headers="r2c1-t6 r1c2-t6">
+<p>Required. Specifies the names of the API coverage XML report files to be merged. The file name are separated by a colon (:) o Unix systems, and by a semicolon (;) on Microsoft Windows systems.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r3c1-t6" headers="r1c1-t6">
+<p><code>-Write</code></p>
+</td>
+<td class="cellalignment31" headers="r3c1-t6 r1c2-t6">
+<p>Required. Specifies the merged output report file..</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r4c1-t6" headers="r1c1-t6">
+<p><code>-Strict</code></p>
+</td>
+<td class="cellalignment31" headers="r4c1-t6 r1c2-t6">
+<p>Optional. Requires identical set of members for the same classes.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r5c1-t6" headers="r1c1-t6">
+<p><code>-Version</code></p>
+</td>
+<td class="cellalignment31" headers="r5c1-t6 r1c2-t6">
+<p>Optional. Displays version information, then exits.</p>
+</td>
+</tr>
+<tr class="cellalignment25">
+<td class="cellalignment31" id="r6c1-t6" headers="r1c1-t6">
+<p><code>-Help</code></p>
+</td>
+<td class="cellalignment31" headers="r6c1-t6 r1c2-t6">
+<p>Optional. Displays usage information for available command options, then exits.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblformal" --></div>
+<!-- class="sect1" --></div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment24">
+<tr>
+<td class="cellalignment31">
+<table class="cellalignment29">
+<tr>
+<td class="cellalignment28"><a href="cover_intro.htm"><img width="24" height="24" src="../../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment28"><a href="part3.htm"><img width="24" height="24" src="../../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2006, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment33">
+<table class="cellalignment27">
+<tr>
+<td class="cellalignment28"><a href="../../index.html"><img width="24" height="24" src="../../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment28"><a href="toc.htm"><img width="24" height="24" src="../../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment28"><a href="../../dcommon/html/feedback.htm"><img width="24" height="24" src="../../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

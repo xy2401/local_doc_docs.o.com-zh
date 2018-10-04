@@ -1,0 +1,440 @@
+<!DOCTYPE html><html lang="en"><head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        
+        <link rel="stylesheet" href="/sp_common/site-template/ohc-site-template/css/site.css">
+        <script data-main="/sp_common/site-template/ohc-site-template/js/site-config" src="/sp_common/site-template/requirejs/require.js"></script>
+        <script>
+        if(window.require === undefined) {
+          document.write('<script data-main="sp_common/site-template/ohc-site-template/js/site-config" src="sp_common/site-template/requirejs/require.js"><\/script>');
+          document.write('<link href="sp_common/site-template/ohc-site-template/css/site.css" rel="stylesheet">');
+        }
+        </script>
+        <link rel="shortcut icon" href="/sp_common/site-template/ohc-common/img/favicon.ico">
+        
+                <title>Oracle Trace File Analyzer - Get Started</title>
+                <meta name="description" content>
+                <meta property="og:description" content>
+                <meta property="og:site_name" content="Oracle Help Center">
+                <meta name="generator" content="Oracle Interface Page Generator 1.7.07.20">
+                <meta property="og:title" content="Oracle Trace File Analyzer - Get Started">
+                
+                
+                <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+                <meta name="dcterms.created" content="2018-08-17T03:39:54.386Z">
+                
+                <meta name="dcterms.dateCopyrighted" content="2018">
+                <meta name="dcterms.category" content="engineered-systems">
+                <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/trace-file-analyzer">
+                
+        
+
+    
+    <meta name="dcterms.title" content="Oracle Trace File Analyzer">
+    <meta name="dcterms.identifier" content="en/engineered-systems/health-diagnostics/trace-file-analyzer">
+    <meta name="dcterms.release" content="Latest Release">
+  <script id="ssot-metadata" type="application/json"> {"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"trace-file-analyzer","element_name":"Trace File Analyzer","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}} </script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+    <body>
+        <noscript>
+            <div>JavaScript must be enabled to correctly display this content</div>
+        </noscript>
+    
+                <div class="ohc-grid">
+                    <div role="banner">
+                        <div>
+                            <a href="#" class="offscreen skipto-top skipto">Go to main content</a>
+                            <nav class="navbar navbar-default">
+                                <div class="container">
+                                    <div class="navbar-header">
+                                        <a class="navbar-brand" href="/">
+                                            <img alt="Oracle Help Center" src="https://docs.oracle.com/sp_common/site-template/ohc-common/img/ohc-logo.png" onerror="this.onerror=&apos;&apos;;this.src=&apos;sp_common/site-template/ohc-common/img/ohc-logo.png&apos;;">
+                                        </a>
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                    </div>
+        
+                                    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+        
+                                        <p class="navbar-text navbar-right logged-in-content hidden"><span class="append-firstname-greeting"></span> <a class="logout-link" href="#">Sign Out</a></p>
+                                        <p class="navbar-text navbar-right logged-out-content hidden"><a class="login-link" href="#"><i class="fa fa-user"></i> Sign In</a></p>
+        
+                                        <form class="navbar-form ohc-search-form visible-xs-block" action="https://docs.oracle.com/apps/search/search.jsp" method="get">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" name="q" aria-label="Search Query Field" placeholder="Search for...">
+                                                    <span class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default" aria-label="Submit Search Query">
+                                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                                            <span class="sr-only">Search</span>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="category" value="engineered-systems">
+                                            <input type="hidden" name="product" value="en/engineered-systems/health-diagnostics/trace-file-analyzer">
+                                        </form>
+                                        
+                                        <ul class="nav navbar-nav visible-xs-block">
+                                                <li><a href="index.html">Get Started</a></li>
+                                                
+                                                <li><a href="books.html">Books</a></li>
+                                                
+                                        </ul>
+        
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+        
+                    <main>
+                        <div>
+                            <div class="ohc-grid">
+                                <div>
+                                    <div class="ohc-sidebar hidden-xs">
+                                        <form class="ohc-search-form" action="https://docs.oracle.com/apps/search/search.jsp" method="get">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" name="q" aria-label="Search Query Field" placeholder="Search for...">
+                                                    <span class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default" aria-label="Submit Search Query">
+                                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                                            <span class="sr-only">Search</span>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="category" value="engineered-systems">
+                                            <input type="hidden" name="product" value="en/engineered-systems/health-diagnostics/trace-file-analyzer">
+                                        </form>
+                                        
+                                        <ul class="up">
+                                            <li><a href="/"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"> </span>Help Center Home</a></li>
+                                        </ul>
+                                        
+                                        
+                                            
+                                            <ul class="links">
+                                                <li>  <a href="index.html">Get Started </a>
+        
+                                                </li>
+                                            </ul>
+                                            <hr>
+                                            <ul class="links">
+                                                <li>  <a href="books.html">Books </a>
+        
+                                                </li>
+                                            </ul>
+                                            
+                                    </div>
+        
+                                    <article class="container-fluid learning-path" role="main">
+                                    
+                                            <img class="pull-right hidden-xs hidden-sm" src="sp_common/shared-images/5-applications.png" alt>
+                                            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+                                                <li property="itemListElement" typeof="ListItem"><a href="../../../../../index.html" property="item" typeof="WebPage"><span property="name">Home</span></a><meta property="position" content="0"></li>
+                                                <li property="itemListElement" typeof="ListItem"><a href="../../index.html" property="item" typeof="WebPage"><span property="name">Engineered Systems</span></a><meta property="position" content="1"></li>
+                                                <li property="itemListElement" typeof="ListItem"><a href="../index.html" property="item" typeof="WebPage"><span property="name">Health Diagnostics</span></a><meta property="position" content="2"></li>
+                                                <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">Trace File Analyzer</span></a><meta property="position" content="3"></li>
+                                            </ol>
+                                            <h1>Oracle Trace File Analyzer</h1>
+                                            
+                                            <div class="description">Oracle Trace File Analyzer helps you collect and analyze diagnostic data.</div>
+                                        
+                                        
+        
+        
+                                        
+                                            
+                                                <h2 id="GetStarted">Get Started</h2>
+                                            
+                                            
+                                            
+                                            
+                                            <div class="description">Get started with these resources, or jump straight to the&#xA0;<a href="tfaug/index.html">user&apos;s guide</a>.</div>
+                                            
+                                            <div class="section row">
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    <header class="small-logo">
+                                                        <div class="bar"></div>
+                                                        <div class="outerlogo"><img class="logo" src="sp_common/shared-images/gs_64_about_release.png" alt></div>
+                                                        
+                                                    </header>
+                                                    <div class="section-border">
+                                                    
+                                                    <h3>Changes in this Release</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    <div class="description">Learn about the new features available with each release of Oracle Trace File Analyzer software.</div>
+                                            		<ul class="topics">
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-8E8CC7F9-C1C0-42EB-B27B-C2D90C24562C">New and Changed Features </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    <header class="small-logo">
+                                                        <div class="bar"></div>
+                                                        <div class="outerlogo"><img class="logo" src="sp_common/shared-images/gs_64_getstart.png" alt></div>
+                                                        
+                                                    </header>
+                                                    <div class="section-border">
+                                                    
+                                                    <h3>Getting Started with Oracle Trace File Analyzer</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    <div class="description">Procedures that describe how to get start using Oracle Trace File Analyzer.</div>
+                                            		<ul class="topics">
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-41689DF9-F81D-4C8C-992F-78CF48F9B6DF">Installing Oracle Trace File Analyzer on Linux or UNIX as root User in Daemon Mode </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-5E278850-32A1-4AE1-BF8E-A1F1D4278A70">Installing Oracle Trace File Analyzer on Linux or UNIX as Non-root User in Non-Daemon Mode </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-905DB23F-5082-4D9A-9604-BAD0307589C5">Installing Oracle Trace File Analyzer on Microsoft Windows </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-8385B703-AF11-4DA0-AF19-8472FA53CD0A">Installing Oracle Trace File Analyzer on Microsoft Windows in Non-Daemon Mode </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-773A6978-424D-48D8-A214-E47E3D120454">Masking Sensitive Data </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-5EB34BD2-E1A1-418C-95D1-30323523331B">Securing Access to Oracle Trace File Analyzer </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-5F95AADF-4A65-428C-A9D9-B3015CDD6EE7">Maintaining Oracle Trace File Analyzer to the Latest Version </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    <header class="small-logo">
+                                                        <div class="bar"></div>
+                                                        <div class="outerlogo"><img class="logo" src="sp_common/shared-images/gs_64_tasks.png" alt></div>
+                                                        
+                                                    </header>
+                                                    <div class="section-border">
+                                                    
+                                                    <h3>Managing and Configuring Oracle Trace File Analyzer</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    <div class="description">Manage Oracle Trace File Analyzer daemon, diagnostic collections, and the collection repository.</div>
+                                            		<ul class="topics">
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-3ECCECA0-95B6-4AC4-AAAC-94D12A2EF60D">Querying Oracle Trace File Analyzer Status and Configuration </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-C85C78B7-1270-4724-AA4E-ED3B7F98F419">Managing the Oracle Trace File Analyzer Daemon </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-DC76E3C3-44B4-4806-960F-CE021A36EB26">Managing the Repository </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-FDAB1329-EE67-4374-8F42-776AA3A66439">Managing Collections </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-F156BE7A-E282-41FA-9EAC-212F306CF0B6">Configuring the Host </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-97DA0A64-A184-4DB2-9CB1-F3AA23F6EF78">Configuring the Ports </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-653D5280-FD81-42D9-B8A3-23ADE71F9208">Configuring SSL and SSL Certificates </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-F4968CF4-AAD9-4D39-9D6E-C20EEC1AC80E">Configuring and Using REST </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-43E119D1-5111-4721-83C6-4ED118E4308C">Configuring Email Notification Details </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-169D2468-008B-4CE1-AB8E-1BA2A6233360">Troubleshooting Oracle Trace File Analyzer </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    <header class="small-logo">
+                                                        <div class="bar"></div>
+                                                        <div class="outerlogo"><img class="logo" src="sp_common/shared-images/gs_64_tasks.png" alt></div>
+                                                        
+                                                    </header>
+                                                    <div class="section-border">
+                                                    
+                                                    <h3>Collecting Diagnostic Data Automatically</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    <div class="description">Oracle Trace File Analyzer monitors your logs for significant problems, such as internal errors like ORA-00600, or node evictions.</div>
+                                            		<ul class="topics">
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-7F20FDA6-C06D-460D-991A-7F4F0EB1BDE7">Collecting Diagnostics Automatically </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-43E119D1-5111-4721-83C6-4ED118E4308C">Configuring Email Notification Details </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    <header class="small-logo">
+                                                        <div class="bar"></div>
+                                                        <div class="outerlogo"><img class="logo" src="sp_common/shared-images/gs_64_tasks.png" alt></div>
+                                                        
+                                                    </header>
+                                                    <div class="section-border">
+                                                    
+                                                    <h3>Collecting Diagnostic Data On-Demand</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    <div class="description">Run Oracle Trace File Analyzer on demand using tfactl command-line tool.</div>
+                                            		<ul class="topics">
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-CA919197-728E-486B-B8B4-5865A18125C6">Viewing System and Cluster Summary </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-B35603EE-90AD-4E9C-AA18-DA565EA4DC4B">Investigating Logs for Errors </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-ECAB7936-8E48-4141-91F8-634DB19BE390">Analyzing Logs Using the Included Tools </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-34C415D3-D4E1-4AED-AF7A-E31CB92CD9D1">Searching Oracle Trace File Analyzer Metadata </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-F8381A7A-E2F7-442C-AED0-3FEEF4129125">Collecting Diagnostic Data and Using One Command Service Request Data Collections </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-FFAA01BE-6891-4C67-85B2-65D664F8B1CB">Uploading Collections to Oracle Support </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-940A4DD7-80E8-4DAA-9BAD-571D13428DFC">Changing Oracle Grid Infrastructure Trace Levels </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    <header class="small-logo">
+                                                        <div class="bar"></div>
+                                                        <div class="outerlogo"><img class="logo" src="sp_common/shared-images/gs_64_tasks.png" alt></div>
+                                                        
+                                                    </header>
+                                                    <div class="section-border">
+                                                    
+                                                    <h3>Performing Custom Diagnostic Data Collections</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    <div class="description">Use the custom collection options to change the diagnostic collections from the default.</div>
+                                            		<ul class="topics">
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-F7669F99-4930-4B81-9A3F-D9A47E17CDDB">Adjusting the Diagnostic Data Collection Period </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-0EEA807B-5785-484E-ACF9-2C14291A0AB3">Collecting from Specific Nodes </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-0FA3F135-C73E-444B-94FF-A2185D65E681">Collecting from Specific Components </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-37F704DD-6A3E-4337-B089-4A21D30B978E">Collecting from Specific Directories </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=OEXUG-GUID-8AF18492-233A-4DB6-B116-6889798B4594">Changing the Collection Name </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-7ACBBD2D-3F93-439D-A71A-5A5D69AD7D02">Preventing Copying Zip Files and Trimming Files </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-7CA0360B-9996-43D3-B334-81DD5C470ACE">Performing Silent Collection </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-E97E09E7-E069-4162-BA2B-65738BE85E55">Preventing Collecting Core Files </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-465A4E00-3A13-4FBA-8255-0AF98AF7B66E">Collecting Incident Packaging Service (IPS) Packages </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    <header class="small-logo">
+                                                        <div class="bar"></div>
+                                                        <div class="outerlogo"><img class="logo" src="sp_common/shared-images/gs_64_tasks.png" alt></div>
+                                                        
+                                                    </header>
+                                                    <div class="section-border">
+                                                    
+                                                    <h3>Managing Oracle Database and Oracle Grid Infrastructure Diagnostic Data</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    <div class="description">Manage Oracle Database and Oracle Grid Infrastructure diagnostic data and disk usage snapshots.</div>
+                                            		<ul class="topics">
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-60273FDF-F318-4BB7-BD8F-C74D64163FA0">Managing Automatic Diagnostic Repository Log and Trace Files </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-99EB0F3B-574F-48E7-975C-C3F948697441">Managing Disk Usage Snapshots </a>
+                                            </li>
+                                            			<li>  <a href="https://www.oracle.com/pls/topic/lookup?ctx=en/engineered-systems/health-diagnostics/trace-file-analyzer&amp;id=TFAUG-GUID-65D9412B-3BFB-46E7-81D5-F33115233869">Purging Oracle Database and Oracle Grid Infrastructure Logs </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                            </div>
+                                            
+                                        
+                                    
+                                    </article>
+        
+                                    <div><div><!-- resizable column --></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                    <a href="#" class="offscreen skipto-bottom skipto">Back to main content</a>
+        
+                    <footer>
+                        <div>
+                            <div class="container">
+                                <div class="pull-left footer-left">
+                                    <ul class="footer-nav list-inline">
+                                        <li class="separator" style="height: 17px;"><a href="http://www.oracle.com/corporate/index.html">About Oracle</a></li>
+                                        <li style="height: 17px;"><a href="http://www.oracle.com/us/corporate/contact/index.html">Contact Us</a></li>
+                                        <li style="height: 17px;"><a href="http://www.oracle.com/us/legal/index.html">Legal Notices</a></li>
+                                        <li style="height: 17px;"><a href="http://www.oracle.com/us/legal/terms/index.html">Terms of Use</a></li>
+                                        <li style="height: 17px;"><a href="http://www.oracle.com/us/legal/privacy/index.html">Your Privacy Rights</a></li>
+                                        <li class="same-height-right" style="height: 17px;"><div id="teconsent" style="display: inline-block;"></div></li>
+                                    </ul>
+                                    <span class="copyright"><a href="https://www.oracle.com/pls/topic/lookup?ctx=cpyr&amp;id=en">Copyright &#xA9; 2018, Oracle and/or its affiliates. All rights reserved.</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+
+    
+
+</body></html>

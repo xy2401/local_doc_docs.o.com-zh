@@ -1,0 +1,94 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="This chapter describes the features specific to Oracle ORAchk and the tasks that you can perform using Oracle ORAchk.">
+      <meta name="description" content="This chapter describes the features specific to Oracle ORAchk and the tasks that you can perform using Oracle ORAchk.">
+      <title>Oracle ORAchk Specific Features and Tasks</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide">
+      <meta property="og:description" content="This chapter describes the features specific to Oracle ORAchk and the tasks that you can perform using Oracle ORAchk.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-orachk-and-exachk-users-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:43:23-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2016, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E83827-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/exachk">
+      
+      <link rel="prev" href="uninstalling-orachk-exachk.html" title="Previous" type="text/html">
+      <link rel="next" href="orachk-scope-and-supported-environments.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"exachk","element_name":"EXAchk","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® ORAchk and EXAchk User's Guide">
+    <meta name="dcterms.isVersionOf" content="OEXUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="uninstalling-orachk-exachk.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="orachk-scope-and-supported-environments.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Oracle ORAchk Specific Features and Tasks</li>
+            </ol>
+            <a id="GUID-778B432D-9B59-431B-9796-E947E4FC0969" name="GUID-778B432D-9B59-431B-9796-E947E4FC0969"></a>
+            
+            <h2 id="OEXUG-GUID-778B432D-9B59-431B-9796-E947E4FC0969" class="sect2"><span class="enumeration_chapter">2 </span>Oracle ORAchk Specific Features and Tasks
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>This chapter describes the features specific to Oracle ORAchk and the tasks that you can perform using Oracle ORAchk.</p>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="orachk-scope-and-supported-environments.html#GUID-77CD1268-FE8A-4D25-9B38-46852661A842">Oracle ORAchk Scope and Supported Environments</a><br>Review the scope and supported environments for Oracle ORAchk.
+                  </li>
+                  <li class="ulchildlink"><a href="auto-start-from-install.html#GUID-D18A4E2D-F9BC-42B2-86B2-61EE68273DE7">Automatic Start from Oracle Trace File Analyzer Install</a><br>Installing Oracle Trace File Analyzer as <code class="codeph">root</code> on Linux or Solaris on non-engineered systems automatically sets up and runs the Oracle ORAchk daemon.
+                  </li>
+                  <li class="ulchildlink"><a href="deploying-application-continuity.html#GUID-0FCE492F-4B50-4A98-822E-5FA121AB26CA">Using Oracle ORAchk to Confirm System Readiness for Implementing Application Continuity</a><br>Application Continuity Checking for Application Continuity allows you to deploy Application Continuity easily and transparently.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-iam-health-checks.html#GUID-049F70EF-BE6A-415F-BC65-5771B2BBEDFC">Oracle ORAchk for Oracle Identity and Access Management Health Check Tool</a><br>Oracle ORAchk for Oracle Identity and Access Management proactively identifies areas to take preventive measures to keep a system healthy on an ongoing basis.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-zfs-storage-apliance-health-checks.html#GUID-62AA15A2-1E76-40E5-91B5-772FBF1DB7F4">Running Oracle ZFS Storage Appliance Health Checks</a><br>Oracle ORAchk supports health checks for Oracle ZFS Storage Appliances.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-orachk-specific-command-line-options.html#GUID-A50D620A-C2FC-40FD-9E22-35469B97C651">Oracle ORAchk Specific Command-Line Options</a><br>List of command-line options specific to Oracle ORAchk.
+                  </li>
+                  <li class="ulchildlink"><a href="troubleshooting-oracle-iam-health-checks.html#GUID-92AC5DB3-D8CC-429C-8AC0-5EBE40156857">Troubleshooting Oracle ORAchk for Oracle Identity and Access Management Health Checks</a><br>My Oracle Support has the most current information about troubleshooting Oracle ORAchk for Oracle Identity and Access Management.
+                  </li>
+               </ul>
+            </div>
+            
+         </div>
+      </article>
+   </body>
+</html>

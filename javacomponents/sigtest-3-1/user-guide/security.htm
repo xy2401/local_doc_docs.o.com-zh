@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<title>Important Security Information</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = document) - Version 1.0.24" />
+<meta name="description" content="This section describes known SigTest product vulnerabilities that can be exploited by authorized or unauthorized users or others who have access to the network where the the SigTest product runs." />
+<meta name="dcterms.created" content="2014-07-01T13:22:30Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="SigTest User's Guide" />
+<meta name="dcterms.identifier" content="E19036-03" />
+<meta name="dcterms.isVersionOf" content="SIGTS" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2006, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="preface.htm" title="Previous" type="text/html" />
+<link rel="Next" href="intro.htm" title="Next" type="text/html" />
+<link rel="alternate" href="SIGTS.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../../nav/css/html5.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<span id="PAGE" style="display:none;">7/25</span> <!-- End Header --><a id="sthref4"></a>
+<h1 class="chapter"><span class="secnum">1</span> Important Security Information</h1>
+<p>This section describes known SigTest product vulnerabilities that can be exploited by authorized or unauthorized users or others who have access to the network where the the SigTest product runs.</p>
+<p>This chapter contains these topics: .</p>
+<ul>
+<li>
+<p><a href="#A1148812">Section 1.1, "Introduction"</a></p>
+</li>
+<li>
+<p><a href="#A1148789">Section 1.2, "File Access Risks"</a></p>
+</li>
+<li>
+<p><a href="#A1148972">Section 1.3, "Network Access Risks"</a></p>
+</li>
+<li>
+<p><a href="#A1149742">Section 1.4, "Remote Agent Risks"</a></p>
+</li>
+</ul>
+<a id="A1148812"></a>
+<div class="sect1"><!-- infolevel="all" infotype="General" -->
+<h2 class="sect1"><span class="secnum">1.1</span> Introduction</h2>
+<p>It is important to note that the SigTest product is fundamentally a developer system that is not specifically designed to guard against malicious attacks. This section describes known vulnerabilities that can be exploited by authorized or unauthorized users or others who have access to the network where the SigTest product runs. When installing and operating the product, consider these vulnerabilities and take action to mitigate potential threats.</p>
+</div>
+<!-- class="sect1" -->
+<a id="A1148789"></a>
+<div class="sect1"><!-- infolevel="all" infotype="General" -->
+<h2 class="sect1"><span class="secnum">1.2</span> File Access Risks</h2>
+<p>The SigTest product tools read, write, and deletes files and can therefore potentially expose or damage information stored in files.</p>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="sthref5"></a>
+<h3 class="sect2"><span class="secnum">1.2.1</span> Path Vulnerabilites</h3>
+<p>The SigTest tools do not prevent users from accessing sensitive files that are accessible from the computer on which the tools are running &mdash; including attached/mounted remote filesystems. A tool user can therefore directly or indirectly examine file contents or overwrite them. To mitigate against accidental or intentional misuse of sensitive files, consider setting file permissions to give the least feasible access to tool users.</p>
+</div>
+<!-- class="sect2" -->
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="sthref6"></a>
+<h3 class="sect2"><span class="secnum">1.2.2</span> File Creation Permissions</h3>
+<p>The SigTest tools are intended to be run by users who are trusted to properly handle files they have access to. The tools do not attempt to override any file permissions that are in place to protect files or restrict the user. Additionally, the tools create files with whatever permissions are the default for the user running the tool (on Unix systems, the umask, etc). If you want to restrict access to files created by the tools, ensure that user default file creation permissions are set accordingly.</p>
+</div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<a id="A1148972"></a>
+<div class="sect1"><!-- infolevel="all" infotype="General" -->
+<h2 class="sect1"><span class="secnum">1.3</span> Network Access Risks</h2>
+<p>The SigTest tools are intended to be run in a semi-trusted environment. Never expose the tools directly to the Internet, which can provide a path for malicious intrusion. Most test scenarios require no network and can be run on a standalone machine. If you must run tests on a networked machine, the most secure configuration is a local network that is physically isolated from organizational intranets and sensitive information.</p>
+</div>
+<!-- class="sect1" -->
+<a id="A1149742"></a>
+<div class="sect1">
+<h2 class="sect1"><span class="secnum">1.4</span> Remote Agent Risks</h2>
+<p>The SigTest tools permit the use of custom remote signature loaders (see <a href="sig_intro.htm#Z4000c4424681">"Using Custom Signature Loaders"</a>). Such a remote signature loader uses open communication ports on the SigTest host computer and on a remote computer; therefore you must ensure that both machines are protected from malicious attack. You must also ensure that the remote class loader itself is not malicious. For the most secure operation, connect the SigTest host and remote computers only to a protected intranet on a physically isolated network.</p>
+</div>
+<!-- class="sect1" --></div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment24">
+<tr>
+<td class="cellalignment31">
+<table class="cellalignment29">
+<tr>
+<td class="cellalignment28"><a href="preface.htm"><img width="24" height="24" src="../../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment28"><a href="intro.htm"><img width="24" height="24" src="../../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2006, 2014,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment33">
+<table class="cellalignment27">
+<tr>
+<td class="cellalignment28"><a href="../../index.html"><img width="24" height="24" src="../../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment28"><a href="toc.htm"><img width="24" height="24" src="../../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment28"><a href="../../dcommon/html/feedback.htm"><img width="24" height="24" src="../../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

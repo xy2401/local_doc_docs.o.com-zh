@@ -1,0 +1,358 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 25226-->
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>The fileupload Example Application - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2013-01-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing with JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="gkmaa.html">10.&nbsp;&nbsp;JavaServer Faces Technology: Advanced Concepts</a></p>
+<p class="toc level2"><a href="gkiow.html">11.&nbsp;&nbsp;Using Ajax with JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="gkhxa.html">12.&nbsp;&nbsp;Composite Components: Advanced Topics and Example</a></p>
+<p class="toc level2"><a href="bnavg.html">13.&nbsp;&nbsp;Creating Custom UI Components and Other Custom Objects</a></p>
+<p class="toc level2"><a href="bnawo.html">14.&nbsp;&nbsp;Configuring JavaServer Faces Applications</a></p>
+<p class="toc level2"><a href="bnafd.html">15.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level2"><a href="glrbb.html">16.&nbsp;&nbsp;Uploading Files with Java Servlet Technology</a></p>
+<p class="toc level3"><a href="gmhal.html">The <tt>@MultipartConfig</tt> Annotation</a></p>
+<p class="toc level3"><a href="gmhba.html">The <tt>getParts</tt> and <tt>getPart</tt> Methods</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3"><a href="">The <tt>fileupload</tt> Example Application</a></p>
+<p class="toc level4"><a href="#gmhbq">Architecture of the <tt>fileupload</tt> Example Application</a></p>
+<p class="toc level4"><a href="#gmhao">Running the <tt>fileupload</tt> Example</a></p>
+<p class="toc level5"><a href="#gmhad">To Build, Package, and Deploy the <tt>fileupload</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="#gmhaz">To Build, Package, and Deploy the <tt>fileupload</tt> Example Using Ant</a></p>
+<p class="toc level5"><a href="#gmhbw">To Run the <tt>fileupload</tt> Example</a></p>
+</div>
+<p class="toc level2 tocsp"><a href="bnaxu.html">17.&nbsp;&nbsp;Internationalizing and Localizing Web Applications</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">18.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">19.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">20.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS</a></p>
+<p class="toc level2"><a href="gjjxe.html">21.&nbsp;&nbsp;JAX-RS: Advanced Topics and Example</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">22.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">23.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">24.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">25.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level2"><a href="gkcqz.html">26.&nbsp;&nbsp;Using the Embedded Enterprise Bean Container</a></p>
+<p class="toc level2"><a href="gkidz.html">27.&nbsp;&nbsp;Using Asynchronous Method Invocation in Session Beans</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">28.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">29.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level2"><a href="gjehi.html">30.&nbsp;&nbsp;Contexts and Dependency Injection for the Java EE Platform: Advanced Topics</a></p>
+<p class="toc level2"><a href="gkhre.html">31.&nbsp;&nbsp;Running the Advanced Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">32.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">33.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">34.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">35.&nbsp;&nbsp;Using the Criteria API to Create Queries</a></p>
+<p class="toc level2"><a href="gkjiq.html">36.&nbsp;&nbsp;Creating and Using String-Based Criteria Queries</a></p>
+<p class="toc level2"><a href="gkjjf.html">37.&nbsp;&nbsp;Controlling Concurrent Access to Entity Data with Locking</a></p>
+<p class="toc level2"><a href="gkjia.html">38.&nbsp;&nbsp;Using a Second-Level Cache with Java Persistence API Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">39.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">40.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">41.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level2"><a href="gjjwx.html">42.&nbsp;&nbsp;Java EE Security: Advanced Topics</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">43.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">44.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">45.&nbsp;&nbsp;Resources and Resource Adapters</a></p>
+<p class="toc level2"><a href="glodb.html">46.&nbsp;&nbsp;The Resource Adapter Example</a></p>
+<p class="toc level2"><a href="bncdq.html">47.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">48.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level2"><a href="gkahp.html">49.&nbsp;&nbsp;Bean Validation: Advanced Topics</a></p>
+<p class="toc level2"><a href="gkeed.html">50.&nbsp;&nbsp;Using Java EE Interceptors</a></p>
+<p class="toc level1 tocsp"><a href="gkgjw.html">Part&nbsp;IX&nbsp;Case Studies</a></p>
+<p class="toc level2"><a href="glnvi.html">51.&nbsp;&nbsp;Duke's Bookstore Case Study Example</a></p>
+<p class="toc level2"><a href="gkaee.html">52.&nbsp;&nbsp;Duke's Tutoring Case Study Example</a></p>
+<p class="toc level2"><a href="glnpw.html">53.&nbsp;&nbsp;Duke's Forest Case Study Example</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><p class="Banner">The Java EE 6 Tutorial
+</p></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="../information/download.html">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="../information/faq.html">FAQ</a> | 
+<a href="http://docs.oracle.com/javaee/support/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="gmhba.html"><img src="graphics/leftButton.gif" border="0" alt="Previous" title="Previous"></a>
+                 <a href="p1.html"><img src="graphics/upButton.gif" border="0" alt="Contents" title="Contents"></a>
+                 <a href="bnaxu.html"><img src="graphics/rightButton.gif" border="0" alt="Next" title="Next"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="glraq"></a><h2>The <tt>fileupload</tt> Example Application</h2>
+<a name="indexterm-1156"></a><p>The <tt>fileupload</tt> example illustrates how to implement and use the file upload feature.</p>
+
+<p>The Duke&rsquo;s Forest case study provides a more complex example that uploads an
+image file and stores its content in a database.</p>
+
+
+
+<a name="gmhbq"></a><h3>Architecture of the <tt>fileupload</tt> Example Application</h3>
+<p>The <tt>fileupload</tt> example application consists of a single servlet and an HTML form
+that makes a file upload request to the servlet.</p>
+
+<p>This example includes a very simple HTML form with two fields, File and
+Destination.  The input type, <tt>file</tt>, enables a user to browse the local
+file system to select the file. When the file is selected, it is
+sent to the server as a part of a POST request. During
+this process two mandatory restrictions are applied to the form with input type
+<tt>file</tt>:</p>
+
+
+<ul><li><p>The <tt>enctype</tt> attribute must be set to a value of <tt>multipart/form-data</tt>.</p>
+
+</li>
+<li><p>Its method must be POST.</p>
+
+</li></ul>
+<p>When the form is specified in this manner, the entire request is
+sent to the server in encoded form. The servlet then handles the request
+to process the incoming file data and to extract a file from the
+stream.  The destination is the path to the location where the file
+will be saved on your computer.  Pressing the Upload button at the
+bottom of the form posts the data to the servlet, which saves the
+file in the specified destination.</p>
+
+<p>The HTML form in <tt></tt><i>tut-install</i><tt>/examples/web/fileupload/web/index.html</tt> is as follows:</p>
+
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;title&gt;File Upload&lt;/title&gt;
+        &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;form method="POST" action="upload" enctype="multipart/form-data" &gt;
+            File:
+            &lt;input type="file" name="file" id="file" /&gt; &lt;br/&gt;
+            Destination:
+            &lt;input type="text" value="/tmp" name="destination"/&gt;
+            &lt;/br&gt;
+            &lt;input type="submit" value="Upload" name="upload" id="upload" /&gt;
+        &lt;/form&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre><p>A POST request method is used when the client needs to send
+data to the server as part of the request, such as when uploading
+a file or submitting a completed form. In contrast, a GET request method
+sends a URL and headers only to the server, whereas POST requests also
+include a message body. This allows arbitrary-length data of any type to be
+sent to the server. A header field in the POST request usually indicates
+the message body&rsquo;s Internet media type.</p>
+
+<p>When submitting a form, the browser streams the content in, combining all parts,
+with each part representing a field of a form. Parts are named after
+the <tt>input</tt> elements and are separated from each other with string delimiters named
+<tt>boundary</tt>.</p>
+
+<p>This is what submitted data from the <tt>fileupload</tt> form looks like, after selecting
+<tt>sample.txt</tt> as the file that will be uploaded to the <tt>tmp</tt> directory on
+the local file system:</p>
+
+<pre>POST /fileupload/upload HTTP/1.1
+Host: localhost:8080
+Content-Type: multipart/form-data; 
+boundary=---------------------------263081694432439
+Content-Length: 441
+-----------------------------263081694432439
+Content-Disposition: form-data; name="file"; filename="sample.txt"
+Content-Type: text/plain
+
+Data from sample file
+-----------------------------263081694432439
+Content-Disposition: form-data; name="destination"
+
+/tmp
+-----------------------------263081694432439
+Content-Disposition: form-data; name="upload"
+
+Upload
+-----------------------------263081694432439--</pre><p>The servlet <tt>FileUploadServlet.java</tt> can be found in the <tt></tt><i>tut-install</i><tt>/examples/web/fileupload/src/java/fileupload/</tt> directory. The servlet begins as
+follows:</p>
+
+<pre>@WebServlet(name = "FileUploadServlet", urlPatterns = {"/upload"})
+@MultipartConfig
+public class FileUploadServlet extends HttpServlet {
+
+    private final static Logger LOGGER = 
+            Logger.getLogger(FileUploadServlet.class.getCanonicalName());</pre><p>The <tt>@WebServlet</tt> annotation uses the <tt>urlPatterns</tt> property to define servlet mappings.</p>
+
+<p>The <tt>@MultipartConfig</tt> annotation indicates that the servlet expects requests to made using the
+<tt>multipart/form-data</tt> MIME type.</p>
+
+<p>The <tt>processRequest</tt> method retrieves the destination and file part from the request, then
+calls the <tt>getFileName</tt> method to retrieve the file name from the file part.
+The method then creates a <tt>FileOutputStream</tt> and copies the file to the
+specified destination. The error-handling section of the method catches and handles some of
+the most common reasons why a file would not be found. The <tt>processRequest</tt>
+and <tt>getFileName</tt> methods look like this:</p>
+
+<pre>protected void processRequest(HttpServletRequest request,
+        HttpServletResponse response)
+        throws ServletException, IOException {
+    response.setContentType("text/html;charset=UTF-8");
+
+    // Create path components to save the file
+    final String path = request.getParameter("destination");
+    final Part filePart = request.getPart("file");
+    final String fileName = getFileName(filePart);
+
+    OutputStream out = null;
+    InputStream filecontent = null;
+    final PrintWriter writer = response.getWriter();
+
+    try {
+        out = new FileOutputStream(new File(path + File.separator
+                + fileName));
+        filecontent = filePart.getInputStream();
+
+        int read = 0;
+        final byte[] bytes = new byte[1024];
+
+        while ((read = filecontent.read(bytes)) != -1) {
+            out.write(bytes, 0, read);
+        }
+        writer.println("New file " + fileName + " created at " + path);
+        LOGGER.log(Level.INFO, "File{0}being uploaded to {1}", 
+                new Object[]{fileName, path});
+    } catch (FileNotFoundException fne) {
+        writer.println("You either did not specify a file to upload or are "
+                + "trying to upload a file to a protected or nonexistent "
+                + "location.");
+        writer.println("&lt;br/> ERROR: " + fne.getMessage());
+
+        LOGGER.log(Level.SEVERE, "Problems during file upload. Error: {0}", 
+                new Object[]{fne.getMessage()});
+    } finally {
+        if (out != null) {
+            out.close();
+        }
+        if (filecontent != null) {
+            filecontent.close();
+        }
+        if (writer != null) {
+            writer.close();
+        }
+    }
+}
+
+private String getFileName(final Part part) {
+    final String partHeader = part.getHeader("content-disposition");
+    LOGGER.log(Level.INFO, "Part Header = {0}", partHeader);
+    for (String content : part.getHeader("content-disposition").split(";")) {
+        if (content.trim().startsWith("filename")) {
+            return content.substring(
+                    content.indexOf('=') + 1).trim().replace("\"", "");
+        }
+    }
+    return null;
+}</pre>
+
+<a name="gmhao"></a><h3>Running the <tt>fileupload</tt> Example</h3>
+<p>You can use either NetBeans IDE or Ant to build, package, deploy, and
+run the  <tt>fileupload</tt> example.</p>
+
+
+
+<a name="gmhad"></a><h4>To Build, Package, and Deploy the <tt>fileupload</tt> Example Using NetBeans IDE</h4>
+<ol>
+<li><b>From the File menu, choose Open Project.</b></li>
+<li><b>In the Open Project dialog, navigate to:</b><pre><tt></tt><i>tut-install</i><tt>/examples/web/</tt></pre></li>
+<li><b>Select the <tt>fileupload</tt> folder.</b></li>
+<li><b>Select the Open as Main Project checkbox.</b></li>
+<li><b>Click Open Project.</b></li>
+<li><b>In the Projects tab, right-click <tt>fileupload</tt> and select Deploy.</b></li></ol>
+
+<a name="gmhaz"></a><h4>To Build, Package, and Deploy the <tt>fileupload</tt> Example Using Ant</h4>
+<ol>
+<li><b>In a terminal window, go to:</b><pre><tt></tt><i>tut-install</i><tt>/examples/web/fileupload/</tt></pre></li>
+<li><b>Type the following command:</b><pre><tt><b>ant</b></tt></pre></li>
+<li><b>Type the following command:</b><pre><tt><b>ant deploy</b></tt></pre></li></ol>
+
+<a name="gmhbw"></a><h4>To Run the <tt>fileupload</tt> Example</h4>
+<ol>
+<li><b>In a web browser, type the following URL:</b><pre><tt><b>http://localhost:8080/fileupload/</b></tt></pre><p>The File Upload page opens.</p></li>
+<li><b>Click Browse to display a file browser window.</b></li>
+<li><b>Select a file to upload and click Open.</b><p>The name of the file you selected is displayed in the File field.
+ If you do not select a file, an exception will be thrown.</p></li>
+<li><b>In the Destination field, type a directory name.</b><p>The directory must have already been created and must also be writable. 
+If you do not enter a directory name, or if you enter the
+name of a nonexistent or protected directory, an exception will be thrown.</p></li>
+<li><b>Click Upload to upload the file you selected to the directory you specified
+in the Destination field.</b><p>A message reports that the file was created in the directory you specified.</p></li>
+<li><b>Go to the directory you specified in the Destination field and verify that
+the uploaded file is present.</b></li></ol>
+         </div>
+         <div class="navigation">
+             <a href="gmhba.html"><img src="graphics/leftButton.gif" border="0" alt="Previous" title="Previous"></a>
+             <a href="p1.html"><img src="graphics/upButton.gif" border="0" alt="Contents" title="Contents"></a>
+             <a href="bnaxu.html"><img src="graphics/rightButton.gif" border="0" alt="Next" title="Next"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2013, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+<!-- Start SiteCatalyst code   -->
+<script language="JavaScript" src="http://www.oracle.com/ocom/groups/systemobject/@mktg_admin/documents/systemobject/s_code_download.js"></script>
+<script language="JavaScript" src="http://www.oracle.com/ocom/groups/systemobject/@mktg_admin/documents/systemobject/s_code.js"></script>
+ 
+<!-- ********** DO NOT ALTER ANYTHING BELOW THIS LINE ! *********** -->
+<!--  Below code will send the info to Omniture server -->
+<script language="javascript">var s_code=s.t();if(s_code)document.write(s_code)</script>
+<noscript><p>Scripting on this page tracks web page traffic,
+but does not change the content in any way.</p></noscript>
+<!-- End SiteCatalyst code -->
+</body>
+</html>
+

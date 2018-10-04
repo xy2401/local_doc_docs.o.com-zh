@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>The APDU I/O API</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-04-13T10:24:54Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card 3 Platform Development Kit User Guide, Classic Edition" />
+<meta name="dcterms.identifier" content="E59602-03" />
+<meta name="dcterms.isVersionOf" content="JCUGC" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Glossary" href="glossary.htm" title="Glossary" type="text/html" />
+<link rel="Prev" href="working-apdu-i-o.htm" title="Previous" type="text/html" />
+<link rel="Next" href="two-interface-card-simulation.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JCUGC.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-CE6889C1-C8E3-4B64-9613-C6F3C1302D5D"></a> <span id="PAGE" style="display:none;">146/161</span> <!-- End Header -->
+<a id="JCUGC370"></a>
+<h1 id="JCUGC-GUID-CE6889C1-C8E3-4B64-9613-C6F3C1302D5D" class="sect1">The APDU I/O API</h1>
+<div>
+<p>The APDU I/O library is used to develop Java Card client applications and Java Card platform simulators. It provides the means to exchange APDUs by using the T=0 or T=1 protocols.</p>
+<p>The library is located in the file <span class="italic">JC_CLASSIC_HOME</span>\<code class="codeph">lib\tools.jar</code>.</p>
+<p>All publicly available APDU I/O client classes are located in the package <code class="codeph">com.sun.javacard.apduio</code>.</p>
+</div>
+<a id="JCUGC371"></a>
+<div class="props_rev_3"><a id="GUID-00FB0CB8-363F-4DE7-A722-79B1247C4290"></a>
+<h2 id="JCUGC-GUID-00FB0CB8-363F-4DE7-A722-79B1247C4290" class="sect2">APDU I/O Classes and Interfaces</h2>
+<div>
+<p>The APDU I/O classes and interfaces are described in this section.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">class Apdu</code></p>
+<p>Represents a pair of APDUs (both C-APDU and R-APDU). Contains various helper methods to access APDU contents and constants providing standard offsets within the APDU.</p>
+</li>
+<li>
+<p><code class="codeph">interface CadClientInterface</code></p>
+<p>Represents an interface from the client to the card reader or a simulator. Includes methods for powering up, powering down and exchanging APDUs.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">void exchangeApdu(Apdu apdu)</code></p>
+<p>Exchanges a single APDU with the card. Note that the APDU object contains both incoming and outgoing APDUs.</p>
+</li>
+<li>
+<p><code class="codeph">public byte[] powerUp()</code></p>
+<p>Powers up the card and returns ATR (Answer-To-Reset) bytes.</p>
+</li>
+<li>
+<p><code class="codeph">void powerDown(boolean disconnect)</code></p>
+<p>Powers down the card. The parameter, applicable only to communications with a simulator, means "close the socket". Normally, it is <code class="codeph">true</code> for contacted connection, <code class="codeph">false</code> for contactless. See <a href="two-interface-card-simulation.htm#GUID-77AA5029-6392-49EB-84B2-3AFC5E3B5685">Two-interface Card Simulation</a> for more details.</p>
+</li>
+<li>
+<p><code class="codeph">void powerDown()</code></p>
+<p>Equivalent to <code class="codeph">powerDown(true)</code>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code class="codeph">abstract class CadDevice</code></p>
+<p>Factory and a base class for all <code class="codeph">CadClientInterface</code> implementations included with the APDU I/O library. Includes constants for the T=0 and T=1 clients.</p>
+<p>The factory method <code class="codeph">static CadClientInterface getCadClientInstance(byte protocolType, InputStream in, OutputStream out)</code> returns a new instance of <code class="codeph">CadClientInterface</code>. The in and out streams correspond to a socket connection to a simulator. Protocol type can be one of:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">CadDevice.PROTOCOL_T0</code></p>
+</li>
+<li>
+<p><code class="codeph">CadDevice.PROTOCOL_T1</code></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<a id="JCUGC372"></a>
+<div class="props_rev_3"><a id="GUID-EEA1A34B-5539-4CF6-BB5E-E8F20363B7FF"></a>
+<h2 id="JCUGC-GUID-EEA1A34B-5539-4CF6-BB5E-E8F20363B7FF" class="sect2">Exceptions</h2>
+<div>
+<p>The following exceptions may be thrown in case of system malfunction or protocol violations:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">CadTransportException</code> extends <code class="codeph">Exception</code></p>
+</li>
+<li>
+<p><code class="codeph">T1Exception</code> extends <code class="codeph">CadTransportException</code></p>
+</li>
+<li>
+<p><code class="codeph">TLP224Exception</code> extends <code class="codeph">CadTransportException</code></p>
+</li>
+</ul>
+<p>In all cases, their <code class="codeph">toString()</code> method returns the cause of failure. In addition, <code class="codeph">java.io.IOException</code> may be thrown at any time if the underlying socket connection is terminated or could not be established.</p>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment1">
+<tr>
+<td class="cellalignment8">
+<table class="cellalignment6">
+<tr>
+<td class="cellalignment5"><a href="working-apdu-i-o.htm"><img width="24" height="24" src="../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment5"><a href="two-interface-card-simulation.htm"><img width="24" height="24" src="../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment10">
+<table class="cellalignment4">
+<tr>
+<td class="cellalignment5"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment5"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment5"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

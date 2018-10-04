@@ -1,0 +1,1340 @@
+<!DOCTYPE html><html lang="en"><head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        
+        <link rel="stylesheet" href="/sp_common/site-template/ohc-site-template/css/site.css">
+        <script data-main="/sp_common/site-template/ohc-site-template/js/site-config" src="/sp_common/site-template/requirejs/require.js"></script>
+        <script>
+        if(window.require === undefined) {
+          document.write('<script data-main="sp_common/site-template/ohc-site-template/js/site-config" src="sp_common/site-template/requirejs/require.js"><\/script>');
+          document.write('<link href="sp_common/site-template/ohc-site-template/css/site.css" rel="stylesheet">');
+        }
+        </script>
+        <link rel="shortcut icon" href="/sp_common/site-template/ohc-common/img/favicon.ico">
+        
+                <title>Storage Documentation - Get Started</title>
+                <meta name="description" content="Oracle Storage enables enterprises to simplify IT environments so they can operate more efficiently, more cost effectively, and be more responsive to dynamic business needs.">
+                <meta property="og:description" content="Oracle Storage enables enterprises to simplify IT environments so they can operate more efficiently, more cost effectively, and be more responsive to dynamic business needs.">
+                <meta property="og:site_name" content="Oracle Help Center">
+                <meta name="generator" content="Oracle Interface Page Generator 1.7.07.20">
+                <meta property="og:title" content="Storage Documentation - Get Started">
+                
+                
+                <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+                <meta name="dcterms.created" content="2018-09-14T13:44:49.349Z">
+                
+                <meta name="dcterms.dateCopyrighted" content="2018">
+                <meta name="dcterms.category" content="storage">
+                
+                
+        
+
+    
+    <meta name="dcterms.title" content="Storage Documentation">
+    <meta name="dcterms.product" content="en/storage">
+    <meta name="dcterms.identifier" content="en/storage">
+  <script id="ssot-metadata" type="application/json"> {"primary":{"category":{"short_name":"storage","element_name":"Storage","display_in_url":true}}} </script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+    <body>
+        <noscript>
+            <div>JavaScript must be enabled to correctly display this content</div>
+        </noscript>
+    
+                <div class="ohc-grid">
+                    <div role="banner">
+                        <div>
+                            <a href="#" class="offscreen skipto-top skipto">Go to main content</a>
+                            <nav class="navbar navbar-default">
+                                <div class="container">
+                                    <div class="navbar-header">
+                                        <a class="navbar-brand" href="/">
+                                            <img alt="Oracle Help Center" src="https://docs.oracle.com/sp_common/site-template/ohc-common/img/ohc-logo.png" onerror="this.onerror=&apos;&apos;;this.src=&apos;sp_common/site-template/ohc-common/img/ohc-logo.png&apos;;">
+                                        </a>
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                    </div>
+        
+                                    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+        
+                                        <p class="navbar-text navbar-right logged-in-content hidden"><span class="append-firstname-greeting"></span> <a class="logout-link" href="#">Sign Out</a></p>
+                                        <p class="navbar-text navbar-right logged-out-content hidden"><a class="login-link" href="#"><i class="fa fa-user"></i> Sign In</a></p>
+        
+                                        <form class="navbar-form ohc-search-form visible-xs-block" action="https://docs.oracle.com/apps/search/search.jsp" method="get">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" name="q" aria-label="Search Query Field" placeholder="Search for...">
+                                                    <span class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default" aria-label="Submit Search Query">
+                                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                                            <span class="sr-only">Search</span>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="category" value="storage">
+                                        </form>
+                                        
+                                        <ul class="nav navbar-nav visible-xs-block">
+                                                <li><a href="/en/cloud/">Cloud</a></li>
+                                                
+                                                <li><a href="/en/applications/">Applications</a></li>
+                                                
+                                                <li><a href="/en/middleware/">Middleware</a></li>
+                                                
+                                                <li><a href="/en/database/">Database</a></li>
+                                                
+                                                <li><a href="/en/bigdata/">Big Data</a></li>
+                                                
+                                                <li><a href="/en/enterprise-manager/">Enterprise Manager</a></li>
+                                                
+                                                <li><a href="/en/engineered-systems/">Engineered Systems</a></li>
+                                                
+                                                <li><a href="/en/java/">Java</a></li>
+                                                
+                                                <li><a href="/en/servers/">Servers</a></li>
+                                                
+                                                <li><a href="/en/networking/">Networking</a></li>
+                                                
+                                                <li><a href="/en/virtualization/">Virtualization</a></li>
+                                                
+                                                <li><a href="/en/storage/">Storage</a></li>
+                                                
+                                                <li><a href="/en/operating-systems/">Operating Systems</a></li>
+                                                
+                                                <li><a href="/en/industries/">Industries</a></li>
+                                                
+                                                <li><a href="/en/browseall.html">Browse All Products</a></li>
+                                                
+                                        </ul>
+        
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+        
+                    <main>
+                        <div>
+                            <div class="ohc-grid">
+                                <div>
+                                    <div class="ohc-sidebar hidden-xs">
+                                        <form class="ohc-search-form" action="https://docs.oracle.com/apps/search/search.jsp" method="get">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" name="q" aria-label="Search Query Field" placeholder="Search for...">
+                                                    <span class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default" aria-label="Submit Search Query">
+                                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                                            <span class="sr-only">Search</span>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="category" value="storage">
+                                        </form>
+                                        
+                                        <ul class="up">
+                                            <li><a href="/"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"> </span>Help Center Home</a></li>
+                                        </ul>
+                                        
+                                        
+                                            
+                                            <ul class="links">
+                                                <li>  <a href="/en/cloud/">Cloud </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/applications/">Applications </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/middleware/">Middleware </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/database/">Database </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/bigdata/">Big Data </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/enterprise-manager/">Enterprise Manager </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/engineered-systems/">Engineered Systems </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/java/">Java </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/servers/">Servers </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/networking/">Networking </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/virtualization/">Virtualization </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/storage/">Storage </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/operating-systems/">Operating Systems </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/industries/">Industries </a>
+        
+                                                </li>
+                                                <li>  <a href="/en/browseall.html">Browse All Products </a>
+        
+                                                </li>
+                                            </ul>
+                                            
+                                    </div>
+        
+                                    <article class="container-fluid learning-path" role="main">
+                                    
+                                            <img class="pull-right hidden-xs hidden-sm" src="sp_common/shared-images/11-storage.png" alt>
+                                            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+                                                <li property="itemListElement" typeof="ListItem"><a href="../../../index.html" property="item" typeof="WebPage"><span property="name">Home</span></a><meta property="position" content="0"></li>
+                                                <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">Storage</span></a><meta property="position" content="1"></li>
+                                            </ol>
+                                            <h1>Storage Documentation</h1>
+                                            
+                                            <div class="description">Oracle Storage enables enterprises to simplify IT environments so they can operate more efficiently, more cost effectively, and be more responsive to dynamic business needs. Our best-of-breed storage products and application-engineered storage solutions are co-developed with Oracle software to run faster, more efficiently, and offer unsurpassed capabilities for heterogeneous data centers.</div>
+                                        
+                                        
+        
+        
+                                        
+                                            
+                                                <h2 id="NASStorage-OracleZFSStorageAppliance">NAS Storage - Oracle ZFS Storage Appliance</h2>
+                                            
+                                                    <div style="display:table;width:100%;height:auto;">
+                                                    <img style="display:table-cell;width:auto;height:auto;padding-left:20px;padding-right:20px;vertical-align:top;" src="sp_common/shared-images/2005977.png" alt>
+                                                    <div style="display:table-cell;width:100%;height:auto;vertical-align:top;">
+                                            
+                                            
+                                            
+                                            <div class="description">Oracle ZFS Storage Appliance, the first application-engineered disk storage system, enables customers to reduce capacity, complexity, and cost with high performance, efficiency, and unmatched Oracle software integration.</div>
+                                            
+                                            <div class="section row">
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Oracle ZFS Storage Appliance</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="http://docs.oracle.com/cd/E79446_01/index.html">Oracle ZFS Storage Appliance, Release OS8.7.x documentation </a>
+                                            </li>
+                                            			<li>  <a href="http://docs.oracle.com/cd/E78901_01/index.html">Oracle ZFS Storage Appliance, Release OS8.7.0 documentation </a>
+                                            </li>
+                                            			<li>  <a href="/cd/E76475_01/index.html">Oracle ZFS Storage Appliance, Release OS8.6.x documentation </a>
+                                            </li>
+                                            			<li>  <a href="/cd/E71909_01/index.html">Oracle ZFS Storage Appliance, Release OS8.6.0 documentation </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Appliance Software</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="http://docs.oracle.com/cd/E39520_01/index.html">Oracle Snap Management Utility for Oracle Database documentation </a>
+                                            </li>
+                                            			<li>  <a href="http://docs.oracle.com/cd/E35147_01/index.html">Sun ZFS Appliance Monitor documentation </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Prior Releases</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="/cd/E69262_01/index.html">Oracle ZFS Storage Appliance, Release 2013.1.5.0 documentation </a>
+                                            </li>
+                                            			<li>  <a href="/cd/E56047_01/index.html">Oracle ZFS Storage Appliance, Release 2013.1.4.0 documentation </a>
+                                            </li>
+                                            			<li>  <a href="/cd/E56021_01/index.html">Oracle ZFS Storage Appliance, Release 2013.1.3.0 documentation </a>
+                                            </li>
+                                            			<li>  <a href="/cd/E51475_01/index.html">Oracle ZFS Storage Appliance, Release 2013.1.2.0 documentation </a>
+                                            </li>
+                                            			<li>  <a href="/cd/E27998_01/index.html">Oracle ZFS Storage Appliance 2013.1.0 documentation </a>
+                                            </li>
+                                            			<li>  <a href="http://docs.oracle.com/cd/E50597_01/index.html">Oracle ZFS Storage ZS3-BA documentation </a>
+                                            </li>
+                                            			<li>  <a href="http://docs.oracle.com/cd/E28223_01/index.html">Sun ZFS Backup Appliance documentation </a>
+                                            </li>
+                                            			<li>  <a href="http://www.oracle.com/technetwork/documentation/old-unified-ss-1882427.html">See older ZFS and Unified Storage documentation </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                            </div>
+                                            
+                                                </div>
+                                                </div>
+                                            
+                                                <h2 id="SANStorage-OracleFlashStorageSystems">SAN Storage - Oracle Flash Storage Systems</h2>
+                                            
+                                                    <div style="display:table;width:100%;height:auto;">
+                                                    <img style="display:table-cell;width:auto;height:auto;padding-left:20px;padding-right:20px;vertical-align:top;" src="sp_common/shared-images/2287323.png" alt>
+                                                    <div style="display:table-cell;width:100%;height:auto;vertical-align:top;">
+                                            
+                                            
+                                            
+                                            <div class="description">The Oracle Flash Storage System is a unique multi-tenant, shared storage platform that is architected for all-flash (to exploit the power of flash for industry leading performance and scalability) or for mixed flash and HDD (to achieve leading efficiencies in data storage operations and cost).</div>
+                                            
+                                            <div class="section row">
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="http://docs.oracle.com/cd/E57980_15/index.htm">Oracle Flash Storage System Documentation Library, Release 6.1 </a>
+                                            </li>
+                                            			<li>  <a href="http://docs.oracle.com/cd/E65650_01/index.htm">Oracle Flash Storage System Documentation Library, Release 6.2 </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Oracle Flash Storage System Video Library</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="http://docs.oracle.com/cd/E66736_01/index.htm">Oracle FS1-2 Flash Storage Systems Videos </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Oracle Flash Storage System Mobile-Friendly Library</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="http://docs.oracle.com/cd/E66737_01/index.htm">Oracle FS1-2 Hardware Service Procedures </a>
+                                            </li>
+                                            			<li>  <a href="http://docs.oracle.com/cd/E66737_01/index.htm">Oracle MaxRep for SAN Hardware Procedures </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Oracle Flash Storage System Utilities</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="http://docs.oracle.com/cd/F10270_01/index.htm">Oracle Flash Storage System Utilities Documentation Library </a>
+                                            </li>
+                                            			<li>  <a href="http://docs.oracle.com/cd/E58085_04/index.htm">Oracle MaxRep for SAN Documentation Library, Release 3.0 </a>
+                                            </li>
+                                            			<li>  <a href="http://docs.oracle.com/cd/E57633_02/index.htm">Oracle FS Path Manager Documentation Library, Release 4.0 </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Oracle Flash Storage System Interoperability</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="http://docs.oracle.com/cd/E71191_01/E71192_01/E71192_01.pdf">Oracle Flash Storage System Support and Interoperability Guide </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                            </div>
+                                            
+                                                </div>
+                                                </div>
+                                            
+                                                <h2 id="SANStorage-Oracle&apos;sPillarAxiom">SAN Storage - Oracle&apos;s Pillar Axiom</h2>
+                                            
+                                                    <div style="display:table;width:100%;height:auto;">
+                                                    <img style="display:table-cell;width:auto;height:auto;padding-left:20px;padding-right:20px;vertical-align:top;" src="sp_common/shared-images/1363150.jpg" alt>
+                                                    <div style="display:table-cell;width:100%;height:auto;vertical-align:top;">
+                                            
+                                            
+                                            
+                                            <div class="description">Oracle&apos;s Pillar Axiom disk storage systems deliver fast, dependable performance for databases and applications in mission-critical environments with unique quality-of-service capabilities.</div>
+                                            
+                                            <div class="section row">
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Oracle&apos;s Pillar Axiom 600 Storage System</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="http://docs.oracle.com/cd/E39446_01/index.htm">Pillar Axiom 600, Release 5.4 documentation </a>
+                                            </li>
+                                            			<li>  <a href="http://docs.oracle.com/cd/E29307_01/index.htm">Pillar Axiom 600, Release 5.3 documentation </a>
+                                            </li>
+                                            			<li>  <a href="http://docs.oracle.com/cd/E27438_01/index.htm">Pillar Axiom 600, Release 5.2 documentation </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Pillar Axiom Path Manager (Legacy)</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    <div class="description">Note: These documents relate to older versions of Axiom Path Manager. A newer version, the Oracle FS Path Manager software, supports the Oracle Flash Storage System as well as the Pillar Axiom System and can be found at: <a href="http://www.oracle.com/goto/fssystems/docs">http://www.oracle.com/goto/fssystems/docs</a></div>
+                                            		<ul class="topics">
+                                            			<li>  <a href="http://docs.oracle.com/cd/E58087_02/index.htm">Pillar Axiom Path Manager (Legacy) documentation </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>MaxRep Replication</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="http://docs.oracle.com/cd/E29423_02/index.htm">Pillar Axiom MaxRep Replication documentation </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Utilities</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="http://docs.oracle.com/cd/E28661_05/index.htm">Pillar Axiom Utilities documentation </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>All Pillar Axiom</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="http://www.oracle.com/technetwork/documentation/oracle-unified-ss-193371.html#osss">See all Pillar Axiom documentation </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                            </div>
+                                            
+                                                </div>
+                                                </div>
+                                            
+                                                <h2 id="TapeStorage-Oracle&apos;sStorageTekTapeSolutions">Tape Storage - Oracle&apos;s StorageTek Tape Solutions</h2>
+                                            
+                                                    <div style="display:table;width:100%;height:auto;">
+                                                    <img style="display:table-cell;width:auto;height:auto;padding-left:20px;padding-right:20px;vertical-align:top;" src="sp_common/shared-images/1363162.jpg" alt>
+                                                    <div style="display:table-cell;width:100%;height:auto;vertical-align:top;">
+                                            
+                                            
+                                            
+                                            <div class="description">Oracle&apos;s StorageTek tape and library solutions help reduce complexity, control costs, and meet archive and data protection requirements with leadership capacity, performance, flexibility, and availability.</div>
+                                            
+                                            <div class="section row">
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Tape Libraries</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="http://docs.oracle.com/cd/E24306_05/index.html">StorageTek SL8500 Modular Library System documentation </a>
+                                            </li>
+                                            			<li>  <a href="http://docs.oracle.com/cd/E88899_01/index.html">StorageTek SL4000 Modular Library System documentation </a>
+                                            </li>
+                                            			<li>  <a href="http://docs.oracle.com/cd/E28221_03/index.html">StorageTek SL3000 Modular Library System documentation </a>
+                                            </li>
+                                            			<li>  <a href="http://docs.oracle.com/cd/E35103_07/index.html">StorageTek SL150 Modular Tape Library documentation </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Tape Drives</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="http://docs.oracle.com/cd/E48725_03/index.html">StorageTek T10000C and T10000D Tape Drives documentation </a>
+                                            </li>
+                                            			<li>  <a href="http://docs.oracle.com/cd/E91619_01/index.html">LTO-8 Tape Drive documentation </a>
+                                            </li>
+                                            			<li>  <a href="http://www.oracle.com/technetwork/documentation/tape-storage-curr-187744.html#ltotape">Older LTO Tape Drive documentation </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Mainframe Virtual Tape</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="http://www.oracle.com/technetwork/documentation/tape-storage-curr-187744.html#virtualtape">StorageTek Tape Virtualization for Mainframe Systems documentation </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Oracle Virtual Operator Panel</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="http://docs.oracle.com/cd/E56041_01/index.html">Current Release Documentation </a>
+                                            </li>
+                                            			<li>  <a href="http://www.oracle.com/technetwork/documentation/tape-storage-curr-187744.html#vop">Older Release Documentation </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>StorageTek Service Delivery Platform</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="http://docs.oracle.com/cd/E84229_01/index.html">Current Release Documentation </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>All StorageTek</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="http://www.oracle.com/technetwork/documentation/tape-storage-curr-187744.html">See all StorageTek documentation </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                            </div>
+                                            
+                                                </div>
+                                                </div>
+                                            
+                                                <h2 id="StorageSoftware">Storage Software</h2>
+                                            
+                                                    <div style="display:table;width:100%;height:auto;">
+                                                    <img style="display:table-cell;width:auto;height:auto;padding-left:20px;padding-right:20px;vertical-align:top;" src="sp_common/shared-images/storage_software.png" alt>
+                                                    <div style="display:table-cell;width:100%;height:auto;vertical-align:top;">
+                                            
+                                            
+                                            
+                                            <div class="description">Oracle&apos;s comprehensive storage software suite and disk storage solutions help maximize efficiency, optimize performance, simplify management, and reduce total cost of ownership.</div>
+                                            
+                                            <div class="section row">
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="http://www.oracle.com/technetwork/documentation/tape-storage-curr-187744.html#crypto">Oracle Key Manager documentation </a>
+                                            </li>
+                                            			<li>  <a href="http://www.oracle.com/technetwork/documentation/tape-storage-curr-187744.html#samqfs">Oracle Hierarchical Storage Manager and StorageTek QFS Software documentation </a>
+                                            </li>
+                                            			<li>  <a href="http://www.oracle.com/technetwork/documentation/tape-storage-curr-187744.html#samqfs">StorageTek Storage Archive Manager documentation </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Tape Storage Software</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="http://www.oracle.com/technetwork/documentation/tape-storage-curr-187744.html#acsls">StorageTek ACSLS Manager documentation </a>
+                                            </li>
+                                            			<li>  <a href="http://docs.oracle.com/cd/E89154_01/index.htm">StorageTek Tape Analytics 2.3 documentation </a>
+                                            </li>
+                                            			<li>  <a href="http://www.oracle.com/technetwork/documentation/tape-storage-curr-187744.html#sta">Earlier StorageTek Tape Analytics documentation </a>
+                                            </li>
+                                            			<li>  <a href="http://www.oracle.com/technetwork/documentation/tape-storage-curr-187744.html#ltfsle">StorageTek Linear Tape File System documentation </a>
+                                            </li>
+                                            			<li>  <a href="http://www.oracle.com/technetwork/documentation/tape-storage-curr-187744.html#els">StorageTek Enterprise Library documentation </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Other Storage Software</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="http://www.oracle.com/technetwork/documentation/storage-software-245737.html">See other storage software documentation </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                            </div>
+                                            
+                                                </div>
+                                                </div>
+                                            
+                                                <h2 id="StorageAccessories">Storage Accessories</h2>
+                                            
+                                                    <div style="display:table;width:100%;height:auto;">
+                                                    <img style="display:table-cell;width:auto;height:auto;padding-left:20px;padding-right:20px;vertical-align:top;" src="sp_common/shared-images/1363157.jpg" alt>
+                                                    <div style="display:table-cell;width:100%;height:auto;vertical-align:top;">
+                                            
+                                            
+                                            
+                                            <div class="description">Oracle offers a robust set of accessories to extend and complement its storage portfolio. These include high performance PCI cards, routers, directors, switches and more. These accessories enable Oracle to offer customers a complete solution to ensure interoperability, performance and ease-of-use.
+                                            
+                                            For enterprise customers looking for superior I/O connectivity, Oracle&apos;s storage networking solutions offer some of the fastest, most cost-efficient host bus adapters, switches, directors, and routers on the market today.</div>
+                                            
+                                            <div class="section row">
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Oracle Networking Accessories</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    <div class="description">Oracle&apos;s storage networking offers enterprise customers superior connectivity with some of the industry&apos;s fastest and most cost-effective adapters, switches, directors, and routers.</div>
+                                            		<ul class="topics">
+                                            			<li>  <a href="http://www.oracle.com/technetwork/documentation/oracle-storage-networking-190061.html">Host Bus Adapters and Fiber Channel Adapters documentation </a>
+                                            </li>
+                                            			<li>  <a href="http://www.oracle.com/technetwork/documentation/switches-directors-193441.html">Switches and Directors </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Oracle Flash Accessories</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    <div class="description">Oracle provides the industry&apos;s most complete portfolio of high performance, high reliability Flash cache and Flash storage solutions, from SSDs and PCIe Flash cards to Hybrid/Flash Storage Arrays and Application Engineered Solutions. These accessories are optimized for performance and use with Oracle&apos;s systems and software, such as Oracle&apos;s Database Smart Flash Cache</div>
+                                            		<ul class="topics">
+                                            			<li>  <a href="https://docs.oracle.com/cd/E87231_01/index.html">Oracle Flash Accelerator F640 PCIe Card </a>
+                                            </li>
+                                            			<li>  <a href="https://docs.oracle.com/cd/E65386_01/index.html">Oracle Flash Accelerator F320 PCIe Card </a>
+                                            </li>
+                                            			<li>  <a href="https://docs.oracle.com/cd/E54943_01/index.html">Oracle Flash Accelerator F160 PCIe Card </a>
+                                            </li>
+                                            			<li>  <a href="http://docs.oracle.com/cd/E41278_01/index.html">Sun Flash Accelerator F80 PCIe Card </a>
+                                            </li>
+                                            			<li>  <a href="http://docs.oracle.com/cd/E29748_01/index.html">Sun Flash Accelerator F40 PCIe Card </a>
+                                            </li>
+                                            			<li>  <a href="http://docs.oracle.com/cd/E19682-01/index.html">Sun Flash Accelerator F20 PCIe Card </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                            </div>
+                                            
+                                                </div>
+                                                </div>
+                                            
+                                                <h2 id="ContentStorageManagement">Content Storage Management</h2>
+                                            
+                                                    <div style="display:table;width:100%;height:auto;">
+                                                    <img style="display:table-cell;width:auto;height:auto;padding-left:20px;padding-right:20px;vertical-align:top;" src="sp_common/shared-images/diva_box.png" alt>
+                                                    <div style="display:table-cell;width:100%;height:auto;vertical-align:top;">
+                                            
+                                            
+                                            
+                                            <div class="description">Oracle DIVA is a content storage management solution for securely migrating, managing, and delivering media content.</div>
+                                            
+                                            <div class="section row">
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Oracle DIVArchive</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="http://docs.oracle.com/cd/E88848_01/index.html">DIVArchive 7.6 Core documentation </a>
+                                            </li>
+                                            			<li>  <a href="http://docs.oracle.com/cd/E88783_01/index.html">DIVArchive 7.6 Additional Features documentation </a>
+                                            </li>
+                                            			<li>  <a href="https://docs.oracle.com/cd/E81779_01/index.html">DIVArchive 7.5 Core documentation </a>
+                                            </li>
+                                            			<li>  <a href="https://docs.oracle.com/cd/E81780_01/index.html">DIVArchive 7.5 Additional Features documentation </a>
+                                            </li>
+                                            			<li>  <a href="https://docs.oracle.com/cd/E76747_01/index.html">DIVArchive 7.4 Core documentation </a>
+                                            </li>
+                                            			<li>  <a href="https://docs.oracle.com/cd/E76748_01/index.html">DIVArchive 7.4 Additional Features documentation </a>
+                                            </li>
+                                            			<li>  <a href="https://docs.oracle.com/cd/E64804_01/">DIVArchive 7.3 Core documentation </a>
+                                            </li>
+                                            			<li>  <a href="https://docs.oracle.com/cd/E71245_01/index.html">DIVArchive 7.3 Additional Features documentation </a>
+                                            </li>
+                                            			<li>  <a href="https://docs.oracle.com/cd/E65865_01/">DIVArchive Legacy documentation </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Oracle DIVAnet</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="https://docs.oracle.com/cd/E96077_01/index.html">DIVAnet 2.3 documentation </a>
+                                            </li>
+                                            			<li>  <a href="https://docs.oracle.com/cd/E84330_01/index.html">DIVAnet 2.2 documentation </a>
+                                            </li>
+                                            			<li>  <a href="https://docs.oracle.com/cd/E76749_01/index.html">DIVAnet 2.1 documentation </a>
+                                            </li>
+                                            			<li>  <a href="https://docs.oracle.com/cd/E73087_01/index.html">DIVAnet 2.0 documentation </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Oracle DIVAdirector</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="https://docs.oracle.com/cd/E87477_01/">DIVAdirector 5.4 documentation </a>
+                                            </li>
+                                            			<li>  <a href="https://docs.oracle.com/cd/E70823_01/">DIVAdirector 5.3 documentation </a>
+                                            </li>
+                                            			<li>  <a href="https://docs.oracle.com/cd/E64802_01/">DIVAdirector 5.2 documentation </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Oracle DIVA Enterprise Connect</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="https://docs.oracle.com/cd/E87002_01/index.htm">DIVA Enterprise Connect 1.0 documentation </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Oracle Archive eXchange Format Explorer</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="https://docs.oracle.com/cd/E76750_01/index.html">Archive eXchange Format Explorer 2.0 documentation </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="clearfix visible-md-block visible-lg-block"></div>
+                                                
+                                                
+                                                <div class="subsection col-md-6">
+                                                    
+                                                    
+                                                    <h3>Oracle SAMMA</h3>
+                                                    
+                                                    <!-- text block -->
+                                                    
+                                            		<ul class="topics">
+                                            			<li>  <a href="https://docs.oracle.com/cd/E65703_01/index.html">SAMMA Legacy documentation </a>
+                                            </li>
+                                            		</ul>
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                
+                                            </div>
+                                            
+                                                </div>
+                                                </div>
+                                        
+                                    
+                                    </article>
+        
+                                    <div><div><!-- resizable column --></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                    <a href="#" class="offscreen skipto-bottom skipto">Back to main content</a>
+        
+                    <footer>
+                        <div>
+                            <div class="container">
+                                <div class="pull-left footer-left">
+                                    <ul class="footer-nav list-inline">
+                                        <li class="separator" style="height: 17px;"><a href="http://www.oracle.com/corporate/index.html">About Oracle</a></li>
+                                        <li style="height: 17px;"><a href="http://www.oracle.com/us/corporate/contact/index.html">Contact Us</a></li>
+                                        <li style="height: 17px;"><a href="http://www.oracle.com/us/legal/index.html">Legal Notices</a></li>
+                                        <li style="height: 17px;"><a href="http://www.oracle.com/us/legal/terms/index.html">Terms of Use</a></li>
+                                        <li style="height: 17px;"><a href="http://www.oracle.com/us/legal/privacy/index.html">Your Privacy Rights</a></li>
+                                        <li class="same-height-right" style="height: 17px;"><div id="teconsent" style="display: inline-block;"></div></li>
+                                    </ul>
+                                    <span class="copyright"><a href="https://www.oracle.com/pls/topic/lookup?ctx=cpyr&amp;id=en">Copyright &#xA9; 2018, Oracle and/or its affiliates. All rights reserved.</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+
+    
+
+</body></html>

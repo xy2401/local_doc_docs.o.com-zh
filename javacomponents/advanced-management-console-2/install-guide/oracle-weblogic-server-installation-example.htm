@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Oracle WebLogic Server Installation Example</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="description" content="There are different ways of installing Oracle WebLogic Server. This topic contains an example to install Oracle WebLogic Server." />
+<meta name="dcterms.created" content="2018-04-10T14:14:49Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Platform, Standard Edition Advanced Management Console Installation and Configuration Guide" />
+<meta name="dcterms.identifier" content="E58638-13" />
+<meta name="dcterms.isVersionOf" content="JSAMI" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;2014, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"  src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"  src="../../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="Prev" href="advanced-management-console-migration.htm" title="Previous" type="text/html" />
+<link rel="Next" href="security-compliance-advanced-management-console.htm" title="Next" type="text/html" />
+<link rel="alternate" href="JSAMI.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../../nav/css/html5.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript" src="../../dcommon/js/modernizr.js"></script>
+<script type="application/javascript" src="../../dcommon/js/codemirror.js"></script>
+<script type="application/javascript" src="../../dcommon/js/jquery.js"></script>
+<script type="application/javascript" src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript" src="../../dcommon/js/jqfns.js"></script>
+<script type="application/javascript" src="../../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="text/javascript" src="../../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns" dir="ltr">
+<a id="BEGIN" name="BEGIN"></a>
+<a id="GUID-60A88C2B-48E3-490C-9E72-91FF2F4365F1"></a> <span id="PAGE" style="display:none;">14/17</span> <!-- End Header -->
+<a id="JSAMI158"></a><a id="JSAMI208"></a>
+<h1 id="JSAMI-GUID-60A88C2B-48E3-490C-9E72-91FF2F4365F1" class="sect1"><span class="enumeration_appendix">A</span> Oracle WebLogic Server Installation Example</h1>
+<div>
+<p>There are different ways of installing Oracle WebLogic Server. This topic contains an example to install Oracle WebLogic Server.</p>
+<p>This topic contains the following sections that describe software requirements and WebLogic Server installation and configuration:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="oracle-weblogic-server-installation-example.htm#GUID-060F2F5F-C07E-4459-83B6-2A3FD47FAA0F">Installing WebLogic Server</a></p>
+</li>
+<li>
+<p><a href="oracle-weblogic-server-installation-example.htm#GUID-B1102F7D-6EE2-4966-9C07-9456A9E209D4" title="The Advanced Management Console server initialization web page is not protected and can be accessed by any user.">Setting Up the Environment for WebLogic Server</a></p>
+</li>
+<li>
+<p><a href="oracle-weblogic-server-installation-example.htm#GUID-6B43C324-BA0D-4678-97F1-C736B1EF2BFB">Creating a WebLogic Server Domain</a></p>
+</li>
+<li>
+<p><a href="oracle-weblogic-server-installation-example.htm#GUID-E640EC60-5511-4A21-9D8D-27B7DC4289FA">Starting a WebLogic Server Administration Server</a></p>
+</li>
+<li>
+<p><a href="oracle-weblogic-server-installation-example.htm#GUID-F2D1806F-2860-44BF-8684-2FC2AD2BF129" title="Domains include a special Oracle&nbsp;WebLogic Server instance called the Administration&nbsp;Server, which is the central point from which you configure and manage all resources in the domain. Typically, you configure a domain to include additional Oracle&nbsp;WebLogic Server instances called Managed Servers.">Creating and Configuring a WebLogic Server Managed Server</a></p>
+</li>
+<li>
+<p><a href="oracle-weblogic-server-installation-example.htm#GUID-9D571DE6-0FE6-44AA-832F-85C598C109E6" title="Groups in the corporate LDAP server are used to access AMC.">Configuring the Corporate LDAP Server</a></p>
+</li>
+<li>
+<p><a href="oracle-weblogic-server-installation-example.htm#GUID-2B49D60A-9B68-4432-B4F7-202C8398898B" title="You can configure your Oracle WebLogic server to connect to Lightweight Directory Access Protocol (LDAP) server, so that the Advanced Management Console can communicate with the WebLogic Server, without having to connect to the LDAP">Configuring LDAP Security Server in WebLogic Server</a></p>
+</li>
+</ul>
+</div>
+<a id="JSAMI159"></a>
+<div class="props_rev_3"><a id="GUID-060F2F5F-C07E-4459-83B6-2A3FD47FAA0F"></a>
+<h2 id="JSAMI-GUID-060F2F5F-C07E-4459-83B6-2A3FD47FAA0F" class="sect2">Installing WebLogic Server</h2>
+<div>
+<div class="p">The <span>Advanced Management Console</span> requires <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank">Java SE Development Kit 8 Downloads</a>, update 65 or later, and WebLogic Server supported versions, such as 12.1.3 or 12.2.1. See <a href="plan-advanced-management-console-installation.htm#GUID-5E82940B-1FDF-46B8-ACEE-6D66337D6BDA">Software Prerequisites and System Requirements for Advanced Management Console Components.</a>
+<div class="infobox-note" id="GUID-060F2F5F-C07E-4459-83B6-2A3FD47FAA0F__GUID-532A26F3-02D0-4A38-9C7B-3E01C7C219CC">
+<p class="notep1">Note:</p>
+The version of WebLogic Server as mentioned in <a href="https://docs.oracle.com/middleware/1213/core/WLSIG/install_gui.htm#WLSIG125" target="_blank">Installing the Oracle WebLogic Server</a> in the <span class="italic">Oracle Fusion Middleware Installing and Configuring Oracle WebLogic Server and Coherence</span> guide may not be the default one. Ensure to download the correct version.</div>
+</div>
+</div>
+</div>
+<a id="JSAMI160"></a>
+<div class="props_rev_3"><a id="GUID-B1102F7D-6EE2-4966-9C07-9456A9E209D4"></a>
+<h2 id="JSAMI-GUID-B1102F7D-6EE2-4966-9C07-9456A9E209D4" class="sect2">Setting Up the Environment for WebLogic Server</h2>
+<div>
+<p>The <span>Advanced Management Console</span> server initialization web page is not protected and can be accessed by any user.</p>
+<div class="p">
+<div class="infobox-note" id="GUID-B1102F7D-6EE2-4966-9C07-9456A9E209D4__GUID-31B4E646-2E2A-475D-95E3-304AB35A41EF">
+<p class="notep1">Note:</p>
+This section is based on using Oracle WebLogic Server version 12.1.3. Other versions may need different configurations. In the future releases of the <span>Advanced Management Console</span>, there aren&rsquo;t any plans to continue supporting Oracle WebLogic Server 12.1.3.</div>
+</div>
+<!-- class="section" -->
+<div class="section">
+<p>To set up the required environment variables for WebLogic Server version 12.1.3 :</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Define the environment variable, <code class="codeph">JAVA_HOME</code>, and set it to JDK 8, for example, <code class="codeph">C:\java\jdk1.8.0_121</code>.</span></li>
+<li class="stepexpand"><span>For a Windows operating system, run <code class="codeph">configure.cmd</code> from the extracted WebLogic Server folder, which is <code class="codeph">MW_HOME</code>.</span>
+<div>
+<p>For a Linux operating system, run <code class="codeph">configure.sh</code> from the extracted WebLogic Server folder, which is <code class="codeph">MW_HOME</code>.</p>
+</div>
+</li>
+<li class="stepexpand"><span>When prompted to create a new domain, select <span class="bold">N</span>. You need to create the domain folder later.</span></li>
+</ol>
+</div>
+<div class="sect3"><a id="TASK-14-671F50B3"></a>
+<h3 id="JSAMI-TASK-14-671F50B3" class="sect3"></h3>
+<div>
+<div class="p">
+<div class="infobox-note" id="TASK-14-671F50B3__THISSECTIONISBASEDONORACLEWEBLOGICS-671FA478">
+<p class="notep1">Note:</p>
+This section is based on using Oracle WebLogic Server version 12.2.1. Other versions may need different configurations.</div>
+</div>
+<!-- class="section" -->
+<div class="section">To set up the required environment variables for WebLogic Server version 12.2.1:</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Define the environment variable, JAVA_HOME, and set it to JDK 8.</span>
+<div>For example, <code>C:\Java\jdk1.8.0_131</code>.</div>
+</li>
+<li class="stepexpand"><span>Run the command, <code class="codeph">java -jar <span class="variable">extracted_jar_file</span></code> from the Command Prompt (Admin).</span>
+<div>For example,</div>
+<div>
+<pre dir="ltr">
+java -jar fmw_12.2.1.3.0_wls_quick.jar
+</pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<a id="JSAMI161"></a>
+<div class="props_rev_3"><a id="GUID-6B43C324-BA0D-4678-97F1-C736B1EF2BFB"></a>
+<h2 id="JSAMI-GUID-6B43C324-BA0D-4678-97F1-C736B1EF2BFB" class="sect2">Creating a WebLogic Server Domain</h2>
+<div>
+<div class="section">
+<p>To create a WebLogic Server domain:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Define <code class="codeph">JAVA_HOME</code>. See <a href="oracle-weblogic-server-installation-example.htm#GUID-B1102F7D-6EE2-4966-9C07-9456A9E209D4" title="The Advanced Management Console server initialization web page is not protected and can be accessed by any user.">Setting Up the Environment for WebLogic Server</a>.</span></li>
+<li class="stepexpand"><span>For a Windows operating system, run the <code class="codeph">config.cmd</code> file from the WebLogic Server installed directory, <code class="codeph">%MW_HOME%\oracle_common\common\bin\config.cmd</code>.</span>
+<div>
+<p>For a Linux operating system, run the <code class="codeph">config.sh</code> file from the WebLogic Server installed directory, <code class="codeph">%MW_HOME%/oracle_common/common/bin/config.sh</code>.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Ensure that <span class="bold">Create a New Domain</span> is selected, and then select the folder for the new domain. The default folder is <code class="codeph">%MW_HOME%\user_projects\domains\base_domain</code>. The domain name is <code class="codeph">base_domain</code>, which can be changed.</span></li>
+<li class="stepexpand"><span>Click <span class="bold">Next</span>.</span></li>
+<li class="stepexpand"><span>In the Templates step, select <span class="bold">Create Domain Using Product Templates</span>, and then select the Basic WebLogic Server Domain template. Click <span class="bold">Next</span>.</span></li>
+<li class="stepexpand"><span>In the Administrator Account step, configure the administrative manager <code class="codeph">admin</code> account. Click <span class="bold">Next</span>.</span></li>
+<li class="stepexpand"><span>In the Domain Mode and JDK step, click the domain mode option as <span class="bold">Production</span> and specify the JDK if it is different from the bootstrap JDK. Click <span class="bold">Next</span>.</span></li>
+<li class="stepexpand"><span>In the Advanced Configuration step, <span class="italic"><span class="bold">do not</span></span> select any of the check boxes for <span class="bold">Administration Server</span>, <span class="bold">Node Manager</span>, and <span class="bold">Managed Servers, Clusters, and Coherence</span>. Click <span class="bold">Next</span>.</span></li>
+<li class="stepexpand"><span>For all the <span class="bold">Views</span> in Deployment, Application, and Service screens, <span class="italic"><span class="bold">do not</span></span> change the default folder options.</span></li>
+<li class="stepexpand"><span>Click <span class="bold">Create</span> to create the domain.</span></li>
+<li class="stepexpand"><span>When the Domain Created Successfully message is displayed, select <span class="bold">Next</span>.</span></li>
+<li class="stepexpand"><span>In the Configuration Success step, click the check box for <span class="bold">Start Admin Server</span> to start the server. Click <span class="bold">Finish</span>.</span></li>
+</ol>
+<div class="section">
+<p>In the <span>Advanced Management Console</span> documentation, the directory <code class="codeph">%MW_HOME%\user_projects\domains\domain1</code> represents <code class="codeph">DOMAIN_HOME</code>.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+<a id="JSAMI162"></a>
+<div class="props_rev_3"><a id="GUID-E640EC60-5511-4A21-9D8D-27B7DC4289FA"></a>
+<h2 id="JSAMI-GUID-E640EC60-5511-4A21-9D8D-27B7DC4289FA" class="sect2">Starting a WebLogic Server Administration Server</h2>
+<div>
+<div class="section">
+<p>To log in to the WebLogic Server administration server:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>For a Windows operating system, start the administration server with <code class="codeph">%DOMAIN_HOME%\startWebLogic.cmd</code>.</span>
+<div>
+<p>For a Linux operating system, start the administration server with <code class="codeph">%DOMAIN_HOME%/startWebLogic.sh</code>.</p>
+</div>
+</li>
+<li class="stepexpand"><span>If the SSL port is configured for the WebLogic Sever Administration Server, then in the browser, go to the default URL <span class="italic"><code class="codeph">https://localhost:7002/console</code></span>. Otherwise, in the browser, go to the default URL <span class="italic"><code class="codeph">http://localhost:7001/console</code></span>.</span></li>
+<li class="stepexpand"><span>Use your administrative credentials to log in to the server.</span></li>
+</ol>
+</div>
+</div>
+<a id="JSAMI163"></a>
+<div class="props_rev_3"><a id="GUID-F2D1806F-2860-44BF-8684-2FC2AD2BF129"></a>
+<h2 id="JSAMI-GUID-F2D1806F-2860-44BF-8684-2FC2AD2BF129" class="sect2">Creating and Configuring a WebLogic Server Managed Server</h2>
+<div>
+<p>Domains include a special Oracle&nbsp;WebLogic Server instance called the Administration&nbsp;Server, which is the central point from which you configure and manage all resources in the domain. Typically, you configure a domain to include additional Oracle&nbsp;WebLogic Server instances called Managed Servers.</p>
+<div class="section">
+<p>Follow this example method to create a Managed Server for the WebLogic Server:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Define the environment variable, <code class="codeph">JAVA_HOME</code>. See <a href="oracle-weblogic-server-installation-example.htm#GUID-B1102F7D-6EE2-4966-9C07-9456A9E209D4" title="The Advanced Management Console server initialization web page is not protected and can be accessed by any user.">Setting Up the Environment for WebLogic Server</a>.</span></li>
+<li class="stepexpand"><span>For a Windows operating system, run <code class="codeph">%DOMAIN_HOME%\bin\setDomainEnv.cmd</code>, which is required to set the environment.</span>
+<div>
+<p>For a Linux operating system, run <code class="codeph">%DOMAIN_HOME%/bin/setDomainEnv.sh</code>, which is required to set the environment.</p>
+</div>
+</li>
+<li class="stepexpand"><span>For a Windows operating system, start the node manager with <code class="codeph">%DOMAIN_HOME%\bin\startNodeManager.cmd</code>. If the node manager does not start, then edit <code class="codeph">%DOMAIN_HOME%\nodemanager\nodemanager.properties</code> and set <code class="codeph">NativeVersionEnabled=false</code>.</span>
+<div>
+<p>For a Linux operating system, start the node manager with <code class="codeph">%DOMAIN_HOME%/bin/startNodeManager.sh</code>. If the node manager does not start, then edit <code class="codeph">%DOMAIN_HOME%/nodemanager/nodemanager.properties</code> and set <code class="codeph">NativeVersionEnabled=false</code>.</p>
+</div>
+</li>
+<li class="stepexpand"><span>Start the administrative server and log in to the server as described in <a href="oracle-weblogic-server-installation-example.htm#GUID-E640EC60-5511-4A21-9D8D-27B7DC4289FA">Starting a WebLogic Server Administration Server</a>.</span></li>
+<li class="stepexpand"><span>From the <span class="bold">Domain Structure</span> block in the left panel, go to <span class="bold">Environment</span> and select <span class="bold">Machines</span>. Create a new machine. Enter any unique name in the <span class="bold">Name</span> field and then enter the host name (for example, <code class="codeph">localhost</code>) and server listen port that matches the node manager settings. Click <span class="bold">Finish</span> to create the machine.</span></li>
+<li class="stepexpand"><span>From the <span class="bold">Domain Structure</span> block in the left panel, go to <span class="bold">Environment</span> and select <span class="bold">Servers</span>. Create a new server. Enter any unique name in the <span class="bold">Name</span> field and then enter the host name and server listen port. Ensure that the new server listen port must be unique from the existing Administration Server listen port. Click <span class="bold">Finish</span> to create the server.</span></li>
+<li class="stepexpand"><span>From the <span class="bold">Domain Structure</span> block in the left panel, go to <span class="bold">Environment</span> and select <span class="bold">Servers</span>. Click the server you created in step 6. In the <span class="bold">Configuration</span> tab associate this server to the new machine you created in step 5.</span></li>
+<li class="stepexpand"><span>Click the <span class="bold">Control</span> tab and then click the check box for the associated server and machine. Then click <span class="bold">Start</span> to start the server.</span></li>
+<li class="stepexpand"><span>In the browser, go to <span class="italic"><code class="codeph">https://hostname:port</code></span> and verify that the server is running. The <span>Advanced Management Console</span> uses HTTPS only for communication between the <span>Advanced Management Console</span> server and clients. See <a href="oracle-weblogic-server-configuration-advanced-management-console.htm#GUID-6BE171A1-4408-47B0-B18D-0C3275E877DA" title="The Advanced Management Console uses HTTPS only for communication between the Advanced Management Console server and clients (agent, web UI, Deployment Rule Set tool, and Java installer configuration). The HTTPS setup for Advanced Management Console requires a valid HTTPS certificate, trusted by the client-side Java Runtime Environment (JRE).">Trusted HTTPS Certificate</a>.</span></li>
+</ol>
+</div>
+</div>
+<div class="sect2"><a id="GUID-9D571DE6-0FE6-44AA-832F-85C598C109E6"></a>
+<h2 id="JSAMI-GUID-9D571DE6-0FE6-44AA-832F-85C598C109E6" class="sect2">Configuring the Corporate LDAP Server</h2>
+<div>
+<p>Groups in the corporate LDAP server are used to access AMC.</p>
+<p>The following groups should be created in the corporate LDAP server:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">cn=groups</span></p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">cn=AMCAdminGroup</span></p>
+</li>
+<li>
+<p><span class="bold">cn=AMCDRSGroup</span></p>
+</li>
+<li>
+<p><span class="bold">cn=AMCJICGroup</span></p>
+</li>
+<li>
+<p><span class="bold">cn=AMCReportsGroup</span></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Any user who needs access to AMC (with LDAP integration) should be assigned to at least one or all of the roles listed above. After this is completed, you may have to follow the instructions provided in <a href="oracle-weblogic-server-installation-example.htm#GUID-2B49D60A-9B68-4432-B4F7-202C8398898B" title="You can configure your Oracle WebLogic server to connect to Lightweight Directory Access Protocol (LDAP) server, so that the Advanced Management Console can communicate with the WebLogic Server, without having to connect to the LDAP">Configuring LDAP Security Server in WebLogic Server</a> to complete the LDAP integration process.</p>
+</div>
+</div>
+<div class="sect2"><a id="GUID-2B49D60A-9B68-4432-B4F7-202C8398898B"></a>
+<h2 id="JSAMI-GUID-2B49D60A-9B68-4432-B4F7-202C8398898B" class="sect2">Configuring LDAP Security Server in WebLogic Server</h2>
+<div>
+<p>You can configure your Oracle WebLogic server to connect to Lightweight Directory Access Protocol (LDAP) server, so that the <span>Advanced Management Console</span> can communicate with the WebLogic Server, without having to connect to the LDAP</p>
+<div class="section">This topic contains sample instructions to configure the LDAP security provider in the WebLogic server, so that the WebLogic server gets connected to the LDAP server. The type of LDAP being configured in this example is OpenLDAP. This means OpenLDAP (external provider) server runs on localhost or on a remote server. If a different type of LDAP server is used, then there are chances of these instructions varying.
+<p>To configure WebLogic server to connect to the LDAP server:</p>
+</div>
+<!-- class="section" -->
+<ol>
+<li class="stepexpand"><span>Add a new security provider in the WebLogic server:</span>
+<ol>
+<li class="substepexpand"><span>Log in to WebLogic server admin console.</span></li>
+<li class="substepexpand"><span>Click <span class="bold">Domain</span>, and select <span class="bold">Security realms</span>, and then <span class="bold">myrealm</span>.</span></li>
+<li class="substepexpand"><span>Click <span class="bold">Providers</span> tab and then select <span class="bold">New</span>.</span></li>
+<li class="substepexpand"><span>Enter a name for the new provider, for example, LDAP.</span></li>
+<li class="substepexpand"><span>Set <span class="bold">Provider Type</span> to LDAPAuthenticator.</span></li>
+<li class="substepexpand"><span>Click <span class="bold">Save</span>.</span>
+<div>A Provider is created.</div>
+</li>
+</ol>
+</li>
+<li class="stepexpand"><span>Configure the provider:</span>
+<ol>
+<li class="substepexpand"><span>Select the Provider that you just created.</span></li>
+<li class="substepexpand"><span>Click <span class="bold">Provider Specific</span> tab.</span></li>
+<li class="substepexpand"><span>Enter the following details in the following sections:</span>
+<div>Note that these are sample values only. You need to enter these values, based on the values configured on the LDAP server. Therefore, these values vary based on how the LDAP is set up.</div>
+</li>
+</ol>
+<div>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Connection</span> section:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Host</span>: <code class="codeph">localhost</code></p>
+</li>
+<li>
+<p><span class="bold">Port</span>: <code class="codeph"><span class="variable">&lt;portnumber&gt;</span></code></p>
+</li>
+<li>
+<p><span class="bold">Principal</span>: <code class="codeph">cn=admin,dc=oracle,dc=com</code></p>
+</li>
+<li>
+<p><span class="bold">Credential</span>: <code class="codeph">welcome0</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><span class="bold">Users</span> section:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">User Base DN</span>:&nbsp;<code class="codeph">cn=users,ou=amc,dc=oracle,dc=com</code></p>
+<div class="infobox-note" id="GUID-2B49D60A-9B68-4432-B4F7-202C8398898B__GUID-20B78526-E5CF-4A2E-B4CE-26233E858C78">
+<p class="notep1">Note:</p>
+This value is based on the configuration of the LDAP server. You can set other values for the <span class="bold">User Base DN</span> field based on the LDAP server configuration.</div>
+</li>
+<li>
+<p><span class="bold">All Users Filter</span>:&nbsp;<code class="codeph">(objectclass=person)</code></p>
+</li>
+<li>
+<p><span class="bold">User Name Attribute</span>: <code class="codeph">uid</code></p>
+</li>
+<li>
+<p><span class="bold">User Object Class</span>: <code class="codeph">person</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><span class="bold">Groups</span> section:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Group Base DB</span>: <code class="codeph">cn=groups,ou=amc,dc=oracle,dc=com</code></p>
+<div class="infobox-note" id="GUID-2B49D60A-9B68-4432-B4F7-202C8398898B__GUID-190E0A10-9E5F-4B71-B8CB-433EF62E6A8D">
+<p class="notep1">Note:</p>
+This value is based on the configuration of the LDAP server. You can set other values for the <span class="bold">User Base DN</span> field based on the LDAP server configuration.</div>
+</li>
+<li>
+<p><span class="bold">All Groups Filter</span>:&nbsp;<code class="codeph">(objectclass=groupOfNames)</code></p>
+</li>
+<li>
+<p><span class="bold">Group From Name Filter</span>:&nbsp;<code class="codeph">(&amp;(cn=%g)(objectclass=groupOfNames))</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><span class="bold">Static Groups</span> section:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Static Group Name Attribute</span>: <code class="codeph">cn</code></p>
+</li>
+<li>
+<p><span class="bold">Static Group Object Class</span>:&nbsp;<code class="codeph">groupOfNames</code></p>
+</li>
+<li>
+<p><span class="bold">Static member DN attribute</span>:&nbsp;<code class="codeph">member</code></p>
+</li>
+<li>
+<p><span class="bold">Static Group DNs from Member DN Filter</span>:&nbsp;<code class="codeph">(&amp;(member=%M)(objectclass=groupOfNames))</code></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+<li class="stepexpand"><span>Click <span class="bold">Save</span>.</span></li>
+<li class="stepexpand"><span>Restart the Admin server as well as all the managed servers.</span></li>
+<li class="stepexpand"><span>Login to the <span>Advanced Management Console</span> UI, and click the <span class="bold">User</span> sub tab in the <span class="bold">Configuration</span> tab and ensure that the <span class="bold">Enable Container based authentication</span> checkbox is selected. By default, you aren't authenticated by the external LDAP server. If you want to enable the LDAP authenticatation, then you need to enable it by selecting the checkbox.</span></li>
+</ol>
+</div>
+</div>
+</div>
+<!-- class="ind" --><!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment124">
+<tr>
+<td class="cellalignment131">
+<table class="cellalignment129">
+<tr>
+<td class="cellalignment128"><a href="advanced-management-console-migration.htm"><img width="24" height="24" src="../../dcommon/gifs/leftnav.gif" alt="Go to previous page" /><br />
+<span class="icon">Previous</span></a></td>
+<td class="cellalignment128"><a href="security-compliance-advanced-management-console.htm"><img width="24" height="24" src="../../dcommon/gifs/rightnav.gif" alt="Go to next page" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;2014, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment133">
+<table class="cellalignment127">
+<tr>
+<td class="cellalignment128"><a href="../../index.html"><img width="24" height="24" src="../../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment128"><a href="toc.htm"><img width="24" height="24" src="../../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment128"><a href="../../dcommon/html/feedback.htm"><img width="24" height="24" src="../../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>

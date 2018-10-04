@@ -1,0 +1,1282 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="Oracle ORAchk and Oracle EXAchk generate a detailed HTML report with findings and recommendations.">
+      <meta name="description" content="Oracle ORAchk and Oracle EXAchk generate a detailed HTML report with findings and recommendations.">
+      <title>Understanding and Managing Reports and Output</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide">
+      <meta property="og:description" content="Oracle ORAchk and Oracle EXAchk generate a detailed HTML report with findings and recommendations.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-orachk-and-exachk-users-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:43:23-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2016, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E83827-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/exachk">
+      
+      <link rel="prev" href="silent-mode-operation.html" title="Previous" type="text/html">
+      <link rel="next" href="health-check-catalog.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"exachk","element_name":"EXAchk","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® ORAchk and EXAchk User's Guide">
+    <meta name="dcterms.isVersionOf" content="OEXUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="silent-mode-operation.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="health-check-catalog.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="oracle-orachk-and-exachk-common-features-tasks.html" property="item" typeof="WebPage"><span property="name">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Understanding and Managing Reports and Output</li>
+            </ol>
+            <a id="GUID-CF99AAA0-E25C-4614-8C38-43B2B18442D0" name="GUID-CF99AAA0-E25C-4614-8C38-43B2B18442D0"></a>
+            
+            <h2 id="OEXUG-GUID-CF99AAA0-E25C-4614-8C38-43B2B18442D0" class="sect2"><span class="enumeration_section">1.5 </span>Understanding and Managing Reports and Output
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>Oracle ORAchk and Oracle EXAchk generate a detailed HTML report with findings and recommendations.</p>
+               <p>See Oracle Health Check Collections Manager for Oracle Application Express 4.2 and Integrating Health Check Results with Other Tools for more details about other ways to consume those results.</p>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="understanding-and-managing-reports-and-output.html#GUID-614D28F9-6854-48C7-8246-3FCDF1DA7F44">Temporary Files and Directories</a><br>While running health checks, Oracle ORAchk and Oracle EXAchk create temporary directories and files for the purposes of data collection and assessment, and then delete them upon completion of health check runs.
+                  </li>
+                  <li class="ulchildlink"><a href="understanding-and-managing-reports-and-output.html#GUID-546A4494-4A28-4B85-822C-8229F5A88C9E">Output Files and Directories</a><br>Oracle ORAchk and Oracle EXAchk create an output directory that contains various files for you to examine.
+                  </li>
+                  <li class="ulchildlink"><a href="understanding-and-managing-reports-and-output.html#GUID-2754E64A-BBE8-4F35-8D6A-C67B3A3B9974">HTML Report Output</a><br></li>
+                  <li class="ulchildlink"><a href="understanding-and-managing-reports-and-output.html#GUID-08E86872-4F50-48BF-9AE3-C052B79B7B9C">Tagging Reports</a><br>The health check HTML report is typically named: <code>orachk_<span class="variable" translate="no">hostname</span>_<span class="variable" translate="no">database</span>_<span class="variable" translate="no">date</span>_<span class="variable" translate="no">timestamp</span>.html</code> or <code>exachk_<span class="variable" translate="no">hostname</span>_<span class="variable" translate="no">database</span>_<span class="variable" translate="no">date</span>_<span class="variable" translate="no">timestamp</span>.html</code>.
+                  </li>
+                  <li class="ulchildlink"><a href="understanding-and-managing-reports-and-output.html#GUID-7697021E-7999-4BCA-B938-1AD9A37821E7">Tracking File Attribute Changes</a><br>Use the ORAchk and EXAchk <code class="codeph">-fileattr</code> option and command flags to record and track file attribute settings, and compare snapshots.
+                  </li>
+                  <li class="ulchildlink"><a href="understanding-and-managing-reports-and-output.html#GUID-D39A97FB-8185-43EC-9F56-D0663201EF68">Comparing Two Reports</a><br>Oracle ORAchk and Oracle EXAchk automatically compare the two most recent HTML reports and generate a third diff report, when run in automated daemon mode.
+                  </li>
+                  <li class="ulchildlink"><a href="understanding-and-managing-reports-and-output.html#GUID-B9A0B0B7-B4DC-4102-B537-CE241D8E364C">Merging Reports</a><br>Merging reports is useful in role-separated environments where different users are run different subsets of checks and then you want to view everything as a whole.
+                  </li>
+                  <li class="ulchildlink"><a href="understanding-and-managing-reports-and-output.html#GUID-9C1E81F9-1B08-4C7B-9256-91422A9EA207">Output File Maintenance</a><br>Oracle ORAchk and Oracle EXAchk create a number of temporary files and directories while running health checks.
+                  </li>
+                  <li class="ulchildlink"><a href="understanding-and-managing-reports-and-output.html#GUID-BB7DBA83-FB98-4E8B-8616-20D5ECA0E3E7">Consuming Multiple Results in Other Tools</a><br>Optionally integrate health check results into various other tools.
+                  </li>
+               </ul>
+               <div class="relinfo">
+                  <p><strong>Related Topics</strong></p>
+                  <ul>
+                     <li><a href="collection-manager.html#GUID-BC64F401-438E-4CE5-914C-577BD3A12EB1" title="Oracle Health Check Collections Manager for Oracle Application Express 4.2 provides you an enterprise-wide view of your health check collection data.">Oracle Health Check Collections Manager for Oracle Application Express 4.2</a></li>
+                     <li><a href="integration-with-other-tools.html#GUID-45D73757-7EEE-46DE-BC6E-0AF712CBE0B6" title="Integrate health check results from Oracle ORAchk and Oracle EXAchk into Enterprise Manager and other third-party tools.">Integrating Health Check Results with Other Tools</a></li>
+                  </ul>
+               </div>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="oracle-orachk-and-exachk-common-features-tasks.html#GUID-50F7EA11-11FD-431C-B99A-EC9E2176BBDB" title="Oracle ORAchk and Oracle EXAchk share a common health check framework and a large portion of their features and tasks are common.">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</a></p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="sect2"><a id="GUID-614D28F9-6854-48C7-8246-3FCDF1DA7F44" name="GUID-614D28F9-6854-48C7-8246-3FCDF1DA7F44"></a><h3 id="OEXUG-GUID-614D28F9-6854-48C7-8246-3FCDF1DA7F44" class="sect3"><span class="enumeration_section">1.5.1 </span>Temporary Files and Directories
+               </h3>
+               <div>
+                  <p>While running health checks, Oracle ORAchk and Oracle EXAchk create temporary directories and files for the purposes of data collection and assessment, and then delete them upon completion of health check runs.</p>
+                  <div class="p">By default, Oracle ORAchk and Oracle EXAchk create these temporary files and directories is the <code class="codeph">$HOME</code> directory of the user who runs the tool. Change this temporary working directory by setting the environment variable <code class="codeph">RAT_TMPDIR=tmp_directory</code> before using the tools:<pre class="pre codeblock"><code>$ export RAT_TMPDIR=/tmp
+$ ./orachk</code></pre><pre class="pre codeblock"><code>$ export RAT_TMPDIR=/tmp
+$ ./exachk</code></pre></div>
+                  <p>If you are using <code class="codeph">sudo</code> access for <code class="codeph">root</code>, and change the <code class="codeph">RAT_TMPDIR=tmp_directory</code>, then you must also reflect this change in the <code>/etc/sudoers</code> file.
+                  </p>
+                  <div class="p">The <code class="codeph">/etc/sudoers</code> file on each server must contain the entry for the <code class="codeph">root</code> script in the new temporary directory location: <pre class="pre codeblock"><code>oracle ALL=(root) NOPASSWD:/tmp/root_orachk.sh</code></pre><pre class="pre codeblock"><code>oracle ALL=(root) NOPASSWD:/tmp/root_exachk.sh</code></pre></div>
+                  <div class="p">Alternatively, you can change the location of the directory used for creating the <code class="codeph">root</code> script only by setting the environment variable.<pre class="pre codeblock"><code>export RAT_ROOT_SH_DIR=/mylocation </code></pre></div>
+                  <div class="p">Add an entry in the <code>/etc/sudoers</code> file as follows:<pre class="pre codeblock"><code>oracle ALL=(root) NOPASSWD:/mylocation/root_orachk.sh</code></pre></div>
+                  <div class="p">
+                     <div class="infoboxnote" id="GUID-614D28F9-6854-48C7-8246-3FCDF1DA7F44__GUID-8678CCB9-5762-4DFB-981A-B7F9A21798DC">
+                        <p class="notep1">Note:</p>
+                        <p>Any directory specified in <code class="codeph">RAT_TMPDIR</code> must exist on the hosts for all cluster nodes.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="understanding-and-managing-reports-and-output.html#GUID-CF99AAA0-E25C-4614-8C38-43B2B18442D0" title="Oracle ORAchk and Oracle EXAchk generate a detailed HTML report with findings and recommendations.">Understanding and Managing Reports and Output</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-546A4494-4A28-4B85-822C-8229F5A88C9E" name="GUID-546A4494-4A28-4B85-822C-8229F5A88C9E"></a><h3 id="OEXUG-GUID-546A4494-4A28-4B85-822C-8229F5A88C9E" class="sect3"><span class="enumeration_section">1.5.2 </span>Output Files and Directories
+               </h3>
+               <div>
+                  <p>Oracle ORAchk and Oracle EXAchk create an output directory that contains various files for you to examine.</p>
+                  <div class="p">The name format of the output directory is:<pre class="pre codeblock"><code><span class="variable" translate="no">utility_name host_name database date time_stamp</span></code></pre> where,</div>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p><code class="codeph"><span class="variable" translate="no">utility</span></code> is either <code class="codeph">orachk</code> or <code class="codeph">exachk</code></p>
+                     </li>
+                     <li>
+                        <p><code class="codeph"><span class="variable" translate="no">host_name</span></code> is the host name of the node on which Oracle ORAchk or Oracle EXAchk was run
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="codeph"><span class="variable" translate="no">database</span></code> is the name of the database or one of the databases against which health checks were performed, if applicable
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="codeph"><span class="variable" translate="no">date</span></code> is the date the health check was run
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="codeph"><span class="variable" translate="no">timestamp</span></code> is the time the health check was run
+                        </p>
+                     </li>
+                  </ul>
+                  <div class="p">By default, Oracle ORAchk and Oracle EXAchk create output in the directory from where they are run. To change the location of the output directory, use the <code class="codeph">&#x2013;output</code> option as follows:<pre class="pre codeblock"><code>$ ./orachk &#x2013;output <span class="variable" translate="no">output_dir</span></code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;output <span class="variable" translate="no">output_dir</span></code></pre></div>
+                  <div class="p">Alternatively, set the output directory using the <code class="codeph">RAT_OUTPUT</code> environment variable as follows:<pre class="pre codeblock"><code>$ export RAT_OUTPUT=<span class="variable" translate="no">output_dir</span>
+$ ./orachk </code></pre><pre class="pre codeblock"><code>$ export RAT_OUTPUT=<span class="variable" translate="no">output_dir</span>
+$ ./exachk </code></pre></div>
+                  <p>The contents of this directory is available in a zip file with the same name.</p>
+                  <p>After completing the health checks, Oracle ORAchk and Oracle EXAchk report the location of this zip file and the HTML report file.</p>
+                  <div class="p"><pre class="pre codeblock"><code>...
+Detailed report (html) - /orahome/oradb/orachk/orachk_myhost_rdb11204_041816_055429/orachk_myhost_rdb11204_041816_055429.html
+
+
+UPLOAD(if required) - /orahome/oradb/orachk/orachk_myhost_rdb11204_041816_055429.zip
+
+
+$ ls -la
+total 61832
+drwxr-xr-x  4 oradb oinstall     4096 Apr 18 05:55 .
+drwx------ 34 oradb oinstall     4096 Apr 18 05:58 ..
+drwxr--r--  3 oradb oinstall     4096 Mar 28 17:36 .cgrep
+-rw-r--r--  1 oradb oinstall  4692868 Mar 28 17:35 CollectionManager_App.sql
+-rw-r--r--  1 oradb oinstall 41498425 Apr 18 05:54 collections.dat
+-rwxr-xr-x  1 oradb oinstall  2730651 Mar 28 17:35 orachk
+drwxr-xr-x  7 oradb oinstall     4096 Apr 18 05:55 orachk_myhost_rdb11204_041816_055429
+-rw-r--r--  1 oradb oinstall    36141 Apr 18 05:55 orachk_myhost_rdb11204_041816_055429.zip
+-rw-r--r--  1 oradb oinstall  9380260 Mar 28 19:02 orachk.zip
+-rw-r--r--  1 oradb oinstall     3869 Mar 28 17:36 readme.txt
+-rw-r--r--  1 oradb oinstall  4877997 Apr 18 05:54 rules.dat
+-rw-r--r--  1 oradb oinstall    40052 Mar 28 17:35 sample_user_defined_checks.xml
+-rw-r--r--  1 oradb oinstall     2888 Mar 28 17:35 user_defined_checks.xsd
+-rw-r--r--  1 oradb oinstall      425 Mar 28 17:36 UserGuide.txt
+</code></pre></div>
+                  <p>The output directory contains several other directories and the main HTML report file.</p>
+                  <div class="p"><pre class="pre codeblock"><code>$ cd orachk_myhost_rdb11204_041816_055429
+$ ls -la
+total 60
+drwxr-xr-x 7 oradb oinstall  4096 Apr 18 05:55 .
+drwxr-xr-x 4 oradb oinstall  4096 Apr 18 05:55 ..
+drwxr-xr-x 2 oradb oinstall  4096 Apr 18 05:55 log
+-rw-r--r-- 1 oradb oinstall 30815 Apr 18 05:55 orachk_myhost_rdb11204_041816_055429.html
+drwxr-xr-x 4 oradb oinstall  4096 Apr 18 05:55 outfiles
+drwxr-xr-x 2 oradb oinstall  4096 Apr 18 05:55 reports
+drwxr-xr-x 2 oradb oinstall  4096 Apr 18 05:55 scripts
+drwxr-xr-x 2 oradb oinstall  4096 Apr 18 05:55 upload
+</code></pre></div>
+                  <p>Oracle ORAchk and Oracle EXAchk each creates an output directory containing the following information depending on which tool you use:</p>
+                  <div class="tblformal" id="GUID-546A4494-4A28-4B85-822C-8229F5A88C9E__GUID-9C710C2E-F345-4BE6-86B0-F208056F31AD">
+                     <p class="titleintable">Table 1-3 Output Files and Directories</p>
+                     <table cellpadding="4" cellspacing="0" class="Formal" title="Output Files and Directories" summary="This table lists and describes output files and directories generated by Oracle ORAchk and Oracle EXAchk." frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" width="20%" id="d11325e339">Output</th>
+                              <th align="left" valign="bottom" width="20%" id="d11325e341">Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d11325e345" headers="d11325e339 ">
+                                 <p><code class="codeph">log (directory)</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d11325e345 d11325e341 ">
+                                 <p>Contains several log files recording details about the health check, including:</p>
+                                 <p><span class="bold">Oracle ORAchk:</span></p>
+                                 <ul style="list-style-type: disc;">
+                                    <li>
+                                       <p><code>orachk.log</code>: Main log for the health check.
+                                       </p>
+                                    </li>
+                                    <li>
+                                       <p><code>orachk_error.log</code>: <code class="codeph">std_error</code> log for the health check.
+                                       </p>
+                                    </li>
+                                    <li>
+                                       <p><code>orachk_debug_<span class="variable" translate="no">date</span>_<span class="variable" translate="no">time</span>.log</code>: Debug output when run with <code class="codeph">&#x2013;debug</code>, which is useful for troubleshooting.
+                                       </p>
+                                    </li>
+                                 </ul>
+                                 <p><span class="bold">Oracle EXAchk:</span></p>
+                                 <ul style="list-style-type: disc;">
+                                    <li>
+                                       <p><code>exachk.log</code>: Main log for the health check.
+                                       </p>
+                                    </li>
+                                    <li>
+                                       <p><code>exachk_error.log</code>: <code class="codeph">std_error</code> log for the health check.
+                                       </p>
+                                    </li>
+                                    <li>
+                                       <p><code>exachk_debug_<span class="variable" translate="no">date</span>_<span class="variable" translate="no">time</span>.log</code>: Debug output when run with <code class="codeph">&#x2013;debug</code>, which is useful for troubleshooting.
+                                       </p>
+                                    </li>
+                                 </ul>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d11325e415" headers="d11325e339 ">
+                                 <p><code class="codeph">outfiles (directory)</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d11325e415 d11325e341 ">
+                                 <p>Contains several the collection results.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d11325e423" headers="d11325e339 ">
+                                 <p><code class="codeph">reports (directory)</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d11325e423 d11325e341 ">
+                                 <p>Contains subreports used to build the main report.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d11325e431" headers="d11325e339 ">
+                                 <p><code class="codeph">scripts (directory)</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d11325e431 d11325e341 ">
+                                 <p>Contains scripts used during collection.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d11325e439" headers="d11325e339 ">
+                                 <p><code class="codeph">upload (directory)</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d11325e439 d11325e341 ">
+                                 <p>Contains files to upload collection results to a database for the Oracle Health Check Collections Manager to consume, integrate the results into your own application, or integrate into other utilities.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d11325e447" headers="d11325e339 ">
+                                 <p><code>orachk_*.html</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d11325e447 d11325e341 ">
+                                 <p><span class="bold">Oracle ORAchk:</span></p>
+                                 <p>Main HTML report output using the same name format as the output directory: <code>orachk_<span class="variable" translate="no">host_name</span>_<span class="variable" translate="no">database</span>_<span class="variable" translate="no">date</span>_<span class="variable" translate="no">timestamp</span>.html</code>.
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d11325e473" headers="d11325e339 ">
+                                 <p><code>exachk_*.html</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d11325e473 d11325e341 ">
+                                 <p><span class="bold">Oracle EXAchk:</span></p>
+                                 <p>Main HTML report output using the same name format as the output directory: <code>exachk_<span class="variable" translate="no">host_name</span>_<span class="variable" translate="no">database</span>_<span class="variable" translate="no">date</span>_<span class="variable" translate="no">timestamp</span>.html</code>.
+                                 </p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="collection-manager.html#GUID-BC64F401-438E-4CE5-914C-577BD3A12EB1" title="Oracle Health Check Collections Manager for Oracle Application Express 4.2 provides you an enterprise-wide view of your health check collection data.">Oracle Health Check Collections Manager for Oracle Application Express 4.2</a></li>
+                        <li><a href="integration-with-other-tools.html#GUID-45D73757-7EEE-46DE-BC6E-0AF712CBE0B6" title="Integrate health check results from Oracle ORAchk and Oracle EXAchk into Enterprise Manager and other third-party tools.">Integrating Health Check Results with Other Tools</a></li>
+                        <li><a href="troubleshoot-orachk-and-exachk.html#GUID-8674E6C4-B394-4700-B2E8-0C33C9F39AF6" title="Follow these procedures to capture debug information.">How to Capture Debug Output</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="understanding-and-managing-reports-and-output.html#GUID-CF99AAA0-E25C-4614-8C38-43B2B18442D0" title="Oracle ORAchk and Oracle EXAchk generate a detailed HTML report with findings and recommendations.">Understanding and Managing Reports and Output</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-2754E64A-BBE8-4F35-8D6A-C67B3A3B9974" name="GUID-2754E64A-BBE8-4F35-8D6A-C67B3A3B9974"></a><h3 id="OEXUG-GUID-2754E64A-BBE8-4F35-8D6A-C67B3A3B9974" class="sect3"><span class="enumeration_section">1.5.3 </span>HTML Report Output
+               </h3>
+               <div>
+                  <p></p>
+                  <p>The Health Check HTML report contains the following:</p>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p>High level health score</p>
+                     </li>
+                     <li>
+                        <p>Summary of the run</p>
+                     </li>
+                     <li>
+                        <p>Table of contents that provides easy access to findings</p>
+                     </li>
+                     <li>
+                        <p>Findings and recommendations to resolve the issues</p>
+                     </li>
+                  </ul>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="understanding-and-managing-reports-and-output.html#GUID-040B3BA4-0A8A-41CE-A394-B461DAF4865C">System Health Score and Summary</a><br>Oracle ORAchk and Oracle EXAchk calculate a high-level System Health Score based on the number of passed or failed health checks.
+                     </li>
+                     <li class="ulchildlink"><a href="understanding-and-managing-reports-and-output.html#GUID-23AFCCED-EDCF-4F23-8D0B-033738695B98">HTML Report Table of Contents and Features</a><br>The <span class="bold">Table of Contents</span> provides links to each of the major sections within the HTML report.
+                     </li>
+                     <li class="ulchildlink"><a href="understanding-and-managing-reports-and-output.html#GUID-C3F73E9C-B00C-4A38-B7C8-295C21754696">HTML Report Findings</a><br>Report findings are grouped by Oracle Stack component.
+                     </li>
+                     <li class="ulchildlink"><a href="understanding-and-managing-reports-and-output.html#GUID-270183EF-991D-491F-8A0D-AB71CC34235B">Maximum Availability Architecture (MAA) Scorecard</a><br>The Maximum Availability Architecture (MAA) Scorecard is displayed after the Findings group.
+                     </li>
+                     <li class="ulchildlink"><a href="understanding-and-managing-reports-and-output.html#GUID-C332C6E5-41D6-4388-B37E-EB684241BE85">Findings Needing Further Review</a><br>Issues that health checks have only a partial view and need user reviews to determine if they are relevant are displayed in the <span class="bold">Findings needing further review</span> section.
+                     </li>
+                     <li class="ulchildlink"><a href="understanding-and-managing-reports-and-output.html#GUID-F9AC2E22-DF3C-4AA5-A12D-32406865891F">Platinum Certification</a><br>The <span class="bold">Platinum Certification</span> section shows a list of compliance status items for the Oracle Platinum service. 
+                     </li>
+                     <li class="ulchildlink"><a href="understanding-and-managing-reports-and-output.html#GUID-E69757F9-45EE-4290-AACA-56402B6C8663">Viewing Clusterwide Linux Operating System Health Check (VMPScan)</a><br>On Linux systems, view a summary of the VMPScan report in the Clusterwide Linux Operating System Health Check (VMPScan) section of the Health Check report.
+                     </li>
+                     <li class="ulchildlink"><a href="understanding-and-managing-reports-and-output.html#GUID-D332C3F0-4DAF-4634-865D-CDB5F6D6C47F">"Systemwide Automatic Service Request (ASR) healthcheck" Section</a><br><code class="codeph">asrexacheck</code> is designed to check and test ASR configurations to ensure that communication to the ASR Manager is possible.
+                     </li>
+                     <li class="ulchildlink"><a href="understanding-and-managing-reports-and-output.html#GUID-41872B81-3ED5-46D4-86ED-70466614C85F">File Attribute Changes</a><br>The <span class="bold">File Attribute Changes</span> section is shown in the report only when Oracle ORAchk and Oracle EXAchk are run with the <code class="codeph">&#x2013;fileattr</code> option.
+                     </li>
+                     <li class="ulchildlink"><a href="understanding-and-managing-reports-and-output.html#GUID-8070BC9C-395C-4F03-8428-137107DFEA44">Skipped Checks</a><br>Any checks that were not able to be run and skipped for some reason are shown in the <span class="bold">Skipped Checks</span> section.
+                     </li>
+                     <li class="ulchildlink"><a href="understanding-and-managing-reports-and-output.html#GUID-1E549378-948B-4CAC-9C54-F5EAD1094E42">Component Elapsed Times</a><br>The <span class="bold">Component Elapsed Times</span> gives a breakdown of time required to check various components.
+                     </li>
+                     <li class="ulchildlink"><a href="understanding-and-managing-reports-and-output.html#GUID-D7E2420E-304A-4E76-B9AE-1126F0535D05">Top 10 Time Consuming Checks</a><br>The <span class="bold">Top 10 Time Consuming Checks</span> section shows the slowest 10 checks that were run.
+                     </li>
+                     <li class="ulchildlink"><a href="understanding-and-managing-reports-and-output.html#GUID-EEAF402D-F5E6-4529-AD42-C39C62B61A2A">How to Find a Check ID</a><br>Each health check has a unique 32 character ID. 
+                     </li>
+                     <li class="ulchildlink"><a href="understanding-and-managing-reports-and-output.html#GUID-A5C2EA79-4935-44A1-8C3D-8A1E02CCC0A6">How to Remove Checks from an Existing HTML Report</a><br>Hide individual findings from the report using <span class="bold">Remove findings</span> .
+                     </li>
+                  </ul>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="understanding-and-managing-reports-and-output.html#GUID-CF99AAA0-E25C-4614-8C38-43B2B18442D0" title="Oracle ORAchk and Oracle EXAchk generate a detailed HTML report with findings and recommendations.">Understanding and Managing Reports and Output</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="sect3"><a id="GUID-040B3BA4-0A8A-41CE-A394-B461DAF4865C" name="GUID-040B3BA4-0A8A-41CE-A394-B461DAF4865C"></a><h4 id="OEXUG-GUID-040B3BA4-0A8A-41CE-A394-B461DAF4865C" class="sect4"><span class="enumeration_section">1.5.3.1 </span>System Health Score and Summary
+                  </h4>
+                  <div>
+                     <p>Oracle ORAchk and Oracle EXAchk calculate a high-level System Health Score based on the number of passed or failed health checks.</p>
+                     <p>A summary of the run shows, where and when it was run, which version was used, how long it took, which user it was run as, and so on.</p>
+                     <div class="p">
+                        <div class="figure" id="GUID-040B3BA4-0A8A-41CE-A394-B461DAF4865C__GUID-E6F6C4E6-F26D-4DFA-9EA6-C54959A84AAF">
+                           <p class="titleinfigure">Figure 1-1 System Health Score and Summary</p><img src="img/report-health-score-and-summary.png" alt="Description of Figure 1-1 follows" title="Description of Figure 1-1 follows" longdesc="img_text/report-health-score-and-summary.html"><br><a href="img_text/report-health-score-and-summary.html">Description of "Figure 1-1 System Health Score and Summary"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                     <p>Click the&nbsp;<span class="bold">detail</span> link to expand the <span class="bold">System Health Score</span> section to view details of how this is calculated.
+                     </p>
+                     <div class="p">
+                        <div class="figure" id="GUID-040B3BA4-0A8A-41CE-A394-B461DAF4865C__GUID-8E9F2F6B-A25A-4423-BCF7-CCBD50EC0382">
+                           <p class="titleinfigure">Figure 1-2 System Health Score Detail</p><img src="img/system-health-score-detail.png" alt="Description of Figure 1-2 follows" title="Description of Figure 1-2 follows" longdesc="img_text/system-health-score-detail.html"><br><a href="img_text/system-health-score-detail.html">Description of "Figure 1-2 System Health Score Detail"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                     <div class="p">To generate an HTML report without the&nbsp;<span class="bold">System Health Score</span> section, use the <code class="codeph">&#x2013;noscore</code> option:<pre class="pre codeblock"><code>$ ./orachk &#x2013;noscore</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;noscore</code></pre></div>
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="orachk-exachk-command-line-options.html#GUID-E136A666-1F99-4618-B758-9B245043B997" title="Use the list of commands in this section to manage the report output.">Managing the Report Output</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="understanding-and-managing-reports-and-output.html#GUID-2754E64A-BBE8-4F35-8D6A-C67B3A3B9974">HTML Report Output</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-23AFCCED-EDCF-4F23-8D0B-033738695B98" name="GUID-23AFCCED-EDCF-4F23-8D0B-033738695B98"></a><h4 id="OEXUG-GUID-23AFCCED-EDCF-4F23-8D0B-033738695B98" class="sect4"><span class="enumeration_section">1.5.3.2 </span>HTML Report Table of Contents and Features
+                  </h4>
+                  <div>
+                     <p>The <span class="bold">Table of Contents</span> provides links to each of the major sections within the HTML report.
+                     </p>
+                     <p>The next section in the HTML report after the summary is the <span class="bold">Table of Contents</span> and <span class="bold">Report Features</span>:
+                     </p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>The <span class="bold">Table of Contents</span> provides links to each of the major sections within the HTML report
+                           </p>
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>What is shown in the Table of Contents will depend on the Oracle Stack components found during the health check run.</p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>The <span class="bold">Report Features</span> allow you to:
+                           </p>
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>Filter checks based on their statuses.</p>
+                              </li>
+                              <li>
+                                 <p>Select the regions.</p>
+                              </li>
+                              <li>
+                                 <p>Expand or collapse all checks.</p>
+                              </li>
+                              <li>
+                                 <p>View check IDs.</p>
+                              </li>
+                              <li>
+                                 <p>Remove findings from the report.</p>
+                              </li>
+                              <li>
+                                 <p>Get a printable view.</p>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>By default, passed checks are hidden. To view, select the <span class="bold">Pass</span> check box under <span class="bold">Show Checks with the following status</span>. To exclude passed checks from the HTML report, use the <code class="codeph">&#x2013;nopass</code> option:
+                     </p><pre class="pre codeblock"><code>$ ./orachk &#x2013;nopass</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;nopass</code></pre><div class="p">
+                        <div class="figure" id="GUID-23AFCCED-EDCF-4F23-8D0B-033738695B98__GUID-09D70F43-BCB1-40C6-B819-EA2CD72B4A8C">
+                           <p class="titleinfigure">Figure 1-3 Report Table of Contents and Features</p><img src="img/report-table-contents-and-features.png" alt="Description of Figure 1-3 follows" title="Description of Figure 1-3 follows" longdesc="img_text/report-table-contents-and-features.html"><br><a href="img_text/report-table-contents-and-features.html">Description of "Figure 1-3 Report Table of Contents and Features"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="understanding-and-managing-reports-and-output.html#GUID-EEAF402D-F5E6-4529-AD42-C39C62B61A2A" title="Each health check has a unique 32 character ID.">How to Find a Check ID</a></li>
+                           <li><a href="understanding-and-managing-reports-and-output.html#GUID-A5C2EA79-4935-44A1-8C3D-8A1E02CCC0A6" title="Hide individual findings from the report using Remove findings .">How to Remove Checks from an Existing HTML Report</a></li>
+                           <li><a href="orachk-exachk-command-line-options.html#GUID-E136A666-1F99-4618-B758-9B245043B997" title="Use the list of commands in this section to manage the report output.">Managing the Report Output</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="understanding-and-managing-reports-and-output.html#GUID-2754E64A-BBE8-4F35-8D6A-C67B3A3B9974">HTML Report Output</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-C3F73E9C-B00C-4A38-B7C8-295C21754696" name="GUID-C3F73E9C-B00C-4A38-B7C8-295C21754696"></a><h4 id="OEXUG-GUID-C3F73E9C-B00C-4A38-B7C8-295C21754696" class="sect4"><span class="enumeration_section">1.5.3.3 </span>HTML Report Findings
+                  </h4>
+                  <div>
+                     <p>Report findings are grouped by Oracle Stack component.</p>
+                     <p>Findings include:</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Status of check (<code class="codeph">FAIL</code>, <code class="codeph">WARNING</code>, <code class="codeph">INFO</code>, or <code class="codeph">PASS</code>)
+                           </p>
+                        </li>
+                        <li>
+                           <p>Type of check</p>
+                        </li>
+                        <li>
+                           <p>Check message</p>
+                        </li>
+                        <li>
+                           <p>Location where the check was run</p>
+                        </li>
+                        <li>
+                           <p>Link to expand details for further findings and recommendations</p>
+                        </li>
+                     </ul>
+                     <div class="p">
+                        <div class="figure" id="GUID-C3F73E9C-B00C-4A38-B7C8-295C21754696__GUID-3142626A-147F-461C-B611-B1594719BA9E">
+                           <p class="titleinfigure">Figure 1-4 Report Findings</p><img src="img/report-findings.png" alt="Description of Figure 1-4 follows" title="Description of Figure 1-4 follows" longdesc="img_text/report-findings.html"><br><a href="img_text/report-findings.html">Description of "Figure 1-4 Report Findings"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                     <p>Click <span class="bold">view details</span> to view the findings and the recommendations.
+                     </p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Solution to solve the problem</p>
+                        </li>
+                        <li>
+                           <p>Applicable recommendations</p>
+                        </li>
+                        <li>
+                           <p>Where the problem does not apply</p>
+                        </li>
+                        <li>
+                           <p>Links to relevant documentation or My Oracle Support Notes</p>
+                        </li>
+                        <li>
+                           <p>Example of data the recommendation is based on</p>
+                        </li>
+                     </ul>
+                     <div class="p">
+                        <div class="figure" id="GUID-C3F73E9C-B00C-4A38-B7C8-295C21754696__GUID-CD97CAF6-A91B-4900-8C90-407B5B466176">
+                           <p class="titleinfigure">Figure 1-5 View Report Findings</p><img src="img/report-findings_view.png" alt="Description of Figure 1-5 follows" title="Description of Figure 1-5 follows" longdesc="img_text/report-findings_view.html"><br><a href="img_text/report-findings_view.html">Description of "Figure 1-5 View Report Findings"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="understanding-and-managing-reports-and-output.html#GUID-2754E64A-BBE8-4F35-8D6A-C67B3A3B9974">HTML Report Output</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-270183EF-991D-491F-8A0D-AB71CC34235B" name="GUID-270183EF-991D-491F-8A0D-AB71CC34235B"></a><h4 id="OEXUG-GUID-270183EF-991D-491F-8A0D-AB71CC34235B" class="sect4"><span class="enumeration_section">1.5.3.4 </span>Maximum Availability Architecture (MAA) Scorecard
+                  </h4>
+                  <div>
+                     <p>The Maximum Availability Architecture (MAA) Scorecard is displayed after the Findings group.</p>
+                     <p>The MAA Scorecard provides a set of best practices for maximum availability architecture. It also shows results related to maximum availability, such as the installed software versions checked for noncurrent software, and use of incompatible features.</p>
+                     <div class="p">
+                        <div class="figure" id="GUID-270183EF-991D-491F-8A0D-AB71CC34235B__GUID-D9BFAD5B-B4DD-4CFA-AC37-3D5CDA6D5428">
+                           <p class="titleinfigure">Figure 1-6 Maximum Availability Architecture (MAA) Scorecard</p><img src="img/maximum-availability-architecture-maa-score-card.png" alt="Description of Figure 1-6 follows" title="Description of Figure 1-6 follows" longdesc="img_text/maximum-availability-architecture-maa-score-card.html"><br><a href="img_text/maximum-availability-architecture-maa-score-card.html">Description of "Figure 1-6 Maximum Availability Architecture (MAA) Scorecard"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                     <div class="p">To generate an HTML report without the <span class="bold">MAA Scorecard</span> section, use the <code class="codeph">-m</code> option:<pre class="pre codeblock"><code>$ ./orachk &#x2013;m</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;m</code></pre></div>
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="orachk-exachk-command-line-options.html#GUID-72F5AC8F-48D3-4553-BF89-F5AF5D794B92" title="Use the list of commands in this section to control the scope of checks.">Controlling the Scope of Checks</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="understanding-and-managing-reports-and-output.html#GUID-2754E64A-BBE8-4F35-8D6A-C67B3A3B9974">HTML Report Output</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-C332C6E5-41D6-4388-B37E-EB684241BE85" name="GUID-C332C6E5-41D6-4388-B37E-EB684241BE85"></a><h4 id="OEXUG-GUID-C332C6E5-41D6-4388-B37E-EB684241BE85" class="sect4"><span class="enumeration_section">1.5.3.5 </span>Findings Needing Further Review
+                  </h4>
+                  <div>
+                     <p>Issues that health checks have only a partial view and need user reviews to determine if they are relevant are displayed in the <span class="bold">Findings needing further review</span> section.
+                     </p>
+                     <div class="p">
+                        <div class="figure" id="GUID-C332C6E5-41D6-4388-B37E-EB684241BE85__GUID-8EF868C5-6016-40D5-BE5A-73DA619922F6">
+                           <p class="titleinfigure">Figure 1-7 Findings needing further review</p><img src="img/findings-needing-further-review.png" alt="Description of Figure 1-7 follows" title="Description of Figure 1-7 follows" longdesc="img_text/findings-needing-further-review.html"><br><a href="img_text/findings-needing-further-review.html">Description of "Figure 1-7 Findings needing further review"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="understanding-and-managing-reports-and-output.html#GUID-2754E64A-BBE8-4F35-8D6A-C67B3A3B9974">HTML Report Output</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-F9AC2E22-DF3C-4AA5-A12D-32406865891F" name="GUID-F9AC2E22-DF3C-4AA5-A12D-32406865891F"></a><h4 id="OEXUG-GUID-F9AC2E22-DF3C-4AA5-A12D-32406865891F" class="sect4"><span class="enumeration_section">1.5.3.6 </span>Platinum Certification
+                  </h4>
+                  <div>
+                     <p>The <span class="bold">Platinum Certification</span> section shows a list of compliance status items for the Oracle Platinum service. 
+                     </p>
+                     <p>For the existing Platinum customers it is a review. For customers not yet participating in Oracle Platinum, it is an indication of readiness to participate in Oracle Platinum.</p>
+                     <div class="p">
+                        <div class="figure" id="GUID-F9AC2E22-DF3C-4AA5-A12D-32406865891F__GUID-D63D1028-5FA9-4FE5-8720-00BFE674E955">
+                           <p class="titleinfigure">Figure 1-8 Platinum Certification</p><img src="img/platinum-certification.png" alt="Description of Figure 1-8 follows" title="Description of Figure 1-8 follows" longdesc="img_text/platinum-certification.html"><br><a href="img_text/platinum-certification.html">Description of "Figure 1-8 Platinum Certification"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                     <div class="p">
+                        <div class="infoboxnote" id="GUID-F9AC2E22-DF3C-4AA5-A12D-32406865891F__GUID-C667D14C-1C64-43E9-80AA-E4CEA00A732E">
+                           <p class="notep1">Note:</p>
+                           <p>This section is seen when health checks are run on Oracle Engineered Systems.</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="understanding-and-managing-reports-and-output.html#GUID-2754E64A-BBE8-4F35-8D6A-C67B3A3B9974">HTML Report Output</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-E69757F9-45EE-4290-AACA-56402B6C8663" name="GUID-E69757F9-45EE-4290-AACA-56402B6C8663"></a><h4 id="OEXUG-GUID-E69757F9-45EE-4290-AACA-56402B6C8663" class="sect4"><span class="enumeration_section">1.5.3.7 </span>Viewing Clusterwide Linux Operating System Health Check (VMPScan)
+                  </h4>
+                  <div>
+                     <p>On Linux systems, view a summary of the VMPScan report in the Clusterwide Linux Operating System Health Check (VMPScan) section of the Health Check report.</p>
+                     <p>The full VMPScan report is also available within the <code><span class="variable" translate="no">collection</span>/reports</code> and <code><span class="variable" translate="no">collection</span>/outfiles/vmpscan</code> directory.
+                     </p>
+                     <div class="p">
+                        <div class="figure" id="GUID-E69757F9-45EE-4290-AACA-56402B6C8663__GUID-F010613A-A973-4AD4-B137-CA53B6E665A9">
+                           <p class="titleinfigure">Figure 1-9 Clusterwide Linux Operating System Health Check (VMPScan)</p><img src="img/clusterwide-linux-operating-system-health-check-vmpscan.png" alt="Description of Figure 1-9 follows" title="Description of Figure 1-9 follows" longdesc="img_text/clusterwide-linux-operating-system-health-check-vmpscan.html"><br><a href="img_text/clusterwide-linux-operating-system-health-check-vmpscan.html">Description of "Figure 1-9 Clusterwide Linux Operating System Health Check (VMPScan)"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                     <div class="p">
+                        <div class="infoboxnote" id="GUID-E69757F9-45EE-4290-AACA-56402B6C8663__GUID-8CE31AAA-3DA9-4E59-A915-7B2C2472113F">
+                           <p class="notep1">Note:</p>
+                           <p>The VMPScan report is included only when Oracle ORAchk is run on Linux systems.</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="understanding-and-managing-reports-and-output.html#GUID-2754E64A-BBE8-4F35-8D6A-C67B3A3B9974">HTML Report Output</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-D332C3F0-4DAF-4634-865D-CDB5F6D6C47F" name="GUID-D332C3F0-4DAF-4634-865D-CDB5F6D6C47F"></a><h4 id="OEXUG-GUID-D332C3F0-4DAF-4634-865D-CDB5F6D6C47F" class="sect4"><span class="enumeration_section">1.5.3.8 </span>"Systemwide Automatic Service Request (ASR) healthcheck" Section
+                  </h4>
+                  <div>
+                     <p><code class="codeph">asrexacheck</code> is designed to check and test ASR configurations to ensure that communication to the ASR Manager is possible.
+                     </p>
+                     <p>This is a non-invasive script that checks configurations only and does not write to any system or configuration files. The script checks for known configuration issues and any previous hardware faults that may not have been reported by ASR due to a misconfiguration on the BDA.</p>
+                     <p>This section is included in the report only when health checks are run on Oracle Engineered Systems.</p>
+                     <p>The following is a sample of the <span class="bold">Systemwide Automatic Service Request (ASR) healthcheck</span> section truncated for brevity:
+                     </p>
+                     <div class="p">
+                        <div class="figure" id="GUID-D332C3F0-4DAF-4634-865D-CDB5F6D6C47F__GUID-A18D509C-6AA8-4129-AE06-394056AB45D3">
+                           <p class="titleinfigure">Figure 1-10 Systemwide Automatic Service Request (ASR) healthcheck</p><img src="img/systemwide-automatic-service-request-asr.png" alt="Description of Figure 1-10 follows" title="Description of Figure 1-10 follows" longdesc="img_text/systemwide-automatic-service-request-asr.html"><br><a href="img_text/systemwide-automatic-service-request-asr.html">Description of "Figure 1-10 Systemwide Automatic Service Request (ASR) healthcheck"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="https://support.oracle.com/rs?type=doc&amp;amp;id=2103715.1" target="_blank">https://support.oracle.com/rs?type=doc&amp;id=2103715.1</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="understanding-and-managing-reports-and-output.html#GUID-2754E64A-BBE8-4F35-8D6A-C67B3A3B9974">HTML Report Output</a></p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="sect3"><a id="GUID-41872B81-3ED5-46D4-86ED-70466614C85F" name="GUID-41872B81-3ED5-46D4-86ED-70466614C85F"></a><h4 id="OEXUG-GUID-41872B81-3ED5-46D4-86ED-70466614C85F" class="sect4"><span class="enumeration_section">1.5.3.9 </span>File Attribute Changes
+                  </h4>
+                  <div>
+                     <p>The <span class="bold">File Attribute Changes</span> section is shown in the report only when Oracle ORAchk and Oracle EXAchk are run with the <code class="codeph">&#x2013;fileattr</code> option.
+                     </p>
+                     <div class="p">
+                        <div class="figure" id="GUID-41872B81-3ED5-46D4-86ED-70466614C85F__GUID-C950A2BC-BE57-41D4-A444-5C9E21595F70">
+                           <p class="titleinfigure">Figure 1-11 File Attribute Changes</p><img src="img/file-attribute-changes.png" alt="Description of Figure 1-11 follows" title="Description of Figure 1-11 follows" longdesc="img_text/file-attribute-changes.html"><br><a href="img_text/file-attribute-changes.html">Description of "Figure 1-11 File Attribute Changes"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="understanding-and-managing-reports-and-output.html#GUID-2754E64A-BBE8-4F35-8D6A-C67B3A3B9974">HTML Report Output</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-8070BC9C-395C-4F03-8428-137107DFEA44" name="GUID-8070BC9C-395C-4F03-8428-137107DFEA44"></a><h4 id="OEXUG-GUID-8070BC9C-395C-4F03-8428-137107DFEA44" class="sect4"><span class="enumeration_section">1.5.3.10 </span>Skipped Checks
+                  </h4>
+                  <div>
+                     <p>Any checks that were not able to be run and skipped for some reason are shown in the <span class="bold">Skipped Checks</span> section.
+                     </p>
+                     <div class="p">
+                        <div class="figure" id="GUID-8070BC9C-395C-4F03-8428-137107DFEA44__GUID-F0026F94-7D7A-4CD5-B60B-D00238AFFE5D">
+                           <p class="titleinfigure">Figure 1-12 Skipped Checks</p><img src="img/skipped-checks.png" alt="Description of Figure 1-12 follows" title="Description of Figure 1-12 follows" longdesc="img_text/skipped-checks.html"><br><a href="img_text/skipped-checks.html">Description of "Figure 1-12 Skipped Checks"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="troubleshoot-orachk-and-exachk.html#GUID-F360399E-2971-4A2A-B51B-6231F673BBBA" title="Follow these procedures to address slow performance and other issues.">Slow Performance, Skipped Checks, and Timeouts</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="understanding-and-managing-reports-and-output.html#GUID-2754E64A-BBE8-4F35-8D6A-C67B3A3B9974">HTML Report Output</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-1E549378-948B-4CAC-9C54-F5EAD1094E42" name="GUID-1E549378-948B-4CAC-9C54-F5EAD1094E42"></a><h4 id="OEXUG-GUID-1E549378-948B-4CAC-9C54-F5EAD1094E42" class="sect4"><span class="enumeration_section">1.5.3.11 </span>Component Elapsed Times 
+                  </h4>
+                  <div>
+                     <p>The <span class="bold">Component Elapsed Times</span> gives a breakdown of time required to check various components.
+                     </p>
+                     <p>This can be useful when diagnosing performance problems.</p>
+                     <div class="p">
+                        <div class="figure" id="GUID-1E549378-948B-4CAC-9C54-F5EAD1094E42__GUID-3ED3458A-4935-42C5-86A7-A97B123DF682">
+                           <p class="titleinfigure">Figure 1-13 Component Elapsed Times</p><img src="img/component-elapsed-times.png" alt="Description of Figure 1-13 follows" title="Description of Figure 1-13 follows" longdesc="img_text/component-elapsed-times.html"><br><a href="img_text/component-elapsed-times.html">Description of "Figure 1-13 Component Elapsed Times"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="troubleshoot-orachk-and-exachk.html#GUID-F360399E-2971-4A2A-B51B-6231F673BBBA" title="Follow these procedures to address slow performance and other issues.">Slow Performance, Skipped Checks, and Timeouts</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="understanding-and-managing-reports-and-output.html#GUID-2754E64A-BBE8-4F35-8D6A-C67B3A3B9974">HTML Report Output</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-D7E2420E-304A-4E76-B9AE-1126F0535D05" name="GUID-D7E2420E-304A-4E76-B9AE-1126F0535D05"></a><h4 id="OEXUG-GUID-D7E2420E-304A-4E76-B9AE-1126F0535D05" class="sect4"><span class="enumeration_section">1.5.3.12 </span>Top 10 Time Consuming Checks
+                  </h4>
+                  <div>
+                     <p>The <span class="bold">Top 10 Time Consuming Checks</span> section shows the slowest 10 checks that were run.
+                     </p>
+                     <p>This can be useful when diagnosing performance problems.</p>
+                     <div class="p">
+                        <div class="figure" id="GUID-D7E2420E-304A-4E76-B9AE-1126F0535D05__GUID-31C6DF46-8C94-44C3-B0A6-9B1B6DA0DAC3">
+                           <p class="titleinfigure">Figure 1-14 Top 10 Time Consuming Checks</p><img src="img/top-10-time-consuming-checks.png" alt="Description of Figure 1-14 follows" title="Description of Figure 1-14 follows" longdesc="img_text/top-10-time-consuming-checks.html"><br><a href="img_text/top-10-time-consuming-checks.html">Description of "Figure 1-14 Top 10 Time Consuming Checks"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="troubleshoot-orachk-and-exachk.html#GUID-F360399E-2971-4A2A-B51B-6231F673BBBA" title="Follow these procedures to address slow performance and other issues.">Slow Performance, Skipped Checks, and Timeouts</a></li>
+                           <li><a href="https://support.oracle.com/epmos/main/downloadattachmentprocessor?attachid=1268927.1:ORACHK_RPT_EXAMPLE&amp;amp;clickstream=yes" target="_blank">Oracle ORAchk Sample Report</a></li>
+                           <li><a href="https://support.oracle.com/epmos/main/downloadattachmentprocessor?attachid=1268927.1:EXACHK_RPT_EXAMPLE" target="_blank">Oracle EXAchk Sample Report</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="understanding-and-managing-reports-and-output.html#GUID-2754E64A-BBE8-4F35-8D6A-C67B3A3B9974">HTML Report Output</a></p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="sect3"><a id="GUID-EEAF402D-F5E6-4529-AD42-C39C62B61A2A" name="GUID-EEAF402D-F5E6-4529-AD42-C39C62B61A2A"></a><h4 id="OEXUG-GUID-EEAF402D-F5E6-4529-AD42-C39C62B61A2A" class="sect4"><span class="enumeration_section">1.5.3.13 </span>How to Find a Check ID
+                  </h4>
+                  <div>
+                     <p>Each health check has a unique 32 character ID. </p>
+                     <p>You may want to find a check id while:</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Communicating to Oracle or your own internal teams about a specific check</p>
+                        </li>
+                        <li>
+                           <p>Excluding or only running one or more checks</p>
+                        </li>
+                     </ul>
+                     <p>To find a particular check id using a generated report, click the <span class="bold">Show Check Ids</span> link.
+                     </p>
+                     <div class="p">
+                        <div class="figure" id="GUID-EEAF402D-F5E6-4529-AD42-C39C62B61A2A__GUID-2D560C0C-4A54-4E40-87F8-B5BDB277762D">
+                           <p class="titleinfigure">Figure 1-15 Show Check Ids</p><img src="img/show-check-ids_1.png" alt="Description of Figure 1-15 follows" title="Description of Figure 1-15 follows" longdesc="img_text/show-check-ids_1.html"><br><a href="img_text/show-check-ids_1.html">Description of "Figure 1-15 Show Check Ids"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                     <p>The findings will then display an extra column to the left with the Check Id.</p>
+                     <div class="p">
+                        <div class="figure" id="GUID-EEAF402D-F5E6-4529-AD42-C39C62B61A2A__GUID-60202670-2493-4C1B-AB9A-E3FCA9F2EC82">
+                           <p class="titleinfigure">Figure 1-16 Show Check Ids</p><img src="img/show-check-ids_2.png" alt="Description of Figure 1-16 follows" title="Description of Figure 1-16 follows" longdesc="img_text/show-check-ids_2.html"><br><a href="img_text/show-check-ids_2.html">Description of "Figure 1-16 Show Check Ids"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="health-check-catalog.html#GUID-B26FAD6B-4D22-40FF-ADC8-0319010DB2C2" title="The Health Check Catalogs list the health checks that are included within Oracle ORAchk or Oracle EXAchk.">Health Check Catalog</a></li>
+                           <li><a href="running-subsets-of-checks.html#GUID-B7E09DB3-A839-4C98-A40F-765D527C1BF9" title="Run a subset of health checks where necessary.">Running Subsets of Checks</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="understanding-and-managing-reports-and-output.html#GUID-2754E64A-BBE8-4F35-8D6A-C67B3A3B9974">HTML Report Output</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-A5C2EA79-4935-44A1-8C3D-8A1E02CCC0A6" name="GUID-A5C2EA79-4935-44A1-8C3D-8A1E02CCC0A6"></a><h4 id="OEXUG-GUID-A5C2EA79-4935-44A1-8C3D-8A1E02CCC0A6" class="sect4"><span class="enumeration_section">1.5.3.14 </span>How to Remove Checks from an Existing HTML Report
+                  </h4>
+                  <div>
+                     <p>Hide individual findings from the report using <span class="bold">Remove findings</span> .
+                     </p>
+                     <p>Click <span class="bold">Remove finding from report</span>.
+                     </p>
+                     <div class="p">
+                        <div class="figure" id="GUID-A5C2EA79-4935-44A1-8C3D-8A1E02CCC0A6__GUID-2CB36B5C-231A-47C2-81C4-D2E4BFBAA88D">
+                           <p class="titleinfigure">Figure 1-17 Remove Findings from Report</p><img src="img/remove-checks-existing-html-report.png" alt="Description of Figure 1-17 follows" title="Description of Figure 1-17 follows" longdesc="img_text/remove-checks-existing-html-report.html"><br><a href="img_text/remove-checks-existing-html-report.html">Description of "Figure 1-17 Remove Findings from Report"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                     <p>A button with an X appears next to each finding.</p>
+                     <p>Click X to hide the finding. This does not remove the finding from the source of the HTML report it simply hides it. If the HTML report is reloaded the finding will appear again.</p>
+                     <p>To permanently hide the finding use your browser’s <span class="bold">Save Page</span> option to save the report once the finding is hidden.
+                     </p>
+                     <div class="p">
+                        <div class="figure" id="GUID-A5C2EA79-4935-44A1-8C3D-8A1E02CCC0A6__GUID-7B1582E6-1DA6-4283-B9BA-D709D5514AB3">
+                           <p class="titleinfigure">Figure 1-18 Remove Findings from Report</p><img src="img/permanently-hide-finding.png" alt="Description of Figure 1-18 follows" title="Description of Figure 1-18 follows" longdesc="img_text/permanently-hide-finding.html"><br><a href="img_text/permanently-hide-finding.html">Description of "Figure 1-18 Remove Findings from Report"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                     <p>If there are findings that you never want to see in the report, then they can be excluded altogether so the checks are never run in the first place.</p>
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="running-subsets-of-checks.html#GUID-B7E09DB3-A839-4C98-A40F-765D527C1BF9" title="Run a subset of health checks where necessary.">Running Subsets of Checks</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="understanding-and-managing-reports-and-output.html#GUID-2754E64A-BBE8-4F35-8D6A-C67B3A3B9974">HTML Report Output</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-08E86872-4F50-48BF-9AE3-C052B79B7B9C" name="GUID-08E86872-4F50-48BF-9AE3-C052B79B7B9C"></a><h3 id="OEXUG-GUID-08E86872-4F50-48BF-9AE3-C052B79B7B9C" class="sect3"><span class="enumeration_section">1.5.4 </span>Tagging Reports
+               </h3>
+               <div>
+                  <p>The health check HTML report is typically named: <code>orachk_<span class="variable" translate="no">hostname</span>_<span class="variable" translate="no">database</span>_<span class="variable" translate="no">date</span>_<span class="variable" translate="no">timestamp</span>.html</code> or <code>exachk_<span class="variable" translate="no">hostname</span>_<span class="variable" translate="no">database</span>_<span class="variable" translate="no">date</span>_<span class="variable" translate="no">timestamp</span>.html</code>.
+                  </p>
+                  <p>You can include other tags in the HTML report name to facilitate differentiation and identification.</p>
+                  <p>Include a custom tag in the HTML report name as follows:</p><pre class="pre codeblock"><code>$ ./orachk &#x2013;tag <span class="variable" translate="no">tag_name</span></code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;tag <span class="variable" translate="no">tag_name</span></code></pre><div class="p">The resulting HTML report name is similar to the following:<pre class="pre codeblock"><code><code>orachk_<span class="variable" translate="no">host_name</span>_<span class="variable" translate="no">database</span>_<span class="variable" translate="no">date</span>_<span class="variable" translate="no">timestamp</span>_<span class="variable" translate="no">tag_name</span>.html</code></code></pre><pre class="pre codeblock"><code><code>exachk_<span class="variable" translate="no">host_name</span>_<span class="variable" translate="no">database</span>_<span class="variable" translate="no">date</span>_<span class="variable" translate="no">timestamp</span>_<span class="variable" translate="no">tag_name</span>.html</code></code></pre></div>
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="understanding-and-managing-reports-and-output.html#GUID-CF99AAA0-E25C-4614-8C38-43B2B18442D0" title="Oracle ORAchk and Oracle EXAchk generate a detailed HTML report with findings and recommendations.">Understanding and Managing Reports and Output</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-7697021E-7999-4BCA-B938-1AD9A37821E7" name="GUID-7697021E-7999-4BCA-B938-1AD9A37821E7"></a><h3 id="OEXUG-GUID-7697021E-7999-4BCA-B938-1AD9A37821E7" class="sect3"><span class="enumeration_section">1.5.5 </span>Tracking File Attribute Changes
+               </h3>
+               <div>
+                  <p>Use the ORAchk and EXAchk <code class="codeph">-fileattr</code> option and command flags to record and track file attribute settings, and compare snapshots.
+                  </p>
+                  <p>By default, running Oracle ORAchk or Oracle EXAchk with the <code class="codeph">-fileattr</code> option checks all files within Oracle Grid Infrastructure and Oracle Database homes. You can use the file attribute tracking options to manage the list of directories and contents that you want to monitor.
+                  </p>
+                  <div class="tblformal" id="GUID-7697021E-7999-4BCA-B938-1AD9A37821E7__12683426">
+                     <p class="titleintable">Table 1-4 List of ORAchk and EXAchk File Attribute Tracking Options</p>
+                     <table cellpadding="4" cellspacing="0" class="Formal" title="List of ORAchk and EXAchk File Attribute Tracking Options" summary="This table lists and describes file attribute tracking options for ORAchk option" frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" width="20%" id="d11325e1654">Option</th>
+                              <th align="left" valign="bottom" width="20%" id="d11325e1656">Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d11325e1660" headers="d11325e1654 ">
+                                 <p><code class="codeph">-fileattr start</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d11325e1660 d11325e1656 ">
+                                 <p>Takes file attribute snapshots of discovered directories, and stores the snapshots in the output directory. </p>
+                                 <p>By default, this option takes snapshots of Oracle Grid Infrastructure homes, and all of the installed database homes. If a user does not own a particular directory, then it does not take snapshots of the directory.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d11325e1670" headers="d11325e1654 ">
+                                 <p><code class="codeph">-fileattr check</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d11325e1670 d11325e1656 ">
+                                 <p>Takes a new snapshot of discovered directories, and compares it with the previous snapshot.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d11325e1678" headers="d11325e1654 ">
+                                 <p><code class="codeph">-fileattr remove</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d11325e1678 d11325e1656 ">
+                                 <p>Removes file attribute snapshots and related files.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d11325e1686" headers="d11325e1654 ">
+                                 <p><code class="codeph">-fileattr [start|check] -includedir <span class="variable" translate="no">directories</span></code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d11325e1686 d11325e1656 ">
+                                 <p>You can specify a comma-delimited list of directories to check file attributes.</p>
+                                 <div class="p">For example:<pre class="pre codeblock"><code>./orachk -fileattr start -includedir "/root/home,/etc"</code></pre><pre class="pre codeblock"><code>./orachk -fileattr check -includedir "/root/home,/etc"</code></pre></div>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d11325e1702" headers="d11325e1654 ">
+                                 <p><code class="codeph">-fileattr [start|check] -excludediscovery</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d11325e1702 d11325e1656 ">
+                                 <p>Excludes the discovered directories.</p>
+                                 <div class="p">For example:<pre class="pre codeblock"><code>./orachk -fileattr start -includedir "/root/home,/etc" -excludediscovery	</code></pre></div>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d11325e1714" headers="d11325e1654 ">
+                                 <p><code class="codeph">-fileattr check -baseline <span class="variable" translate="no">baseline snapshot path</span></code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d11325e1714 d11325e1656 ">
+                                 <p>Uses a snapshot that you designate as the baseline for a snapshot comparison. You must provide the path to the snapshot that you want to use as the baseline. </p>
+                                 <div class="p">For example:<pre class="pre codeblock"><code>./orachk -fileattr check -baseline "/tmp/Snapshot"</code></pre></div>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d11325e1728" headers="d11325e1654 ">
+                                 <p><code class="codeph">-fileattr check &#x2013;fileattronly</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d11325e1728 d11325e1656 ">
+                                 <p>Performs only file attributes check, and then exits ORAchk.</p>
+                                 <div class="p">For example:<pre class="pre codeblock"><code>./orachk -fileattr check -fileattronly</code></pre></div>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+                  <div class="p">
+                     <div class="infoboxnote" id="GUID-7697021E-7999-4BCA-B938-1AD9A37821E7__12686F8F">
+                        <p class="notep1">Note:</p>
+                        <p>You must have Oracle Grid Infrastructure installed and running before you use <code class="codeph">-fileattr</code> .
+                        </p>
+                     </div>
+                  </div>
+                  <div class="section">
+                     <p class="subhead2" id="GUID-7697021E-7999-4BCA-B938-1AD9A37821E7__GUID-B9B4184D-9253-40CF-B5E3-6B3A6B014CD6">Using the File Attribute Check With the Daemon:</p>
+                     <ol>
+                        <li>
+                           <div class="p">Start the daemon:<pre class="pre codeblock"><code>./orachk -d start</code></pre></div>
+                        </li>
+                        <li>
+                           <div class="p">Start the client run with the <code class="codeph">-fileattr</code> options:<pre class="pre codeblock"><code>./orachk -fileattr start -includedir "/root/myapp,/etc/oratab" -excludediscovery
+./orachk -fileattr check -includedir "/root/myapp,/etc/oratab" -excludediscovery</code></pre></div>
+                        </li>
+                        <li>
+                           <div class="p">Specify the output directory to store snapshots with the <code class="codeph">&#x2013;output</code> option as follows:<pre class="pre codeblock"><code>./orachk -fileattr start -output "/tmp/mysnapshots"</code></pre></div>
+                        </li>
+                     </ol>
+                     <div class="p">Use <code class="codeph">&#x2013;tag</code> to help identify your snapshots:<pre class="pre codeblock"><code>./orachk -fileattr start -tag "BeforeXYZChange"
+  Generated snapshot directory-
+  orachk_myserver65_20160329_052056_ BeforeXYZChange
+</code></pre></div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section" id="GUID-7697021E-7999-4BCA-B938-1AD9A37821E7__1268CE4F">
+                     <p class="subhead2" id="GUID-7697021E-7999-4BCA-B938-1AD9A37821E7__1268D3C1">Taking File Attribute Snapshots with ORAchk and EXAchk &#x2013;fileattr start</p>
+                     <div class="p">Use <code class="codeph">&#x2013;fileattr start</code> to start the first snapshot. By default, the directories included in the snapshots are Oracle Grid Infrastructure homes, and all installed Oracle Database homes.<pre class="pre codeblock"><code>./orachk &#x2013;fileattr start</code></pre><pre class="pre codeblock"><code>./exachk &#x2013;fileattr start</code></pre><pre class="pre codeblock"><code>$ ./orachk -fileattr start
+CRS stack is running and CRS_HOME is not set. Do you want to set CRS_HOME to /u01/app/11.2.0.4/grid?[y/n][y]
+Checking ssh user equivalency settings on all nodes in cluster
+Node mysrv22 is configured for ssh user equivalency for oradb user
+Node mysrv23 is configured for ssh user equivalency for oradb user
+
+List of directories(recursive) for checking file attributes:
+/u01/app/oradb/product/11.2.0/dbhome_11202
+/u01/app/oradb/product/11.2.0/dbhome_11203
+/u01/app/oradb/product/11.2.0/dbhome_11204
+orachk has taken snapshot of file attributes for above directories at: /orahome/oradb/orachk/orachk_mysrv21_20160504_041214
+</code></pre></div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section" id="GUID-7697021E-7999-4BCA-B938-1AD9A37821E7__1268E02E">
+                     <p class="subhead2" id="GUID-7697021E-7999-4BCA-B938-1AD9A37821E7__1268E59A">Selecting Directories to Check with ORAchk and EXAchk &#x2013;includedir</p>
+                     <div class="p">You can include other directories using the <code class="codeph">&#x2013;includedir <span class="variable" translate="no">directories</span></code> option, where <code class="codeph"><span class="variable" translate="no">directories</span></code> is a comma-delimited list of directories to include. For example:<pre class="pre codeblock"><code>./orachk -fileattr start -includedir "/home/oradb,/etc/oratab"</code></pre><pre class="pre codeblock"><code>./exachk -fileattr start -includedir "/home/oradb,/etc/oratab"</code></pre><pre class="pre codeblock"><code>$ ./orachk -fileattr start -includedir "/root/myapp/config/"
+CRS stack is running and CRS_HOME is not set. Do you want to set CRS_HOME to /u01/app/12.2.0/grid?[y/n][y]
+Checking for prompts on myserver18 for oragrid user...
+Checking ssh user equivalency settings on all nodes in cluster
+Node myserver17 is configured for ssh user equivalency for root user
+List of directories(recursive) for checking file attributes:
+/u01/app/12.2.0/grid
+/u01/app/oradb/product/12.2.0/dbhome_1
+/u01/app/oradb2/product/12.2.0/dbhome_1
+/root/myapp/config/
+orachk has taken snapshot of file attributes for above directories at: /root/orachk/orachk_ myserver18_20160511_032034
+</code></pre></div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section" id="GUID-7697021E-7999-4BCA-B938-1AD9A37821E7__1268EF7F">
+                     <p class="subhead2" id="GUID-7697021E-7999-4BCA-B938-1AD9A37821E7__1268F459">Excluding Directories from Checks Using ORAchk and EXAchk -excludediscovery</p>
+                     <p>You can run ORAchk or EXAchk to exclude directories that you do not list in the <code class="codeph">-includedir</code> discover list by using the <code class="codeph">-excludediscovery</code> option.
+                     </p>
+                     <p>For example:</p><pre class="pre codeblock"><code>$ ./orachk -fileattr start -includedir "/root/myapp/config/" -excludediscovery
+CRS stack is running and CRS_HOME is not set. Do you want to set CRS_HOME to /u01/app/12.2.0/grid?[y/n][y]
+Checking for prompts on myserver18 for oragrid user...
+Checking ssh user equivalency settings on all nodes in cluster
+Node myserver17 is configured for ssh user equivalency for root user
+List of directories(recursive) for checking file attributes:
+/root/myapp/config/ 
+orachk has taken snapshot of file attributes for above directories at: /root/orachk/orachk_myserver18_20160511_032209
+</code></pre></div>
+                  <!-- class="section" -->
+                  <div class="section" id="GUID-7697021E-7999-4BCA-B938-1AD9A37821E7__12690036">
+                     <p class="subhead2" id="GUID-7697021E-7999-4BCA-B938-1AD9A37821E7__126906B1">Rechecking Changes by Using ORAchk and EXAchk &#x2013;fileattr check</p>
+                     <p>Use <code class="codeph">&#x2013;fileattr check</code> to take a new snapshot, and run a normal health check collection. The command compares the new snapshot to the previous snapshot.
+                     </p>
+                     <div class="p">For example:<pre class="pre codeblock"><code>./orachk &#x2013;fileattr check</code></pre><pre class="pre codeblock"><code>./exachk &#x2013;fileattr check</code></pre></div>
+                     <div class="p">
+                        <div class="infoboxnote" id="GUID-7697021E-7999-4BCA-B938-1AD9A37821E7__GUID-EDFD33C4-185E-454A-B6D2-CDEA8804D547">
+                           <p class="notep1">Note:</p>
+                           <p>To obtain an accurate comparison between snapshots, you must se <code class="codeph">&#x2013;fileattr check</code> with the same options that you used with the previous snapshot collection that you obtained with <code class="codeph">&#x2013;fileattr start</code>.
+                           </p>
+                           <p>For example, if you obtained your first snapshot by using the options <code class="codeph">-includedir "/somedir" &#x2013;excludediscovery</code> when you ran <code class="codeph">&#x2013;fileattr start</code>, then you must include the same options with <code class="codeph">&#x2013;fileattr check</code> to obtain an accurate comparison. 
+                           </p>
+                        </div>
+                     </div>
+                     <div class="p"><pre class="pre codeblock"><code>$ ./orachk -fileattr check -includedir "/root/myapp/config" -excludediscovery
+CRS stack is running and CRS_HOME is not set. Do you want to set CRS_HOME to /u01/app/12.2.0/grid?[y/n][y]
+Checking for prompts on myserver18 for oragrid user...
+Checking ssh user equivalency settings on all nodes in cluster
+Node myserver17 is configured for ssh user equivalency for root user
+ List of directories(recursive) for checking file attributes:
+/root/myapp/config
+Checking file attribute changes...
+. 
+"/root/myapp/config/myappconfig.xml" is different:
+Baseline :       0644     oracle       root /root/myapp/config/myappconfig.xml
+Current  :       0644       root       root /root/myapp/config/myappconfig.xml
+...</code></pre></div>
+                     <p>Results of the file attribute changes are reflected in the <span class="bold">File Attribute Changes</span> section of the HTML output report.
+                     </p>
+                     <p></p>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section" id="GUID-7697021E-7999-4BCA-B938-1AD9A37821E7__12691193">
+                     <p class="subhead2" id="GUID-7697021E-7999-4BCA-B938-1AD9A37821E7__12691665">Designating a Snapshot As a Baseline for Comparisons with Oracle ORAchk and Oracle EXAchk &#x2013;baseline</p>
+                     <div class="p">If you have multiple different baselines that you want to check, then you can provide a specific baseline snapshot to compare against by using the <code class="codeph">&#x2013;baseline <span class="variable" translate="no">path_to_snapshot</span></code> option.<pre class="pre codeblock"><code>./orachk -fileattr check -baseline <span class="variable" translate="no">path_to_snapshot</span></code></pre><pre class="pre codeblock"><code>./exachk &#x2013;fileattr check &#x2013;baseline <span class="variable" translate="no">path_to_snapshot</span></code></pre></div>
+                     <div class="p">For example:<pre class="pre codeblock"><code>./orachk -fileattr check -baseline "/tmp/Snapshot"</code></pre></div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section" id="GUID-7697021E-7999-4BCA-B938-1AD9A37821E7__12692050">
+                     <p class="subhead2" id="GUID-7697021E-7999-4BCA-B938-1AD9A37821E7__12692499">Restrict System Checks to Attributes Only Using Oracle ORAchk and Oracle EXAchk &#x2013;fileattronly</p>
+                     <div class="p">By default, <code class="codeph">&#x2013;fileattr check</code> also performs a full health check run. To perform only file attribute checking, and not proceed with other health checks, use the <code class="codeph">&#x2013;fileattronly</code> option:<pre class="pre codeblock"><code>./orachk -fileattr check &#x2013;fileattronly</code></pre><pre class="pre codeblock"><code>./exachk -fileattr check &#x2013;fileattronly</code></pre></div>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section" id="GUID-7697021E-7999-4BCA-B938-1AD9A37821E7__12692DCB">
+                     <p class="subhead2" id="GUID-7697021E-7999-4BCA-B938-1AD9A37821E7__1269320C">Oracle ORAchk and Oracle EXAchk &#x2013;fileattr remove</p>
+                     <div class="p">You can remove snapshots using the <code class="codeph">&#x2013;fileattr remove</code> option:<pre class="pre codeblock"><code>./orachk &#x2013;fileattr remove</code></pre><pre class="pre codeblock"><code>./exachk &#x2013;fileattr remove</code></pre></div>
+                     <div class="p">For example: <pre class="pre codeblock"><code>$ ./orachk -fileattr remove
+CRS stack is running and CRS_HOME is not set. Do you want to set CRS_HOME to /u01/app/12.2.0/grid?[y/n][y]y
+Checking for prompts on myserver18 for oragrid user...
+Checking ssh user equivalency settings on all nodes in cluster
+Node myserver17 is configured for ssh user equivalency for root user
+
+List of directories(recursive) for checking file attributes:
+/u01/app/12.2.0/grid
+/u01/app/oradb/product/12.2.0/dbhome_1
+/u01/app/oradb2/product/12.2.0/dbhome_1
+Removing file attribute related files...
+...</code></pre></div>
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="understanding-and-managing-reports-and-output.html#GUID-CF99AAA0-E25C-4614-8C38-43B2B18442D0" title="Oracle ORAchk and Oracle EXAchk generate a detailed HTML report with findings and recommendations.">Understanding and Managing Reports and Output</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-D39A97FB-8185-43EC-9F56-D0663201EF68" name="GUID-D39A97FB-8185-43EC-9F56-D0663201EF68"></a><h3 id="OEXUG-GUID-D39A97FB-8185-43EC-9F56-D0663201EF68" class="sect3"><span class="enumeration_section">1.5.6 </span>Comparing Two Reports
+               </h3>
+               <div>
+                  <p>Oracle ORAchk and Oracle EXAchk automatically compare the two most recent HTML reports and generate a third diff report, when run in automated daemon mode.</p>
+                  <div class="p">To generate a diff HTML report, use the <code class="codeph">&#x2013;diff</code> option:<pre class="pre codeblock"><code>$ ./orachk &#x2013;diff <span class="variable" translate="no">report_1</span> <span class="variable" translate="no">report_2</span></code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;diff <span class="variable" translate="no">report_1</span> <span class="variable" translate="no">report_2</span></code></pre></div>
+                  <p>where, <code><span class="variable" translate="no">report_1</span></code> and <code><span class="variable" translate="no">report_2</span></code> are the path and name of any of the following:
+                  </p>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p>HTML reports</p>
+                     </li>
+                     <li>
+                        <p>Output directories</p>
+                     </li>
+                     <li>
+                        <p>Output zip files</p>
+                     </li>
+                  </ul>
+                  <p>The diff output lists a summary of changes found and the location of the new diff HTML report.</p>
+                  <div class="p"><pre class="pre codeblock"><code>$./exachk -diff exachk_myhost07_scao1007_040716_090013.zip exachk_myhost07_scao1007_040716_100019.zip
+Summary 
+Total   : 278
+Missing : 0
+New     : 0
+Changed : 3
+Same    : 275
+Check comparison is complete. The comparison report can be viewed in: /opt/oracle.SupportTools/exachk/exachk_040716090013_040716100019_diff.html
+</code></pre></div>
+                  <p>The diff HTML report shows a summary of both compared reports.</p>
+                  <div class="p">
+                     <div class="figure" id="GUID-D39A97FB-8185-43EC-9F56-D0663201EF68__GUID-DB152669-368A-4344-AE29-7102349F5D51">
+                        <p class="titleinfigure">Figure 1-19 Health Check Baseline Comparison Report</p><img src="img/health-check-baseline-comparison-report.png" alt="Description of Figure 1-19 follows" title="Description of Figure 1-19 follows" longdesc="img_text/health-check-baseline-comparison-report.html"><br><a href="img_text/health-check-baseline-comparison-report.html">Description of "Figure 1-19 Health Check Baseline Comparison Report"</a></div>
+                     <!-- class="figure" -->
+                  </div>
+                  <p>The <span class="bold">Table of Contents</span> provides quick access to the major sections in the report. You can also access various check Ids listed in the <span class="bold">Show Check Ids</span> section.
+                  </p>
+                  <div class="p">
+                     <div class="figure" id="GUID-D39A97FB-8185-43EC-9F56-D0663201EF68__GUID-4C53015A-0493-4FC5-8655-180749DF818B">
+                        <p class="titleinfigure">Figure 1-20 Table of Contents</p><img src="img/table-contents.png" alt="Description of Figure 1-20 follows" title="Description of Figure 1-20 follows" longdesc="img_text/table-contents.html"><br><a href="img_text/table-contents.html">Description of "Figure 1-20 Table of Contents"</a></div>
+                     <!-- class="figure" -->
+                  </div>
+                  <p>The <span class="bold">Differences between Report 1 and Report 2</span> section shows what checks have different results.
+                  </p>
+                  <div class="p">
+                     <div class="figure" id="GUID-D39A97FB-8185-43EC-9F56-D0663201EF68__GUID-9E541A33-D476-4025-B0AB-BBAE4C0463AD">
+                        <p class="titleinfigure">Figure 1-21 Difference Between Reports</p><img src="img/difference-reports.png" alt="Description of Figure 1-21 follows" title="Description of Figure 1-21 follows" longdesc="img_text/difference-reports.html"><br><a href="img_text/difference-reports.html">Description of "Figure 1-21 Difference Between Reports"</a></div>
+                     <!-- class="figure" -->
+                  </div>
+                  <p>The <span class="bold">Unique findings</span> section shows any check findings that were unique to either of the reports
+                  </p>
+                  <div class="p">
+                     <div class="figure" id="GUID-D39A97FB-8185-43EC-9F56-D0663201EF68__GUID-632744A2-9F0D-4648-B8C9-608C3623619A">
+                        <p class="titleinfigure">Figure 1-22 Unique Findings</p><img src="img/unique-findings.png" alt="Description of Figure 1-22 follows" title="Description of Figure 1-22 follows" longdesc="img_text/unique-findings.html"><br><a href="img_text/unique-findings.html">Description of "Figure 1-22 Unique Findings"</a></div>
+                     <!-- class="figure" -->
+                  </div>
+                  <p>The <span class="bold">Common Findings in Both Reports</span> section shows all the check results that had the same results in both the reports.
+                  </p>
+                  <div class="p">
+                     <div class="figure" id="GUID-D39A97FB-8185-43EC-9F56-D0663201EF68__GUID-8F132CCE-8181-4E27-9824-880D58D2CC82">
+                        <p class="titleinfigure">Figure 1-23 Common Findings in Both Reports</p><img src="img/common-findings-both-reports.png" alt="Description of Figure 1-23 follows" title="Description of Figure 1-23 follows" longdesc="img_text/common-findings-both-reports.html"><br><a href="img_text/common-findings-both-reports.html">Description of "Figure 1-23 Common Findings in Both Reports"</a></div>
+                     <!-- class="figure" -->
+                  </div>
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="understanding-and-managing-reports-and-output.html#GUID-CF99AAA0-E25C-4614-8C38-43B2B18442D0" title="Oracle ORAchk and Oracle EXAchk generate a detailed HTML report with findings and recommendations.">Understanding and Managing Reports and Output</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-B9A0B0B7-B4DC-4102-B537-CE241D8E364C" name="GUID-B9A0B0B7-B4DC-4102-B537-CE241D8E364C"></a><h3 id="OEXUG-GUID-B9A0B0B7-B4DC-4102-B537-CE241D8E364C" class="sect3"><span class="enumeration_section">1.5.7 </span>Merging Reports
+               </h3>
+               <div>
+                  <p>Merging reports is useful in role-separated environments where different users are run different subsets of checks and then you want to view everything as a whole.</p>
+                  <div class="p">To merge reports use the <code class="codeph">&#x2013;merge</code> option, followed by a comma--delimited list of directories or zip files:<pre class="pre codeblock"><code>./orachk -merge <span class="variable" translate="no">orachk_myhost_mydb_041916_033322_dba</span>,<span class="variable" translate="no">orachk_myhost_mydb_041916_035448_sysadmin</span>
+</code></pre><pre class="pre codeblock"><code>./exachk -merge <span class="variable" translate="no">exachk_myhost_mydb_041916_033322_dba</span>,<span class="variable" translate="no">exachk_myhost_mydb_041916_035448_sysadmin</span></code></pre></div>
+                  <div class="p"><pre class="pre codeblock"><code>$./orachk -merge orachk_myhost_mydb_041916_033322_dba, orachk_myhost_mydb_041916_035448_sysadmin
+
+Merging following collections:
+
+  orachk_myhost_mydb_041916_033322_dba
+  orachk_myhost_mydb_041916_035448_sysadmin
+. . . . . 
+
+Started merging orachk_myhost_mydb_041916_033322_dba
+  ...............................................................................
+Started merging orachk_myhost_mydb_041916_035448_sysadmin
+  ...............................................................................
+---------------------------------------------------------------------------------
+
+Detailed report (html) - /oracle/orachk/orachk_myhost_mydb_041916_033322_dba_merge/orachk_myhost_mydb_041916_033322_dba_merge.html
+
+UPLOAD(if required) - /orahome/oradb/orachk/orachk_myhost_mydb_041916_033322_dba_merge.zip</code></pre></div>
+                  <p>The resulting merged HTML report summary will show the collections it was merged from.</p>
+                  <div class="p">
+                     <div class="figure" id="GUID-B9A0B0B7-B4DC-4102-B537-CE241D8E364C__GUID-04744AE7-5BB7-412B-8B32-95BF714692B2">
+                        <p class="titleinfigure">Figure 1-24 Merged Report Summary</p><img src="img/merged-report-summary.png" alt="Description of Figure 1-24 follows" title="Description of Figure 1-24 follows" longdesc="img_text/merged-report-summary.html"><br><a href="img_text/merged-report-summary.html">Description of "Figure 1-24 Merged Report Summary"</a></div>
+                     <!-- class="figure" -->
+                  </div>
+                  <p>The merged findings appear together.</p>
+                  <div class="p">
+                     <div class="figure" id="GUID-B9A0B0B7-B4DC-4102-B537-CE241D8E364C__GUID-7981C77E-D966-4737-AAAB-50CE827FB1EB">
+                        <p class="titleinfigure">Figure 1-25 Merged Report Findings</p><img src="img/merged-report-findings.png" alt="Description of Figure 1-25 follows" title="Description of Figure 1-25 follows" longdesc="img_text/merged-report-findings.html"><br><a href="img_text/merged-report-findings.html">Description of "Figure 1-25 Merged Report Findings"</a></div>
+                     <!-- class="figure" -->
+                  </div>
+                  <div class="p">
+                     <div class="infoboxnote" id="GUID-B9A0B0B7-B4DC-4102-B537-CE241D8E364C__GUID-7FEEBDC1-3248-4B46-88CA-5BD44E9D7A0B">
+                        <p class="notep1">Note:</p>
+                        <p>For Oracle EXAchk, use the <code class="codeph">&#x2013;force</code> option to force merge collections from <code class="codeph">dom0</code> and <code class="codeph">domu</code>, or <code class="codeph">global</code> and <code class="codeph">local</code> zones.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="understanding-and-managing-reports-and-output.html#GUID-CF99AAA0-E25C-4614-8C38-43B2B18442D0" title="Oracle ORAchk and Oracle EXAchk generate a detailed HTML report with findings and recommendations.">Understanding and Managing Reports and Output</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-9C1E81F9-1B08-4C7B-9256-91422A9EA207" name="GUID-9C1E81F9-1B08-4C7B-9256-91422A9EA207"></a><h3 id="OEXUG-GUID-9C1E81F9-1B08-4C7B-9256-91422A9EA207" class="sect3"><span class="enumeration_section">1.5.8 </span>Output File Maintenance
+               </h3>
+               <div>
+                  <p>Oracle ORAchk and Oracle EXAchk create a number of temporary files and directories while running health checks.</p>
+                  <p>Oracle ORAchk and Oracle EXAchk create an output directory that contains various files for you to examine. The total size of the output directory and .zip file is under 5 MB. However, the size depends on the number of Oracle Stack Components evaluated.</p>
+                  <p>If you are running health checks in automated daemon Mode, then set the <code class="codeph">collection_retention</code> &nbsp;duration to purge old collections.
+                  </p>
+                  <p>If you are running health checks on-demand or in silent mode, then it is your responsibility to implement processes and procedures to purge result output.</p>
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="automated-daemon-mode-operation.html#GUID-2C32CB18-C837-40E8-AB6E-1FC6672A83E8" title="Oracle recommends that you use the daemon process to schedule recurring health checks at regular intervals.">Using Oracle ORAchk and Oracle EXAchk to Automatically Check for Risks and System Health</a></li>
+                        <li><a href="on-demand-mode-operation.html#GUID-7CB110A3-023B-400C-837E-5F4DE5A2BBDB" title="Usually, health checks run at scheduled intervals. However, Oracle recommends that you run health checks on-demand when needed.">Running Health Checks On-Demand</a></li>
+                        <li><a href="silent-mode-operation.html#GUID-82AEFE23-908D-42EA-8BD5-480C24A52F7A" title="Run health checks automatically by scheduling them with the Automated Daemon Mode operation.">Running Health Checks in Silent Mode</a></li>
+                        <li><a href="understanding-and-managing-reports-and-output.html#GUID-614D28F9-6854-48C7-8246-3FCDF1DA7F44" title="While running health checks, Oracle ORAchk and Oracle EXAchk create temporary directories and files for the purposes of data collection and assessment, and then delete them upon completion of health check runs.">Temporary Files and Directories</a></li>
+                        <li><a href="understanding-and-managing-reports-and-output.html#GUID-546A4494-4A28-4B85-822C-8229F5A88C9E" title="Oracle ORAchk and Oracle EXAchk create an output directory that contains various files for you to examine.">Output Files and Directories</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="understanding-and-managing-reports-and-output.html#GUID-CF99AAA0-E25C-4614-8C38-43B2B18442D0" title="Oracle ORAchk and Oracle EXAchk generate a detailed HTML report with findings and recommendations.">Understanding and Managing Reports and Output</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-BB7DBA83-FB98-4E8B-8616-20D5ECA0E3E7" name="GUID-BB7DBA83-FB98-4E8B-8616-20D5ECA0E3E7"></a><h3 id="OEXUG-GUID-BB7DBA83-FB98-4E8B-8616-20D5ECA0E3E7" class="sect3"><span class="enumeration_section">1.5.9 </span>Consuming Multiple Results in Other Tools
+               </h3>
+               <div>
+                  <p>Optionally integrate health check results into various other tools.</p>
+                  <p>For more information, see:</p>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p><a href="collection-manager.html#GUID-BC64F401-438E-4CE5-914C-577BD3A12EB1" title="Oracle Health Check Collections Manager for Oracle Application Express 4.2 provides you an enterprise-wide view of your health check collection data.">Oracle Health Check Collections Manager for Oracle Application Express 4.2</a></p>
+                     </li>
+                     <li>
+                        <p><a href="integration-with-other-tools.html#GUID-45D73757-7EEE-46DE-BC6E-0AF712CBE0B6" title="Integrate health check results from Oracle ORAchk and Oracle EXAchk into Enterprise Manager and other third-party tools.">Integrating Health Check Results with Other Tools</a></p>
+                     </li>
+                  </ul>
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="understanding-and-managing-reports-and-output.html#GUID-CF99AAA0-E25C-4614-8C38-43B2B18442D0" title="Oracle ORAchk and Oracle EXAchk generate a detailed HTML report with findings and recommendations.">Understanding and Managing Reports and Output</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

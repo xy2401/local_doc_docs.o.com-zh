@@ -1,0 +1,821 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="Oracle ORAchk for Oracle Identity and Access Management proactively identifies areas to take preventive measures to keep a system healthy on an ongoing basis.">
+      <meta name="description" content="Oracle ORAchk for Oracle Identity and Access Management proactively identifies areas to take preventive measures to keep a system healthy on an ongoing basis.">
+      <title>Oracle ORAchk for Oracle Identity and Access Management Health Check Tool</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide">
+      <meta property="og:description" content="Oracle ORAchk for Oracle Identity and Access Management proactively identifies areas to take preventive measures to keep a system healthy on an ongoing basis.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-orachk-and-exachk-users-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:43:23-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2016, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E83827-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/exachk">
+      
+      <link rel="prev" href="deploying-application-continuity.html" title="Previous" type="text/html">
+      <link rel="next" href="oracle-zfs-storage-apliance-health-checks.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"exachk","element_name":"EXAchk","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® ORAchk and EXAchk User's Guide">
+    <meta name="dcterms.isVersionOf" content="OEXUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="deploying-application-continuity.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="oracle-zfs-storage-apliance-health-checks.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="oracle-orachk-specific-features-and-tasks.html" property="item" typeof="WebPage"><span property="name">Oracle ORAchk Specific Features and Tasks</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Oracle ORAchk for Oracle Identity and Access Management Health Check Tool</li>
+            </ol>
+            <a id="GUID-049F70EF-BE6A-415F-BC65-5771B2BBEDFC" name="GUID-049F70EF-BE6A-415F-BC65-5771B2BBEDFC"></a>
+            
+            <h2 id="OEXUG-GUID-049F70EF-BE6A-415F-BC65-5771B2BBEDFC" class="sect2"><span class="enumeration_section">2.4 </span>Oracle ORAchk for Oracle Identity and Access Management Health Check Tool
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>Oracle ORAchk for Oracle Identity and Access Management proactively identifies areas to take preventive measures to keep a system healthy on an ongoing basis.</p>
+               <p>Oracle ORAchk for Oracle Identity and Access Management includes checks that cover the entire deployment stack from application tier to database tier.</p>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="oracle-iam-health-checks.html#GUID-FF0EF937-B0C1-455A-AAC8-BC49E063D62C">Supported Operating Systems and Oracle Database Releases</a><br>Review the operating systems and Oracle Database requirements for deploying Oracle ORAchk for Oracle Identity and Access Management health check tool.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-iam-health-checks.html#GUID-149CE57C-D986-4C2E-9EAB-1D203735C27B">Supported Components and Topologies</a><br>Review the following for supported components and topologies.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-iam-health-checks.html#GUID-39A5480D-3AB5-43CC-9438-773334D1AD25">Introduction to Oracle ORAchk for Oracle Identity and Access Management Health Checks</a><br>Oracle ORAchk for Oracle Identity and Access Management health checks inspect the entire deployment stack from application tier to database tier providing a simplistic, value-added, and easy-to-use solution.
+                  </li>
+                  <li class="ulchildlink"><a href="oracle-iam-health-checks.html#GUID-C61A6044-2A5D-4EA7-AD37-A9C844C5524F">Running Oracle ORAchk for Oracle Identity and Access Management Heath Checks</a><br>Review the prerequisites before you install Oracle ORAchk for Oracle Identity and Access Management.
+                  </li>
+               </ul>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="oracle-orachk-specific-features-and-tasks.html#GUID-778B432D-9B59-431B-9796-E947E4FC0969" title="This chapter describes the features specific to Oracle ORAchk and the tasks that you can perform using Oracle ORAchk.">Oracle ORAchk Specific Features and Tasks</a></p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="sect2"><a id="GUID-FF0EF937-B0C1-455A-AAC8-BC49E063D62C" name="GUID-FF0EF937-B0C1-455A-AAC8-BC49E063D62C"></a><h3 id="OEXUG-GUID-FF0EF937-B0C1-455A-AAC8-BC49E063D62C" class="sect3"><span class="enumeration_section">2.4.1 </span>Supported Operating Systems and Oracle Database Releases
+               </h3>
+               <div>
+                  <p>Review the operating systems and Oracle Database requirements for deploying Oracle ORAchk for Oracle Identity and Access Management health check tool.</p>
+                  <p>Only Linux is supported and in these combinations:</p>
+                  <div class="tblformal" id="GUID-FF0EF937-B0C1-455A-AAC8-BC49E063D62C__GUID-A2A36734-842C-4E30-BBFE-E178870067E6">
+                     <p class="titleintable">Table 2-3 Operating System and Database Requirements for Oracle ORAchk for Oracle Identity and Access Management health check tool</p>
+                     <table cellpadding="4" cellspacing="0" class="Formal" title="Operating System and Database Requirements for Oracle ORAchk for Oracle Identity and Access Management health check tool" summary="This table lists and describes the combination of operating systems and databases supported for Oracle ORAchk for Oracle Identity and Access Management health check tool." frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" width="20%" id="d46340e90">Operating System</th>
+                              <th align="left" valign="bottom" width="20%" id="d46340e92">Database</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d46340e96" headers="d46340e90 ">
+                                 <p>Linux(Oracle Enterprise Linux/RedHat 5, 6, 7 and SuSE 9.10, 11, 12)</p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d46340e96 d46340e92 ">
+                                 <p>10<span class="italic">g</span> R1
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d46340e106" headers="d46340e90 ">
+                                 <p>Linux on System Z (RedHat 6, 7 and SuSE 12)</p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d46340e106 d46340e92 ">
+                                 <p>11<span class="italic">g</span> R1
+                                 </p>
+                                 <p>11<span class="italic">g</span> R2
+                                 </p>
+                                 <p>12<span class="italic">c</span></p>
+                                 <p>12<span class="italic">c</span> R2
+                                 </p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-iam-health-checks.html#GUID-049F70EF-BE6A-415F-BC65-5771B2BBEDFC" title="Oracle ORAchk for Oracle Identity and Access Management proactively identifies areas to take preventive measures to keep a system healthy on an ongoing basis.">Oracle ORAchk for Oracle Identity and Access Management Health Check Tool</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-149CE57C-D986-4C2E-9EAB-1D203735C27B" name="GUID-149CE57C-D986-4C2E-9EAB-1D203735C27B"></a><h3 id="OEXUG-GUID-149CE57C-D986-4C2E-9EAB-1D203735C27B" class="sect3"><span class="enumeration_section">2.4.2 </span>Supported Components and Topologies
+               </h3>
+               <div>
+                  <p>Review the following for supported components and topologies.</p>
+                  <p>Oracle ORAchk for Oracle Identity and Access Management health checks support the following components:</p>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p>Oracle Identity Manager (11.1.2.2.x and 11.1.2.3.x)</p>
+                     </li>
+                     <li>
+                        <p>Oracle Access Manager (11.1.2.2.x and 11.1.2.3.x)</p>
+                     </li>
+                     <li>
+                        <p>Oracle Unified Directory (11.1.2.2.x and 11.1.2.3.x)</p>
+                     </li>
+                  </ul>
+                  <p>Based on the components, the following topologies are supported:</p>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p>Oracle Identity Manager in single node and multi-node setup</p>
+                     </li>
+                     <li>
+                        <p>Oracle Access Manager + (Any directory)* in single node and multi-node setup</p>
+                        <p>Oracle ORAchk for Oracle Identity and Access Management health checks run only on Oracle Unified Directory (OUD). If other directories are there as well, then Oracle ORAchk for Oracle Identity and Access Management skips health checks for those directories and perform health checks on Oracle Access Manager. However, Oracle Access Manager configured in embedded LDAP mode is not supported.</p>
+                     </li>
+                     <li>
+                        <p>Oracle Identity Manager + Oracle Access Manager + (Any directory)** in single node and multi-node setup</p>
+                        <p>Oracle ORAchk for Oracle Identity and Access Management health checks run only on Oracle Unified Directory (OUD). If other directories are there as well, then Oracle ORAchk for Oracle Identity and Access Management skips health checks for those directories and perform health checks on Oracle Access Manager. However, Oracle Access Manager configured in embedded LDAP mode is not supported.</p>
+                     </li>
+                  </ul>
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-iam-health-checks.html#GUID-049F70EF-BE6A-415F-BC65-5771B2BBEDFC" title="Oracle ORAchk for Oracle Identity and Access Management proactively identifies areas to take preventive measures to keep a system healthy on an ongoing basis.">Oracle ORAchk for Oracle Identity and Access Management Health Check Tool</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-39A5480D-3AB5-43CC-9438-773334D1AD25" name="GUID-39A5480D-3AB5-43CC-9438-773334D1AD25"></a><h3 id="OEXUG-GUID-39A5480D-3AB5-43CC-9438-773334D1AD25" class="sect3"><span class="enumeration_section">2.4.3 </span>Introduction to Oracle ORAchk for Oracle Identity and Access Management Health Checks
+               </h3>
+               <div>
+                  <p>Oracle ORAchk for Oracle Identity and Access Management health checks inspect the entire deployment stack from application tier to database tier providing a simplistic, value-added, and easy-to-use solution.</p>
+                  <p>Run Oracle ORAchk for Oracle Identity and Access Management health checks before and after installing the product, and while running the product.</p>
+                  <div class="tblformal" id="GUID-39A5480D-3AB5-43CC-9438-773334D1AD25__GUID-9E27D6B5-E259-4C3D-8CCE-7D0EB52BC698">
+                     <p class="titleintable">Table 2-4 Oracle ORAchk for Oracle Identity and Access Management health check tool Use Cases</p>
+                     <table cellpadding="4" cellspacing="0" class="Formal" title="Oracle ORAchk for Oracle Identity and Access Management health check tool Use Cases" summary="This table lists and describes what checks are included in pre-install, post-install, and runtime health checks." frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" width="20%" id="d46340e234">Use Cases</th>
+                              <th align="left" valign="bottom" width="20%" id="d46340e236">Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d46340e240" headers="d46340e234 ">
+                                 <p>Post-install health checks</p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d46340e240 d46340e236 ">
+                                 <p>Includes checks that are run just after a product is installed. These are mostly product focused checks, for example, for Oracle Identity Manager, Oracle Access Manager, and Oracle Unified Directory respective post-install checks.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d46340e247" headers="d46340e234 ">
+                                 <p>Runtime health checks</p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d46340e247 d46340e236 ">
+                                 <p>Shows the health of the system regularly and helps you take proactive corrective actions.</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="oracle-iam-health-checks.html#GUID-C66458E2-703D-4F11-B03F-7F2B4F1576B3">Features of Oracle ORAchk for Oracle Identity and Access Management Health Check Tool</a><br>Health checks are run both at product install time as well as runtime.
+                     </li>
+                     <li class="ulchildlink"><a href="oracle-iam-health-checks.html#GUID-B76DEACE-E945-4631-B0CA-0827821724F8">Auto-discovery of Oracle Identity and Access Management Environment</a><br>Oracle ORAchk framework automatically runs the Discovery tool while running Oracle ORAchk for Oracle Identity and Access Management health checks.
+                     </li>
+                  </ul>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-iam-health-checks.html#GUID-049F70EF-BE6A-415F-BC65-5771B2BBEDFC" title="Oracle ORAchk for Oracle Identity and Access Management proactively identifies areas to take preventive measures to keep a system healthy on an ongoing basis.">Oracle ORAchk for Oracle Identity and Access Management Health Check Tool</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="sect3"><a id="GUID-C66458E2-703D-4F11-B03F-7F2B4F1576B3" name="GUID-C66458E2-703D-4F11-B03F-7F2B4F1576B3"></a><h4 id="OEXUG-GUID-C66458E2-703D-4F11-B03F-7F2B4F1576B3" class="sect4"><span class="enumeration_section">2.4.3.1 </span>Features of Oracle ORAchk for Oracle Identity and Access Management Health Check Tool
+                  </h4>
+                  <div>
+                     <p>Health checks are run both at product install time as well as runtime.</p>
+                     <p><span class="bold">Product install time checks cover the following areas:</span></p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>System Resources</p>
+                        </li>
+                        <li>
+                           <p>System Configuration</p>
+                        </li>
+                        <li>
+                           <p>Software Configuration</p>
+                        </li>
+                        <li>
+                           <p>Database Configuration</p>
+                        </li>
+                     </ul>
+                     <div class="tblformal" id="GUID-C66458E2-703D-4F11-B03F-7F2B4F1576B3__GUID-9326469E-8493-4946-9BE5-AC7651194B73">
+                        <p class="titleintable">Table 2-5 Runtime Checks by Component</p>
+                        <table cellpadding="4" cellspacing="0" class="Formal" title="Runtime Checks by Component" summary="This table lists and describes runtime checks for Oracle Identity Manager, Oracle Access Manager, and Oracle Unified Directory." frame="hsides" border="1" rules="rows">
+                           <thead>
+                              <tr align="left" valign="top">
+                                 <th align="left" valign="bottom" width="20%" id="d46340e328">Component</th>
+                                 <th align="left" valign="bottom" width="20%" id="d46340e330">Modules</th>
+                                 <th align="left" valign="bottom" width="20%" id="d46340e332">Common Services</th>
+                                 <th align="left" valign="bottom" width="20%" id="d46340e334">Data Tier</th>
+                                 <th align="left" valign="bottom" width="20%" id="d46340e336">General</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d46340e340" headers="d46340e328 ">
+                                    <p>Oracle Identity Manager</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e340 d46340e330 ">
+                                    <p>Access Request and Catalog</p>
+                                    <p>Certification Engine</p>
+                                    <p>UI Category</p>
+                                    <p>Provisioning Engine</p>
+                                    <p>Reconciliation Engine</p>
+                                    <p>IT Admin (User/Role/Org)</p>
+                                    <p>Connector Framework</p>
+                                    <p>Identify Audit Engine</p>
+                                    <p>Identify Analytics Engine</p>
+                                    <p>Role Engine</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e340 d46340e332 ">
+                                    <p>Audit and Reports/Embedded BIP</p>
+                                    <p>Scheduler</p>
+                                    <p>Policy/Rule Engine</p>
+                                    <p>Workflow Engine (SOA/BPEL)</p>
+                                    <p>Authorization Layer</p>
+                                    <p>Notification Engine</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e340 d46340e334 ">
+                                    <p>Database</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e340 d46340e336 ">
+                                    <p>Overall Performance</p>
+                                    <p>Application Readiness</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d46340e386" headers="d46340e328 ">
+                                    <p>Oracle Access Manager</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e386 d46340e330 ">
+                                    <p>UI Category</p>
+                                    <p>Federation (Single Sign On) Engine</p>
+                                    <p>Authentication Engine</p>
+                                    <p>Admin Console</p>
+                                    <p>Policy Engine</p>
+                                    <p>oAuth</p>
+                                    <p>Token Processing</p>
+                                    <p>Session Management</p>
+                                    <p>Config Services</p>
+                                    <p>Authorization Services</p>
+                                    <p>Oracle Platform Security Services</p>
+                                    <p>Webgates</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e386 d46340e332 ">
+                                    <p>NA</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e386 d46340e334 ">
+                                    <p>Database</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e386 d46340e336 ">
+                                    <p>Overall Performance</p>
+                                    <p>Application Readiness</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d46340e427" headers="d46340e328 ">
+                                    <p>Oracle Unified Directory</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e427 d46340e330 ">
+                                    <p>Basic Sanity</p>
+                                    <p>Oracle Unified Directory Replication</p>
+                                    <p>Performance</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e427 d46340e332 ">
+                                    <p>NA</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e427 d46340e334 ">
+                                    <p>NA</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e427 d46340e336 ">
+                                    <p>NA</p>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- class="inftblhruleinformal" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-iam-health-checks.html#GUID-39A5480D-3AB5-43CC-9438-773334D1AD25" title="Oracle ORAchk for Oracle Identity and Access Management health checks inspect the entire deployment stack from application tier to database tier providing a simplistic, value-added, and easy-to-use solution.">Introduction to Oracle ORAchk for Oracle Identity and Access Management Health Checks</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-B76DEACE-E945-4631-B0CA-0827821724F8" name="GUID-B76DEACE-E945-4631-B0CA-0827821724F8"></a><h4 id="OEXUG-GUID-B76DEACE-E945-4631-B0CA-0827821724F8" class="sect4"><span class="enumeration_section">2.4.3.2 </span>Auto-discovery of Oracle Identity and Access Management Environment
+                  </h4>
+                  <div>
+                     <p>Oracle ORAchk framework automatically runs the Discovery tool while running Oracle ORAchk for Oracle Identity and Access Management health checks.</p>
+                     <div class="p">Auto-discovery process includes:
+                        <ol>
+                           <li>
+                              <p>Discovery tool Identifies the host names of the following:</p>
+                              <ol type="a">
+                                 <li>
+                                    <p>Oracle Identity Manager Admin server</p>
+                                 </li>
+                                 <li>
+                                    <p>Oracle Access Manager Admin server</p>
+                                 </li>
+                                 <li>
+                                    <p>One Oracle Unified Directory host from user ID store and system ID store Oracle Unified Directory clusters. If both ID stores are same, then the Discovery tool picks one Oracle Unified Directory host.</p>
+                                 </li>
+                              </ol>
+                           </li>
+                           <li>
+                              <p>Discovery tool stores the discovered information in a topology file and the user credentials in a wallet file.</p>
+                           </li>
+                           <li>
+                              <p>Oracle ORAchk copies the discovery executables to the target machine and runs the Discovery tool on all required machines.</p>
+                           </li>
+                           <li>
+                              <p>Discovery tool runs serially on all the required machines.</p>
+                           </li>
+                           <li>
+                              <p>Oracle ORAchk passes the same <code>topology.xml</code> and <code>cwallet</code> files to the Discovery tool on all Oracle Identity and Access Management machines.
+                              </p>
+                              <p>That is, if Oracle ORAchk runs the Discovery tool on the first machine, then the Discovery tool creates the <code>topology.xml</code> and <code>cwallet.sso</code> &nbsp;files. Oracle ORAchk copies the same <code>xml</code> and <code class="codeph">wallet</code> while running the Discovery tool on other Oracle Identity and Access Management machines.
+                              </p>
+                           </li>
+                           <li>
+                              <p>At the end of the discovery, the topology file contains the complete information of the entire environment and the wallet file contains the encrypted user credentials.</p>
+                           </li>
+                           <li>
+                              <p>Oracle ORAchk uses the topology file and the wallet file to run the health checks on multiple nodes.</p>
+                           </li>
+                           <li>
+                              <p>The Discovery tool validates the user credentials that it collected. If the credentials are not valid, then the tool prompts the user to enter the details again. After three unsuccessful attempts, the discovery process exits.</p>
+                           </li>
+                        </ol>
+                     </div>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-iam-health-checks.html#GUID-39A5480D-3AB5-43CC-9438-773334D1AD25" title="Oracle ORAchk for Oracle Identity and Access Management health checks inspect the entire deployment stack from application tier to database tier providing a simplistic, value-added, and easy-to-use solution.">Introduction to Oracle ORAchk for Oracle Identity and Access Management Health Checks</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-C61A6044-2A5D-4EA7-AD37-A9C844C5524F" name="GUID-C61A6044-2A5D-4EA7-AD37-A9C844C5524F"></a><h3 id="OEXUG-GUID-C61A6044-2A5D-4EA7-AD37-A9C844C5524F" class="sect3"><span class="enumeration_section">2.4.4 </span>Running Oracle ORAchk for Oracle Identity and Access Management Heath Checks
+               </h3>
+               <div>
+                  <p>Review the prerequisites before you install Oracle ORAchk for Oracle Identity and Access Management.</p>
+                  <p>Provide the information that is required while running the Discovery tool for the first time.</p>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="oracle-iam-health-checks.html#GUID-289A6ECA-EF40-4513-96D5-000E0D987B97">Downloading Oracle ORAchk for Oracle Identity and Access Management</a><br>Oracle ORAchk for Oracle Identity and Access Management uses a different distribution than the standard Oracle ORAchk.
+                     </li>
+                     <li class="ulchildlink"><a href="oracle-iam-health-checks.html#GUID-D15478D8-56F8-49DB-9FCD-E5F9364DDDDA">Prerequisites for Installing Oracle ORAchk for Oracle Identity and Access Management</a><br>Review the list of prerequisites for running Oracle Identity and Access Management health checks.
+                     </li>
+                     <li class="ulchildlink"><a href="oracle-iam-health-checks.html#GUID-EB32F0E6-F7A5-4178-A076-5C690DB1EC0E">Inputs Required by Discovery Tool (First Time Only)</a><br>Discovery tool prompts you to answer a series of questions about your configuration when you run the tool for the first time.
+                     </li>
+                     <li class="ulchildlink"><a href="oracle-iam-health-checks.html#GUID-077AB582-F3B3-43F6-B13A-2264DDBB5401">Oracle ORAchk for Oracle Identity and Access Management Health Checks</a><br>Run Oracle ORAchk for Oracle Identity and Access Management health checks as <code class="codeph">root</code> &nbsp;or the user who owns the Oracle Identity and Access Management setup.
+                     </li>
+                  </ul>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="oracle-iam-health-checks.html#GUID-049F70EF-BE6A-415F-BC65-5771B2BBEDFC" title="Oracle ORAchk for Oracle Identity and Access Management proactively identifies areas to take preventive measures to keep a system healthy on an ongoing basis.">Oracle ORAchk for Oracle Identity and Access Management Health Check Tool</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="sect3"><a id="GUID-289A6ECA-EF40-4513-96D5-000E0D987B97" name="GUID-289A6ECA-EF40-4513-96D5-000E0D987B97"></a><h4 id="OEXUG-GUID-289A6ECA-EF40-4513-96D5-000E0D987B97" class="sect4"><span class="enumeration_section">2.4.4.1 </span>Downloading Oracle ORAchk for Oracle Identity and Access Management
+                  </h4>
+                  <div>
+                     <p>Oracle ORAchk for Oracle Identity and Access Management uses a different distribution than the standard Oracle ORAchk.</p>
+                     <p>Download <code>orachk_idm.zip</code> for Oracle ORAchk with Oracle Identity and Access Management support, which is available at My Oracle Support Note 1268927.2.
+                     </p>
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="https://support.oracle.com/rs?type=doc&amp;amp;id=1268927.2" target="_blank">https://support.oracle.com/rs?type=doc&amp;id=1268927.2</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-iam-health-checks.html#GUID-C61A6044-2A5D-4EA7-AD37-A9C844C5524F" title="Review the prerequisites before you install Oracle ORAchk for Oracle Identity and Access Management.">Running Oracle ORAchk for Oracle Identity and Access Management Heath Checks</a></p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="sect3"><a id="GUID-D15478D8-56F8-49DB-9FCD-E5F9364DDDDA" name="GUID-D15478D8-56F8-49DB-9FCD-E5F9364DDDDA"></a><h4 id="OEXUG-GUID-D15478D8-56F8-49DB-9FCD-E5F9364DDDDA" class="sect4"><span class="enumeration_section">2.4.4.2 </span>Prerequisites for Installing Oracle ORAchk for Oracle Identity and Access Management 
+                  </h4>
+                  <div>
+                     <p>Review the list of prerequisites for running Oracle Identity and Access Management health checks.</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Ensure that JDK 6 or later is set in the system path. If it is not set, then set the environment variable <code class="codeph">RAT_JAVA_HOME</code> to the correct Java home location.
+                           </p>
+                        </li>
+                        <li>
+                           <p>You must run Oracle ORAchk on the machine where the WebLogic admin server for Oracle Identity and Access Management is installed.</p>
+                        </li>
+                        <li>
+                           <div class="p">Set <code class="codeph">RAT_TMPDIR</code> &nbsp;to the location of a temporary directory, for example:<pre class="pre codeblock"><code>export RAT_INV_LOC=/tmp/oracle/oraInventoryM</code></pre></div>
+                           <p>If <code class="codeph">RAT_TMPDIR</code> &nbsp;is not set, then Oracle ORAchk uses <code class="codeph">$HOME</code>&nbsp; as the temporary directory. The temporary directory used by Oracle ORAchk must have sufficient space (20 MB) or errors can occur.
+                           </p>
+                        </li>
+                        <li>
+                           <div class="p">If the <code>oraInst.loc</code> file is not in the default directory, for example, <code>/u01/app/oraInventory</code>, then specify the exact location of the <code>oraInventory</code> directory using the <code class="codeph">RAC_INV_LOCAL</code> environment variable. For example: <pre class="pre codeblock"><code>export RAT_INV_LOC=/scratch/shared/oracle/oraInventory</code></pre></div>
+                        </li>
+                        <li>
+                           <p>You must run Oracle ORAchk as the same user that installed the Oracle Identity and Access Management software components.</p>
+                        </li>
+                        <li>
+                           <p>Each server that is part of the Oracle Identity and Access Management topology must have secure shell (SSH) enabled. If SSH is disabled, then Oracle ORAchk cannot remotely run checks on those servers. On servers without SSH enabled you must run Oracle ORAchk individually and then combine the results.</p>
+                        </li>
+                        <li>
+                           <p>Oracle ORAchk can only detect local database installations. It cannot detect databases that are installed on remote machines. In such cases, run Oracle ORAchk explicitly on the database machine and combine the results.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-iam-health-checks.html#GUID-C61A6044-2A5D-4EA7-AD37-A9C844C5524F" title="Review the prerequisites before you install Oracle ORAchk for Oracle Identity and Access Management.">Running Oracle ORAchk for Oracle Identity and Access Management Heath Checks</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-EB32F0E6-F7A5-4178-A076-5C690DB1EC0E" name="GUID-EB32F0E6-F7A5-4178-A076-5C690DB1EC0E"></a><h4 id="OEXUG-GUID-EB32F0E6-F7A5-4178-A076-5C690DB1EC0E" class="sect4"><span class="enumeration_section">2.4.4.3 </span>Inputs Required by Discovery Tool (First Time Only)
+                  </h4>
+                  <div>
+                     <p>Discovery tool prompts you to answer a series of questions about your configuration when you run the tool for the first time.</p>
+                     <div class="tblformal" id="GUID-EB32F0E6-F7A5-4178-A076-5C690DB1EC0E__GUID-3BEDF7E0-FA9B-472E-B229-BF7983DADC7E">
+                        <p class="titleintable">Table 2-6 Discovery Tool Configuration Information</p>
+                        <table cellpadding="4" cellspacing="0" class="Formal" title="Discovery Tool Configuration Information" summary="This table lists and describes the inputs required by the Discovery tool the first time it’s run." frame="hsides" border="1" rules="rows">
+                           <thead>
+                              <tr align="left" valign="top">
+                                 <th align="left" valign="bottom" width="20%" id="d46340e746">Input</th>
+                                 <th align="left" valign="bottom" width="20%" id="d46340e748">Description</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d46340e752" headers="d46340e746 ">
+                                    <p>Is this a Single Node Identity Management System (idm) [Y|N] [N] :</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e752 d46340e748 ">
+                                    <p>Checks whether your Oracle Identity Manager environment is a single node or multi-node setup.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d46340e759" headers="d46340e746 ">
+                                    <p>How many Oracle Unified Directory (OUD) clusters present[0] :1</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e759 d46340e748 ">
+                                    <p>Checks for the number of Oracle Unified Directory clusters present.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d46340e766" headers="d46340e746 ">
+                                    <p>Enter one of the Oracle Unified Directory (OUD) Host in cluster 1</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e766 d46340e748 ">
+                                    <p>Specify one Oracle Unified Directory host name.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d46340e773" headers="d46340e746 ">
+                                    <p>Enter Oracle Identity Manager (OIM) Host (Press just ENTER to skip)</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e773 d46340e748 ">
+                                    <p>Specify one Oracle Identity Manager admin server host name.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d46340e780" headers="d46340e746 ">
+                                    <p>Enter Oracle Access Manager (OAM) Host (Press just ENTER to skip) :</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e780 d46340e748 ">
+                                    <p>Specify one Oracle Access Manager admin server host name.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d46340e787" headers="d46340e746 ">
+                                    <p>Enter <code class="codeph">JAVA_HOME</code>:
+                                    </p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e787 d46340e748 ">
+                                    <p>The Discovery tool does not prompt this question, if you have set the <code class="codeph">RAT_JAVA_HOME</code> environment variable.
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d46340e800" headers="d46340e746 ">
+                                    <p>Enter <code class="codeph">WLS</code> Admin user name for domain <code class="codeph">IAMGovernanceDomain</code>:
+                                    </p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e800 d46340e748 ">
+                                    <p>Specify WebLogic admin user name.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d46340e813" headers="d46340e746 ">
+                                    <p>Enter password</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e813 d46340e748 ">
+                                    <p>Specify the password for WebLogic admin user name.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d46340e820" headers="d46340e746 ">
+                                    <p>Enter Oracle Identity Manager (OIM) admin user (xelsysadm) password :</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e820 d46340e748 ">
+                                    <p>Specify the password for <code class="codeph">xelsysadm</code>.
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d46340e830" headers="d46340e746 ">
+                                    <p>Enter Oracle Identity Manager (OIM) LDAP Admin user DN: </p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e830 d46340e748 ">
+                                    <p>Specify the entire DN for Oracle Identity Manager LDAP admin user, for example,<code class="codeph">cn=oimLDAP,cn=SystemIDs,dc=us,dc=oracle,dc=com</code>.
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d46340e840" headers="d46340e746 ">
+                                    <p>Enter password for admin user DN</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e840 d46340e748 ">
+                                    <p>Specify the password for Oracle Identity Manager LDAP DN.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d46340e848" headers="d46340e746 ">
+                                    <p>Enter password for schema <code class="codeph">&lt;OIM Schema&gt;</code>:
+                                    </p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e848 d46340e748 ">
+                                    <p>Specify the password for Oracle Identity Manager schema.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d46340e858" headers="d46340e746 ">
+                                    <p>Enter OUD Admin password for <code class="codeph">cn=oudadmin</code>:
+                                    </p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e858 d46340e748 ">
+                                    <p>Specify the Oracle Unified Directory admin password.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d46340e868" headers="d46340e746 ">
+                                    <p>Enter OUD Admin password for <code class="codeph">cn=oudmanager,cn=Administrators, cn=admin</code> data:
+                                    </p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e868 d46340e748 ">
+                                    <p>Specify the Oracle Unified Directory manager password.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d46340e878" headers="d46340e746 ">
+                                    <p>Enter WLS Admin Username for domain <code class="codeph">IAMAccessDomain</code>:
+                                    </p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e878 d46340e748 ">
+                                    <p>Specify the Oracle Access Manager admin user name.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d46340e888" headers="d46340e746 ">
+                                    <p>Enter password:</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e888 d46340e748 ">
+                                    <p>Specify the Oracle Access Manager Admin user password.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d46340e895" headers="d46340e746 ">
+                                    <p>Enter Oracle Access Manager (OAM) Admin user</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e895 d46340e748 ">
+                                    <p>Specify the Oracle Access Manager LDAP admin user name.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d46340e902" headers="d46340e746 ">
+                                    <p>Enter password for admin user:</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e902 d46340e748 ">
+                                    <p>Specify the Oracle Access Manager LDAP admin password.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d46340e909" headers="d46340e746 ">
+                                    <p>Enter password for schema <code class="codeph">&lt;OAM Schema&gt;</code>:
+                                    </p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e909 d46340e748 ">
+                                    <p>Specify the password for Oracle Access Manager schema.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d46340e919" headers="d46340e746 ">
+                                    <p>Database Oracle home location</p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d46340e919 d46340e748 ">
+                                    <p>If Oracle database is on the local machine, then the Discovery tool prompts you to specify the Oracle home location.</p>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- class="inftblhruleinformal" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-iam-health-checks.html#GUID-C61A6044-2A5D-4EA7-AD37-A9C844C5524F" title="Review the prerequisites before you install Oracle ORAchk for Oracle Identity and Access Management.">Running Oracle ORAchk for Oracle Identity and Access Management Heath Checks</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-077AB582-F3B3-43F6-B13A-2264DDBB5401" name="GUID-077AB582-F3B3-43F6-B13A-2264DDBB5401"></a><h4 id="OEXUG-GUID-077AB582-F3B3-43F6-B13A-2264DDBB5401" class="sect4"><span class="enumeration_section">2.4.4.4 </span>Oracle ORAchk for Oracle Identity and Access Management Health Checks
+                  </h4>
+                  <div>
+                     <p>Run Oracle ORAchk for Oracle Identity and Access Management health checks as <code class="codeph">root</code> &nbsp;or the user who owns the Oracle Identity and Access Management setup.
+                     </p>
+                     <ol>
+                        <li class="stepexpand"><span>Create a new folder on a location on one of the WebLogic admin machine, for example, <code>healthcheck IAM</code>.</span></li>
+                        <li class="stepexpand"><span>Set the environment variable to run the health checks based on a specific deployment size.</span><div>
+                              <p>Oracle ORAchk supports four deployment sizes:</p>
+                              <div class="tblformal" id="GUID-077AB582-F3B3-43F6-B13A-2264DDBB5401__GUID-80C8A484-87D7-4909-BC7E-BC5B60DF26B0">
+                                 <p class="titleintable">Table 2-7 Deployment Size</p>
+                                 <table cellpadding="4" cellspacing="0" class="Formal" title="Deployment Size" summary="This table lists and describes the deployment size that Oracle ORAchk is capable of running." frame="hsides" border="1" rules="rows">
+                                    <thead>
+                                       <tr align="left" valign="top">
+                                          <th align="left" valign="bottom" width="20%" id="d46340e980">Deployment Size</th>
+                                          <th align="left" valign="bottom" width="20%" id="d46340e982">Directory User Size</th>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                       <tr align="left" valign="top">
+                                          <td align="left" valign="top" width="20%" id="d46340e986" headers="d46340e980 ">
+                                             <p>small</p>
+                                          </td>
+                                          <td align="left" valign="top" width="20%" headers="d46340e986 d46340e982 ">
+                                             <p>Close to 100 K</p>
+                                          </td>
+                                       </tr>
+                                       <tr align="left" valign="top">
+                                          <td align="left" valign="top" width="20%" id="d46340e993" headers="d46340e980 ">
+                                             <p>medium</p>
+                                          </td>
+                                          <td align="left" valign="top" width="20%" headers="d46340e993 d46340e982 ">
+                                             <p>Close to 1 million</p>
+                                          </td>
+                                       </tr>
+                                       <tr align="left" valign="top">
+                                          <td align="left" valign="top" width="20%" id="d46340e1000" headers="d46340e980 ">
+                                             <p>large</p>
+                                          </td>
+                                          <td align="left" valign="top" width="20%" headers="d46340e1000 d46340e982 ">
+                                             <p>Close to 15 million</p>
+                                          </td>
+                                       </tr>
+                                       <tr align="left" valign="top">
+                                          <td align="left" valign="top" width="20%" id="d46340e1007" headers="d46340e980 ">
+                                             <p>extralarge</p>
+                                          </td>
+                                          <td align="left" valign="top" width="20%" headers="d46340e1007 d46340e982 ">
+                                             <p>Close to 250 million</p>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </div>
+                              <!-- class="inftblhruleinformal" -->
+                              <div class="p">To specify a deployment size, before running Oracle ORAchk, set the environment variable <code class="codeph">RAT_IDM_DEPLOYMENT_SIZE</code>.<pre class="pre codeblock"><code>$ export RAT_IDM_DEPLOYMENT_SIZE=small</code></pre></div>
+                              <p>If <code class="codeph">RAT_IDM_DEPLOYMENT_SIZE</code> is not set, then Oracle ORAchk uses the default deployment size <code class="codeph">small</code> .
+                              </p>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>Change directories to the new directory you created in Step 1 and run Oracle ORAchk.</span><div>
+                              <p>Oracle ORAchk prompts the discovery questions as described in <span class="q">"Inputs Required by Discovery Tool (First Time Only)"</span>.
+                              </p>
+                              <p>If the database is running on the same machine where the core Oracle Identity and Access Management components are installed, then the database checks are run as well.</p>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>If database is running on a remote server, then run the database checks manually:</span><div>
+                              <ol type="a">
+                                 <li>
+                                    <p>Copy the same <code>orachk_IAM.zip</code> to the remote server, and unzip it in any directory.
+                                    </p>
+                                 </li>
+                                 <li>
+                                    <p>Run <code class="codeph">./orachk -idmdbruntime</code> either as root or the user who owns the Oracle Identity and Access Management installation.
+                                    </p>
+                                    <p>This command generates a new Oracle ORAchk collection, for example, <code>orachk_den00etd_orcl_100915_061616.zip</code>.
+                                    </p>
+                                 </li>
+                              </ol>
+                              <div class="p">Oracle ORAchk runs checks on all servers that are part of the Oracle Identity and Access Management topology and generates a single report. However, in the following cases Oracle ORAchk cannot generate a single report:
+                                 <ol type="a">
+                                    <li>
+                                       <p>Oracle Identity and Access Management install is multi-node setup and SSH is disabled on machines involved. In such case Oracle ORAchk run on each node and then merge the reports.</p>
+                                    </li>
+                                    <li>
+                                       <p>Oracle ORAchk is run on machine where WebLogic Admin server is running. If this machine doesn't have the database installed, then Oracle ORAchk does not run the database checks.. In such case run Oracle ORAchk on the database node additionally and then merge the reports.</p>
+                                    </li>
+                                 </ol>
+                              </div>
+                           </div>
+                        </li>
+                     </ol>
+                     <div class="section">
+                        <p>Refer to My Oracle Support Note 2070073.1 for the latest known issues specific to Oracle ORAchk for Oracle Identity and Access Management health checks.</p>
+                     </div>
+                     <!-- class="section" -->
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="oracle-iam-health-checks.html#GUID-B76DEACE-E945-4631-B0CA-0827821724F8" title="Oracle ORAchk framework automatically runs the Discovery tool while running Oracle ORAchk for Oracle Identity and Access Management health checks.">Auto-discovery of Oracle Identity and Access Management Environment</a></li>
+                           <li><a href="oracle-iam-health-checks.html#GUID-EB32F0E6-F7A5-4178-A076-5C690DB1EC0E" title="Discovery tool prompts you to answer a series of questions about your configuration when you run the tool for the first time.">Inputs Required by Discovery Tool (First Time Only)</a></li>
+                           <li><a href="oracle-orachk-specific-command-line-options.html#GUID-466DCC84-809E-42ED-B4ED-E3DE58E8E8B7" title="List of Oracle ORAchk for Oracle Identity and Access Management command-line options.">Oracle ORAchk for Oracle Identity and Access Management Command-Line Options</a></li>
+                           <li><a href="understanding-and-managing-reports-and-output.html#GUID-B9A0B0B7-B4DC-4102-B537-CE241D8E364C" title="Merging reports is useful in role-separated environments where different users are run different subsets of checks and then you want to view everything as a whole.">Merging Reports</a></li>
+                           <li><a href="understanding-and-managing-reports-and-output.html#GUID-CF99AAA0-E25C-4614-8C38-43B2B18442D0" title="Oracle ORAchk and Oracle EXAchk generate a detailed HTML report with findings and recommendations.">Understanding and Managing Reports and Output</a></li>
+                           <li><a href="health-check-catalog.html#GUID-B26FAD6B-4D22-40FF-ADC8-0319010DB2C2" title="The Health Check Catalogs list the health checks that are included within Oracle ORAchk or Oracle EXAchk.">Health Check Catalog</a></li>
+                           <li><a href="https://support.oracle.com/rs?type=doc&amp;amp;id=2070073.1" target="_blank">https://support.oracle.com/rs?type=doc&amp;amp;id=2070073.1</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="oracle-iam-health-checks.html#GUID-C61A6044-2A5D-4EA7-AD37-A9C844C5524F" title="Review the prerequisites before you install Oracle ORAchk for Oracle Identity and Access Management.">Running Oracle ORAchk for Oracle Identity and Access Management Heath Checks</a></p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

@@ -1,0 +1,869 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="Oracle recommends that you use the daemon process to schedule recurring health checks at regular intervals.">
+      <meta name="description" content="Oracle recommends that you use the daemon process to schedule recurring health checks at regular intervals.">
+      <title>Using Oracle ORAchk and Oracle EXAchk to Automatically Check for Risks and System Health</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide">
+      <meta property="og:description" content="Oracle recommends that you use the daemon process to schedule recurring health checks at regular intervals.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-orachk-and-exachk-users-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:43:23-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2016, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E83827-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/exachk">
+      
+      <link rel="prev" href="quick-start-guide.html" title="Previous" type="text/html">
+      <link rel="next" href="on-demand-mode-operation.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"exachk","element_name":"EXAchk","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® ORAchk and EXAchk User's Guide">
+    <meta name="dcterms.isVersionOf" content="OEXUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="quick-start-guide.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="on-demand-mode-operation.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="oracle-orachk-and-exachk-common-features-tasks.html" property="item" typeof="WebPage"><span property="name">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Using Oracle ORAchk and Oracle EXAchk to Automatically Check for Risks and System Health</li>
+            </ol>
+            <a id="GUID-2C32CB18-C837-40E8-AB6E-1FC6672A83E8" name="GUID-2C32CB18-C837-40E8-AB6E-1FC6672A83E8"></a>
+            
+            <h2 id="OEXUG-GUID-2C32CB18-C837-40E8-AB6E-1FC6672A83E8" class="sect2"><span class="enumeration_section">1.2 </span>Using Oracle ORAchk and Oracle EXAchk to Automatically Check for Risks and System Health
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>Oracle recommends that you use the daemon process to schedule recurring health checks at regular intervals.</p>
+               <div class="infoboxnote" id="GUID-2C32CB18-C837-40E8-AB6E-1FC6672A83E8__GUID-215A0F30-5995-40CB-80EE-438C0B74CFEE">
+                  <p class="notep1">Note:</p>Daemon mode is supported only on the Linux and Solaris operating systems.
+               </div>
+               <p>Configure the daemon to:</p>
+               <ul style="list-style-type: disc;">
+                  <li>
+                     <p>Schedule recurring health checks at regular interval</p>
+                  </li>
+                  <li>
+                     <p>Send email notifications when the health check runs complete, clearly showing any differences since the last run</p>
+                  </li>
+                  <li>
+                     <p>Purge collection results after a pre-determined period</p>
+                  </li>
+                  <li>
+                     <p>Check and send email notification about stale passwords</p>
+                  </li>
+                  <li>
+                     <p>Store multiple profiles for automated health check runs</p>
+                  </li>
+                  <li>
+                     <p>Restart automatically if the <span class="variable" translate="no">server</span> or <span class="variable" translate="no">node</span> where it is running restarts
+                     </p>
+                  </li>
+               </ul>
+               <div class="p">
+                  <div class="infoboxnote" id="GUID-2C32CB18-C837-40E8-AB6E-1FC6672A83E8__GUID-3FC07FF1-3986-445E-947E-E888C218C053">
+                     <p class="notep1">Note:</p>
+                     <p>While running, the daemon answers all the prompts required by subsequent on-demand health checks.</p>
+                     <p>To run on-demand health checks, do not use the daemon process started by others. Run on-demand health checks within the same directory where you have started the daemon.</p>
+                  </div>
+               </div>
+               <p>If you change the system configuration such as adding or removing <span class="variable" translate="no">servers</span> or <span class="variable" translate="no">nodes</span>, then restart the daemon.
+               </p>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="automated-daemon-mode-operation.html#GUID-0AAD7175-C369-4D9E-9780-834AB8749F99">Setting and Getting Options for the Daemon</a><br>Set the daemon options before you start the daemon. Reset the daemon options anytime after starting the daemon.
+                  </li>
+                  <li class="ulchildlink"><a href="automated-daemon-mode-operation.html#GUID-AD2B1FAE-2B77-4F05-92E7-D617C2531979">Starting and Stopping the Daemon</a><br>Start and stop the daemon and force the daemon to stop a health check run.
+                  </li>
+                  <li class="ulchildlink"><a href="automated-daemon-mode-operation.html#GUID-C5CD8D7E-FAEB-46D4-8464-4A5E2FFC2F91">Querying the Status and Next Planned Daemon Run</a><br>Query the status and next automatic run schedule of the running daemon.
+                  </li>
+                  <li class="ulchildlink"><a href="automated-daemon-mode-operation.html#GUID-236A2842-667B-4789-80DA-11273B338C07">Configuring the Daemon for Automatic Restart</a><br>By default, you must manually restart the daemon if you restart the <span class="variable" translate="no">server</span> or <span class="variable" translate="no">node</span> on which the daemon is running. 
+                  </li>
+               </ul>
+               <div class="relinfo">
+                  <p><strong>Related Topics</strong></p>
+                  <ul>
+                     <li><a href="automated-daemon-mode-operation.html#GUID-AD2B1FAE-2B77-4F05-92E7-D617C2531979" title="Start and stop the daemon and force the daemon to stop a health check run.">Starting and Stopping the Daemon</a></li>
+                     <li><a href="automated-daemon-mode-operation.html#GUID-C5CD8D7E-FAEB-46D4-8464-4A5E2FFC2F91" title="Query the status and next automatic run schedule of the running daemon.">Querying the Status and Next Planned Daemon Run</a></li>
+                     <li><a href="automated-daemon-mode-operation.html#GUID-236A2842-667B-4789-80DA-11273B338C07" title="By default, you must manually restart the daemon if you restart the server or node on which the daemon is running.">Configuring the Daemon for Automatic Restart</a></li>
+                     <li><a href="on-demand-mode-operation.html#GUID-7CB110A3-023B-400C-837E-5F4DE5A2BBDB" title="Usually, health checks run at scheduled intervals. However, Oracle recommends that you run health checks on-demand when needed.">Running Health Checks On-Demand</a></li>
+                  </ul>
+               </div>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="oracle-orachk-and-exachk-common-features-tasks.html#GUID-50F7EA11-11FD-431C-B99A-EC9E2176BBDB" title="Oracle ORAchk and Oracle EXAchk share a common health check framework and a large portion of their features and tasks are common.">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</a></p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="sect2"><a id="GUID-0AAD7175-C369-4D9E-9780-834AB8749F99" name="GUID-0AAD7175-C369-4D9E-9780-834AB8749F99"></a><h3 id="OEXUG-GUID-0AAD7175-C369-4D9E-9780-834AB8749F99" class="sect3"><span class="enumeration_section">1.2.1 </span>Setting and Getting Options for the Daemon
+               </h3>
+               <div>
+                  <p>Set the daemon options before you start the daemon. Reset the daemon options anytime after starting the daemon.</p>
+                  <p>Set the daemon options using the <code class="codeph">&#x2013;set</code> option.
+                  </p>
+                  <div class="p">Set an option as follows:<pre class="pre codeblock"><code>$ ./orachk &#x2013;set "<span class="variable" translate="no">option_1</span>=<span class="variable" translate="no">option_1_value</span>"</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;set "<span class="variable" translate="no">option_1</span>=<span class="variable" translate="no">option_1_value</span>"</code></pre></div>
+                  <div class="p">Set multiple options using the <code class="codeph"><span class="variable" translate="no">name</span>=<span class="variable" translate="no">value</span></code> format separated by semicolons as follows:<pre class="pre codeblock"><code>$ ./orachk &#x2013;set "<span class="variable" translate="no">option_1</span>=<span class="variable" translate="no">option_1_value</span>;<span class="variable" translate="no">option_2</span>=<span class="variable" translate="no">option_2_value</span>;<span class="variable" translate="no">option_n</span>=<span class="variable" translate="no">option_n_value</span>"</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;set "<span class="variable" translate="no">option_1</span>=<span class="variable" translate="no">option_1_value</span>;<span class="variable" translate="no">option_2</span>=<span class="variable" translate="no">option_2_value</span>;<span class="variable" translate="no">option_n</span>=<span class="variable" translate="no">option_n_value</span>"</code></pre></div>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="automated-daemon-mode-operation.html#GUID-59DC12C7-9052-4C21-AFB8-EB6B2824B65D">AUTORUN_SCHEDULE</a><br>Schedule recurring health checks using the <code class="codeph">AUTORUN_SCHEDULE</code> daemon option.
+                     </li>
+                     <li class="ulchildlink"><a href="automated-daemon-mode-operation.html#GUID-C19DAB1D-5861-4A68-B450-066B3CE8F601">AUTORUN_FLAGS</a><br>The <code class="codeph">AUTORUN_FLAGS</code> daemon option determines how health checks are run.
+                     </li>
+                     <li class="ulchildlink"><a href="automated-daemon-mode-operation.html#GUID-2DAC9DF0-C481-470C-98EC-42B4AC46E72E">NOTIFICATION_EMAIL</a><br>Set the <code class="codeph">NOTIFICATION_EMAIL</code> daemon option to send email notifications to the recipients you specify.
+                     </li>
+                     <li class="ulchildlink"><a href="automated-daemon-mode-operation.html#GUID-E5266895-9015-41D4-83E7-3F4D0AF67001">collection_retention</a><br>Set the <code class="codeph">collection_retention</code> daemon option to purge health check collection results that are older than a specified number of days.
+                     </li>
+                     <li class="ulchildlink"><a href="automated-daemon-mode-operation.html#GUID-9CC15969-FDD8-43F2-AB88-0C282274698A">PASSWORD_CHECK_INTERVAL</a><br>The <code class="codeph">PASSWORD_CHECK_INTERVAL</code> daemon option defines the frequency, in hours, for the daemon to validate the passwords entered when the daemon was started the first time.
+                     </li>
+                     <li class="ulchildlink"><a href="automated-daemon-mode-operation.html#GUID-175406C5-A979-402F-BCBD-1B1CE46A50FB">Setting Multiple Option Profiles for the Daemon</a><br>Use only one daemon process for each server. Do not start a single daemon on multiple databases in a cluster, or multiple daemons on the same database.
+                     </li>
+                     <li class="ulchildlink"><a href="automated-daemon-mode-operation.html#GUID-5CE9554C-BAD8-4991-A4A8-DEF1AB12FC57">Getting Existing Options for the Daemon</a><br>Query the values that you set for the daemon options.
+                     </li>
+                  </ul>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="orachk-exachk-command-line-options.html#GUID-5B58CE4E-61AF-490A-AB46-BE610C637229" title="Use the list of commands in this section to control the behavior of the daemon.">Controlling the Behavior of the Daemon</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="automated-daemon-mode-operation.html#GUID-2C32CB18-C837-40E8-AB6E-1FC6672A83E8" title="Oracle recommends that you use the daemon process to schedule recurring health checks at regular intervals.">Using Oracle ORAchk and Oracle EXAchk to Automatically Check for Risks and System Health</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="sect3"><a id="GUID-59DC12C7-9052-4C21-AFB8-EB6B2824B65D" name="GUID-59DC12C7-9052-4C21-AFB8-EB6B2824B65D"></a><h4 id="OEXUG-GUID-59DC12C7-9052-4C21-AFB8-EB6B2824B65D" class="sect4"><span class="enumeration_section">1.2.1.1 </span>AUTORUN_SCHEDULE
+                  </h4>
+                  <div>
+                     <p>Schedule recurring health checks using the <code class="codeph">AUTORUN_SCHEDULE</code> daemon option.
+                     </p>
+                     <div class="p">Set the <code class="codeph">AUTORUN_SCHEDULE</code> option, as follows:<pre class="pre codeblock"><code>AUTORUN_SCHEDULE=<span class="variable" translate="no">hour</span> <span class="variable" translate="no">minute</span> <span class="variable" translate="no">day</span> <span class="variable" translate="no">month</span> <span class="variable" translate="no">day_of_week</span></code></pre> where:</div>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p><code class="codeph"><span class="variable" translate="no">minute</span></code> is 0-59 (Optional. If omitted, then 0 is used)
+                           </p>
+                        </li>
+                        <li>
+                           <p><code class="codeph"><span class="variable" translate="no">hour</span></code> is 0&#x2013;23
+                           </p>
+                        </li>
+                        <li>
+                           <p><code class="codeph"><span class="variable" translate="no">day</span></code> is 1&#x2013;31
+                           </p>
+                        </li>
+                        <li>
+                           <p><code class="codeph"><span class="variable" translate="no">month</span></code> is 1&#x2013;12
+                           </p>
+                        </li>
+                        <li>
+                           <p><code class="codeph"><span class="variable" translate="no">day_of_week</span></code> is 0&#x2013;6, where 0=Sunday and 6=Saturday
+                           </p>
+                        </li>
+                     </ul>
+                     <p>Use the asterisk (*) as a wildcard to specify multiple values separated by commas.</p>
+                     <div class="tblformal" id="GUID-59DC12C7-9052-4C21-AFB8-EB6B2824B65D__GUID-99592C7D-9B69-4848-ABED-9B6E0155B360">
+                        <p class="titleintable">Table 1-1 AUTORUN_SCHEDULE</p>
+                        <table cellpadding="4" cellspacing="0" class="Formal" title="AUTORUN_SCHEDULE" summary="This table lists and describes examples of running AUTORUN_SCHEDULE with different settings and their results." frame="hsides" border="1" rules="rows">
+                           <thead>
+                              <tr align="left" valign="top">
+                                 <th align="left" valign="bottom" width="20%" id="d8565e415">Example</th>
+                                 <th align="left" valign="bottom" width="20%" id="d8565e417">Result</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d8565e421" headers="d8565e415 ">
+                                    <p><code class="codeph">"AUTORUN_SCHEDULE=0,15,30,45 * * * *"</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d8565e421 d8565e417 ">
+                                    <p>Runs every 15 minutes.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d8565e429" headers="d8565e415 ">
+                                    <p><code class="codeph">"AUTORUN_SCHEDULE=* * * *"</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d8565e429 d8565e417 ">
+                                    <p>Runs every hour.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d8565e437" headers="d8565e415 ">
+                                    <p><code class="codeph">"AUTORUN_SCHEDULE=3 * * 0"</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d8565e437 d8565e417 ">
+                                    <p>Runs at 3 AM every Sunday.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d8565e445" headers="d8565e415 ">
+                                    <p><code class="codeph">"AUTORUN_SCHEDULE=2 * * 1, 3, 5"</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d8565e445 d8565e417 ">
+                                    <p>Runs at 2 AM on Monday, Wednesday, and Friday.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d8565e453" headers="d8565e415 ">
+                                    <p><code class="codeph">"AUTORUN_SCHEDULE=4 1 * *"</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d8565e453 d8565e417 ">
+                                    <p>Runs at 4 AM on the first day of every month.</p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d8565e461" headers="d8565e415 ">
+                                    <p><code class="codeph">"AUTORUN_SCHEDULE=8,20 * * 1, 2, 3, 4, 5"</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d8565e461 d8565e417 ">
+                                    <p>Runs at 8 AM and 8 PM every Monday, Tuesday, Wednesday, Thursday, and Friday.</p>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- class="inftblhruleinformal" -->
+                     <div class="example" id="GUID-59DC12C7-9052-4C21-AFB8-EB6B2824B65D__GUID-2C10923B-6997-432C-972B-8E268FF93C14">
+                        <p class="titleinexample">Example 1-16 AUTORUN_SCHEDULE</p>
+                        <div class="p"><pre class="pre codeblock"><code>$ ./orachk &#x2013;set "AUTORUN_SCHEDULE=3 * * 0"</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;set "AUTORUN_SCHEDULE=3 * * 0"</code></pre></div>
+                     </div>
+                     <!-- class="example" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="automated-daemon-mode-operation.html#GUID-0AAD7175-C369-4D9E-9780-834AB8749F99" title="Set the daemon options before you start the daemon. Reset the daemon options anytime after starting the daemon.">Setting and Getting Options for the Daemon</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-C19DAB1D-5861-4A68-B450-066B3CE8F601" name="GUID-C19DAB1D-5861-4A68-B450-066B3CE8F601"></a><h4 id="OEXUG-GUID-C19DAB1D-5861-4A68-B450-066B3CE8F601" class="sect4"><span class="enumeration_section">1.2.1.2 </span>AUTORUN_FLAGS
+                  </h4>
+                  <div>
+                     <p>The <code class="codeph">AUTORUN_FLAGS</code> daemon option determines how health checks are run.
+                     </p>
+                     <p>Set the <code class="codeph">AUTORUN_FLAGS</code> option as follows: <code class="codeph">AUTORUN_FLAGS=<span class="variable" translate="no">flags</span></code>, where <code class="codeph"><span class="variable" translate="no">flags</span></code> can be any combination of valid command-line flags.
+                     </p>
+                     <div class="tblformal" id="GUID-C19DAB1D-5861-4A68-B450-066B3CE8F601__GUID-0C241535-FE4F-4ABE-A0BA-C7E22EAF1513">
+                        <p class="titleintable">Table 1-2 AUTORUN_FLAGS</p>
+                        <table cellpadding="4" cellspacing="0" class="Formal" title="AUTORUN_FLAGS" summary="This table lists and describes examples of running AUTORUN_FLAGS with different settings and their results." frame="hsides" border="1" rules="rows">
+                           <thead>
+                              <tr align="left" valign="top">
+                                 <th align="left" valign="bottom" width="20%" id="d8565e539">Example</th>
+                                 <th align="left" valign="bottom" width="20%" id="d8565e541">Result</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d8565e545" headers="d8565e539 ">
+                                    <p><code class="codeph">"AUTORUN_FLAGS=-profile dba"</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d8565e545 d8565e541 ">
+                                    <p>Runs only the <code class="codeph">dba</code> profile checks.
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d8565e556" headers="d8565e539 ">
+                                    <p><code class="codeph">"AUTORUN_FLAGS=-profile sysadmin &#x2013;tag syadmin"</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d8565e556 d8565e541 ">
+                                    <p>Runs only the <code class="codeph">dba</code> profile checks and tags the output with the value <code class="codeph">sysadmin</code>.
+                                    </p>
+                                 </td>
+                              </tr>
+                              <tr align="left" valign="top">
+                                 <td align="left" valign="top" width="20%" id="d8565e570" headers="d8565e539 ">
+                                    <p><code class="codeph">-excludeprofile ebs</code></p>
+                                 </td>
+                                 <td align="left" valign="top" width="20%" headers="d8565e570 d8565e541 ">
+                                    <p>Runs all checks except the checks in the <code class="codeph">ebs</code> profile.
+                                    </p>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!-- class="inftblhruleinformal" -->
+                     <div class="example" id="GUID-C19DAB1D-5861-4A68-B450-066B3CE8F601__GUID-E182097E-6FB6-4F9C-B5E1-662A4499F52B">
+                        <p class="titleinexample">Example 1-17 AUTORUN_FLAGS</p>
+                        <div class="p"><pre class="pre codeblock"><code>$ ./orachk &#x2013;set "AUTORUN_FLAGS=-profile sysadmin &#x2013;tag sysadmin"</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;set "AUTORUN_FLAGS=-profile sysadmin &#x2013;tag sysadmin"</code></pre></div>
+                     </div>
+                     <!-- class="example" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="automated-daemon-mode-operation.html#GUID-0AAD7175-C369-4D9E-9780-834AB8749F99" title="Set the daemon options before you start the daemon. Reset the daemon options anytime after starting the daemon.">Setting and Getting Options for the Daemon</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-2DAC9DF0-C481-470C-98EC-42B4AC46E72E" name="GUID-2DAC9DF0-C481-470C-98EC-42B4AC46E72E"></a><h4 id="OEXUG-GUID-2DAC9DF0-C481-470C-98EC-42B4AC46E72E" class="sect4"><span class="enumeration_section">1.2.1.3 </span>NOTIFICATION_EMAIL
+                  </h4>
+                  <div>
+                     <p>Set the <code class="codeph">NOTIFICATION_EMAIL</code> daemon option to send email notifications to the recipients you specify.
+                     </p>
+                     <p>The daemon notifies the recipients each time a health check run completes or when the daemon experiences a problem.</p>
+                     <div class="p">Specify a comma-delimited list of email addresses as follows:<pre class="pre codeblock"><code>$ ./orachk &#x2013;set "NOTIFICATION_EMAIL=some.person@acompany.com,another.person@acompany.com"</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;set "NOTIFICATION_EMAIL=some.person@acompany.com,another.person@acompany.com"</code></pre></div>
+                     <div class="p">Test the email notification configuration using the <code class="codeph">&#x2013;testemail</code> option, as follows:<pre class="pre codeblock"><code>$ ./orachk -testemail all</code></pre><pre class="pre codeblock"><code>$ ./exachk -testemail all</code></pre></div>
+                     <p>After the first health check run, the daemon notifies the recipients with report output attached.</p>
+                     <p>For the subsequent health check runs after the first email notification, the daemon emails the summary of differences between the most recent runs to all recipients specified in the <code class="codeph">NOTIFICATION_EMAIL</code> list.
+                     </p>
+                     <div class="section">
+                        <p class="subhead3" id="GUID-2DAC9DF0-C481-470C-98EC-42B4AC46E72E__GUID-A46756D5-F84B-411D-82DC-22211868536F">Contents of the Email Notification </p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p>System Health Score of this run compared to the previous run</p>
+                           </li>
+                           <li>
+                              <p>Summary of number of checks run and differences between runs</p>
+                           </li>
+                           <li>
+                              <p>Most recent report result as attachment</p>
+                           </li>
+                           <li>
+                              <p>Previous report result as attachment</p>
+                           </li>
+                           <li>
+                              <p>Diff report as attachment</p>
+                           </li>
+                        </ul>
+                     </div>
+                     <!-- class="section" -->
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="automated-daemon-mode-operation.html#GUID-9CC15969-FDD8-43F2-AB88-0C282274698A" title="The PASSWORD_CHECK_INTERVAL daemon option defines the frequency, in hours, for the daemon to validate the passwords entered when the daemon was started the first time.">PASSWORD_CHECK_INTERVAL</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="automated-daemon-mode-operation.html#GUID-0AAD7175-C369-4D9E-9780-834AB8749F99" title="Set the daemon options before you start the daemon. Reset the daemon options anytime after starting the daemon.">Setting and Getting Options for the Daemon</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-E5266895-9015-41D4-83E7-3F4D0AF67001" name="GUID-E5266895-9015-41D4-83E7-3F4D0AF67001"></a><h4 id="OEXUG-GUID-E5266895-9015-41D4-83E7-3F4D0AF67001" class="sect4"><span class="enumeration_section">1.2.1.4 </span>collection_retention
+                  </h4>
+                  <div>
+                     <p>Set the <code class="codeph">collection_retention</code> daemon option to purge health check collection results that are older than a specified number of days.
+                     </p>
+                     <div class="p">Set the <code class="codeph">collection_retention</code> option, as follows:<pre class="pre codeblock"><code>collection_retention=<span class="variable" translate="no">number_of_days</span></code></pre></div>
+                     <p>If you do not set this option, then the daemon does not purge the stale collection.</p>
+                     <p>Set the <code class="codeph">collection_retention</code> option to an appropriate number of days based on
+                     </p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Frequency of your scheduled collections</p>
+                        </li>
+                        <li>
+                           <p>Size of the collection results</p>
+                        </li>
+                        <li>
+                           <p>Available disk space</p>
+                        </li>
+                     </ul>
+                     <div class="example" id="GUID-E5266895-9015-41D4-83E7-3F4D0AF67001__GUID-D2827AE9-D54E-4684-937B-30920737EC39">
+                        <p class="titleinexample">Example 1-18 collection_retention</p>
+                        <div class="p"><pre class="pre codeblock"><code>$ ./orachk &#x2013;set "collection_retention=60"</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;set "collection_retention=60"</code></pre></div>
+                     </div>
+                     <!-- class="example" -->
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="automated-daemon-mode-operation.html#GUID-0AAD7175-C369-4D9E-9780-834AB8749F99" title="Set the daemon options before you start the daemon. Reset the daemon options anytime after starting the daemon.">Setting and Getting Options for the Daemon</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-9CC15969-FDD8-43F2-AB88-0C282274698A" name="GUID-9CC15969-FDD8-43F2-AB88-0C282274698A"></a><h4 id="OEXUG-GUID-9CC15969-FDD8-43F2-AB88-0C282274698A" class="sect4"><span class="enumeration_section">1.2.1.5 </span>PASSWORD_CHECK_INTERVAL
+                  </h4>
+                  <div>
+                     <p>The <code class="codeph">PASSWORD_CHECK_INTERVAL</code> daemon option defines the frequency, in hours, for the daemon to validate the passwords entered when the daemon was started the first time.
+                     </p>
+                     <p>If an invalid password is found due to a password change, then the daemon stops, makes an entry in the daemon log, and then sends an email notification message to the recipients specified in the <code class="codeph">NOTIFICATION_EMAIL</code> option.
+                     </p>
+                     <p>Set the <code class="codeph">PASSWORD_CHECK_INTERVAL</code> option, as follows: <code class="codeph">PASSWORD_CHECK_INTERVAL=<span class="variable" translate="no">number_of_hours</span></code>.
+                     </p>
+                     <p>If you do not set the <code class="codeph">PASSWORD_CHECK_INTERVAL</code> option, then the daemon cannot actively check password validity and fails the next time the daemon tries to run after a password change. Using the <code class="codeph">PASSWORD_CHECK_INTERVAL</code> option enables you to take corrective action and restart the daemon with the correct password rather than having failed collections.
+                     </p>
+                     <p>Set the <code class="codeph">PASSWORD_CHECK_INTERVAL</code> option to an appropriate number of hours based on the frequency of your scheduled collections and password change policies.
+                     </p>
+                     <div class="example" id="GUID-9CC15969-FDD8-43F2-AB88-0C282274698A__GUID-0AE4DC11-F94F-45DD-A0E7-4889EFB23960">
+                        <p class="titleinexample">Example 1-19 PASSWORD_CHECK_INTERVAL</p>
+                        <div class="p"><pre class="pre codeblock"><code>$ ./orachk &#x2013;set "PASSWORD_CHECK_INTERVAL=1"</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;set "PASSWORD_CHECK_INTERVAL=1"</code></pre></div>
+                     </div>
+                     <!-- class="example" -->
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="automated-daemon-mode-operation.html#GUID-2DAC9DF0-C481-470C-98EC-42B4AC46E72E" title="Set the NOTIFICATION_EMAIL daemon option to send email notifications to the recipients you specify.">NOTIFICATION_EMAIL</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="automated-daemon-mode-operation.html#GUID-0AAD7175-C369-4D9E-9780-834AB8749F99" title="Set the daemon options before you start the daemon. Reset the daemon options anytime after starting the daemon.">Setting and Getting Options for the Daemon</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-175406C5-A979-402F-BCBD-1B1CE46A50FB" name="GUID-175406C5-A979-402F-BCBD-1B1CE46A50FB"></a><h4 id="OEXUG-GUID-175406C5-A979-402F-BCBD-1B1CE46A50FB" class="sect4"><span class="enumeration_section">1.2.1.6 </span>Setting Multiple Option Profiles for the Daemon
+                  </h4>
+                  <div>
+                     <p>Use only one daemon process for each server. Do not start a single daemon on multiple databases in a cluster, or multiple daemons on the same database.</p>
+                     <div class="section">
+                        <p>The daemon does not start, if the daemon detects another Oracle ORAchk or Oracle EXAchk daemon process running locally.</p>
+                        <p>Define multiple different run profiles using the same daemon. Defining multiple different run profiles enables you to run multiple different health checks with different daemon options, such as different schedules, email notifications, and automatic run flags. The daemon manages all profiles.</p>
+                        <p>Define daemon option profiles using the <code class="codeph">&#x2013;id <span class="variable" translate="no">id</span></code> option before the <code class="codeph">&#x2013;set</code> option, where <code class="codeph"><span class="variable" translate="no">id</span></code> is the name of the profile.
+                        </p><pre class="pre codeblock"><code>$ ./orachk &#x2013;id <span class="variable" translate="no">id</span> &#x2013;set "<span class="variable" translate="no">option</span>=<span class="variable" translate="no">value</span>"</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;id <span class="variable" translate="no">id</span> &#x2013;set "<span class="variable" translate="no">option</span>=<span class="variable" translate="no">value</span>"</code></pre></div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-175406C5-A979-402F-BCBD-1B1CE46A50FB__GUID-97ABD52C-35D5-41CD-88BF-39267D1481F4">Setting Multiple Option Profiles for the Daemon</p>
+                        <p>For example, if the database administrator wants to run checks within the <code class="codeph">dba</code> profile and the system administrator wants to run checks in the <code class="codeph">sysadmin</code> profile, then configure the daemon using the profiles option.
+                        </p>
+                     </div>
+                     <!-- class="section" -->
+                     <ol>
+                        <li class="stepexpand"><span>Define the database administrator profile as follows:</span><div><pre class="pre codeblock"><code>$ ./orachk &#x2013;id dba &#x2013;set "NOTIFICATION_EMAIL=dba@example.com;\
+   AUTORUN_SCHEDULE=4,8,12,16,20 * * *;AUTORUN_FLAGS=-profile dba &#x2013;tag dba;\
+   collection_retention=30"
+
+Created notification_email for ID[dba]
+Created autorun_schedule for ID[dba]
+Created autorun_flags for ID[dba]
+Created collection_retention for ID[dba]
+</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;id dba &#x2013;set "NOTIFICATION_EMAIL=dba@example.com;\
+   AUTORUN_SCHEDULE=4,8,12,16,20 * * *; AUTORUN_FLAGS=-profile dba &#x2013;tag dba;\
+   collection_retention=30"
+
+Created notification_email for ID[dba]
+Created autorun_schedule for ID[dba]
+Created autorun_flags for ID[dba]
+Created collection_retention for ID[dba]
+</code></pre></div>
+                        </li>
+                        <li class="stepexpand"><span>Define the system administrator profile as follows:</span><div><pre class="pre codeblock"><code>$ ./orachk &#x2013;id sysadmin &#x2013;set "NOTIFICATION_EMAIL=sysadmin@example.com;\
+   AUTORUN_SCHEDULE=3 * * 1,3,5; AUTORUN_FLAGS=-profile sysadmin &#x2013;tag sysadmin;\
+   collection_retention=60"
+
+Created notification_email for ID[sysadmin]
+Created autorun_schedule for ID[sysadmin]
+Created autorun_flags for ID[sysadmin]
+Created collection_retention for ID[sysadmin]
+</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;id sysadmin &#x2013;set "NOTIFICATION_EMAIL=sysadmin@example.com;\
+   AUTORUN_SCHEDULE=3 * * 1,3,5; AUTORUN_FLAGS=-profile sysadmin &#x2013;tag sysadmin;\
+   collection_retention=60"
+
+Created notification_email for ID[sysadmin]
+Created autorun_schedule for ID[sysadmin]
+Created autorun_flags for ID[sysadmin]
+Created collection_retention for ID[sysadmin]
+</code></pre></div>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="orachk-exachk-command-line-options.html#GUID-5B58CE4E-61AF-490A-AB46-BE610C637229" title="Use the list of commands in this section to control the behavior of the daemon.">Controlling the Behavior of the Daemon</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="automated-daemon-mode-operation.html#GUID-0AAD7175-C369-4D9E-9780-834AB8749F99" title="Set the daemon options before you start the daemon. Reset the daemon options anytime after starting the daemon.">Setting and Getting Options for the Daemon</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-5CE9554C-BAD8-4991-A4A8-DEF1AB12FC57" name="GUID-5CE9554C-BAD8-4991-A4A8-DEF1AB12FC57"></a><h4 id="OEXUG-GUID-5CE9554C-BAD8-4991-A4A8-DEF1AB12FC57" class="sect4"><span class="enumeration_section">1.2.1.7 </span>Getting Existing Options for the Daemon
+                  </h4>
+                  <div>
+                     <p>Query the values that you set for the daemon options.</p>
+                     <div class="section">
+                        <p>To query the values, use <code class="codeph">[-id <span class="variable" translate="no">ID</span>] -get <span class="variable" translate="no">option</span> | <span class="variable" translate="no">all</span></code>, where
+                        </p>
+                        <ul style="list-style-type: disc;">
+                           <li>
+                              <p><code class="codeph"><span class="variable" translate="no">ID</span></code> is a daemon option profile
+                              </p>
+                           </li>
+                           <li>
+                              <p><code class="codeph"><span class="variable" translate="no">option</span></code> is a specific daemon option you want to retrieve
+                              </p>
+                           </li>
+                           <li>
+                              <p><code class="codeph"><span class="variable" translate="no">all</span></code> returns values of all options
+                              </p>
+                           </li>
+                        </ul>
+                     </div>
+                     <!-- class="section" -->
+                     <div class="section">
+                        <p class="subhead3" id="GUID-5CE9554C-BAD8-4991-A4A8-DEF1AB12FC57__GUID-65454ECB-A324-4D19-BFEA-DAED9AE10F45">Getting Existing Options for the Daemon</p>
+                     </div>
+                     <!-- class="section" -->
+                     <ol>
+                        <li class="stepexpand"><span>To get a specific daemon option: <code class="codeph">&#x2013;get <span class="variable" translate="no">option</span></code></span><div><pre class="pre codeblock"><code>$ ./orachk &#x2013;get NOTIFICATION_EMAIL
+
+ID: orachk.default
+------------------------------------------
+notification_email = some.body@example.com
+</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;get NOTIFICATION_EMAIL
+
+ID: exachk.default
+------------------------------------------
+notification_email = some.body@example.com
+</code></pre></div>
+                        </li>
+                        <li class="stepexpand"><span>To query multiple daemon option profiles: <code class="codeph">&#x2013;get <span class="variable" translate="no">option</span>:</code></span><div><pre class="pre codeblock"><code>$ ./orachk &#x2013;get NOTIFICATION_EMAIL
+
+ID: orachk.default
+------------------------------------------
+notification_email = some.body@example.com
+
+ID: dba
+------------------------------------------
+notification_email = dba@example.com
+
+
+ID: sysadmin
+------------------------------------------
+notification_email = sysadmin@example.com
+</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;get NOTIFICATION_EMAIL
+
+ID: exachk.default
+------------------------------------------
+notification_email = some.person@example.com
+
+ID: dba
+------------------------------------------
+notification_email = dba@example.com
+
+
+ID: sysadmin
+------------------------------------------
+notification_email = sysadmin@example.com
+</code></pre></div>
+                        </li>
+                        <li class="stepexpand"><span>To limit the request to a specific daemon option profile: <code class="codeph">&#x2013;id <span class="variable" translate="no">ID</span> -get <span class="variable" translate="no">option</span></code></span><div>To get the <code class="codeph">NOTIFICATION_EMAIL</code> for a daemon profile called <code class="codeph">dba</code>:<pre class="pre codeblock"><code>$ ./orachk &#x2013;id dba &#x2013;get NOTIFICATION_EMAIL
+
+ID: dba
+------------------------------------------
+notification_email = dba@example.com
+</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;id dba &#x2013;get NOTIFICATION_EMAIL
+
+ID: dba
+------------------------------------------
+notification_email = dba@example.com
+</code></pre></div>
+                        </li>
+                        <li class="stepexpand"><span>To get all options set: <code class="codeph">&#x2013;get all</code> </span><div><pre class="pre codeblock"><code>$ ./orachk &#x2013;get all
+
+ID: orachk.default
+------------------------------------------
+notification_email = some.body@example.com
+autorun_schedule = 3 * * 0
+collection_retention = 30
+password_check_interval = 1
+</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;get all
+
+ID: exachk.default
+------------------------------------------
+notification_email = some.body@example.com
+autorun_schedule = 3 * * 0
+collection_retention = 30
+password_check_interval = 1
+</code></pre></div>
+                        </li>
+                        <li class="stepexpand"><span>To query all daemon option profiles: <code class="codeph">&#x2013;get all</code></span><div><pre class="pre codeblock"><code>$ ./orachk &#x2013;get all
+
+ID: orachk.default
+------------------------------------------
+notification_email = some.body@example.com
+autorun_schedule = 3 * * 0
+collection_retention = 30
+password_check_interval = 12
+
+ID: dba
+------------------------------------------
+notification_email = dba@example.com
+autorun_schedule = 4,8,12,16,20 * * *
+autorun_flags = -profile dba &#x2013; tag dba
+collection_retention = 30
+password_check_interval = 1
+
+ID: sysadmin
+------------------------------------------
+notification_email = sysadmin@example.com
+autorun_schedule = 3 * * 1,3,5
+autorun_flags = -profile sysadmin &#x2013;tag sysadmin
+collection_retension = 60
+password_check_interval = 1
+</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;get all
+
+ID: exachk.default
+------------------------------------------
+notification_email = some.body@example.com
+autorun_schedule = 3 * * 0
+collection_retention = 30
+password_check_interval = 1
+
+ID: dba
+------------------------------------------
+notification_email = dba@example.com
+autorun_schedule = 4,8,12,16,20 * * *
+autorun_flags = -profile dba &#x2013; tag dba
+collection_retention = 30
+password_check_interval = 1
+
+ID: sysadmin
+------------------------------------------
+notification_email = sysadmin@example.com
+autorun_schedule = 3 * * 1,3,5
+autorun_flags = -profile sysadmin &#x2013;tag sysadmin
+collection_retension = 60
+password_check_interval = 1
+</code></pre></div>
+                        </li>
+                        <li class="stepexpand"><span>To limit the request to a specific daemon option profile: <code class="codeph">&#x2013;id <span class="variable" translate="no">ID</span> -get all</code> </span><div>
+                              <p>To get all the options set for a daemon profile called <code class="codeph">dba</code>:
+                              </p><pre class="pre codeblock"><code>$ ./orachk &#x2013;id dba &#x2013;get all
+
+ID: dba
+------------------------------------------
+notification_email = dba@example.com
+autorun_schedule = 4,8,12,16,20 * * *
+autorun_flags = -profile dba &#x2013; tag dba
+collection_retention = 30
+password_check_interval = 1
+</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;id dba &#x2013;get all
+
+ID: dba
+------------------------------------------
+notification_email = dba@example.com
+autorun_schedule = 4,8,12,16,20 * * *
+autorun_flags = -profile dba &#x2013; tag dba
+collection_retention = 30
+password_check_interval = 1
+</code></pre></div>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="automated-daemon-mode-operation.html#GUID-0AAD7175-C369-4D9E-9780-834AB8749F99" title="Set the daemon options before you start the daemon. Reset the daemon options anytime after starting the daemon.">Setting and Getting Options for the Daemon</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-AD2B1FAE-2B77-4F05-92E7-D617C2531979" name="GUID-AD2B1FAE-2B77-4F05-92E7-D617C2531979"></a><h3 id="OEXUG-GUID-AD2B1FAE-2B77-4F05-92E7-D617C2531979" class="sect3"><span class="enumeration_section">1.2.2 </span>Starting and Stopping the Daemon
+               </h3>
+               <div>
+                  <p>Start and stop the daemon and force the daemon to stop a health check run.</p>
+                  <div class="section">
+                     <p class="subhead2" id="GUID-AD2B1FAE-2B77-4F05-92E7-D617C2531979__GUID-AA0948AF-1059-44AC-8DEA-450642B3868D">To start and stop the daemon:</p>
+                  </div>
+                  <!-- class="section" -->
+                  <ol>
+                     <li class="stepexpand"><span>To start the daemon, use the <code class="codeph">&#x2013;d start</code> option as follows:</span><div>
+                           <div class="p"><pre class="pre codeblock"><code>$ ./orachk &#x2013;d start</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;d start</code></pre></div>
+                           <p>The tools prompt you to provide required information during startup.</p>
+                        </div>
+                     </li>
+                     <li class="stepexpand"><span>To stop the daemon, use the <code class="codeph">&#x2013;d stop</code> option as follows:</span><div>
+                           <div class="p"><pre class="pre codeblock"><code>$ ./orachk &#x2013;d stop</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;d stop</code></pre></div>
+                           <p>If a health check run is progress when you run the stop command, then the daemon indicates so and continues running.</p>
+                        </div>
+                     </li>
+                     <li class="stepexpand"><span>To force the daemon to stop a health check run, use the <code class="codeph">&#x2013;d stop_client</code> option:</span><div>
+                           <div class="p"><pre class="pre codeblock"><code>$ ./orachk &#x2013;d stop_client</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;d stop_client</code></pre></div>
+                        </div>
+                     </li>
+                  </ol>
+                  <div class="section">The daemon stops the health check run and then confirms when it is done. If necessary, stop the daemon using the <code class="codeph">&#x2013;d stop</code> option.
+                  </div>
+                  <!-- class="section" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="automated-daemon-mode-operation.html#GUID-2C32CB18-C837-40E8-AB6E-1FC6672A83E8" title="Oracle recommends that you use the daemon process to schedule recurring health checks at regular intervals.">Using Oracle ORAchk and Oracle EXAchk to Automatically Check for Risks and System Health</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-C5CD8D7E-FAEB-46D4-8464-4A5E2FFC2F91" name="GUID-C5CD8D7E-FAEB-46D4-8464-4A5E2FFC2F91"></a><h3 id="OEXUG-GUID-C5CD8D7E-FAEB-46D4-8464-4A5E2FFC2F91" class="sect3"><span class="enumeration_section">1.2.3 </span>Querying the Status and Next Planned Daemon Run
+               </h3>
+               <div>
+                  <p>Query the status and next automatic run schedule of the running daemon.</p>
+                  <div class="section"> 
+                     <div class="p"><pre class="pre codeblock"><code>-d status|info|nextautorun</code></pre></div>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p><code class="codeph">-d status</code>: Checks if the daemon is running.
+                           </p>
+                        </li>
+                        <li>
+                           <p><code class="codeph">-d info</code>: Displays information about the running daemon.
+                           </p>
+                        </li>
+                        <li>
+                           <p><code class="codeph">-d nextautorun [-id <span class="variable" translate="no">ID</span>]</code>: Displays the next automatic run time.
+                           </p>
+                        </li>
+                     </ul>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-C5CD8D7E-FAEB-46D4-8464-4A5E2FFC2F91__GUID-3B9E7C36-73F6-4FF1-87D9-009216875024">To query the status and next planned daemon run:</p>
+                  </div>
+                  <!-- class="section" -->
+                  <ol>
+                     <li class="stepexpand"><span>To check if the daemon is running, use <code class="codeph">&#x2013;d status</code>:</span><div>
+                           <div class="p"><pre class="pre codeblock"><code>$ ./orachk &#x2013;d status</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;d status</code></pre></div>
+                           <p>If the daemon is running, then the daemon confirms and displays the PID.</p>
+                        </div>
+                     </li>
+                     <li class="stepexpand"><span>To query more detailed information about the daemon, use <code class="codeph">&#x2013;d info</code>:</span><div>
+                           <div class="p"><pre class="pre codeblock"><code>$ ./orachk &#x2013;d info</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;d info</code></pre></div>
+                           <p>The daemon responds with the following information:</p>
+                           <ul style="list-style-type: disc;">
+                              <li>
+                                 <p>Node on which the daemon is installed</p>
+                              </li>
+                              <li>
+                                 <p>Version</p>
+                              </li>
+                              <li>
+                                 <p>Install location</p>
+                              </li>
+                              <li>
+                                 <p>Time when the daemon was started</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li class="stepexpand"><span>To query the next scheduled health check run, use <code class="codeph">&#x2013;d nextautorun</code>:</span><div>
+                           <div class="p"><pre class="pre codeblock"><code>$ ./orachk &#x2013;d nextautorun</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;d nextautorun</code></pre></div>
+                           <p>The daemon responds with details of schedule.</p>
+                           <p>If you have configured multiple daemon option profiles, then the output shows whichever is scheduled to run next.</p>
+                           <div class="p">If you have configured multiple daemon option profiles, then query the next scheduled health check run of a specific profile using <code class="codeph">&#x2013;id <span class="variable" translate="no">ID</span> -d nextautorun</code>:<pre class="pre codeblock"><code>$ ./orachk &#x2013;d <span class="variable" translate="no">ID</span> &#x2013;d nextautorun</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;d <span class="variable" translate="no">ID</span> &#x2013;d nextautorun</code></pre></div>
+                           <p>The daemon responds with details of the schedule for the daemon options profile ID you have specified.</p>
+                        </div>
+                     </li>
+                  </ol>
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="automated-daemon-mode-operation.html#GUID-2C32CB18-C837-40E8-AB6E-1FC6672A83E8" title="Oracle recommends that you use the daemon process to schedule recurring health checks at regular intervals.">Using Oracle ORAchk and Oracle EXAchk to Automatically Check for Risks and System Health</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-236A2842-667B-4789-80DA-11273B338C07" name="GUID-236A2842-667B-4789-80DA-11273B338C07"></a><h3 id="OEXUG-GUID-236A2842-667B-4789-80DA-11273B338C07" class="sect3"><span class="enumeration_section">1.2.4 </span>Configuring the Daemon for Automatic Restart
+               </h3>
+               <div>
+                  <p>By default, you must manually restart the daemon if you restart the <span class="variable" translate="no">server</span> or <span class="variable" translate="no">node</span> on which the daemon is running. 
+                  </p>
+                  <div class="section">
+                     <p>However, if you use the automatic restart option, the daemon restarts automatically after the <span class="variable" translate="no">server</span> or <span class="variable" translate="no">node</span> reboot.
+                     </p>
+                     <p>Only <code class="codeph">root</code> can configure automatic restart.
+                     </p>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="section">
+                     <p class="subhead2" id="GUID-236A2842-667B-4789-80DA-11273B338C07__GUID-FD4DEDD4-106C-4AED-8AD6-DEE48F1D6FF7">To configure the daemon to start automatically:</p>
+                  </div>
+                  <!-- class="section" -->
+                  <ol>
+                     <li class="stepexpand"><span>To set up daemon automatic restart, use <code class="codeph">&#x2013;initsetup</code>:</span><div>
+                           <div class="p"><pre class="pre codeblock"><code>$ ./orachk &#x2013;initsetup</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;initsetup</code></pre></div>
+                           <p>The tool prompts you to provide the required information during startup.</p>
+                           <div class="p">
+                              <div class="infoboxnote" id="GUID-236A2842-667B-4789-80DA-11273B338C07__GUID-CE6AECEA-F13E-4075-A59F-801EBA732262">
+                                 <p class="notep1">Note:</p>Stop the daemon before running <code class="codeph">&#x2013;initsetup</code>, if the daemon is already running.
+                              </div>
+                           </div>
+                        </div>
+                     </li>
+                     <li class="stepexpand"><span>To query automatic restart status of the daemon, use <code class="codeph">&#x2013;initcheck</code>:</span><div>
+                           <div class="p"><pre class="pre codeblock"><code>$ ./orachk &#x2013;initcheck</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;initcheck</code></pre></div>
+                        </div>
+                     </li>
+                     <li class="stepexpand"><span>To remove automatic restart configuration, use <code class="codeph">&#x2013;initrmsetup</code> :</span><div>
+                           <div class="p"><pre class="pre codeblock"><code>$ ./orachk &#x2013;initrmsetup</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;initrmsetup</code></pre></div>
+                        </div>
+                     </li>
+                  </ol>
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="automated-daemon-mode-operation.html#GUID-2C32CB18-C837-40E8-AB6E-1FC6672A83E8" title="Oracle recommends that you use the daemon process to schedule recurring health checks at regular intervals.">Using Oracle ORAchk and Oracle EXAchk to Automatically Check for Risks and System Health</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

@@ -1,0 +1,948 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html xml:lang="en-us" lang="en-us">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="abstract" content="Run a subset of health checks where necessary.">
+      <meta name="description" content="Run a subset of health checks where necessary.">
+      <title>Running Subsets of Checks</title>
+      <meta property="og:site_name" content="Oracle Help Center">
+      <meta property="og:title" content="User’s Guide">
+      <meta property="og:description" content="Run a subset of health checks where necessary.">
+      <link rel="stylesheet" href="/sp_common/book-template/ohc-book-template/css/book.css">
+      <link rel="shortcut icon" href="/sp_common/book-template/ohc-common/img/favicon.ico">
+      <meta name="application-name" content="User’s Guide">
+      <meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)">
+      <meta name="plugin" content="SP_docbuilder HTML plugin release 18.2.2">
+      <link rel="alternate" href="oracle-orachk-and-exachk-users-guide.pdf" title="PDF File" type="application/pdf">
+      <meta name="robots" content="all">
+      <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+      <meta name="dcterms.created" content="2018-09-27T17:43:23-07:00">
+      
+      <meta name="dcterms.dateCopyrighted" content="2016, 2018">
+      <meta name="dcterms.category" content="engineered-systems">
+      <meta name="dcterms.identifier" content="E83827-09">
+      
+      <meta name="dcterms.product" content="en/engineered-systems/health-diagnostics/exachk">
+      
+      <link rel="prev" href="health-check-catalog.html" title="Previous" type="text/html">
+      <link rel="next" href="orachk-exachk-command-line-options.html" title="Next" type="text/html">
+      <script>
+        document.write('<style type="text/css">');
+        document.write('body > .noscript, body > .noscript ~ * { visibility: hidden; }');
+        document.write('</style>');
+     </script>
+      <script data-main="/sp_common/book-template/ohc-book-template/js/book-config" src="/sp_common/book-template/requirejs/require.js"></script>
+      <script>
+            if (window.require === undefined) {
+                document.write('<script data-main="sp_common/book-template/ohc-book-template/js/book-config" src="sp_common/book-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/book-template/ohc-book-template/css/book.css" rel="stylesheet"/>');
+            }
+        </script>
+      <script type="application/json" id="ssot-metadata">{"primary":{"category":{"short_name":"engineered-systems","element_name":"Engineered Systems","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"health-diagnostics","element_name":"Health Diagnostics","display_in_url":true},"product":{"short_name":"exachk","element_name":"EXAchk","display_in_url":true},"release":{"short_name":"latest","element_name":"Latest Release","display_in_url":false}}}</script>
+      
+    <meta name="dcterms.title" content="Oracle® ORAchk and EXAchk User's Guide">
+    <meta name="dcterms.isVersionOf" content="OEXUG">
+    <meta name="dcterms.release" content="Latest Release">
+  <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+   <body>
+      <div class="noscript alert alert-danger text-center" role="alert">
+         <a href="health-check-catalog.html" class="pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+         <a href="orachk-exachk-command-line-options.html" class="pull-right">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+         <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        
+      </div>
+      <article>
+         <header>
+            <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+               <li property="itemListElement" typeof="ListItem"><a href="index.html" property="item" typeof="WebPage"><span property="name">User’s Guide</span></a></li>
+               <li property="itemListElement" typeof="ListItem"><a href="oracle-orachk-and-exachk-common-features-tasks.html" property="item" typeof="WebPage"><span property="name">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</span></a></li>
+               <li class="active" property="itemListElement" typeof="ListItem">Running Subsets of Checks</li>
+            </ol>
+            <a id="GUID-B7E09DB3-A839-4C98-A40F-765D527C1BF9" name="GUID-B7E09DB3-A839-4C98-A40F-765D527C1BF9"></a>
+            
+            <h2 id="OEXUG-GUID-B7E09DB3-A839-4C98-A40F-765D527C1BF9" class="sect2"><span class="enumeration_section">1.7 </span>Running Subsets of Checks
+            </h2>
+         </header>
+         <div class="ind">
+            <div>
+               <p>Run a subset of health checks where necessary.</p>
+               <p>These subsets can be a logical grouping determined by Oracle ORAchk and Oracle EXAchk based on what the check is about.</p>
+               <p>You can also determine the subsets at an individual check level where you want to exclude or run only specific checks.</p>
+            </div>
+            <div>
+               <ul class="ullinks">
+                  <li class="ulchildlink"><a href="running-subsets-of-checks.html#GUID-964727B7-F2C4-4E68-A134-96953CA8C0A6">Upgrade Readiness Mode (Oracle Clusterware and Oracle Database Upgrade Checks)</a><br>You can use Upgrade Readiness Mode to obtain an Upgrade Readiness Assessment.
+                  </li>
+                  <li class="ulchildlink"><a href="running-subsets-of-checks.html#GUID-013FA100-18C9-4F17-B883-BED3A4F24B81">Running Checks on Subsets of the Oracle Stack</a><br>Run checks on subsets of Oracle stack such as, database, cell, switch, and so on.
+                  </li>
+                  <li class="ulchildlink"><a href="running-subsets-of-checks.html#GUID-02206759-2685-4924-BFC2-6D412D0C1AE3">Using Profiles with Oracle ORAchk and Oracle EXAchk</a><br>Profiles are logical groupings of related checks. These related checks are grouped by a particular role, a task, or a technology.
+                  </li>
+                  <li class="ulchildlink"><a href="running-subsets-of-checks.html#GUID-5F06CF02-13C3-4CAE-89AD-6D4D1EB07720">Excluding Individual Checks</a><br>Excluding checks is recommended in situations where you have reviewed all check output and determined a particular check is not relevant for some particular business reason.
+                  </li>
+                  <li class="ulchildlink"><a href="running-subsets-of-checks.html#GUID-A5933B43-4E68-410B-8893-33B2B886A29F">Running Individual Checks</a><br>There are times when you may want to run only specific checks.
+                  </li>
+                  <li class="ulchildlink"><a href="running-subsets-of-checks.html#GUID-E7C70630-0221-4294-9AE7-AF385F7C5FEC">Finding Which Checks Require Privileged Users</a><br>Use the <span class="bold">Privileged User</span> filter in the Health Check Catalogs to find health checks that must be run by a specific privileged user, such as <code class="codeph">root</code>.
+                  </li>
+                  <li class="ulchildlink"><a href="running-subsets-of-checks.html#GUID-EE76EE5C-D00C-4B74-BB9D-EF0CA5880F17">Option to Run Only the Failed Checks</a><br>New option allows Oracle ORAchk and Oracle EXAchk to run only the checks that failed previously.
+                  </li>
+               </ul>
+               <div class="relinfo">
+                  <p><strong>Related Topics</strong></p>
+                  <ul>
+                     <li><a href="quick-start-guide.html#GUID-7D49D8BE-0C75-4D5E-BA2F-A6EC8B453F1D" title="In a clustered database environment, Oracle ORAchk and Oracle EXAchk run health checks on a single node and remotely run on all other cluster nodes.">SSH Connectivity and Access</a></li>
+                     <li><a href="automated-daemon-mode-operation.html#GUID-2C32CB18-C837-40E8-AB6E-1FC6672A83E8" title="Oracle recommends that you use the daemon process to schedule recurring health checks at regular intervals.">Using Oracle ORAchk and Oracle EXAchk to Automatically Check for Risks and System Health</a></li>
+                     <li><a href="on-demand-mode-operation.html#GUID-7CB110A3-023B-400C-837E-5F4DE5A2BBDB" title="Usually, health checks run at scheduled intervals. However, Oracle recommends that you run health checks on-demand when needed.">Running Health Checks On-Demand</a></li>
+                  </ul>
+               </div>
+               <div class="familylinks">
+                  <div class="parentlink">
+                     <p><strong>Parent topic:</strong> <a href="oracle-orachk-and-exachk-common-features-tasks.html#GUID-50F7EA11-11FD-431C-B99A-EC9E2176BBDB" title="Oracle ORAchk and Oracle EXAchk share a common health check framework and a large portion of their features and tasks are common.">Oracle ORAchk and Oracle EXAchk Common Features and Tasks</a></p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="sect2"><a id="GUID-964727B7-F2C4-4E68-A134-96953CA8C0A6" name="GUID-964727B7-F2C4-4E68-A134-96953CA8C0A6"></a><h3 id="OEXUG-GUID-964727B7-F2C4-4E68-A134-96953CA8C0A6" class="sect3"><span class="enumeration_section">1.7.1 </span>Upgrade Readiness Mode (Oracle Clusterware and Oracle Database Upgrade Checks)
+               </h3>
+               <div>
+                  <p>You can use Upgrade Readiness Mode to obtain an Upgrade Readiness Assessment.</p>
+                  <p>Upgrade Readiness Mode helps you plan the upgrade process for Oracle Cluster and Oracle RAC Database by automating many of the manual pre-checks and post-checks listed in the upgrade documentation.</p>
+                  <p>There are two Upgrade Readiness modes:</p>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p><span class="bold">Pre-upgrade check:</span> Run this check during the planning phase of the upgrade process. Running this check helps you ensure that you have enough time to correct potential issues before the upgrade.
+                        </p>
+                     </li>
+                     <li>
+                        <p><span class="bold">Post-upgrade check:</span> Run this check after the upgrade to help you ensure the health of Oracle Grid Infrastructure and Oracle Database upgrades.
+                        </p>
+                     </li>
+                  </ul>
+                  <p>The Upgrade Readiness report provides the following information:</p>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p>The target Clusterware and database versions. The report can only provide information for releases later than 11.2.0.3.</p>
+                     </li>
+                     <li>
+                        <p>In pre-upgrade mode, the tool automatically detects all databases that are registered with Oracle Clusterware. It displays a list of these databases on which you can perform pre-upgrade checks.</p>
+                     </li>
+                     <li>
+                        <p>In post-upgrade mode, the tool detects all databases registered with Oracle Clusterware. It displays a list of databases on which you can perform post-upgrade checks.  If you select any release 11.2.0.3 or earlier releases, then the tool does not perform post-upgrade checks on these databases.</p>
+                     </li>
+                     <li>
+                        <p>In both the modes, the tool checks the Oracle Clusterware stack and the operating system.</p>
+                     </li>
+                  </ul>
+                  <p>After the tool completes running, you are referred to the report. The report contains the upgrade readiness report and links where you can obtain additional information. </p>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="running-subsets-of-checks.html#GUID-8DBDDDDE-778A-4D9B-9295-47BC04614839">Oracle Clusterware and Oracle Database Pre-Upgrade Checks</a><br>During your pre-upgrade planning phase, run Oracle ORAchk and Oracle EXAchk in pre-upgrade mode as the Oracle Database owner or as <code class="codeph">root</code>.
+                     </li>
+                     <li class="ulchildlink"><a href="running-subsets-of-checks.html#GUID-7B1DAAE8-52E2-4426-95F2-5C93502875CE">Oracle Clusterware and Oracle Database Post-Upgrade Checks</a><br>After performing the upgrade, you can run in post-upgrade mode as the Oracle Database software owner or <code class="codeph">root</code> to see further recommendations.
+                     </li>
+                  </ul>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="running-subsets-of-checks.html#GUID-B7E09DB3-A839-4C98-A40F-765D527C1BF9" title="Run a subset of health checks where necessary.">Running Subsets of Checks</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="sect3"><a id="GUID-8DBDDDDE-778A-4D9B-9295-47BC04614839" name="GUID-8DBDDDDE-778A-4D9B-9295-47BC04614839"></a><h4 id="OEXUG-GUID-8DBDDDDE-778A-4D9B-9295-47BC04614839" class="sect4"><span class="enumeration_section">1.7.1.1 </span>Oracle Clusterware and Oracle Database Pre-Upgrade Checks
+                  </h4>
+                  <div>
+                     <p>During your pre-upgrade planning phase, run Oracle ORAchk and Oracle EXAchk in pre-upgrade mode as the Oracle Database owner or as <code class="codeph">root</code>.
+                     </p>
+                     <div class="p">To start pre-upgrade checking, use the <code class="codeph">&#x2013;u &#x2013;o pre</code> option:<pre class="pre codeblock"><code>$ ./orachk &#x2013;u -o pre</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;u -o pre</code></pre></div>
+                     <p>The tool prompts you to specify the version that you are planning to upgrade to, and then runs all of the applicable checks for that specific version.</p>
+                     <div class="p"><pre class="pre codeblock"><code>$ ./orachk -u -o pre
+Enter upgrade target version (valid versions are 11.2.0.3.0, 11.2.0.4.0, 12.1.0.1.0, 12.1.0.2.0 and 12.2.0.1.0):- 12.1.0.2.0
+
+CRS stack is running and CRS_HOME is not set. Do you want to set CRS_HOME to /scratch/app/11.2.0.4/grid?[y/n][y]
+
+Checking ssh user equivalency settings on all nodes in cluster
+
+Node myhost69 is configured for ssh user equivalency for oradb user
+ 
+Node myhost71 is configured for ssh user equivalency for oradb user
+ 
+
+Searching for running databases . . . . .
+
+. . . . . . 
+List of running databases registered in OCR
+1. ordsdb
+2. mydb
+3. All of above
+4. None of above
+
+Select databases from list for checking best practices. For multiple databases, select 3 for All or comma separated number like 1,2 etc [1-4][3].
+
+. . . . . .
+---------------------------------------------------------------------------------
+                      CLUSTERWIDE CHECKS
+---------------------------------------------------------------------------------
+
+ 
+Detailed report (html) - /oracle/orachk/orachk_myhost70_mydb_041916_215655/orachk_myhost70_mydb_041916_215655.html
+
+
+UPLOAD(if required) - /oracle/orachk/orachk_myhost70_mydb_041916_215655.zip
+</code></pre></div>
+                     <p>Output is similar to a standard HTML report output. However, the report shows checks that are relevant to upgrading Oracle Clusterware and Oracle Database to the version that you have specified.</p>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="running-subsets-of-checks.html#GUID-964727B7-F2C4-4E68-A134-96953CA8C0A6" title="You can use Upgrade Readiness Mode to obtain an Upgrade Readiness Assessment.">Upgrade Readiness Mode (Oracle Clusterware and Oracle Database Upgrade Checks)</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-7B1DAAE8-52E2-4426-95F2-5C93502875CE" name="GUID-7B1DAAE8-52E2-4426-95F2-5C93502875CE"></a><h4 id="OEXUG-GUID-7B1DAAE8-52E2-4426-95F2-5C93502875CE" class="sect4"><span class="enumeration_section">1.7.1.2 </span>Oracle Clusterware and Oracle Database Post-Upgrade Checks
+                  </h4>
+                  <div>
+                     <p>After performing the upgrade, you can run in post-upgrade mode as the Oracle Database software owner or <code class="codeph">root</code> to see further recommendations.
+                     </p>
+                     <div class="p">To start post-upgrade checks, use the <code class="codeph">&#x2013;u &#x2013;o post</code> option:<pre class="pre codeblock"><code>$ ./orachk &#x2013;u -o post</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;u -o post</code></pre></div>
+                     <div class="p"><pre class="pre codeblock"><code>$ ./orachk -u -o post
+
+CRS stack is running and CRS_HOME is not set. Do you want to set CRS_HOME to /u01/app/12.2.0/grid?[y/n][y]
+
+Checking ssh user equivalency settings on all nodes in cluster
+
+Node myhost69 is configured for ssh user equivalency for oradb user
+ 
+Node myhost71 is configured for ssh user equivalency for oradb user
+ 
+
+Searching for running databases . . . . .
+
+. . . . . . 
+List of running databases registered in OCR
+1. ordsdb
+2. mydb
+3. All of above
+4. None of above
+
+Select databases from list for checking best practices. For multiple databases, select 3 for All or comma separated number like 1,2 etc [1-4][3].
+
+. . . . . .
+
+---------------------------------------------------------------------------------
+                      CLUSTERWIDE CHECKS
+---------------------------------------------------------------------------------
+
+ 
+Detailed report (html) - /oracle/orachk/orachk_myhost70_mydb_042316_154355/orachk_myhost70_mydb_042316_154355.html
+
+
+UPLOAD(if required) - /oracle/orachk/orachk_myhost70_mydb_042316_154355.zip</code></pre></div>
+                     <p>Output is similar to a standard but shows only the checks that are relevant after upgrading the Clusterware and database.</p>
+                  </div>
+                  <div>
+                     <div class="relinfo">
+                        <p><strong>Related Topics</strong></p>
+                        <ul>
+                           <li><a href="understanding-and-managing-reports-and-output.html#GUID-2754E64A-BBE8-4F35-8D6A-C67B3A3B9974">HTML Report Output</a></li>
+                        </ul>
+                     </div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="running-subsets-of-checks.html#GUID-964727B7-F2C4-4E68-A134-96953CA8C0A6" title="You can use Upgrade Readiness Mode to obtain an Upgrade Readiness Assessment.">Upgrade Readiness Mode (Oracle Clusterware and Oracle Database Upgrade Checks)</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-013FA100-18C9-4F17-B883-BED3A4F24B81" name="GUID-013FA100-18C9-4F17-B883-BED3A4F24B81"></a><h3 id="OEXUG-GUID-013FA100-18C9-4F17-B883-BED3A4F24B81" class="sect3"><span class="enumeration_section">1.7.2 </span>Running Checks on Subsets of the Oracle Stack
+               </h3>
+               <div>
+                  <p>Run checks on subsets of Oracle stack such as, database, cell, switch, and so on.</p>
+               </div>
+               <div>
+                  <ul class="ullinks">
+                     <li class="ulchildlink"><a href="running-subsets-of-checks.html#GUID-9DC5E577-0BDF-4F3E-BF68-9C7A5DFC9068">Running Database Checks</a><br>During Oracle ORAchk and Oracle EXAchk system checks, all Oracle database logins are performed by using local connections.
+                     </li>
+                     <li class="ulchildlink"><a href="running-subsets-of-checks.html#GUID-3C0AA9D4-CA39-4BA6-9605-70D157E54A52">Running Cell Checks</a><br>Limit the scope of health checks to a subset of storage servers by using the&nbsp;<code class="codeph">&#x2013;cell <span class="variable" translate="no">cell</span></code> option. 
+                     </li>
+                     <li class="ulchildlink"><a href="running-subsets-of-checks.html#GUID-F5C27C32-DA25-445C-9325-447091388F14">Running Switch Checks</a><br>Limit the scope of health checks to a subset of switches by using the <code class="codeph">&#x2013;ibswitches <span class="variable" translate="no">switch</span></code> option.
+                     </li>
+                     <li class="ulchildlink"><a href="running-subsets-of-checks.html#GUID-DE9F149C-2FC8-445E-9EF5-E34991EBE758">Running Checks on Other Elements of the Oracle Stack</a><br>Health checks are available for large parts of the Oracle software and hardware stack. Health check coverage is expanding with each new release.
+                     </li>
+                     <li class="ulchildlink"><a href="running-subsets-of-checks.html#GUID-D86B4BE8-591F-4107-87C1-B5F698D2F0F3">Oracle ORAchk Support for Oracle Grid Infrastructure with no Oracle Database</a><br>Oracle ORAchk supports Oracle Grid Infrastructure stand-alone checks where no database is installed.
+                     </li>
+                  </ul>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="running-subsets-of-checks.html#GUID-B7E09DB3-A839-4C98-A40F-765D527C1BF9" title="Run a subset of health checks where necessary.">Running Subsets of Checks</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="sect3"><a id="GUID-9DC5E577-0BDF-4F3E-BF68-9C7A5DFC9068" name="GUID-9DC5E577-0BDF-4F3E-BF68-9C7A5DFC9068"></a><h4 id="OEXUG-GUID-9DC5E577-0BDF-4F3E-BF68-9C7A5DFC9068" class="sect4"><span class="enumeration_section">1.7.2.1 </span>Running Database Checks
+                  </h4>
+                  <div>
+                     <p>During Oracle ORAchk and Oracle EXAchk system checks, all Oracle database logins are performed by using local connections.</p>
+                     <div class="section">
+                        <p>The user running the tool must have operating system authenticated system privileges in the databases where you are running the tool.</p>
+                        <p>Oracle software is installed by using an Oracle software installation owner, which is commonly referred to in Oracle documentation as the Oracle user. Your system can contain multiple Oracle database homes all owned by the same Oracle user, for example, <code class="codeph">oracle</code>. Your system can also contain multiple database homes owned by different Oracle users, for example, <code class="codeph">oracle1</code>, <code class="codeph">oracle2</code>, <code class="codeph">oracle3</code>.  If you have multiple Oracle database homes configured, and these homes are owned by different Oracle users, then you must either run the tool as <code class="codeph">root</code> user, or you must log in as the Oracle user for each Oracle database that you want to check. Use that Oracle user to run the tool on the Oracle database instance on which the user is the software installation owner.
+                        </p>
+                        <p>By default, Oracle ORAchk and Oracle EXAchk present a list of running databases that are registered with Oracle Grid Infrastructure. You can run the tools on one database, run the tools on all databases, or run the tool with a comma-delimited list of numbers that designate the databases listed. When you check multiple nodes running on the cluster, you do not need to stage the tool on the other nodes in the cluster to check the database instances running on those nodes.</p>
+                     </div>
+                     <!-- class="section" -->
+                     <ol>
+                        <li class="stepexpand"><span>To prevent prompting for which database to run against and check all databases, use the <code class="codeph">&#x2013;dball</code> option.</span><div><pre class="pre codeblock"><code>$ ./orachk -dball</code></pre><pre class="pre codeblock"><code>$ ./exachk -dball</code></pre></div>
+                        </li>
+                        <li class="stepexpand"><span>To prevent prompting and skip all database checks, use the <code class="codeph">&#x2013;dbnone</code> option.</span><div><pre class="pre codeblock"><code>$ ./orachk &#x2013;dbnone</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;dbnone</code></pre></div>
+                        </li>
+                        <li class="stepexpand"><span>To run checks against a subset of databases, use the <code class="codeph">&#x2013;dbnames <span class="variable" translate="no">database_name</span></code> option.</span><div>
+                              <p>You can check multiple database instances by listing them in a comma-delimited list.</p><pre class="pre codeblock"><code>$ ./orachk &#x2013;dbnames <span class="variable" translate="no">db1</span>,<span class="variable" translate="no">db2</span>,<span class="variable" translate="no">db3</span></code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;dbnames <span class="variable" translate="no">db1</span>,<span class="variable" translate="no">db2</span>,<span class="variable" translate="no">db3</span></code></pre><p>By default, Oracle ORAchk and Oracle EXAchk run checks on all database nodes in the cluster.</p>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>To run checks against a subset of PDBs, use the <code class="codeph">-pdbnames <span class="variable" translate="no">pdb_name</span></code> option.</span><div>
+                              <p>You can check multiple PDBs by listing them in a comma-delimited list.</p><pre class="pre codeblock"><code>$ ./orachk &#x2013;pdbnames <span class="variable" translate="no">pdb1</span>,<span class="variable" translate="no">pdb2</span>,<span class="variable" translate="no">pdb3</span></code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;pdbnames <span class="variable" translate="no">pdb1</span>,<span class="variable" translate="no">pdb2</span>,<span class="variable" translate="no">pdb3</span></code></pre></div>
+                           <div>
+                              <p>By default, Oracle ORAchk and Oracle EXAchk run checks on all PDBs in the cluster.</p>
+                           </div>
+                        </li>
+                        <li class="stepexpand"><span>To run checks against a subset of cluster nodes, use the&nbsp;<code class="codeph">-clusternodes&nbsp;<span class="variable" translate="no">node</span></code>&nbsp;option.</span><div>
+                              <p>You can check multiple cluster nodes by listing them in a comma-delimited list.</p><pre class="pre codeblock"><code>$ ./orachk &#x2013;clusternodes <span class="variable" translate="no">node1</span>,<span class="variable" translate="no">node2</span>,<span class="variable" translate="no">node3</span></code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;clusternodes <span class="variable" translate="no">node1</span>,<span class="variable" translate="no">node2</span>,<span class="variable" translate="no">node3</span></code></pre></div>
+                        </li>
+                        <li class="stepexpand"><span>To run checks against the local node, use the <code class="codeph">-localonly</code> option.</span><div><pre class="pre codeblock"><code>$ ./orachk -localonly
+$ ./exachk -localonly</code></pre></div>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="running-subsets-of-checks.html#GUID-013FA100-18C9-4F17-B883-BED3A4F24B81" title="Run checks on subsets of Oracle stack such as, database, cell, switch, and so on.">Running Checks on Subsets of the Oracle Stack</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-3C0AA9D4-CA39-4BA6-9605-70D157E54A52" name="GUID-3C0AA9D4-CA39-4BA6-9605-70D157E54A52"></a><h4 id="OEXUG-GUID-3C0AA9D4-CA39-4BA6-9605-70D157E54A52" class="sect4"><span class="enumeration_section">1.7.2.2 </span>Running Cell Checks
+                  </h4>
+                  <div>
+                     <p>Limit the scope of health checks to a subset of storage servers by using the&nbsp;<code class="codeph">&#x2013;cell <span class="variable" translate="no">cell</span></code> option. 
+                     </p>
+                     <div class="section"></div>
+                     <!-- class="section" -->
+                     <ol>
+                        <li class="stepexpand"><span>To limit the scope to one cell, use the <code class="codeph">-cell</code> option.</span><div><pre class="pre codeblock"><code>orachk -cell</code></pre><pre class="pre codeblock"><code>exachk -cell</code></pre></div>
+                        </li>
+                        <li class="stepexpand"><span>To limit the check to a set of cells, use a comma-delimited list of cells.</span><div><pre class="pre codeblock"><code>$ ./orachk &#x2013;cell <span class="variable" translate="no">cell1</span>,<span class="variable" translate="no">cell2</span>,<span class="variable" translate="no">cell3</span></code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;cell <span class="variable" translate="no">cell1</span>,<span class="variable" translate="no">cell2</span>,<span class="variable" translate="no">cell3</span></code></pre></div>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="running-subsets-of-checks.html#GUID-013FA100-18C9-4F17-B883-BED3A4F24B81" title="Run checks on subsets of Oracle stack such as, database, cell, switch, and so on.">Running Checks on Subsets of the Oracle Stack</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-F5C27C32-DA25-445C-9325-447091388F14" name="GUID-F5C27C32-DA25-445C-9325-447091388F14"></a><h4 id="OEXUG-GUID-F5C27C32-DA25-445C-9325-447091388F14" class="sect4"><span class="enumeration_section">1.7.2.3 </span>Running Switch Checks
+                  </h4>
+                  <div>
+                     <p>Limit the scope of health checks to a subset of switches by using the <code class="codeph">&#x2013;ibswitches <span class="variable" translate="no">switch</span></code> option.
+                     </p>
+                     <div class="section"></div>
+                     <!-- class="section" -->
+                     <ol>
+                        <li class="stepexpand"><span>To limit the scope to one switch, use the <code class="codeph">&#x2013;ibswitches</code> option.</span><div><pre class="pre codeblock"><code>$ ./orachk &#x2013;ibswitches</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;ibswitches</code></pre></div>
+                        </li>
+                        <li class="stepexpand"><span>To limit the check to a set of switches, use a comma-delimited list of switches.</span><div><pre class="pre codeblock"><code>$ ./orachk &#x2013;ibswitches <span class="variable" translate="no">switch1</span>,<span class="variable" translate="no">switch2</span></code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;ibswitches <span class="variable" translate="no">switch1</span>,<span class="variable" translate="no">switch2</span></code></pre></div>
+                        </li>
+                     </ol>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="running-subsets-of-checks.html#GUID-013FA100-18C9-4F17-B883-BED3A4F24B81" title="Run checks on subsets of Oracle stack such as, database, cell, switch, and so on.">Running Checks on Subsets of the Oracle Stack</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-DE9F149C-2FC8-445E-9EF5-E34991EBE758" name="GUID-DE9F149C-2FC8-445E-9EF5-E34991EBE758"></a><h4 id="OEXUG-GUID-DE9F149C-2FC8-445E-9EF5-E34991EBE758" class="sect4"><span class="enumeration_section">1.7.2.4 </span>Running Checks on Other Elements of the Oracle Stack
+                  </h4>
+                  <div>
+                     <p>Health checks are available for large parts of the Oracle software and hardware stack. Health check coverage is expanding with each new release.</p>
+                     <p>Health checks are organized into logical groupings, which are called <span class="italic">profiles</span>. You can run subsets of checks for different areas of the Oracle stack by the applicable profile.
+                     </p>
+                     <p>Refer to the Using Profiles section for a list of available profiles.</p>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="running-subsets-of-checks.html#GUID-013FA100-18C9-4F17-B883-BED3A4F24B81" title="Run checks on subsets of Oracle stack such as, database, cell, switch, and so on.">Running Checks on Subsets of the Oracle Stack</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               <div class="sect3"><a id="GUID-D86B4BE8-591F-4107-87C1-B5F698D2F0F3" name="GUID-D86B4BE8-591F-4107-87C1-B5F698D2F0F3"></a><h4 id="OEXUG-GUID-D86B4BE8-591F-4107-87C1-B5F698D2F0F3" class="sect4"><span class="enumeration_section">1.7.2.5 </span>Oracle ORAchk Support for Oracle Grid Infrastructure with no Oracle Database
+                  </h4>
+                  <div>
+                     <p>Oracle ORAchk supports Oracle Grid Infrastructure stand-alone checks where no database is installed.</p>
+                     <div class="p">To run Oracle Grid Infrastructure checks in an environment where Oracle Database is not installed, use the option:<pre class="pre codeblock"><code>-nordbms</code></pre></div>
+                     <div class="p">For example:<pre class="pre codeblock"><code>$ ./orachk -nordbms</code></pre><pre class="pre codeblock"><code>$ ./exachk -nordbms</code></pre></div>
+                  </div>
+                  <div>
+                     <div class="familylinks">
+                        <div class="parentlink">
+                           <p><strong>Parent topic:</strong> <a href="running-subsets-of-checks.html#GUID-013FA100-18C9-4F17-B883-BED3A4F24B81" title="Run checks on subsets of Oracle stack such as, database, cell, switch, and so on.">Running Checks on Subsets of the Oracle Stack</a></p>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+            <div class="sect2"><a id="GUID-02206759-2685-4924-BFC2-6D412D0C1AE3" name="GUID-02206759-2685-4924-BFC2-6D412D0C1AE3"></a><h3 id="OEXUG-GUID-02206759-2685-4924-BFC2-6D412D0C1AE3" class="sect3"><span class="enumeration_section">1.7.3 </span>Using Profiles with Oracle ORAchk and Oracle EXAchk
+               </h3>
+               <div>
+                  <p>Profiles are logical groupings of related checks. These related checks are grouped by a particular role, a task, or a technology.</p>
+                  <p>The following table describes the profiles that you can use: </p>
+                  <div class="tblformal" id="GUID-02206759-2685-4924-BFC2-6D412D0C1AE3__GUID-594C242E-1982-4968-A0EB-02C4CECA2EBF">
+                     <p class="titleintable">Table 1-6 List of Available Profiles for Oracle ORAchk and Oracle EXAchk Checks</p>
+                     <table cellpadding="4" cellspacing="0" class="Formal" title="List of Available Profiles for Oracle ORAchk and Oracle EXAchk Checks" summary="This table consists of two columns. The first column lists the name of a profile available to use with Oracle ORAchk or Oracle EXAchk. The second column describes the purpose of the profile. It lists the software stack, hardware stack, feature, or role for which the profile checks are grouped." width="100%" frame="hsides" border="1" rules="rows">
+                        <thead>
+                           <tr align="left" valign="top">
+                              <th align="left" valign="bottom" width="20%" id="d16459e804">Profile</th>
+                              <th align="left" valign="bottom" width="20%" id="d16459e806">Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e810" headers="d16459e804 ">
+                                 <p><code class="codeph">asm</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e810 d16459e806 ">
+                                 <p>Oracle Automatic Storage Management checks.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e818" headers="d16459e804 ">
+                                 <p><code class="codeph">exatier1</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e818 d16459e806 ">
+                                 <p>Exadata only checks with a critical alert level.</p>
+                                 <p>These represent the top tier of problems with the most severe likely impact. You must fix the problems marked as critical as soon as possible.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e828" headers="d16459e804 ">
+                                 <p><code class="codeph">patches</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e828 d16459e806 ">
+                                 <p>Oracle patch checks.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e836" headers="d16459e804 ">
+                                 <p><code class="codeph">bi_middleware</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e836 d16459e806 ">
+                                 <p>Oracle Business Intelligence checks.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e844" headers="d16459e804 ">
+                                 <p><code class="codeph">clusterware</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e844 d16459e806 ">
+                                 <p>Oracle Clusterware checks.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e852" headers="d16459e804 ">
+                                 <p><code class="codeph">compute_node</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e852 d16459e806 ">
+                                 <p>Compute Node checks (Oracle Exalogic only).</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e860" headers="d16459e804 ">
+                                 <p><code class="codeph">control_VM</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e860 d16459e806 ">
+                                 <p>Checks only for Oracle Virtual Machine Control VM (<code class="codeph">ec1-vm</code>, <code class="codeph">ovmm</code>, <code class="codeph">db</code>, <code class="codeph">pc1</code>, <code class="codeph">pc2</code>). No cross-node checks.
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e883" headers="d16459e804 ">
+                                 <p><code class="codeph">corroborate</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e883 d16459e806 ">
+                                 <p>Oracle Exadata checks, which you must review to determine pass or fail.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e891" headers="d16459e804 ">
+                                 <p><code class="codeph">dba</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e891 d16459e806 ">
+                                 <p>Database Administrator (DBA) Checks.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e899" headers="d16459e804 ">
+                                 <p><code class="codeph">ebs</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e899 d16459e806 ">
+                                 <p>Oracle E-Business Suite checks.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e907" headers="d16459e804 ">
+                                 <p><code class="codeph">el_extensive</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e907 d16459e806 ">
+                                 <p>Extensive EL checks.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e916" headers="d16459e804 ">
+                                 <p><code class="codeph">el_lite</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e916 d16459e806 ">
+                                 <p>Exalogic-Lite Checks(Oracle Exalogic Only).</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e924" headers="d16459e804 ">
+                                 <p><code class="codeph">el_rackcompare</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e924 d16459e806 ">
+                                 <p>Data Collection for Exalogic Rack Comparison Tool (Oracle Exalogic Only).</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e932" headers="d16459e804 ">
+                                 <p><code class="codeph">emagent</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e932 d16459e806 ">
+                                 <p>Oracle Enterprise Manager Cloud Control agent checks.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e940" headers="d16459e804 ">
+                                 <p><code class="codeph">emoms</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e940 d16459e806 ">
+                                 <p>Oracle Enterprise Manager Cloud Control management server.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e948" headers="d16459e804 ">
+                                 <p><code class="codeph">em</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e948 d16459e806 ">
+                                 <p>Oracle Enterprise Manager Cloud Control checks.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e956" headers="d16459e804 ">
+                                 <p><code class="codeph">goldengate</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e956 d16459e806 ">
+                                 <p>Oracle GoldenGate checks.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e964" headers="d16459e804 ">
+                                 <p><code class="codeph">hardware</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e964 d16459e806 ">
+                                 <p>Hardware-specific checks for Oracle Engineered systems.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e972" headers="d16459e804 ">
+                                 <p><code class="codeph">maa</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e972 d16459e806 ">
+                                 <p>Maximum Availability Architecture Checks.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e980" headers="d16459e804 ">
+                                 <p><code class="codeph">nimbula</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e980 d16459e806 ">
+                                 <p>Nimbula checks for Oracle Exalogic.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e988" headers="d16459e804 ">
+                                 <p><code class="codeph">oam</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e988 d16459e806 ">
+                                 <p>Oracle Access Manager checks.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e996" headers="d16459e804 ">
+                                 <p><code class="codeph">obiee</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e996 d16459e806 ">
+                                 <p>OBIEE Checks (Oracle Exalytics Only)</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e1005" headers="d16459e804 ">
+                                 <p><code class="codeph">oim</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e1005 d16459e806 ">
+                                 <p>Oracle Identity Manager checks.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e1013" headers="d16459e804 ">
+                                 <p><code class="codeph">oud</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e1013 d16459e806 ">
+                                 <p>Oracle Unified Directory server checks.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e1021" headers="d16459e804 ">
+                                 <p><code class="codeph">ovn</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e1021 d16459e806 ">
+                                 <p>Oracle Virtual Networking.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e1029" headers="d16459e804 ">
+                                 <p><code class="codeph">peoplesoft</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e1029 d16459e806 ">
+                                 <p>Peoplesoft best practices.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e1037" headers="d16459e804 ">
+                                 <p><code class="codeph">platinum</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e1037 d16459e806 ">
+                                 <p>Platinum certification checks.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e1045" headers="d16459e804 ">
+                                 <p><code class="codeph">preinstall</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e1045 d16459e806 ">
+                                 <p>Preinstallation checks.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e1053" headers="d16459e804 ">
+                                 <p><code class="codeph">prepatch</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e1053 d16459e806 ">
+                                 <p>Checks to complete before patching.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e1061" headers="d16459e804 ">
+                                 <p><code class="codeph">security</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e1061 d16459e806 ">
+                                 <p>Security checks.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e1069" headers="d16459e804 ">
+                                 <p><code class="codeph">siebel</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e1069 d16459e806 ">
+                                 <p>Siebel Checks.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e1077" headers="d16459e804 ">
+                                 <p><code class="codeph">solaris_cluster</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e1077 d16459e806 ">
+                                 <p>Oracle Solaris Cluster Checks.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e1085" headers="d16459e804 ">
+                                 <p><code class="codeph">storage</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e1085 d16459e806 ">
+                                 <p>Oracle Storage Server Checks.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e1094" headers="d16459e804 ">
+                                 <p><code class="codeph">switch</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e1094 d16459e806 ">
+                                 <p>InfiniBand switch checks.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e1102" headers="d16459e804 ">
+                                 <p><code class="codeph">sysadmin</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e1102 d16459e806 ">
+                                 <p>System administrator checks.</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e1110" headers="d16459e804 ">
+                                 <p><code class="codeph">timesten</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e1110 d16459e806 ">
+                                 <p>Oracle TimesTen checks (Oracle Exalytics Only).</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e1118" headers="d16459e804 ">
+                                 <p><code class="codeph">user_defined_checks</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e1118 d16459e806 ">
+                                 <p>Run user-defined checks from <code class="codeph">user_defined_checks.xml</code>.
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e1129" headers="d16459e804 ">
+                                 <p><code class="codeph">virtual_infra</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e1129 d16459e806 ">
+                                 <p>Oracle VM Server (OVS), Control VM, network time protocol (NTP), and stale virtual network interface cards (VNICs) check (Oracle Exalogic Only).</p>
+                              </td>
+                           </tr>
+                           <tr align="left" valign="top">
+                              <td align="left" valign="top" width="20%" id="d16459e1137" headers="d16459e804 ">
+                                 <p><code class="codeph">zfs</code></p>
+                              </td>
+                              <td align="left" valign="top" width="20%" headers="d16459e1137 d16459e806 ">
+                                 <p>Oracle ZFS Storage Appliances checks (Oracle Exalogic Only).</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <!-- class="inftblhruleinformal" -->
+                  <p>You can run the command with an inclusion list, so that it runs only the checks in particular profiles. Run the command with the option <code class="codeph">&#x2013;profile <span class="variable" translate="no">profile_name</span></code>. You can run multiple profiles by running the command with a comma-delimited inclusion list. The inclusion list contains only the profiles that you want to run.
+                  </p>
+                  <div class="p"><pre class="pre codeblock"><code>$ ./orachk &#x2013;profile dba,clusterware</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;profile dba,clusterware</code></pre></div>
+                  <p>The output of inclusion list profile checks is similar to the standard HTML Report Output format. However, profile inclusion check reports show only output of checks that are in the specific profiles that you specify in the check.</p>
+                  <p>You can also run the command with exclusion list. Run the command with the option <code class="codeph">&#x2013;excludeprofile profile_name</code>. When you run the command with an exclusion list, all profile checks are performed except for the checks in the profile that you list. You can list multiple profiles to exclude by running the command with a comma-delimited exclusion list.
+                  </p>
+                  <div class="p"><pre class="pre codeblock"><code>$ ./orachk &#x2013;excludeprofile dba,clusterware,ebs</code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;excludeprofile dba,clusterware,ebs</code></pre></div>
+                  <p>The output of exclusion list profile checks is similar to the standard HTML Report Output format. However, profile exclusion check reports show only the checks that are not in the profiles that you specify to exclude in the check.</p>
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="understanding-and-managing-reports-and-output.html#GUID-2754E64A-BBE8-4F35-8D6A-C67B3A3B9974">HTML Report Output</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="running-subsets-of-checks.html#GUID-B7E09DB3-A839-4C98-A40F-765D527C1BF9" title="Run a subset of health checks where necessary.">Running Subsets of Checks</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-5F06CF02-13C3-4CAE-89AD-6D4D1EB07720" name="GUID-5F06CF02-13C3-4CAE-89AD-6D4D1EB07720"></a><h3 id="OEXUG-GUID-5F06CF02-13C3-4CAE-89AD-6D4D1EB07720" class="sect3"><span class="enumeration_section">1.7.4 </span>Excluding Individual Checks
+               </h3>
+               <div>
+                  <p>Excluding checks is recommended in situations where you have reviewed all check output and determined a particular check is not relevant for some particular business reason.</p>
+                  <p>This allows the health check HTML report to be streamlined to show only the problems you need to fix.</p>
+                  <p>You can exclude checks in two different ways. Both the methods require you to find the check Ids.</p>
+                  <div class="p">The first method is to use the <code class="codeph">&#x2013;excludecheck <span class="variable" translate="no">check_id</span></code> option. To exclude multiple check ids, use the comma-delimited list of check ids:<pre class="pre codeblock"><code>$ ./orachk &#x2013;excludecheck <span class="variable" translate="no">0829D67E8B1549AFE05312C0E50AD04F</span>,<span class="variable" translate="no">CB95A1BF5B1160ACE0431EC0E50A12EE</span></code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;excludecheck <span class="variable" translate="no">0829D67E8B1549AFE05312C0E50AD04F</span>,<span class="variable" translate="no">CB95A1BF5B1160ACE0431EC0E50A12EE</span></code></pre></div>
+                  <p>All excluded files are shown in the <span class="bold">Excluded Checks</span> section of the report.
+                  </p>
+                  <div class="p">
+                     <div class="figure" id="GUID-5F06CF02-13C3-4CAE-89AD-6D4D1EB07720__GUID-54C98464-C7CA-4F98-982E-D273385A57C0">
+                        <p class="titleinfigure">Figure 1-29 Excluding Checks - Method I</p><img src="img/excluding-checks-method-i.png" alt="Description of Figure 1-29 follows" title="Description of Figure 1-29 follows" longdesc="img_text/excluding-checks-method-i.html"><br><a href="img_text/excluding-checks-method-i.html">Description of "Figure 1-29 Excluding Checks - Method I"</a></div>
+                     <!-- class="figure" -->
+                  </div>
+                  <p>The second method of excluding individual checks is as follows:</p>
+                  <ol>
+                     <li>
+                        <p>List all check ids in a file, one check id per line.</p>
+                     </li>
+                     <li>
+                        <p>Save the file as <code>excluded_check_ids.txt</code> in the same directory where the tool is installed 
+                        </p>
+                        <div class="p"><pre class="pre codeblock"><code>$ ls -la
+total 67616
+drwxr-xr-x 3 oradb oinstall     4096 Apr 28 06:27 .
+drwxr-xr-x 7 oradb oinstall     4096 Apr 28 06:22 ..
+-rw-r--r-- 1 oradb oinstall  2077055 Feb  8 09:13 ORAchk_Health_Check_Catlog.html
+drwxr--r-- 3 oradb oinstall     4096 Feb  7 21:31 .cgrep
+-rw-r--r-- 1 oradb oinstall  4690680 Feb  7 21:30 CollectionManager_App.sql
+-rw-r--r-- 1 oradb oinstall 44243042 Feb  7 21:31 collections.dat
+-rw-r--r-- 1 oradb oinstall       66 Apr 28 06:27 excluded_check_ids.txt
+-rwxr-xr-x 1 oradb oinstall  2653265 Feb  7 21:30 orachk
+-rw-r--r-- 1 oradb oinstall  9860069 Apr 25 11:17 orachk.zip
+-rw-r--r-- 1 oradb oinstall     3869 Feb  7 21:31 readme.txt
+-rw-r--r-- 1 oradb oinstall  5613338 Feb  7 21:31 rules.dat
+-rw-r--r-- 1 oradb oinstall    40052 Feb  7 21:30 sample_user_defined_checks.xml
+-rw-r--r-- 1 oradb oinstall     2888 Feb  7 21:30 user_defined_checks.xsd
+-rw-r--r-- 1 oradb oinstall      425 Feb  7 21:31 UserGuide.txt
+
+$ cat excluded_check_ids.txt
+0829D67E8b1549AFE05312C0E50AD04F
+CB95A1BF5B1160ACE0431EC0E50A12EE
+
+</code></pre></div>
+                     </li>
+                  </ol>
+                  <p>The <code>excluded_check_ids.txt</code> file remains in this directory. Each time the tool is run, all applicable health checks are run except those specified in the file.
+                  </p>
+                  <p>All excluded files are shown in the <span class="bold">Excluded Checks</span> section of the report.
+                  </p>
+                  <div class="p">
+                     <div class="figure" id="GUID-5F06CF02-13C3-4CAE-89AD-6D4D1EB07720__GUID-0D60DEEB-CCF0-4E7B-8672-CED272281991">
+                        <p class="titleinfigure">Figure 1-30 Excluded Checks</p><img src="img/excluded-checks.png" alt="Description of Figure 1-30 follows" title="Description of Figure 1-30 follows" longdesc="img_text/excluded-checks.html"><br><a href="img_text/excluded-checks.html">Description of "Figure 1-30 Excluded Checks"</a></div>
+                     <!-- class="figure" -->
+                  </div>
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="running-subsets-of-checks.html#GUID-B7E09DB3-A839-4C98-A40F-765D527C1BF9" title="Run a subset of health checks where necessary.">Running Subsets of Checks</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-A5933B43-4E68-410B-8893-33B2B886A29F" name="GUID-A5933B43-4E68-410B-8893-33B2B886A29F"></a><h3 id="OEXUG-GUID-A5933B43-4E68-410B-8893-33B2B886A29F" class="sect3"><span class="enumeration_section">1.7.5 </span>Running Individual Checks
+               </h3>
+               <div>
+                  <p>There are times when you may want to run only specific checks.</p>
+                  <div class="section">
+                     <p>Running individual check can particularly be useful in situations such as:</p>
+                     <ul style="list-style-type: disc;">
+                        <li>
+                           <p>Quickly verify if a particular issue has been fixed</p>
+                        </li>
+                        <li>
+                           <p>Troubleshoot performance or run specific checks</p>
+                        </li>
+                        <li>
+                           <p>Develop and test user-defined checks</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <!-- class="section" -->
+                  <div class="p">
+                     <p>Find the check ids before you run individual checks.</p>
+                  </div>
+                  <!-- class="section" -->
+                  <ol>
+                     <li class="stepexpand"><span>To run only specific checks use the <code class="codeph">&#x2013;check <span class="variable" translate="no">check_id</span></code> option.</span></li>
+                     <li class="stepexpand"><span>To run multiple check ids, use the comma-delimited list of check ids:</span><div><pre class="pre codeblock"><code>$ ./orachk &#x2013;check <span class="variable" translate="no">0829D67E8B1549AFE05312C0E50AD04F</span>,<span class="variable" translate="no">CB95A1BF5B1160ACE0431EC0E50A12EE</span></code></pre><pre class="pre codeblock"><code>$ ./exachk &#x2013;check <span class="variable" translate="no">0829D67E8B1549AFE05312C0E50AD04F</span>,<span class="variable" translate="no">CB95A1BF5B1160ACE0431EC0E50A12EE</span></code></pre></div>
+                     </li>
+                  </ol>
+               </div>
+               <div>
+                  <div class="relinfo">
+                     <p><strong>Related Topics</strong></p>
+                     <ul>
+                        <li><a href="understanding-and-managing-reports-and-output.html#GUID-EEAF402D-F5E6-4529-AD42-C39C62B61A2A" title="Each health check has a unique 32 character ID.">How to Find a Check ID</a></li>
+                     </ul>
+                  </div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="running-subsets-of-checks.html#GUID-B7E09DB3-A839-4C98-A40F-765D527C1BF9" title="Run a subset of health checks where necessary.">Running Subsets of Checks</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-E7C70630-0221-4294-9AE7-AF385F7C5FEC" name="GUID-E7C70630-0221-4294-9AE7-AF385F7C5FEC"></a><h3 id="OEXUG-GUID-E7C70630-0221-4294-9AE7-AF385F7C5FEC" class="sect3"><span class="enumeration_section">1.7.6 </span>Finding Which Checks Require Privileged Users
+               </h3>
+               <div>
+                  <p>Use the <span class="bold">Privileged User</span> filter in the Health Check Catalogs to find health checks that must be run by a specific privileged user, such as <code class="codeph">root</code>.
+                  </p>
+                  <p>Refer to the Oracle ORAchk or Oracle EXAchk example to see how to locate a privileged user.</p>
+                  <div class="example" id="GUID-E7C70630-0221-4294-9AE7-AF385F7C5FEC__GUID-1EAC444F-323C-4457-84DC-271C6FD9B89D">
+                     <p class="titleinexample">Example 1-21 Finding a Privileged User Health Check in Oracle ORAchk Health Check Catalog:</p>
+                     <div class="p">
+                        <div class="figure" id="GUID-E7C70630-0221-4294-9AE7-AF385F7C5FEC__GUID-589A104F-4705-499B-8FEB-B32131AC0700">
+                           <p class="titleinfigure">Figure 1-31 Oracle ORAchk - Privileged User</p><img src="img/orachk-privileged-user.png" alt="Description of Figure 1-31 follows" title="Description of Figure 1-31 follows" longdesc="img_text/orachk-privileged-user.html"><br><a href="img_text/orachk-privileged-user.html">Description of "Figure 1-31 Oracle ORAchk - Privileged User"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                     <p>Go to My Oracle Support note 1268927.2, and click the <span class="bold">Health Check Catalog</span> tab to open an Oracle ORAchk Health Check Catalog:
+                     </p>
+                     <p><a href="https://support.oracle.com/rs?type=doc&amp;id=1268927.2" target="_blank">https://support.oracle.com/rs?type=doc&amp;id=1268927.2</a></p>
+                     <p>You must have Javascript enabled to view the form. </p>
+                  </div>
+                  <!-- class="example" -->
+                  <div class="example" id="GUID-E7C70630-0221-4294-9AE7-AF385F7C5FEC__GUID-9526E802-6790-4BD6-8868-965A162BB901">
+                     <p class="titleinexample">Example 1-22 Finding a Privileged User in Oracle EXAchk Health Check Catalog</p>
+                     <div class="p">
+                        <div class="figure" id="GUID-E7C70630-0221-4294-9AE7-AF385F7C5FEC__GUID-6CE34E36-0D63-4B12-82D7-BC160FF34407">
+                           <p class="titleinfigure">Figure 1-32 Oracle EXAchk - Privileged User</p><img src="img/exachk-privileged-user.png" alt="Description of Figure 1-32 follows" title="Description of Figure 1-32 follows" longdesc="img_text/exachk-privileged-user.html"><br><a href="img_text/exachk-privileged-user.html">Description of "Figure 1-32 Oracle EXAchk - Privileged User"</a></div>
+                        <!-- class="figure" -->
+                     </div>
+                     <p>Example Oracle EXAchk Health Check Catalog:</p>
+                     <p><a href="https://support.oracle.com/epmos/main/downloadattachmentprocessor?parent=DOCUMENT&amp;sourceId=1268927.2&amp;attachid=1268927.1:EXACHK_HC_CATALOG" target="_blank">Oracle EXAchk Health Check Catalog</a></p>
+                  </div>
+                  <!-- class="example" -->
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="running-subsets-of-checks.html#GUID-B7E09DB3-A839-4C98-A40F-765D527C1BF9" title="Run a subset of health checks where necessary.">Running Subsets of Checks</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div class="sect2"><a id="GUID-EE76EE5C-D00C-4B74-BB9D-EF0CA5880F17" name="GUID-EE76EE5C-D00C-4B74-BB9D-EF0CA5880F17"></a><h3 id="OEXUG-GUID-EE76EE5C-D00C-4B74-BB9D-EF0CA5880F17" class="sect3"><span class="enumeration_section">1.7.7 </span>Option to Run Only the Failed Checks
+               </h3>
+               <div>
+                  <p>New option allows Oracle ORAchk and Oracle EXAchk to run only the checks that failed previously.</p>
+                  <p>To run only the checks that failed previously:</p>
+                  <ul style="list-style-type: disc;">
+                     <li>
+                        <p>Generate a health check report</p>
+                     </li>
+                     <li>
+                        <p>Fix the issues identified</p>
+                     </li>
+                     <li>
+                        <p>Generate another health check report verifying only the issues that failed before</p>
+                     </li>
+                  </ul>
+                  <div class="p">Use the failed checks option by passing in the HTML report, zip, or directory.<pre class="pre codeblock"><code>-failedchecks <span class="variable" translate="no">previous_result</span></code></pre></div>
+               </div>
+               <div>
+                  <div class="familylinks">
+                     <div class="parentlink">
+                        <p><strong>Parent topic:</strong> <a href="running-subsets-of-checks.html#GUID-B7E09DB3-A839-4C98-A40F-765D527C1BF9" title="Run a subset of health checks where necessary.">Running Subsets of Checks</a></p>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+         </div>
+      </article>
+   </body>
+</html>

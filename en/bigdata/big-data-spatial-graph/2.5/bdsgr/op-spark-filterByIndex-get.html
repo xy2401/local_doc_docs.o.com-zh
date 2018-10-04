@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- saved from url=(0023)https://docs.oracle.com -->
+        <title>REST API for Big Data Spatial and Graph - Filter spatially the records in a spatial index using the Spark API</title>
+		
+        <link rel="stylesheet" href="/sp_common/rest-template/ohc-rest-template/css/rest.css">
+        <script>
+            document.write('<style type="text/css">');
+            document.write('body > .noscript, body > .noscript ~ * { opacity: 0; }');
+            document.write('</style>');
+        </script>
+        <script data-main="/sp_common/rest-template/ohc-rest-template/js/rest-config" src="/sp_common/rest-template/requirejs/require.js"></script>
+        <script>
+            if(window.require === undefined) {
+                document.write('<script data-main="sp_common/rest-template/ohc-rest-template/js/rest-config" src="sp_common/rest-template/requirejs/require.js"><\/script>');
+                document.write('<link href="sp_common/rest-template/ohc-rest-template/css/rest.css" rel="stylesheet">');
+            }
+        </script>
+        <meta name="description" content="The RESTful Web Services Spatial API is composed of the Vector Hadoop API, which uses the java Spatial Hadoop Java API, and the Vector Spark API, which uses the Spatial Spark Java API.">
+        <meta property="og:site_name" content="Oracle Help Center">
+        <meta property="og:title" content="REST API for Big Data Spatial and Graph">
+        <meta property="og:description" content="The RESTful Web Services Spatial API is composed of the Vector Hadoop API, which uses the java Spatial Hadoop Java API, and the Vector Spark API, which uses the Spatial Spark Java API.">
+        <meta name="generator" content="Oracle REST API Publisher 1.2.1.1">
+		<meta name="date" content="2017-08-28 20:19:06 GMT">
+        <link rel="shortcut icon" href="/sp_common/rest-template/ohc-common/img/favicon.ico">
+        <meta name="application-name" content="REST API for Big Data Spatial and Graph">
+        <link type="application/swagger+json" title="Swagger 2.0" href="swagger.json" rel="alternate">
+        <link rel="prev" href="op-spark-indexes-indexName-delete.html" title="Previous" type="text/html">
+        <link rel="next" href="op-spark-indexes-get.html" title="Next" type="text/html">
+    
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <meta name="dcterms.created" content="2018-06-08T23:39:34+00:00">
+    <meta name="dcterms.title" content="Big Data Spatial and Graph REST API Reference">
+    <meta name="dcterms.category" content="bigdata">
+    <meta name="dcterms.isVersionOf" content="BDSGR">
+    <meta name="dcterms.product" content="en/bigdata/big-data-spatial-graph/2.5">
+    <meta name="dcterms.identifier" content="E94786-01">
+    <meta name="dcterms.release" content="Release 2.5">
+  <script id="ssot-metadata" type="application/json"> {"primary":{"category":{"short_name":"bigdata","element_name":"Big Data","display_in_url":true},"suite":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product_group":{"short_name":"not-applicable","element_name":"Not applicable","display_in_url":false},"product":{"short_name":"big-data-spatial-graph","element_name":"Big Data Spatial and Graph","display_in_url":true},"release":{"short_name":"2.5","element_name":"Release 2.5","display_in_url":true}}} </script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+    <body>
+        <div class="noscript alert alert-danger text-center" role="alert">
+            <a class="pull-left" href="op-spark-indexes-indexName-delete.html"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous</a>
+            <a class="pull-right" href="op-spark-indexes-get.html">Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+            <span class="fa fa-exclamation-triangle" aria-hidden="true"></span> JavaScript must be enabled to correctly display this content
+        </div>
+        <article>
+
+            
+            <header>
+
+                <ol class="breadcrumb">
+                    <li><a href="index.html">REST API for Big Data Spatial and Graph</a></li>
+                    <li>Tasks</li>
+                    
+                    <li class="active">
+                        
+                        <a href="api-vector-spark-api.html">Vector Spark API</a>
+                        
+                    </li>
+                    
+                </ol>
+                
+                <p class="draftsubtitle"></p>
+                
+                <h2>Filter spatially the records in a spatial index using the Spark API</h2>
+                <div>
+                    <div class="label label-get text-uppercase">get</div>
+                    <p style="word-break: break-word;"><strong>/spatialviewer/api/v1/spark/filterByIndex</strong></p>
+                </div>
+            </header>
+            <section>
+
+                <div class="description"> Note that you can use the service response as data source for the Map API to display the results on map. For example: 
+<br>
+<br> // Default http method when fetching remote geospatial contents
+<br>OM.gv.setHttpMethod("GET");
+<br>
+<br>tweetsLayer = 
+<strong>new</strong> OM.layer.VectorLayer("Result", 
+<br> { 
+<br> def:{ 
+<br> type:OM.layer.VectorLayer.TYPE_DATAPACK, 
+<br> url:'http://
+<oracle_big_data_spatialviewer>
+ :8045/spatialviewer/api/v1/spark/filterByIndex?indexPath=/user/oracle/spatialviewer/TweetsJune&amp;queryWindow={"type":"Rectangle","srid":8307,"coordinates":[-116.71875109864604,29.0139035635888,-59.06250208499334,50.80315612882312]}', 
+ <br> jsonp: 
+ <strong>true</strong>}, 
+ <br> boundingTheme: 
+ <strong>true</strong>});
+</oracle_big_data_spatialviewer></div>
+
+                <div role="tabpanel">
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs hidden-print" role="tablist">
+                        <li role="presentation" class="active"><a href="#request" aria-controls="request" role="tab" data-toggle="tab"><span class="hidden-xs glyphicon glyphicon-log-in" aria-hidden="true"></span> Request</a></li>
+                        <li role="presentation"><a href="#response" aria-controls="response" role="tab" data-toggle="tab"><span class="hidden-xs glyphicon glyphicon-log-out" aria-hidden="true"></span> Response</a></li>
+                        
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="request">
+                            <h3 class="visible-print-block">Request</h3>
+                            
+
+                            
+
+                            
+
+                            
+                            
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Query Parameters</div>
+                                <div style="padding-bottom: 0px; padding-top: 0px" class="panel-body">
+                                    <div class="schema-container">
+                                    <dl style="margin-bottom: 0px" class="schema-properties">
+                                        
+                                        <dt>indexPath</dt>
+                                        <dd>
+                                            
+
+
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+<div>Required: <code>true</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>The index path in HDFS. <br>Example&#58; /user/oracle/spatialviewer/TweetsJune</div>
+
+
+<div class="panel-group" role="tablist" aria-multiselectable="true">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        </div></dd>
+                                        
+                                        <dt>queryWindow</dt>
+                                        <dd>
+                                            
+
+
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+<div>Required: <code>true</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>The queryWindow in GeoJSON format. <br> Note that the query window can be created using the Map API toolbar standard tools like the Rectangle tool&#58; <br>var queryWindow = toolbar.getBuiltInTool(OM.control.ToolBar.BUILTIN_RECTANGLE).getGeometry().transform(8307).toString();<br><br>Example&#58; {"type"&#58;"Rectangle","srid"&#58;8307,"coordinates"&#58;[-116.71875109864604,29.0139035635888,-59.06250208499334,50.80315612882312]}</div>
+
+
+<div class="panel-group" role="tablist" aria-multiselectable="true">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        </div></dd>
+                                        
+                                    </dl>
+                                        
+                                   </div>
+                                </div>
+                            </div>
+                            
+                            
+
+                            
+                            
+
+                            
+
+
+                            
+
+
+
+                            
+
+
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="response">
+                            <h3 class="visible-print-block">Response</h3>
+
+                            
+                            
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Supported Media Types</div>
+                                <div class="panel-body">
+                                    <ul class="list-group">
+                                        
+                                        <li class="list-group-item">application/json</li>
+                                                    
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            
+
+
+
+                            
+                            <div class="panel panel-default">
+
+                                <div class="panel-heading">200 Response <span class="glyphicon glyphicon-ok-sign response-symbol" data-response-code="200" aria-hidden="true"></span></div>
+                                <div class="panel-body">
+                                    successful request
+                                </div>
+
+                                
+                                
+
+                                
+                                <div class="panel panel-default">
+
+                                    <div class="panel-heading">Body</div>
+                                    <div class="panel-body">
+                                        
+
+                                        <div class="schema-container">
+                                        
+                                        <div id="200-definitions-RecordsInfo" class="panel panel-default swagger-schema">
+<div class="panel-heading">Root Schema : RecordsInfo</div>
+<div class="panel-body">
+
+    
+
+
+<div>Type: <code>object</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel-group" role="tablist" aria-multiselectable="true">
+
+
+
+
+
+
+
+
+<div class="panel panel-default schema-panel">
+  <div class="panel-heading" role="tab" id="collapseListGroupHeading-200-definitions-RecordsInfo-properties">
+    <a role="button" data-toggle="alt-collapse" href="#collapseListGroup-200-definitions-RecordsInfo-properties" aria-expanded="false" aria-controls="collapseListGroup-200-definitions-RecordsInfo-properties">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Properties
+    </a>
+  </div>
+  <div id="collapseListGroup-200-definitions-RecordsInfo-properties" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading-200-definitions-RecordsInfo-properties" aria-expanded="false">
+    <dl class="list-group schema-properties">
+        
+        <dt>copyright</dt>
+        <dd>
+            
+            
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>Example: <code>Copyright (c) 2014, 2015, Oracle and/or its affiliates. All rights reserved.</code></div>
+
+            
+        </dd>
+        
+        <dt>features</dt>
+        <dd>
+            
+            <div>Type: <code>array</code>  <a href="#200-definitions-RecordsInfo-properties-features" role="button" class="btn btn-default btn-sm">features</a></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        </dd>
+        
+        <dt>geodetic</dt>
+        <dd>
+            
+            
+<div>Type: <code>boolean</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>true if the geometries are geodetic, false otherwise.</div>
+
+
+
+<div>Example: <code>true</code></div>
+
+            
+        </dd>
+        
+        <dt>srs</dt>
+        <dd>
+            
+            
+<div>Type: <code>integer</code> (<code>int32</code>)</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>SRID of the geometries.</div>
+
+
+
+<div>Example: <code>8307</code></div>
+
+            
+        </dd>
+        
+        <dt>type</dt>
+        <dd>
+            
+            
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>Example: <code>FeatureCollection</code></div>
+
+            
+        </dd>
+        
+    </dl>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+                                        
+                                        <div id="200-definitions-RecordsInfo-properties-features" class="panel panel-default swagger-schema">
+<div class="panel-heading">Nested Schema : features</div>
+<div class="panel-body">
+
+    
+
+
+<div>Type: <code>array</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel-group" role="tablist" aria-multiselectable="true">
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-default schema-panel">
+  <div class="panel-heading" role="tab" id="collapseListGroupHeading-200-definitions-RecordsInfo-properties-features-items">
+    <a role="button" data-toggle="alt-collapse" href="#collapseListGroup-200-definitions-RecordsInfo-properties-features-items" aria-expanded="false" aria-controls="collapseListGroup-200-definitions-RecordsInfo-properties-features-items">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Items
+    </a>
+  </div>
+  <div id="collapseListGroup-200-definitions-RecordsInfo-properties-features-items" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading-200-definitions-RecordsInfo-properties-features-items" aria-expanded="false">
+    <ul class="list-group schema-items">
+        
+        <li class="list-group-item">
+        
+        <div>Type: <code>object</code>  <a href="#200-definitions-Feature" role="button" class="btn btn-default btn-sm">Feature</a></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        </li>
+        
+    </ul>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+                                        
+                                        <div id="200-definitions-Feature" class="panel panel-default swagger-schema">
+<div class="panel-heading">Nested Schema : Feature</div>
+<div class="panel-body">
+
+    
+
+
+<div>Type: <code>object</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel-group" role="tablist" aria-multiselectable="true">
+
+
+
+
+
+
+
+
+<div class="panel panel-default schema-panel">
+  <div class="panel-heading" role="tab" id="collapseListGroupHeading-200-definitions-Feature-properties">
+    <a role="button" data-toggle="alt-collapse" href="#collapseListGroup-200-definitions-Feature-properties" aria-expanded="false" aria-controls="collapseListGroup-200-definitions-Feature-properties">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Properties
+    </a>
+  </div>
+  <div id="collapseListGroup-200-definitions-Feature-properties" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading-200-definitions-Feature-properties" aria-expanded="false">
+    <dl class="list-group schema-properties">
+        
+        <dt>_id</dt>
+        <dd>
+            
+            
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>Feature id.</div>
+
+
+
+<div>Example: <code>1</code></div>
+
+            
+        </dd>
+        
+        <dt>geometry</dt>
+        <dd>
+            
+            <div>Type: <code>object</code>  <a href="#200-definitions-Geometry" role="button" class="btn btn-default btn-sm">Geometry</a></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        </dd>
+        
+        <dt>type</dt>
+        <dd>
+            
+            
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>Example: <code>Feature</code></div>
+
+            
+        </dd>
+        
+    </dl>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+                                        
+                                        <div id="200-definitions-Geometry" class="panel panel-default swagger-schema">
+<div class="panel-heading">Nested Schema : Geometry</div>
+<div class="panel-body">
+
+    
+
+
+<div>Type: <code>object</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel-group" role="tablist" aria-multiselectable="true">
+
+
+
+
+
+
+
+
+<div class="panel panel-default schema-panel">
+  <div class="panel-heading" role="tab" id="collapseListGroupHeading-200-definitions-Geometry-properties">
+    <a role="button" data-toggle="alt-collapse" href="#collapseListGroup-200-definitions-Geometry-properties" aria-expanded="false" aria-controls="collapseListGroup-200-definitions-Geometry-properties">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Properties
+    </a>
+  </div>
+  <div id="collapseListGroup-200-definitions-Geometry-properties" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading-200-definitions-Geometry-properties" aria-expanded="false">
+    <dl class="list-group schema-properties">
+        
+        <dt>coordinates</dt>
+        <dd>
+            
+            <div>Type: <code>array</code>  <a href="#200-definitions-Geometry-properties-coordinates" role="button" class="btn btn-default btn-sm">coordinates</a></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        </dd>
+        
+        <dt>properties</dt>
+        <dd>
+            
+            <div>Type: <code>object</code>  <a href="#200-definitions-Geometry-properties-properties" role="button" class="btn btn-default btn-sm">properties</a></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>Extra fields of the filtered records (see 2.8.2.1 Spatial Indexing Class Structure). For example we can have  extra fields named followers_count, friends_count, location and user_id</div>
+
+            
+        </dd>
+        
+        <dt>type</dt>
+        <dd>
+            
+            
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>Example: <code>Point</code></div>
+
+            
+        </dd>
+        
+    </dl>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+                                        
+                                        <div id="200-definitions-Geometry-properties-coordinates" class="panel panel-default swagger-schema">
+<div class="panel-heading">Nested Schema : coordinates</div>
+<div class="panel-body">
+
+    
+
+
+<div>Type: <code>array</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel-group" role="tablist" aria-multiselectable="true">
+
+
+
+
+
+
+<div class="panel panel-default schema-panel">
+  <div class="panel-heading" role="tab" id="collapseListGroupHeading-200-definitions-Geometry-properties-coordinates-example">
+    <a role="button" data-toggle="alt-collapse" href="#collapseListGroup-200-definitions-Geometry-properties-coordinates-example" aria-expanded="false" aria-controls="collapseListGroup-200-definitions-Geometry-properties-coordinates-example">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Example
+    </a>
+  </div>
+  <div id="collapseListGroup-200-definitions-Geometry-properties-coordinates-example" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading-200-definitions-Geometry-properties-coordinates-example" aria-expanded="false">
+      <div class="panel-body">
+          <pre><code>
+[
+    -73.86659,
+    50.41706
+]</code></pre>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="panel panel-default schema-panel">
+  <div class="panel-heading" role="tab" id="collapseListGroupHeading-200-definitions-Geometry-properties-coordinates-items">
+    <a role="button" data-toggle="alt-collapse" href="#collapseListGroup-200-definitions-Geometry-properties-coordinates-items" aria-expanded="false" aria-controls="collapseListGroup-200-definitions-Geometry-properties-coordinates-items">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Items
+    </a>
+  </div>
+  <div id="collapseListGroup-200-definitions-Geometry-properties-coordinates-items" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading-200-definitions-Geometry-properties-coordinates-items" aria-expanded="false">
+    <ul class="list-group schema-items">
+        
+        <li class="list-group-item">
+        
+        
+<div>Type: <code>number</code> (<code>double</code>)</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        </li>
+        
+    </ul>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+                                        
+                                        <div id="200-definitions-Geometry-properties-properties" class="panel panel-default swagger-schema">
+<div class="panel-heading">Nested Schema : properties</div>
+<div class="panel-body">
+
+    
+
+
+<div>Type: <code>object</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>Extra fields of the filtered records (see 2.8.2.1 Spatial Indexing Class Structure). For example we can have  extra fields named followers_count, friends_count, location and user_id</div>
+
+
+<div class="panel-group" role="tablist" aria-multiselectable="true">
+
+
+
+
+
+
+
+
+<div class="panel panel-default schema-panel">
+  <div class="panel-heading" role="tab" id="collapseListGroupHeading-200-definitions-Geometry-properties-properties-properties">
+    <a role="button" data-toggle="alt-collapse" href="#collapseListGroup-200-definitions-Geometry-properties-properties-properties" aria-expanded="false" aria-controls="collapseListGroup-200-definitions-Geometry-properties-properties-properties">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Properties
+    </a>
+  </div>
+  <div id="collapseListGroup-200-definitions-Geometry-properties-properties-properties" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading-200-definitions-Geometry-properties-properties-properties" aria-expanded="false">
+    <dl class="list-group schema-properties">
+        
+        <dt>followers_count</dt>
+        <dd>
+            
+            
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>Example: <code>70</code></div>
+
+            
+        </dd>
+        
+        <dt>friends_count</dt>
+        <dd>
+            
+            
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>Example: <code>51</code></div>
+
+            
+        </dd>
+        
+        <dt>location</dt>
+        <dd>
+            
+            
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>Example: <code>Canada</code></div>
+
+            
+        </dd>
+        
+        <dt>user_id</dt>
+        <dd>
+            
+            
+<div>Type: <code>string</code></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>Example: <code>5039703</code></div>
+
+            
+        </dd>
+        
+    </dl>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+                                        
+                                        </div>
+
+                                        
+                                    </div>
+                                </div>
+                                
+
+                            </div>
+                            
+
+
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+            </section>
+
+            
+        </article>
+    </body>
+</html>

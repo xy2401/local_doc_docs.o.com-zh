@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta http-equiv="Content-Type" content="UTF-8" />
+<title>Java Card Development Kit Release Notes for Java Card 3 Platform, Classic Edition, Version 3.0.5u3</title>
+<meta name="generator" content="DITA Open Toolkit version 1.8.5 (Mode = doc)" />
+<meta name="dcterms.created" content="2018-04-11T10:22:43Z" />
+<meta name="robots" content="all" />
+<meta name="dcterms.title" content="Java Card Development Kit Release Notes" />
+<meta name="dcterms.identifier" content="E62057-06" />
+<meta name="dcterms.isVersionOf" content="JCPRN" />
+<meta name="dcterms.rights" content="Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved." />
+<link rel="Start" href="../index.html" title="Home" type="text/html" />
+<link rel="Copyright" href="../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+
+<script type="application/javascript"   src="../dcommon/js/headfoot.js"></script>
+<script type="application/javascript"   src="../nav/js/doccd.js" charset="UTF-8"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="alternate" href="JCPRN.pdf" title="PDF version" type="application/pdf" />
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<link rel="stylesheet" href="../dcommon/css/fusiondoc.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/header.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../dcommon/css/fonts.css">
+<link rel="stylesheet" href="../dcommon/css/foundation.css">
+<link rel="stylesheet" href="../dcommon/css/codemirror.css">
+<link rel="stylesheet" type="text/css" title="Default" href="../nav/css/html5.css">
+<link rel="stylesheet" href="../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../dcommon/css/respond-1140-deskop.css">
+<script type="application/javascript"  src="../dcommon/js/modernizr.js"></script>
+<script type="application/javascript"  src="../dcommon/js/codemirror.js"></script>
+<script type="application/javascript"  src="../dcommon/js/jquery.js"></script>
+<script type="application/javascript"  src="../dcommon/js/foundation.min.js"></script>
+<script type="application/javascript"  src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552992c80ef99c8d" async="async"></script>
+<script type="application/javascript"  src="../dcommon/js/jqfns.js"></script>
+<script type="application/javascript"  src="../dcommon/js/ohc-inline-videos.js"></script>
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../dcommon/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="application/javascript"  src="../dcommon/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5"  type="text/css" media="screen" />
+<script type="application/javascript"  src="../dcommon/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="application/javascript"  src="../dcommon/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<link rel="stylesheet"  href="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7"  type="text/css" media="screen" />
+<script type="application/javascript"  src="../dcommon/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+<script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a><header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">Go to main content</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns">
+<a id="BEGIN" name="BEGIN"></a>
+<!-- End Header -->
+<div class="letterstyle">
+<h1 class="docinfo">Java Card Development Kit</h1>
+<p class="booktitle">Release Notes</p>
+<p><span class="platform">for Java Card 3 Platform, Classic Edition, Version 3.0.5u3</span></p>
+<p class="invpartnumber">E62057-06</p>
+<p class="date">April 2018</p>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="GUID-56D0CEB8-DB7E-46A3-93BF-CC805188CAA8"></a>
+<h2 id="JCPRN-GUID-56D0CEB8-DB7E-46A3-93BF-CC805188CAA8" class="sect2"><span class="enumeration_section">1.1</span> Table of Contents</h2>
+<div>
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p><a href="#GUID-7FB3D6BD-8301-424C-B9CC-574516740ECA" title="These release notes describe the Java Card Development Kit for the Java Card 3 Platform, Version 3.0.5u3. This version of the Java Card Development Kit is a maintenance release and includes bug fixes in the off-card CAP file verification tool. It also contains previous tool chain enhancements to enforce consistency between verified and loaded content, and extensions to maskgen to enable the inclusion of external CAP files in the mask. This release does not include the Trimming Tool.">Introduction</a></p>
+</li>
+<li>
+<p><a href="#GUID-99CB269D-7F81-48D8-9C7C-C0ADF742FC45" title="The following are new features in Java Card 3 Platform, Classic Edition since version 3.0.4:">New Features in this Release</a></p>
+</li>
+<li>
+<p><a href="#GUID-8A62424E-0DC8-49C1-9737-E30971104F19" title="This product is targeted for use on a PC running the Microsoft Windows 7 operating system.">System Requirements</a></p>
+</li>
+<li>
+<p><a href="#GUID-EC1D8910-76D9-4EA9-B8E9-57F8C7A37088" title="The Java Card specifications, documentation, and Java Card Development Kit must be downloaded and installed individually.">Installation</a></p>
+</li>
+<li>
+<p><a href="#GUID-89054490-73FF-45D0-A39A-459EE618CFBC" title="The following issue has been identified in this release of the Java Card 3 Platform:">Known Issues</a></p>
+</li>
+<li>
+<p><a href="#GUID-1BDDBB3C-7E87-4485-85EE-D9F5907BBCCA">Documentation</a></p>
+</li>
+<li>
+<p><a href="#GUID-B67459FE-AE61-4926-9C2C-32A5350E83AE">Product Information</a></p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="GUID-7FB3D6BD-8301-424C-B9CC-574516740ECA"></a>
+<h2 id="JCPRN-GUID-7FB3D6BD-8301-424C-B9CC-574516740ECA" class="sect2"><span class="enumeration_section">1.2</span> Introduction</h2>
+<div>
+<p>These release notes describe the Java Card Development Kit for the Java Card 3 Platform, Version 3.0.5u3. This version of the Java Card Development Kit is a maintenance release and includes bug fixes in the off-card CAP file verification tool. It also contains previous tool chain enhancements to enforce consistency between verified and loaded content, and extensions to maskgen to enable the inclusion of external CAP files in the mask. This release does not include the Trimming Tool.</p>
+<p>Java Card technology combines a subset of the Java programming language with a runtime environment optimized for smart cards and similar small-memory embedded devices. The goal of Java Card technology is to bring many of the benefits of the Java programming language to the resource-constrained world of smart cards. The Java Card API is compatible with international standards such as ISO/IEC 7816, and industry-specific standards such as Europay, Master Card, and Visa (EMV).</p>
+<p>The Java Card Development Kit, Version 3.0.5u3, is based on specifications for the Java Card 3 Platform, Version 3.0.5, Classic Edition.</p>
+</div>
+</div>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="GUID-99CB269D-7F81-48D8-9C7C-C0ADF742FC45"></a>
+<h2 id="JCPRN-GUID-99CB269D-7F81-48D8-9C7C-C0ADF742FC45" class="sect2"><span class="enumeration_section">1.3</span> New Features in this Release</h2>
+<div>
+<p>The following are new features in Java Card 3 Platform, Classic Edition since version 3.0.4:</p>
+<div class="p">
+<ul style="list-style-type: disc;">
+<li>
+<p>Added the following new features in version 3.0.5 of the Java Card 3 Platform, Classic Edition API:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Elliptic curve domain conservation</p>
+</li>
+<li>
+<p>PIN extensions for banking</p>
+</li>
+<li>
+<p>Secure basic operations</p>
+</li>
+<li>
+<p>Secure variables and arrays</p>
+</li>
+<li>
+<p>Support of Java 7 language improvements</p>
+</li>
+<li>
+<p>Utilities for analyzing an APDU's CLA byte</p>
+</li>
+<li>
+<p>Static cryptography</p>
+</li>
+<li>
+<p>Diffie-Hellmann support</p>
+</li>
+<li>
+<p>One-to-many biometry support</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Added support for new cryptographic algorithms:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>AES-CMAC</p>
+</li>
+<li>
+<p>PACE</p>
+</li>
+<li>
+<p>AEAD_CCM</p>
+</li>
+<li>
+<p>AEAD_GCM</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Aligned the platform and its documentation with the latest ISO/IEC 7816-4 specification. In particular, the Java Card 3 Platform specifications in this release refer to the 2013 release of the ISO/IEC 7816-4 specification and align with the vocabulary of that specification.</p>
+</li>
+<li>
+<p>Added new methods in version 3.0.5 of the Java Card 3 Platform, Classic Edition API.</p>
+</li>
+<li>
+<p>Added support in the Java Card 3.0.5 and later tool chain for the following Java language enhancements that were introduced in Java SE 7 and are further described at <a href="https://docs.oracle.com/javase/7/docs/technotes/guides/language/enhancements.html#javase7" target="_blank">https://docs.oracle.com/javase/7/docs/technotes/guides/language/enhancements.html#javase7</a>:</p>
+<div class="infobox-note" id="GUID-99CB269D-7F81-48D8-9C7C-C0ADF742FC45__GUID-78C20768-BDFC-4A70-8A47-5AF23DD05348">
+<p class="notep1">Note:</p>
+These features are available when compiling with the Java SE 7 (or higher) compiler with the source code release level set to 1.7 or 7.</div>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Binary Literals</span> &ndash; The integral types (<code class="codeph">byte</code>, <code class="codeph">short</code>, <code class="codeph">int</code>, and <code class="codeph">long</code>) can also be expressed using the binary number system. To specify a binary literal, add the prefix <code class="codeph">0b</code> or <code class="codeph">0B</code> to the number.</p>
+</li>
+<li>
+<p><span class="bold">Underscores in Numeric Literals</span> &ndash; Any number of underscore characters (_) can appear anywhere between digits in a numerical literal. This feature enables you, for example, to separate groups of digits in numeric literals, which can improve the readability of your code.</p>
+</li>
+<li>
+<p><span class="bold">Type Inference for Generic Instance Creation</span> &ndash; You can replace the type arguments required to invoke the constructor of a generic class with an empty set of type parameters (&lt;&gt;) as long as the compiler can infer the type arguments from the context. This pair of angle brackets is informally called the diamond.</p>
+</li>
+<li>
+<p><span class="bold">Improved Compiler Warnings and Errors When Using Non-Reifiable Formal Parameters with Varargs Methods</span> &ndash; The Java SE 7 complier generates a warning at the declaration site of a varargs method or constructor with a non-reifiable varargs formal parameter. Java SE 7 introduces the compiler option <code class="codeph">-Xlint:varargs</code> and the annotations <code class="codeph">@SafeVarargs</code> and <code class="codeph">@SuppressWarnings({"unchecked", "varargs"})</code> to suppress these warnings.</p>
+</li>
+<li>
+<p><span class="bold">Catching Multiple Exception Types and Rethrowing Exceptions with Improved Type Checking</span> &ndash; A single catch block can handle more than one type of exception. In addition, the compiler performs more precise analysis of rethrown exceptions than earlier releases of Java SE. This enables you to specify more specific exception types in the throws clause of a method declaration.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In addition to the String Constant Annotations introduced in Java Card 3.0.4, the Java Card 3.0.5 and later tool chain supports the following compile-time pre-defined annotations (provided <code><span class="variable">JCDK_HOME</span>/lib/api_classic_annotations.jar</code> is added to the compiler's classpath):</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><code class="codeph">|@Deprecated|</code> &ndash; A program element annotated <code class="codeph">@Deprecated</code> is one that programmers are discouraged from using, typically because it is dangerous, or because a better alternative exists. Compilers warn when a deprecated program element is used or overridden in non-deprecated code.</p>
+</li>
+<li>
+<p><code class="codeph">|@Override|</code> &ndash; Indicates that a method declaration is intended to override a method declaration in a supertype.</p>
+</li>
+<li>
+<p><code class="codeph">|@SuppressWarnings|</code> &ndash; Indicates that the named compiler warnings should be suppressed in the annotated element and in all program elements contained in the annotated element.</p>
+</li>
+<li>
+<p><code class="codeph">|||@SafeVarag |</code> &ndash; A programmer assertion that the body of the annotated method or constructor does not perform potentially unsafe operations on its <code class="codeph">varargs</code> parameter.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>(3.0.5u2 November 2017) Enhanced the tool chain to enforce consistency between verified and loaded content:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>Verifier has been extended to generate a digest for each CAP component verified. These digests can be used during the loading process to check that each loaded component matches the one verified.</p>
+</li>
+<li>
+<p>Scriptgen has been modified to check the digest of components included in the loading script.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>(3.0.5u2 November 2017) Extended Maskgen to allow external CAP files in the mask, in addition to JCA files.</p>
+</li>
+<li>
+<p>(3.0.5u2 January 2018) Updated Java Card Development Kit 3.0.5u2 to fix a critical bug that prevented the Eclipse plug-in from functioning correctly. Any installed instance of Java Card Development Kit 3.0.5u2 must be removed before installing the update.</p>
+</li>
+<li>
+<p>(3.0.5u3 April 2018) Added the command-line option <code class="codeph">-target</code> to the Off-card CAP file verification tool. This option specifies the target platform on which the CAP file is to be loaded.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3"><!-- infolevel="all" infotype="General" --><a id="GUID-B47A0AA4-83FE-4918-AEAF-1E83C8E25285"></a>
+<h3 id="JCPRN-GUID-B47A0AA4-83FE-4918-AEAF-1E83C8E25285" class="sect3"><span class="enumeration_section">1.3.1</span> Bug Fixes</h3>
+<div>
+<p>The following fixes have been made in the Java Card 3 Platform, Classic Edition since the release of version 3.0.5:</p>
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p>Fixed <code class="codeph">updateAAD</code> method multi-part issue in AES CCM.</p>
+</li>
+<li>
+<p>APDU with class value FF is rejected.</p>
+</li>
+<li>
+<p>(3.0.5u3 April 2018) Fixed miscellaneous bugs in the Off-card CAP file verification tool.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="GUID-8A62424E-0DC8-49C1-9737-E30971104F19"></a>
+<h2 id="JCPRN-GUID-8A62424E-0DC8-49C1-9737-E30971104F19" class="sect2"><span class="enumeration_section">1.4</span> System Requirements</h2>
+<div>
+<p>This product is targeted for use on a PC running the Microsoft Windows 7 operating system.</p>
+<div class="section">
+<p>The following software must be installed for the Java Card Development Kit to work:</p>
+<ul style="list-style-type: disc;">
+<li>
+<p><span class="bold">Java Development Kit</span> (JDK) &ndash; This release has been verified and tested with JDK 1.7 and 1.8. Download the JDK software from:</p>
+<p><code class="codeph"><a href="http://www.oracle.com/technetwork/java/javase/downloads/" target="_blank">http://www.oracle.com/technetwork/java/javase/downloads</a></code></p>
+<p>Install it according to the instructions on the website.</p>
+</li>
+<li>
+<p><span class="bold">Apache ANT</span> &ndash; This release has been verified and tested with Apache Ant 1.9.4 Download and install Apache Ant from:</p>
+<p><code class="codeph"><a href="http://ant.apache.org" target="_blank">http://ant.apache.org</a></code></p>
+</li>
+<li>
+<p><span class="bold">GCC Compiler</span> &ndash; To build the VM, this release requires Minimal GNU for Windows (MinGW) version 5.1.4 or later. MinGW can be obtained from <code class="codeph"><a href="http://prdownloads.sourceforge.net/mingw" target="_blank">http://prdownloads.sourceforge.net/mingw</a></code>. For information on MinGW go to <code class="codeph"><a href="http://www.mingw.org" target="_blank">http://www.mingw.org</a></code>.</p>
+</li>
+<li>
+<p><span class="bold">Eclipse</span> &ndash; Development using the Java Card Development Kit requires installing Eclipse Neon or Oxygen from:</p>
+<p><code class="codeph"><a href="https://www.eclipse.org/" target="_blank">https://www.eclipse.org/</a></code></p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="GUID-EC1D8910-76D9-4EA9-B8E9-57F8C7A37088"></a>
+<h2 id="JCPRN-GUID-EC1D8910-76D9-4EA9-B8E9-57F8C7A37088" class="sect2"><span class="enumeration_section">1.5</span> Installation</h2>
+<div>
+<p>The Java Card specifications, documentation, and Java Card Development Kit must be downloaded and installed individually.</p>
+<ul style="list-style-type: disc;">
+<li>
+<p>The Java Card 3 Platform documentation is provided at <code class="codeph"><a href="https://docs.oracle.com/javacard" target="_blank">https://docs.oracle.com/javacard</a></code>. See <a href="#GUID-1BDDBB3C-7E87-4485-85EE-D9F5907BBCCA">Documentation</a> for a description of the Java Card documentation that is provided on the Oracle Java Card documentation web site.</p>
+</li>
+<li>
+<p>The Java Card Development Kit installer is provided on the Oracle Technology Network download site for the Java Card platform (<code class="codeph"><a href="http://www.oracle.com/technetwork/java/embedded/javacard/downloads/javacard-sdk-2043229.html" target="_blank">http://www.oracle.com/technetwork/java/embedded/javacard/downloads/javacard-sdk-2043229.html</a></code>). Install the development kit by downloading and running the Java Card Development Kit. <code>.msi</code> installer. See the <span><cite>Java Card 3 Platform Development Kit User Guide, Classic Edition Version 3.0.5u3</cite></span> for procedures used to install the Java Card Development Kit.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3"><!-- infolevel="all" infotype="General" --><a id="GUID-251970A7-8118-4DE3-A733-AF05C6E0AA7C"></a>
+<h3 id="JCPRN-GUID-251970A7-8118-4DE3-A733-AF05C6E0AA7C" class="sect3"><span class="enumeration_section">1.5.1</span> Contents of the Development Kit</h3>
+<div>
+<p>This release of the Java Card Development Kit contains tools and features required to support developing classic Java Card applet applications on a smart card.</p>
+<div class="section">
+<p>The following table describes the development kit files and directories that are installed in the root installation directory (<code class="codeph"><span class="variable">JC_CLASSIC_HOME</span></code>).</p>
+<div class="tblformal" id="GUID-251970A7-8118-4DE3-A733-AF05C6E0AA7C__GUID-E5F656FC-4723-4060-B071-AF2179BD7D67">
+<table class="cellalignment140" summary="Two column table that lists the files and directories installed and a description of each">
+<thead>
+<tr class="cellalignment135">
+<th class="cellalignment141" id="d777e30">Directory/File</th>
+<th class="cellalignment141" id="d777e33">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment135">
+<td class="cellalignment135" rowspan="1" colspan="1" id="d777e38" headers="d777e30">
+<p><code>api_export_files</code></p>
+</td>
+<td class="cellalignment135" rowspan="1" colspan="1" headers="d777e38 d777e33">
+<p>Contains the export files for the Java Card 3.0.5 API packages. If you have a development kit that includes cryptography, this also includes the directory <code>api_export_files\javacardx\crypto</code>.</p>
+</td>
+</tr>
+<tr class="cellalignment135">
+<td class="cellalignment135" rowspan="1" colspan="1" id="d777e49" headers="d777e30">
+<p><code>bin</code></p>
+</td>
+<td class="cellalignment135" rowspan="1" colspan="1" headers="d777e49 d777e33">
+<p>Contains all shell scripts or batch files for running the tools (such as the apdutool, capdump, and converter), and the cref binary executables.</p>
+</td>
+</tr>
+<tr class="cellalignment135">
+<td class="cellalignment135" rowspan="1" colspan="1" id="d777e57" headers="d777e30">
+<p><code>docs</code></p>
+</td>
+<td class="cellalignment135" rowspan="1" colspan="1" headers="d777e57 d777e33">
+<p>Contains subdirectories each with compilations of the Javadoc tool files for the APDU I/O API, the Java Card 3.0.5 API, and the Java Card Client RMI API.</p>
+</td>
+</tr>
+<tr class="cellalignment135">
+<td class="cellalignment135" rowspan="1" colspan="1" id="d777e65" headers="d777e30">
+<p><code>eclipse-plugin</code></p>
+</td>
+<td class="cellalignment135" rowspan="1" colspan="1" headers="d777e65 d777e33">
+<p>The repository for the Java Card plugin for Eclipse.</p>
+</td>
+</tr>
+<tr class="cellalignment135">
+<td class="cellalignment135" rowspan="1" colspan="1" id="d777e73" headers="d777e30">
+<p><code>legal</code></p>
+</td>
+<td class="cellalignment135" rowspan="1" colspan="1" headers="d777e73 d777e33">
+<p>Contains license files.</p>
+</td>
+</tr>
+<tr class="cellalignment135">
+<td class="cellalignment135" rowspan="1" colspan="1" id="d777e81" headers="d777e30">
+<p><code>lib</code></p>
+</td>
+<td class="cellalignment135" rowspan="1" colspan="1" headers="d777e81 d777e33">
+<p>Contains all Java programming language JAR files required for running tools by using the shell scripts or batch files provided in the <code>bin</code> directory.</p>
+</td>
+</tr>
+<tr class="cellalignment135">
+<td class="cellalignment135" rowspan="1" colspan="1" id="d777e92" headers="d777e30">
+<p><code>samples</code></p>
+</td>
+<td class="cellalignment135" rowspan="1" colspan="1" headers="d777e92 d777e33">
+<p>Contains sample applets and applications.</p>
+</td>
+</tr>
+<tr class="cellalignment135">
+<td class="cellalignment135" rowspan="1" colspan="1" id="d777e100" headers="d777e30">
+<p><code>COPYRIGHT.html</code></p>
+</td>
+<td class="cellalignment135" rowspan="1" colspan="1" headers="d777e100 d777e33">
+<p>Copyright file for the development kit. Also the directory <code>shared</code> contains related files.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="GUID-89054490-73FF-45D0-A39A-459EE618CFBC"></a>
+<h2 id="JCPRN-GUID-89054490-73FF-45D0-A39A-459EE618CFBC" class="sect2"><span class="enumeration_section">1.6</span> Known Issues</h2>
+<div>
+<p>The following issue has been identified in this release of the Java Card 3 Platform:</p>
+<div class="section">
+<ul style="list-style-type: disc;">
+<li>
+<p>The Converter generates incorrect code when the source code uses <code class="codeph">int</code> expressions and the class is compiled with the <code class="codeph">-g</code> option.</p>
+<p>Occasionally the converter generates incorrect code which fails verification. The workaround is to either not compile the class with the <code class="codeph">-g</code> option or avoid using the <code class="codeph">int</code> type.</p>
+</li>
+</ul>
+</div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="GUID-1BDDBB3C-7E87-4485-85EE-D9F5907BBCCA"></a>
+<h2 id="JCPRN-GUID-1BDDBB3C-7E87-4485-85EE-D9F5907BBCCA" class="sect2"><span class="enumeration_section">1.7</span> Documentation</h2>
+<div>
+<div class="section">
+<p>The following table describes Java Card documentation that is provided on the Oracle Java Card documentation web site (<code class="codeph"><a href="https://docs.oracle.com/javacard" target="_blank">https://docs.oracle.com/javacard</a></code>).</p>
+<div class="infobox-note" id="GUID-1BDDBB3C-7E87-4485-85EE-D9F5907BBCCA__GUID-A8363A51-4B52-4FA7-B70E-9FE5CCD08D58">
+<p class="notep1">Note:</p>
+Open the HTML versions of the documentation by clicking on the <code>toc.htm</code> file rather than the traditional <code>index.htm</code> file.</div>
+<div class="tblformal" id="GUID-1BDDBB3C-7E87-4485-85EE-D9F5907BBCCA__GUID-DA561755-4C15-4321-B37A-92409EC97E78">
+<table class="cellalignment140" summary="Two column table that lists the document name and a description of its contents">
+<thead>
+<tr class="cellalignment135">
+<th class="cellalignment141" id="d1260e37">Document</th>
+<th class="cellalignment141" id="d1260e39">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="cellalignment135">
+<td class="cellalignment135" id="d1260e43" headers="d1260e37">
+<p><span><cite>Java Card 3 Platform Development Kit User Guide, Classic Edition Version 3.0.5u3</cite></span></p>
+</td>
+<td class="cellalignment135" headers="d1260e43 d1260e39">
+<p>This document describes how to use the Java Card Development Kit to develop applications for Java Card 3 Platform, Classic Edition, Version 3.0.5u3 and later. It is available in HTML, PDF, ePub, and Mobi formats from the Oracle Java Card documentation web site at <code class="codeph"><a href="https://docs.oracle.com/javacard" target="_blank">https://docs.oracle.com/javacard</a></code>.</p>
+</td>
+</tr>
+<tr class="cellalignment135">
+<td class="cellalignment135" id="d1260e57" headers="d1260e37">
+<p><span><cite>Java Card 3 Platform Programming Notes, Classic Edition, Version 3.0.5</cite></span></p>
+</td>
+<td class="cellalignment135" headers="d1260e57 d1260e39">
+<p>This document contains tips and guidelines for developers of Java Card applets, applications, and vendor-specific frameworks. This document is not required for developers to use the Java Card Development Kit; but it does provide useful tips and guidelines for developers who are creating Java Card applets, applications, and vendor-specific frameworks. It is available in HTML, PDF, ePub, and Mobi formats from the Oracle Java Card documentation web site at <code class="codeph"><a href="https://docs.oracle.com/javacard" target="_blank">https://docs.oracle.com/javacard</a></code>.</p>
+</td>
+</tr>
+<tr class="cellalignment135">
+<td class="cellalignment135" id="d1260e71" headers="d1260e37">
+<p>Java Card 3 Platform Specifications bundle</p>
+</td>
+<td class="cellalignment135" headers="d1260e71 d1260e39">
+<p>This bundle contains the Java Card Runtime and the Java Card Virtual Machine specifications for the Java Card 3 Platform, Classic Edition, Version 3.0.5 and later. These specifications are only available in PDF format. You can download the <code class="codeph">.zip</code> file containing the specifications from <code class="codeph"><a href="http://www.oracle.com/technetwork/java/embedded/javacard/downloads/index.html" target="_blank">http://www.oracle.com/technetwork/java/embedded/javacard/downloads/index.html</a></code>. The Specification Release Notes are available from the Oracle Java Card documentation web site at <code class="codeph"><a href="https://docs.oracle.com/javacard" target="_blank">https://docs.oracle.com/javacard</a></code>.</p>
+</td>
+</tr>
+<tr class="cellalignment135">
+<td class="cellalignment135" id="d1260e91" headers="d1260e37">
+<p>API documentation</p>
+</td>
+<td class="cellalignment135" headers="d1260e91 d1260e39">
+<p>The API documentation for the Java Card 3 Platform is provided in the development kit installation (see <a href="#GUID-251970A7-8118-4DE3-A733-AF05C6E0AA7C" title="This release of the Java Card Development Kit contains tools and features required to support developing classic Java Card applet applications on a smart card.">Contents of the Development Kit</a>) and is only available in HTML format. You can also view the API documentation from the Oracle Java Card documentation web site at <code class="codeph"><a href="https://docs.oracle.com/javacard" target="_blank">https://docs.oracle.com/javacard</a></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- class="inftblhruleinformal" --></div>
+<!-- class="section" --></div>
+</div>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="GUID-B67459FE-AE61-4926-9C2C-32A5350E83AE"></a>
+<h2 id="JCPRN-GUID-B67459FE-AE61-4926-9C2C-32A5350E83AE" class="sect2"><span class="enumeration_section">1.8</span> Product Information</h2>
+<div>
+<p>The public Java Card technology web site is <code class="codeph"><a href="http://www.oracle.com/technetwork/java/embedded/javacard/overview/index.html" target="_blank">http://www.oracle.com/technetwork/java/embedded/javacard/overview/index.html</a></code>.</p>
+<p>We greatly appreciate your feedback on this reference implementation. Send email with your feedback for this release to:</p>
+<p><code class="codeph"><a href="mailto:javacard-docs_ww@oracle.com" target="_blank">javacard-docs_ww@oracle.com</a></code></p>
+</div>
+</div>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="GUID-E409CC44-9A8F-4043-82C8-6B95CD939296"></a>
+<h2 id="JCPRN-GUID-E409CC44-9A8F-4043-82C8-6B95CD939296" class="sect2"><span class="enumeration_section">1.9</span> Documentation Accessibility</h2>
+<div>
+<p>For information about Oracle's commitment to accessibility, visit the Oracle Accessibility Program website at <a href="http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=docacc" target="_blank">http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=docacc</a>.</p>
+<div class="section" id="GUID-E409CC44-9A8F-4043-82C8-6B95CD939296__GUID-D88DC1A6-B2C8-4B61-85D2-23B0215F1664">
+<p class="subhead1">Access to Oracle Support</p>
+<p>Oracle customers that have purchased support have access to electronic support through My Oracle Support. For information, visit <a href="http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=info" target="_blank">http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=info</a> or visit <a href="http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=trs" target="_blank">http://www.oracle.com/pls/topic/lookup?ctx=acc&amp;id=trs</a> if you are hearing impaired.</p>
+</div>
+<!-- class="section" --></div>
+</div>
+</div>
+<hr />
+<div class="notices">
+<p>Java Card Development Kit Release Notes <span>for Java Card 3 Platform, Classic Edition, Version 3.0.5u3</span></p>
+<p>E62057-06</p>
+<p>Copyright &copy; 1998, 2018,&nbsp;Oracle and/or its affiliates. All rights reserved.</p>
+<div>
+<div>
+<p>Release notes for <span>Java Card 3 Platform, Classic Edition</span>.</p>
+</div>
+</div>
+<div>
+<div>
+<p>This software and related documentation are provided under a license agreement containing restrictions on use and disclosure and are protected by intellectual property laws. Except as expressly permitted in your license agreement or allowed by law, you may not use, copy, reproduce, translate, broadcast, modify, license, transmit, distribute, exhibit, perform, publish, or display any part, in any form, or by any means. Reverse engineering, disassembly, or decompilation of this software, unless required by law for interoperability, is prohibited.</p>
+<p>The information contained herein is subject to change without notice and is not warranted to be error-free. If you find any errors, please report them to us in writing.</p>
+</div>
+</div>
+<div>
+<div>
+<p>If this is software or related documentation that is delivered to the U.S. Government or anyone licensing it on behalf of the U.S. Government, then the following notice is applicable:</p>
+<p>U.S. GOVERNMENT END USERS: Oracle programs, including any operating system, integrated software, any programs installed on the hardware, and/or documentation, delivered to U.S. Government end users are "commercial computer software" pursuant to the applicable Federal Acquisition Regulation and agency-specific supplemental regulations. As such, use, duplication, disclosure, modification, and adaptation of the programs, including any operating system, integrated software, any programs installed on the hardware, and/or documentation, shall be subject to license terms and license restrictions applicable to the programs. No other rights are granted to the U.S. Government.</p>
+</div>
+</div>
+<div>
+<div>
+<p>This software or hardware is developed for general use in a variety of information management applications. It is not developed or intended for use in any inherently dangerous applications, including applications that may create a risk of personal injury. If you use this software or hardware in dangerous applications, then you shall be responsible to take all appropriate fail-safe, backup, redundancy, and other measures to ensure its safe use. Oracle Corporation and its affiliates disclaim any liability for any damages caused by use of this software or hardware in dangerous applications.</p>
+</div>
+</div>
+<div>
+<div>
+<p>Oracle and Java are registered trademarks of Oracle and/or its affiliates. Other names may be trademarks of their respective owners.</p>
+<p>Intel and Intel Xeon are trademarks or registered trademarks of Intel Corporation. All SPARC trademarks are used under license and are trademarks or registered trademarks of SPARC International, Inc. AMD, Opteron, the AMD logo, and the AMD Opteron logo are trademarks or registered trademarks of Advanced Micro Devices. UNIX is a registered trademark of The Open Group.</p>
+</div>
+</div>
+<div>
+<div>
+<p>This software or hardware and documentation may provide access to or information about content, products, and services from third parties. Oracle Corporation and its affiliates are not responsible for and expressly disclaim all warranties of any kind with respect to third-party content, products, and services unless otherwise set forth in an applicable agreement between you and Oracle. Oracle Corporation and its affiliates will not be responsible for any loss, costs, or damages incurred due to your access to or use of third-party content, products, or services, except as set forth in an applicable agreement between you and Oracle.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Start Footer -->
+</div>
+<!-- add extra wrapper close div-->
+<footer><!--
+<hr />
+<table class="cellalignment134">
+<tr>
+<td class="cellalignment142">&nbsp;</td>
+<td class="cellalignment-copyrightlogo"><img width="144" height="18" src="../dcommon/gifs/oracle.gif" alt="Oracle" /><br />
+Copyright&nbsp;&copy;&nbsp;1998, 2018, Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.<br />
+<a href="../dcommon/html/cpyr.htm">Legal Notices</a></td>
+<td class="cellalignment144">
+<table class="cellalignment137">
+<tr>
+<td class="cellalignment138"><a href="../index.html"><img width="24" height="24" src="../dcommon/gifs/doclib.gif" alt="Go to Documentation Home" /><br />
+<span class="icon">Home</span></a></td>
+<td class="cellalignment138"><a href="toc.htm"><img width="24" height="24" src="../dcommon/gifs/toc.gif" alt="Go to Table of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+<td class="cellalignment138"><a href="../dcommon/html/feedback.htm"><img width="24" height="24" src="../dcommon/gifs/feedbck2.gif" alt="Go to Feedback page" /><br />
+<span class="icon">Contact Us</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+--></footer>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript>
+</body>
+</html>
