@@ -3,5 +3,5 @@
 
 
 
-  wget -m -X /applications,/cd,/cds,/en/database,/en/cloud,/middleware,/en/middleware,/bigdata,/cloud,/communications,/cloud-machine,/database,/health-sciences,/applications,/javafx https://docs.oracle.com/en/
+    wget -m -X /applications,/cd,/cds,/en/database,/en/cloud,/middleware,/en/middleware,/bigdata,/cloud,/communications,/cloud-machine,/database,/health-sciences,/applications,/javafx https://docs.oracle.com/en/
 
