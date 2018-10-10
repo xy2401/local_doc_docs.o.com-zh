@@ -15,9 +15,9 @@
 
 # content
 
-[in docs.oracle.com](#local)
+[in docs.oracle.com](#oracle)
 [in github_page](#github_page)
-[in local](#oracle)
+[in local](#local)
 
 
 # 
